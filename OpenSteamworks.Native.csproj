@@ -20,7 +20,7 @@
         <RepositoryUrl>https://github.com/OpenSteamClient/OpenSteamworks.Native</RepositoryUrl>
 
         <!-- Update the version here when you make changes -->
-        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionPrefix>1.0.1</VersionPrefix>
 
         <!-- We don't export any managed DLLs so these aren't relevant -->
         <NoWarn>NU5100;NU5128</NoWarn>
@@ -51,6 +51,7 @@
             <!-- This is responsible for copying the output binaries to wherever needed -->
             <Content Include="$(BaseNativeBuildOutput)/**/*">
                 <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+                <PackageCopyToOutput>true</PackageCopyToOutput>
             </Content>
         </ItemGroup>
     </Target>

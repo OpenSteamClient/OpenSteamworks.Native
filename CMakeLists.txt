@@ -4,48 +4,7 @@ project(opensteamclient LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE MinSizeRel)
 
-if (NOT DEFINED IDE_BUILD)
-    set(CMAKE_BUILD_TYPE Release)
-    if ("${BUILD_PLATFORM_TARGET}" STREQUAL "") 
-        message( FATAL_ERROR "BUILD_PLATFORM_TARGET not set. Do not build this project manually outside of dotnet build." )
-    endif()
-    if ("${NATIVE_OUTPUT_FOLDER}" STREQUAL "") 
-        message( FATAL_ERROR "NATIVE_OUTPUT_FOLDER not set. Do not build this project manually outside of dotnet build." )
-    endif()
-else()
-    if(UNIX AND NOT APPLE)
-        set(BUILD_PLATFORM_TARGET "linux")
-    elseif(APPLE) 
-        set(BUILD_PLATFORM_TARGET "osx")
-    elseif(WIN32)
-        set(BUILD_PLATFORM_TARGET "windows")
-    else()
-        message( FATAL_ERROR "Couldn't set up Natives IDE support. Didn't detect your platform to be linux, osx or windows." )
-    endif()
-    set(NATIVE_OUTPUT_FOLDER "${PROJECT_SOURCE_DIR}/Build/IDE/Natives/IDE")
-endif()
-
-# Only for linux, since MSVC needs an entirely different compiler for 32-bit compiles
-function(set_ide_32bit_build targetname)
-    if (DEFINED IDE_BUILD)
-        set_target_properties(${targetname} PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
-    endif()
-endfunction()
-
-# Gosh Microsoft, you really don't seem to get stuff right
-if (MSVC)
-    # Requires a "generator expression" to not create an extra Debug folder...
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER}$<0:>)
-
-    # Requires this shit to not fail the build that worked fine before
-    # Don't worry, doesn't use debug configuration even though it says debug, it picks one automatically
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-else()
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
-endif()
-
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
+include("CustomBuildTask/custombuildtaskcommon.cmake")
 
 file(GLOB_RECURSE audiostub_sources CONFIGURE_DEPENDS "audiostub/*.cpp")
 file(GLOB_RECURSE protobufhack_sources CONFIGURE_DEPENDS "protobufhack/*.cpp")
@@ -150,10 +109,4 @@ if (BUILD_PLATFORM_TARGET STREQUAL "macos")
     if (BUILD_BITS STREQUAL "ARM" OR DEFINED IDE_BUILD)
         add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
     endif()
-endif()
-
-if (NOT DEFINED IDE_BUILD)
-    # Save build timestamp to file
-    string(TIMESTAMP UNIX_TIMESTAMP "%s") 
-    file(WRITE ${NATIVE_OUTPUT_FOLDER}/../build_timestamp ${UNIX_TIMESTAMP})
 endif()

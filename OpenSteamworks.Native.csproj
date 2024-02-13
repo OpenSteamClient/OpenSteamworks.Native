@@ -33,11 +33,7 @@
         <None Include="README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
-    <Target Name="BuildCustomTask">
-        <MSBuild Projects="CustomBuildTask/CustomBuildTask.csproj" Targets="Restore;Build" />
-    </Target>
-
-    <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(ArtifactsPath)\bin\CustomBuildTask\$(Configuration.ToLowerInvariant())\CustomBuildTask.dll" />
+    <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(MSBuildThisFileDirectory)\CustomBuildTask\compiled\CustomBuildTask.dll" />
     <Target Name="RunCustomBuildTask">
         <NativeCompilationTask>
         </NativeCompilationTask>
@@ -45,7 +41,6 @@
 
     <!-- This runs everytime, but it's fine since CMake quits fast if the output is up to date -->
     <Target Name="Build">
-        <MSBuild Projects="$(MSBuildThisFile)" Targets="BuildCustomTask" />
         <MSBuild Projects="$(MSBuildThisFile)" Targets="RunCustomBuildTask" Properties="RunningCustomBuildTask=true" />
         <ItemGroup>
             <!-- This is responsible for copying the output binaries to wherever needed -->

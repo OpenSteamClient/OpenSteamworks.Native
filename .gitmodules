@@ -7,3 +7,6 @@
 [submodule "SDL_ttf"]
 	path = SDL_ttf
 	url = https://github.com/OpenSteamClient/SDL_ttf.git
+[submodule "CustomBuildTask"]
+	path = CustomBuildTask
+	url = https://github.com/OpenSteamClient/CustomBuildTask

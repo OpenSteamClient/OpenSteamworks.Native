@@ -12,6 +12,8 @@ on:
       - "**.h"
       - "**.hpp"
       - ".github/workflows/dotnet.yaml"
+      - "CMakeLists.txt"
+      - "**.cmake"
   pull_request:
 
 jobs:

@@ -1,4 +1,4 @@
-<Project Sdk="MSBuildCMake.SDK/1.0.0">
+<Project Sdk="MSBuildCMake.SDK/1.0.1">
     <PropertyGroup>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageId>OpenSteamworks.Native</PackageId>

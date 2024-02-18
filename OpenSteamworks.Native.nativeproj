@@ -1,0 +1,24 @@
+<Project Sdk="MSBuildCMake.SDK/1.0.0">
+    <PropertyGroup>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageId>OpenSteamworks.Native</PackageId>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/OpenSteamClient/OpenSteamworks.Native</RepositoryUrl>
+
+        <!-- Update the version here when you make changes -->
+        <VersionPrefix>1.0.3</VersionPrefix>
+
+        <!-- Which arches to build for for a single RID, remove or delete if you want to build according to RID -->
+        <CMakeBuildAllArches>x86;x64</CMakeBuildAllArches>
+
+        <!-- Set this to the platforms you want to build (in a single build/package/publish). Will try to build all of them, but if compilers are missing for some of these platforms the platform will be skipped (with warnings emitted) -->
+        <BuildForRuntimeIdentifiers>win-x64;osx-x64;linux-x64</BuildForRuntimeIdentifiers>
+
+        <!-- The directory where CMakeLists.txt is located. Mandatory property. -->
+        <CMakeListsDir>$(MSBuildThisFileDirectory)</CMakeListsDir>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+</Project>

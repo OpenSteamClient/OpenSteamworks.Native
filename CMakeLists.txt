@@ -4,7 +4,7 @@ project(opensteamclient LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE MinSizeRel)
 
-include("CustomBuildTask/custombuildtaskcommon.cmake")
+include("cmake/idesupport.cmake")
 
 file(GLOB_RECURSE audiostub_sources CONFIGURE_DEPENDS "audiostub/*.cpp")
 file(GLOB_RECURSE protobufhack_sources CONFIGURE_DEPENDS "protobufhack/*.cpp")
@@ -21,8 +21,13 @@ set(SDL_TEST_LIBRARY OFF)
 # Let's just filter these out in the bootstrap phase.
 # unset(CMAKE_IMPORT_LIBRARY_SUFFIX)
 
+if (MSVC) 
+    # Don't worry, doesn't use debug configuration even though it says debug, it picks one automatically
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+
 if (BUILD_PLATFORM_TARGET STREQUAL "linux")
-    if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "x64" OR DEFINED IDE_BUILD)
         add_executable(reaper ${PROJECT_SOURCE_DIR}/reaper/main.cpp)
         add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
 
@@ -44,7 +49,7 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
         add_subdirectory(SDL_ttf)
     endif()
 
-    if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "x32" OR DEFINED IDE_BUILD)
         # Needed for VAC, Proton
         add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
         set_ide_32bit_build(steamserviced)
@@ -66,8 +71,8 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
     endif()
 endif()
 
-if (BUILD_PLATFORM_TARGET STREQUAL "windows")
-    if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
+if (BUILD_PLATFORM_TARGET STREQUAL "win")
+    if (BUILD_ARCH STREQUAL "x64" OR DEFINED IDE_BUILD)
         include("cmake/protobuf_external.cmake")
         add_library(protobufhack SHARED ${protobufhack_include_cc} ${protobufhack_sources})
         set_target_properties(protobufhack PROPERTIES CXX_STANDARD 14)
@@ -79,7 +84,7 @@ if (BUILD_PLATFORM_TARGET STREQUAL "windows")
         add_subdirectory(SDL_ttf)
     endif()
 
-    if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "x32" OR DEFINED IDE_BUILD)
         # Needed for VAC
         add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
 
@@ -89,8 +94,8 @@ if (BUILD_PLATFORM_TARGET STREQUAL "windows")
     endif()
 endif()
 
-if (BUILD_PLATFORM_TARGET STREQUAL "macos")
-    if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
+if (BUILD_PLATFORM_TARGET STREQUAL "osx")
+    if (BUILD_ARCH STREQUAL "x64" OR DEFINED IDE_BUILD)
         # MacOS steam has the luxury of having a 64-bit steamservice
         # add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
         
@@ -102,11 +107,11 @@ if (BUILD_PLATFORM_TARGET STREQUAL "macos")
         # target_link_libraries(protobufhack ${Protobuf_LIBRARIES})
     endif()
 
-    if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "x32" OR DEFINED IDE_BUILD)
         # No 32-bit natives on macos
     endif()
 
-    if (BUILD_BITS STREQUAL "ARM" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "ARM64" OR DEFINED IDE_BUILD)
         add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
     endif()
 endif()

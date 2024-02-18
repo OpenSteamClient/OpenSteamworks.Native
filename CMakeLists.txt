@@ -49,7 +49,7 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
         add_subdirectory(SDL_ttf)
     endif()
 
-    if (BUILD_ARCH STREQUAL "x32" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "x86" OR DEFINED IDE_BUILD)
         # Needed for VAC, Proton
         add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
         set_ide_32bit_build(steamserviced)
@@ -84,7 +84,7 @@ if (BUILD_PLATFORM_TARGET STREQUAL "win")
         add_subdirectory(SDL_ttf)
     endif()
 
-    if (BUILD_ARCH STREQUAL "x32" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "x86" OR DEFINED IDE_BUILD)
         # Needed for VAC
         add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
 
@@ -107,7 +107,7 @@ if (BUILD_PLATFORM_TARGET STREQUAL "osx")
         # target_link_libraries(protobufhack ${Protobuf_LIBRARIES})
     endif()
 
-    if (BUILD_ARCH STREQUAL "x32" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "x86" OR DEFINED IDE_BUILD)
         # No 32-bit natives on macos
     endif()
 

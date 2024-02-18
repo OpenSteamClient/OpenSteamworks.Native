@@ -14,6 +14,8 @@ on:
       - ".github/workflows/dotnet.yaml"
       - "CMakeLists.txt"
       - "**.cmake"
+      - "OpenSteamworks.Native.nativeproj"
+      - "nuget.config"
   pull_request:
 
 jobs:

@@ -115,3 +115,9 @@ if (BUILD_PLATFORM_TARGET STREQUAL "osx")
         add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
     endif()
 endif()
+
+if (NOT DEFINED IDE_BUILD)
+    # Save build timestamp to file
+    string(TIMESTAMP UNIX_TIMESTAMP "%s")
+    file(WRITE ${NATIVE_OUTPUT_FOLDER}/../build_timestamp ${UNIX_TIMESTAMP})
+endif()

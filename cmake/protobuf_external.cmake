@@ -13,8 +13,6 @@
 # limitations under the License.
 # We only need Protobuf_generate_cpp from FindProtobuf, and we are going to
 # override the rest with ExternalProject version.
-include (FindProtobuf)
-
 set(PROTOBUF_TARGET external.protobuf)
 set(PROTOBUF_INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/${PROTOBUF_TARGET})
 
@@ -39,6 +37,7 @@ foreach(lib ${PROTOBUF_LIBRARIES})
   add_library(${lib} STATIC IMPORTED)
   set_property(TARGET ${lib} PROPERTY IMPORTED_LOCATION
                ${LIB_PATH})
+  set(${lib}_PATH ${LIB_PATH})
   add_dependencies(${lib} ${PROTOBUF_TARGET})
 endforeach(lib)
 
@@ -81,18 +80,12 @@ ExternalProject_Add(${PROTOBUF_TARGET}
         -Dprotobuf_BUILD_TESTS=OFF
         -Dprotobuf_BUILD_PROTOC_BINARIES=ON
         -Dprotobuf_BUILD_SHARED_LIBS=OFF
-        -Dprotobuf_BUILD_STATIC_LIBS=OFF
         -Dprotobuf_WITH_ZLIB=OFF
         -Dprotobuf_BUILD_CONFORMANCE=OFF
     BUILD_BYPRODUCTS ${PROTOBUF_BUILD_BYPRODUCTS}
 )
 
-set(CMAKE_LINK_GROUP_USING_cross_refs_SUPPORTED TRUE)
-set(CMAKE_LINK_GROUP_USING_cross_refs
-  "LINKER:--start-group"
-  "LINKER:--end-group"
-)
 # cmake 3.7 uses Protobuf_ when 3.5 PROTOBUF_ prefixes.
 set(Protobuf_INCLUDE_DIRS ${PROTOBUF_INCLUDE_DIRS})
-set(Protobuf_LIBRARIES "$<LINK_GROUP:cross_refs,${PROTOBUF_LIBRARIES}>")
+set(Protobuf_LIBRARIES ${PROTOBUF_LIBRARIES})
 set(Protobuf_PROTOC_EXECUTABLE ${PROTOBUF_PROTOC_EXECUTABLE})

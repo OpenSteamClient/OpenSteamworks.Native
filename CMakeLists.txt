@@ -111,7 +111,7 @@ if (BUILD_PLATFORM_TARGET STREQUAL "osx")
         # No 32-bit natives on macos
     endif()
 
-    if (BUILD_ARCH STREQUAL "ARM64" OR DEFINED IDE_BUILD)
+    if (BUILD_ARCH STREQUAL "arm64" OR DEFINED IDE_BUILD)
         add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
     endif()
 endif()

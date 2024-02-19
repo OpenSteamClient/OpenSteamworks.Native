@@ -40,7 +40,8 @@ jobs:
     - name: Install build dependencies
       run: | 
         sudo apt-get update
-        sudo apt-get install -y gcc-multilib g++-multilib gcc-aarch64-linux-gnu
+        sudo apt-get install -y gcc-multilib g++-multilib 
+        sudo apt-get install -y gcc-arm-linux-gnueabi binutils-arm-linux-gnueabi gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
 
     # This is terrible, but until GH updates their runners to ubuntu 23.04 this is the terribleness we need to do
     # Or we could self-host, but I don't have dedicated hardware for it (read: my PC is not available 24/7)

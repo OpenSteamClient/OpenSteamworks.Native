@@ -16,9 +16,25 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+constexpr CMsgFactoryResetState::CMsgFactoryResetState(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : progress_(0)
+  , is_running_(false)
+  , is_restart_pending_(false)
+  , rtime_estimated_completion_(0u){}
+struct CMsgFactoryResetStateDefaultTypeInternal {
+  constexpr CMsgFactoryResetStateDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgFactoryResetStateDefaultTypeInternal() {}
+  union {
+    CMsgFactoryResetState _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgFactoryResetStateDefaultTypeInternal _CMsgFactoryResetState_default_instance_;
 constexpr CSteamOSManagerState::CSteamOSManagerState(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : os_version_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , factory_reset_state_(nullptr)
   , is_service_available_(false)
   , is_mandatory_update_available_(false)
   , is_status_led_control_available_(false)
@@ -136,6 +152,28 @@ struct CSteamOSManager_ApplyMandatoryUpdate_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CSteamOSManager_ApplyMandatoryUpdate_ResponseDefaultTypeInternal _CSteamOSManager_ApplyMandatoryUpdate_Response_default_instance_;
+constexpr CSteamOSManager_FactoryReset_Request::CSteamOSManager_FactoryReset_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CSteamOSManager_FactoryReset_RequestDefaultTypeInternal {
+  constexpr CSteamOSManager_FactoryReset_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CSteamOSManager_FactoryReset_RequestDefaultTypeInternal() {}
+  union {
+    CSteamOSManager_FactoryReset_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CSteamOSManager_FactoryReset_RequestDefaultTypeInternal _CSteamOSManager_FactoryReset_Request_default_instance_;
+constexpr CSteamOSManager_FactoryReset_Response::CSteamOSManager_FactoryReset_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CSteamOSManager_FactoryReset_ResponseDefaultTypeInternal {
+  constexpr CSteamOSManager_FactoryReset_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CSteamOSManager_FactoryReset_ResponseDefaultTypeInternal() {}
+  union {
+    CSteamOSManager_FactoryReset_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CSteamOSManager_FactoryReset_ResponseDefaultTypeInternal _CSteamOSManager_FactoryReset_Response_default_instance_;
 constexpr CSteamOSSLSPlugin::CSteamOSSLSPlugin(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : etype_(0)
@@ -247,11 +285,24 @@ struct CSteamOSSLS_SetPluginEnabled_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CSteamOSSLS_SetPluginEnabled_ResponseDefaultTypeInternal _CSteamOSSLS_SetPluginEnabled_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fsteamos_2eproto[19];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fsteamos_2eproto[22];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_webuimessages_5fsteamos_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_webuimessages_5fsteamos_2eproto[2];
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  PROTOBUF_FIELD_OFFSET(::CMsgFactoryResetState, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgFactoryResetState, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgFactoryResetState, is_running_),
+  PROTOBUF_FIELD_OFFSET(::CMsgFactoryResetState, progress_),
+  PROTOBUF_FIELD_OFFSET(::CMsgFactoryResetState, is_restart_pending_),
+  PROTOBUF_FIELD_OFFSET(::CMsgFactoryResetState, rtime_estimated_completion_),
+  1,
+  0,
+  2,
+  3,
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -262,11 +313,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_mandatory_update_available_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, startup_movie_variant_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_status_led_control_available_),
-  1,
-  0,
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, factory_reset_state_),
   2,
-  4,
+  0,
   3,
+  5,
+  4,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CSteamOSManager_GetState_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -315,6 +368,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CSteamOSManager_ApplyMandatoryUpdate_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManager_FactoryReset_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManager_FactoryReset_Response, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
@@ -385,28 +448,32 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   ~0u,  // no _weak_field_map_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 10, sizeof(::CSteamOSManagerState)},
-  { 15, -1, sizeof(::CSteamOSManager_GetState_Request)},
-  { 20, 26, sizeof(::CSteamOSManager_GetState_Response)},
-  { 27, -1, sizeof(::CSteamOSManager_StateChanged_Notification)},
-  { 32, 38, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Request)},
-  { 39, 45, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Response)},
-  { 46, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Request)},
-  { 51, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
-  { 56, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
-  { 61, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
-  { 66, 74, sizeof(::CSteamOSSLSPlugin)},
-  { 77, 85, sizeof(::CSteamOSSLSState)},
-  { 88, -1, sizeof(::CSteamOSSLS_GetState_Request)},
-  { 93, 99, sizeof(::CSteamOSSLS_GetState_Response)},
-  { 100, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
-  { 105, 111, sizeof(::CSteamOSSLS_SetEnabled_Request)},
-  { 112, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
-  { 117, 124, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
-  { 126, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
+  { 0, 9, sizeof(::CMsgFactoryResetState)},
+  { 13, 24, sizeof(::CSteamOSManagerState)},
+  { 30, -1, sizeof(::CSteamOSManager_GetState_Request)},
+  { 35, 41, sizeof(::CSteamOSManager_GetState_Response)},
+  { 42, -1, sizeof(::CSteamOSManager_StateChanged_Notification)},
+  { 47, 53, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Request)},
+  { 54, 60, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Response)},
+  { 61, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Request)},
+  { 66, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
+  { 71, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
+  { 76, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
+  { 81, -1, sizeof(::CSteamOSManager_FactoryReset_Request)},
+  { 86, -1, sizeof(::CSteamOSManager_FactoryReset_Response)},
+  { 91, 99, sizeof(::CSteamOSSLSPlugin)},
+  { 102, 110, sizeof(::CSteamOSSLSState)},
+  { 113, -1, sizeof(::CSteamOSSLS_GetState_Request)},
+  { 118, 124, sizeof(::CSteamOSSLS_GetState_Response)},
+  { 125, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
+  { 130, 136, sizeof(::CSteamOSSLS_SetEnabled_Request)},
+  { 137, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
+  { 142, 149, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
+  { 151, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgFactoryResetState_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSManagerState_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSManager_GetState_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSManager_GetState_Response_default_instance_),
@@ -417,6 +484,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSManager_OptOutOfSideloadedClient_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSManager_ApplyMandatoryUpdate_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSManager_ApplyMandatoryUpdate_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSManager_FactoryReset_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSManager_FactoryReset_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSSLSPlugin_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSSLSState_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamOSSLS_GetState_Request_default_instance_),
@@ -432,61 +501,70 @@ const char descriptor_table_protodef_webuimessages_5fsteamos_2eproto[] PROTOBUF_
   "\n\033webuimessages_steamos.proto\032 google/pr"
   "otobuf/descriptor.proto\032\013enums.proto\032\030st"
   "eammessages_base.proto\032\030webuimessages_ba"
-  "se.proto\"\354\001\n\024CSteamOSManagerState\022\034\n\024is_"
-  "service_available\030\001 \001(\010\022\022\n\nos_version\030\002 "
-  "\001(\t\022%\n\035is_mandatory_update_available\030\003 \001"
-  "(\010\022R\n\025startup_movie_variant\030\004 \001(\0162\025.ESta"
-  "rtupMovieVariant:\034EStartupMovieVariant_I"
-  "nvalid\022\'\n\037is_status_led_control_availabl"
-  "e\030\005 \001(\010\"\"\n CSteamOSManager_GetState_Requ"
-  "est\"I\n!CSteamOSManager_GetState_Response"
-  "\022$\n\005state\030\001 \001(\0132\025.CSteamOSManagerState\"+"
-  "\n)CSteamOSManager_StateChanged_Notificat"
-  "ion\"d\n2CSteamOSManager_IsTelemetryHelper"
-  "Available_Request\022.\n\005etype\030\001 \001(\0162\013.ESLSH"
-  "elper:\022ESLSHelper_Invalid\"H\n3CSteamOSMan"
-  "ager_IsTelemetryHelperAvailable_Response"
-  "\022\021\n\tavailable\030\001 \001(\010\"2\n0CSteamOSManager_O"
-  "ptOutOfSideloadedClient_Request\"3\n1CStea"
-  "mOSManager_OptOutOfSideloadedClient_Resp"
-  "onse\".\n,CSteamOSManager_ApplyMandatoryUp"
-  "date_Request\"/\n-CSteamOSManager_ApplyMan"
-  "datoryUpdate_Response\"m\n\021CSteamOSSLSPlug"
-  "in\022.\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLSHelp"
-  "er_Invalid\022\024\n\014is_available\030\002 \001(\010\022\022\n\nis_e"
-  "nabled\030\003 \001(\010\"a\n\020CSteamOSSLSState\022\024\n\014is_a"
-  "vailable\030\001 \001(\010\022\022\n\nis_enabled\030\002 \001(\010\022#\n\007pl"
-  "ugins\030\003 \003(\0132\022.CSteamOSSLSPlugin\"\036\n\034CStea"
-  "mOSSLS_GetState_Request\"A\n\035CSteamOSSLS_G"
-  "etState_Response\022 \n\005state\030\001 \001(\0132\021.CSteam"
-  "OSSLSState\"\'\n%CSteamOSSLS_StateChanged_N"
-  "otification\"1\n\036CSteamOSSLS_SetEnabled_Re"
-  "quest\022\017\n\007enabled\030\001 \001(\010\"!\n\037CSteamOSSLS_Se"
-  "tEnabled_Response\"g\n$CSteamOSSLS_SetPlug"
-  "inEnabled_Request\022.\n\005etype\030\001 \001(\0162\013.ESLSH"
-  "elper:\022ESLSHelper_Invalid\022\017\n\007enabled\030\002 \001"
-  "(\010\"\'\n%CSteamOSSLS_SetPluginEnabled_Respo"
-  "nse2\270\003\n\016SteamOSManager\022Q\n\010GetState\022!.CSt"
-  "eamOSManager_GetState_Request\032\".CSteamOS"
-  "Manager_GetState_Response\022R\n\022NotifyState"
-  "Changed\022*.CSteamOSManager_StateChanged_N"
-  "otification\032\020.WebUINoResponse\022\201\001\n\030OptOut"
-  "OfSideloadedClient\0221.CSteamOSManager_Opt"
-  "OutOfSideloadedClient_Request\0322.CSteamOS"
-  "Manager_OptOutOfSideloadedClient_Respons"
-  "e\022u\n\024ApplyMandatoryUpdate\022-.CSteamOSMana"
-  "ger_ApplyMandatoryUpdate_Request\032..CStea"
-  "mOSManager_ApplyMandatoryUpdate_Response"
-  "\032\004\200\227\"\0012\341\002\n\nSteamOSSLS\022I\n\010GetState\022\035.CSte"
-  "amOSSLS_GetState_Request\032\036.CSteamOSSLS_G"
-  "etState_Response\022N\n\022NotifyStateChanged\022&"
-  ".CSteamOSSLS_StateChanged_Notification\032\020"
-  ".WebUINoResponse\022O\n\nSetEnabled\022\037.CSteamO"
-  "SSLS_SetEnabled_Request\032 .CSteamOSSLS_Se"
-  "tEnabled_Response\022a\n\020SetPluginEnabled\022%."
-  "CSteamOSSLS_SetPluginEnabled_Request\032&.C"
-  "SteamOSSLS_SetPluginEnabled_Response\032\004\200\227"
-  "\"\001B\037H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "se.proto\"}\n\025CMsgFactoryResetState\022\022\n\nis_"
+  "running\030\001 \001(\010\022\020\n\010progress\030\002 \001(\005\022\032\n\022is_re"
+  "start_pending\030\003 \001(\010\022\"\n\032rtime_estimated_c"
+  "ompletion\030\004 \001(\007\"\241\002\n\024CSteamOSManagerState"
+  "\022\034\n\024is_service_available\030\001 \001(\010\022\022\n\nos_ver"
+  "sion\030\002 \001(\t\022%\n\035is_mandatory_update_availa"
+  "ble\030\003 \001(\010\022R\n\025startup_movie_variant\030\004 \001(\016"
+  "2\025.EStartupMovieVariant:\034EStartupMovieVa"
+  "riant_Invalid\022\'\n\037is_status_led_control_a"
+  "vailable\030\005 \001(\010\0223\n\023factory_reset_state\030\006 "
+  "\001(\0132\026.CMsgFactoryResetState\"\"\n CSteamOSM"
+  "anager_GetState_Request\"I\n!CSteamOSManag"
+  "er_GetState_Response\022$\n\005state\030\001 \001(\0132\025.CS"
+  "teamOSManagerState\"+\n)CSteamOSManager_St"
+  "ateChanged_Notification\"d\n2CSteamOSManag"
+  "er_IsTelemetryHelperAvailable_Request\022.\n"
+  "\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLSHelper_In"
+  "valid\"H\n3CSteamOSManager_IsTelemetryHelp"
+  "erAvailable_Response\022\021\n\tavailable\030\001 \001(\010\""
+  "2\n0CSteamOSManager_OptOutOfSideloadedCli"
+  "ent_Request\"3\n1CSteamOSManager_OptOutOfS"
+  "ideloadedClient_Response\".\n,CSteamOSMana"
+  "ger_ApplyMandatoryUpdate_Request\"/\n-CSte"
+  "amOSManager_ApplyMandatoryUpdate_Respons"
+  "e\"&\n$CSteamOSManager_FactoryReset_Reques"
+  "t\"\'\n%CSteamOSManager_FactoryReset_Respon"
+  "se\"m\n\021CSteamOSSLSPlugin\022.\n\005etype\030\001 \001(\0162\013"
+  ".ESLSHelper:\022ESLSHelper_Invalid\022\024\n\014is_av"
+  "ailable\030\002 \001(\010\022\022\n\nis_enabled\030\003 \001(\010\"a\n\020CSt"
+  "eamOSSLSState\022\024\n\014is_available\030\001 \001(\010\022\022\n\ni"
+  "s_enabled\030\002 \001(\010\022#\n\007plugins\030\003 \003(\0132\022.CStea"
+  "mOSSLSPlugin\"\036\n\034CSteamOSSLS_GetState_Req"
+  "uest\"A\n\035CSteamOSSLS_GetState_Response\022 \n"
+  "\005state\030\001 \001(\0132\021.CSteamOSSLSState\"\'\n%CStea"
+  "mOSSLS_StateChanged_Notification\"1\n\036CSte"
+  "amOSSLS_SetEnabled_Request\022\017\n\007enabled\030\001 "
+  "\001(\010\"!\n\037CSteamOSSLS_SetEnabled_Response\"g"
+  "\n$CSteamOSSLS_SetPluginEnabled_Request\022."
+  "\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLSHelper_I"
+  "nvalid\022\017\n\007enabled\030\002 \001(\010\"\'\n%CSteamOSSLS_S"
+  "etPluginEnabled_Response2\227\004\n\016SteamOSMana"
+  "ger\022Q\n\010GetState\022!.CSteamOSManager_GetSta"
+  "te_Request\032\".CSteamOSManager_GetState_Re"
+  "sponse\022R\n\022NotifyStateChanged\022*.CSteamOSM"
+  "anager_StateChanged_Notification\032\020.WebUI"
+  "NoResponse\022\201\001\n\030OptOutOfSideloadedClient\022"
+  "1.CSteamOSManager_OptOutOfSideloadedClie"
+  "nt_Request\0322.CSteamOSManager_OptOutOfSid"
+  "eloadedClient_Response\022u\n\024ApplyMandatory"
+  "Update\022-.CSteamOSManager_ApplyMandatoryU"
+  "pdate_Request\032..CSteamOSManager_ApplyMan"
+  "datoryUpdate_Response\022]\n\014FactoryReset\022%."
+  "CSteamOSManager_FactoryReset_Request\032&.C"
+  "SteamOSManager_FactoryReset_Response\032\004\200\227"
+  "\"\0012\341\002\n\nSteamOSSLS\022I\n\010GetState\022\035.CSteamOS"
+  "SLS_GetState_Request\032\036.CSteamOSSLS_GetSt"
+  "ate_Response\022N\n\022NotifyStateChanged\022&.CSt"
+  "eamOSSLS_StateChanged_Notification\032\020.Web"
+  "UINoResponse\022O\n\nSetEnabled\022\037.CSteamOSSLS"
+  "_SetEnabled_Request\032 .CSteamOSSLS_SetEna"
+  "bled_Response\022a\n\020SetPluginEnabled\022%.CSte"
+  "amOSSLS_SetPluginEnabled_Request\032&.CStea"
+  "mOSSLS_SetPluginEnabled_Response\032\004\200\227\"\001B\037"
+  "H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fsteamos_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -496,8 +574,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fsteamos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fsteamos_2eproto = {
-  false, false, 2315, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
-  &descriptor_table_webuimessages_5fsteamos_2eproto_once, descriptor_table_webuimessages_5fsteamos_2eproto_deps, 4, 19,
+  false, false, 2671, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
+  &descriptor_table_webuimessages_5fsteamos_2eproto_once, descriptor_table_webuimessages_5fsteamos_2eproto_deps, 4, 22,
   schemas, file_default_instances, TableStruct_webuimessages_5fsteamos_2eproto::offsets,
   file_level_metadata_webuimessages_5fsteamos_2eproto, file_level_enum_descriptors_webuimessages_5fsteamos_2eproto, file_level_service_descriptors_webuimessages_5fsteamos_2eproto,
 };
@@ -512,26 +590,331 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDe
 
 // ===================================================================
 
+class CMsgFactoryResetState::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgFactoryResetState>()._has_bits_);
+  static void set_has_is_running(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_progress(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_is_restart_pending(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_rtime_estimated_completion(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CMsgFactoryResetState::CMsgFactoryResetState(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgFactoryResetState)
+}
+CMsgFactoryResetState::CMsgFactoryResetState(const CMsgFactoryResetState& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&progress_, &from.progress_,
+    static_cast<size_t>(reinterpret_cast<char*>(&rtime_estimated_completion_) -
+    reinterpret_cast<char*>(&progress_)) + sizeof(rtime_estimated_completion_));
+  // @@protoc_insertion_point(copy_constructor:CMsgFactoryResetState)
+}
+
+void CMsgFactoryResetState::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&progress_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&rtime_estimated_completion_) -
+    reinterpret_cast<char*>(&progress_)) + sizeof(rtime_estimated_completion_));
+}
+
+CMsgFactoryResetState::~CMsgFactoryResetState() {
+  // @@protoc_insertion_point(destructor:CMsgFactoryResetState)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgFactoryResetState::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMsgFactoryResetState::ArenaDtor(void* object) {
+  CMsgFactoryResetState* _this = reinterpret_cast< CMsgFactoryResetState* >(object);
+  (void)_this;
+}
+void CMsgFactoryResetState::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgFactoryResetState::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgFactoryResetState::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgFactoryResetState)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    ::memset(&progress_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&rtime_estimated_completion_) -
+        reinterpret_cast<char*>(&progress_)) + sizeof(rtime_estimated_completion_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgFactoryResetState::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional bool is_running = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_is_running(&has_bits);
+          is_running_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 progress = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_progress(&has_bits);
+          progress_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_restart_pending = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_is_restart_pending(&has_bits);
+          is_restart_pending_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional fixed32 rtime_estimated_completion = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
+          _Internal::set_has_rtime_estimated_completion(&has_bits);
+          rtime_estimated_completion_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint32>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint32);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgFactoryResetState::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgFactoryResetState)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional bool is_running = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_running(), target);
+  }
+
+  // optional int32 progress = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_progress(), target);
+  }
+
+  // optional bool is_restart_pending = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_restart_pending(), target);
+  }
+
+  // optional fixed32 rtime_estimated_completion = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed32ToArray(4, this->_internal_rtime_estimated_completion(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgFactoryResetState)
+  return target;
+}
+
+size_t CMsgFactoryResetState::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgFactoryResetState)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional int32 progress = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_progress());
+    }
+
+    // optional bool is_running = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_restart_pending = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
+    }
+
+    // optional fixed32 rtime_estimated_completion = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 4;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgFactoryResetState::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgFactoryResetState)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgFactoryResetState* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgFactoryResetState>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgFactoryResetState)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgFactoryResetState)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgFactoryResetState::MergeFrom(const CMsgFactoryResetState& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgFactoryResetState)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      progress_ = from.progress_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      is_running_ = from.is_running_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      is_restart_pending_ = from.is_restart_pending_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      rtime_estimated_completion_ = from.rtime_estimated_completion_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CMsgFactoryResetState::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgFactoryResetState)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgFactoryResetState::CopyFrom(const CMsgFactoryResetState& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgFactoryResetState)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgFactoryResetState::IsInitialized() const {
+  return true;
+}
+
+void CMsgFactoryResetState::InternalSwap(CMsgFactoryResetState* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgFactoryResetState, rtime_estimated_completion_)
+      + sizeof(CMsgFactoryResetState::rtime_estimated_completion_)
+      - PROTOBUF_FIELD_OFFSET(CMsgFactoryResetState, progress_)>(
+          reinterpret_cast<char*>(&progress_),
+          reinterpret_cast<char*>(&other->progress_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgFactoryResetState::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CSteamOSManagerState::_Internal {
  public:
   using HasBits = decltype(std::declval<CSteamOSManagerState>()._has_bits_);
   static void set_has_is_service_available(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_os_version(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_is_mandatory_update_available(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_startup_movie_variant(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_is_status_led_control_available(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 16u;
+  }
+  static const ::CMsgFactoryResetState& factory_reset_state(const CSteamOSManagerState* msg);
+  static void set_has_factory_reset_state(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
+const ::CMsgFactoryResetState&
+CSteamOSManagerState::_Internal::factory_reset_state(const CSteamOSManagerState* msg) {
+  return *msg->factory_reset_state_;
+}
 CSteamOSManagerState::CSteamOSManagerState(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -547,6 +930,11 @@ CSteamOSManagerState::CSteamOSManagerState(const CSteamOSManagerState& from)
     os_version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_os_version(), 
       GetArena());
   }
+  if (from._internal_has_factory_reset_state()) {
+    factory_reset_state_ = new ::CMsgFactoryResetState(*from.factory_reset_state_);
+  } else {
+    factory_reset_state_ = nullptr;
+  }
   ::memcpy(&is_service_available_, &from.is_service_available_,
     static_cast<size_t>(reinterpret_cast<char*>(&startup_movie_variant_) -
     reinterpret_cast<char*>(&is_service_available_)) + sizeof(startup_movie_variant_));
@@ -556,9 +944,9 @@ CSteamOSManagerState::CSteamOSManagerState(const CSteamOSManagerState& from)
 void CSteamOSManagerState::SharedCtor() {
 os_version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&is_service_available_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&factory_reset_state_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&startup_movie_variant_) -
-    reinterpret_cast<char*>(&is_service_available_)) + sizeof(startup_movie_variant_));
+    reinterpret_cast<char*>(&factory_reset_state_)) + sizeof(startup_movie_variant_));
 }
 
 CSteamOSManagerState::~CSteamOSManagerState() {
@@ -570,6 +958,7 @@ CSteamOSManagerState::~CSteamOSManagerState() {
 void CSteamOSManagerState::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   os_version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete factory_reset_state_;
 }
 
 void CSteamOSManagerState::ArenaDtor(void* object) {
@@ -589,10 +978,16 @@ void CSteamOSManagerState::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    os_version_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      os_version_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(factory_reset_state_ != nullptr);
+      factory_reset_state_->Clear();
+    }
   }
-  if (cached_has_bits & 0x0000001eu) {
+  if (cached_has_bits & 0x0000003cu) {
     ::memset(&is_service_available_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&startup_movie_variant_) -
         reinterpret_cast<char*>(&is_service_available_)) + sizeof(startup_movie_variant_));
@@ -656,6 +1051,13 @@ const char* CSteamOSManagerState::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional .CMsgFactoryResetState factory_reset_state = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_factory_reset_state(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -687,7 +1089,7 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional bool is_service_available = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_service_available(), target);
   }
@@ -703,22 +1105,30 @@ failure:
   }
 
   // optional bool is_mandatory_update_available = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_mandatory_update_available(), target);
   }
 
   // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       4, this->_internal_startup_movie_variant(), target);
   }
 
   // optional bool is_status_led_control_available = 5;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_is_status_led_control_available(), target);
+  }
+
+  // optional .CMsgFactoryResetState factory_reset_state = 6;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::factory_reset_state(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -738,7 +1148,7 @@ size_t CSteamOSManagerState::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional string os_version = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -746,23 +1156,30 @@ size_t CSteamOSManagerState::ByteSizeLong() const {
           this->_internal_os_version());
     }
 
-    // optional bool is_service_available = 1;
+    // optional .CMsgFactoryResetState factory_reset_state = 6;
     if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 1;
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *factory_reset_state_);
     }
 
-    // optional bool is_mandatory_update_available = 3;
+    // optional bool is_service_available = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional bool is_status_led_control_available = 5;
+    // optional bool is_mandatory_update_available = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
-    // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
+    // optional bool is_status_led_control_available = 5;
     if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
+    }
+
+    // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_startup_movie_variant());
     }
@@ -800,20 +1217,23 @@ void CSteamOSManagerState::MergeFrom(const CSteamOSManagerState& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_os_version(from._internal_os_version());
     }
     if (cached_has_bits & 0x00000002u) {
-      is_service_available_ = from.is_service_available_;
+      _internal_mutable_factory_reset_state()->::CMsgFactoryResetState::MergeFrom(from._internal_factory_reset_state());
     }
     if (cached_has_bits & 0x00000004u) {
-      is_mandatory_update_available_ = from.is_mandatory_update_available_;
+      is_service_available_ = from.is_service_available_;
     }
     if (cached_has_bits & 0x00000008u) {
-      is_status_led_control_available_ = from.is_status_led_control_available_;
+      is_mandatory_update_available_ = from.is_mandatory_update_available_;
     }
     if (cached_has_bits & 0x00000010u) {
+      is_status_led_control_available_ = from.is_status_led_control_available_;
+    }
+    if (cached_has_bits & 0x00000020u) {
       startup_movie_variant_ = from.startup_movie_variant_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -846,9 +1266,9 @@ void CSteamOSManagerState::InternalSwap(CSteamOSManagerState* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, startup_movie_variant_)
       + sizeof(CSteamOSManagerState::startup_movie_variant_)
-      - PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, is_service_available_)>(
-          reinterpret_cast<char*>(&is_service_available_),
-          reinterpret_cast<char*>(&other->is_service_available_));
+      - PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, factory_reset_state_)>(
+          reinterpret_cast<char*>(&factory_reset_state_),
+          reinterpret_cast<char*>(&other->factory_reset_state_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSteamOSManagerState::GetMetadata() const {
@@ -2414,6 +2834,320 @@ void CSteamOSManager_ApplyMandatoryUpdate_Response::InternalSwap(CSteamOSManager
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSteamOSManager_ApplyMandatoryUpdate_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CSteamOSManager_FactoryReset_Request::_Internal {
+ public:
+};
+
+CSteamOSManager_FactoryReset_Request::CSteamOSManager_FactoryReset_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CSteamOSManager_FactoryReset_Request)
+}
+CSteamOSManager_FactoryReset_Request::CSteamOSManager_FactoryReset_Request(const CSteamOSManager_FactoryReset_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CSteamOSManager_FactoryReset_Request)
+}
+
+void CSteamOSManager_FactoryReset_Request::SharedCtor() {
+}
+
+CSteamOSManager_FactoryReset_Request::~CSteamOSManager_FactoryReset_Request() {
+  // @@protoc_insertion_point(destructor:CSteamOSManager_FactoryReset_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CSteamOSManager_FactoryReset_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CSteamOSManager_FactoryReset_Request::ArenaDtor(void* object) {
+  CSteamOSManager_FactoryReset_Request* _this = reinterpret_cast< CSteamOSManager_FactoryReset_Request* >(object);
+  (void)_this;
+}
+void CSteamOSManager_FactoryReset_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CSteamOSManager_FactoryReset_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CSteamOSManager_FactoryReset_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CSteamOSManager_FactoryReset_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CSteamOSManager_FactoryReset_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CSteamOSManager_FactoryReset_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CSteamOSManager_FactoryReset_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CSteamOSManager_FactoryReset_Request)
+  return target;
+}
+
+size_t CSteamOSManager_FactoryReset_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CSteamOSManager_FactoryReset_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CSteamOSManager_FactoryReset_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CSteamOSManager_FactoryReset_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CSteamOSManager_FactoryReset_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CSteamOSManager_FactoryReset_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CSteamOSManager_FactoryReset_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CSteamOSManager_FactoryReset_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CSteamOSManager_FactoryReset_Request::MergeFrom(const CSteamOSManager_FactoryReset_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CSteamOSManager_FactoryReset_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CSteamOSManager_FactoryReset_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CSteamOSManager_FactoryReset_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSteamOSManager_FactoryReset_Request::CopyFrom(const CSteamOSManager_FactoryReset_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CSteamOSManager_FactoryReset_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSteamOSManager_FactoryReset_Request::IsInitialized() const {
+  return true;
+}
+
+void CSteamOSManager_FactoryReset_Request::InternalSwap(CSteamOSManager_FactoryReset_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CSteamOSManager_FactoryReset_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CSteamOSManager_FactoryReset_Response::_Internal {
+ public:
+};
+
+CSteamOSManager_FactoryReset_Response::CSteamOSManager_FactoryReset_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CSteamOSManager_FactoryReset_Response)
+}
+CSteamOSManager_FactoryReset_Response::CSteamOSManager_FactoryReset_Response(const CSteamOSManager_FactoryReset_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CSteamOSManager_FactoryReset_Response)
+}
+
+void CSteamOSManager_FactoryReset_Response::SharedCtor() {
+}
+
+CSteamOSManager_FactoryReset_Response::~CSteamOSManager_FactoryReset_Response() {
+  // @@protoc_insertion_point(destructor:CSteamOSManager_FactoryReset_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CSteamOSManager_FactoryReset_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CSteamOSManager_FactoryReset_Response::ArenaDtor(void* object) {
+  CSteamOSManager_FactoryReset_Response* _this = reinterpret_cast< CSteamOSManager_FactoryReset_Response* >(object);
+  (void)_this;
+}
+void CSteamOSManager_FactoryReset_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CSteamOSManager_FactoryReset_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CSteamOSManager_FactoryReset_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CSteamOSManager_FactoryReset_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CSteamOSManager_FactoryReset_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CSteamOSManager_FactoryReset_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CSteamOSManager_FactoryReset_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CSteamOSManager_FactoryReset_Response)
+  return target;
+}
+
+size_t CSteamOSManager_FactoryReset_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CSteamOSManager_FactoryReset_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CSteamOSManager_FactoryReset_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CSteamOSManager_FactoryReset_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CSteamOSManager_FactoryReset_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CSteamOSManager_FactoryReset_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CSteamOSManager_FactoryReset_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CSteamOSManager_FactoryReset_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CSteamOSManager_FactoryReset_Response::MergeFrom(const CSteamOSManager_FactoryReset_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CSteamOSManager_FactoryReset_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CSteamOSManager_FactoryReset_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CSteamOSManager_FactoryReset_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSteamOSManager_FactoryReset_Response::CopyFrom(const CSteamOSManager_FactoryReset_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CSteamOSManager_FactoryReset_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSteamOSManager_FactoryReset_Response::IsInitialized() const {
+  return true;
+}
+
+void CSteamOSManager_FactoryReset_Response::InternalSwap(CSteamOSManager_FactoryReset_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CSteamOSManager_FactoryReset_Response::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -4307,6 +5041,14 @@ void SteamOSManager::ApplyMandatoryUpdate(::PROTOBUF_NAMESPACE_ID::RpcController
   done->Run();
 }
 
+void SteamOSManager::FactoryReset(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CSteamOSManager_FactoryReset_Request*,
+                         ::CSteamOSManager_FactoryReset_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method FactoryReset() not implemented.");
+  done->Run();
+}
+
 void SteamOSManager::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -4346,6 +5088,14 @@ void SteamOSManager::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                  response),
              done);
       break;
+    case 4:
+      FactoryReset(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CSteamOSManager_FactoryReset_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CSteamOSManager_FactoryReset_Response*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -4364,6 +5114,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& SteamOSManager::GetRequestPrototype(
       return ::CSteamOSManager_OptOutOfSideloadedClient_Request::default_instance();
     case 3:
       return ::CSteamOSManager_ApplyMandatoryUpdate_Request::default_instance();
+    case 4:
+      return ::CSteamOSManager_FactoryReset_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -4383,6 +5135,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& SteamOSManager::GetResponsePrototype(
       return ::CSteamOSManager_OptOutOfSideloadedClient_Response::default_instance();
     case 3:
       return ::CSteamOSManager_ApplyMandatoryUpdate_Response::default_instance();
+    case 4:
+      return ::CSteamOSManager_FactoryReset_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -4427,6 +5181,13 @@ void SteamOSManager_Stub::ApplyMandatoryUpdate(::PROTOBUF_NAMESPACE_ID::RpcContr
                               ::CSteamOSManager_ApplyMandatoryUpdate_Response* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(3),
+                       controller, request, response, done);
+}
+void SteamOSManager_Stub::FactoryReset(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CSteamOSManager_FactoryReset_Request* request,
+                              ::CSteamOSManager_FactoryReset_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(4),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -4599,6 +5360,9 @@ void SteamOSSLS_Stub::SetPluginEnabled(::PROTOBUF_NAMESPACE_ID::RpcController* c
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::CMsgFactoryResetState* Arena::CreateMaybeMessage< ::CMsgFactoryResetState >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgFactoryResetState >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CSteamOSManagerState* Arena::CreateMaybeMessage< ::CSteamOSManagerState >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CSteamOSManagerState >(arena);
 }
@@ -4628,6 +5392,12 @@ template<> PROTOBUF_NOINLINE ::CSteamOSManager_ApplyMandatoryUpdate_Request* Are
 }
 template<> PROTOBUF_NOINLINE ::CSteamOSManager_ApplyMandatoryUpdate_Response* Arena::CreateMaybeMessage< ::CSteamOSManager_ApplyMandatoryUpdate_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CSteamOSManager_ApplyMandatoryUpdate_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CSteamOSManager_FactoryReset_Request* Arena::CreateMaybeMessage< ::CSteamOSManager_FactoryReset_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CSteamOSManager_FactoryReset_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CSteamOSManager_FactoryReset_Response* Arena::CreateMaybeMessage< ::CSteamOSManager_FactoryReset_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CSteamOSManager_FactoryReset_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CSteamOSSLSPlugin* Arena::CreateMaybeMessage< ::CSteamOSSLSPlugin >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CSteamOSSLSPlugin >(arena);

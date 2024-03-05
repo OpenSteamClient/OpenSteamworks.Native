@@ -218,6 +218,8 @@ class CMsgDisplayInfo PROTOBUF_FINAL :
     kModelFieldNumber = 2,
     kConnectorNameFieldNumber = 3,
     kIsExternalFieldNumber = 6,
+    kIsHdrCapableFieldNumber = 7,
+    kIsVrrCapableFieldNumber = 8,
   };
   // repeated int32 supported_refresh_rates = 4;
   int supported_refresh_rates_size() const;
@@ -336,6 +338,32 @@ class CMsgDisplayInfo PROTOBUF_FINAL :
   void _internal_set_is_external(bool value);
   public:
 
+  // optional bool is_hdr_capable = 7;
+  bool has_is_hdr_capable() const;
+  private:
+  bool _internal_has_is_hdr_capable() const;
+  public:
+  void clear_is_hdr_capable();
+  bool is_hdr_capable() const;
+  void set_is_hdr_capable(bool value);
+  private:
+  bool _internal_is_hdr_capable() const;
+  void _internal_set_is_hdr_capable(bool value);
+  public:
+
+  // optional bool is_vrr_capable = 8;
+  bool has_is_vrr_capable() const;
+  private:
+  bool _internal_has_is_vrr_capable() const;
+  public:
+  void clear_is_vrr_capable();
+  bool is_vrr_capable() const;
+  void set_is_vrr_capable(bool value);
+  private:
+  bool _internal_is_vrr_capable() const;
+  void _internal_set_is_vrr_capable(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgDisplayInfo)
  private:
   class _Internal;
@@ -351,6 +379,8 @@ class CMsgDisplayInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr model_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr connector_name_;
   bool is_external_;
+  bool is_hdr_capable_;
+  bool is_vrr_capable_;
   friend struct ::TableStruct_webuimessages_5fgamescope_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1778,6 +1808,62 @@ inline void CMsgDisplayInfo::_internal_set_is_external(bool value) {
 inline void CMsgDisplayInfo::set_is_external(bool value) {
   _internal_set_is_external(value);
   // @@protoc_insertion_point(field_set:CMsgDisplayInfo.is_external)
+}
+
+// optional bool is_hdr_capable = 7;
+inline bool CMsgDisplayInfo::_internal_has_is_hdr_capable() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgDisplayInfo::has_is_hdr_capable() const {
+  return _internal_has_is_hdr_capable();
+}
+inline void CMsgDisplayInfo::clear_is_hdr_capable() {
+  is_hdr_capable_ = false;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline bool CMsgDisplayInfo::_internal_is_hdr_capable() const {
+  return is_hdr_capable_;
+}
+inline bool CMsgDisplayInfo::is_hdr_capable() const {
+  // @@protoc_insertion_point(field_get:CMsgDisplayInfo.is_hdr_capable)
+  return _internal_is_hdr_capable();
+}
+inline void CMsgDisplayInfo::_internal_set_is_hdr_capable(bool value) {
+  _has_bits_[0] |= 0x00000010u;
+  is_hdr_capable_ = value;
+}
+inline void CMsgDisplayInfo::set_is_hdr_capable(bool value) {
+  _internal_set_is_hdr_capable(value);
+  // @@protoc_insertion_point(field_set:CMsgDisplayInfo.is_hdr_capable)
+}
+
+// optional bool is_vrr_capable = 8;
+inline bool CMsgDisplayInfo::_internal_has_is_vrr_capable() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgDisplayInfo::has_is_vrr_capable() const {
+  return _internal_has_is_vrr_capable();
+}
+inline void CMsgDisplayInfo::clear_is_vrr_capable() {
+  is_vrr_capable_ = false;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline bool CMsgDisplayInfo::_internal_is_vrr_capable() const {
+  return is_vrr_capable_;
+}
+inline bool CMsgDisplayInfo::is_vrr_capable() const {
+  // @@protoc_insertion_point(field_get:CMsgDisplayInfo.is_vrr_capable)
+  return _internal_is_vrr_capable();
+}
+inline void CMsgDisplayInfo::_internal_set_is_vrr_capable(bool value) {
+  _has_bits_[0] |= 0x00000020u;
+  is_vrr_capable_ = value;
+}
+inline void CMsgDisplayInfo::set_is_vrr_capable(bool value) {
+  _internal_set_is_vrr_capable(value);
+  // @@protoc_insertion_point(field_set:CMsgDisplayInfo.is_vrr_capable)
 }
 
 // -------------------------------------------------------------------

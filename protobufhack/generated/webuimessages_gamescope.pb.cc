@@ -23,7 +23,9 @@ constexpr CMsgDisplayInfo::CMsgDisplayInfo(
   , make_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , model_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , connector_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , is_external_(false){}
+  , is_external_(false)
+  , is_hdr_capable_(false)
+  , is_vrr_capable_(false){}
 struct CMsgDisplayInfoDefaultTypeInternal {
   constexpr CMsgDisplayInfoDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -129,12 +131,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamescope_2epr
   PROTOBUF_FIELD_OFFSET(::CMsgDisplayInfo, supported_refresh_rates_),
   PROTOBUF_FIELD_OFFSET(::CMsgDisplayInfo, supported_frame_rates_),
   PROTOBUF_FIELD_OFFSET(::CMsgDisplayInfo, is_external_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDisplayInfo, is_hdr_capable_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDisplayInfo, is_vrr_capable_),
   0,
   1,
   2,
   ~0u,
   ~0u,
   3,
+  4,
+  5,
   PROTOBUF_FIELD_OFFSET(::CMsgGamescopeState, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGamescopeState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -193,13 +199,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamescope_2epr
   ~0u,  // no _weak_field_map_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 11, sizeof(::CMsgDisplayInfo)},
-  { 17, 31, sizeof(::CMsgGamescopeState)},
-  { 40, -1, sizeof(::CGamescope_GetState_Request)},
-  { 45, 51, sizeof(::CGamescope_GetState_Response)},
-  { 52, -1, sizeof(::CGamescope_StateChanged_Notification)},
-  { 57, 65, sizeof(::CGamescope_SetBlurParams_Request)},
-  { 68, -1, sizeof(::CGamescope_SetBlurParams_Response)},
+  { 0, 13, sizeof(::CMsgDisplayInfo)},
+  { 21, 35, sizeof(::CMsgGamescopeState)},
+  { 44, -1, sizeof(::CGamescope_GetState_Request)},
+  { 49, 55, sizeof(::CGamescope_GetState_Response)},
+  { 56, -1, sizeof(::CGamescope_StateChanged_Notification)},
+  { 61, 69, sizeof(::CGamescope_SetBlurParams_Request)},
+  { 72, -1, sizeof(::CGamescope_SetBlurParams_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -216,35 +222,36 @@ const char descriptor_table_protodef_webuimessages_5fgamescope_2eproto[] PROTOBU
   "\n\035webuimessages_gamescope.proto\032 google/"
   "protobuf/descriptor.proto\032\013enums.proto\032\030"
   "steammessages_base.proto\032\030webuimessages_"
-  "base.proto\"\233\001\n\017CMsgDisplayInfo\022\014\n\004make\030\001"
+  "base.proto\"\313\001\n\017CMsgDisplayInfo\022\014\n\004make\030\001"
   " \001(\t\022\r\n\005model\030\002 \001(\t\022\026\n\016connector_name\030\003 "
   "\001(\t\022\037\n\027supported_refresh_rates\030\004 \003(\005\022\035\n\025"
   "supported_frame_rates\030\005 \003(\005\022\023\n\013is_extern"
-  "al\030\006 \001(\010\"\352\002\n\022CMsgGamescopeState\022\034\n\024is_se"
-  "rvice_available\030\001 \001(\010\022\034\n\024is_reshade_supp"
-  "orted\030\002 \001(\010\022\032\n\022is_app_hdr_enabled\030\003 \001(\010\022"
-  "%\n\035is_app_refresh_rate_supported\030\004 \001(\010\022-"
-  "\n\023active_display_info\030\005 \001(\0132\020.CMsgDispla"
-  "yInfo\022#\n\033is_app_refresh_rate_capable\030\006 \001"
-  "(\010\022+\n#is_refresh_rate_switching_supporte"
-  "d\030\007 \001(\010\022,\n$is_refresh_rate_switching_res"
-  "tricted\030\010 \001(\010\022&\n\036is_hdr_visualization_su"
-  "pported\030\t \001(\010\"\035\n\033CGamescope_GetState_Req"
-  "uest\"B\n\034CGamescope_GetState_Response\022\"\n\005"
-  "state\030\001 \001(\0132\023.CMsgGamescopeState\"&\n$CGam"
-  "escope_StateChanged_Notification\"\214\001\n CGa"
-  "mescope_SetBlurParams_Request\022>\n\004mode\030\001 "
-  "\001(\0162\023.EGamescopeBlurMode:\033EGamescopeBlur"
-  "Mode_Disabled\022\016\n\006radius\030\002 \001(\005\022\030\n\020fade_du"
-  "ration_ms\030\003 \001(\005\"#\n!CGamescope_SetBlurPar"
-  "ams_Response2\201\002\n\tGamescope\022G\n\010GetState\022\034"
-  ".CGamescope_GetState_Request\032\035.CGamescop"
-  "e_GetState_Response\022M\n\022NotifyStateChange"
-  "d\022%.CGamescope_StateChanged_Notification"
-  "\032\020.WebUINoResponse\022V\n\rSetBlurParams\022!.CG"
-  "amescope_SetBlurParams_Request\032\".CGamesc"
-  "ope_SetBlurParams_Response\032\004\200\227\"\001B\037H\001\200\001\001\252"
-  "\002\027OpenSteamworks.Protobuf"
+  "al\030\006 \001(\010\022\026\n\016is_hdr_capable\030\007 \001(\010\022\026\n\016is_v"
+  "rr_capable\030\010 \001(\010\"\352\002\n\022CMsgGamescopeState\022"
+  "\034\n\024is_service_available\030\001 \001(\010\022\034\n\024is_resh"
+  "ade_supported\030\002 \001(\010\022\032\n\022is_app_hdr_enable"
+  "d\030\003 \001(\010\022%\n\035is_app_refresh_rate_supported"
+  "\030\004 \001(\010\022-\n\023active_display_info\030\005 \001(\0132\020.CM"
+  "sgDisplayInfo\022#\n\033is_app_refresh_rate_cap"
+  "able\030\006 \001(\010\022+\n#is_refresh_rate_switching_"
+  "supported\030\007 \001(\010\022,\n$is_refresh_rate_switc"
+  "hing_restricted\030\010 \001(\010\022&\n\036is_hdr_visualiz"
+  "ation_supported\030\t \001(\010\"\035\n\033CGamescope_GetS"
+  "tate_Request\"B\n\034CGamescope_GetState_Resp"
+  "onse\022\"\n\005state\030\001 \001(\0132\023.CMsgGamescopeState"
+  "\"&\n$CGamescope_StateChanged_Notification"
+  "\"\214\001\n CGamescope_SetBlurParams_Request\022>\n"
+  "\004mode\030\001 \001(\0162\023.EGamescopeBlurMode:\033EGames"
+  "copeBlurMode_Disabled\022\016\n\006radius\030\002 \001(\005\022\030\n"
+  "\020fade_duration_ms\030\003 \001(\005\"#\n!CGamescope_Se"
+  "tBlurParams_Response2\201\002\n\tGamescope\022G\n\010Ge"
+  "tState\022\034.CGamescope_GetState_Request\032\035.C"
+  "Gamescope_GetState_Response\022M\n\022NotifySta"
+  "teChanged\022%.CGamescope_StateChanged_Noti"
+  "fication\032\020.WebUINoResponse\022V\n\rSetBlurPar"
+  "ams\022!.CGamescope_SetBlurParams_Request\032\""
+  ".CGamescope_SetBlurParams_Response\032\004\200\227\"\001"
+  "B\037H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fgamescope_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -254,7 +261,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fgamescope_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fgamescope_2eproto = {
-  false, false, 1265, descriptor_table_protodef_webuimessages_5fgamescope_2eproto, "webuimessages_gamescope.proto", 
+  false, false, 1313, descriptor_table_protodef_webuimessages_5fgamescope_2eproto, "webuimessages_gamescope.proto", 
   &descriptor_table_webuimessages_5fgamescope_2eproto_once, descriptor_table_webuimessages_5fgamescope_2eproto_deps, 4, 7,
   schemas, file_default_instances, TableStruct_webuimessages_5fgamescope_2eproto::offsets,
   file_level_metadata_webuimessages_5fgamescope_2eproto, file_level_enum_descriptors_webuimessages_5fgamescope_2eproto, file_level_service_descriptors_webuimessages_5fgamescope_2eproto,
@@ -284,6 +291,12 @@ class CMsgDisplayInfo::_Internal {
   }
   static void set_has_is_external(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_is_hdr_capable(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_is_vrr_capable(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -316,7 +329,9 @@ CMsgDisplayInfo::CMsgDisplayInfo(const CMsgDisplayInfo& from)
     connector_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_connector_name(), 
       GetArena());
   }
-  is_external_ = from.is_external_;
+  ::memcpy(&is_external_, &from.is_external_,
+    static_cast<size_t>(reinterpret_cast<char*>(&is_vrr_capable_) -
+    reinterpret_cast<char*>(&is_external_)) + sizeof(is_vrr_capable_));
   // @@protoc_insertion_point(copy_constructor:CMsgDisplayInfo)
 }
 
@@ -324,7 +339,10 @@ void CMsgDisplayInfo::SharedCtor() {
 make_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 model_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 connector_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-is_external_ = false;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&is_external_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_vrr_capable_) -
+    reinterpret_cast<char*>(&is_external_)) + sizeof(is_vrr_capable_));
 }
 
 CMsgDisplayInfo::~CMsgDisplayInfo() {
@@ -370,7 +388,9 @@ void CMsgDisplayInfo::Clear() {
       connector_name_.ClearNonDefaultToEmpty();
     }
   }
-  is_external_ = false;
+  ::memset(&is_external_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_vrr_capable_) -
+      reinterpret_cast<char*>(&is_external_)) + sizeof(is_vrr_capable_));
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -454,6 +474,22 @@ const char* CMsgDisplayInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool is_hdr_capable = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          _Internal::set_has_is_hdr_capable(&has_bits);
+          is_hdr_capable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_vrr_capable = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          _Internal::set_has_is_vrr_capable(&has_bits);
+          is_vrr_capable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -532,6 +568,18 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_is_external(), target);
   }
 
+  // optional bool is_hdr_capable = 7;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_is_hdr_capable(), target);
+  }
+
+  // optional bool is_vrr_capable = 8;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_is_vrr_capable(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -567,7 +615,7 @@ size_t CMsgDisplayInfo::ByteSizeLong() const {
   }
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional string make = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -591,6 +639,16 @@ size_t CMsgDisplayInfo::ByteSizeLong() const {
 
     // optional bool is_external = 6;
     if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_hdr_capable = 7;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_vrr_capable = 8;
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
@@ -629,7 +687,7 @@ void CMsgDisplayInfo::MergeFrom(const CMsgDisplayInfo& from) {
   supported_refresh_rates_.MergeFrom(from.supported_refresh_rates_);
   supported_frame_rates_.MergeFrom(from.supported_frame_rates_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_make(from._internal_make());
     }
@@ -641,6 +699,12 @@ void CMsgDisplayInfo::MergeFrom(const CMsgDisplayInfo& from) {
     }
     if (cached_has_bits & 0x00000008u) {
       is_external_ = from.is_external_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      is_hdr_capable_ = from.is_hdr_capable_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      is_vrr_capable_ = from.is_vrr_capable_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -673,7 +737,12 @@ void CMsgDisplayInfo::InternalSwap(CMsgDisplayInfo* other) {
   make_.Swap(&other->make_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   model_.Swap(&other->model_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   connector_name_.Swap(&other->connector_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(is_external_, other->is_external_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgDisplayInfo, is_vrr_capable_)
+      + sizeof(CMsgDisplayInfo::is_vrr_capable_)
+      - PROTOBUF_FIELD_OFFSET(CMsgDisplayInfo, is_external_)>(
+          reinterpret_cast<char*>(&is_external_),
+          reinterpret_cast<char*>(&other->is_external_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDisplayInfo::GetMetadata() const {

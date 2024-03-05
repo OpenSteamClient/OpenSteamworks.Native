@@ -684,6 +684,7 @@ class CContentServerDirectory_ServerInfo PROTOBUF_FINAL :
 
   enum : int {
     kAllowedAppIdsFieldNumber = 13,
+    kBypassProxiesOfTypeFieldNumber = 16,
     kTypeFieldNumber = 1,
     kHostFieldNumber = 8,
     kVhostFieldNumber = 9,
@@ -720,6 +721,30 @@ class CContentServerDirectory_ServerInfo PROTOBUF_FINAL :
       allowed_app_ids() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_allowed_app_ids();
+
+  // repeated string bypass_proxies_of_type = 16;
+  int bypass_proxies_of_type_size() const;
+  private:
+  int _internal_bypass_proxies_of_type_size() const;
+  public:
+  void clear_bypass_proxies_of_type();
+  const std::string& bypass_proxies_of_type(int index) const;
+  std::string* mutable_bypass_proxies_of_type(int index);
+  void set_bypass_proxies_of_type(int index, const std::string& value);
+  void set_bypass_proxies_of_type(int index, std::string&& value);
+  void set_bypass_proxies_of_type(int index, const char* value);
+  void set_bypass_proxies_of_type(int index, const char* value, size_t size);
+  std::string* add_bypass_proxies_of_type();
+  void add_bypass_proxies_of_type(const std::string& value);
+  void add_bypass_proxies_of_type(std::string&& value);
+  void add_bypass_proxies_of_type(const char* value);
+  void add_bypass_proxies_of_type(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& bypass_proxies_of_type() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_bypass_proxies_of_type();
+  private:
+  const std::string& _internal_bypass_proxies_of_type(int index) const;
+  std::string* _internal_add_bypass_proxies_of_type();
+  public:
 
   // optional string type = 1;
   bool has_type() const;
@@ -948,6 +973,7 @@ class CContentServerDirectory_ServerInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > allowed_app_ids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> bypass_proxies_of_type_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr host_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vhost_;
@@ -4571,6 +4597,80 @@ inline void CContentServerDirectory_ServerInfo::_internal_set_priority_class(::P
 inline void CContentServerDirectory_ServerInfo::set_priority_class(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_priority_class(value);
   // @@protoc_insertion_point(field_set:CContentServerDirectory_ServerInfo.priority_class)
+}
+
+// repeated string bypass_proxies_of_type = 16;
+inline int CContentServerDirectory_ServerInfo::_internal_bypass_proxies_of_type_size() const {
+  return bypass_proxies_of_type_.size();
+}
+inline int CContentServerDirectory_ServerInfo::bypass_proxies_of_type_size() const {
+  return _internal_bypass_proxies_of_type_size();
+}
+inline void CContentServerDirectory_ServerInfo::clear_bypass_proxies_of_type() {
+  bypass_proxies_of_type_.Clear();
+}
+inline std::string* CContentServerDirectory_ServerInfo::add_bypass_proxies_of_type() {
+  // @@protoc_insertion_point(field_add_mutable:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+  return _internal_add_bypass_proxies_of_type();
+}
+inline const std::string& CContentServerDirectory_ServerInfo::_internal_bypass_proxies_of_type(int index) const {
+  return bypass_proxies_of_type_.Get(index);
+}
+inline const std::string& CContentServerDirectory_ServerInfo::bypass_proxies_of_type(int index) const {
+  // @@protoc_insertion_point(field_get:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+  return _internal_bypass_proxies_of_type(index);
+}
+inline std::string* CContentServerDirectory_ServerInfo::mutable_bypass_proxies_of_type(int index) {
+  // @@protoc_insertion_point(field_mutable:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+  return bypass_proxies_of_type_.Mutable(index);
+}
+inline void CContentServerDirectory_ServerInfo::set_bypass_proxies_of_type(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+  bypass_proxies_of_type_.Mutable(index)->assign(value);
+}
+inline void CContentServerDirectory_ServerInfo::set_bypass_proxies_of_type(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+  bypass_proxies_of_type_.Mutable(index)->assign(std::move(value));
+}
+inline void CContentServerDirectory_ServerInfo::set_bypass_proxies_of_type(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  bypass_proxies_of_type_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+}
+inline void CContentServerDirectory_ServerInfo::set_bypass_proxies_of_type(int index, const char* value, size_t size) {
+  bypass_proxies_of_type_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+}
+inline std::string* CContentServerDirectory_ServerInfo::_internal_add_bypass_proxies_of_type() {
+  return bypass_proxies_of_type_.Add();
+}
+inline void CContentServerDirectory_ServerInfo::add_bypass_proxies_of_type(const std::string& value) {
+  bypass_proxies_of_type_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+}
+inline void CContentServerDirectory_ServerInfo::add_bypass_proxies_of_type(std::string&& value) {
+  bypass_proxies_of_type_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+}
+inline void CContentServerDirectory_ServerInfo::add_bypass_proxies_of_type(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  bypass_proxies_of_type_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+}
+inline void CContentServerDirectory_ServerInfo::add_bypass_proxies_of_type(const char* value, size_t size) {
+  bypass_proxies_of_type_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+CContentServerDirectory_ServerInfo::bypass_proxies_of_type() const {
+  // @@protoc_insertion_point(field_list:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+  return bypass_proxies_of_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+CContentServerDirectory_ServerInfo::mutable_bypass_proxies_of_type() {
+  // @@protoc_insertion_point(field_mutable_list:CContentServerDirectory_ServerInfo.bypass_proxies_of_type)
+  return &bypass_proxies_of_type_;
 }
 
 // -------------------------------------------------------------------

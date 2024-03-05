@@ -1421,7 +1421,8 @@ constexpr CMsgSetCookie::CMsgSetCookie(
   , host_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , expires_(0u)
   , secure_(false)
-  , httponly_(false){}
+  , httponly_(false)
+  , samesite_(0){}
 struct CMsgSetCookieDefaultTypeInternal {
   constexpr CMsgSetCookieDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -3552,6 +3553,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   PROTOBUF_FIELD_OFFSET(::CMsgSetCookie, expires_),
   PROTOBUF_FIELD_OFFSET(::CMsgSetCookie, secure_),
   PROTOBUF_FIELD_OFFSET(::CMsgSetCookie, httponly_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSetCookie, samesite_),
   0,
   1,
   2,
@@ -3559,6 +3561,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   4,
   5,
   6,
+  7,
   PROTOBUF_FIELD_OFFSET(::CMsgSetTargetFrameRate, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSetTargetFrameRate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4366,78 +4369,78 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 1114, 1121, sizeof(::CMsgJSDialogResponse)},
   { 1123, 1131, sizeof(::CMsgCanGoBackAndForward)},
   { 1134, 1142, sizeof(::CMsgOpenSteamURL)},
-  { 1145, 1157, sizeof(::CMsgSetCookie)},
-  { 1164, 1171, sizeof(::CMsgSetTargetFrameRate)},
-  { 1173, 1179, sizeof(::CMsgPauseRepaint)},
-  { 1180, 1186, sizeof(::CMsgFullRepaint)},
-  { 1187, 1193, sizeof(::CMsgRequestFullScreen)},
-  { 1194, 1200, sizeof(::CMsgExitFullScreen)},
-  { 1201, 1207, sizeof(::CMsgToggleFindInPageDialog)},
-  { 1208, 1214, sizeof(::CMsgSetPIDShuttingDown)},
-  { 1215, 1221, sizeof(::CMsgDisableBackgroundThrottling)},
-  { 1222, 1228, sizeof(::CMsgAckPIDShuttingDown)},
-  { 1229, 1236, sizeof(::CMsgGetCookiesForURL)},
-  { 1238, 1247, sizeof(::CCookie)},
-  { 1251, 1259, sizeof(::CMsgGetCookiesForURLResponse)},
-  { 1262, 1275, sizeof(::CMsgNodeHasFocus)},
-  { 1283, 1289, sizeof(::CMsgZoomToFocusedElement)},
-  { 1290, 1296, sizeof(::CMsgFocusedNodeText)},
-  { 1297, 1304, sizeof(::CMsgFocusedNodeTextResponse)},
-  { 1306, 1312, sizeof(::CMsgBuildID)},
-  { 1313, 1319, sizeof(::CMsgOpenDevTools)},
-  { 1320, 1326, sizeof(::CMsgCloseDevTools)},
-  { 1327, 1334, sizeof(::CMsgUnlockH264)},
-  { 1336, 1352, sizeof(::CMsgScreenInformationChanged)},
-  { 1363, 1369, sizeof(::CMsgClearAllCookies)},
-  { 1370, 1377, sizeof(::CMsgScreenDPI)},
-  { 1379, 1385, sizeof(::CMsgAckScreenDPI)},
-  { 1386, -1, sizeof(::CMsgAuthedSteamDomains)},
-  { 1392, 1398, sizeof(::CMsgSteamAuthNeeded)},
-  { 1399, 1405, sizeof(::CMsgSteamAuthCookiesSet)},
-  { 1406, 1414, sizeof(::CMsgJSRegisterMethod)},
-  { 1417, 1424, sizeof(::CMsgJSValue_JSObjectProperty)},
-  { 1426, 1442, sizeof(::CMsgJSValue)},
-  { 1453, 1462, sizeof(::CMsgJSMethodCall)},
-  { 1466, 1475, sizeof(::CMsgJSExecuteCallback)},
-  { 1479, 1487, sizeof(::CMsgJSReleaseCallback)},
-  { 1490, 1498, sizeof(::CMsgJSRaiseException)},
-  { 1501, 1509, sizeof(::CMsgLoadLocalization)},
-  { 1512, 1518, sizeof(::CMsgNotifyUserActivation)},
-  { 1519, 1525, sizeof(::CMsgSetNetFakeLocalSystemState)},
-  { 1526, 1533, sizeof(::CMsgSetGameOverlayTargetPIDs)},
-  { 1535, 1543, sizeof(::CMsgGameOverlayTargetTextureID)},
-  { 1546, 1556, sizeof(::CMsgDraggableRegionsChanged_DraggableRects)},
-  { 1561, 1568, sizeof(::CMsgDraggableRegionsChanged)},
-  { 1570, 1578, sizeof(::CMsgResizeGripChanged)},
-  { 1581, 1595, sizeof(::CMsgSetWindowPosition)},
-  { 1604, 1610, sizeof(::CMsgShowWindow)},
-  { 1611, 1617, sizeof(::CMsgHideWindow)},
-  { 1618, 1624, sizeof(::CMsgBringWindowToFront)},
-  { 1625, 1631, sizeof(::CMsgSetForegroundWindow)},
-  { 1632, 1638, sizeof(::CMsgMaximizeRestoreWindow)},
-  { 1639, 1645, sizeof(::CMsgMinimizeWindow)},
-  { 1646, 1653, sizeof(::CMsgShowBrowserContextMenu_ContextCommand)},
-  { 1655, 1671, sizeof(::CMsgShowBrowserContextMenu)},
-  { 1682, 1689, sizeof(::CMsgHandleContextMenuCommand)},
-  { 1691, 1705, sizeof(::CMsgTouchGesture)},
-  { 1714, 1721, sizeof(::CMsgSetTouchGesturesToCancel)},
-  { 1723, 1730, sizeof(::CMsgImeSetComposition)},
-  { 1732, 1739, sizeof(::CMsgImeCommitText)},
-  { 1741, 1747, sizeof(::CMsgImeCancelComposition)},
-  { 1748, 1756, sizeof(::CMsgImeCompositionRangeChanged)},
-  { 1759, 1767, sizeof(::CMsgInspectElement)},
-  { 1770, 1777, sizeof(::CMsgDisableF5)},
-  { 1779, 1786, sizeof(::CMsgStartDownload)},
-  { 1788, 1794, sizeof(::CMsgSetTopWindow)},
-  { 1795, 1804, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
-  { 1808, 1815, sizeof(::CMsgBlockedRequest)},
-  { 1817, 1824, sizeof(::CMsgBrowserFocusChanged)},
-  { 1826, 1833, sizeof(::CMsgSetProtocolBlockList)},
-  { 1835, 1842, sizeof(::CMsgSetForceDeviceScaleFactors)},
-  { 1844, 1850, sizeof(::CMsgSetUIMode)},
-  { 1851, 1857, sizeof(::CMsgPopupCreated)},
-  { 1858, 1865, sizeof(::CMsgSetVRKeyboardVisibility)},
-  { 1867, -1, sizeof(::CMsgRestartJSContext)},
+  { 1145, 1158, sizeof(::CMsgSetCookie)},
+  { 1166, 1173, sizeof(::CMsgSetTargetFrameRate)},
+  { 1175, 1181, sizeof(::CMsgPauseRepaint)},
+  { 1182, 1188, sizeof(::CMsgFullRepaint)},
+  { 1189, 1195, sizeof(::CMsgRequestFullScreen)},
+  { 1196, 1202, sizeof(::CMsgExitFullScreen)},
+  { 1203, 1209, sizeof(::CMsgToggleFindInPageDialog)},
+  { 1210, 1216, sizeof(::CMsgSetPIDShuttingDown)},
+  { 1217, 1223, sizeof(::CMsgDisableBackgroundThrottling)},
+  { 1224, 1230, sizeof(::CMsgAckPIDShuttingDown)},
+  { 1231, 1238, sizeof(::CMsgGetCookiesForURL)},
+  { 1240, 1249, sizeof(::CCookie)},
+  { 1253, 1261, sizeof(::CMsgGetCookiesForURLResponse)},
+  { 1264, 1277, sizeof(::CMsgNodeHasFocus)},
+  { 1285, 1291, sizeof(::CMsgZoomToFocusedElement)},
+  { 1292, 1298, sizeof(::CMsgFocusedNodeText)},
+  { 1299, 1306, sizeof(::CMsgFocusedNodeTextResponse)},
+  { 1308, 1314, sizeof(::CMsgBuildID)},
+  { 1315, 1321, sizeof(::CMsgOpenDevTools)},
+  { 1322, 1328, sizeof(::CMsgCloseDevTools)},
+  { 1329, 1336, sizeof(::CMsgUnlockH264)},
+  { 1338, 1354, sizeof(::CMsgScreenInformationChanged)},
+  { 1365, 1371, sizeof(::CMsgClearAllCookies)},
+  { 1372, 1379, sizeof(::CMsgScreenDPI)},
+  { 1381, 1387, sizeof(::CMsgAckScreenDPI)},
+  { 1388, -1, sizeof(::CMsgAuthedSteamDomains)},
+  { 1394, 1400, sizeof(::CMsgSteamAuthNeeded)},
+  { 1401, 1407, sizeof(::CMsgSteamAuthCookiesSet)},
+  { 1408, 1416, sizeof(::CMsgJSRegisterMethod)},
+  { 1419, 1426, sizeof(::CMsgJSValue_JSObjectProperty)},
+  { 1428, 1444, sizeof(::CMsgJSValue)},
+  { 1455, 1464, sizeof(::CMsgJSMethodCall)},
+  { 1468, 1477, sizeof(::CMsgJSExecuteCallback)},
+  { 1481, 1489, sizeof(::CMsgJSReleaseCallback)},
+  { 1492, 1500, sizeof(::CMsgJSRaiseException)},
+  { 1503, 1511, sizeof(::CMsgLoadLocalization)},
+  { 1514, 1520, sizeof(::CMsgNotifyUserActivation)},
+  { 1521, 1527, sizeof(::CMsgSetNetFakeLocalSystemState)},
+  { 1528, 1535, sizeof(::CMsgSetGameOverlayTargetPIDs)},
+  { 1537, 1545, sizeof(::CMsgGameOverlayTargetTextureID)},
+  { 1548, 1558, sizeof(::CMsgDraggableRegionsChanged_DraggableRects)},
+  { 1563, 1570, sizeof(::CMsgDraggableRegionsChanged)},
+  { 1572, 1580, sizeof(::CMsgResizeGripChanged)},
+  { 1583, 1597, sizeof(::CMsgSetWindowPosition)},
+  { 1606, 1612, sizeof(::CMsgShowWindow)},
+  { 1613, 1619, sizeof(::CMsgHideWindow)},
+  { 1620, 1626, sizeof(::CMsgBringWindowToFront)},
+  { 1627, 1633, sizeof(::CMsgSetForegroundWindow)},
+  { 1634, 1640, sizeof(::CMsgMaximizeRestoreWindow)},
+  { 1641, 1647, sizeof(::CMsgMinimizeWindow)},
+  { 1648, 1655, sizeof(::CMsgShowBrowserContextMenu_ContextCommand)},
+  { 1657, 1673, sizeof(::CMsgShowBrowserContextMenu)},
+  { 1684, 1691, sizeof(::CMsgHandleContextMenuCommand)},
+  { 1693, 1707, sizeof(::CMsgTouchGesture)},
+  { 1716, 1723, sizeof(::CMsgSetTouchGesturesToCancel)},
+  { 1725, 1732, sizeof(::CMsgImeSetComposition)},
+  { 1734, 1741, sizeof(::CMsgImeCommitText)},
+  { 1743, 1749, sizeof(::CMsgImeCancelComposition)},
+  { 1750, 1758, sizeof(::CMsgImeCompositionRangeChanged)},
+  { 1761, 1769, sizeof(::CMsgInspectElement)},
+  { 1772, 1779, sizeof(::CMsgDisableF5)},
+  { 1781, 1788, sizeof(::CMsgStartDownload)},
+  { 1790, 1796, sizeof(::CMsgSetTopWindow)},
+  { 1797, 1806, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
+  { 1810, 1817, sizeof(::CMsgBlockedRequest)},
+  { 1819, 1826, sizeof(::CMsgBrowserFocusChanged)},
+  { 1828, 1835, sizeof(::CMsgSetProtocolBlockList)},
+  { 1837, 1844, sizeof(::CMsgSetForceDeviceScaleFactors)},
+  { 1846, 1852, sizeof(::CMsgSetUIMode)},
+  { 1853, 1859, sizeof(::CMsgPopupCreated)},
+  { 1860, 1867, sizeof(::CMsgSetVRKeyboardVisibility)},
+  { 1869, -1, sizeof(::CMsgRestartJSContext)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -4835,162 +4838,163 @@ const char descriptor_table_protodef_htmlmessages_2eproto[] PROTOBUF_SECTION_VAR
   "\n\016browser_handle\030\001 \001(\r\022\017\n\007bgoback\030\002 \001(\010\022"
   "\022\n\nbgoforward\030\003 \001(\010\"I\n\020CMsgOpenSteamURL\022"
   "\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\020\n\010"
-  "referrer\030\003 \001(\t\"z\n\rCMsgSetCookie\022\013\n\003key\030\001"
-  " \001(\t\022\r\n\005value\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\014\n\004hos"
-  "t\030\004 \001(\t\022\017\n\007expires\030\005 \001(\r\022\016\n\006secure\030\006 \001(\010"
-  "\022\020\n\010httponly\030\007 \001(\010\"J\n\026CMsgSetTargetFrame"
-  "Rate\022\026\n\016browser_handle\030\001 \001(\r\022\030\n\020nTargetF"
-  "rameRate\030\002 \001(\r\"*\n\020CMsgPauseRepaint\022\026\n\016br"
-  "owser_handle\030\001 \001(\r\")\n\017CMsgFullRepaint\022\026\n"
-  "\016browser_handle\030\001 \001(\r\"/\n\025CMsgRequestFull"
-  "Screen\022\026\n\016browser_handle\030\001 \001(\r\",\n\022CMsgEx"
-  "itFullScreen\022\026\n\016browser_handle\030\001 \001(\r\"4\n\032"
-  "CMsgToggleFindInPageDialog\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\"0\n\026CMsgSetPIDShuttingDown\022\026\n\016"
-  "browser_handle\030\001 \001(\r\"9\n\037CMsgDisableBackg"
-  "roundThrottling\022\026\n\016browser_handle\030\001 \001(\r\""
-  "0\n\026CMsgAckPIDShuttingDown\022\026\n\016browser_han"
-  "dle\030\001 \001(\r\";\n\024CMsgGetCookiesForURL\022\026\n\016bro"
-  "wser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"D\n\007CCooki"
-  "e\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\022\016\n\006domain"
-  "\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\"^\n\034CMsgGetCookiesFo"
-  "rURLResponse\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003"
-  "url\030\002 \001(\t\022\031\n\007cookies\030\003 \003(\0132\010.CCookie\"\300\001\n"
-  "\020CMsgNodeHasFocus\022\026\n\016browser_handle\030\001 \001("
-  "\r\022\016\n\006bInput\030\002 \001(\010\022\014\n\004name\030\003 \001(\t\022\026\n\016eleme"
-  "nttagname\030\004 \001(\t\022\030\n\020searchbuttontext\030\005 \001("
-  "\t\022\032\n\022bHasMultipleInputs\030\006 \001(\010\022\022\n\ninput_t"
-  "ype\030\007 \001(\t\022\024\n\014bIsMainFrame\030\010 \001(\010\"2\n\030CMsgZ"
-  "oomToFocusedElement\022\026\n\016browser_handle\030\001 "
-  "\001(\r\"-\n\023CMsgFocusedNodeText\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\"D\n\033CMsgFocusedNodeTextRespons"
-  "e\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005value\030\002 \001(\t"
-  "\"\037\n\013CMsgBuildID\022\020\n\010build_id\030\001 \001(\004\"*\n\020CMs"
-  "gOpenDevTools\022\026\n\016browser_handle\030\001 \001(\r\"+\n"
-  "\021CMsgCloseDevTools\022\026\n\016browser_handle\030\001 \001"
-  "(\r\";\n\016CMsgUnlockH264\022\026\n\016browser_handle\030\001"
-  " \001(\r\022\021\n\tunloccode\030\002 \001(\t\"\227\002\n\034CMsgScreenIn"
-  "formationChanged\022\026\n\016browser_handle\030\001 \001(\r"
-  "\022\026\n\016override_width\030\002 \001(\r\022\027\n\017override_hei"
-  "ght\030\003 \001(\r\022\024\n\014monitor_left\030\004 \001(\r\022\023\n\013monit"
-  "or_top\030\005 \001(\r\022\025\n\rmonitor_right\030\006 \001(\r\022\026\n\016m"
-  "onitor_bottom\030\007 \001(\r\022\023\n\013usable_left\030\010 \001(\r"
-  "\022\022\n\nusable_top\030\t \001(\r\022\024\n\014usable_right\030\n \001"
-  "(\r\022\025\n\rusable_bottom\030\013 \001(\r\"-\n\023CMsgClearAl"
-  "lCookies\022\026\n\016browser_handle\030\001 \001(\r\"<\n\rCMsg"
-  "ScreenDPI\022\026\n\016browser_handle\030\001 \001(\r\022\023\n\013dpi"
-  "_scaling\030\002 \001(\002\"*\n\020CMsgAckScreenDPI\022\026\n\016br"
-  "owser_handle\030\001 \001(\r\")\n\026CMsgAuthedSteamDom"
-  "ains\022\017\n\007domains\030\001 \003(\t\"%\n\023CMsgSteamAuthNe"
-  "eded\022\016\n\006filler\030\001 \001(\010\"*\n\027CMsgSteamAuthCoo"
-  "kiesSet\022\017\n\007success\030\001 \001(\010\"\210\001\n\024CMsgJSRegis"
-  "terMethod\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004nam"
-  "e\030\002 \001(\t\022J\n\013method_type\030\003 \001(\0162\026.EJSRegist"
-  "erMethodType:\035EJSRegisterMethodType_Inva"
-  "lid\"\344\002\n\013CMsgJSValue\022\022\n\nbool_value\030\001 \001(\010\022"
-  "\021\n\tint_value\030\002 \001(\005\022\022\n\nuint_value\030\003 \001(\r\022\024"
-  "\n\014double_value\030\004 \001(\001\022\024\n\014string_value\030\005 \001"
-  "(\t\022\027\n\017function_handle\030\006 \001(\004\022\023\n\013bytes_val"
-  "ue\030\014 \001(\014\022\020\n\010is_array\030\010 \001(\010\022\"\n\014array_valu"
-  "es\030\t \003(\0132\014.CMsgJSValue\022\021\n\tis_object\030\n \001("
-  "\010\0228\n\021object_properties\030\013 \003(\0132\035.CMsgJSVal"
-  "ue.JSObjectProperty\032=\n\020JSObjectProperty\022"
-  "\014\n\004name\030\001 \001(\t\022\033\n\005value\030\002 \001(\0132\014.CMsgJSVal"
-  "ue\"x\n\020CMsgJSMethodCall\022\026\n\016browser_handle"
-  "\030\001 \001(\r\022\035\n\025owning_browser_handle\030\002 \001(\r\022\014\n"
-  "\004name\030\003 \001(\t\022\037\n\targuments\030\004 \003(\0132\014.CMsgJSV"
-  "alue\"\210\001\n\025CMsgJSExecuteCallback\022\026\n\016browse"
-  "r_handle\030\001 \001(\r\022\035\n\025owning_browser_handle\030"
-  "\002 \001(\r\022\027\n\017function_handle\030\003 \001(\004\022\037\n\targume"
-  "nts\030\004 \003(\0132\014.CMsgJSValue\"g\n\025CMsgJSRelease"
-  "Callback\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025owni"
-  "ng_browser_handle\030\002 \001(\r\022\027\n\017function_hand"
-  "le\030\003 \001(\004\"`\n\024CMsgJSRaiseException\022\026\n\016brow"
-  "ser_handle\030\001 \001(\r\022\035\n\025owning_browser_handl"
-  "e\030\002 \001(\r\022\021\n\texception\030\003 \001(\t\"[\n\024CMsgLoadLo"
-  "calization\022\026\n\016browser_handle\030\001 \001(\r\022\031\n\021lo"
-  "calization_path\030\002 \001(\t\022\020\n\010language\030\003 \001(\t\""
-  "2\n\030CMsgNotifyUserActivation\022\026\n\016browser_h"
-  "andle\030\001 \001(\r\"/\n\036CMsgSetNetFakeLocalSystem"
-  "State\022\r\n\005state\030\001 \001(\r\"J\n\034CMsgSetGameOverl"
-  "ayTargetPIDs\022\026\n\016browser_handle\030\001 \001(\r\022\022\n\n"
-  "target_pid\030\002 \003(\r\"d\n\036CMsgGameOverlayTarge"
-  "tTextureID\022\026\n\016browser_handle\030\001 \001(\r\022\022\n\nta"
-  "rget_pid\030\002 \001(\r\022\026\n\016texture_handle\030\003 \001(\r\"\313"
-  "\001\n\033CMsgDraggableRegionsChanged\022\026\n\016browse"
-  "r_handle\030\001 \001(\r\022:\n\005rects\030\002 \003(\0132+.CMsgDrag"
-  "gableRegionsChanged.DraggableRects\032X\n\016Dr"
-  "aggableRects\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\r\n\005wi"
-  "dth\030\003 \001(\005\022\016\n\006height\030\004 \001(\005\022\021\n\tdraggable\030\005"
-  " \001(\010\"N\n\025CMsgResizeGripChanged\022\026\n\016browser"
-  "_handle\030\001 \001(\r\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003"
-  " \001(\005\"\262\001\n\025CMsgSetWindowPosition\022\026\n\016browse"
-  "r_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005"
-  "width\030\004 \001(\001\022\016\n\006height\030\005 \001(\001\022\021\n\tmin_width"
-  "\030\006 \001(\001\022\022\n\nmin_height\030\007 \001(\001\022\021\n\tmax_width\030"
-  "\010 \001(\001\022\022\n\nmax_height\030\t \001(\001\"(\n\016CMsgShowWin"
-  "dow\022\026\n\016browser_handle\030\001 \001(\r\"(\n\016CMsgHideW"
-  "indow\022\026\n\016browser_handle\030\001 \001(\r\"0\n\026CMsgBri"
-  "ngWindowToFront\022\026\n\016browser_handle\030\001 \001(\r\""
-  "1\n\027CMsgSetForegroundWindow\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\"3\n\031CMsgMaximizeRestoreWindow\022"
-  "\026\n\016browser_handle\030\001 \001(\r\",\n\022CMsgMinimizeW"
-  "indow\022\026\n\016browser_handle\030\001 \001(\r\"\344\002\n\032CMsgSh"
-  "owBrowserContextMenu\022\026\n\016browser_handle\030\001"
-  " \001(\r\022C\n\017custom_commands\030\002 \003(\0132*.CMsgShow"
-  "BrowserContextMenu.ContextCommand\022\022\n\ntyp"
-  "e_flags\030\003 \001(\r\022\020\n\010page_url\030\004 \001(\t\022\017\n\007coord"
-  "_x\030\005 \001(\005\022\017\n\007coord_y\030\006 \001(\005\022\016\n\006linurl\030\007 \001("
-  "\t\022\031\n\021unfiltered_linurl\030\010 \001(\t\022\026\n\016selectio"
-  "n_text\030\t \001(\t\022\027\n\017misspelled_word\030\n \001(\t\022\030\n"
-  "\020edit_state_flags\030\013 \001(\r\032+\n\016ContextComman"
-  "d\022\n\n\002id\030\001 \001(\005\022\r\n\005label\030\002 \001(\t\"J\n\034CMsgHand"
-  "leContextMenuCommand\022\026\n\016browser_handle\030\001"
-  " \001(\r\022\022\n\ncommand_id\030\002 \001(\005\"\244\001\n\020CMsgTouchGe"
-  "sture\022\026\n\016browser_handle\030\001 \001(\r\022\n\n\002id\030\002 \001("
-  "\005\022\017\n\007gesture\030\003 \001(\r\022\t\n\001x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001"
-  "\022\r\n\005width\030\006 \001(\001\022\016\n\006height\030\007 \001(\001\022\021\n\ttap_c"
-  "ount\030\010 \001(\r\022\023\n\013pinch_scale\030\t \001(\001\"H\n\034CMsgS"
-  "etTouchGesturesToCancel\022\026\n\016browser_handl"
-  "e\030\001 \001(\r\022\020\n\010gestures\030\002 \003(\r\"=\n\025CMsgImeSetC"
-  "omposition\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004te"
-  "xt\030\002 \001(\t\"9\n\021CMsgImeCommitText\022\026\n\016browser"
-  "_handle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\"2\n\030CMsgImeCa"
-  "ncelComposition\022\026\n\016browser_handle\030\001 \001(\r\""
-  "N\n\036CMsgImeCompositionRangeChanged\022\026\n\016bro"
-  "wser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\""
-  "B\n\022CMsgInspectElement\022\026\n\016browser_handle\030"
-  "\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"8\n\rCMsgDisab"
-  "leF5\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007disable\030"
-  "\002 \001(\010\"8\n\021CMsgStartDownload\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"*\n\020CMsgSetTopWin"
-  "dow\022\026\n\016browser_handle\030\001 \001(\r\"z\n)CMsgBrows"
-  "erViewPostMessageToParentRequest\022\026\n\016brow"
-  "ser_handle\030\001 \001(\r\022\017\n\007message\030\002 \001(\t\022\014\n\004arg"
-  "s\030\003 \001(\t\022\026\n\016requesting_url\030\004 \001(\t\"9\n\022CMsgB"
-  "lockedRequest\022\026\n\016browser_handle\030\001 \001(\r\022\013\n"
-  "\003url\030\002 \001(\t\"B\n\027CMsgBrowserFocusChanged\022\026\n"
-  "\016browser_handle\030\001 \001(\r\022\017\n\007focused\030\002 \001(\010\"@"
-  "\n\030CMsgSetProtocolBlockList\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\014\n\004list\030\002 \001(\t\"J\n\036CMsgSetForce"
-  "DeviceScaleFactors\022\021\n\tdpi_scale\030\001 \001(\001\022\025\n"
-  "\rbrowser_scale\030\002 \001(\001\" \n\rCMsgSetUIMode\022\017\n"
-  "\007ui_mode\030\001 \001(\005\"*\n\020CMsgPopupCreated\022\026\n\016br"
-  "owser_handle\030\001 \001(\r\"F\n\033CMsgSetVRKeyboardV"
-  "isibility\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007vis"
-  "ible\030\002 \001(\010\"\026\n\024CMsgRestartJSContext*\245\001\n\025E"
-  "JSRegisterMethodType\022!\n\035EJSRegisterMetho"
-  "dType_Invalid\020\000\022\"\n\036EJSRegisterMethodType"
-  "_Function\020\001\022\"\n\036EJSRegisterMethodType_Cal"
-  "lback\020\002\022!\n\035EJSRegisterMethodType_Promise"
-  "\020\003B\037H\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
+  "referrer\030\003 \001(\t\"\214\001\n\rCMsgSetCookie\022\013\n\003key\030"
+  "\001 \001(\t\022\r\n\005value\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\014\n\004ho"
+  "st\030\004 \001(\t\022\017\n\007expires\030\005 \001(\r\022\016\n\006secure\030\006 \001("
+  "\010\022\020\n\010httponly\030\007 \001(\010\022\020\n\010samesite\030\010 \001(\005\"J\n"
+  "\026CMsgSetTargetFrameRate\022\026\n\016browser_handl"
+  "e\030\001 \001(\r\022\030\n\020nTargetFrameRate\030\002 \001(\r\"*\n\020CMs"
+  "gPauseRepaint\022\026\n\016browser_handle\030\001 \001(\r\")\n"
+  "\017CMsgFullRepaint\022\026\n\016browser_handle\030\001 \001(\r"
+  "\"/\n\025CMsgRequestFullScreen\022\026\n\016browser_han"
+  "dle\030\001 \001(\r\",\n\022CMsgExitFullScreen\022\026\n\016brows"
+  "er_handle\030\001 \001(\r\"4\n\032CMsgToggleFindInPageD"
+  "ialog\022\026\n\016browser_handle\030\001 \001(\r\"0\n\026CMsgSet"
+  "PIDShuttingDown\022\026\n\016browser_handle\030\001 \001(\r\""
+  "9\n\037CMsgDisableBackgroundThrottling\022\026\n\016br"
+  "owser_handle\030\001 \001(\r\"0\n\026CMsgAckPIDShutting"
+  "Down\022\026\n\016browser_handle\030\001 \001(\r\";\n\024CMsgGetC"
+  "ookiesForURL\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003"
+  "url\030\002 \001(\t\"D\n\007CCookie\022\014\n\004name\030\001 \001(\t\022\r\n\005va"
+  "lue\030\002 \001(\t\022\016\n\006domain\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\""
+  "^\n\034CMsgGetCookiesForURLResponse\022\026\n\016brows"
+  "er_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\031\n\007cookies\030"
+  "\003 \003(\0132\010.CCookie\"\300\001\n\020CMsgNodeHasFocus\022\026\n\016"
+  "browser_handle\030\001 \001(\r\022\016\n\006bInput\030\002 \001(\010\022\014\n\004"
+  "name\030\003 \001(\t\022\026\n\016elementtagname\030\004 \001(\t\022\030\n\020se"
+  "archbuttontext\030\005 \001(\t\022\032\n\022bHasMultipleInpu"
+  "ts\030\006 \001(\010\022\022\n\ninput_type\030\007 \001(\t\022\024\n\014bIsMainF"
+  "rame\030\010 \001(\010\"2\n\030CMsgZoomToFocusedElement\022\026"
+  "\n\016browser_handle\030\001 \001(\r\"-\n\023CMsgFocusedNod"
+  "eText\022\026\n\016browser_handle\030\001 \001(\r\"D\n\033CMsgFoc"
+  "usedNodeTextResponse\022\026\n\016browser_handle\030\001"
+  " \001(\r\022\r\n\005value\030\002 \001(\t\"\037\n\013CMsgBuildID\022\020\n\010bu"
+  "ild_id\030\001 \001(\004\"*\n\020CMsgOpenDevTools\022\026\n\016brow"
+  "ser_handle\030\001 \001(\r\"+\n\021CMsgCloseDevTools\022\026\n"
+  "\016browser_handle\030\001 \001(\r\";\n\016CMsgUnlockH264\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022\021\n\tunloccode\030\002 \001"
+  "(\t\"\227\002\n\034CMsgScreenInformationChanged\022\026\n\016b"
+  "rowser_handle\030\001 \001(\r\022\026\n\016override_width\030\002 "
+  "\001(\r\022\027\n\017override_height\030\003 \001(\r\022\024\n\014monitor_"
+  "left\030\004 \001(\r\022\023\n\013monitor_top\030\005 \001(\r\022\025\n\rmonit"
+  "or_right\030\006 \001(\r\022\026\n\016monitor_bottom\030\007 \001(\r\022\023"
+  "\n\013usable_left\030\010 \001(\r\022\022\n\nusable_top\030\t \001(\r\022"
+  "\024\n\014usable_right\030\n \001(\r\022\025\n\rusable_bottom\030\013"
+  " \001(\r\"-\n\023CMsgClearAllCookies\022\026\n\016browser_h"
+  "andle\030\001 \001(\r\"<\n\rCMsgScreenDPI\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\023\n\013dpi_scaling\030\002 \001(\002\"*\n\020CMs"
+  "gAckScreenDPI\022\026\n\016browser_handle\030\001 \001(\r\")\n"
+  "\026CMsgAuthedSteamDomains\022\017\n\007domains\030\001 \003(\t"
+  "\"%\n\023CMsgSteamAuthNeeded\022\016\n\006filler\030\001 \001(\010\""
+  "*\n\027CMsgSteamAuthCookiesSet\022\017\n\007success\030\001 "
+  "\001(\010\"\210\001\n\024CMsgJSRegisterMethod\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022J\n\013method_typ"
+  "e\030\003 \001(\0162\026.EJSRegisterMethodType:\035EJSRegi"
+  "sterMethodType_Invalid\"\344\002\n\013CMsgJSValue\022\022"
+  "\n\nbool_value\030\001 \001(\010\022\021\n\tint_value\030\002 \001(\005\022\022\n"
+  "\nuint_value\030\003 \001(\r\022\024\n\014double_value\030\004 \001(\001\022"
+  "\024\n\014string_value\030\005 \001(\t\022\027\n\017function_handle"
+  "\030\006 \001(\004\022\023\n\013bytes_value\030\014 \001(\014\022\020\n\010is_array\030"
+  "\010 \001(\010\022\"\n\014array_values\030\t \003(\0132\014.CMsgJSValu"
+  "e\022\021\n\tis_object\030\n \001(\010\0228\n\021object_propertie"
+  "s\030\013 \003(\0132\035.CMsgJSValue.JSObjectProperty\032="
+  "\n\020JSObjectProperty\022\014\n\004name\030\001 \001(\t\022\033\n\005valu"
+  "e\030\002 \001(\0132\014.CMsgJSValue\"x\n\020CMsgJSMethodCal"
+  "l\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025owning_brow"
+  "ser_handle\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\037\n\targume"
+  "nts\030\004 \003(\0132\014.CMsgJSValue\"\210\001\n\025CMsgJSExecut"
+  "eCallback\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025own"
+  "ing_browser_handle\030\002 \001(\r\022\027\n\017function_han"
+  "dle\030\003 \001(\004\022\037\n\targuments\030\004 \003(\0132\014.CMsgJSVal"
+  "ue\"g\n\025CMsgJSReleaseCallback\022\026\n\016browser_h"
+  "andle\030\001 \001(\r\022\035\n\025owning_browser_handle\030\002 \001"
+  "(\r\022\027\n\017function_handle\030\003 \001(\004\"`\n\024CMsgJSRai"
+  "seException\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025o"
+  "wning_browser_handle\030\002 \001(\r\022\021\n\texception\030"
+  "\003 \001(\t\"[\n\024CMsgLoadLocalization\022\026\n\016browser"
+  "_handle\030\001 \001(\r\022\031\n\021localization_path\030\002 \001(\t"
+  "\022\020\n\010language\030\003 \001(\t\"2\n\030CMsgNotifyUserActi"
+  "vation\022\026\n\016browser_handle\030\001 \001(\r\"/\n\036CMsgSe"
+  "tNetFakeLocalSystemState\022\r\n\005state\030\001 \001(\r\""
+  "J\n\034CMsgSetGameOverlayTargetPIDs\022\026\n\016brows"
+  "er_handle\030\001 \001(\r\022\022\n\ntarget_pid\030\002 \003(\r\"d\n\036C"
+  "MsgGameOverlayTargetTextureID\022\026\n\016browser"
+  "_handle\030\001 \001(\r\022\022\n\ntarget_pid\030\002 \001(\r\022\026\n\016tex"
+  "ture_handle\030\003 \001(\r\"\313\001\n\033CMsgDraggableRegio"
+  "nsChanged\022\026\n\016browser_handle\030\001 \001(\r\022:\n\005rec"
+  "ts\030\002 \003(\0132+.CMsgDraggableRegionsChanged.D"
+  "raggableRects\032X\n\016DraggableRects\022\t\n\001x\030\001 \001"
+  "(\005\022\t\n\001y\030\002 \001(\005\022\r\n\005width\030\003 \001(\005\022\016\n\006height\030\004"
+  " \001(\005\022\021\n\tdraggable\030\005 \001(\010\"N\n\025CMsgResizeGri"
+  "pChanged\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005widt"
+  "h\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\"\262\001\n\025CMsgSetWindo"
+  "wPosition\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002"
+  " \001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005width\030\004 \001(\001\022\016\n\006height"
+  "\030\005 \001(\001\022\021\n\tmin_width\030\006 \001(\001\022\022\n\nmin_height\030"
+  "\007 \001(\001\022\021\n\tmax_width\030\010 \001(\001\022\022\n\nmax_height\030\t"
+  " \001(\001\"(\n\016CMsgShowWindow\022\026\n\016browser_handle"
+  "\030\001 \001(\r\"(\n\016CMsgHideWindow\022\026\n\016browser_hand"
+  "le\030\001 \001(\r\"0\n\026CMsgBringWindowToFront\022\026\n\016br"
+  "owser_handle\030\001 \001(\r\"1\n\027CMsgSetForegroundW"
+  "indow\022\026\n\016browser_handle\030\001 \001(\r\"3\n\031CMsgMax"
+  "imizeRestoreWindow\022\026\n\016browser_handle\030\001 \001"
+  "(\r\",\n\022CMsgMinimizeWindow\022\026\n\016browser_hand"
+  "le\030\001 \001(\r\"\344\002\n\032CMsgShowBrowserContextMenu\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022C\n\017custom_comman"
+  "ds\030\002 \003(\0132*.CMsgShowBrowserContextMenu.Co"
+  "ntextCommand\022\022\n\ntype_flags\030\003 \001(\r\022\020\n\010page"
+  "_url\030\004 \001(\t\022\017\n\007coord_x\030\005 \001(\005\022\017\n\007coord_y\030\006"
+  " \001(\005\022\016\n\006linurl\030\007 \001(\t\022\031\n\021unfiltered_linur"
+  "l\030\010 \001(\t\022\026\n\016selection_text\030\t \001(\t\022\027\n\017missp"
+  "elled_word\030\n \001(\t\022\030\n\020edit_state_flags\030\013 \001"
+  "(\r\032+\n\016ContextCommand\022\n\n\002id\030\001 \001(\005\022\r\n\005labe"
+  "l\030\002 \001(\t\"J\n\034CMsgHandleContextMenuCommand\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022\022\n\ncommand_id\030\002 "
+  "\001(\005\"\244\001\n\020CMsgTouchGesture\022\026\n\016browser_hand"
+  "le\030\001 \001(\r\022\n\n\002id\030\002 \001(\005\022\017\n\007gesture\030\003 \001(\r\022\t\n"
+  "\001x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\r\n\005width\030\006 \001(\001\022\016\n\006he"
+  "ight\030\007 \001(\001\022\021\n\ttap_count\030\010 \001(\r\022\023\n\013pinch_s"
+  "cale\030\t \001(\001\"H\n\034CMsgSetTouchGesturesToCanc"
+  "el\022\026\n\016browser_handle\030\001 \001(\r\022\020\n\010gestures\030\002"
+  " \003(\r\"=\n\025CMsgImeSetComposition\022\026\n\016browser"
+  "_handle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\"9\n\021CMsgImeCo"
+  "mmitText\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004text"
+  "\030\002 \001(\t\"2\n\030CMsgImeCancelComposition\022\026\n\016br"
+  "owser_handle\030\001 \001(\r\"N\n\036CMsgImeComposition"
+  "RangeChanged\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001"
+  "x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"B\n\022CMsgInspectElement"
+  "\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y"
+  "\030\003 \001(\r\"8\n\rCMsgDisableF5\022\026\n\016browser_handl"
+  "e\030\001 \001(\r\022\017\n\007disable\030\002 \001(\010\"8\n\021CMsgStartDow"
+  "nload\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001"
+  "(\t\"*\n\020CMsgSetTopWindow\022\026\n\016browser_handle"
+  "\030\001 \001(\r\"z\n)CMsgBrowserViewPostMessageToPa"
+  "rentRequest\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007m"
+  "essage\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016requesting"
+  "_url\030\004 \001(\t\"9\n\022CMsgBlockedRequest\022\026\n\016brow"
+  "ser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"B\n\027CMsgBro"
+  "wserFocusChanged\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\017\n\007focused\030\002 \001(\010\"@\n\030CMsgSetProtocolBloc"
+  "kList\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 "
+  "\001(\t\"J\n\036CMsgSetForceDeviceScaleFactors\022\021\n"
+  "\tdpi_scale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\""
+  " \n\rCMsgSetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"*\n\020CMs"
+  "gPopupCreated\022\026\n\016browser_handle\030\001 \001(\r\"F\n"
+  "\033CMsgSetVRKeyboardVisibility\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n\024CMsgRes"
+  "tartJSContext*\245\001\n\025EJSRegisterMethodType\022"
+  "!\n\035EJSRegisterMethodType_Invalid\020\000\022\"\n\036EJ"
+  "SRegisterMethodType_Function\020\001\022\"\n\036EJSReg"
+  "isterMethodType_Callback\020\002\022!\n\035EJSRegiste"
+  "rMethodType_Promise\020\003B\037H\001\200\001\000\252\002\027OpenSteam"
+  "works.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_htmlmessages_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_htmlmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_htmlmessages_2eproto = {
-  false, false, 14835, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
+  false, false, 14854, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
   &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 169,
   schemas, file_default_instances, TableStruct_htmlmessages_2eproto::offsets,
   file_level_metadata_htmlmessages_2eproto, file_level_enum_descriptors_htmlmessages_2eproto, file_level_service_descriptors_htmlmessages_2eproto,
@@ -33322,6 +33326,9 @@ class CMsgSetCookie::_Internal {
   static void set_has_httponly(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
+  static void set_has_samesite(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
 };
 
 CMsgSetCookie::CMsgSetCookie(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -33355,8 +33362,8 @@ CMsgSetCookie::CMsgSetCookie(const CMsgSetCookie& from)
       GetArena());
   }
   ::memcpy(&expires_, &from.expires_,
-    static_cast<size_t>(reinterpret_cast<char*>(&httponly_) -
-    reinterpret_cast<char*>(&expires_)) + sizeof(httponly_));
+    static_cast<size_t>(reinterpret_cast<char*>(&samesite_) -
+    reinterpret_cast<char*>(&expires_)) + sizeof(samesite_));
   // @@protoc_insertion_point(copy_constructor:CMsgSetCookie)
 }
 
@@ -33367,8 +33374,8 @@ path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlready
 host_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&expires_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&httponly_) -
-    reinterpret_cast<char*>(&expires_)) + sizeof(httponly_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&samesite_) -
+    reinterpret_cast<char*>(&expires_)) + sizeof(samesite_));
 }
 
 CMsgSetCookie::~CMsgSetCookie() {
@@ -33416,10 +33423,10 @@ void CMsgSetCookie::Clear() {
       host_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x00000070u) {
+  if (cached_has_bits & 0x000000f0u) {
     ::memset(&expires_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&httponly_) -
-        reinterpret_cast<char*>(&expires_)) + sizeof(httponly_));
+        reinterpret_cast<char*>(&samesite_) -
+        reinterpret_cast<char*>(&expires_)) + sizeof(samesite_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -33498,6 +33505,14 @@ const char* CMsgSetCookie::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_httponly(&has_bits);
           httponly_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 samesite = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          _Internal::set_has_samesite(&has_bits);
+          samesite_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -33589,6 +33604,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_httponly(), target);
   }
 
+  // optional int32 samesite = 8;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_samesite(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -33606,7 +33627,7 @@ size_t CMsgSetCookie::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     // optional string key = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -33652,6 +33673,13 @@ size_t CMsgSetCookie::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
+    // optional int32 samesite = 8;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_samesite());
+    }
+
   }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
@@ -33685,7 +33713,7 @@ void CMsgSetCookie::MergeFrom(const CMsgSetCookie& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_key(from._internal_key());
     }
@@ -33706,6 +33734,9 @@ void CMsgSetCookie::MergeFrom(const CMsgSetCookie& from) {
     }
     if (cached_has_bits & 0x00000040u) {
       httponly_ = from.httponly_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      samesite_ = from.samesite_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -33738,8 +33769,8 @@ void CMsgSetCookie::InternalSwap(CMsgSetCookie* other) {
   path_.Swap(&other->path_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   host_.Swap(&other->host_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgSetCookie, httponly_)
-      + sizeof(CMsgSetCookie::httponly_)
+      PROTOBUF_FIELD_OFFSET(CMsgSetCookie, samesite_)
+      + sizeof(CMsgSetCookie::samesite_)
       - PROTOBUF_FIELD_OFFSET(CMsgSetCookie, expires_)>(
           reinterpret_cast<char*>(&expires_),
           reinterpret_cast<char*>(&other->expires_));

@@ -835,7 +835,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSystemDisplayModeDefaultTyp
 constexpr CMsgSystemDisplay::CMsgSystemDisplay(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : modes_()
-  , compatibility_params_()
+  , supported_refresh_rates_()
   , name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , description_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , id_(0)
@@ -851,8 +851,7 @@ constexpr CMsgSystemDisplay::CMsgSystemDisplay(
   , is_vrr_capable_(false)
   , is_vrr_enabled_(false)
   , is_hdr_capable_(false)
-  , is_hdr_enabled_(false)
-  , app_wants_hdr_(false){}
+  , is_hdr_enabled_(false){}
 struct CMsgSystemDisplayDefaultTypeInternal {
   constexpr CMsgSystemDisplayDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -926,6 +925,7 @@ constexpr CMsgSystemManagerSettings::CMsgSystemManagerSettings(
   , als_lux_alternate_(0)
   , display_colortemp_(0)
   , display_colortemp_default_(0)
+  , display_brightness_overdrive_hdr_split_(0)
   , display_colortemp_enabled_(false)
   , display_colorgamut_labelset_(0)
 {}
@@ -1988,8 +1988,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   PROTOBUF_FIELD_OFFSET(::CMsgSystemDisplay, is_vrr_enabled_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemDisplay, is_hdr_capable_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemDisplay, is_hdr_enabled_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSystemDisplay, compatibility_params_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSystemDisplay, app_wants_hdr_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemDisplay, supported_refresh_rates_),
   2,
   0,
   1,
@@ -2008,7 +2007,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   14,
   15,
   ~0u,
-  16,
   PROTOBUF_FIELD_OFFSET(::CMsgSystemDisplayManagerState, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemDisplayManagerState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2069,6 +2067,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   PROTOBUF_FIELD_OFFSET(::CMsgSystemManagerSettings, display_colortemp_default_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemManagerSettings, display_colortemp_enabled_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemManagerSettings, display_colorgamut_labelset_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemManagerSettings, display_brightness_overdrive_hdr_split_),
   0,
   1,
   2,
@@ -2102,8 +2101,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   28,
   31,
   32,
-  33,
   34,
+  35,
+  33,
   PROTOBUF_FIELD_OFFSET(::CMsgSelectOSBranchParams, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSelectOSBranchParams, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2346,10 +2346,10 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 745, 753, sizeof(::CMsgSystemAudioManagerState)},
   { 756, 762, sizeof(::CMsgSystemAudioManagerUpdateSomething)},
   { 763, 772, sizeof(::CMsgSystemDisplayMode)},
-  { 776, 800, sizeof(::CMsgSystemDisplay)},
-  { 819, 827, sizeof(::CMsgSystemDisplayManagerState)},
-  { 830, 837, sizeof(::CMsgSystemDisplayManagerSetMode)},
-  { 839, 879, sizeof(::CMsgSystemManagerSettings)},
+  { 776, 799, sizeof(::CMsgSystemDisplay)},
+  { 817, 825, sizeof(::CMsgSystemDisplayManagerState)},
+  { 828, 835, sizeof(::CMsgSystemDisplayManagerSetMode)},
+  { 837, 878, sizeof(::CMsgSystemManagerSettings)},
   { 914, 921, sizeof(::CMsgSelectOSBranchParams)},
   { 923, 931, sizeof(::CMsgSystemUpdateProgress)},
   { 934, 945, sizeof(::CMsgSystemUpdateCheckResult)},
@@ -2710,7 +2710,7 @@ const char descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto[] 
   "AudioManagerUpdateSomething\022\017\n\007counter\030\001"
   " \001(\005\"V\n\025CMsgSystemDisplayMode\022\n\n\002id\030\001 \001("
   "\005\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\022\n\nrefr"
-  "esh_hz\030\004 \001(\005\"\310\003\n\021CMsgSystemDisplay\022\n\n\002id"
+  "esh_hz\030\004 \001(\005\"\264\003\n\021CMsgSystemDisplay\022\n\n\002id"
   "\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001("
   "\t\022\022\n\nis_primary\030\004 \001(\010\022\022\n\nis_enabled\030\005 \001("
   "\010\022\023\n\013is_internal\030\006 \001(\010\022\031\n\021has_mode_overr"
@@ -2720,145 +2720,146 @@ const char descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto[] 
   "h_rate_min\030\014 \001(\005\022\030\n\020refresh_rate_max\030\r \001"
   "(\005\022\026\n\016is_vrr_capable\030\016 \001(\010\022\026\n\016is_vrr_ena"
   "bled\030\017 \001(\010\022\026\n\016is_hdr_capable\030\020 \001(\010\022\026\n\016is"
-  "_hdr_enabled\030\021 \001(\010\022\034\n\024compatibility_para"
-  "ms\030\022 \003(\005\022\025\n\rapp_wants_hdr\030\023 \001(\010\"\321\001\n\035CMsg"
-  "SystemDisplayManagerState\022$\n\010displays\030\001 "
-  "\003(\0132\022.CMsgSystemDisplay\022#\n\033is_mode_switc"
-  "hing_supported\030\002 \001(\010\022e\n\022compatibility_mo"
-  "de\030\003 \001(\0162 .ESystemDisplayCompatibilityMo"
-  "de:\'ESystemDisplayCompatibilityMode_Inva"
-  "lid\"F\n\037CMsgSystemDisplayManagerSetMode\022\022"
-  "\n\ndisplay_id\030\001 \001(\005\022\017\n\007mode_id\030\002 \001(\005\"\354\n\n\031"
-  "CMsgSystemManagerSettings\022*\n\"idle_backli"
-  "ght_dim_battery_seconds\030\001 \001(\002\022%\n\035idle_ba"
-  "cklight_dim_ac_seconds\030\002 \001(\002\022$\n\034idle_sus"
-  "pend_battery_seconds\030\003 \001(\002\022\037\n\027idle_suspe"
-  "nd_ac_seconds\030\004 \001(\002\022\036\n\026idle_suspend_supr"
-  "essed\030\005 \001(\010\022(\n is_adaptive_brightness_av"
-  "ailable\030\006 \001(\010\022+\n#display_adaptive_bright"
-  "ness_enabled\030\007 \001(\010\022!\n\031display_nightmode_"
-  "enabled\030\n \001(\010\022&\n\036display_nightmode_tints"
-  "trength\030\013 \001(\002\022 \n\030display_nightmode_maxhu"
-  "e\030\014 \001(\002\022 \n\030display_nightmode_maxsat\030\r \001("
-  "\002\022\037\n\027display_nightmode_uiexp\030\016 \001(\002\022\037\n\027di"
-  "splay_nightmode_blend\030\017 \001(\002\022\037\n\027display_n"
-  "ightmode_reset\030\020 \001(\010\022*\n\"display_nightmod"
-  "e_schedule_enabled\030\021 \001(\010\022,\n$display_nigh"
-  "tmode_schedule_starttime\030\022 \001(\002\022*\n\"displa"
-  "y_nightmode_schedule_endtime\030\023 \001(\002\022#\n\033di"
-  "splay_diagnostics_enabled\030\024 \001(\010\022\027\n\017als_l"
-  "ux_primary\030\025 \001(\002\022\026\n\016als_lux_median\030\026 \001(\002"
-  "\022\035\n\025display_backlight_raw\030\027 \001(\002\022&\n\036displ"
-  "ay_brightness_adaptivemin\030\030 \001(\002\022&\n\036displ"
-  "ay_brightness_adaptivemax\030\031 \001(\002\022!\n\031is_wi"
-  "fi_powersave_enabled\030\032 \001(\010\022 \n\030is_fan_con"
-  "trol_available\030\033 \001(\010\022N\n\020fan_control_mode"
-  "\030\034 \001(\0162\026.ESystemFanControlMode:\034SystemFa"
-  "nControlMode_Invalid\022\'\n\037is_display_brigh"
-  "tness_available\030\035 \001(\010\022,\n$is_display_colo"
-  "rmanagement_available\030\037 \001(\010\022\032\n\022display_c"
-  "olorgamut\030  \001(\002\022\031\n\021als_lux_alternate\030! \001"
-  "(\002\022&\n\036is_display_colortemp_available\030\" \001"
-  "(\010\022\031\n\021display_colortemp\030# \001(\002\022!\n\031display"
-  "_colortemp_default\030$ \001(\002\022!\n\031display_colo"
-  "rtemp_enabled\030% \001(\010\022U\n\033display_colorgamu"
-  "t_labelset\030& \001(\0162\024.EColorGamutLabelSet:\032"
-  "ColorGamutLabelSet_Default\"`\n\030CMsgSelect"
-  "OSBranchParams\022-\n\006branch\030\001 \001(\0162\n.EOSBran"
-  "ch:\021EOSBranch_Unknown\022\025\n\rcustom_branch\030\002"
-  " \001(\t\"p\n\030CMsgSystemUpdateProgress\022\026\n\016stag"
-  "e_progress\030\001 \001(\002\022\030\n\020stage_size_bytes\030\002 \001"
-  "(\003\022\"\n\032rtime_estimated_completion\030\003 \001(\007\"\265"
-  "\001\n\033CMsgSystemUpdateCheckResult\0221\n\004type\030\001"
-  " \001(\0162\r.EUpdaterType:\024EUpdaterType_Invali"
-  "d\022\022\n\007eresult\030\002 \001(\r:\0012\022\025\n\rrtime_checked\030\003"
-  " \001(\007\022\021\n\tavailable\030\004 \001(\010\022\017\n\007version\030\005 \001(\t"
-  "\022\024\n\014auto_message\030\006 \001(\t\"A\n\033CMsgSystemUpda"
-  "teApplyParams\022\"\n\013apply_types\030\001 \003(\0162\r.EUp"
-  "daterType\"\264\001\n\033CMsgSystemUpdateApplyResul"
-  "t\0221\n\004type\030\001 \001(\0162\r.EUpdaterType:\024EUpdater"
-  "Type_Invalid\022\022\n\007eresult\030\002 \001(\r:\0012\022&\n\027requ"
-  "ires_client_restart\030\003 \001(\010:\005false\022&\n\027requ"
-  "ires_system_restart\030\004 \001(\010:\005false\"\215\002\n\025CMs"
-  "gSystemUpdateState\0224\n\005state\030\001 \001(\0162\016.EUpd"
-  "aterState:\025EUpdaterState_Invalid\022+\n\010prog"
-  "ress\030\002 \001(\0132\031.CMsgSystemUpdateProgress\0228\n"
-  "\022update_checresults\030\003 \003(\0132\034.CMsgSystemUp"
-  "dateCheckResult\022:\n\024update_apply_results\030"
-  "\004 \003(\0132\034.CMsgSystemUpdateApplyResult\022\033\n\023s"
-  "upports_os_updates\030\005 \001(\010\"&\n\025CMsgAchievem"
-  "entChange\022\r\n\005appid\030\001 \001(\r\"\\\n\014CMsgCellList"
-  "\022!\n\005cells\030\001 \003(\0132\022.CMsgCellList.Cell\032)\n\004C"
-  "ell\022\017\n\007cell_id\030\001 \001(\r\022\020\n\010loc_name\030\002 \001(\t\"\214"
-  "\003\n\020CMsgShortcutInfo\022\r\n\005appid\030\001 \001(\r\022\013\n\003ex"
-  "e\030\002 \001(\t\022\021\n\tstart_dir\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t"
-  "\022\014\n\004path\030\005 \001(\t\022\014\n\004args\030\006 \001(\t\022\020\n\010app_name"
-  "\030\007 \001(\t\022\026\n\016override_appid\030\010 \001(\r\022\023\n\013flatpa"
-  "appid\030\t \001(\t\022\014\n\004tags\030\n \003(\t\022\021\n\tis_remote\030\013"
-  " \001(\010\022\021\n\tis_hidden\030\014 \001(\010\022\024\n\014is_temporary\030"
-  "\r \001(\010\022\021\n\tis_openvr\030\016 \001(\010\022\034\n\024allow_deskto"
-  "p_config\030\017 \001(\010\022\025\n\rallow_overlay\030\020 \001(\010\022\033\n"
-  "\023rt_last_played_time\030\021 \001(\r\022\032\n\022is_devkit_"
-  "shortcut\030\022 \001(\010\022\025\n\rdevkit_gameid\030\023 \001(\t\"$\n"
-  "\022CMsgShortcutAppIds\022\016\n\006appids\030\001 \003(\r\"\252\001\n\017"
-  "CMsgMonitorInfo\022\035\n\025selected_display_name"
-  "\030\001 \002(\t\022.\n\010monitors\030\002 \003(\0132\034.CMsgMonitorIn"
-  "fo.MonitorInfo\032H\n\013MonitorInfo\022\033\n\023monitor"
-  "_device_name\030\001 \002(\t\022\034\n\024monitor_display_na"
-  "me\030\002 \002(\t\"2\n\035CMsgGenerateSystemReportRepl"
-  "y\022\021\n\treport_id\030\001 \001(\t\"8\n\026CMsgWebUITranspo"
-  "rtInfo\022\014\n\004port\030\001 \001(\r\022\020\n\010auth_key\030\002 \001(\t\"^"
-  "\n\035CMsgClientShaderHitCacheEntry\022\017\n\007key_s"
-  "ha\030\001 \001(\014\022\020\n\010code_sha\030\002 \001(\014\022\032\n\022time_last_"
-  "reported\030\003 \001(\004\"K\n\030CMsgClientShaderHitCac"
-  "he\022/\n\007entries\030\001 \003(\0132\036.CMsgClientShaderHi"
-  "tCacheEntry*\214\002\n\034ECloudPendingRemoteOpera"
-  "tion\022$\n ECloudPendingRemoteOperationNone"
-  "\020\000\0220\n,ECloudPendingRemoteOperationAppSes"
-  "sionActive\020\001\0220\n,ECloudPendingRemoteOpera"
-  "tionUploadInProgress\020\002\022-\n)ECloudPendingR"
-  "emoteOperationUploadPending\020\003\0223\n/ECloudP"
-  "endingRemoteOperationAppSessionSuspended"
-  "\020\004*\202\014\n\030ESteamDeckKeyboardLayout\022#\n\037EStea"
-  "mDeckKeyboardLayout_QWERTY\020\000\022&\n\"ESteamDe"
-  "ckKeyboardLayout_Bulgarian\020\001\022/\n+ESteamDe"
-  "ckKeyboardLayout_Chinese_Simplified\020\002\0220\n"
-  ",ESteamDeckKeyboardLayout_Chinese_Tradit"
-  "ional\020\003\022\"\n\036ESteamDeckKeyboardLayout_Czec"
-  "h\020\004\022#\n\037ESteamDeckKeyboardLayout_Danish\020\005"
-  "\022$\n ESteamDeckKeyboardLayout_Finnish\020\006\022#"
-  "\n\037ESteamDeckKeyboardLayout_French\020\007\022#\n\037E"
-  "SteamDeckKeyboardLayout_German\020\010\022\"\n\036ESte"
-  "amDeckKeyboardLayout_Greek\020\t\022&\n\"ESteamDe"
-  "ckKeyboardLayout_Hungarian\020\n\022$\n ESteamDe"
-  "ckKeyboardLayout_Italian\020\013\022%\n!ESteamDeck"
-  "KeyboardLayout_Japanese\020\014\022#\n\037ESteamDeckK"
-  "eyboardLayout_Korean\020\r\022&\n\"ESteamDeckKeyb"
-  "oardLayout_Norwegian\020\016\022#\n\037ESteamDeckKeyb"
-  "oardLayout_Polish\020\017\022\'\n#ESteamDeckKeyboar"
-  "dLayout_Portuguese\020\020\022%\n!ESteamDeckKeyboa"
-  "rdLayout_Romanian\020\021\022$\n ESteamDeckKeyboar"
-  "dLayout_Russian\020\022\022$\n ESteamDeckKeyboardL"
-  "ayout_Spanish\020\023\022$\n ESteamDeckKeyboardLay"
-  "out_Swedish\020\024\022!\n\035ESteamDeckKeyboardLayou"
-  "t_Thai\020\025\022&\n\"ESteamDeckKeyboardLayout_Tur"
-  "kish_F\020\026\022&\n\"ESteamDeckKeyboardLayout_Tur"
-  "kish_Q\020\027\022&\n\"ESteamDeckKeyboardLayout_Ukr"
-  "ainian\020\030\022\'\n#ESteamDeckKeyboardLayout_Vie"
-  "tnamese\020\031\0221\n-ESteamDeckKeyboardLayout_QW"
-  "ERTY_International\020\032\022#\n\037ESteamDeckKeyboa"
-  "rdLayout_Dvorak\020\033\022$\n ESteamDeckKeyboardL"
-  "ayout_Colemak\020\034\022;\n7ESteamDeckKeyboardLay"
-  "out_Bulgarian_Phonetic_Traditional\020\035\022/\n+"
-  "ESteamDeckKeyboardLayout_Bulgarian_Phone"
-  "tic\020\036\0229\n5ESteamDeckKeyboardLayout_Chines"
-  "e_Traditional_Bopomofo\020\037\0228\n4ESteamDeckKe"
-  "yboardLayout_Chinese_Traditional_Cangjie"
-  "\020 \022*\n&ESteamDeckKeyboardLayout_Japanese_"
-  "Kana\020!\0226\n2ESteamDeckKeyboardLayout_Chine"
-  "se_Traditional_Quick\020\"\022\'\n#ESteamDeckKeyb"
-  "oardLayout_Indonesian\020#B\037H\001\200\001\000\252\002\027OpenSte"
-  "amworks.Protobuf"
+  "_hdr_enabled\030\021 \001(\010\022\037\n\027supported_refresh_"
+  "rates\030\022 \003(\005\"\321\001\n\035CMsgSystemDisplayManager"
+  "State\022$\n\010displays\030\001 \003(\0132\022.CMsgSystemDisp"
+  "lay\022#\n\033is_mode_switching_supported\030\002 \001(\010"
+  "\022e\n\022compatibility_mode\030\003 \001(\0162 .ESystemDi"
+  "splayCompatibilityMode:\'ESystemDisplayCo"
+  "mpatibilityMode_Invalid\"F\n\037CMsgSystemDis"
+  "playManagerSetMode\022\022\n\ndisplay_id\030\001 \001(\005\022\017"
+  "\n\007mode_id\030\002 \001(\005\"\234\013\n\031CMsgSystemManagerSet"
+  "tings\022*\n\"idle_backlight_dim_battery_seco"
+  "nds\030\001 \001(\002\022%\n\035idle_backlight_dim_ac_secon"
+  "ds\030\002 \001(\002\022$\n\034idle_suspend_battery_seconds"
+  "\030\003 \001(\002\022\037\n\027idle_suspend_ac_seconds\030\004 \001(\002\022"
+  "\036\n\026idle_suspend_supressed\030\005 \001(\010\022(\n is_ad"
+  "aptive_brightness_available\030\006 \001(\010\022+\n#dis"
+  "play_adaptive_brightness_enabled\030\007 \001(\010\022!"
+  "\n\031display_nightmode_enabled\030\n \001(\010\022&\n\036dis"
+  "play_nightmode_tintstrength\030\013 \001(\002\022 \n\030dis"
+  "play_nightmode_maxhue\030\014 \001(\002\022 \n\030display_n"
+  "ightmode_maxsat\030\r \001(\002\022\037\n\027display_nightmo"
+  "de_uiexp\030\016 \001(\002\022\037\n\027display_nightmode_blen"
+  "d\030\017 \001(\002\022\037\n\027display_nightmode_reset\030\020 \001(\010"
+  "\022*\n\"display_nightmode_schedule_enabled\030\021"
+  " \001(\010\022,\n$display_nightmode_schedule_start"
+  "time\030\022 \001(\002\022*\n\"display_nightmode_schedule"
+  "_endtime\030\023 \001(\002\022#\n\033display_diagnostics_en"
+  "abled\030\024 \001(\010\022\027\n\017als_lux_primary\030\025 \001(\002\022\026\n\016"
+  "als_lux_median\030\026 \001(\002\022\035\n\025display_backligh"
+  "t_raw\030\027 \001(\002\022&\n\036display_brightness_adapti"
+  "vemin\030\030 \001(\002\022&\n\036display_brightness_adapti"
+  "vemax\030\031 \001(\002\022!\n\031is_wifi_powersave_enabled"
+  "\030\032 \001(\010\022 \n\030is_fan_control_available\030\033 \001(\010"
+  "\022N\n\020fan_control_mode\030\034 \001(\0162\026.ESystemFanC"
+  "ontrolMode:\034SystemFanControlMode_Invalid"
+  "\022\'\n\037is_display_brightness_available\030\035 \001("
+  "\010\022,\n$is_display_colormanagement_availabl"
+  "e\030\037 \001(\010\022\032\n\022display_colorgamut\030  \001(\002\022\031\n\021a"
+  "ls_lux_alternate\030! \001(\002\022&\n\036is_display_col"
+  "ortemp_available\030\" \001(\010\022\031\n\021display_colort"
+  "emp\030# \001(\002\022!\n\031display_colortemp_default\030$"
+  " \001(\002\022!\n\031display_colortemp_enabled\030% \001(\010\022"
+  "U\n\033display_colorgamut_labelset\030& \001(\0162\024.E"
+  "ColorGamutLabelSet:\032ColorGamutLabelSet_D"
+  "efault\022.\n&display_brightness_overdrive_h"
+  "dr_split\030\' \001(\002\"`\n\030CMsgSelectOSBranchPara"
+  "ms\022-\n\006branch\030\001 \001(\0162\n.EOSBranch:\021EOSBranc"
+  "h_Unknown\022\025\n\rcustom_branch\030\002 \001(\t\"p\n\030CMsg"
+  "SystemUpdateProgress\022\026\n\016stage_progress\030\001"
+  " \001(\002\022\030\n\020stage_size_bytes\030\002 \001(\003\022\"\n\032rtime_"
+  "estimated_completion\030\003 \001(\007\"\265\001\n\033CMsgSyste"
+  "mUpdateCheckResult\0221\n\004type\030\001 \001(\0162\r.EUpda"
+  "terType:\024EUpdaterType_Invalid\022\022\n\007eresult"
+  "\030\002 \001(\r:\0012\022\025\n\rrtime_checked\030\003 \001(\007\022\021\n\tavai"
+  "lable\030\004 \001(\010\022\017\n\007version\030\005 \001(\t\022\024\n\014auto_mes"
+  "sage\030\006 \001(\t\"A\n\033CMsgSystemUpdateApplyParam"
+  "s\022\"\n\013apply_types\030\001 \003(\0162\r.EUpdaterType\"\264\001"
+  "\n\033CMsgSystemUpdateApplyResult\0221\n\004type\030\001 "
+  "\001(\0162\r.EUpdaterType:\024EUpdaterType_Invalid"
+  "\022\022\n\007eresult\030\002 \001(\r:\0012\022&\n\027requires_client_"
+  "restart\030\003 \001(\010:\005false\022&\n\027requires_system_"
+  "restart\030\004 \001(\010:\005false\"\215\002\n\025CMsgSystemUpdat"
+  "eState\0224\n\005state\030\001 \001(\0162\016.EUpdaterState:\025E"
+  "UpdaterState_Invalid\022+\n\010progress\030\002 \001(\0132\031"
+  ".CMsgSystemUpdateProgress\0228\n\022update_chec"
+  "results\030\003 \003(\0132\034.CMsgSystemUpdateCheckRes"
+  "ult\022:\n\024update_apply_results\030\004 \003(\0132\034.CMsg"
+  "SystemUpdateApplyResult\022\033\n\023supports_os_u"
+  "pdates\030\005 \001(\010\"&\n\025CMsgAchievementChange\022\r\n"
+  "\005appid\030\001 \001(\r\"\\\n\014CMsgCellList\022!\n\005cells\030\001 "
+  "\003(\0132\022.CMsgCellList.Cell\032)\n\004Cell\022\017\n\007cell_"
+  "id\030\001 \001(\r\022\020\n\010loc_name\030\002 \001(\t\"\214\003\n\020CMsgShort"
+  "cutInfo\022\r\n\005appid\030\001 \001(\r\022\013\n\003exe\030\002 \001(\t\022\021\n\ts"
+  "tart_dir\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\014\n\004path\030\005 \001"
+  "(\t\022\014\n\004args\030\006 \001(\t\022\020\n\010app_name\030\007 \001(\t\022\026\n\016ov"
+  "erride_appid\030\010 \001(\r\022\023\n\013flatpaappid\030\t \001(\t\022"
+  "\014\n\004tags\030\n \003(\t\022\021\n\tis_remote\030\013 \001(\010\022\021\n\tis_h"
+  "idden\030\014 \001(\010\022\024\n\014is_temporary\030\r \001(\010\022\021\n\tis_"
+  "openvr\030\016 \001(\010\022\034\n\024allow_desktop_config\030\017 \001"
+  "(\010\022\025\n\rallow_overlay\030\020 \001(\010\022\033\n\023rt_last_pla"
+  "yed_time\030\021 \001(\r\022\032\n\022is_devkit_shortcut\030\022 \001"
+  "(\010\022\025\n\rdevkit_gameid\030\023 \001(\t\"$\n\022CMsgShortcu"
+  "tAppIds\022\016\n\006appids\030\001 \003(\r\"\252\001\n\017CMsgMonitorI"
+  "nfo\022\035\n\025selected_display_name\030\001 \002(\t\022.\n\010mo"
+  "nitors\030\002 \003(\0132\034.CMsgMonitorInfo.MonitorIn"
+  "fo\032H\n\013MonitorInfo\022\033\n\023monitor_device_name"
+  "\030\001 \002(\t\022\034\n\024monitor_display_name\030\002 \002(\t\"2\n\035"
+  "CMsgGenerateSystemReportReply\022\021\n\treport_"
+  "id\030\001 \001(\t\"8\n\026CMsgWebUITransportInfo\022\014\n\004po"
+  "rt\030\001 \001(\r\022\020\n\010auth_key\030\002 \001(\t\"^\n\035CMsgClient"
+  "ShaderHitCacheEntry\022\017\n\007key_sha\030\001 \001(\014\022\020\n\010"
+  "code_sha\030\002 \001(\014\022\032\n\022time_last_reported\030\003 \001"
+  "(\004\"K\n\030CMsgClientShaderHitCache\022/\n\007entrie"
+  "s\030\001 \003(\0132\036.CMsgClientShaderHitCacheEntry*"
+  "\214\002\n\034ECloudPendingRemoteOperation\022$\n EClo"
+  "udPendingRemoteOperationNone\020\000\0220\n,ECloud"
+  "PendingRemoteOperationAppSessionActive\020\001"
+  "\0220\n,ECloudPendingRemoteOperationUploadIn"
+  "Progress\020\002\022-\n)ECloudPendingRemoteOperati"
+  "onUploadPending\020\003\0223\n/ECloudPendingRemote"
+  "OperationAppSessionSuspended\020\004*\202\014\n\030EStea"
+  "mDeckKeyboardLayout\022#\n\037ESteamDeckKeyboar"
+  "dLayout_QWERTY\020\000\022&\n\"ESteamDeckKeyboardLa"
+  "yout_Bulgarian\020\001\022/\n+ESteamDeckKeyboardLa"
+  "yout_Chinese_Simplified\020\002\0220\n,ESteamDeckK"
+  "eyboardLayout_Chinese_Traditional\020\003\022\"\n\036E"
+  "SteamDeckKeyboardLayout_Czech\020\004\022#\n\037EStea"
+  "mDeckKeyboardLayout_Danish\020\005\022$\n ESteamDe"
+  "ckKeyboardLayout_Finnish\020\006\022#\n\037ESteamDeck"
+  "KeyboardLayout_French\020\007\022#\n\037ESteamDeckKey"
+  "boardLayout_German\020\010\022\"\n\036ESteamDeckKeyboa"
+  "rdLayout_Greek\020\t\022&\n\"ESteamDeckKeyboardLa"
+  "yout_Hungarian\020\n\022$\n ESteamDeckKeyboardLa"
+  "yout_Italian\020\013\022%\n!ESteamDeckKeyboardLayo"
+  "ut_Japanese\020\014\022#\n\037ESteamDeckKeyboardLayou"
+  "t_Korean\020\r\022&\n\"ESteamDeckKeyboardLayout_N"
+  "orwegian\020\016\022#\n\037ESteamDeckKeyboardLayout_P"
+  "olish\020\017\022\'\n#ESteamDeckKeyboardLayout_Port"
+  "uguese\020\020\022%\n!ESteamDeckKeyboardLayout_Rom"
+  "anian\020\021\022$\n ESteamDeckKeyboardLayout_Russ"
+  "ian\020\022\022$\n ESteamDeckKeyboardLayout_Spanis"
+  "h\020\023\022$\n ESteamDeckKeyboardLayout_Swedish\020"
+  "\024\022!\n\035ESteamDeckKeyboardLayout_Thai\020\025\022&\n\""
+  "ESteamDeckKeyboardLayout_Turkish_F\020\026\022&\n\""
+  "ESteamDeckKeyboardLayout_Turkish_Q\020\027\022&\n\""
+  "ESteamDeckKeyboardLayout_Ukrainian\020\030\022\'\n#"
+  "ESteamDeckKeyboardLayout_Vietnamese\020\031\0221\n"
+  "-ESteamDeckKeyboardLayout_QWERTY_Interna"
+  "tional\020\032\022#\n\037ESteamDeckKeyboardLayout_Dvo"
+  "rak\020\033\022$\n ESteamDeckKeyboardLayout_Colema"
+  "k\020\034\022;\n7ESteamDeckKeyboardLayout_Bulgaria"
+  "n_Phonetic_Traditional\020\035\022/\n+ESteamDeckKe"
+  "yboardLayout_Bulgarian_Phonetic\020\036\0229\n5ESt"
+  "eamDeckKeyboardLayout_Chinese_Traditiona"
+  "l_Bopomofo\020\037\0228\n4ESteamDeckKeyboardLayout"
+  "_Chinese_Traditional_Cangjie\020 \022*\n&ESteam"
+  "DeckKeyboardLayout_Japanese_Kana\020!\0226\n2ES"
+  "teamDeckKeyboardLayout_Chinese_Tradition"
+  "al_Quick\020\"\022\'\n#ESteamDeckKeyboardLayout_I"
+  "ndonesian\020#B\037H\001\200\001\000\252\002\027OpenSteamworks.Prot"
+  "obuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -2866,7 +2867,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclient_5fobjects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclient_5fobjects_2eproto = {
-  false, false, 16696, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
+  false, false, 16724, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
   &descriptor_table_steammessages_5fclient_5fobjects_2eproto_once, descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps, 2, 68,
   schemas, file_default_instances, TableStruct_steammessages_5fclient_5fobjects_2eproto::offsets,
   file_level_metadata_steammessages_5fclient_5fobjects_2eproto, file_level_enum_descriptors_steammessages_5fclient_5fobjects_2eproto, file_level_service_descriptors_steammessages_5fclient_5fobjects_2eproto,
@@ -20539,15 +20540,12 @@ class CMsgSystemDisplay::_Internal {
   static void set_has_is_hdr_enabled(HasBits* has_bits) {
     (*has_bits)[0] |= 32768u;
   }
-  static void set_has_app_wants_hdr(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
-  }
 };
 
 CMsgSystemDisplay::CMsgSystemDisplay(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   modes_(arena),
-  compatibility_params_(arena) {
+  supported_refresh_rates_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CMsgSystemDisplay)
@@ -20556,7 +20554,7 @@ CMsgSystemDisplay::CMsgSystemDisplay(const CMsgSystemDisplay& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
       modes_(from.modes_),
-      compatibility_params_(from.compatibility_params_) {
+      supported_refresh_rates_(from.supported_refresh_rates_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_name()) {
@@ -20569,8 +20567,8 @@ CMsgSystemDisplay::CMsgSystemDisplay(const CMsgSystemDisplay& from)
       GetArena());
   }
   ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&app_wants_hdr_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(app_wants_hdr_));
+    static_cast<size_t>(reinterpret_cast<char*>(&is_hdr_enabled_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(is_hdr_enabled_));
   // @@protoc_insertion_point(copy_constructor:CMsgSystemDisplay)
 }
 
@@ -20579,8 +20577,8 @@ name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlready
 description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&app_wants_hdr_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(app_wants_hdr_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_hdr_enabled_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(is_hdr_enabled_));
 }
 
 CMsgSystemDisplay::~CMsgSystemDisplay() {
@@ -20612,7 +20610,7 @@ void CMsgSystemDisplay::Clear() {
   (void) cached_has_bits;
 
   modes_.Clear();
-  compatibility_params_.Clear();
+  supported_refresh_rates_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
@@ -20632,7 +20630,6 @@ void CMsgSystemDisplay::Clear() {
         reinterpret_cast<char*>(&is_hdr_enabled_) -
         reinterpret_cast<char*>(&height_mm_)) + sizeof(is_hdr_enabled_));
   }
-  app_wants_hdr_ = false;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -20791,26 +20788,18 @@ const char* CMsgSystemDisplay::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated int32 compatibility_params = 18;
+      // repeated int32 supported_refresh_rates = 18;
       case 18:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
           ptr -= 2;
           do {
             ptr += 2;
-            _internal_add_compatibility_params(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+            _internal_add_supported_refresh_rates(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<144>(ptr));
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_compatibility_params(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool app_wants_hdr = 19;
-      case 19:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
-          _Internal::set_has_app_wants_hdr(&has_bits);
-          app_wants_hdr_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_supported_refresh_rates(), ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -20956,16 +20945,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_is_hdr_enabled(), target);
   }
 
-  // repeated int32 compatibility_params = 18;
-  for (int i = 0, n = this->_internal_compatibility_params_size(); i < n; i++) {
+  // repeated int32 supported_refresh_rates = 18;
+  for (int i = 0, n = this->_internal_supported_refresh_rates_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(18, this->_internal_compatibility_params(i), target);
-  }
-
-  // optional bool app_wants_hdr = 19;
-  if (cached_has_bits & 0x00010000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(19, this->_internal_app_wants_hdr(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(18, this->_internal_supported_refresh_rates(i), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -20991,12 +20974,12 @@ size_t CMsgSystemDisplay::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated int32 compatibility_params = 18;
+  // repeated int32 supported_refresh_rates = 18;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      Int32Size(this->compatibility_params_);
+      Int32Size(this->supported_refresh_rates_);
     total_size += 2 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_compatibility_params_size());
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_supported_refresh_rates_size());
     total_size += data_size;
   }
 
@@ -21101,11 +21084,6 @@ size_t CMsgSystemDisplay::ByteSizeLong() const {
     }
 
   }
-  // optional bool app_wants_hdr = 19;
-  if (cached_has_bits & 0x00010000u) {
-    total_size += 2 + 1;
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -21138,7 +21116,7 @@ void CMsgSystemDisplay::MergeFrom(const CMsgSystemDisplay& from) {
   (void) cached_has_bits;
 
   modes_.MergeFrom(from.modes_);
-  compatibility_params_.MergeFrom(from.compatibility_params_);
+  supported_refresh_rates_.MergeFrom(from.supported_refresh_rates_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -21194,9 +21172,6 @@ void CMsgSystemDisplay::MergeFrom(const CMsgSystemDisplay& from) {
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00010000u) {
-    _internal_set_app_wants_hdr(from._internal_app_wants_hdr());
-  }
 }
 
 void CMsgSystemDisplay::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -21222,12 +21197,12 @@ void CMsgSystemDisplay::InternalSwap(CMsgSystemDisplay* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   modes_.InternalSwap(&other->modes_);
-  compatibility_params_.InternalSwap(&other->compatibility_params_);
+  supported_refresh_rates_.InternalSwap(&other->supported_refresh_rates_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   description_.Swap(&other->description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgSystemDisplay, app_wants_hdr_)
-      + sizeof(CMsgSystemDisplay::app_wants_hdr_)
+      PROTOBUF_FIELD_OFFSET(CMsgSystemDisplay, is_hdr_enabled_)
+      + sizeof(CMsgSystemDisplay::is_hdr_enabled_)
       - PROTOBUF_FIELD_OFFSET(CMsgSystemDisplay, id_)>(
           reinterpret_cast<char*>(&id_),
           reinterpret_cast<char*>(&other->id_));
@@ -21875,10 +21850,13 @@ class CMsgSystemManagerSettings::_Internal {
     (*has_bits)[1] |= 1u;
   }
   static void set_has_display_colortemp_enabled(HasBits* has_bits) {
-    (*has_bits)[1] |= 2u;
+    (*has_bits)[1] |= 4u;
   }
   static void set_has_display_colorgamut_labelset(HasBits* has_bits) {
-    (*has_bits)[1] |= 4u;
+    (*has_bits)[1] |= 8u;
+  }
+  static void set_has_display_brightness_overdrive_hdr_split(HasBits* has_bits) {
+    (*has_bits)[1] |= 2u;
   }
 };
 
@@ -21953,7 +21931,7 @@ void CMsgSystemManagerSettings::Clear() {
         reinterpret_cast<char*>(&fan_control_mode_)) + sizeof(display_colortemp_));
   }
   cached_has_bits = _has_bits_[1];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&display_colortemp_default_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&display_colorgamut_labelset_) -
         reinterpret_cast<char*>(&display_colortemp_default_)) + sizeof(display_colorgamut_labelset_));
@@ -22257,6 +22235,14 @@ const char* CMsgSystemManagerSettings::_InternalParse(const char* ptr, ::PROTOBU
           }
         } else goto handle_unusual;
         continue;
+      // optional float display_brightness_overdrive_hdr_split = 39;
+      case 39:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 61)) {
+          _Internal::set_has_display_brightness_overdrive_hdr_split(&_has_bits_);
+          display_brightness_overdrive_hdr_split_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -22487,16 +22473,22 @@ failure:
   }
 
   // optional bool display_colortemp_enabled = 37;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(37, this->_internal_display_colortemp_enabled(), target);
   }
 
   // optional .EColorGamutLabelSet display_colorgamut_labelset = 38 [default = ColorGamutLabelSet_Default];
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       38, this->_internal_display_colorgamut_labelset(), target);
+  }
+
+  // optional float display_brightness_overdrive_hdr_split = 39;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(39, this->_internal_display_brightness_overdrive_hdr_split(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -22686,19 +22678,24 @@ size_t CMsgSystemManagerSettings::ByteSizeLong() const {
 
   }
   cached_has_bits = _has_bits_[1];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     // optional float display_colortemp_default = 36;
     if (cached_has_bits & 0x00000001u) {
       total_size += 2 + 4;
     }
 
-    // optional bool display_colortemp_enabled = 37;
+    // optional float display_brightness_overdrive_hdr_split = 39;
     if (cached_has_bits & 0x00000002u) {
+      total_size += 2 + 4;
+    }
+
+    // optional bool display_colortemp_enabled = 37;
+    if (cached_has_bits & 0x00000004u) {
       total_size += 2 + 1;
     }
 
     // optional .EColorGamutLabelSet display_colorgamut_labelset = 38 [default = ColorGamutLabelSet_Default];
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_display_colorgamut_labelset());
     }
@@ -22845,14 +22842,17 @@ void CMsgSystemManagerSettings::MergeFrom(const CMsgSystemManagerSettings& from)
     _has_bits_[0] |= cached_has_bits;
   }
   cached_has_bits = from._has_bits_[1];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       display_colortemp_default_ = from.display_colortemp_default_;
     }
     if (cached_has_bits & 0x00000002u) {
-      display_colortemp_enabled_ = from.display_colortemp_enabled_;
+      display_brightness_overdrive_hdr_split_ = from.display_brightness_overdrive_hdr_split_;
     }
     if (cached_has_bits & 0x00000004u) {
+      display_colortemp_enabled_ = from.display_colortemp_enabled_;
+    }
+    if (cached_has_bits & 0x00000008u) {
       display_colorgamut_labelset_ = from.display_colorgamut_labelset_;
     }
     _has_bits_[1] |= cached_has_bits;

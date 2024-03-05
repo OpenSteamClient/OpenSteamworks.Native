@@ -72,7 +72,6 @@
 #include "generated/steammessages_site_license.steamclient.pb.h"
 #include "generated/steammessages_sitelicenseclient.pb.h"
 #include "generated/steammessages_siteserverui.pb.h"
-#include "generated/steammessages_star.steamclient.pb.h"
 #include "generated/steammessages_steamtv.steamclient.pb.h"
 #include "generated/steammessages_store.steamclient.pb.h"
 #include "generated/steammessages_storebrowse.steamclient.pb.h"
@@ -27778,6 +27777,94 @@ EXPORT void CFamilyGroups_InviteToFamilyGroup_Response_Delete(CFamilyGroups_Invi
     delete ptr;
 }
 
+// Begin CFamilyGroups_ConfirmInviteToFamilyGroup_Request
+EXPORT CFamilyGroups_ConfirmInviteToFamilyGroup_Request *CFamilyGroups_ConfirmInviteToFamilyGroup_Request_Construct() {
+    return new CFamilyGroups_ConfirmInviteToFamilyGroup_Request();
+}
+
+EXPORT CFamilyGroups_ConfirmInviteToFamilyGroup_Request *CFamilyGroups_ConfirmInviteToFamilyGroup_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ConfirmInviteToFamilyGroup_Request *msg = new CFamilyGroups_ConfirmInviteToFamilyGroup_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_ConfirmInviteToFamilyGroup_Request_DeserializeInto(CFamilyGroups_ConfirmInviteToFamilyGroup_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_ConfirmInviteToFamilyGroup_Request_Delete(CFamilyGroups_ConfirmInviteToFamilyGroup_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_ConfirmInviteToFamilyGroup_Response
+EXPORT CFamilyGroups_ConfirmInviteToFamilyGroup_Response *CFamilyGroups_ConfirmInviteToFamilyGroup_Response_Construct() {
+    return new CFamilyGroups_ConfirmInviteToFamilyGroup_Response();
+}
+
+EXPORT CFamilyGroups_ConfirmInviteToFamilyGroup_Response *CFamilyGroups_ConfirmInviteToFamilyGroup_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ConfirmInviteToFamilyGroup_Response *msg = new CFamilyGroups_ConfirmInviteToFamilyGroup_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_ConfirmInviteToFamilyGroup_Response_DeserializeInto(CFamilyGroups_ConfirmInviteToFamilyGroup_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_ConfirmInviteToFamilyGroup_Response_Delete(CFamilyGroups_ConfirmInviteToFamilyGroup_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_ResendInvitationToFamilyGroup_Request
+EXPORT CFamilyGroups_ResendInvitationToFamilyGroup_Request *CFamilyGroups_ResendInvitationToFamilyGroup_Request_Construct() {
+    return new CFamilyGroups_ResendInvitationToFamilyGroup_Request();
+}
+
+EXPORT CFamilyGroups_ResendInvitationToFamilyGroup_Request *CFamilyGroups_ResendInvitationToFamilyGroup_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ResendInvitationToFamilyGroup_Request *msg = new CFamilyGroups_ResendInvitationToFamilyGroup_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_ResendInvitationToFamilyGroup_Request_DeserializeInto(CFamilyGroups_ResendInvitationToFamilyGroup_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_ResendInvitationToFamilyGroup_Request_Delete(CFamilyGroups_ResendInvitationToFamilyGroup_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_ResendInvitationToFamilyGroup_Response
+EXPORT CFamilyGroups_ResendInvitationToFamilyGroup_Response *CFamilyGroups_ResendInvitationToFamilyGroup_Response_Construct() {
+    return new CFamilyGroups_ResendInvitationToFamilyGroup_Response();
+}
+
+EXPORT CFamilyGroups_ResendInvitationToFamilyGroup_Response *CFamilyGroups_ResendInvitationToFamilyGroup_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ResendInvitationToFamilyGroup_Response *msg = new CFamilyGroups_ResendInvitationToFamilyGroup_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_ResendInvitationToFamilyGroup_Response_DeserializeInto(CFamilyGroups_ResendInvitationToFamilyGroup_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_ResendInvitationToFamilyGroup_Response_Delete(CFamilyGroups_ResendInvitationToFamilyGroup_Response* ptr) {
+    delete ptr;
+}
+
 // Begin CFamilyGroups_JoinFamilyGroup_Request
 EXPORT CFamilyGroups_JoinFamilyGroup_Request *CFamilyGroups_JoinFamilyGroup_Request_Construct() {
     return new CFamilyGroups_JoinFamilyGroup_Request();
@@ -27819,6 +27906,50 @@ EXPORT bool CFamilyGroups_JoinFamilyGroup_Response_DeserializeInto(CFamilyGroups
 }
 
 EXPORT void CFamilyGroups_JoinFamilyGroup_Response_Delete(CFamilyGroups_JoinFamilyGroup_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_ConfirmJoinFamilyGroup_Request
+EXPORT CFamilyGroups_ConfirmJoinFamilyGroup_Request *CFamilyGroups_ConfirmJoinFamilyGroup_Request_Construct() {
+    return new CFamilyGroups_ConfirmJoinFamilyGroup_Request();
+}
+
+EXPORT CFamilyGroups_ConfirmJoinFamilyGroup_Request *CFamilyGroups_ConfirmJoinFamilyGroup_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ConfirmJoinFamilyGroup_Request *msg = new CFamilyGroups_ConfirmJoinFamilyGroup_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_ConfirmJoinFamilyGroup_Request_DeserializeInto(CFamilyGroups_ConfirmJoinFamilyGroup_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_ConfirmJoinFamilyGroup_Request_Delete(CFamilyGroups_ConfirmJoinFamilyGroup_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_ConfirmJoinFamilyGroup_Response
+EXPORT CFamilyGroups_ConfirmJoinFamilyGroup_Response *CFamilyGroups_ConfirmJoinFamilyGroup_Response_Construct() {
+    return new CFamilyGroups_ConfirmJoinFamilyGroup_Response();
+}
+
+EXPORT CFamilyGroups_ConfirmJoinFamilyGroup_Response *CFamilyGroups_ConfirmJoinFamilyGroup_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ConfirmJoinFamilyGroup_Response *msg = new CFamilyGroups_ConfirmJoinFamilyGroup_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_ConfirmJoinFamilyGroup_Response_DeserializeInto(CFamilyGroups_ConfirmJoinFamilyGroup_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_ConfirmJoinFamilyGroup_Response_Delete(CFamilyGroups_ConfirmJoinFamilyGroup_Response* ptr) {
     delete ptr;
 }
 
@@ -28391,6 +28522,116 @@ EXPORT bool CFamilyGroups_GetSharedLibraryApps_Response_DeserializeInto(CFamilyG
 }
 
 EXPORT void CFamilyGroups_GetSharedLibraryApps_Response_Delete(CFamilyGroups_GetSharedLibraryApps_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_SetPreferredLender_Request
+EXPORT CFamilyGroups_SetPreferredLender_Request *CFamilyGroups_SetPreferredLender_Request_Construct() {
+    return new CFamilyGroups_SetPreferredLender_Request();
+}
+
+EXPORT CFamilyGroups_SetPreferredLender_Request *CFamilyGroups_SetPreferredLender_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_SetPreferredLender_Request *msg = new CFamilyGroups_SetPreferredLender_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_SetPreferredLender_Request_DeserializeInto(CFamilyGroups_SetPreferredLender_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_SetPreferredLender_Request_Delete(CFamilyGroups_SetPreferredLender_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_SetPreferredLender_Response
+EXPORT CFamilyGroups_SetPreferredLender_Response *CFamilyGroups_SetPreferredLender_Response_Construct() {
+    return new CFamilyGroups_SetPreferredLender_Response();
+}
+
+EXPORT CFamilyGroups_SetPreferredLender_Response *CFamilyGroups_SetPreferredLender_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_SetPreferredLender_Response *msg = new CFamilyGroups_SetPreferredLender_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_SetPreferredLender_Response_DeserializeInto(CFamilyGroups_SetPreferredLender_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_SetPreferredLender_Response_Delete(CFamilyGroups_SetPreferredLender_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_GetPreferredLenders_Request
+EXPORT CFamilyGroups_GetPreferredLenders_Request *CFamilyGroups_GetPreferredLenders_Request_Construct() {
+    return new CFamilyGroups_GetPreferredLenders_Request();
+}
+
+EXPORT CFamilyGroups_GetPreferredLenders_Request *CFamilyGroups_GetPreferredLenders_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_GetPreferredLenders_Request *msg = new CFamilyGroups_GetPreferredLenders_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_GetPreferredLenders_Request_DeserializeInto(CFamilyGroups_GetPreferredLenders_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_GetPreferredLenders_Request_Delete(CFamilyGroups_GetPreferredLenders_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_GetPreferredLenders_Response_FamilyMember
+EXPORT CFamilyGroups_GetPreferredLenders_Response_FamilyMember *CFamilyGroups_GetPreferredLenders_Response_FamilyMember_Construct() {
+    return new CFamilyGroups_GetPreferredLenders_Response_FamilyMember();
+}
+
+EXPORT CFamilyGroups_GetPreferredLenders_Response_FamilyMember *CFamilyGroups_GetPreferredLenders_Response_FamilyMember_Deserialize(void* buffer, int len) {
+    CFamilyGroups_GetPreferredLenders_Response_FamilyMember *msg = new CFamilyGroups_GetPreferredLenders_Response_FamilyMember();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_GetPreferredLenders_Response_FamilyMember_DeserializeInto(CFamilyGroups_GetPreferredLenders_Response_FamilyMember *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_GetPreferredLenders_Response_FamilyMember_Delete(CFamilyGroups_GetPreferredLenders_Response_FamilyMember* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_GetPreferredLenders_Response
+EXPORT CFamilyGroups_GetPreferredLenders_Response *CFamilyGroups_GetPreferredLenders_Response_Construct() {
+    return new CFamilyGroups_GetPreferredLenders_Response();
+}
+
+EXPORT CFamilyGroups_GetPreferredLenders_Response *CFamilyGroups_GetPreferredLenders_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_GetPreferredLenders_Response *msg = new CFamilyGroups_GetPreferredLenders_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_GetPreferredLenders_Response_DeserializeInto(CFamilyGroups_GetPreferredLenders_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_GetPreferredLenders_Response_Delete(CFamilyGroups_GetPreferredLenders_Response* ptr) {
     delete ptr;
 }
 
@@ -31760,6 +32001,50 @@ EXPORT void CMarketingMessages_GetPartnerMessagePreview_Response_Delete(CMarketi
     delete ptr;
 }
 
+// Begin CMarketingMessage_GetMarketingMessagesForApps_Request
+EXPORT CMarketingMessage_GetMarketingMessagesForApps_Request *CMarketingMessage_GetMarketingMessagesForApps_Request_Construct() {
+    return new CMarketingMessage_GetMarketingMessagesForApps_Request();
+}
+
+EXPORT CMarketingMessage_GetMarketingMessagesForApps_Request *CMarketingMessage_GetMarketingMessagesForApps_Request_Deserialize(void* buffer, int len) {
+    CMarketingMessage_GetMarketingMessagesForApps_Request *msg = new CMarketingMessage_GetMarketingMessagesForApps_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMarketingMessage_GetMarketingMessagesForApps_Request_DeserializeInto(CMarketingMessage_GetMarketingMessagesForApps_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMarketingMessage_GetMarketingMessagesForApps_Request_Delete(CMarketingMessage_GetMarketingMessagesForApps_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CMarketingMessage_GetMarketingMessagesForApps_Response
+EXPORT CMarketingMessage_GetMarketingMessagesForApps_Response *CMarketingMessage_GetMarketingMessagesForApps_Response_Construct() {
+    return new CMarketingMessage_GetMarketingMessagesForApps_Response();
+}
+
+EXPORT CMarketingMessage_GetMarketingMessagesForApps_Response *CMarketingMessage_GetMarketingMessagesForApps_Response_Deserialize(void* buffer, int len) {
+    CMarketingMessage_GetMarketingMessagesForApps_Response *msg = new CMarketingMessage_GetMarketingMessagesForApps_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMarketingMessage_GetMarketingMessagesForApps_Response_DeserializeInto(CMarketingMessage_GetMarketingMessagesForApps_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMarketingMessage_GetMarketingMessagesForApps_Response_Delete(CMarketingMessage_GetMarketingMessagesForApps_Response* ptr) {
+    delete ptr;
+}
+
 // Begin COffline_GetOfflineLogonTicket_Request
 EXPORT COffline_GetOfflineLogonTicket_Request *COffline_GetOfflineLogonTicket_Request_Construct() {
     return new COffline_GetOfflineLogonTicket_Request();
@@ -33451,6 +33736,72 @@ EXPORT bool CPartnerApps_Download_Response_DeserializeInto(CPartnerApps_Download
 }
 
 EXPORT void CPartnerApps_Download_Response_Delete(CPartnerApps_Download_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CPlayer_GetRecentPlaytimeSessionsForChild_Request
+EXPORT CPlayer_GetRecentPlaytimeSessionsForChild_Request *CPlayer_GetRecentPlaytimeSessionsForChild_Request_Construct() {
+    return new CPlayer_GetRecentPlaytimeSessionsForChild_Request();
+}
+
+EXPORT CPlayer_GetRecentPlaytimeSessionsForChild_Request *CPlayer_GetRecentPlaytimeSessionsForChild_Request_Deserialize(void* buffer, int len) {
+    CPlayer_GetRecentPlaytimeSessionsForChild_Request *msg = new CPlayer_GetRecentPlaytimeSessionsForChild_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CPlayer_GetRecentPlaytimeSessionsForChild_Request_DeserializeInto(CPlayer_GetRecentPlaytimeSessionsForChild_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CPlayer_GetRecentPlaytimeSessionsForChild_Request_Delete(CPlayer_GetRecentPlaytimeSessionsForChild_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession
+EXPORT CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession *CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession_Construct() {
+    return new CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession();
+}
+
+EXPORT CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession *CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession_Deserialize(void* buffer, int len) {
+    CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession *msg = new CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession_DeserializeInto(CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession_Delete(CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* ptr) {
+    delete ptr;
+}
+
+// Begin CPlayer_GetRecentPlaytimeSessionsForChild_Response
+EXPORT CPlayer_GetRecentPlaytimeSessionsForChild_Response *CPlayer_GetRecentPlaytimeSessionsForChild_Response_Construct() {
+    return new CPlayer_GetRecentPlaytimeSessionsForChild_Response();
+}
+
+EXPORT CPlayer_GetRecentPlaytimeSessionsForChild_Response *CPlayer_GetRecentPlaytimeSessionsForChild_Response_Deserialize(void* buffer, int len) {
+    CPlayer_GetRecentPlaytimeSessionsForChild_Response *msg = new CPlayer_GetRecentPlaytimeSessionsForChild_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_DeserializeInto(CPlayer_GetRecentPlaytimeSessionsForChild_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CPlayer_GetRecentPlaytimeSessionsForChild_Response_Delete(CPlayer_GetRecentPlaytimeSessionsForChild_Response* ptr) {
     delete ptr;
 }
 
@@ -44432,204 +44783,6 @@ EXPORT void SiteServerUI_ContentCacheConfig_Response_Delete(SiteServerUI_Content
     delete ptr;
 }
 
-// Begin CSTAR_KeyValueQuery
-EXPORT CSTAR_KeyValueQuery *CSTAR_KeyValueQuery_Construct() {
-    return new CSTAR_KeyValueQuery();
-}
-
-EXPORT CSTAR_KeyValueQuery *CSTAR_KeyValueQuery_Deserialize(void* buffer, int len) {
-    CSTAR_KeyValueQuery *msg = new CSTAR_KeyValueQuery();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_KeyValueQuery_DeserializeInto(CSTAR_KeyValueQuery *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_KeyValueQuery_Delete(CSTAR_KeyValueQuery* ptr) {
-    delete ptr;
-}
-
-// Begin CSTAR_GlyphQueryParams
-EXPORT CSTAR_GlyphQueryParams *CSTAR_GlyphQueryParams_Construct() {
-    return new CSTAR_GlyphQueryParams();
-}
-
-EXPORT CSTAR_GlyphQueryParams *CSTAR_GlyphQueryParams_Deserialize(void* buffer, int len) {
-    CSTAR_GlyphQueryParams *msg = new CSTAR_GlyphQueryParams();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_GlyphQueryParams_DeserializeInto(CSTAR_GlyphQueryParams *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_GlyphQueryParams_Delete(CSTAR_GlyphQueryParams* ptr) {
-    delete ptr;
-}
-
-// Begin CSTAR_ReadGlyphData_Request
-EXPORT CSTAR_ReadGlyphData_Request *CSTAR_ReadGlyphData_Request_Construct() {
-    return new CSTAR_ReadGlyphData_Request();
-}
-
-EXPORT CSTAR_ReadGlyphData_Request *CSTAR_ReadGlyphData_Request_Deserialize(void* buffer, int len) {
-    CSTAR_ReadGlyphData_Request *msg = new CSTAR_ReadGlyphData_Request();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_ReadGlyphData_Request_DeserializeInto(CSTAR_ReadGlyphData_Request *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_ReadGlyphData_Request_Delete(CSTAR_ReadGlyphData_Request* ptr) {
-    delete ptr;
-}
-
-// Begin CSTAR_GlyphData
-EXPORT CSTAR_GlyphData *CSTAR_GlyphData_Construct() {
-    return new CSTAR_GlyphData();
-}
-
-EXPORT CSTAR_GlyphData *CSTAR_GlyphData_Deserialize(void* buffer, int len) {
-    CSTAR_GlyphData *msg = new CSTAR_GlyphData();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_GlyphData_DeserializeInto(CSTAR_GlyphData *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_GlyphData_Delete(CSTAR_GlyphData* ptr) {
-    delete ptr;
-}
-
-// Begin CSTAR_WriteGlyphData_Request
-EXPORT CSTAR_WriteGlyphData_Request *CSTAR_WriteGlyphData_Request_Construct() {
-    return new CSTAR_WriteGlyphData_Request();
-}
-
-EXPORT CSTAR_WriteGlyphData_Request *CSTAR_WriteGlyphData_Request_Deserialize(void* buffer, int len) {
-    CSTAR_WriteGlyphData_Request *msg = new CSTAR_WriteGlyphData_Request();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_WriteGlyphData_Request_DeserializeInto(CSTAR_WriteGlyphData_Request *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_WriteGlyphData_Request_Delete(CSTAR_WriteGlyphData_Request* ptr) {
-    delete ptr;
-}
-
-// Begin CSTAR_Request
-EXPORT CSTAR_Request *CSTAR_Request_Construct() {
-    return new CSTAR_Request();
-}
-
-EXPORT CSTAR_Request *CSTAR_Request_Deserialize(void* buffer, int len) {
-    CSTAR_Request *msg = new CSTAR_Request();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_Request_DeserializeInto(CSTAR_Request *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_Request_Delete(CSTAR_Request* ptr) {
-    delete ptr;
-}
-
-// Begin CSTAR_ReadGlyphData_Response
-EXPORT CSTAR_ReadGlyphData_Response *CSTAR_ReadGlyphData_Response_Construct() {
-    return new CSTAR_ReadGlyphData_Response();
-}
-
-EXPORT CSTAR_ReadGlyphData_Response *CSTAR_ReadGlyphData_Response_Deserialize(void* buffer, int len) {
-    CSTAR_ReadGlyphData_Response *msg = new CSTAR_ReadGlyphData_Response();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_ReadGlyphData_Response_DeserializeInto(CSTAR_ReadGlyphData_Response *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_ReadGlyphData_Response_Delete(CSTAR_ReadGlyphData_Response* ptr) {
-    delete ptr;
-}
-
-// Begin CSTAR_WriteGlyphData_Response
-EXPORT CSTAR_WriteGlyphData_Response *CSTAR_WriteGlyphData_Response_Construct() {
-    return new CSTAR_WriteGlyphData_Response();
-}
-
-EXPORT CSTAR_WriteGlyphData_Response *CSTAR_WriteGlyphData_Response_Deserialize(void* buffer, int len) {
-    CSTAR_WriteGlyphData_Response *msg = new CSTAR_WriteGlyphData_Response();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_WriteGlyphData_Response_DeserializeInto(CSTAR_WriteGlyphData_Response *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_WriteGlyphData_Response_Delete(CSTAR_WriteGlyphData_Response* ptr) {
-    delete ptr;
-}
-
-// Begin CSTAR_Response
-EXPORT CSTAR_Response *CSTAR_Response_Construct() {
-    return new CSTAR_Response();
-}
-
-EXPORT CSTAR_Response *CSTAR_Response_Deserialize(void* buffer, int len) {
-    CSTAR_Response *msg = new CSTAR_Response();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CSTAR_Response_DeserializeInto(CSTAR_Response *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CSTAR_Response_Delete(CSTAR_Response* ptr) {
-    delete ptr;
-}
-
 // Begin CSteamTV_CreateBroadcastChannel_Request
 EXPORT CSteamTV_CreateBroadcastChannel_Request *CSteamTV_CreateBroadcastChannel_Request_Construct() {
     return new CSteamTV_CreateBroadcastChannel_Request();
@@ -51450,6 +51603,28 @@ EXPORT void CSteamEngine_GetGameIDForPID_Response_Delete(CSteamEngine_GetGameIDF
     delete ptr;
 }
 
+// Begin CMsgFactoryResetState
+EXPORT CMsgFactoryResetState *CMsgFactoryResetState_Construct() {
+    return new CMsgFactoryResetState();
+}
+
+EXPORT CMsgFactoryResetState *CMsgFactoryResetState_Deserialize(void* buffer, int len) {
+    CMsgFactoryResetState *msg = new CMsgFactoryResetState();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgFactoryResetState_DeserializeInto(CMsgFactoryResetState *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgFactoryResetState_Delete(CMsgFactoryResetState* ptr) {
+    delete ptr;
+}
+
 // Begin CSteamOSManagerState
 EXPORT CSteamOSManagerState *CSteamOSManagerState_Construct() {
     return new CSteamOSManagerState();
@@ -51667,6 +51842,50 @@ EXPORT bool CSteamOSManager_ApplyMandatoryUpdate_Response_DeserializeInto(CSteam
 }
 
 EXPORT void CSteamOSManager_ApplyMandatoryUpdate_Response_Delete(CSteamOSManager_ApplyMandatoryUpdate_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamOSManager_FactoryReset_Request
+EXPORT CSteamOSManager_FactoryReset_Request *CSteamOSManager_FactoryReset_Request_Construct() {
+    return new CSteamOSManager_FactoryReset_Request();
+}
+
+EXPORT CSteamOSManager_FactoryReset_Request *CSteamOSManager_FactoryReset_Request_Deserialize(void* buffer, int len) {
+    CSteamOSManager_FactoryReset_Request *msg = new CSteamOSManager_FactoryReset_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamOSManager_FactoryReset_Request_DeserializeInto(CSteamOSManager_FactoryReset_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamOSManager_FactoryReset_Request_Delete(CSteamOSManager_FactoryReset_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamOSManager_FactoryReset_Response
+EXPORT CSteamOSManager_FactoryReset_Response *CSteamOSManager_FactoryReset_Response_Construct() {
+    return new CSteamOSManager_FactoryReset_Response();
+}
+
+EXPORT CSteamOSManager_FactoryReset_Response *CSteamOSManager_FactoryReset_Response_Deserialize(void* buffer, int len) {
+    CSteamOSManager_FactoryReset_Response *msg = new CSteamOSManager_FactoryReset_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamOSManager_FactoryReset_Response_DeserializeInto(CSteamOSManager_FactoryReset_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamOSManager_FactoryReset_Response_Delete(CSteamOSManager_FactoryReset_Response* ptr) {
     delete ptr;
 }
 
@@ -52349,6 +52568,28 @@ EXPORT bool CTransportAuth_Authenticate_Response_DeserializeInto(CTransportAuth_
 }
 
 EXPORT void CTransportAuth_Authenticate_Response_Delete(CTransportAuth_Authenticate_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CTransportAuth_StartShutdown_Notification
+EXPORT CTransportAuth_StartShutdown_Notification *CTransportAuth_StartShutdown_Notification_Construct() {
+    return new CTransportAuth_StartShutdown_Notification();
+}
+
+EXPORT CTransportAuth_StartShutdown_Notification *CTransportAuth_StartShutdown_Notification_Deserialize(void* buffer, int len) {
+    CTransportAuth_StartShutdown_Notification *msg = new CTransportAuth_StartShutdown_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CTransportAuth_StartShutdown_Notification_DeserializeInto(CTransportAuth_StartShutdown_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CTransportAuth_StartShutdown_Notification_Delete(CTransportAuth_StartShutdown_Notification* ptr) {
     delete ptr;
 }
 

@@ -19365,6 +19365,7 @@ class CMsgSetCookie PROTOBUF_FINAL :
     kExpiresFieldNumber = 5,
     kSecureFieldNumber = 6,
     kHttponlyFieldNumber = 7,
+    kSamesiteFieldNumber = 8,
   };
   // optional string key = 1;
   bool has_key() const;
@@ -19485,6 +19486,19 @@ class CMsgSetCookie PROTOBUF_FINAL :
   void _internal_set_httponly(bool value);
   public:
 
+  // optional int32 samesite = 8;
+  bool has_samesite() const;
+  private:
+  bool _internal_has_samesite() const;
+  public:
+  void clear_samesite();
+  ::PROTOBUF_NAMESPACE_ID::int32 samesite() const;
+  void set_samesite(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_samesite() const;
+  void _internal_set_samesite(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgSetCookie)
  private:
   class _Internal;
@@ -19501,6 +19515,7 @@ class CMsgSetCookie PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 expires_;
   bool secure_;
   bool httponly_;
+  ::PROTOBUF_NAMESPACE_ID::int32 samesite_;
   friend struct ::TableStruct_htmlmessages_2eproto;
 };
 // -------------------------------------------------------------------
@@ -45202,6 +45217,34 @@ inline void CMsgSetCookie::_internal_set_httponly(bool value) {
 inline void CMsgSetCookie::set_httponly(bool value) {
   _internal_set_httponly(value);
   // @@protoc_insertion_point(field_set:CMsgSetCookie.httponly)
+}
+
+// optional int32 samesite = 8;
+inline bool CMsgSetCookie::_internal_has_samesite() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CMsgSetCookie::has_samesite() const {
+  return _internal_has_samesite();
+}
+inline void CMsgSetCookie::clear_samesite() {
+  samesite_ = 0;
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgSetCookie::_internal_samesite() const {
+  return samesite_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgSetCookie::samesite() const {
+  // @@protoc_insertion_point(field_get:CMsgSetCookie.samesite)
+  return _internal_samesite();
+}
+inline void CMsgSetCookie::_internal_set_samesite(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000080u;
+  samesite_ = value;
+}
+inline void CMsgSetCookie::set_samesite(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_samesite(value);
+  // @@protoc_insertion_point(field_set:CMsgSetCookie.samesite)
 }
 
 // -------------------------------------------------------------------

@@ -626,7 +626,6 @@ class CBroadcast_BeginBroadcastSession_Request PROTOBUF_FINAL :
 
   enum : int {
     kTitleFieldNumber = 4,
-    kClientBetaFieldNumber = 8,
     kGameidFieldNumber = 2,
     kClientInstanceIdFieldNumber = 3,
     kPermissionFieldNumber = 1,
@@ -654,26 +653,6 @@ class CBroadcast_BeginBroadcastSession_Request PROTOBUF_FINAL :
   const std::string& _internal_title() const;
   void _internal_set_title(const std::string& value);
   std::string* _internal_mutable_title();
-  public:
-
-  // optional string client_beta = 8;
-  bool has_client_beta() const;
-  private:
-  bool _internal_has_client_beta() const;
-  public:
-  void clear_client_beta();
-  const std::string& client_beta() const;
-  void set_client_beta(const std::string& value);
-  void set_client_beta(std::string&& value);
-  void set_client_beta(const char* value);
-  void set_client_beta(const char* value, size_t size);
-  std::string* mutable_client_beta();
-  std::string* release_client_beta();
-  void set_allocated_client_beta(std::string* client_beta);
-  private:
-  const std::string& _internal_client_beta() const;
-  void _internal_set_client_beta(const std::string& value);
-  std::string* _internal_mutable_client_beta();
   public:
 
   // optional uint64 gameid = 2;
@@ -790,7 +769,6 @@ class CBroadcast_BeginBroadcastSession_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_beta_;
   ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 client_instance_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 permission_;
@@ -16402,7 +16380,7 @@ class BroadcastClient_Stub : public BroadcastClient {
 
 // optional int32 permission = 1;
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_permission() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::has_permission() const {
@@ -16410,7 +16388,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::has_permission() const {
 }
 inline void CBroadcast_BeginBroadcastSession_Request::clear_permission() {
   permission_ = 0;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CBroadcast_BeginBroadcastSession_Request::_internal_permission() const {
   return permission_;
@@ -16420,7 +16398,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CBroadcast_BeginBroadcastSession_Request::
   return _internal_permission();
 }
 inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_permission(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
   permission_ = value;
 }
 inline void CBroadcast_BeginBroadcastSession_Request::set_permission(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -16430,7 +16408,7 @@ inline void CBroadcast_BeginBroadcastSession_Request::set_permission(::PROTOBUF_
 
 // optional uint64 gameid = 2;
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_gameid() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::has_gameid() const {
@@ -16438,7 +16416,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::has_gameid() const {
 }
 inline void CBroadcast_BeginBroadcastSession_Request::clear_gameid() {
   gameid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CBroadcast_BeginBroadcastSession_Request::_internal_gameid() const {
   return gameid_;
@@ -16448,7 +16426,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CBroadcast_BeginBroadcastSession_Request:
   return _internal_gameid();
 }
 inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
   gameid_ = value;
 }
 inline void CBroadcast_BeginBroadcastSession_Request::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -16458,7 +16436,7 @@ inline void CBroadcast_BeginBroadcastSession_Request::set_gameid(::PROTOBUF_NAME
 
 // optional uint64 client_instance_id = 3;
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_client_instance_id() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::has_client_instance_id() const {
@@ -16466,7 +16444,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::has_client_instance_id() c
 }
 inline void CBroadcast_BeginBroadcastSession_Request::clear_client_instance_id() {
   client_instance_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CBroadcast_BeginBroadcastSession_Request::_internal_client_instance_id() const {
   return client_instance_id_;
@@ -16476,7 +16454,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CBroadcast_BeginBroadcastSession_Request:
   return _internal_client_instance_id();
 }
 inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_client_instance_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
   client_instance_id_ = value;
 }
 inline void CBroadcast_BeginBroadcastSession_Request::set_client_instance_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -16559,7 +16537,7 @@ inline void CBroadcast_BeginBroadcastSession_Request::set_allocated_title(std::s
 
 // optional uint32 cellid = 5;
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_cellid() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::has_cellid() const {
@@ -16567,7 +16545,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::has_cellid() const {
 }
 inline void CBroadcast_BeginBroadcastSession_Request::clear_cellid() {
   cellid_ = 0u;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CBroadcast_BeginBroadcastSession_Request::_internal_cellid() const {
   return cellid_;
@@ -16577,7 +16555,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CBroadcast_BeginBroadcastSession_Request:
   return _internal_cellid();
 }
 inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_cellid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
   cellid_ = value;
 }
 inline void CBroadcast_BeginBroadcastSession_Request::set_cellid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -16587,7 +16565,7 @@ inline void CBroadcast_BeginBroadcastSession_Request::set_cellid(::PROTOBUF_NAME
 
 // optional uint64 rtmp_token = 6;
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_rtmp_token() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::has_rtmp_token() const {
@@ -16595,7 +16573,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::has_rtmp_token() const {
 }
 inline void CBroadcast_BeginBroadcastSession_Request::clear_rtmp_token() {
   rtmp_token_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CBroadcast_BeginBroadcastSession_Request::_internal_rtmp_token() const {
   return rtmp_token_;
@@ -16605,7 +16583,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CBroadcast_BeginBroadcastSession_Request:
   return _internal_rtmp_token();
 }
 inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_rtmp_token(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
   rtmp_token_ = value;
 }
 inline void CBroadcast_BeginBroadcastSession_Request::set_rtmp_token(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -16615,7 +16593,7 @@ inline void CBroadcast_BeginBroadcastSession_Request::set_rtmp_token(::PROTOBUF_
 
 // optional bool thumbnail_upload = 7;
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_thumbnail_upload() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::has_thumbnail_upload() const {
@@ -16623,7 +16601,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::has_thumbnail_upload() con
 }
 inline void CBroadcast_BeginBroadcastSession_Request::clear_thumbnail_upload() {
   thumbnail_upload_ = false;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_thumbnail_upload() const {
   return thumbnail_upload_;
@@ -16633,7 +16611,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::thumbnail_upload() const {
   return _internal_thumbnail_upload();
 }
 inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_thumbnail_upload(bool value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000040u;
   thumbnail_upload_ = value;
 }
 inline void CBroadcast_BeginBroadcastSession_Request::set_thumbnail_upload(bool value) {
@@ -16641,82 +16619,9 @@ inline void CBroadcast_BeginBroadcastSession_Request::set_thumbnail_upload(bool 
   // @@protoc_insertion_point(field_set:CBroadcast_BeginBroadcastSession_Request.thumbnail_upload)
 }
 
-// optional string client_beta = 8;
-inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_client_beta() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CBroadcast_BeginBroadcastSession_Request::has_client_beta() const {
-  return _internal_has_client_beta();
-}
-inline void CBroadcast_BeginBroadcastSession_Request::clear_client_beta() {
-  client_beta_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& CBroadcast_BeginBroadcastSession_Request::client_beta() const {
-  // @@protoc_insertion_point(field_get:CBroadcast_BeginBroadcastSession_Request.client_beta)
-  return _internal_client_beta();
-}
-inline void CBroadcast_BeginBroadcastSession_Request::set_client_beta(const std::string& value) {
-  _internal_set_client_beta(value);
-  // @@protoc_insertion_point(field_set:CBroadcast_BeginBroadcastSession_Request.client_beta)
-}
-inline std::string* CBroadcast_BeginBroadcastSession_Request::mutable_client_beta() {
-  // @@protoc_insertion_point(field_mutable:CBroadcast_BeginBroadcastSession_Request.client_beta)
-  return _internal_mutable_client_beta();
-}
-inline const std::string& CBroadcast_BeginBroadcastSession_Request::_internal_client_beta() const {
-  return client_beta_.Get();
-}
-inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_client_beta(const std::string& value) {
-  _has_bits_[0] |= 0x00000002u;
-  client_beta_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CBroadcast_BeginBroadcastSession_Request::set_client_beta(std::string&& value) {
-  _has_bits_[0] |= 0x00000002u;
-  client_beta_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CBroadcast_BeginBroadcastSession_Request.client_beta)
-}
-inline void CBroadcast_BeginBroadcastSession_Request::set_client_beta(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000002u;
-  client_beta_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CBroadcast_BeginBroadcastSession_Request.client_beta)
-}
-inline void CBroadcast_BeginBroadcastSession_Request::set_client_beta(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000002u;
-  client_beta_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CBroadcast_BeginBroadcastSession_Request.client_beta)
-}
-inline std::string* CBroadcast_BeginBroadcastSession_Request::_internal_mutable_client_beta() {
-  _has_bits_[0] |= 0x00000002u;
-  return client_beta_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CBroadcast_BeginBroadcastSession_Request::release_client_beta() {
-  // @@protoc_insertion_point(field_release:CBroadcast_BeginBroadcastSession_Request.client_beta)
-  if (!_internal_has_client_beta()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000002u;
-  return client_beta_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CBroadcast_BeginBroadcastSession_Request::set_allocated_client_beta(std::string* client_beta) {
-  if (client_beta != nullptr) {
-    _has_bits_[0] |= 0x00000002u;
-  } else {
-    _has_bits_[0] &= ~0x00000002u;
-  }
-  client_beta_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), client_beta,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CBroadcast_BeginBroadcastSession_Request.client_beta)
-}
-
 // optional uint32 sysid = 9;
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_sysid() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::has_sysid() const {
@@ -16724,7 +16629,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::has_sysid() const {
 }
 inline void CBroadcast_BeginBroadcastSession_Request::clear_sysid() {
   sysid_ = 0u;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CBroadcast_BeginBroadcastSession_Request::_internal_sysid() const {
   return sysid_;
@@ -16734,7 +16639,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CBroadcast_BeginBroadcastSession_Request:
   return _internal_sysid();
 }
 inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_sysid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000100u;
   sysid_ = value;
 }
 inline void CBroadcast_BeginBroadcastSession_Request::set_sysid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -16744,7 +16649,7 @@ inline void CBroadcast_BeginBroadcastSession_Request::set_sysid(::PROTOBUF_NAMES
 
 // optional bool allow_webrtc = 10;
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_has_allow_webrtc() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::has_allow_webrtc() const {
@@ -16752,7 +16657,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::has_allow_webrtc() const {
 }
 inline void CBroadcast_BeginBroadcastSession_Request::clear_allow_webrtc() {
   allow_webrtc_ = false;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline bool CBroadcast_BeginBroadcastSession_Request::_internal_allow_webrtc() const {
   return allow_webrtc_;
@@ -16762,7 +16667,7 @@ inline bool CBroadcast_BeginBroadcastSession_Request::allow_webrtc() const {
   return _internal_allow_webrtc();
 }
 inline void CBroadcast_BeginBroadcastSession_Request::_internal_set_allow_webrtc(bool value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000080u;
   allow_webrtc_ = value;
 }
 inline void CBroadcast_BeginBroadcastSession_Request::set_allow_webrtc(bool value) {

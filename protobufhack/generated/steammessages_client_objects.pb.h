@@ -11478,7 +11478,7 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
 
   enum : int {
     kModesFieldNumber = 11,
-    kCompatibilityParamsFieldNumber = 18,
+    kSupportedRefreshRatesFieldNumber = 18,
     kNameFieldNumber = 2,
     kDescriptionFieldNumber = 3,
     kIdFieldNumber = 1,
@@ -11495,7 +11495,6 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
     kIsVrrEnabledFieldNumber = 15,
     kIsHdrCapableFieldNumber = 16,
     kIsHdrEnabledFieldNumber = 17,
-    kAppWantsHdrFieldNumber = 19,
   };
   // repeated .CMsgSystemDisplayMode modes = 11;
   int modes_size() const;
@@ -11515,27 +11514,27 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSystemDisplayMode >&
       modes() const;
 
-  // repeated int32 compatibility_params = 18;
-  int compatibility_params_size() const;
+  // repeated int32 supported_refresh_rates = 18;
+  int supported_refresh_rates_size() const;
   private:
-  int _internal_compatibility_params_size() const;
+  int _internal_supported_refresh_rates_size() const;
   public:
-  void clear_compatibility_params();
+  void clear_supported_refresh_rates();
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_compatibility_params(int index) const;
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_supported_refresh_rates(int index) const;
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_compatibility_params() const;
-  void _internal_add_compatibility_params(::PROTOBUF_NAMESPACE_ID::int32 value);
+      _internal_supported_refresh_rates() const;
+  void _internal_add_supported_refresh_rates(::PROTOBUF_NAMESPACE_ID::int32 value);
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_compatibility_params();
+      _internal_mutable_supported_refresh_rates();
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 compatibility_params(int index) const;
-  void set_compatibility_params(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_compatibility_params(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 supported_refresh_rates(int index) const;
+  void set_supported_refresh_rates(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
+  void add_supported_refresh_rates(::PROTOBUF_NAMESPACE_ID::int32 value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      compatibility_params() const;
+      supported_refresh_rates() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_compatibility_params();
+      mutable_supported_refresh_rates();
 
   // optional string name = 2;
   bool has_name() const;
@@ -11759,19 +11758,6 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
   void _internal_set_is_hdr_enabled(bool value);
   public:
 
-  // optional bool app_wants_hdr = 19;
-  bool has_app_wants_hdr() const;
-  private:
-  bool _internal_has_app_wants_hdr() const;
-  public:
-  void clear_app_wants_hdr();
-  bool app_wants_hdr() const;
-  void set_app_wants_hdr(bool value);
-  private:
-  bool _internal_app_wants_hdr() const;
-  void _internal_set_app_wants_hdr(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CMsgSystemDisplay)
  private:
   class _Internal;
@@ -11782,7 +11768,7 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSystemDisplayMode > modes_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > compatibility_params_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > supported_refresh_rates_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
   ::PROTOBUF_NAMESPACE_ID::int32 id_;
@@ -11799,7 +11785,6 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
   bool is_vrr_enabled_;
   bool is_hdr_capable_;
   bool is_hdr_enabled_;
-  bool app_wants_hdr_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
 };
 // -------------------------------------------------------------------
@@ -12305,6 +12290,7 @@ class CMsgSystemManagerSettings PROTOBUF_FINAL :
     kAlsLuxAlternateFieldNumber = 33,
     kDisplayColortempFieldNumber = 35,
     kDisplayColortempDefaultFieldNumber = 36,
+    kDisplayBrightnessOverdriveHdrSplitFieldNumber = 39,
     kDisplayColortempEnabledFieldNumber = 37,
     kDisplayColorgamutLabelsetFieldNumber = 38,
   };
@@ -12737,6 +12723,19 @@ class CMsgSystemManagerSettings PROTOBUF_FINAL :
   void _internal_set_display_colortemp_default(float value);
   public:
 
+  // optional float display_brightness_overdrive_hdr_split = 39;
+  bool has_display_brightness_overdrive_hdr_split() const;
+  private:
+  bool _internal_has_display_brightness_overdrive_hdr_split() const;
+  public:
+  void clear_display_brightness_overdrive_hdr_split();
+  float display_brightness_overdrive_hdr_split() const;
+  void set_display_brightness_overdrive_hdr_split(float value);
+  private:
+  float _internal_display_brightness_overdrive_hdr_split() const;
+  void _internal_set_display_brightness_overdrive_hdr_split(float value);
+  public:
+
   // optional bool display_colortemp_enabled = 37;
   bool has_display_colortemp_enabled() const;
   private:
@@ -12805,6 +12804,7 @@ class CMsgSystemManagerSettings PROTOBUF_FINAL :
   float als_lux_alternate_;
   float display_colortemp_;
   float display_colortemp_default_;
+  float display_brightness_overdrive_hdr_split_;
   bool display_colortemp_enabled_;
   int display_colorgamut_labelset_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
@@ -27786,79 +27786,51 @@ inline void CMsgSystemDisplay::set_is_hdr_enabled(bool value) {
   // @@protoc_insertion_point(field_set:CMsgSystemDisplay.is_hdr_enabled)
 }
 
-// repeated int32 compatibility_params = 18;
-inline int CMsgSystemDisplay::_internal_compatibility_params_size() const {
-  return compatibility_params_.size();
+// repeated int32 supported_refresh_rates = 18;
+inline int CMsgSystemDisplay::_internal_supported_refresh_rates_size() const {
+  return supported_refresh_rates_.size();
 }
-inline int CMsgSystemDisplay::compatibility_params_size() const {
-  return _internal_compatibility_params_size();
+inline int CMsgSystemDisplay::supported_refresh_rates_size() const {
+  return _internal_supported_refresh_rates_size();
 }
-inline void CMsgSystemDisplay::clear_compatibility_params() {
-  compatibility_params_.Clear();
+inline void CMsgSystemDisplay::clear_supported_refresh_rates() {
+  supported_refresh_rates_.Clear();
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgSystemDisplay::_internal_compatibility_params(int index) const {
-  return compatibility_params_.Get(index);
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgSystemDisplay::_internal_supported_refresh_rates(int index) const {
+  return supported_refresh_rates_.Get(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgSystemDisplay::compatibility_params(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSystemDisplay.compatibility_params)
-  return _internal_compatibility_params(index);
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgSystemDisplay::supported_refresh_rates(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSystemDisplay.supported_refresh_rates)
+  return _internal_supported_refresh_rates(index);
 }
-inline void CMsgSystemDisplay::set_compatibility_params(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  compatibility_params_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSystemDisplay.compatibility_params)
+inline void CMsgSystemDisplay::set_supported_refresh_rates(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
+  supported_refresh_rates_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSystemDisplay.supported_refresh_rates)
 }
-inline void CMsgSystemDisplay::_internal_add_compatibility_params(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  compatibility_params_.Add(value);
+inline void CMsgSystemDisplay::_internal_add_supported_refresh_rates(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  supported_refresh_rates_.Add(value);
 }
-inline void CMsgSystemDisplay::add_compatibility_params(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_compatibility_params(value);
-  // @@protoc_insertion_point(field_add:CMsgSystemDisplay.compatibility_params)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-CMsgSystemDisplay::_internal_compatibility_params() const {
-  return compatibility_params_;
+inline void CMsgSystemDisplay::add_supported_refresh_rates(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_add_supported_refresh_rates(value);
+  // @@protoc_insertion_point(field_add:CMsgSystemDisplay.supported_refresh_rates)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-CMsgSystemDisplay::compatibility_params() const {
-  // @@protoc_insertion_point(field_list:CMsgSystemDisplay.compatibility_params)
-  return _internal_compatibility_params();
+CMsgSystemDisplay::_internal_supported_refresh_rates() const {
+  return supported_refresh_rates_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+CMsgSystemDisplay::supported_refresh_rates() const {
+  // @@protoc_insertion_point(field_list:CMsgSystemDisplay.supported_refresh_rates)
+  return _internal_supported_refresh_rates();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-CMsgSystemDisplay::_internal_mutable_compatibility_params() {
-  return &compatibility_params_;
+CMsgSystemDisplay::_internal_mutable_supported_refresh_rates() {
+  return &supported_refresh_rates_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-CMsgSystemDisplay::mutable_compatibility_params() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSystemDisplay.compatibility_params)
-  return _internal_mutable_compatibility_params();
-}
-
-// optional bool app_wants_hdr = 19;
-inline bool CMsgSystemDisplay::_internal_has_app_wants_hdr() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
-  return value;
-}
-inline bool CMsgSystemDisplay::has_app_wants_hdr() const {
-  return _internal_has_app_wants_hdr();
-}
-inline void CMsgSystemDisplay::clear_app_wants_hdr() {
-  app_wants_hdr_ = false;
-  _has_bits_[0] &= ~0x00010000u;
-}
-inline bool CMsgSystemDisplay::_internal_app_wants_hdr() const {
-  return app_wants_hdr_;
-}
-inline bool CMsgSystemDisplay::app_wants_hdr() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemDisplay.app_wants_hdr)
-  return _internal_app_wants_hdr();
-}
-inline void CMsgSystemDisplay::_internal_set_app_wants_hdr(bool value) {
-  _has_bits_[0] |= 0x00010000u;
-  app_wants_hdr_ = value;
-}
-inline void CMsgSystemDisplay::set_app_wants_hdr(bool value) {
-  _internal_set_app_wants_hdr(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemDisplay.app_wants_hdr)
+CMsgSystemDisplay::mutable_supported_refresh_rates() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSystemDisplay.supported_refresh_rates)
+  return _internal_mutable_supported_refresh_rates();
 }
 
 // -------------------------------------------------------------------
@@ -28952,7 +28924,7 @@ inline void CMsgSystemManagerSettings::set_display_colortemp_default(float value
 
 // optional bool display_colortemp_enabled = 37;
 inline bool CMsgSystemManagerSettings::_internal_has_display_colortemp_enabled() const {
-  bool value = (_has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgSystemManagerSettings::has_display_colortemp_enabled() const {
@@ -28960,7 +28932,7 @@ inline bool CMsgSystemManagerSettings::has_display_colortemp_enabled() const {
 }
 inline void CMsgSystemManagerSettings::clear_display_colortemp_enabled() {
   display_colortemp_enabled_ = false;
-  _has_bits_[1] &= ~0x00000002u;
+  _has_bits_[1] &= ~0x00000004u;
 }
 inline bool CMsgSystemManagerSettings::_internal_display_colortemp_enabled() const {
   return display_colortemp_enabled_;
@@ -28970,7 +28942,7 @@ inline bool CMsgSystemManagerSettings::display_colortemp_enabled() const {
   return _internal_display_colortemp_enabled();
 }
 inline void CMsgSystemManagerSettings::_internal_set_display_colortemp_enabled(bool value) {
-  _has_bits_[1] |= 0x00000002u;
+  _has_bits_[1] |= 0x00000004u;
   display_colortemp_enabled_ = value;
 }
 inline void CMsgSystemManagerSettings::set_display_colortemp_enabled(bool value) {
@@ -28980,7 +28952,7 @@ inline void CMsgSystemManagerSettings::set_display_colortemp_enabled(bool value)
 
 // optional .EColorGamutLabelSet display_colorgamut_labelset = 38 [default = ColorGamutLabelSet_Default];
 inline bool CMsgSystemManagerSettings::_internal_has_display_colorgamut_labelset() const {
-  bool value = (_has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSystemManagerSettings::has_display_colorgamut_labelset() const {
@@ -28988,7 +28960,7 @@ inline bool CMsgSystemManagerSettings::has_display_colorgamut_labelset() const {
 }
 inline void CMsgSystemManagerSettings::clear_display_colorgamut_labelset() {
   display_colorgamut_labelset_ = 0;
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[1] &= ~0x00000008u;
 }
 inline ::EColorGamutLabelSet CMsgSystemManagerSettings::_internal_display_colorgamut_labelset() const {
   return static_cast< ::EColorGamutLabelSet >(display_colorgamut_labelset_);
@@ -28999,12 +28971,40 @@ inline ::EColorGamutLabelSet CMsgSystemManagerSettings::display_colorgamut_label
 }
 inline void CMsgSystemManagerSettings::_internal_set_display_colorgamut_labelset(::EColorGamutLabelSet value) {
   assert(::EColorGamutLabelSet_IsValid(value));
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[1] |= 0x00000008u;
   display_colorgamut_labelset_ = value;
 }
 inline void CMsgSystemManagerSettings::set_display_colorgamut_labelset(::EColorGamutLabelSet value) {
   _internal_set_display_colorgamut_labelset(value);
   // @@protoc_insertion_point(field_set:CMsgSystemManagerSettings.display_colorgamut_labelset)
+}
+
+// optional float display_brightness_overdrive_hdr_split = 39;
+inline bool CMsgSystemManagerSettings::_internal_has_display_brightness_overdrive_hdr_split() const {
+  bool value = (_has_bits_[1] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSystemManagerSettings::has_display_brightness_overdrive_hdr_split() const {
+  return _internal_has_display_brightness_overdrive_hdr_split();
+}
+inline void CMsgSystemManagerSettings::clear_display_brightness_overdrive_hdr_split() {
+  display_brightness_overdrive_hdr_split_ = 0;
+  _has_bits_[1] &= ~0x00000002u;
+}
+inline float CMsgSystemManagerSettings::_internal_display_brightness_overdrive_hdr_split() const {
+  return display_brightness_overdrive_hdr_split_;
+}
+inline float CMsgSystemManagerSettings::display_brightness_overdrive_hdr_split() const {
+  // @@protoc_insertion_point(field_get:CMsgSystemManagerSettings.display_brightness_overdrive_hdr_split)
+  return _internal_display_brightness_overdrive_hdr_split();
+}
+inline void CMsgSystemManagerSettings::_internal_set_display_brightness_overdrive_hdr_split(float value) {
+  _has_bits_[1] |= 0x00000002u;
+  display_brightness_overdrive_hdr_split_ = value;
+}
+inline void CMsgSystemManagerSettings::set_display_brightness_overdrive_hdr_split(float value) {
+  _internal_set_display_brightness_overdrive_hdr_split(value);
+  // @@protoc_insertion_point(field_set:CMsgSystemManagerSettings.display_brightness_overdrive_hdr_split)
 }
 
 // -------------------------------------------------------------------

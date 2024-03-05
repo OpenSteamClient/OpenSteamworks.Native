@@ -39,7 +39,18 @@ struct CTransportAuth_Authenticate_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CTransportAuth_Authenticate_ResponseDefaultTypeInternal _CTransportAuth_Authenticate_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5ftransport_2eproto[2];
+constexpr CTransportAuth_StartShutdown_Notification::CTransportAuth_StartShutdown_Notification(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CTransportAuth_StartShutdown_NotificationDefaultTypeInternal {
+  constexpr CTransportAuth_StartShutdown_NotificationDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CTransportAuth_StartShutdown_NotificationDefaultTypeInternal() {}
+  union {
+    CTransportAuth_StartShutdown_Notification _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CTransportAuth_StartShutdown_NotificationDefaultTypeInternal _CTransportAuth_StartShutdown_Notification_default_instance_;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5ftransport_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_webuimessages_5ftransport_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_webuimessages_5ftransport_2eproto[1];
 
@@ -56,15 +67,22 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5ftransport_2epr
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CTransportAuth_StartShutdown_Notification, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 6, sizeof(::CTransportAuth_Authenticate_Request)},
   { 7, -1, sizeof(::CTransportAuth_Authenticate_Response)},
+  { 12, -1, sizeof(::CTransportAuth_StartShutdown_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportAuth_Authenticate_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportAuth_Authenticate_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportAuth_StartShutdown_Notification_default_instance_),
 };
 
 const char descriptor_table_protodef_webuimessages_5ftransport_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -73,11 +91,14 @@ const char descriptor_table_protodef_webuimessages_5ftransport_2eproto[] PROTOBU
   "_base.proto\032\030webuimessages_base.proto\"7\n"
   "#CTransportAuth_Authenticate_Request\022\020\n\010"
   "auth_key\030\001 \001(\t\"&\n$CTransportAuth_Authent"
-  "icate_Response2r\n\rTransportAuth\022[\n\014Authe"
-  "nticate\022$.CTransportAuth_Authenticate_Re"
-  "quest\032%.CTransportAuth_Authenticate_Resp"
-  "onse\032\004\200\227\"\003B\037H\001\200\001\001\252\002\027OpenSteamworks.Proto"
-  "buf"
+  "icate_Response\"+\n)CTransportAuth_StartSh"
+  "utdown_Notification2\307\001\n\rTransportAuth\022[\n"
+  "\014Authenticate\022$.CTransportAuth_Authentic"
+  "ate_Request\032%.CTransportAuth_Authenticat"
+  "e_Response\022S\n\023NotifyStartShutdown\022*.CTra"
+  "nsportAuth_StartShutdown_Notification\032\020."
+  "WebUINoResponse\032\004\200\227\"\003B\037H\001\200\001\001\252\002\027OpenSteam"
+  "works.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5ftransport_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -86,8 +107,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5ftransport_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5ftransport_2eproto = {
-  false, false, 363, descriptor_table_protodef_webuimessages_5ftransport_2eproto, "webuimessages_transport.proto", 
-  &descriptor_table_webuimessages_5ftransport_2eproto_once, descriptor_table_webuimessages_5ftransport_2eproto_deps, 3, 2,
+  false, false, 494, descriptor_table_protodef_webuimessages_5ftransport_2eproto, "webuimessages_transport.proto", 
+  &descriptor_table_webuimessages_5ftransport_2eproto_once, descriptor_table_webuimessages_5ftransport_2eproto_deps, 3, 3,
   schemas, file_default_instances, TableStruct_webuimessages_5ftransport_2eproto::offsets,
   file_level_metadata_webuimessages_5ftransport_2eproto, file_level_enum_descriptors_webuimessages_5ftransport_2eproto, file_level_service_descriptors_webuimessages_5ftransport_2eproto,
 };
@@ -475,6 +496,163 @@ void CTransportAuth_Authenticate_Response::InternalSwap(CTransportAuth_Authentic
 
 // ===================================================================
 
+class CTransportAuth_StartShutdown_Notification::_Internal {
+ public:
+};
+
+CTransportAuth_StartShutdown_Notification::CTransportAuth_StartShutdown_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CTransportAuth_StartShutdown_Notification)
+}
+CTransportAuth_StartShutdown_Notification::CTransportAuth_StartShutdown_Notification(const CTransportAuth_StartShutdown_Notification& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CTransportAuth_StartShutdown_Notification)
+}
+
+void CTransportAuth_StartShutdown_Notification::SharedCtor() {
+}
+
+CTransportAuth_StartShutdown_Notification::~CTransportAuth_StartShutdown_Notification() {
+  // @@protoc_insertion_point(destructor:CTransportAuth_StartShutdown_Notification)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CTransportAuth_StartShutdown_Notification::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CTransportAuth_StartShutdown_Notification::ArenaDtor(void* object) {
+  CTransportAuth_StartShutdown_Notification* _this = reinterpret_cast< CTransportAuth_StartShutdown_Notification* >(object);
+  (void)_this;
+}
+void CTransportAuth_StartShutdown_Notification::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CTransportAuth_StartShutdown_Notification::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CTransportAuth_StartShutdown_Notification::Clear() {
+// @@protoc_insertion_point(message_clear_start:CTransportAuth_StartShutdown_Notification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CTransportAuth_StartShutdown_Notification::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CTransportAuth_StartShutdown_Notification::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CTransportAuth_StartShutdown_Notification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CTransportAuth_StartShutdown_Notification)
+  return target;
+}
+
+size_t CTransportAuth_StartShutdown_Notification::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CTransportAuth_StartShutdown_Notification)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CTransportAuth_StartShutdown_Notification::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CTransportAuth_StartShutdown_Notification)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CTransportAuth_StartShutdown_Notification* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CTransportAuth_StartShutdown_Notification>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CTransportAuth_StartShutdown_Notification)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CTransportAuth_StartShutdown_Notification)
+    MergeFrom(*source);
+  }
+}
+
+void CTransportAuth_StartShutdown_Notification::MergeFrom(const CTransportAuth_StartShutdown_Notification& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CTransportAuth_StartShutdown_Notification)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CTransportAuth_StartShutdown_Notification::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CTransportAuth_StartShutdown_Notification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CTransportAuth_StartShutdown_Notification::CopyFrom(const CTransportAuth_StartShutdown_Notification& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CTransportAuth_StartShutdown_Notification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CTransportAuth_StartShutdown_Notification::IsInitialized() const {
+  return true;
+}
+
+void CTransportAuth_StartShutdown_Notification::InternalSwap(CTransportAuth_StartShutdown_Notification* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CTransportAuth_StartShutdown_Notification::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 TransportAuth::~TransportAuth() {}
 
 const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* TransportAuth::descriptor() {
@@ -494,6 +672,14 @@ void TransportAuth::Authenticate(::PROTOBUF_NAMESPACE_ID::RpcController* control
   done->Run();
 }
 
+void TransportAuth::NotifyStartShutdown(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CTransportAuth_StartShutdown_Notification*,
+                         ::WebUINoResponse*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method NotifyStartShutdown() not implemented.");
+  done->Run();
+}
+
 void TransportAuth::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -509,6 +695,14 @@ void TransportAuth::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* 
                  response),
              done);
       break;
+    case 1:
+      NotifyStartShutdown(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CTransportAuth_StartShutdown_Notification*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::WebUINoResponse*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -521,6 +715,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& TransportAuth::GetRequestPrototype(
   switch(method->index()) {
     case 0:
       return ::CTransportAuth_Authenticate_Request::default_instance();
+    case 1:
+      return ::CTransportAuth_StartShutdown_Notification::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -534,6 +730,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& TransportAuth::GetResponsePrototype(
   switch(method->index()) {
     case 0:
       return ::CTransportAuth_Authenticate_Response::default_instance();
+    case 1:
+      return ::WebUINoResponse::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -559,6 +757,13 @@ void TransportAuth_Stub::Authenticate(::PROTOBUF_NAMESPACE_ID::RpcController* co
   channel_->CallMethod(descriptor()->method(0),
                        controller, request, response, done);
 }
+void TransportAuth_Stub::NotifyStartShutdown(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CTransportAuth_StartShutdown_Notification* request,
+                              ::WebUINoResponse* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(1),
+                       controller, request, response, done);
+}
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
@@ -567,6 +772,9 @@ template<> PROTOBUF_NOINLINE ::CTransportAuth_Authenticate_Request* Arena::Creat
 }
 template<> PROTOBUF_NOINLINE ::CTransportAuth_Authenticate_Response* Arena::CreateMaybeMessage< ::CTransportAuth_Authenticate_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CTransportAuth_Authenticate_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CTransportAuth_StartShutdown_Notification* Arena::CreateMaybeMessage< ::CTransportAuth_StartShutdown_Notification >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CTransportAuth_StartShutdown_Notification >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

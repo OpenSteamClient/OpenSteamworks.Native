@@ -19,7 +19,6 @@ PROTOBUF_PRAGMA_INIT_SEG
 constexpr CBroadcast_BeginBroadcastSession_Request::CBroadcast_BeginBroadcastSession_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : title_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , client_beta_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , gameid_(PROTOBUF_ULONGLONG(0))
   , client_instance_id_(PROTOBUF_ULONGLONG(0))
   , permission_(0)
@@ -1201,19 +1200,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fbroadcast_2est
   PROTOBUF_FIELD_OFFSET(::CBroadcast_BeginBroadcastSession_Request, cellid_),
   PROTOBUF_FIELD_OFFSET(::CBroadcast_BeginBroadcastSession_Request, rtmp_token_),
   PROTOBUF_FIELD_OFFSET(::CBroadcast_BeginBroadcastSession_Request, thumbnail_upload_),
-  PROTOBUF_FIELD_OFFSET(::CBroadcast_BeginBroadcastSession_Request, client_beta_),
   PROTOBUF_FIELD_OFFSET(::CBroadcast_BeginBroadcastSession_Request, sysid_),
   PROTOBUF_FIELD_OFFSET(::CBroadcast_BeginBroadcastSession_Request, allow_webrtc_),
-  4,
-  2,
   3,
+  1,
+  2,
   0,
+  4,
   5,
   6,
-  7,
-  1,
-  9,
   8,
+  7,
   PROTOBUF_FIELD_OFFSET(::CBroadcast_BeginBroadcastSession_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CBroadcast_BeginBroadcastSession_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2136,87 +2133,87 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fbroadcast_2est
   0,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 15, sizeof(::CBroadcast_BeginBroadcastSession_Request)},
-  { 25, 35, sizeof(::CBroadcast_BeginBroadcastSession_Response)},
-  { 40, 46, sizeof(::CBroadcast_EndBroadcastSession_Request)},
-  { 47, -1, sizeof(::CBroadcast_EndBroadcastSession_Response)},
-  { 52, 65, sizeof(::CBroadcast_StartBroadcastUpload_Request)},
-  { 73, 83, sizeof(::CBroadcast_StartBroadcastUpload_Response)},
-  { 88, 95, sizeof(::CBroadcast_NotifyBroadcastUploadStop_Notification)},
-  { 97, 108, sizeof(::CBroadcast_WatchBroadcast_Request)},
-  { 114, 139, sizeof(::CBroadcast_WatchBroadcast_Response)},
-  { 159, 168, sizeof(::CBroadcast_HeartbeatBroadcast_Notification)},
-  { 172, 180, sizeof(::CBroadcast_StopWatchingBroadcast_Notification)},
-  { 183, 190, sizeof(::CBroadcast_GetBroadcastStatus_Request)},
-  { 192, 211, sizeof(::CBroadcast_GetBroadcastStatus_Response)},
-  { 225, 232, sizeof(::CBroadcast_GetBroadcastThumbnail_Request)},
-  { 234, 243, sizeof(::CBroadcast_GetBroadcastThumbnail_Response)},
-  { 247, 254, sizeof(::CBroadcast_InviteToBroadcast_Request)},
-  { 256, 262, sizeof(::CBroadcast_InviteToBroadcast_Response)},
-  { 263, 272, sizeof(::CBroadcast_SendBroadcastStateToServer_Request)},
-  { 276, -1, sizeof(::CBroadcast_SendBroadcastStateToServer_Response)},
-  { 281, 287, sizeof(::CBroadcast_NotifyBroadcastSessionHeartbeat_Notification)},
-  { 288, 297, sizeof(::CBroadcast_GetBroadcastChatInfo_Request)},
-  { 301, 309, sizeof(::CBroadcast_GetBroadcastChatInfo_Response)},
-  { 312, 322, sizeof(::CBroadcast_PostChatMessage_Request)},
-  { 327, 336, sizeof(::CBroadcast_PostChatMessage_Response)},
-  { 340, 347, sizeof(::CBroadcast_UpdateChatMessageFlair_Request)},
-  { 349, 357, sizeof(::CBroadcast_UpdateChatMessageFlair_Response)},
-  { 360, 368, sizeof(::CBroadcast_MuteBroadcastChatUser_Request)},
-  { 371, -1, sizeof(::CBroadcast_MuteBroadcastChatUser_Response)},
-  { 376, 383, sizeof(::CBroadcast_RemoveUserChatText_Request)},
-  { 385, -1, sizeof(::CBroadcast_RemoveUserChatText_Response)},
-  { 390, 397, sizeof(::CBroadcast_GetBroadcastChatUserNames_Request)},
-  { 399, 406, sizeof(::CBroadcast_GetBroadcastChatUserNames_Response_PersonaName)},
-  { 408, -1, sizeof(::CBroadcast_GetBroadcastChatUserNames_Response)},
-  { 414, 424, sizeof(::CBroadcast_StartBuildClip_Request)},
-  { 429, 435, sizeof(::CBroadcast_StartBuildClip_Response)},
-  { 436, 442, sizeof(::CBroadcast_GetBuildClipStatus_Request)},
-  { 443, -1, sizeof(::CBroadcast_GetBuildClipStatus_Response)},
-  { 448, 457, sizeof(::CBroadcast_SetClipDetails_Request)},
-  { 461, -1, sizeof(::CBroadcast_SetClipDetails_Response)},
-  { 466, 472, sizeof(::CBroadcast_GetClipDetails_Request)},
-  { 473, 488, sizeof(::CBroadcast_GetClipDetails_Response)},
-  { 498, 515, sizeof(::CBroadcast_SetRTMPInfo_Request)},
-  { 527, -1, sizeof(::CBroadcast_SetRTMPInfo_Response)},
-  { 532, 539, sizeof(::CBroadcast_GetRTMPInfo_Request)},
-  { 541, 559, sizeof(::CBroadcast_GetRTMPInfo_Response)},
-  { 572, 579, sizeof(::CBroadcast_WebRTCHaveTURNServer_Notification)},
-  { 581, 592, sizeof(::CBroadcast_WebRTCStartResult_Request)},
-  { 598, -1, sizeof(::CBroadcast_WebRTCStartResult_Response)},
-  { 603, 609, sizeof(::CBroadcast_WebRTCStopped_Request)},
-  { 610, -1, sizeof(::CBroadcast_WebRTCStopped_Response)},
-  { 615, 623, sizeof(::CBroadcast_WebRTCSetAnswer_Request)},
-  { 626, -1, sizeof(::CBroadcast_WebRTCSetAnswer_Response)},
-  { 631, 637, sizeof(::CBroadcast_WebRTCLookupTURNServer_Request)},
-  { 638, 644, sizeof(::CBroadcast_WebRTCLookupTURNServer_Response)},
-  { 645, 653, sizeof(::CBroadcast_WebRTC_Candidate)},
-  { 656, 663, sizeof(::CBroadcast_WebRTCAddHostCandidate_Request)},
-  { 665, -1, sizeof(::CBroadcast_WebRTCAddHostCandidate_Response)},
-  { 670, 678, sizeof(::CBroadcast_WebRTCAddViewerCandidate_Request)},
-  { 681, -1, sizeof(::CBroadcast_WebRTCAddViewerCandidate_Response)},
-  { 686, 694, sizeof(::CBroadcast_WebRTCGetHostCandidates_Request)},
-  { 697, 704, sizeof(::CBroadcast_WebRTCGetHostCandidates_Response)},
-  { 706, 716, sizeof(::CBroadcast_GetBroadcastUploadStats_Request)},
-  { 721, 746, sizeof(::CBroadcast_GetBroadcastUploadStats_Response_UploadStats)},
-  { 766, -1, sizeof(::CBroadcast_GetBroadcastUploadStats_Response)},
-  { 772, 779, sizeof(::CBroadcast_GetBroadcastViewerStats_Request)},
-  { 781, 788, sizeof(::CBroadcast_GetBroadcastViewerStats_Response_ViewerStats)},
-  { 790, 797, sizeof(::CBroadcast_GetBroadcastViewerStats_Response_CountryStats)},
-  { 799, -1, sizeof(::CBroadcast_GetBroadcastViewerStats_Response)},
-  { 806, 813, sizeof(::CBroadcast_BroadcastViewerState_Notification)},
-  { 815, 821, sizeof(::CBroadcast_WaitingBroadcastViewer_Notification)},
-  { 822, 834, sizeof(::CBroadcast_BroadcastUploadStarted_Notification)},
-  { 841, 850, sizeof(::CBroadcast_StopBroadcastUpload_Notification)},
-  { 854, 860, sizeof(::CBroadcast_SessionClosed_Notification)},
-  { 861, 867, sizeof(::CBroadcast_ViewerBroadcastInvite_Notification)},
-  { 868, 875, sizeof(::CBroadcast_BroadcastStatus_Notification)},
-  { 877, 885, sizeof(::CBroadcast_BroadcastChannelLive_Notification)},
-  { 888, 898, sizeof(::CBroadcast_SendThumbnailToRelay_Notification)},
-  { 903, 909, sizeof(::CBroadcast_WebRTCNeedTURNServer_Notification)},
-  { 910, 919, sizeof(::CBroadcast_WebRTCStart_Notification)},
-  { 923, 931, sizeof(::CBroadcast_WebRTCSetAnswer_Notification)},
-  { 934, 942, sizeof(::CBroadcast_WebRTCAddViewerCandidate_Notification)},
+  { 0, 14, sizeof(::CBroadcast_BeginBroadcastSession_Request)},
+  { 23, 33, sizeof(::CBroadcast_BeginBroadcastSession_Response)},
+  { 38, 44, sizeof(::CBroadcast_EndBroadcastSession_Request)},
+  { 45, -1, sizeof(::CBroadcast_EndBroadcastSession_Response)},
+  { 50, 63, sizeof(::CBroadcast_StartBroadcastUpload_Request)},
+  { 71, 81, sizeof(::CBroadcast_StartBroadcastUpload_Response)},
+  { 86, 93, sizeof(::CBroadcast_NotifyBroadcastUploadStop_Notification)},
+  { 95, 106, sizeof(::CBroadcast_WatchBroadcast_Request)},
+  { 112, 137, sizeof(::CBroadcast_WatchBroadcast_Response)},
+  { 157, 166, sizeof(::CBroadcast_HeartbeatBroadcast_Notification)},
+  { 170, 178, sizeof(::CBroadcast_StopWatchingBroadcast_Notification)},
+  { 181, 188, sizeof(::CBroadcast_GetBroadcastStatus_Request)},
+  { 190, 209, sizeof(::CBroadcast_GetBroadcastStatus_Response)},
+  { 223, 230, sizeof(::CBroadcast_GetBroadcastThumbnail_Request)},
+  { 232, 241, sizeof(::CBroadcast_GetBroadcastThumbnail_Response)},
+  { 245, 252, sizeof(::CBroadcast_InviteToBroadcast_Request)},
+  { 254, 260, sizeof(::CBroadcast_InviteToBroadcast_Response)},
+  { 261, 270, sizeof(::CBroadcast_SendBroadcastStateToServer_Request)},
+  { 274, -1, sizeof(::CBroadcast_SendBroadcastStateToServer_Response)},
+  { 279, 285, sizeof(::CBroadcast_NotifyBroadcastSessionHeartbeat_Notification)},
+  { 286, 295, sizeof(::CBroadcast_GetBroadcastChatInfo_Request)},
+  { 299, 307, sizeof(::CBroadcast_GetBroadcastChatInfo_Response)},
+  { 310, 320, sizeof(::CBroadcast_PostChatMessage_Request)},
+  { 325, 334, sizeof(::CBroadcast_PostChatMessage_Response)},
+  { 338, 345, sizeof(::CBroadcast_UpdateChatMessageFlair_Request)},
+  { 347, 355, sizeof(::CBroadcast_UpdateChatMessageFlair_Response)},
+  { 358, 366, sizeof(::CBroadcast_MuteBroadcastChatUser_Request)},
+  { 369, -1, sizeof(::CBroadcast_MuteBroadcastChatUser_Response)},
+  { 374, 381, sizeof(::CBroadcast_RemoveUserChatText_Request)},
+  { 383, -1, sizeof(::CBroadcast_RemoveUserChatText_Response)},
+  { 388, 395, sizeof(::CBroadcast_GetBroadcastChatUserNames_Request)},
+  { 397, 404, sizeof(::CBroadcast_GetBroadcastChatUserNames_Response_PersonaName)},
+  { 406, -1, sizeof(::CBroadcast_GetBroadcastChatUserNames_Response)},
+  { 412, 422, sizeof(::CBroadcast_StartBuildClip_Request)},
+  { 427, 433, sizeof(::CBroadcast_StartBuildClip_Response)},
+  { 434, 440, sizeof(::CBroadcast_GetBuildClipStatus_Request)},
+  { 441, -1, sizeof(::CBroadcast_GetBuildClipStatus_Response)},
+  { 446, 455, sizeof(::CBroadcast_SetClipDetails_Request)},
+  { 459, -1, sizeof(::CBroadcast_SetClipDetails_Response)},
+  { 464, 470, sizeof(::CBroadcast_GetClipDetails_Request)},
+  { 471, 486, sizeof(::CBroadcast_GetClipDetails_Response)},
+  { 496, 513, sizeof(::CBroadcast_SetRTMPInfo_Request)},
+  { 525, -1, sizeof(::CBroadcast_SetRTMPInfo_Response)},
+  { 530, 537, sizeof(::CBroadcast_GetRTMPInfo_Request)},
+  { 539, 557, sizeof(::CBroadcast_GetRTMPInfo_Response)},
+  { 570, 577, sizeof(::CBroadcast_WebRTCHaveTURNServer_Notification)},
+  { 579, 590, sizeof(::CBroadcast_WebRTCStartResult_Request)},
+  { 596, -1, sizeof(::CBroadcast_WebRTCStartResult_Response)},
+  { 601, 607, sizeof(::CBroadcast_WebRTCStopped_Request)},
+  { 608, -1, sizeof(::CBroadcast_WebRTCStopped_Response)},
+  { 613, 621, sizeof(::CBroadcast_WebRTCSetAnswer_Request)},
+  { 624, -1, sizeof(::CBroadcast_WebRTCSetAnswer_Response)},
+  { 629, 635, sizeof(::CBroadcast_WebRTCLookupTURNServer_Request)},
+  { 636, 642, sizeof(::CBroadcast_WebRTCLookupTURNServer_Response)},
+  { 643, 651, sizeof(::CBroadcast_WebRTC_Candidate)},
+  { 654, 661, sizeof(::CBroadcast_WebRTCAddHostCandidate_Request)},
+  { 663, -1, sizeof(::CBroadcast_WebRTCAddHostCandidate_Response)},
+  { 668, 676, sizeof(::CBroadcast_WebRTCAddViewerCandidate_Request)},
+  { 679, -1, sizeof(::CBroadcast_WebRTCAddViewerCandidate_Response)},
+  { 684, 692, sizeof(::CBroadcast_WebRTCGetHostCandidates_Request)},
+  { 695, 702, sizeof(::CBroadcast_WebRTCGetHostCandidates_Response)},
+  { 704, 714, sizeof(::CBroadcast_GetBroadcastUploadStats_Request)},
+  { 719, 744, sizeof(::CBroadcast_GetBroadcastUploadStats_Response_UploadStats)},
+  { 764, -1, sizeof(::CBroadcast_GetBroadcastUploadStats_Response)},
+  { 770, 777, sizeof(::CBroadcast_GetBroadcastViewerStats_Request)},
+  { 779, 786, sizeof(::CBroadcast_GetBroadcastViewerStats_Response_ViewerStats)},
+  { 788, 795, sizeof(::CBroadcast_GetBroadcastViewerStats_Response_CountryStats)},
+  { 797, -1, sizeof(::CBroadcast_GetBroadcastViewerStats_Response)},
+  { 804, 811, sizeof(::CBroadcast_BroadcastViewerState_Notification)},
+  { 813, 819, sizeof(::CBroadcast_WaitingBroadcastViewer_Notification)},
+  { 820, 832, sizeof(::CBroadcast_BroadcastUploadStarted_Notification)},
+  { 839, 848, sizeof(::CBroadcast_StopBroadcastUpload_Notification)},
+  { 852, 858, sizeof(::CBroadcast_SessionClosed_Notification)},
+  { 859, 865, sizeof(::CBroadcast_ViewerBroadcastInvite_Notification)},
+  { 866, 873, sizeof(::CBroadcast_BroadcastStatus_Notification)},
+  { 875, 883, sizeof(::CBroadcast_BroadcastChannelLive_Notification)},
+  { 886, 896, sizeof(::CBroadcast_SendThumbnailToRelay_Notification)},
+  { 901, 907, sizeof(::CBroadcast_WebRTCNeedTURNServer_Notification)},
+  { 908, 917, sizeof(::CBroadcast_WebRTCStart_Notification)},
+  { 921, 929, sizeof(::CBroadcast_WebRTCSetAnswer_Notification)},
+  { 932, 940, sizeof(::CBroadcast_WebRTCAddViewerCandidate_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2307,414 +2304,413 @@ const char descriptor_table_protodef_steammessages_5fbroadcast_2esteamclient_2ep
   "\n)steammessages_broadcast.steamclient.pr"
   "oto\032 google/protobuf/descriptor.proto\032\030s"
   "teammessages_base.proto\032,steammessages_u"
-  "nified_base.steamclient.proto\"\361\001\n(CBroad"
+  "nified_base.steamclient.proto\"\334\001\n(CBroad"
   "cast_BeginBroadcastSession_Request\022\022\n\npe"
   "rmission\030\001 \001(\005\022\016\n\006gameid\030\002 \001(\004\022\032\n\022client"
   "_instance_id\030\003 \001(\004\022\r\n\005title\030\004 \001(\t\022\016\n\006cel"
   "lid\030\005 \001(\r\022\022\n\nrtmp_token\030\006 \001(\004\022\030\n\020thumbna"
-  "il_upload\030\007 \001(\010\022\023\n\013client_beta\030\010 \001(\t\022\r\n\005"
-  "sysid\030\t \001(\r\022\024\n\014allow_webrtc\030\n \001(\010\"\313\001\n)CB"
-  "roadcast_BeginBroadcastSession_Response\022"
-  "\024\n\014broadcast_id\030\001 \001(\006\022 \n\030thumbnail_uploa"
-  "d_address\030\002 \001(\t\022\036\n\026thumbnail_upload_toke"
-  "n\030\003 \001(\t\022\"\n\032thumbnail_interval_seconds\030\004 "
-  "\001(\r\022\"\n\032heartbeat_interval_seconds\030\005 \001(\r\""
-  ">\n&CBroadcast_EndBroadcastSession_Reques"
-  "t\022\024\n\014broadcast_id\030\001 \001(\006\")\n\'CBroadcast_En"
-  "dBroadcastSession_Response\"\313\001\n\'CBroadcas"
-  "t_StartBroadcastUpload_Request\022\024\n\014broadc"
-  "ast_id\030\001 \001(\006\022\016\n\006cellid\030\002 \001(\r\022\017\n\007as_rtmp\030"
-  "\003 \001(\010\022\025\n\rdelay_seconds\030\004 \001(\r\022\025\n\nrtmp_tok"
-  "en\030\005 \001(\004:\0010\022\031\n\021upload_ip_address\030\006 \001(\r\022\021"
-  "\n\tis_replay\030\007 \001(\010\022\r\n\005sysid\030\010 \001(\r\"\242\001\n(CBr"
-  "oadcast_StartBroadcastUpload_Response\022\024\n"
-  "\014upload_token\030\001 \001(\t\022\026\n\016upload_address\030\002 "
-  "\001(\t\022\033\n\023broadcast_upload_id\030\003 \001(\006\022\025\n\renab"
-  "le_replay\030\006 \001(\010\022\024\n\014http_address\030\007 \001(\t\"g\n"
-  "1CBroadcast_NotifyBroadcastUploadStop_No"
-  "tification\022\033\n\023broadcast_upload_id\030\001 \001(\006\022"
-  "\025\n\rupload_result\030\002 \001(\r\"\344\001\n!CBroadcast_Wa"
-  "tchBroadcast_Request\022\017\n\007steamid\030\001 \001(\006\022\035\n"
-  "\025existing_broadcast_id\030\002 \001(\006\022\024\n\014viewer_t"
-  "oken\030\003 \001(\006\022\023\n\013client_cell\030\005 \001(\r\022Q\n\016watch"
-  "_location\030\006 \001(\0162\030.EBroadcastWatchLocatio"
-  "n:\037EBroadcastWatchLocation_Invalid\022\021\n\tis"
-  "_webrtc\030\007 \001(\010\"\202\010\n\"CBroadcast_WatchBroadc"
-  "ast_Response\022Y\n\010response\030\001 \001(\01622.CBroadc"
-  "ast_WatchBroadcast_Response.EWatchRespon"
-  "se:\023EWatchResponseReady\022\017\n\007mpd_url\030\002 \001(\t"
-  "\022\024\n\014broadcast_id\030\003 \001(\006\022\016\n\006gameid\030\004 \001(\004\022\r"
-  "\n\005title\030\005 \001(\t\022\023\n\013num_viewers\030\006 \001(\r\022\022\n\npe"
-  "rmission\030\007 \001(\005\022\017\n\007is_rtmp\030\010 \001(\010\022\025\n\rsecon"
-  "ds_delay\030\t \001(\005\022\024\n\014viewer_token\030\n \001(\006\022\033\n\023"
-  "hls_m3u8_master_url\030\013 \001(\t\022\032\n\022heartbeat_i"
-  "nterval\030\014 \001(\005\022\025\n\rthumbnail_url\030\r \001(\t\022\021\n\t"
-  "is_webrtc\030\016 \001(\010\022\031\n\021webrtc_session_id\030\017 \001"
-  "(\006\022\030\n\020webrtc_offer_sdp\030\020 \001(\t\022\032\n\022webrtc_t"
-  "urn_server\030\021 \001(\t\022\021\n\tis_replay\030\022 \001(\010\022\020\n\010d"
-  "uration\030\023 \001(\005\022\037\n\027cdn_auth_url_parameters"
-  "\030\024 \001(\t\"\331\003\n\016EWatchResponse\022\027\n\023EWatchRespo"
-  "nseReady\020\001\022\036\n\032EWatchResponseNotAvailable"
-  "\020\002\022$\n EWatchResponseWaitingForApproval\020\003"
-  "\022!\n\035EWatchResponseWaitingForStart\020\004\022 \n\034E"
-  "WatchResponseInvalidSession\020\005\022#\n\037EWatchR"
-  "esponseTooManyBroadcasts\020\006\022%\n!EWatchResp"
-  "onseWaitingForReconnect\020\007\022$\n EWatchRespo"
-  "nseSystemNotSupported\020\010\022 \n\034EWatchRespons"
-  "eUserRestricted\020\t\022!\n\035EWatchResponseClien"
-  "tOutOfDate\020\n\022#\n\037EWatchResponsePoorUpload"
-  "Quality\020\013\022%\n!EWatchResponseMissingSubscr"
-  "iption\020\014\022 \n\034EWatchResponseTooManyViewers"
-  "\020\r\"\201\001\n*CBroadcast_HeartbeatBroadcast_Not"
-  "ification\022\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_"
-  "id\030\002 \001(\006\022\024\n\014viewer_token\030\003 \001(\006\022\026\n\016repres"
-  "entation\030\004 \001(\r\"l\n-CBroadcast_StopWatchin"
-  "gBroadcast_Notification\022\017\n\007steamid\030\001 \001(\006"
-  "\022\024\n\014broadcast_id\030\002 \001(\006\022\024\n\014viewer_token\030\003"
-  " \001(\006\"N\n%CBroadcast_GetBroadcastStatus_Re"
-  "quest\022\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_id\030\002"
-  " \001(\006\"\321\002\n&CBroadcast_GetBroadcastStatus_R"
-  "esponse\022\016\n\006gameid\030\001 \001(\004\022\r\n\005title\030\002 \001(\t\022\023"
-  "\n\013num_viewers\030\003 \001(\r\022\022\n\npermission\030\004 \001(\005\022"
-  "\017\n\007is_rtmp\030\005 \001(\010\022\025\n\rseconds_delay\030\006 \001(\005\022"
-  "\024\n\014is_publisher\030\007 \001(\010\022\025\n\rthumbnail_url\030\010"
-  " \001(\t\022\027\n\017update_interval\030\t \001(\005\022\024\n\014is_uplo"
-  "ading\030\n \001(\010\022\020\n\010duration\030\013 \001(\r\022\021\n\tis_repl"
-  "ay\030\014 \001(\010\022\030\n\020is_capturing_vod\030\r \001(\010\022\034\n\024is"
-  "_store_whitelisted\030\016 \001(\010\"Q\n(CBroadcast_G"
-  "etBroadcastThumbnail_Request\022\017\n\007steamid\030"
-  "\001 \001(\006\022\024\n\014broadcast_id\030\002 \001(\006\"\202\001\n)CBroadca"
-  "st_GetBroadcastThumbnail_Response\022\025\n\rthu"
-  "mbnail_url\030\001 \001(\t\022\027\n\017update_interval\030\002 \001("
-  "\005\022\023\n\013num_viewers\030\003 \001(\005\022\020\n\010duration\030\004 \001(\005"
-  "\"R\n$CBroadcast_InviteToBroadcast_Request"
-  "\022\017\n\007steamid\030\001 \001(\006\022\031\n\021approval_response\030\002"
-  " \001(\010\"8\n%CBroadcast_InviteToBroadcast_Res"
-  "ponse\022\017\n\007success\030\001 \001(\010\"|\n-CBroadcast_Sen"
-  "dBroadcastStateToServer_Request\022\022\n\npermi"
-  "ssion\030\001 \001(\005\022\016\n\006gameid\030\002 \001(\004\022\r\n\005title\030\003 \001"
-  "(\t\022\030\n\020game_data_config\030\004 \001(\t\"0\n.CBroadca"
-  "st_SendBroadcastStateToServer_Response\"O"
-  "\n7CBroadcast_NotifyBroadcastSessionHeart"
-  "beat_Notification\022\024\n\014broadcast_id\030\001 \001(\006\""
-  "x\n\'CBroadcast_GetBroadcastChatInfo_Reque"
-  "st\022\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_id\030\002 \001("
-  "\006\022\021\n\tclient_ip\030\003 \001(\r\022\023\n\013client_cell\030\004 \001("
-  "\r\"o\n(CBroadcast_GetBroadcastChatInfo_Res"
-  "ponse\022\017\n\007chat_id\030\001 \001(\006\022\031\n\021view_url_templ"
-  "ate\030\003 \001(\t\022\027\n\017flair_group_ids\030\004 \003(\r\"\206\001\n\"C"
-  "Broadcast_PostChatMessage_Request\022\017\n\007cha"
-  "t_id\030\001 \001(\006\022\017\n\007message\030\002 \001(\t\022\023\n\013instance_"
-  "id\030\003 \001(\r\022\023\n\010language\030\004 \001(\r:\0010\022\024\n\014country"
-  "_code\030\005 \001(\t\"{\n#CBroadcast_PostChatMessag"
-  "e_Response\022\024\n\014persona_name\030\001 \001(\t\022\017\n\007in_g"
-  "ame\030\002 \001(\010\022\016\n\006result\030\003 \001(\005\022\035\n\025cooldown_ti"
-  "me_seconds\030\004 \001(\005\"K\n)CBroadcast_UpdateCha"
-  "tMessageFlair_Request\022\017\n\007chat_id\030\001 \001(\006\022\r"
-  "\n\005flair\030\002 \001(\t\"\\\n*CBroadcast_UpdateChatMe"
-  "ssageFlair_Response\022\016\n\006result\030\001 \001(\005\022\017\n\007c"
-  "hat_id\030\002 \001(\006\022\r\n\005flair\030\003 \001(\t\"`\n(CBroadcas"
-  "t_MuteBroadcastChatUser_Request\022\017\n\007chat_"
-  "id\030\001 \001(\006\022\024\n\014user_steamid\030\002 \001(\006\022\r\n\005muted\030"
-  "\003 \001(\010\"+\n)CBroadcast_MuteBroadcastChatUse"
-  "r_Response\"N\n%CBroadcast_RemoveUserChatT"
-  "ext_Request\022\017\n\007chat_id\030\001 \001(\006\022\024\n\014user_ste"
-  "amid\030\002 \001(\006\"(\n&CBroadcast_RemoveUserChatT"
-  "ext_Response\"U\n,CBroadcast_GetBroadcastC"
-  "hatUserNames_Request\022\017\n\007chat_id\030\001 \001(\006\022\024\n"
-  "\014user_steamid\030\002 \003(\006\"\272\001\n-CBroadcast_GetBr"
-  "oadcastChatUserNames_Response\022Q\n\rpersona"
-  "_names\030\001 \003(\0132:.CBroadcast_GetBroadcastCh"
-  "atUserNames_Response.PersonaName\0326\n\013Pers"
-  "onaName\022\026\n\010steam_id\030\001 \001(\006B\004\300\266\030\001\022\017\n\007perso"
-  "na\030\002 \001(\t\"\231\001\n!CBroadcast_StartBuildClip_R"
-  "equest\022\017\n\007steamid\030\001 \001(\006\022\034\n\024broadcast_ses"
-  "sion_id\030\002 \001(\006\022\025\n\rfirst_segment\030\003 \001(\005\022\024\n\014"
-  "num_segments\030\004 \001(\005\022\030\n\020clip_description\030\005"
-  " \001(\t\"\?\n\"CBroadcast_StartBuildClip_Respon"
-  "se\022\031\n\021broadcast_clip_id\030\001 \001(\006\"B\n%CBroadc"
-  "ast_GetBuildClipStatus_Request\022\031\n\021broadc"
-  "ast_clip_id\030\001 \001(\006\"(\n&CBroadcast_GetBuild"
-  "ClipStatus_Response\"\177\n!CBroadcast_SetCli"
-  "pDetails_Request\022\031\n\021broadcast_clip_id\030\001 "
-  "\001(\004\022\022\n\nstart_time\030\002 \001(\r\022\020\n\010end_time\030\003 \001("
-  "\r\022\031\n\021video_description\030\004 \001(\t\"$\n\"CBroadca"
-  "st_SetClipDetails_Response\">\n!CBroadcast"
-  "_GetClipDetails_Request\022\031\n\021broadcast_cli"
-  "p_id\030\001 \001(\004\"\225\002\n\"CBroadcast_GetClipDetails"
-  "_Response\022\031\n\021broadcast_clip_id\030\001 \001(\004\022\020\n\010"
-  "video_id\030\002 \001(\004\022\022\n\nchannel_id\030\003 \001(\004\022\016\n\006ap"
-  "p_id\030\004 \001(\r\022\035\n\025accountid_broadcaster\030\005 \001("
-  "\r\022\033\n\023accountid_clipmaker\030\006 \001(\r\022\031\n\021video_"
-  "description\030\007 \001(\t\022\022\n\nstart_time\030\010 \001(\r\022\033\n"
-  "\023length_milliseconds\030\t \001(\r\022\026\n\016thumbnail_"
-  "path\030\n \001(\t\"\203\003\n\036CBroadcast_SetRTMPInfo_Re"
-  "quest\022\034\n\024broadcast_permission\030\001 \001(\005\022\024\n\014u"
-  "pdate_token\030\002 \001(\010\022\027\n\017broadcast_delay\030\003 \001"
-  "(\005\022\016\n\006app_id\030\004 \001(\r\022\027\n\017required_app_id\030\005 "
-  "\001(\r\022\\\n\031broadcast_chat_permission\030\006 \001(\0162\031"
-  ".EBroadcastChatPermission:\036EBroadcastCha"
-  "tPermissionPublic\022\030\n\020broadcast_buffer\030\007 "
-  "\001(\005\022\017\n\007steamid\030\010 \001(\006\022\027\n\017chat_rate_limit\030"
-  "\t \001(\r\022\025\n\renable_replay\030\n \001(\010\022\034\n\024is_partn"
-  "er_chat_only\030\013 \001(\010\022\024\n\014wordban_list\030\014 \001(\t"
-  "\"!\n\037CBroadcast_SetRTMPInfo_Response\"=\n\036C"
-  "Broadcast_GetRTMPInfo_Request\022\n\n\002ip\030\001 \001("
-  "\r\022\017\n\007steamid\030\002 \001(\006\"\225\003\n\037CBroadcast_GetRTM"
-  "PInfo_Response\022\034\n\024broadcast_permission\030\001"
-  " \001(\005\022\021\n\trtmp_host\030\002 \001(\t\022\022\n\nrtmp_token\030\003 "
-  "\001(\t\022\027\n\017broadcast_delay\030\004 \001(\005\022\016\n\006app_id\030\005"
-  " \001(\r\022\027\n\017required_app_id\030\006 \001(\r\022\\\n\031broadca"
-  "st_chat_permission\030\007 \001(\0162\031.EBroadcastCha"
-  "tPermission:\036EBroadcastChatPermissionPub"
-  "lic\022\030\n\020broadcast_buffer\030\010 \001(\005\022\017\n\007steamid"
-  "\030\t \001(\006\022\027\n\017chat_rate_limit\030\n \001(\r\022\025\n\renabl"
-  "e_replay\030\013 \001(\010\022\034\n\024is_partner_chat_only\030\014"
-  " \001(\010\022\024\n\014wordban_list\030\r \001(\t\"a\n,CBroadcast"
-  "_WebRTCHaveTURNServer_Notification\022\034\n\024br"
-  "oadcast_session_id\030\001 \001(\006\022\023\n\013turn_server\030"
-  "\002 \001(\t\"\232\001\n$CBroadcast_WebRTCStartResult_R"
-  "equest\022\031\n\021webrtc_session_id\030\001 \001(\006\022\017\n\007sta"
-  "rted\030\002 \001(\010\022\r\n\005offer\030\003 \001(\t\022\024\n\014resolution_"
-  "x\030\004 \001(\r\022\024\n\014resolution_y\030\005 \001(\r\022\013\n\003fps\030\006 \001"
-  "(\r\"\'\n%CBroadcast_WebRTCStartResult_Respo"
-  "nse\"=\n CBroadcast_WebRTCStopped_Request\022"
-  "\031\n\021webrtc_session_id\030\001 \001(\006\"#\n!CBroadcast"
-  "_WebRTCStopped_Response\"l\n\"CBroadcast_We"
-  "bRTCSetAnswer_Request\022\033\n\023broadcaster_ste"
-  "amid\030\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001(\006\022\016\n"
-  "\006answer\030\003 \001(\t\"%\n#CBroadcast_WebRTCSetAns"
-  "wer_Response\";\n)CBroadcast_WebRTCLookupT"
-  "URNServer_Request\022\016\n\006cellid\030\001 \001(\r\"A\n*CBr"
-  "oadcast_WebRTCLookupTURNServer_Response\022"
-  "\023\n\013turn_server\030\001 \001(\t\"Z\n\033CBroadcast_WebRT"
-  "C_Candidate\022\017\n\007sdp_mid\030\001 \001(\t\022\027\n\017sdp_mlin"
-  "e_index\030\002 \001(\005\022\021\n\tcandidate\030\003 \001(\t\"w\n)CBro"
-  "adcast_WebRTCAddHostCandidate_Request\022\031\n"
-  "\021webrtc_session_id\030\001 \001(\006\022/\n\tcandidate\030\002 "
-  "\001(\0132\034.CBroadcast_WebRTC_Candidate\",\n*CBr"
-  "oadcast_WebRTCAddHostCandidate_Response\""
-  "\226\001\n+CBroadcast_WebRTCAddViewerCandidate_"
-  "Request\022\033\n\023broadcaster_steamid\030\001 \001(\006\022\031\n\021"
-  "webrtc_session_id\030\002 \001(\006\022/\n\tcandidate\030\003 \001"
-  "(\0132\034.CBroadcast_WebRTC_Candidate\".\n,CBro"
-  "adcast_WebRTCAddViewerCandidate_Response"
-  "\"\202\001\n*CBroadcast_WebRTCGetHostCandidates_"
-  "Request\022\033\n\023broadcaster_steamid\030\001 \001(\006\022\031\n\021"
-  "webrtc_session_id\030\002 \001(\006\022\034\n\024candidate_gen"
-  "eration\030\003 \001(\r\"}\n+CBroadcast_WebRTCGetHos"
-  "tCandidates_Response\022\034\n\024candidate_genera"
-  "tion\030\001 \001(\r\0220\n\ncandidates\030\002 \003(\0132\034.CBroadc"
-  "ast_WebRTC_Candidate\"\223\001\n*CBroadcast_GetB"
-  "roadcastUploadStats_Request\022\026\n\trow_limit"
-  "\030\001 \001(\r:\003100\022\025\n\nstart_time\030\002 \001(\r:\0010\022\021\n\tup"
-  "load_id\030\003 \001(\004\022\017\n\007steamid\030\004 \001(\006\022\022\n\nsessio"
-  "n_id\030\005 \001(\004\"\327\004\n+CBroadcast_GetBroadcastUp"
-  "loadStats_Response\022N\n\014upload_stats\030\001 \003(\013"
-  "28.CBroadcast_GetBroadcastUploadStats_Re"
-  "sponse.UploadStats\032\327\003\n\013UploadStats\022\025\n\rup"
-  "load_result\030\001 \001(\r\022\024\n\014time_stopped\030\002 \001(\r\022"
-  "\030\n\020seconds_uploaded\030\003 \001(\r\022\023\n\013max_viewers"
-  "\030\004 \001(\r\022\024\n\014resolution_x\030\005 \001(\r\022\024\n\014resoluti"
-  "on_y\030\006 \001(\r\022\025\n\ravg_bandwidth\030\007 \001(\r\022\023\n\013tot"
-  "al_bytes\030\010 \001(\004\022\016\n\006app_id\030\t \001(\r\022\034\n\024total_"
-  "unique_viewers\030\n \001(\r\022\035\n\025total_seconds_wa"
-  "tched\030\013 \001(\004\022\024\n\014time_started\030\014 \001(\r\022\021\n\tupl"
-  "oad_id\030\r \001(\004\022\025\n\rlocal_address\030\016 \001(\t\022\026\n\016r"
-  "emote_address\030\017 \001(\t\022\031\n\021frames_per_second"
-  "\030\020 \001(\r\022\033\n\023num_representations\030\021 \001(\r\022\020\n\010a"
-  "pp_name\030\022 \001(\t\022\021\n\tis_replay\030\023 \001(\010\022\022\n\nsess"
-  "ion_id\030\024 \001(\004\"P\n*CBroadcast_GetBroadcastV"
-  "iewerStats_Request\022\021\n\tupload_id\030\001 \001(\004\022\017\n"
-  "\007steamid\030\002 \001(\006\"\274\002\n+CBroadcast_GetBroadca"
-  "stViewerStats_Response\022N\n\014viewer_stats\030\001"
-  " \003(\01328.CBroadcast_GetBroadcastViewerStat"
-  "s_Response.ViewerStats\022P\n\rcountry_stats\030"
-  "\002 \003(\01329.CBroadcast_GetBroadcastViewerSta"
-  "ts_Response.CountryStats\0320\n\013ViewerStats\022"
-  "\014\n\004time\030\001 \001(\r\022\023\n\013num_viewers\030\002 \001(\r\0329\n\014Co"
-  "untryStats\022\024\n\014country_code\030\001 \001(\t\022\023\n\013num_"
-  "viewers\030\002 \001(\r\"\360\001\n,CBroadcast_BroadcastVi"
-  "ewerState_Notification\022\017\n\007steamid\030\001 \001(\006\022"
-  "_\n\005state\030\002 \001(\0162:.CBroadcast_BroadcastVie"
-  "werState_Notification.EViewerState:\024EVie"
-  "werNeedsApproval\"N\n\014EViewerState\022\030\n\024EVie"
-  "werNeedsApproval\020\001\022\023\n\017EViewerWatching\020\002\022"
-  "\017\n\013EViewerLeft\020\003\"F\n.CBroadcast_WaitingBr"
-  "oadcastViewer_Notification\022\024\n\014broadcast_"
-  "id\030\001 \001(\006\"\334\001\n.CBroadcast_BroadcastUploadS"
-  "tarted_Notification\022\024\n\014broadcast_id\030\001 \001("
-  "\006\022\024\n\014upload_token\030\002 \001(\t\022\026\n\016upload_addres"
-  "s\030\003 \001(\t\022\024\n\014http_address\030\004 \001(\t\022\033\n\023broadca"
-  "st_upload_id\030\005 \001(\006\022\"\n\032heartbeat_interval"
-  "_seconds\030\006 \001(\r\022\017\n\007is_rtmp\030\007 \001(\010\"\225\001\n+CBro"
-  "adcast_StopBroadcastUpload_Notification\022"
-  "\024\n\014broadcast_id\030\001 \001(\006\022\032\n\022broadcast_relay"
-  "_id\030\002 \001(\006\022\025\n\rupload_result\030\003 \001(\r\022\035\n\025too_"
-  "many_poor_uploads\030\004 \001(\010\"=\n%CBroadcast_Se"
-  "ssionClosed_Notification\022\024\n\014broadcast_id"
-  "\030\001 \001(\006\"L\n-CBroadcast_ViewerBroadcastInvi"
-  "te_Notification\022\033\n\023broadcaster_steamid\030\001"
-  " \001(\006\"T\n\'CBroadcast_BroadcastStatus_Notif"
-  "ication\022\024\n\014broadcast_id\030\001 \001(\006\022\023\n\013num_vie"
-  "wers\030\002 \001(\005\"\216\001\n,CBroadcast_BroadcastChann"
-  "elLive_Notification\022\034\n\024broadcast_channel"
-  "_id\030\001 \001(\006\022\036\n\026broadcast_channel_name\030\002 \001("
-  "\t\022 \n\030broadcast_channel_avatar\030\003 \001(\t\"\301\001\n,"
-  "CBroadcast_SendThumbnailToRelay_Notifica"
-  "tion\022\036\n\026thumbnail_upload_token\030\001 \001(\t\022&\n\036"
-  "thumbnail_broadcast_session_id\030\002 \001(\006\022\026\n\016"
-  "thumbnail_data\030\003 \001(\014\022\027\n\017thumbnail_width\030"
-  "\004 \001(\r\022\030\n\020thumbnail_height\030\005 \001(\r\"L\n,CBroa"
-  "dcast_WebRTCNeedTURNServer_Notification\022"
-  "\034\n\024broadcast_session_id\030\001 \001(\006\"\214\001\n#CBroad"
-  "cast_WebRTCStart_Notification\022\034\n\024broadca"
-  "st_session_id\030\001 \001(\006\022\031\n\021webrtc_session_id"
-  "\030\002 \001(\006\022\026\n\016viewer_steamid\030\003 \001(\006\022\024\n\014viewer"
-  "_token\030\004 \001(\006\"r\n\'CBroadcast_WebRTCSetAnsw"
-  "er_Notification\022\034\n\024broadcast_session_id\030"
-  "\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001(\006\022\016\n\006answ"
-  "er\030\003 \001(\t\"\234\001\n0CBroadcast_WebRTCAddViewerC"
-  "andidate_Notification\022\034\n\024broadcast_sessi"
-  "on_id\030\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001(\006\022/"
-  "\n\tcandidate\030\003 \001(\0132\034.CBroadcast_WebRTC_Ca"
-  "ndidate*\210\005\n\027EBroadcastWatchLocation\022#\n\037E"
-  "BroadcastWatchLocation_Invalid\020\000\022\'\n#EBro"
-  "adcastWatchLocation_SteamTV_Tab\020\001\022.\n*EBr"
-  "oadcastWatchLocation_SteamTV_WatchParty\020"
-  "\002\022$\n EBroadcastWatchLocation_Chat_Tab\020\003\022"
-  "+\n\'EBroadcastWatchLocation_Chat_WatchPar"
-  "ty\020\004\022)\n%EBroadcastWatchLocation_Communit"
-  "yPage\020\005\022(\n$EBroadcastWatchLocation_Store"
-  "AppPage\020\006\022\"\n\036EBroadcastWatchLocation_InG"
-  "ame\020\007\022&\n\"EBroadcastWatchLocation_BigPict"
-  "ure\020\010\022%\n!EBroadcastWatchLocation_SalesPa"
-  "ge\020\t\022\'\n#EBroadcastWatchLocation_CuratorP"
-  "age\020\n\022)\n%EBroadcastWatchLocation_Develop"
-  "erPage\020\013\022(\n$EBroadcastWatchLocation_Chat"
-  "_Friends\020\014\022\'\n#EBroadcastWatchLocation_St"
-  "eamTV_Web\020\r\022-\n)EBroadcastWatchLocation_D"
-  "esktopUI_Overlay\020\016*c\n\030EBroadcastChatPerm"
-  "ission\022\"\n\036EBroadcastChatPermissionPublic"
-  "\020\000\022#\n\037EBroadcastChatPermissionOwnsApp\020\0012"
-  "\267\033\n\tBroadcast\022n\n\025BeginBroadcastSession\022)"
-  ".CBroadcast_BeginBroadcastSession_Reques"
-  "t\032*.CBroadcast_BeginBroadcastSession_Res"
-  "ponse\022h\n\023EndBroadcastSession\022\'.CBroadcas"
-  "t_EndBroadcastSession_Request\032(.CBroadca"
-  "st_EndBroadcastSession_Response\022k\n\024Start"
-  "BroadcastUpload\022(.CBroadcast_StartBroadc"
-  "astUpload_Request\032).CBroadcast_StartBroa"
-  "dcastUpload_Response\022\\\n\031NotifyBroadcastU"
-  "ploadStop\0222.CBroadcast_NotifyBroadcastUp"
-  "loadStop_Notification\032\013.NoResponse\022Y\n\016Wa"
-  "tchBroadcast\022\".CBroadcast_WatchBroadcast"
-  "_Request\032#.CBroadcast_WatchBroadcast_Res"
-  "ponse\022N\n\022HeartbeatBroadcast\022+.CBroadcast"
-  "_HeartbeatBroadcast_Notification\032\013.NoRes"
-  "ponse\022T\n\025StopWatchingBroadcast\022..CBroadc"
-  "ast_StopWatchingBroadcast_Notification\032\013"
-  ".NoResponse\022e\n\022GetBroadcastStatus\022&.CBro"
-  "adcast_GetBroadcastStatus_Request\032\'.CBro"
-  "adcast_GetBroadcastStatus_Response\022n\n\025Ge"
-  "tBroadcastThumbnail\022).CBroadcast_GetBroa"
-  "dcastThumbnail_Request\032*.CBroadcast_GetB"
-  "roadcastThumbnail_Response\022b\n\021InviteToBr"
-  "oadcast\022%.CBroadcast_InviteToBroadcast_R"
-  "equest\032&.CBroadcast_InviteToBroadcast_Re"
-  "sponse\022}\n\032SendBroadcastStateToServer\022..C"
-  "Broadcast_SendBroadcastStateToServer_Req"
-  "uest\032/.CBroadcast_SendBroadcastStateToSe"
-  "rver_Response\022h\n\037NotifyBroadcastSessionH"
-  "eartbeat\0228.CBroadcast_NotifyBroadcastSes"
-  "sionHeartbeat_Notification\032\013.NoResponse\022"
-  "k\n\024GetBroadcastChatInfo\022(.CBroadcast_Get"
-  "BroadcastChatInfo_Request\032).CBroadcast_G"
-  "etBroadcastChatInfo_Response\022\\\n\017PostChat"
-  "Message\022#.CBroadcast_PostChatMessage_Req"
-  "uest\032$.CBroadcast_PostChatMessage_Respon"
-  "se\022q\n\026UpdateChatMessageFlair\022*.CBroadcas"
-  "t_UpdateChatMessageFlair_Request\032+.CBroa"
-  "dcast_UpdateChatMessageFlair_Response\022n\n"
-  "\025MuteBroadcastChatUser\022).CBroadcast_Mute"
-  "BroadcastChatUser_Request\032*.CBroadcast_M"
-  "uteBroadcastChatUser_Response\022e\n\022RemoveU"
-  "serChatText\022&.CBroadcast_RemoveUserChatT"
-  "ext_Request\032\'.CBroadcast_RemoveUserChatT"
-  "ext_Response\022z\n\031GetBroadcastChatUserName"
-  "s\022-.CBroadcast_GetBroadcastChatUserNames"
-  "_Request\032..CBroadcast_GetBroadcastChatUs"
-  "erNames_Response\022Y\n\016StartBuildClip\022\".CBr"
-  "oadcast_StartBuildClip_Request\032#.CBroadc"
-  "ast_StartBuildClip_Response\022e\n\022GetBuildC"
-  "lipStatus\022&.CBroadcast_GetBuildClipStatu"
-  "s_Request\032\'.CBroadcast_GetBuildClipStatu"
-  "s_Response\022Y\n\016SetClipDetails\022\".CBroadcas"
-  "t_SetClipDetails_Request\032#.CBroadcast_Se"
-  "tClipDetails_Response\022Y\n\016GetClipDetails\022"
-  "\".CBroadcast_GetClipDetails_Request\032#.CB"
-  "roadcast_GetClipDetails_Response\022P\n\013SetR"
-  "TMPInfo\022\037.CBroadcast_SetRTMPInfo_Request"
-  "\032 .CBroadcast_SetRTMPInfo_Response\022P\n\013Ge"
-  "tRTMPInfo\022\037.CBroadcast_GetRTMPInfo_Reque"
-  "st\032 .CBroadcast_GetRTMPInfo_Response\022X\n\032"
-  "NotifyWebRTCHaveTURNServer\022-.CBroadcast_"
-  "WebRTCHaveTURNServer_Notification\032\013.NoRe"
-  "sponse\022b\n\021WebRTCStartResult\022%.CBroadcast"
-  "_WebRTCStartResult_Request\032&.CBroadcast_"
-  "WebRTCStartResult_Response\022V\n\rWebRTCStop"
-  "ped\022!.CBroadcast_WebRTCStopped_Request\032\""
-  ".CBroadcast_WebRTCStopped_Response\022\\\n\017We"
-  "bRTCSetAnswer\022#.CBroadcast_WebRTCSetAnsw"
-  "er_Request\032$.CBroadcast_WebRTCSetAnswer_"
-  "Response\022q\n\026WebRTCLookupTURNServer\022*.CBr"
-  "oadcast_WebRTCLookupTURNServer_Request\032+"
-  ".CBroadcast_WebRTCLookupTURNServer_Respo"
-  "nse\022q\n\026WebRTCAddHostCandidate\022*.CBroadca"
-  "st_WebRTCAddHostCandidate_Request\032+.CBro"
-  "adcast_WebRTCAddHostCandidate_Response\022w"
-  "\n\030WebRTCAddViewerCandidate\022,.CBroadcast_"
-  "WebRTCAddViewerCandidate_Request\032-.CBroa"
-  "dcast_WebRTCAddViewerCandidate_Response\022"
-  "t\n\027WebRTCGetHostCandidates\022+.CBroadcast_"
-  "WebRTCGetHostCandidates_Request\032,.CBroad"
-  "cast_WebRTCGetHostCandidates_Response\022t\n"
-  "\027GetBroadcastUploadStats\022+.CBroadcast_Ge"
-  "tBroadcastUploadStats_Request\032,.CBroadca"
-  "st_GetBroadcastUploadStats_Response\022t\n\027G"
-  "etBroadcastViewerStats\022+.CBroadcast_GetB"
-  "roadcastViewerStats_Request\032,.CBroadcast"
-  "_GetBroadcastViewerStats_Response2\377\010\n\017Br"
-  "oadcastClient\022X\n\032NotifyBroadcastViewerSt"
-  "ate\022-.CBroadcast_BroadcastViewerState_No"
-  "tification\032\013.NoResponse\022\\\n\034NotifyWaiting"
-  "BroadcastViewer\022/.CBroadcast_WaitingBroa"
-  "dcastViewer_Notification\032\013.NoResponse\022\\\n"
-  "\034NotifyBroadcastUploadStarted\022/.CBroadca"
-  "st_BroadcastUploadStarted_Notification\032\013"
-  ".NoResponse\022V\n\031NotifyStopBroadcastUpload"
-  "\022,.CBroadcast_StopBroadcastUpload_Notifi"
-  "cation\032\013.NoResponse\022J\n\023NotifySessionClos"
-  "ed\022&.CBroadcast_SessionClosed_Notificati"
-  "on\032\013.NoResponse\022Z\n\033NotifyViewerBroadcast"
-  "Invite\022..CBroadcast_ViewerBroadcastInvit"
-  "e_Notification\032\013.NoResponse\022N\n\025NotifyBro"
-  "adcastStatus\022(.CBroadcast_BroadcastStatu"
-  "s_Notification\032\013.NoResponse\022X\n\032NotifyBro"
-  "adcastChannelLive\022-.CBroadcast_Broadcast"
-  "ChannelLive_Notification\032\013.NoResponse\022R\n"
-  "\024SendThumbnailToRelay\022-.CBroadcast_SendT"
-  "humbnailToRelay_Notification\032\013.NoRespons"
-  "e\022X\n\032NotifyWebRTCNeedTURNServer\022-.CBroad"
-  "cast_WebRTCNeedTURNServer_Notification\032\013"
-  ".NoResponse\022F\n\021NotifyWebRTCStart\022$.CBroa"
-  "dcast_WebRTCStart_Notification\032\013.NoRespo"
-  "nse\022N\n\025NotifyWebRTCSetAnswer\022(.CBroadcas"
-  "t_WebRTCSetAnswer_Notification\032\013.NoRespo"
-  "nse\022`\n\036NotifyWebRTCAddViewerCandidate\0221."
-  "CBroadcast_WebRTCAddViewerCandidate_Noti"
-  "fication\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenS"
-  "teamworks.Protobuf"
+  "il_upload\030\007 \001(\010\022\r\n\005sysid\030\t \001(\r\022\024\n\014allow_"
+  "webrtc\030\n \001(\010\"\313\001\n)CBroadcast_BeginBroadca"
+  "stSession_Response\022\024\n\014broadcast_id\030\001 \001(\006"
+  "\022 \n\030thumbnail_upload_address\030\002 \001(\t\022\036\n\026th"
+  "umbnail_upload_token\030\003 \001(\t\022\"\n\032thumbnail_"
+  "interval_seconds\030\004 \001(\r\022\"\n\032heartbeat_inte"
+  "rval_seconds\030\005 \001(\r\">\n&CBroadcast_EndBroa"
+  "dcastSession_Request\022\024\n\014broadcast_id\030\001 \001"
+  "(\006\")\n\'CBroadcast_EndBroadcastSession_Res"
+  "ponse\"\313\001\n\'CBroadcast_StartBroadcastUploa"
+  "d_Request\022\024\n\014broadcast_id\030\001 \001(\006\022\016\n\006celli"
+  "d\030\002 \001(\r\022\017\n\007as_rtmp\030\003 \001(\010\022\025\n\rdelay_second"
+  "s\030\004 \001(\r\022\025\n\nrtmp_token\030\005 \001(\004:\0010\022\031\n\021upload"
+  "_ip_address\030\006 \001(\r\022\021\n\tis_replay\030\007 \001(\010\022\r\n\005"
+  "sysid\030\010 \001(\r\"\242\001\n(CBroadcast_StartBroadcas"
+  "tUpload_Response\022\024\n\014upload_token\030\001 \001(\t\022\026"
+  "\n\016upload_address\030\002 \001(\t\022\033\n\023broadcast_uplo"
+  "ad_id\030\003 \001(\006\022\025\n\renable_replay\030\006 \001(\010\022\024\n\014ht"
+  "tp_address\030\007 \001(\t\"g\n1CBroadcast_NotifyBro"
+  "adcastUploadStop_Notification\022\033\n\023broadca"
+  "st_upload_id\030\001 \001(\006\022\025\n\rupload_result\030\002 \001("
+  "\r\"\344\001\n!CBroadcast_WatchBroadcast_Request\022"
+  "\017\n\007steamid\030\001 \001(\006\022\035\n\025existing_broadcast_i"
+  "d\030\002 \001(\006\022\024\n\014viewer_token\030\003 \001(\006\022\023\n\013client_"
+  "cell\030\005 \001(\r\022Q\n\016watch_location\030\006 \001(\0162\030.EBr"
+  "oadcastWatchLocation:\037EBroadcastWatchLoc"
+  "ation_Invalid\022\021\n\tis_webrtc\030\007 \001(\010\"\202\010\n\"CBr"
+  "oadcast_WatchBroadcast_Response\022Y\n\010respo"
+  "nse\030\001 \001(\01622.CBroadcast_WatchBroadcast_Re"
+  "sponse.EWatchResponse:\023EWatchResponseRea"
+  "dy\022\017\n\007mpd_url\030\002 \001(\t\022\024\n\014broadcast_id\030\003 \001("
+  "\006\022\016\n\006gameid\030\004 \001(\004\022\r\n\005title\030\005 \001(\t\022\023\n\013num_"
+  "viewers\030\006 \001(\r\022\022\n\npermission\030\007 \001(\005\022\017\n\007is_"
+  "rtmp\030\010 \001(\010\022\025\n\rseconds_delay\030\t \001(\005\022\024\n\014vie"
+  "wer_token\030\n \001(\006\022\033\n\023hls_m3u8_master_url\030\013"
+  " \001(\t\022\032\n\022heartbeat_interval\030\014 \001(\005\022\025\n\rthum"
+  "bnail_url\030\r \001(\t\022\021\n\tis_webrtc\030\016 \001(\010\022\031\n\021we"
+  "brtc_session_id\030\017 \001(\006\022\030\n\020webrtc_offer_sd"
+  "p\030\020 \001(\t\022\032\n\022webrtc_turn_server\030\021 \001(\t\022\021\n\ti"
+  "s_replay\030\022 \001(\010\022\020\n\010duration\030\023 \001(\005\022\037\n\027cdn_"
+  "auth_url_parameters\030\024 \001(\t\"\331\003\n\016EWatchResp"
+  "onse\022\027\n\023EWatchResponseReady\020\001\022\036\n\032EWatchR"
+  "esponseNotAvailable\020\002\022$\n EWatchResponseW"
+  "aitingForApproval\020\003\022!\n\035EWatchResponseWai"
+  "tingForStart\020\004\022 \n\034EWatchResponseInvalidS"
+  "ession\020\005\022#\n\037EWatchResponseTooManyBroadca"
+  "sts\020\006\022%\n!EWatchResponseWaitingForReconne"
+  "ct\020\007\022$\n EWatchResponseSystemNotSupported"
+  "\020\010\022 \n\034EWatchResponseUserRestricted\020\t\022!\n\035"
+  "EWatchResponseClientOutOfDate\020\n\022#\n\037EWatc"
+  "hResponsePoorUploadQuality\020\013\022%\n!EWatchRe"
+  "sponseMissingSubscription\020\014\022 \n\034EWatchRes"
+  "ponseTooManyViewers\020\r\"\201\001\n*CBroadcast_Hea"
+  "rtbeatBroadcast_Notification\022\017\n\007steamid\030"
+  "\001 \001(\006\022\024\n\014broadcast_id\030\002 \001(\006\022\024\n\014viewer_to"
+  "ken\030\003 \001(\006\022\026\n\016representation\030\004 \001(\r\"l\n-CBr"
+  "oadcast_StopWatchingBroadcast_Notificati"
+  "on\022\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_id\030\002 \001("
+  "\006\022\024\n\014viewer_token\030\003 \001(\006\"N\n%CBroadcast_Ge"
+  "tBroadcastStatus_Request\022\017\n\007steamid\030\001 \001("
+  "\006\022\024\n\014broadcast_id\030\002 \001(\006\"\321\002\n&CBroadcast_G"
+  "etBroadcastStatus_Response\022\016\n\006gameid\030\001 \001"
+  "(\004\022\r\n\005title\030\002 \001(\t\022\023\n\013num_viewers\030\003 \001(\r\022\022"
+  "\n\npermission\030\004 \001(\005\022\017\n\007is_rtmp\030\005 \001(\010\022\025\n\rs"
+  "econds_delay\030\006 \001(\005\022\024\n\014is_publisher\030\007 \001(\010"
+  "\022\025\n\rthumbnail_url\030\010 \001(\t\022\027\n\017update_interv"
+  "al\030\t \001(\005\022\024\n\014is_uploading\030\n \001(\010\022\020\n\010durati"
+  "on\030\013 \001(\r\022\021\n\tis_replay\030\014 \001(\010\022\030\n\020is_captur"
+  "ing_vod\030\r \001(\010\022\034\n\024is_store_whitelisted\030\016 "
+  "\001(\010\"Q\n(CBroadcast_GetBroadcastThumbnail_"
+  "Request\022\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_id"
+  "\030\002 \001(\006\"\202\001\n)CBroadcast_GetBroadcastThumbn"
+  "ail_Response\022\025\n\rthumbnail_url\030\001 \001(\t\022\027\n\017u"
+  "pdate_interval\030\002 \001(\005\022\023\n\013num_viewers\030\003 \001("
+  "\005\022\020\n\010duration\030\004 \001(\005\"R\n$CBroadcast_Invite"
+  "ToBroadcast_Request\022\017\n\007steamid\030\001 \001(\006\022\031\n\021"
+  "approval_response\030\002 \001(\010\"8\n%CBroadcast_In"
+  "viteToBroadcast_Response\022\017\n\007success\030\001 \001("
+  "\010\"|\n-CBroadcast_SendBroadcastStateToServ"
+  "er_Request\022\022\n\npermission\030\001 \001(\005\022\016\n\006gameid"
+  "\030\002 \001(\004\022\r\n\005title\030\003 \001(\t\022\030\n\020game_data_confi"
+  "g\030\004 \001(\t\"0\n.CBroadcast_SendBroadcastState"
+  "ToServer_Response\"O\n7CBroadcast_NotifyBr"
+  "oadcastSessionHeartbeat_Notification\022\024\n\014"
+  "broadcast_id\030\001 \001(\006\"x\n\'CBroadcast_GetBroa"
+  "dcastChatInfo_Request\022\017\n\007steamid\030\001 \001(\006\022\024"
+  "\n\014broadcast_id\030\002 \001(\006\022\021\n\tclient_ip\030\003 \001(\r\022"
+  "\023\n\013client_cell\030\004 \001(\r\"o\n(CBroadcast_GetBr"
+  "oadcastChatInfo_Response\022\017\n\007chat_id\030\001 \001("
+  "\006\022\031\n\021view_url_template\030\003 \001(\t\022\027\n\017flair_gr"
+  "oup_ids\030\004 \003(\r\"\206\001\n\"CBroadcast_PostChatMes"
+  "sage_Request\022\017\n\007chat_id\030\001 \001(\006\022\017\n\007message"
+  "\030\002 \001(\t\022\023\n\013instance_id\030\003 \001(\r\022\023\n\010language\030"
+  "\004 \001(\r:\0010\022\024\n\014country_code\030\005 \001(\t\"{\n#CBroad"
+  "cast_PostChatMessage_Response\022\024\n\014persona"
+  "_name\030\001 \001(\t\022\017\n\007in_game\030\002 \001(\010\022\016\n\006result\030\003"
+  " \001(\005\022\035\n\025cooldown_time_seconds\030\004 \001(\005\"K\n)C"
+  "Broadcast_UpdateChatMessageFlair_Request"
+  "\022\017\n\007chat_id\030\001 \001(\006\022\r\n\005flair\030\002 \001(\t\"\\\n*CBro"
+  "adcast_UpdateChatMessageFlair_Response\022\016"
+  "\n\006result\030\001 \001(\005\022\017\n\007chat_id\030\002 \001(\006\022\r\n\005flair"
+  "\030\003 \001(\t\"`\n(CBroadcast_MuteBroadcastChatUs"
+  "er_Request\022\017\n\007chat_id\030\001 \001(\006\022\024\n\014user_stea"
+  "mid\030\002 \001(\006\022\r\n\005muted\030\003 \001(\010\"+\n)CBroadcast_M"
+  "uteBroadcastChatUser_Response\"N\n%CBroadc"
+  "ast_RemoveUserChatText_Request\022\017\n\007chat_i"
+  "d\030\001 \001(\006\022\024\n\014user_steamid\030\002 \001(\006\"(\n&CBroadc"
+  "ast_RemoveUserChatText_Response\"U\n,CBroa"
+  "dcast_GetBroadcastChatUserNames_Request\022"
+  "\017\n\007chat_id\030\001 \001(\006\022\024\n\014user_steamid\030\002 \003(\006\"\272"
+  "\001\n-CBroadcast_GetBroadcastChatUserNames_"
+  "Response\022Q\n\rpersona_names\030\001 \003(\0132:.CBroad"
+  "cast_GetBroadcastChatUserNames_Response."
+  "PersonaName\0326\n\013PersonaName\022\026\n\010steam_id\030\001"
+  " \001(\006B\004\300\266\030\001\022\017\n\007persona\030\002 \001(\t\"\231\001\n!CBroadca"
+  "st_StartBuildClip_Request\022\017\n\007steamid\030\001 \001"
+  "(\006\022\034\n\024broadcast_session_id\030\002 \001(\006\022\025\n\rfirs"
+  "t_segment\030\003 \001(\005\022\024\n\014num_segments\030\004 \001(\005\022\030\n"
+  "\020clip_description\030\005 \001(\t\"\?\n\"CBroadcast_St"
+  "artBuildClip_Response\022\031\n\021broadcast_clip_"
+  "id\030\001 \001(\006\"B\n%CBroadcast_GetBuildClipStatu"
+  "s_Request\022\031\n\021broadcast_clip_id\030\001 \001(\006\"(\n&"
+  "CBroadcast_GetBuildClipStatus_Response\"\177"
+  "\n!CBroadcast_SetClipDetails_Request\022\031\n\021b"
+  "roadcast_clip_id\030\001 \001(\004\022\022\n\nstart_time\030\002 \001"
+  "(\r\022\020\n\010end_time\030\003 \001(\r\022\031\n\021video_descriptio"
+  "n\030\004 \001(\t\"$\n\"CBroadcast_SetClipDetails_Res"
+  "ponse\">\n!CBroadcast_GetClipDetails_Reque"
+  "st\022\031\n\021broadcast_clip_id\030\001 \001(\004\"\225\002\n\"CBroad"
+  "cast_GetClipDetails_Response\022\031\n\021broadcas"
+  "t_clip_id\030\001 \001(\004\022\020\n\010video_id\030\002 \001(\004\022\022\n\ncha"
+  "nnel_id\030\003 \001(\004\022\016\n\006app_id\030\004 \001(\r\022\035\n\025account"
+  "id_broadcaster\030\005 \001(\r\022\033\n\023accountid_clipma"
+  "ker\030\006 \001(\r\022\031\n\021video_description\030\007 \001(\t\022\022\n\n"
+  "start_time\030\010 \001(\r\022\033\n\023length_milliseconds\030"
+  "\t \001(\r\022\026\n\016thumbnail_path\030\n \001(\t\"\203\003\n\036CBroad"
+  "cast_SetRTMPInfo_Request\022\034\n\024broadcast_pe"
+  "rmission\030\001 \001(\005\022\024\n\014update_token\030\002 \001(\010\022\027\n\017"
+  "broadcast_delay\030\003 \001(\005\022\016\n\006app_id\030\004 \001(\r\022\027\n"
+  "\017required_app_id\030\005 \001(\r\022\\\n\031broadcast_chat"
+  "_permission\030\006 \001(\0162\031.EBroadcastChatPermis"
+  "sion:\036EBroadcastChatPermissionPublic\022\030\n\020"
+  "broadcast_buffer\030\007 \001(\005\022\017\n\007steamid\030\010 \001(\006\022"
+  "\027\n\017chat_rate_limit\030\t \001(\r\022\025\n\renable_repla"
+  "y\030\n \001(\010\022\034\n\024is_partner_chat_only\030\013 \001(\010\022\024\n"
+  "\014wordban_list\030\014 \001(\t\"!\n\037CBroadcast_SetRTM"
+  "PInfo_Response\"=\n\036CBroadcast_GetRTMPInfo"
+  "_Request\022\n\n\002ip\030\001 \001(\r\022\017\n\007steamid\030\002 \001(\006\"\225\003"
+  "\n\037CBroadcast_GetRTMPInfo_Response\022\034\n\024bro"
+  "adcast_permission\030\001 \001(\005\022\021\n\trtmp_host\030\002 \001"
+  "(\t\022\022\n\nrtmp_token\030\003 \001(\t\022\027\n\017broadcast_dela"
+  "y\030\004 \001(\005\022\016\n\006app_id\030\005 \001(\r\022\027\n\017required_app_"
+  "id\030\006 \001(\r\022\\\n\031broadcast_chat_permission\030\007 "
+  "\001(\0162\031.EBroadcastChatPermission:\036EBroadca"
+  "stChatPermissionPublic\022\030\n\020broadcast_buff"
+  "er\030\010 \001(\005\022\017\n\007steamid\030\t \001(\006\022\027\n\017chat_rate_l"
+  "imit\030\n \001(\r\022\025\n\renable_replay\030\013 \001(\010\022\034\n\024is_"
+  "partner_chat_only\030\014 \001(\010\022\024\n\014wordban_list\030"
+  "\r \001(\t\"a\n,CBroadcast_WebRTCHaveTURNServer"
+  "_Notification\022\034\n\024broadcast_session_id\030\001 "
+  "\001(\006\022\023\n\013turn_server\030\002 \001(\t\"\232\001\n$CBroadcast_"
+  "WebRTCStartResult_Request\022\031\n\021webrtc_sess"
+  "ion_id\030\001 \001(\006\022\017\n\007started\030\002 \001(\010\022\r\n\005offer\030\003"
+  " \001(\t\022\024\n\014resolution_x\030\004 \001(\r\022\024\n\014resolution"
+  "_y\030\005 \001(\r\022\013\n\003fps\030\006 \001(\r\"\'\n%CBroadcast_WebR"
+  "TCStartResult_Response\"=\n CBroadcast_Web"
+  "RTCStopped_Request\022\031\n\021webrtc_session_id\030"
+  "\001 \001(\006\"#\n!CBroadcast_WebRTCStopped_Respon"
+  "se\"l\n\"CBroadcast_WebRTCSetAnswer_Request"
+  "\022\033\n\023broadcaster_steamid\030\001 \001(\006\022\031\n\021webrtc_"
+  "session_id\030\002 \001(\006\022\016\n\006answer\030\003 \001(\t\"%\n#CBro"
+  "adcast_WebRTCSetAnswer_Response\";\n)CBroa"
+  "dcast_WebRTCLookupTURNServer_Request\022\016\n\006"
+  "cellid\030\001 \001(\r\"A\n*CBroadcast_WebRTCLookupT"
+  "URNServer_Response\022\023\n\013turn_server\030\001 \001(\t\""
+  "Z\n\033CBroadcast_WebRTC_Candidate\022\017\n\007sdp_mi"
+  "d\030\001 \001(\t\022\027\n\017sdp_mline_index\030\002 \001(\005\022\021\n\tcand"
+  "idate\030\003 \001(\t\"w\n)CBroadcast_WebRTCAddHostC"
+  "andidate_Request\022\031\n\021webrtc_session_id\030\001 "
+  "\001(\006\022/\n\tcandidate\030\002 \001(\0132\034.CBroadcast_WebR"
+  "TC_Candidate\",\n*CBroadcast_WebRTCAddHost"
+  "Candidate_Response\"\226\001\n+CBroadcast_WebRTC"
+  "AddViewerCandidate_Request\022\033\n\023broadcaste"
+  "r_steamid\030\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001"
+  "(\006\022/\n\tcandidate\030\003 \001(\0132\034.CBroadcast_WebRT"
+  "C_Candidate\".\n,CBroadcast_WebRTCAddViewe"
+  "rCandidate_Response\"\202\001\n*CBroadcast_WebRT"
+  "CGetHostCandidates_Request\022\033\n\023broadcaste"
+  "r_steamid\030\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001"
+  "(\006\022\034\n\024candidate_generation\030\003 \001(\r\"}\n+CBro"
+  "adcast_WebRTCGetHostCandidates_Response\022"
+  "\034\n\024candidate_generation\030\001 \001(\r\0220\n\ncandida"
+  "tes\030\002 \003(\0132\034.CBroadcast_WebRTC_Candidate\""
+  "\223\001\n*CBroadcast_GetBroadcastUploadStats_R"
+  "equest\022\026\n\trow_limit\030\001 \001(\r:\003100\022\025\n\nstart_"
+  "time\030\002 \001(\r:\0010\022\021\n\tupload_id\030\003 \001(\004\022\017\n\007stea"
+  "mid\030\004 \001(\006\022\022\n\nsession_id\030\005 \001(\004\"\327\004\n+CBroad"
+  "cast_GetBroadcastUploadStats_Response\022N\n"
+  "\014upload_stats\030\001 \003(\01328.CBroadcast_GetBroa"
+  "dcastUploadStats_Response.UploadStats\032\327\003"
+  "\n\013UploadStats\022\025\n\rupload_result\030\001 \001(\r\022\024\n\014"
+  "time_stopped\030\002 \001(\r\022\030\n\020seconds_uploaded\030\003"
+  " \001(\r\022\023\n\013max_viewers\030\004 \001(\r\022\024\n\014resolution_"
+  "x\030\005 \001(\r\022\024\n\014resolution_y\030\006 \001(\r\022\025\n\ravg_ban"
+  "dwidth\030\007 \001(\r\022\023\n\013total_bytes\030\010 \001(\004\022\016\n\006app"
+  "_id\030\t \001(\r\022\034\n\024total_unique_viewers\030\n \001(\r\022"
+  "\035\n\025total_seconds_watched\030\013 \001(\004\022\024\n\014time_s"
+  "tarted\030\014 \001(\r\022\021\n\tupload_id\030\r \001(\004\022\025\n\rlocal"
+  "_address\030\016 \001(\t\022\026\n\016remote_address\030\017 \001(\t\022\031"
+  "\n\021frames_per_second\030\020 \001(\r\022\033\n\023num_represe"
+  "ntations\030\021 \001(\r\022\020\n\010app_name\030\022 \001(\t\022\021\n\tis_r"
+  "eplay\030\023 \001(\010\022\022\n\nsession_id\030\024 \001(\004\"P\n*CBroa"
+  "dcast_GetBroadcastViewerStats_Request\022\021\n"
+  "\tupload_id\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\006\"\274\002\n+CB"
+  "roadcast_GetBroadcastViewerStats_Respons"
+  "e\022N\n\014viewer_stats\030\001 \003(\01328.CBroadcast_Get"
+  "BroadcastViewerStats_Response.ViewerStat"
+  "s\022P\n\rcountry_stats\030\002 \003(\01329.CBroadcast_Ge"
+  "tBroadcastViewerStats_Response.CountrySt"
+  "ats\0320\n\013ViewerStats\022\014\n\004time\030\001 \001(\r\022\023\n\013num_"
+  "viewers\030\002 \001(\r\0329\n\014CountryStats\022\024\n\014country"
+  "_code\030\001 \001(\t\022\023\n\013num_viewers\030\002 \001(\r\"\360\001\n,CBr"
+  "oadcast_BroadcastViewerState_Notificatio"
+  "n\022\017\n\007steamid\030\001 \001(\006\022_\n\005state\030\002 \001(\0162:.CBro"
+  "adcast_BroadcastViewerState_Notification"
+  ".EViewerState:\024EViewerNeedsApproval\"N\n\014E"
+  "ViewerState\022\030\n\024EViewerNeedsApproval\020\001\022\023\n"
+  "\017EViewerWatching\020\002\022\017\n\013EViewerLeft\020\003\"F\n.C"
+  "Broadcast_WaitingBroadcastViewer_Notific"
+  "ation\022\024\n\014broadcast_id\030\001 \001(\006\"\334\001\n.CBroadca"
+  "st_BroadcastUploadStarted_Notification\022\024"
+  "\n\014broadcast_id\030\001 \001(\006\022\024\n\014upload_token\030\002 \001"
+  "(\t\022\026\n\016upload_address\030\003 \001(\t\022\024\n\014http_addre"
+  "ss\030\004 \001(\t\022\033\n\023broadcast_upload_id\030\005 \001(\006\022\"\n"
+  "\032heartbeat_interval_seconds\030\006 \001(\r\022\017\n\007is_"
+  "rtmp\030\007 \001(\010\"\225\001\n+CBroadcast_StopBroadcastU"
+  "pload_Notification\022\024\n\014broadcast_id\030\001 \001(\006"
+  "\022\032\n\022broadcast_relay_id\030\002 \001(\006\022\025\n\rupload_r"
+  "esult\030\003 \001(\r\022\035\n\025too_many_poor_uploads\030\004 \001"
+  "(\010\"=\n%CBroadcast_SessionClosed_Notificat"
+  "ion\022\024\n\014broadcast_id\030\001 \001(\006\"L\n-CBroadcast_"
+  "ViewerBroadcastInvite_Notification\022\033\n\023br"
+  "oadcaster_steamid\030\001 \001(\006\"T\n\'CBroadcast_Br"
+  "oadcastStatus_Notification\022\024\n\014broadcast_"
+  "id\030\001 \001(\006\022\023\n\013num_viewers\030\002 \001(\005\"\216\001\n,CBroad"
+  "cast_BroadcastChannelLive_Notification\022\034"
+  "\n\024broadcast_channel_id\030\001 \001(\006\022\036\n\026broadcas"
+  "t_channel_name\030\002 \001(\t\022 \n\030broadcast_channe"
+  "l_avatar\030\003 \001(\t\"\301\001\n,CBroadcast_SendThumbn"
+  "ailToRelay_Notification\022\036\n\026thumbnail_upl"
+  "oad_token\030\001 \001(\t\022&\n\036thumbnail_broadcast_s"
+  "ession_id\030\002 \001(\006\022\026\n\016thumbnail_data\030\003 \001(\014\022"
+  "\027\n\017thumbnail_width\030\004 \001(\r\022\030\n\020thumbnail_he"
+  "ight\030\005 \001(\r\"L\n,CBroadcast_WebRTCNeedTURNS"
+  "erver_Notification\022\034\n\024broadcast_session_"
+  "id\030\001 \001(\006\"\214\001\n#CBroadcast_WebRTCStart_Noti"
+  "fication\022\034\n\024broadcast_session_id\030\001 \001(\006\022\031"
+  "\n\021webrtc_session_id\030\002 \001(\006\022\026\n\016viewer_stea"
+  "mid\030\003 \001(\006\022\024\n\014viewer_token\030\004 \001(\006\"r\n\'CBroa"
+  "dcast_WebRTCSetAnswer_Notification\022\034\n\024br"
+  "oadcast_session_id\030\001 \001(\006\022\031\n\021webrtc_sessi"
+  "on_id\030\002 \001(\006\022\016\n\006answer\030\003 \001(\t\"\234\001\n0CBroadca"
+  "st_WebRTCAddViewerCandidate_Notification"
+  "\022\034\n\024broadcast_session_id\030\001 \001(\006\022\031\n\021webrtc"
+  "_session_id\030\002 \001(\006\022/\n\tcandidate\030\003 \001(\0132\034.C"
+  "Broadcast_WebRTC_Candidate*\210\005\n\027EBroadcas"
+  "tWatchLocation\022#\n\037EBroadcastWatchLocatio"
+  "n_Invalid\020\000\022\'\n#EBroadcastWatchLocation_S"
+  "teamTV_Tab\020\001\022.\n*EBroadcastWatchLocation_"
+  "SteamTV_WatchParty\020\002\022$\n EBroadcastWatchL"
+  "ocation_Chat_Tab\020\003\022+\n\'EBroadcastWatchLoc"
+  "ation_Chat_WatchParty\020\004\022)\n%EBroadcastWat"
+  "chLocation_CommunityPage\020\005\022(\n$EBroadcast"
+  "WatchLocation_StoreAppPage\020\006\022\"\n\036EBroadca"
+  "stWatchLocation_InGame\020\007\022&\n\"EBroadcastWa"
+  "tchLocation_BigPicture\020\010\022%\n!EBroadcastWa"
+  "tchLocation_SalesPage\020\t\022\'\n#EBroadcastWat"
+  "chLocation_CuratorPage\020\n\022)\n%EBroadcastWa"
+  "tchLocation_DeveloperPage\020\013\022(\n$EBroadcas"
+  "tWatchLocation_Chat_Friends\020\014\022\'\n#EBroadc"
+  "astWatchLocation_SteamTV_Web\020\r\022-\n)EBroad"
+  "castWatchLocation_DesktopUI_Overlay\020\016*c\n"
+  "\030EBroadcastChatPermission\022\"\n\036EBroadcastC"
+  "hatPermissionPublic\020\000\022#\n\037EBroadcastChatP"
+  "ermissionOwnsApp\020\0012\267\033\n\tBroadcast\022n\n\025Begi"
+  "nBroadcastSession\022).CBroadcast_BeginBroa"
+  "dcastSession_Request\032*.CBroadcast_BeginB"
+  "roadcastSession_Response\022h\n\023EndBroadcast"
+  "Session\022\'.CBroadcast_EndBroadcastSession"
+  "_Request\032(.CBroadcast_EndBroadcastSessio"
+  "n_Response\022k\n\024StartBroadcastUpload\022(.CBr"
+  "oadcast_StartBroadcastUpload_Request\032).C"
+  "Broadcast_StartBroadcastUpload_Response\022"
+  "\\\n\031NotifyBroadcastUploadStop\0222.CBroadcas"
+  "t_NotifyBroadcastUploadStop_Notification"
+  "\032\013.NoResponse\022Y\n\016WatchBroadcast\022\".CBroad"
+  "cast_WatchBroadcast_Request\032#.CBroadcast"
+  "_WatchBroadcast_Response\022N\n\022HeartbeatBro"
+  "adcast\022+.CBroadcast_HeartbeatBroadcast_N"
+  "otification\032\013.NoResponse\022T\n\025StopWatching"
+  "Broadcast\022..CBroadcast_StopWatchingBroad"
+  "cast_Notification\032\013.NoResponse\022e\n\022GetBro"
+  "adcastStatus\022&.CBroadcast_GetBroadcastSt"
+  "atus_Request\032\'.CBroadcast_GetBroadcastSt"
+  "atus_Response\022n\n\025GetBroadcastThumbnail\022)"
+  ".CBroadcast_GetBroadcastThumbnail_Reques"
+  "t\032*.CBroadcast_GetBroadcastThumbnail_Res"
+  "ponse\022b\n\021InviteToBroadcast\022%.CBroadcast_"
+  "InviteToBroadcast_Request\032&.CBroadcast_I"
+  "nviteToBroadcast_Response\022}\n\032SendBroadca"
+  "stStateToServer\022..CBroadcast_SendBroadca"
+  "stStateToServer_Request\032/.CBroadcast_Sen"
+  "dBroadcastStateToServer_Response\022h\n\037Noti"
+  "fyBroadcastSessionHeartbeat\0228.CBroadcast"
+  "_NotifyBroadcastSessionHeartbeat_Notific"
+  "ation\032\013.NoResponse\022k\n\024GetBroadcastChatIn"
+  "fo\022(.CBroadcast_GetBroadcastChatInfo_Req"
+  "uest\032).CBroadcast_GetBroadcastChatInfo_R"
+  "esponse\022\\\n\017PostChatMessage\022#.CBroadcast_"
+  "PostChatMessage_Request\032$.CBroadcast_Pos"
+  "tChatMessage_Response\022q\n\026UpdateChatMessa"
+  "geFlair\022*.CBroadcast_UpdateChatMessageFl"
+  "air_Request\032+.CBroadcast_UpdateChatMessa"
+  "geFlair_Response\022n\n\025MuteBroadcastChatUse"
+  "r\022).CBroadcast_MuteBroadcastChatUser_Req"
+  "uest\032*.CBroadcast_MuteBroadcastChatUser_"
+  "Response\022e\n\022RemoveUserChatText\022&.CBroadc"
+  "ast_RemoveUserChatText_Request\032\'.CBroadc"
+  "ast_RemoveUserChatText_Response\022z\n\031GetBr"
+  "oadcastChatUserNames\022-.CBroadcast_GetBro"
+  "adcastChatUserNames_Request\032..CBroadcast"
+  "_GetBroadcastChatUserNames_Response\022Y\n\016S"
+  "tartBuildClip\022\".CBroadcast_StartBuildCli"
+  "p_Request\032#.CBroadcast_StartBuildClip_Re"
+  "sponse\022e\n\022GetBuildClipStatus\022&.CBroadcas"
+  "t_GetBuildClipStatus_Request\032\'.CBroadcas"
+  "t_GetBuildClipStatus_Response\022Y\n\016SetClip"
+  "Details\022\".CBroadcast_SetClipDetails_Requ"
+  "est\032#.CBroadcast_SetClipDetails_Response"
+  "\022Y\n\016GetClipDetails\022\".CBroadcast_GetClipD"
+  "etails_Request\032#.CBroadcast_GetClipDetai"
+  "ls_Response\022P\n\013SetRTMPInfo\022\037.CBroadcast_"
+  "SetRTMPInfo_Request\032 .CBroadcast_SetRTMP"
+  "Info_Response\022P\n\013GetRTMPInfo\022\037.CBroadcas"
+  "t_GetRTMPInfo_Request\032 .CBroadcast_GetRT"
+  "MPInfo_Response\022X\n\032NotifyWebRTCHaveTURNS"
+  "erver\022-.CBroadcast_WebRTCHaveTURNServer_"
+  "Notification\032\013.NoResponse\022b\n\021WebRTCStart"
+  "Result\022%.CBroadcast_WebRTCStartResult_Re"
+  "quest\032&.CBroadcast_WebRTCStartResult_Res"
+  "ponse\022V\n\rWebRTCStopped\022!.CBroadcast_WebR"
+  "TCStopped_Request\032\".CBroadcast_WebRTCSto"
+  "pped_Response\022\\\n\017WebRTCSetAnswer\022#.CBroa"
+  "dcast_WebRTCSetAnswer_Request\032$.CBroadca"
+  "st_WebRTCSetAnswer_Response\022q\n\026WebRTCLoo"
+  "kupTURNServer\022*.CBroadcast_WebRTCLookupT"
+  "URNServer_Request\032+.CBroadcast_WebRTCLoo"
+  "kupTURNServer_Response\022q\n\026WebRTCAddHostC"
+  "andidate\022*.CBroadcast_WebRTCAddHostCandi"
+  "date_Request\032+.CBroadcast_WebRTCAddHostC"
+  "andidate_Response\022w\n\030WebRTCAddViewerCand"
+  "idate\022,.CBroadcast_WebRTCAddViewerCandid"
+  "ate_Request\032-.CBroadcast_WebRTCAddViewer"
+  "Candidate_Response\022t\n\027WebRTCGetHostCandi"
+  "dates\022+.CBroadcast_WebRTCGetHostCandidat"
+  "es_Request\032,.CBroadcast_WebRTCGetHostCan"
+  "didates_Response\022t\n\027GetBroadcastUploadSt"
+  "ats\022+.CBroadcast_GetBroadcastUploadStats"
+  "_Request\032,.CBroadcast_GetBroadcastUpload"
+  "Stats_Response\022t\n\027GetBroadcastViewerStat"
+  "s\022+.CBroadcast_GetBroadcastViewerStats_R"
+  "equest\032,.CBroadcast_GetBroadcastViewerSt"
+  "ats_Response2\377\010\n\017BroadcastClient\022X\n\032Noti"
+  "fyBroadcastViewerState\022-.CBroadcast_Broa"
+  "dcastViewerState_Notification\032\013.NoRespon"
+  "se\022\\\n\034NotifyWaitingBroadcastViewer\022/.CBr"
+  "oadcast_WaitingBroadcastViewer_Notificat"
+  "ion\032\013.NoResponse\022\\\n\034NotifyBroadcastUploa"
+  "dStarted\022/.CBroadcast_BroadcastUploadSta"
+  "rted_Notification\032\013.NoResponse\022V\n\031Notify"
+  "StopBroadcastUpload\022,.CBroadcast_StopBro"
+  "adcastUpload_Notification\032\013.NoResponse\022J"
+  "\n\023NotifySessionClosed\022&.CBroadcast_Sessi"
+  "onClosed_Notification\032\013.NoResponse\022Z\n\033No"
+  "tifyViewerBroadcastInvite\022..CBroadcast_V"
+  "iewerBroadcastInvite_Notification\032\013.NoRe"
+  "sponse\022N\n\025NotifyBroadcastStatus\022(.CBroad"
+  "cast_BroadcastStatus_Notification\032\013.NoRe"
+  "sponse\022X\n\032NotifyBroadcastChannelLive\022-.C"
+  "Broadcast_BroadcastChannelLive_Notificat"
+  "ion\032\013.NoResponse\022R\n\024SendThumbnailToRelay"
+  "\022-.CBroadcast_SendThumbnailToRelay_Notif"
+  "ication\032\013.NoResponse\022X\n\032NotifyWebRTCNeed"
+  "TURNServer\022-.CBroadcast_WebRTCNeedTURNSe"
+  "rver_Notification\032\013.NoResponse\022F\n\021Notify"
+  "WebRTCStart\022$.CBroadcast_WebRTCStart_Not"
+  "ification\032\013.NoResponse\022N\n\025NotifyWebRTCSe"
+  "tAnswer\022(.CBroadcast_WebRTCSetAnswer_Not"
+  "ification\032\013.NoResponse\022`\n\036NotifyWebRTCAd"
+  "dViewerCandidate\0221.CBroadcast_WebRTCAddV"
+  "iewerCandidate_Notification\032\013.NoResponse"
+  "\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -2723,7 +2719,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto = {
-  false, false, 16418, descriptor_table_protodef_steammessages_5fbroadcast_2esteamclient_2eproto, "steammessages_broadcast.steamclient.proto", 
+  false, false, 16397, descriptor_table_protodef_steammessages_5fbroadcast_2esteamclient_2eproto, "steammessages_broadcast.steamclient.proto", 
   &descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto_once, descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto_deps, 3, 81,
   schemas, file_default_instances, TableStruct_steammessages_5fbroadcast_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fbroadcast_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fbroadcast_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fbroadcast_2esteamclient_2eproto,
@@ -2850,34 +2846,31 @@ class CBroadcast_BeginBroadcastSession_Request::_Internal {
  public:
   using HasBits = decltype(std::declval<CBroadcast_BeginBroadcastSession_Request>()._has_bits_);
   static void set_has_permission(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_gameid(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_client_instance_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_title(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_cellid(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_rtmp_token(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_thumbnail_upload(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-  static void set_has_client_beta(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_sysid(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_allow_webrtc(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 128u;
   }
 };
 
@@ -2896,11 +2889,6 @@ CBroadcast_BeginBroadcastSession_Request::CBroadcast_BeginBroadcastSession_Reque
     title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_title(), 
       GetArena());
   }
-  client_beta_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_client_beta()) {
-    client_beta_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_client_beta(), 
-      GetArena());
-  }
   ::memcpy(&gameid_, &from.gameid_,
     static_cast<size_t>(reinterpret_cast<char*>(&sysid_) -
     reinterpret_cast<char*>(&gameid_)) + sizeof(sysid_));
@@ -2909,7 +2897,6 @@ CBroadcast_BeginBroadcastSession_Request::CBroadcast_BeginBroadcastSession_Reque
 
 void CBroadcast_BeginBroadcastSession_Request::SharedCtor() {
 title_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-client_beta_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&gameid_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&sysid_) -
@@ -2925,7 +2912,6 @@ CBroadcast_BeginBroadcastSession_Request::~CBroadcast_BeginBroadcastSession_Requ
 void CBroadcast_BeginBroadcastSession_Request::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   title_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  client_beta_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void CBroadcast_BeginBroadcastSession_Request::ArenaDtor(void* object) {
@@ -2945,24 +2931,15 @@ void CBroadcast_BeginBroadcastSession_Request::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      title_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      client_beta_.ClearNonDefaultToEmpty();
-    }
+  if (cached_has_bits & 0x00000001u) {
+    title_.ClearNonDefaultToEmpty();
   }
-  if (cached_has_bits & 0x000000fcu) {
+  if (cached_has_bits & 0x000000feu) {
     ::memset(&gameid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&thumbnail_upload_) -
-        reinterpret_cast<char*>(&gameid_)) + sizeof(thumbnail_upload_));
+        reinterpret_cast<char*>(&allow_webrtc_) -
+        reinterpret_cast<char*>(&gameid_)) + sizeof(allow_webrtc_));
   }
-  if (cached_has_bits & 0x00000300u) {
-    ::memset(&allow_webrtc_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&sysid_) -
-        reinterpret_cast<char*>(&allow_webrtc_)) + sizeof(sysid_));
-  }
+  sysid_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3034,17 +3011,6 @@ const char* CBroadcast_BeginBroadcastSession_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string client_beta = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
-          auto str = _internal_mutable_client_beta();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CBroadcast_BeginBroadcastSession_Request.client_beta");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // optional uint32 sysid = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
@@ -3092,19 +3058,19 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional int32 permission = 1;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_permission(), target);
   }
 
   // optional uint64 gameid = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_gameid(), target);
   }
 
   // optional uint64 client_instance_id = 3;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_client_instance_id(), target);
   }
@@ -3120,41 +3086,31 @@ failure:
   }
 
   // optional uint32 cellid = 5;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_cellid(), target);
   }
 
   // optional uint64 rtmp_token = 6;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_rtmp_token(), target);
   }
 
   // optional bool thumbnail_upload = 7;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_thumbnail_upload(), target);
   }
 
-  // optional string client_beta = 8;
-  if (cached_has_bits & 0x00000002u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_client_beta().data(), static_cast<int>(this->_internal_client_beta().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CBroadcast_BeginBroadcastSession_Request.client_beta");
-    target = stream->WriteStringMaybeAliased(
-        8, this->_internal_client_beta(), target);
-  }
-
   // optional uint32 sysid = 9;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_sysid(), target);
   }
 
   // optional bool allow_webrtc = 10;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_allow_webrtc(), target);
   }
@@ -3184,68 +3140,59 @@ size_t CBroadcast_BeginBroadcastSession_Request::ByteSizeLong() const {
           this->_internal_title());
     }
 
-    // optional string client_beta = 8;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_client_beta());
-    }
-
     // optional uint64 gameid = 2;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_gameid());
     }
 
     // optional uint64 client_instance_id = 3;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_client_instance_id());
     }
 
     // optional int32 permission = 1;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_permission());
     }
 
     // optional uint32 cellid = 5;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cellid());
     }
 
     // optional uint64 rtmp_token = 6;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_rtmp_token());
     }
 
     // optional bool thumbnail_upload = 7;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool allow_webrtc = 10;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
 
   }
-  if (cached_has_bits & 0x00000300u) {
-    // optional bool allow_webrtc = 10;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += 1 + 1;
-    }
-
-    // optional uint32 sysid = 9;
-    if (cached_has_bits & 0x00000200u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_sysid());
-    }
-
+  // optional uint32 sysid = 9;
+  if (cached_has_bits & 0x00000100u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_sysid());
   }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -3283,36 +3230,30 @@ void CBroadcast_BeginBroadcastSession_Request::MergeFrom(const CBroadcast_BeginB
       _internal_set_title(from._internal_title());
     }
     if (cached_has_bits & 0x00000002u) {
-      _internal_set_client_beta(from._internal_client_beta());
-    }
-    if (cached_has_bits & 0x00000004u) {
       gameid_ = from.gameid_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       client_instance_id_ = from.client_instance_id_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       permission_ = from.permission_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       cellid_ = from.cellid_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       rtmp_token_ = from.rtmp_token_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       thumbnail_upload_ = from.thumbnail_upload_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      allow_webrtc_ = from.allow_webrtc_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000300u) {
-    if (cached_has_bits & 0x00000100u) {
-      allow_webrtc_ = from.allow_webrtc_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      sysid_ = from.sysid_;
-    }
-    _has_bits_[0] |= cached_has_bits;
+  if (cached_has_bits & 0x00000100u) {
+    _internal_set_sysid(from._internal_sysid());
   }
 }
 
@@ -3339,7 +3280,6 @@ void CBroadcast_BeginBroadcastSession_Request::InternalSwap(CBroadcast_BeginBroa
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   title_.Swap(&other->title_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  client_beta_.Swap(&other->client_beta_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CBroadcast_BeginBroadcastSession_Request, sysid_)
       + sizeof(CBroadcast_BeginBroadcastSession_Request::sysid_)

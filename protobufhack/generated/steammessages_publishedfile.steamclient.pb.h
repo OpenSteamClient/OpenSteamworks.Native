@@ -3080,6 +3080,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
     kDesiredRevisionFieldNumber = 16,
     kStripDescriptionBbcodeFieldNumber = 15,
     kIncludereactionsFieldNumber = 17,
+    kAdminQueryFieldNumber = 18,
   };
   // repeated fixed64 publishedfileids = 1;
   int publishedfileids_size() const;
@@ -3285,6 +3286,19 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_includereactions(bool value);
   public:
 
+  // optional bool admin_query = 18;
+  bool has_admin_query() const;
+  private:
+  bool _internal_has_admin_query() const;
+  public:
+  void clear_admin_query();
+  bool admin_query() const;
+  void set_admin_query(bool value);
+  private:
+  bool _internal_admin_query() const;
+  void _internal_set_admin_query(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CPublishedFile_GetDetails_Request)
  private:
   class _Internal;
@@ -3309,6 +3323,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   int desired_revision_;
   bool strip_description_bbcode_;
   bool includereactions_;
+  bool admin_query_;
   friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -7619,19 +7634,20 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
     kPrivacyFieldNumber = 9,
     kFiletypeFieldNumber = 14,
     kCreatorAppidFieldNumber = 15,
+    kAdminQueryFieldNumber = 38,
     kTotalonlyFieldNumber = 17,
     kIdsOnlyFieldNumber = 18,
     kReturnTagsFieldNumber = 20,
     kReturnPreviewsFieldNumber = 22,
-    kStartindexOverrideFieldNumber = 25,
-    kCacheMaxAgeSecondsFieldNumber = 27,
     kReturnChildrenFieldNumber = 23,
     kReturnForSaleDataFieldNumber = 26,
     kReturnMetadataFieldNumber = 28,
-    kStripDescriptionBbcodeFieldNumber = 32,
+    kStartindexOverrideFieldNumber = 25,
+    kCacheMaxAgeSecondsFieldNumber = 27,
     kLanguageFieldNumber = 29,
     kReturnPlaytimeStatsFieldNumber = 31,
     kDesiredRevisionFieldNumber = 33,
+    kStripDescriptionBbcodeFieldNumber = 32,
     kReturnReactionsFieldNumber = 35,
     kReturnAppsFieldNumber = 36,
     kReturnVoteDataFieldNumber = 19,
@@ -7879,6 +7895,19 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_creator_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional bool admin_query = 38;
+  bool has_admin_query() const;
+  private:
+  bool _internal_has_admin_query() const;
+  public:
+  void clear_admin_query();
+  bool admin_query() const;
+  void set_admin_query(bool value);
+  private:
+  bool _internal_admin_query() const;
+  void _internal_set_admin_query(bool value);
+  public:
+
   // optional bool totalonly = 17;
   bool has_totalonly() const;
   private:
@@ -7931,32 +7960,6 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_previews(bool value);
   public:
 
-  // optional uint32 startindex_override = 25;
-  bool has_startindex_override() const;
-  private:
-  bool _internal_has_startindex_override() const;
-  public:
-  void clear_startindex_override();
-  ::PROTOBUF_NAMESPACE_ID::uint32 startindex_override() const;
-  void set_startindex_override(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_startindex_override() const;
-  void _internal_set_startindex_override(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 cache_max_age_seconds = 27 [default = 0];
-  bool has_cache_max_age_seconds() const;
-  private:
-  bool _internal_has_cache_max_age_seconds() const;
-  public:
-  void clear_cache_max_age_seconds();
-  ::PROTOBUF_NAMESPACE_ID::uint32 cache_max_age_seconds() const;
-  void set_cache_max_age_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cache_max_age_seconds() const;
-  void _internal_set_cache_max_age_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
   // optional bool return_children = 23;
   bool has_return_children() const;
   private:
@@ -7996,17 +7999,30 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_metadata(bool value);
   public:
 
-  // optional bool strip_description_bbcode = 32;
-  bool has_strip_description_bbcode() const;
+  // optional uint32 startindex_override = 25;
+  bool has_startindex_override() const;
   private:
-  bool _internal_has_strip_description_bbcode() const;
+  bool _internal_has_startindex_override() const;
   public:
-  void clear_strip_description_bbcode();
-  bool strip_description_bbcode() const;
-  void set_strip_description_bbcode(bool value);
+  void clear_startindex_override();
+  ::PROTOBUF_NAMESPACE_ID::uint32 startindex_override() const;
+  void set_startindex_override(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  bool _internal_strip_description_bbcode() const;
-  void _internal_set_strip_description_bbcode(bool value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_startindex_override() const;
+  void _internal_set_startindex_override(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 cache_max_age_seconds = 27 [default = 0];
+  bool has_cache_max_age_seconds() const;
+  private:
+  bool _internal_has_cache_max_age_seconds() const;
+  public:
+  void clear_cache_max_age_seconds();
+  ::PROTOBUF_NAMESPACE_ID::uint32 cache_max_age_seconds() const;
+  void set_cache_max_age_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cache_max_age_seconds() const;
+  void _internal_set_cache_max_age_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // optional int32 language = 29 [default = 0];
@@ -8046,6 +8062,19 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   private:
   ::EPublishedFileRevision _internal_desired_revision() const;
   void _internal_set_desired_revision(::EPublishedFileRevision value);
+  public:
+
+  // optional bool strip_description_bbcode = 32;
+  bool has_strip_description_bbcode() const;
+  private:
+  bool _internal_has_strip_description_bbcode() const;
+  public:
+  void clear_strip_description_bbcode();
+  bool strip_description_bbcode() const;
+  void set_strip_description_bbcode(bool value);
+  private:
+  bool _internal_strip_description_bbcode() const;
+  void _internal_set_strip_description_bbcode(bool value);
   public:
 
   // optional bool return_reactions = 35 [default = false];
@@ -8164,19 +8193,20 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 privacy_;
   ::PROTOBUF_NAMESPACE_ID::uint32 filetype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 creator_appid_;
+  bool admin_query_;
   bool totalonly_;
   bool ids_only_;
   bool return_tags_;
   bool return_previews_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 startindex_override_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 cache_max_age_seconds_;
   bool return_children_;
   bool return_for_sale_data_;
   bool return_metadata_;
-  bool strip_description_bbcode_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 startindex_override_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cache_max_age_seconds_;
   ::PROTOBUF_NAMESPACE_ID::int32 language_;
   ::PROTOBUF_NAMESPACE_ID::uint32 return_playtime_stats_;
   int desired_revision_;
+  bool strip_description_bbcode_;
   bool return_reactions_;
   bool return_apps_;
   bool return_vote_data_;
@@ -11862,24 +11892,25 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
     kChildPublishedfileidFieldNumber = 13,
     kFiletypeFieldNumber = 12,
     kDaysFieldNumber = 14,
+    kReturnVoteDataFieldNumber = 17,
     kReturnTagsFieldNumber = 18,
     kReturnKvTagsFieldNumber = 19,
     kReturnPreviewsFieldNumber = 20,
     kReturnChildrenFieldNumber = 21,
-    kIncludeRecentVotesOnlyFieldNumber = 15,
-    kTotalonlyFieldNumber = 16,
-    kIdsOnlyFieldNumber = 35,
-    kReturnVoteDataFieldNumber = 17,
     kReturnShortDescriptionFieldNumber = 22,
     kReturnForSaleDataFieldNumber = 30,
     kReturnMetadataFieldNumber = 32,
-    kReturnDetailsFieldNumber = 37,
+    kIncludeRecentVotesOnlyFieldNumber = 15,
+    kAdminQueryFieldNumber = 47,
+    kTotalonlyFieldNumber = 16,
+    kIdsOnlyFieldNumber = 35,
     kCacheMaxAgeSecondsFieldNumber = 31,
     kLanguageFieldNumber = 33,
     kReturnPlaytimeStatsFieldNumber = 36,
-    kDesiredRevisionFieldNumber = 40,
+    kReturnDetailsFieldNumber = 37,
     kStripDescriptionBbcodeFieldNumber = 38,
     kReturnReactionsFieldNumber = 43,
+    kDesiredRevisionFieldNumber = 40,
     kNumperpageFieldNumber = 3,
     kMatchAllTagsFieldNumber = 8,
   };
@@ -12199,6 +12230,19 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional bool return_vote_data = 17;
+  bool has_return_vote_data() const;
+  private:
+  bool _internal_has_return_vote_data() const;
+  public:
+  void clear_return_vote_data();
+  bool return_vote_data() const;
+  void set_return_vote_data(bool value);
+  private:
+  bool _internal_return_vote_data() const;
+  void _internal_set_return_vote_data(bool value);
+  public:
+
   // optional bool return_tags = 18;
   bool has_return_tags() const;
   private:
@@ -12251,58 +12295,6 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_children(bool value);
   public:
 
-  // optional bool include_recent_votes_only = 15;
-  bool has_include_recent_votes_only() const;
-  private:
-  bool _internal_has_include_recent_votes_only() const;
-  public:
-  void clear_include_recent_votes_only();
-  bool include_recent_votes_only() const;
-  void set_include_recent_votes_only(bool value);
-  private:
-  bool _internal_include_recent_votes_only() const;
-  void _internal_set_include_recent_votes_only(bool value);
-  public:
-
-  // optional bool totalonly = 16;
-  bool has_totalonly() const;
-  private:
-  bool _internal_has_totalonly() const;
-  public:
-  void clear_totalonly();
-  bool totalonly() const;
-  void set_totalonly(bool value);
-  private:
-  bool _internal_totalonly() const;
-  void _internal_set_totalonly(bool value);
-  public:
-
-  // optional bool ids_only = 35;
-  bool has_ids_only() const;
-  private:
-  bool _internal_has_ids_only() const;
-  public:
-  void clear_ids_only();
-  bool ids_only() const;
-  void set_ids_only(bool value);
-  private:
-  bool _internal_ids_only() const;
-  void _internal_set_ids_only(bool value);
-  public:
-
-  // optional bool return_vote_data = 17;
-  bool has_return_vote_data() const;
-  private:
-  bool _internal_has_return_vote_data() const;
-  public:
-  void clear_return_vote_data();
-  bool return_vote_data() const;
-  void set_return_vote_data(bool value);
-  private:
-  bool _internal_return_vote_data() const;
-  void _internal_set_return_vote_data(bool value);
-  public:
-
   // optional bool return_short_description = 22;
   bool has_return_short_description() const;
   private:
@@ -12342,17 +12334,56 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_metadata(bool value);
   public:
 
-  // optional bool return_details = 37;
-  bool has_return_details() const;
+  // optional bool include_recent_votes_only = 15;
+  bool has_include_recent_votes_only() const;
   private:
-  bool _internal_has_return_details() const;
+  bool _internal_has_include_recent_votes_only() const;
   public:
-  void clear_return_details();
-  bool return_details() const;
-  void set_return_details(bool value);
+  void clear_include_recent_votes_only();
+  bool include_recent_votes_only() const;
+  void set_include_recent_votes_only(bool value);
   private:
-  bool _internal_return_details() const;
-  void _internal_set_return_details(bool value);
+  bool _internal_include_recent_votes_only() const;
+  void _internal_set_include_recent_votes_only(bool value);
+  public:
+
+  // optional bool admin_query = 47;
+  bool has_admin_query() const;
+  private:
+  bool _internal_has_admin_query() const;
+  public:
+  void clear_admin_query();
+  bool admin_query() const;
+  void set_admin_query(bool value);
+  private:
+  bool _internal_admin_query() const;
+  void _internal_set_admin_query(bool value);
+  public:
+
+  // optional bool totalonly = 16;
+  bool has_totalonly() const;
+  private:
+  bool _internal_has_totalonly() const;
+  public:
+  void clear_totalonly();
+  bool totalonly() const;
+  void set_totalonly(bool value);
+  private:
+  bool _internal_totalonly() const;
+  void _internal_set_totalonly(bool value);
+  public:
+
+  // optional bool ids_only = 35;
+  bool has_ids_only() const;
+  private:
+  bool _internal_has_ids_only() const;
+  public:
+  void clear_ids_only();
+  bool ids_only() const;
+  void set_ids_only(bool value);
+  private:
+  bool _internal_ids_only() const;
+  void _internal_set_ids_only(bool value);
   public:
 
   // optional uint32 cache_max_age_seconds = 31 [default = 0];
@@ -12394,17 +12425,17 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_playtime_stats(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
-  bool has_desired_revision() const;
+  // optional bool return_details = 37;
+  bool has_return_details() const;
   private:
-  bool _internal_has_desired_revision() const;
+  bool _internal_has_return_details() const;
   public:
-  void clear_desired_revision();
-  ::EPublishedFileRevision desired_revision() const;
-  void set_desired_revision(::EPublishedFileRevision value);
+  void clear_return_details();
+  bool return_details() const;
+  void set_return_details(bool value);
   private:
-  ::EPublishedFileRevision _internal_desired_revision() const;
-  void _internal_set_desired_revision(::EPublishedFileRevision value);
+  bool _internal_return_details() const;
+  void _internal_set_return_details(bool value);
   public:
 
   // optional bool strip_description_bbcode = 38;
@@ -12431,6 +12462,19 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   private:
   bool _internal_return_reactions() const;
   void _internal_set_return_reactions(bool value);
+  public:
+
+  // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
+  bool has_desired_revision() const;
+  private:
+  bool _internal_has_desired_revision() const;
+  public:
+  void clear_desired_revision();
+  ::EPublishedFileRevision desired_revision() const;
+  void set_desired_revision(::EPublishedFileRevision value);
+  private:
+  ::EPublishedFileRevision _internal_desired_revision() const;
+  void _internal_set_desired_revision(::EPublishedFileRevision value);
   public:
 
   // optional uint32 numperpage = 3 [default = 1];
@@ -12486,24 +12530,25 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 child_publishedfileid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 filetype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 days_;
+  bool return_vote_data_;
   bool return_tags_;
   bool return_kv_tags_;
   bool return_previews_;
   bool return_children_;
-  bool include_recent_votes_only_;
-  bool totalonly_;
-  bool ids_only_;
-  bool return_vote_data_;
   bool return_short_description_;
   bool return_for_sale_data_;
   bool return_metadata_;
-  bool return_details_;
+  bool include_recent_votes_only_;
+  bool admin_query_;
+  bool totalonly_;
+  bool ids_only_;
   ::PROTOBUF_NAMESPACE_ID::uint32 cache_max_age_seconds_;
   ::PROTOBUF_NAMESPACE_ID::int32 language_;
   ::PROTOBUF_NAMESPACE_ID::uint32 return_playtime_stats_;
-  int desired_revision_;
+  bool return_details_;
   bool strip_description_bbcode_;
   bool return_reactions_;
+  int desired_revision_;
   ::PROTOBUF_NAMESPACE_ID::uint32 numperpage_;
   bool match_all_tags_;
   friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
@@ -22390,6 +22435,34 @@ inline void CPublishedFile_GetDetails_Request::set_includereactions(bool value) 
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.includereactions)
 }
 
+// optional bool admin_query = 18;
+inline bool CPublishedFile_GetDetails_Request::_internal_has_admin_query() const {
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool CPublishedFile_GetDetails_Request::has_admin_query() const {
+  return _internal_has_admin_query();
+}
+inline void CPublishedFile_GetDetails_Request::clear_admin_query() {
+  admin_query_ = false;
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline bool CPublishedFile_GetDetails_Request::_internal_admin_query() const {
+  return admin_query_;
+}
+inline bool CPublishedFile_GetDetails_Request::admin_query() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_GetDetails_Request.admin_query)
+  return _internal_admin_query();
+}
+inline void CPublishedFile_GetDetails_Request::_internal_set_admin_query(bool value) {
+  _has_bits_[0] |= 0x00004000u;
+  admin_query_ = value;
+}
+inline void CPublishedFile_GetDetails_Request::set_admin_query(bool value) {
+  _internal_set_admin_query(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.admin_query)
+}
+
 // -------------------------------------------------------------------
 
 // PublishedFileDetails_Tag
@@ -27239,7 +27312,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_shortcutid(::PROTOBUF_NAMES
 
 // optional uint32 page = 4 [default = 1];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_page() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_page() const {
@@ -27247,7 +27320,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_page() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_page() {
   page_ = 1u;
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_GetUserFiles_Request::_internal_page() const {
   return page_;
@@ -27257,7 +27330,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_GetUserFiles_Request::page
   return _internal_page();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_page(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
   page_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_page(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -27267,7 +27340,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_page(::PROTOBUF_NAMESPACE_I
 
 // optional uint32 numperpage = 5 [default = 1];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_numperpage() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_numperpage() const {
@@ -27275,7 +27348,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_numperpage() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_numperpage() {
   numperpage_ = 1u;
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_GetUserFiles_Request::_internal_numperpage() const {
   return numperpage_;
@@ -27285,7 +27358,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_GetUserFiles_Request::nump
   return _internal_numperpage();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_numperpage(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
   numperpage_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_numperpage(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -27787,7 +27860,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_allocated_match_cloud_filen
 
 // optional uint32 cache_max_age_seconds = 27 [default = 0];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_cache_max_age_seconds() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_cache_max_age_seconds() const {
@@ -27795,7 +27868,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_cache_max_age_seconds() con
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_cache_max_age_seconds() {
   cache_max_age_seconds_ = 0u;
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_GetUserFiles_Request::_internal_cache_max_age_seconds() const {
   return cache_max_age_seconds_;
@@ -27805,7 +27878,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_GetUserFiles_Request::cach
   return _internal_cache_max_age_seconds();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_cache_max_age_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00040000u;
   cache_max_age_seconds_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_cache_max_age_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -27925,9 +27998,37 @@ CPublishedFile_GetUserFiles_Request::mutable_excluded_content_descriptors() {
   return _internal_mutable_excluded_content_descriptors();
 }
 
+// optional bool admin_query = 38;
+inline bool CPublishedFile_GetUserFiles_Request::_internal_has_admin_query() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CPublishedFile_GetUserFiles_Request::has_admin_query() const {
+  return _internal_has_admin_query();
+}
+inline void CPublishedFile_GetUserFiles_Request::clear_admin_query() {
+  admin_query_ = false;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline bool CPublishedFile_GetUserFiles_Request::_internal_admin_query() const {
+  return admin_query_;
+}
+inline bool CPublishedFile_GetUserFiles_Request::admin_query() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_GetUserFiles_Request.admin_query)
+  return _internal_admin_query();
+}
+inline void CPublishedFile_GetUserFiles_Request::_internal_set_admin_query(bool value) {
+  _has_bits_[0] |= 0x00000200u;
+  admin_query_ = value;
+}
+inline void CPublishedFile_GetUserFiles_Request::set_admin_query(bool value) {
+  _internal_set_admin_query(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.admin_query)
+}
+
 // optional bool totalonly = 17;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_totalonly() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_totalonly() const {
@@ -27935,7 +28036,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_totalonly() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_totalonly() {
   totalonly_ = false;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_totalonly() const {
   return totalonly_;
@@ -27945,7 +28046,7 @@ inline bool CPublishedFile_GetUserFiles_Request::totalonly() const {
   return _internal_totalonly();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_totalonly(bool value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
   totalonly_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_totalonly(bool value) {
@@ -27955,7 +28056,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_totalonly(bool value) {
 
 // optional bool ids_only = 18;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_ids_only() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_ids_only() const {
@@ -27963,7 +28064,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_ids_only() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_ids_only() {
   ids_only_ = false;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_ids_only() const {
   return ids_only_;
@@ -27973,7 +28074,7 @@ inline bool CPublishedFile_GetUserFiles_Request::ids_only() const {
   return _internal_ids_only();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_ids_only(bool value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
   ids_only_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_ids_only(bool value) {
@@ -27983,7 +28084,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_ids_only(bool value) {
 
 // optional bool return_vote_data = 19 [default = true];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_vote_data() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_vote_data() const {
@@ -27991,7 +28092,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_vote_data() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_vote_data() {
   return_vote_data_ = true;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_vote_data() const {
   return return_vote_data_;
@@ -28001,7 +28102,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_vote_data() const {
   return _internal_return_vote_data();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_vote_data(bool value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
   return_vote_data_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_vote_data(bool value) {
@@ -28011,7 +28112,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_vote_data(bool value
 
 // optional bool return_tags = 20;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_tags() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_tags() const {
@@ -28019,7 +28120,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_tags() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_tags() {
   return_tags_ = false;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_tags() const {
   return return_tags_;
@@ -28029,7 +28130,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_tags() const {
   return _internal_return_tags();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_tags(bool value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
   return_tags_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_tags(bool value) {
@@ -28039,7 +28140,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_tags(bool value) {
 
 // optional bool return_kv_tags = 21 [default = true];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_kv_tags() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_kv_tags() const {
@@ -28047,7 +28148,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_kv_tags() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_kv_tags() {
   return_kv_tags_ = true;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_kv_tags() const {
   return return_kv_tags_;
@@ -28057,7 +28158,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_kv_tags() const {
   return _internal_return_kv_tags();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_kv_tags(bool value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
   return_kv_tags_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_kv_tags(bool value) {
@@ -28067,7 +28168,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_kv_tags(bool value) 
 
 // optional bool return_previews = 22;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_previews() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_previews() const {
@@ -28075,7 +28176,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_previews() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_previews() {
   return_previews_ = false;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_previews() const {
   return return_previews_;
@@ -28085,7 +28186,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_previews() const {
   return _internal_return_previews();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_previews(bool value) {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
   return_previews_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_previews(bool value) {
@@ -28095,7 +28196,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_previews(bool value)
 
 // optional bool return_children = 23;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_children() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_children() const {
@@ -28103,7 +28204,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_children() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_children() {
   return_children_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_children() const {
   return return_children_;
@@ -28113,7 +28214,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_children() const {
   return _internal_return_children();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_children(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00004000u;
   return_children_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_children(bool value) {
@@ -28123,7 +28224,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_children(bool value)
 
 // optional bool return_short_description = 24 [default = true];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_short_description() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_short_description() const {
@@ -28131,7 +28232,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_short_description() 
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_short_description() {
   return_short_description_ = true;
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_short_description() const {
   return return_short_description_;
@@ -28141,7 +28242,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_short_description() cons
   return _internal_return_short_description();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_short_description(bool value) {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
   return_short_description_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_short_description(bool value) {
@@ -28151,7 +28252,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_short_description(bo
 
 // optional bool return_for_sale_data = 26;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_for_sale_data() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_for_sale_data() const {
@@ -28159,7 +28260,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_for_sale_data() cons
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_for_sale_data() {
   return_for_sale_data_ = false;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_for_sale_data() const {
   return return_for_sale_data_;
@@ -28169,7 +28270,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_for_sale_data() const {
   return _internal_return_for_sale_data();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_for_sale_data(bool value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00008000u;
   return_for_sale_data_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_for_sale_data(bool value) {
@@ -28179,7 +28280,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_for_sale_data(bool v
 
 // optional bool return_metadata = 28 [default = false];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_metadata() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_metadata() const {
@@ -28187,7 +28288,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_metadata() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_metadata() {
   return_metadata_ = false;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_metadata() const {
   return return_metadata_;
@@ -28197,7 +28298,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_metadata() const {
   return _internal_return_metadata();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_metadata(bool value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00010000u;
   return_metadata_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_metadata(bool value) {
@@ -28235,7 +28336,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_playtime_stats(::PRO
 
 // optional bool strip_description_bbcode = 32;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_strip_description_bbcode() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_strip_description_bbcode() const {
@@ -28243,7 +28344,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_strip_description_bbcode() 
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_strip_description_bbcode() {
   strip_description_bbcode_ = false;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_strip_description_bbcode() const {
   return strip_description_bbcode_;
@@ -28253,7 +28354,7 @@ inline bool CPublishedFile_GetUserFiles_Request::strip_description_bbcode() cons
   return _internal_strip_description_bbcode();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_strip_description_bbcode(bool value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00400000u;
   strip_description_bbcode_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_strip_description_bbcode(bool value) {
@@ -28263,7 +28364,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_strip_description_bbcode(bo
 
 // optional bool return_reactions = 35 [default = false];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_reactions() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_reactions() const {
@@ -28271,7 +28372,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_reactions() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_reactions() {
   return_reactions_ = false;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_reactions() const {
   return return_reactions_;
@@ -28281,7 +28382,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_reactions() const {
   return _internal_return_reactions();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_reactions(bool value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
   return_reactions_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_reactions(bool value) {
@@ -28291,7 +28392,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_reactions(bool value
 
 // optional uint32 startindex_override = 25;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_startindex_override() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_startindex_override() const {
@@ -28299,7 +28400,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_startindex_override() const
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_startindex_override() {
   startindex_override_ = 0u;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_GetUserFiles_Request::_internal_startindex_override() const {
   return startindex_override_;
@@ -28309,7 +28410,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_GetUserFiles_Request::star
   return _internal_startindex_override();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_startindex_override(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00020000u;
   startindex_override_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_startindex_override(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -28348,7 +28449,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_desired_revision(::EPublish
 
 // optional bool return_apps = 36;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_apps() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetUserFiles_Request::has_return_apps() const {
@@ -28356,7 +28457,7 @@ inline bool CPublishedFile_GetUserFiles_Request::has_return_apps() const {
 }
 inline void CPublishedFile_GetUserFiles_Request::clear_return_apps() {
   return_apps_ = false;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline bool CPublishedFile_GetUserFiles_Request::_internal_return_apps() const {
   return return_apps_;
@@ -28366,7 +28467,7 @@ inline bool CPublishedFile_GetUserFiles_Request::return_apps() const {
   return _internal_return_apps();
 }
 inline void CPublishedFile_GetUserFiles_Request::_internal_set_return_apps(bool value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
   return_apps_ = value;
 }
 inline void CPublishedFile_GetUserFiles_Request::set_return_apps(bool value) {
@@ -30834,7 +30935,7 @@ inline void CPublishedFile_QueryFiles_Request::set_allocated_cursor(std::string*
 
 // optional uint32 numperpage = 3 [default = 1];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_numperpage() const {
-  bool value = (_has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_numperpage() const {
@@ -30842,7 +30943,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_numperpage() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_numperpage() {
   numperpage_ = 1u;
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_QueryFiles_Request::_internal_numperpage() const {
   return numperpage_;
@@ -30852,7 +30953,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_QueryFiles_Request::numper
   return _internal_numperpage();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_numperpage(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
   numperpage_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_numperpage(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -31066,7 +31167,7 @@ CPublishedFile_QueryFiles_Request::mutable_excludedtags() {
 
 // optional bool match_all_tags = 8 [default = true];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_match_all_tags() const {
-  bool value = (_has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_match_all_tags() const {
@@ -31074,7 +31175,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_match_all_tags() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_match_all_tags() {
   match_all_tags_ = true;
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[0] &= ~0x80000000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_match_all_tags() const {
   return match_all_tags_;
@@ -31084,7 +31185,7 @@ inline bool CPublishedFile_QueryFiles_Request::match_all_tags() const {
   return _internal_match_all_tags();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_match_all_tags(bool value) {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[0] |= 0x80000000u;
   match_all_tags_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_match_all_tags(bool value) {
@@ -31399,7 +31500,7 @@ inline void CPublishedFile_QueryFiles_Request::set_days(::PROTOBUF_NAMESPACE_ID:
 
 // optional bool include_recent_votes_only = 15;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_include_recent_votes_only() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_include_recent_votes_only() const {
@@ -31407,7 +31508,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_include_recent_votes_only() c
 }
 inline void CPublishedFile_QueryFiles_Request::clear_include_recent_votes_only() {
   include_recent_votes_only_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_include_recent_votes_only() const {
   return include_recent_votes_only_;
@@ -31417,7 +31518,7 @@ inline bool CPublishedFile_QueryFiles_Request::include_recent_votes_only() const
   return _internal_include_recent_votes_only();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_include_recent_votes_only(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00080000u;
   include_recent_votes_only_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_include_recent_votes_only(bool value) {
@@ -31770,9 +31871,37 @@ CPublishedFile_QueryFiles_Request::mutable_excluded_content_descriptors() {
   return _internal_mutable_excluded_content_descriptors();
 }
 
+// optional bool admin_query = 47;
+inline bool CPublishedFile_QueryFiles_Request::_internal_has_admin_query() const {
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  return value;
+}
+inline bool CPublishedFile_QueryFiles_Request::has_admin_query() const {
+  return _internal_has_admin_query();
+}
+inline void CPublishedFile_QueryFiles_Request::clear_admin_query() {
+  admin_query_ = false;
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline bool CPublishedFile_QueryFiles_Request::_internal_admin_query() const {
+  return admin_query_;
+}
+inline bool CPublishedFile_QueryFiles_Request::admin_query() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_QueryFiles_Request.admin_query)
+  return _internal_admin_query();
+}
+inline void CPublishedFile_QueryFiles_Request::_internal_set_admin_query(bool value) {
+  _has_bits_[0] |= 0x00100000u;
+  admin_query_ = value;
+}
+inline void CPublishedFile_QueryFiles_Request::set_admin_query(bool value) {
+  _internal_set_admin_query(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.admin_query)
+}
+
 // optional bool totalonly = 16;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_totalonly() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_totalonly() const {
@@ -31780,7 +31909,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_totalonly() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_totalonly() {
   totalonly_ = false;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_totalonly() const {
   return totalonly_;
@@ -31790,7 +31919,7 @@ inline bool CPublishedFile_QueryFiles_Request::totalonly() const {
   return _internal_totalonly();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_totalonly(bool value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00200000u;
   totalonly_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_totalonly(bool value) {
@@ -31800,7 +31929,7 @@ inline void CPublishedFile_QueryFiles_Request::set_totalonly(bool value) {
 
 // optional bool ids_only = 35;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_ids_only() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_ids_only() const {
@@ -31808,7 +31937,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_ids_only() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_ids_only() {
   ids_only_ = false;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_ids_only() const {
   return ids_only_;
@@ -31818,7 +31947,7 @@ inline bool CPublishedFile_QueryFiles_Request::ids_only() const {
   return _internal_ids_only();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_ids_only(bool value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00400000u;
   ids_only_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_ids_only(bool value) {
@@ -31828,7 +31957,7 @@ inline void CPublishedFile_QueryFiles_Request::set_ids_only(bool value) {
 
 // optional bool return_vote_data = 17;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_vote_data() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_vote_data() const {
@@ -31836,7 +31965,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_vote_data() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_vote_data() {
   return_vote_data_ = false;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_vote_data() const {
   return return_vote_data_;
@@ -31846,7 +31975,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_vote_data() const {
   return _internal_return_vote_data();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_vote_data(bool value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00000800u;
   return_vote_data_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_vote_data(bool value) {
@@ -31856,7 +31985,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_vote_data(bool value) 
 
 // optional bool return_tags = 18;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_tags() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_tags() const {
@@ -31864,7 +31993,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_tags() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_tags() {
   return_tags_ = false;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_tags() const {
   return return_tags_;
@@ -31874,7 +32003,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_tags() const {
   return _internal_return_tags();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_tags(bool value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
   return_tags_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_tags(bool value) {
@@ -31884,7 +32013,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_tags(bool value) {
 
 // optional bool return_kv_tags = 19;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_kv_tags() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_kv_tags() const {
@@ -31892,7 +32021,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_kv_tags() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_kv_tags() {
   return_kv_tags_ = false;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_kv_tags() const {
   return return_kv_tags_;
@@ -31902,7 +32031,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_kv_tags() const {
   return _internal_return_kv_tags();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_kv_tags(bool value) {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
   return_kv_tags_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_kv_tags(bool value) {
@@ -31912,7 +32041,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_kv_tags(bool value) {
 
 // optional bool return_previews = 20;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_previews() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_previews() const {
@@ -31920,7 +32049,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_previews() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_previews() {
   return_previews_ = false;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_previews() const {
   return return_previews_;
@@ -31930,7 +32059,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_previews() const {
   return _internal_return_previews();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_previews(bool value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
   return_previews_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_previews(bool value) {
@@ -31940,7 +32069,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_previews(bool value) {
 
 // optional bool return_children = 21;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_children() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_children() const {
@@ -31948,7 +32077,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_children() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_children() {
   return_children_ = false;
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_children() const {
   return return_children_;
@@ -31958,7 +32087,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_children() const {
   return _internal_return_children();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_children(bool value) {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
   return_children_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_children(bool value) {
@@ -31968,7 +32097,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_children(bool value) {
 
 // optional bool return_short_description = 22;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_short_description() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_short_description() const {
@@ -31976,7 +32105,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_short_description() co
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_short_description() {
   return_short_description_ = false;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_short_description() const {
   return return_short_description_;
@@ -31986,7 +32115,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_short_description() const 
   return _internal_return_short_description();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_short_description(bool value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00010000u;
   return_short_description_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_short_description(bool value) {
@@ -31996,7 +32125,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_short_description(bool
 
 // optional bool return_for_sale_data = 30;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_for_sale_data() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_for_sale_data() const {
@@ -32004,7 +32133,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_for_sale_data() const 
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_for_sale_data() {
   return_for_sale_data_ = false;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_for_sale_data() const {
   return return_for_sale_data_;
@@ -32014,7 +32143,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_for_sale_data() const {
   return _internal_return_for_sale_data();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_for_sale_data(bool value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00020000u;
   return_for_sale_data_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_for_sale_data(bool value) {
@@ -32024,7 +32153,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_for_sale_data(bool val
 
 // optional bool return_metadata = 32 [default = false];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_metadata() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_metadata() const {
@@ -32032,7 +32161,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_metadata() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_metadata() {
   return_metadata_ = false;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_metadata() const {
   return return_metadata_;
@@ -32042,7 +32171,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_metadata() const {
   return _internal_return_metadata();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_metadata(bool value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00040000u;
   return_metadata_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_metadata(bool value) {
@@ -32080,7 +32209,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_playtime_stats(::PROTO
 
 // optional bool return_details = 37;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_details() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_return_details() const {
@@ -32088,7 +32217,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_return_details() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_return_details() {
   return_details_ = false;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline bool CPublishedFile_QueryFiles_Request::_internal_return_details() const {
   return return_details_;
@@ -32098,7 +32227,7 @@ inline bool CPublishedFile_QueryFiles_Request::return_details() const {
   return _internal_return_details();
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_return_details(bool value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x04000000u;
   return_details_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_return_details(bool value) {
@@ -32136,7 +32265,7 @@ inline void CPublishedFile_QueryFiles_Request::set_strip_description_bbcode(bool
 
 // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_desired_revision() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CPublishedFile_QueryFiles_Request::has_desired_revision() const {
@@ -32144,7 +32273,7 @@ inline bool CPublishedFile_QueryFiles_Request::has_desired_revision() const {
 }
 inline void CPublishedFile_QueryFiles_Request::clear_desired_revision() {
   desired_revision_ = 0;
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline ::EPublishedFileRevision CPublishedFile_QueryFiles_Request::_internal_desired_revision() const {
   return static_cast< ::EPublishedFileRevision >(desired_revision_);
@@ -32155,7 +32284,7 @@ inline ::EPublishedFileRevision CPublishedFile_QueryFiles_Request::desired_revis
 }
 inline void CPublishedFile_QueryFiles_Request::_internal_set_desired_revision(::EPublishedFileRevision value) {
   assert(::EPublishedFileRevision_IsValid(value));
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x20000000u;
   desired_revision_ = value;
 }
 inline void CPublishedFile_QueryFiles_Request::set_desired_revision(::EPublishedFileRevision value) {

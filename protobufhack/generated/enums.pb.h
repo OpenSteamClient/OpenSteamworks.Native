@@ -1061,6 +1061,32 @@ inline bool ESteamDeckCompatibilityResultDisplayType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamDeckCompatibilityResultDisplayType>(
     ESteamDeckCompatibilityResultDisplayType_descriptor(), name, value);
 }
+enum ESteamDeckCompatibilityTestResult : int {
+  ESteamDeckCompatibilityTestResult_Invalid = 0,
+  ESteamDeckCompatibilityTestResult_NotApplicable = 1,
+  ESteamDeckCompatibilityTestResult_Pass = 2,
+  ESteamDeckCompatibilityTestResult_Fail = 3,
+  ESteamDeckCompatibilityTestResult_FailMinor = 4
+};
+bool ESteamDeckCompatibilityTestResult_IsValid(int value);
+constexpr ESteamDeckCompatibilityTestResult ESteamDeckCompatibilityTestResult_MIN = ESteamDeckCompatibilityTestResult_Invalid;
+constexpr ESteamDeckCompatibilityTestResult ESteamDeckCompatibilityTestResult_MAX = ESteamDeckCompatibilityTestResult_FailMinor;
+constexpr int ESteamDeckCompatibilityTestResult_ARRAYSIZE = ESteamDeckCompatibilityTestResult_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESteamDeckCompatibilityTestResult_descriptor();
+template<typename T>
+inline const std::string& ESteamDeckCompatibilityTestResult_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ESteamDeckCompatibilityTestResult>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ESteamDeckCompatibilityTestResult_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ESteamDeckCompatibilityTestResult_descriptor(), enum_t_value);
+}
+inline bool ESteamDeckCompatibilityTestResult_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ESteamDeckCompatibilityTestResult* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamDeckCompatibilityTestResult>(
+    ESteamDeckCompatibilityTestResult_descriptor(), name, value);
+}
 enum EACState : int {
   EACState_Unknown = 0,
   EACState_Disconnected = 1,
@@ -1632,6 +1658,11 @@ template <> struct is_proto_enum< ::ESteamDeckCompatibilityResultDisplayType> : 
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ESteamDeckCompatibilityResultDisplayType>() {
   return ::ESteamDeckCompatibilityResultDisplayType_descriptor();
+}
+template <> struct is_proto_enum< ::ESteamDeckCompatibilityTestResult> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ESteamDeckCompatibilityTestResult>() {
+  return ::ESteamDeckCompatibilityTestResult_descriptor();
 }
 template <> struct is_proto_enum< ::EACState> : ::std::true_type {};
 template <>

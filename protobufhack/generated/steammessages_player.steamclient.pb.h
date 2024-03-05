@@ -52,7 +52,7 @@ struct TableStruct_steammessages_5fplayer_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[143]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[146]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -315,6 +315,15 @@ extern CPlayer_GetPurchasedProfileCustomizations_ResponseDefaultTypeInternal _CP
 class CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization;
 struct CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomizationDefaultTypeInternal;
 extern CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomizationDefaultTypeInternal _CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization_default_instance_;
+class CPlayer_GetRecentPlaytimeSessionsForChild_Request;
+struct CPlayer_GetRecentPlaytimeSessionsForChild_RequestDefaultTypeInternal;
+extern CPlayer_GetRecentPlaytimeSessionsForChild_RequestDefaultTypeInternal _CPlayer_GetRecentPlaytimeSessionsForChild_Request_default_instance_;
+class CPlayer_GetRecentPlaytimeSessionsForChild_Response;
+struct CPlayer_GetRecentPlaytimeSessionsForChild_ResponseDefaultTypeInternal;
+extern CPlayer_GetRecentPlaytimeSessionsForChild_ResponseDefaultTypeInternal _CPlayer_GetRecentPlaytimeSessionsForChild_Response_default_instance_;
+class CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession;
+struct CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSessionDefaultTypeInternal;
+extern CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSessionDefaultTypeInternal _CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession_default_instance_;
 class CPlayer_GetSteamDeckKeyboardSkin_Request;
 struct CPlayer_GetSteamDeckKeyboardSkin_RequestDefaultTypeInternal;
 extern CPlayer_GetSteamDeckKeyboardSkin_RequestDefaultTypeInternal _CPlayer_GetSteamDeckKeyboardSkin_Request_default_instance_;
@@ -575,6 +584,9 @@ template<> ::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_Upgra
 template<> ::CPlayer_GetPurchasedProfileCustomizations_Request* Arena::CreateMaybeMessage<::CPlayer_GetPurchasedProfileCustomizations_Request>(Arena*);
 template<> ::CPlayer_GetPurchasedProfileCustomizations_Response* Arena::CreateMaybeMessage<::CPlayer_GetPurchasedProfileCustomizations_Response>(Arena*);
 template<> ::CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization* Arena::CreateMaybeMessage<::CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization>(Arena*);
+template<> ::CPlayer_GetRecentPlaytimeSessionsForChild_Request* Arena::CreateMaybeMessage<::CPlayer_GetRecentPlaytimeSessionsForChild_Request>(Arena*);
+template<> ::CPlayer_GetRecentPlaytimeSessionsForChild_Response* Arena::CreateMaybeMessage<::CPlayer_GetRecentPlaytimeSessionsForChild_Response>(Arena*);
+template<> ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* Arena::CreateMaybeMessage<::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession>(Arena*);
 template<> ::CPlayer_GetSteamDeckKeyboardSkin_Request* Arena::CreateMaybeMessage<::CPlayer_GetSteamDeckKeyboardSkin_Request>(Arena*);
 template<> ::CPlayer_GetSteamDeckKeyboardSkin_Response* Arena::CreateMaybeMessage<::CPlayer_GetSteamDeckKeyboardSkin_Response>(Arena*);
 template<> ::CPlayer_GetTextFilterWords_Request* Arena::CreateMaybeMessage<::CPlayer_GetTextFilterWords_Request>(Arena*);
@@ -737,6 +749,519 @@ inline bool ETextFilterSetting_Parse(
 }
 // ===================================================================
 
+class CPlayer_GetRecentPlaytimeSessionsForChild_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPlayer_GetRecentPlaytimeSessionsForChild_Request) */ {
+ public:
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Request() : CPlayer_GetRecentPlaytimeSessionsForChild_Request(nullptr) {}
+  virtual ~CPlayer_GetRecentPlaytimeSessionsForChild_Request();
+  explicit constexpr CPlayer_GetRecentPlaytimeSessionsForChild_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CPlayer_GetRecentPlaytimeSessionsForChild_Request(const CPlayer_GetRecentPlaytimeSessionsForChild_Request& from);
+  CPlayer_GetRecentPlaytimeSessionsForChild_Request(CPlayer_GetRecentPlaytimeSessionsForChild_Request&& from) noexcept
+    : CPlayer_GetRecentPlaytimeSessionsForChild_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Request& operator=(const CPlayer_GetRecentPlaytimeSessionsForChild_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Request& operator=(CPlayer_GetRecentPlaytimeSessionsForChild_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CPlayer_GetRecentPlaytimeSessionsForChild_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CPlayer_GetRecentPlaytimeSessionsForChild_Request* internal_default_instance() {
+    return reinterpret_cast<const CPlayer_GetRecentPlaytimeSessionsForChild_Request*>(
+               &_CPlayer_GetRecentPlaytimeSessionsForChild_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(CPlayer_GetRecentPlaytimeSessionsForChild_Request& a, CPlayer_GetRecentPlaytimeSessionsForChild_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CPlayer_GetRecentPlaytimeSessionsForChild_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CPlayer_GetRecentPlaytimeSessionsForChild_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Request* New() const final {
+    return CreateMaybeMessage<CPlayer_GetRecentPlaytimeSessionsForChild_Request>(nullptr);
+  }
+
+  CPlayer_GetRecentPlaytimeSessionsForChild_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CPlayer_GetRecentPlaytimeSessionsForChild_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CPlayer_GetRecentPlaytimeSessionsForChild_Request& from);
+  void MergeFrom(const CPlayer_GetRecentPlaytimeSessionsForChild_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CPlayer_GetRecentPlaytimeSessionsForChild_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CPlayer_GetRecentPlaytimeSessionsForChild_Request";
+  }
+  protected:
+  explicit CPlayer_GetRecentPlaytimeSessionsForChild_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSteamidFieldNumber = 1,
+  };
+  // optional uint64 steamid = 1;
+  bool has_steamid() const;
+  private:
+  bool _internal_has_steamid() const;
+  public:
+  void clear_steamid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 steamid() const;
+  void set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_steamid() const;
+  void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CPlayer_GetRecentPlaytimeSessionsForChild_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 steamid_;
+  friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession) */ {
+ public:
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession() : CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession(nullptr) {}
+  virtual ~CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession();
+  explicit constexpr CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession(const CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& from);
+  CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession(CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession&& from) noexcept
+    : CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession() {
+    *this = ::std::move(from);
+  }
+
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& operator=(const CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& operator=(CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* internal_default_instance() {
+    return reinterpret_cast<const CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession*>(
+               &_CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& a, CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* New() const final {
+    return CreateMaybeMessage<CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession>(nullptr);
+  }
+
+  CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& from);
+  void MergeFrom(const CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession";
+  }
+  protected:
+  explicit CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTimeStartFieldNumber = 1,
+    kTimeEndFieldNumber = 2,
+    kAppidFieldNumber = 3,
+    kDeviceTypeFieldNumber = 4,
+    kDisconnectedFieldNumber = 5,
+  };
+  // optional uint32 time_start = 1;
+  bool has_time_start() const;
+  private:
+  bool _internal_has_time_start() const;
+  public:
+  void clear_time_start();
+  ::PROTOBUF_NAMESPACE_ID::uint32 time_start() const;
+  void set_time_start(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_time_start() const;
+  void _internal_set_time_start(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 time_end = 2;
+  bool has_time_end() const;
+  private:
+  bool _internal_has_time_end() const;
+  public:
+  void clear_time_end();
+  ::PROTOBUF_NAMESPACE_ID::uint32 time_end() const;
+  void set_time_end(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_time_end() const;
+  void _internal_set_time_end(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 appid = 3;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
+  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
+  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 device_type = 4;
+  bool has_device_type() const;
+  private:
+  bool _internal_has_device_type() const;
+  public:
+  void clear_device_type();
+  ::PROTOBUF_NAMESPACE_ID::uint32 device_type() const;
+  void set_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_device_type() const;
+  void _internal_set_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional bool disconnected = 5;
+  bool has_disconnected() const;
+  private:
+  bool _internal_has_disconnected() const;
+  public:
+  void clear_disconnected();
+  bool disconnected() const;
+  void set_disconnected(bool value);
+  private:
+  bool _internal_disconnected() const;
+  void _internal_set_disconnected(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 time_start_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 time_end_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 device_type_;
+  bool disconnected_;
+  friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CPlayer_GetRecentPlaytimeSessionsForChild_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPlayer_GetRecentPlaytimeSessionsForChild_Response) */ {
+ public:
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Response() : CPlayer_GetRecentPlaytimeSessionsForChild_Response(nullptr) {}
+  virtual ~CPlayer_GetRecentPlaytimeSessionsForChild_Response();
+  explicit constexpr CPlayer_GetRecentPlaytimeSessionsForChild_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CPlayer_GetRecentPlaytimeSessionsForChild_Response(const CPlayer_GetRecentPlaytimeSessionsForChild_Response& from);
+  CPlayer_GetRecentPlaytimeSessionsForChild_Response(CPlayer_GetRecentPlaytimeSessionsForChild_Response&& from) noexcept
+    : CPlayer_GetRecentPlaytimeSessionsForChild_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Response& operator=(const CPlayer_GetRecentPlaytimeSessionsForChild_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Response& operator=(CPlayer_GetRecentPlaytimeSessionsForChild_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CPlayer_GetRecentPlaytimeSessionsForChild_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CPlayer_GetRecentPlaytimeSessionsForChild_Response* internal_default_instance() {
+    return reinterpret_cast<const CPlayer_GetRecentPlaytimeSessionsForChild_Response*>(
+               &_CPlayer_GetRecentPlaytimeSessionsForChild_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(CPlayer_GetRecentPlaytimeSessionsForChild_Response& a, CPlayer_GetRecentPlaytimeSessionsForChild_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CPlayer_GetRecentPlaytimeSessionsForChild_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CPlayer_GetRecentPlaytimeSessionsForChild_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CPlayer_GetRecentPlaytimeSessionsForChild_Response* New() const final {
+    return CreateMaybeMessage<CPlayer_GetRecentPlaytimeSessionsForChild_Response>(nullptr);
+  }
+
+  CPlayer_GetRecentPlaytimeSessionsForChild_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CPlayer_GetRecentPlaytimeSessionsForChild_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CPlayer_GetRecentPlaytimeSessionsForChild_Response& from);
+  void MergeFrom(const CPlayer_GetRecentPlaytimeSessionsForChild_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CPlayer_GetRecentPlaytimeSessionsForChild_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CPlayer_GetRecentPlaytimeSessionsForChild_Response";
+  }
+  protected:
+  explicit CPlayer_GetRecentPlaytimeSessionsForChild_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession PlaytimeSession;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSessionsFieldNumber = 1,
+  };
+  // repeated .CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession sessions = 1;
+  int sessions_size() const;
+  private:
+  int _internal_sessions_size() const;
+  public:
+  void clear_sessions();
+  ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* mutable_sessions(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession >*
+      mutable_sessions();
+  private:
+  const ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& _internal_sessions(int index) const;
+  ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* _internal_add_sessions();
+  public:
+  const ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& sessions(int index) const;
+  ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* add_sessions();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession >&
+      sessions() const;
+
+  // @@protoc_insertion_point(class_scope:CPlayer_GetRecentPlaytimeSessionsForChild_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession > sessions_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CPlayer_GetPlayerLinkDetails_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPlayer_GetPlayerLinkDetails_Request) */ {
  public:
@@ -787,7 +1312,7 @@ class CPlayer_GetPlayerLinkDetails_Request PROTOBUF_FINAL :
                &_CPlayer_GetPlayerLinkDetails_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    3;
 
   friend void swap(CPlayer_GetPlayerLinkDetails_Request& a, CPlayer_GetPlayerLinkDetails_Request& b) {
     a.Swap(&b);
@@ -944,7 +1469,7 @@ class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData 
                &_CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    4;
 
   friend void swap(CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData& a, CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData& b) {
     a.Swap(&b);
@@ -1249,7 +1774,7 @@ class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData
                &_CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    5;
 
   friend void swap(CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData& a, CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData& b) {
     a.Swap(&b);
@@ -1733,7 +2258,7 @@ class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails PROTOBUF_FINAL :
                &_CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    6;
 
   friend void swap(CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails& a, CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails& b) {
     a.Swap(&b);
@@ -1910,7 +2435,7 @@ class CPlayer_GetPlayerLinkDetails_Response PROTOBUF_FINAL :
                &_CPlayer_GetPlayerLinkDetails_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    7;
 
   friend void swap(CPlayer_GetPlayerLinkDetails_Response& a, CPlayer_GetPlayerLinkDetails_Response& b) {
     a.Swap(&b);
@@ -2065,7 +2590,7 @@ class CPlayer_GetMutualFriendsForIncomingInvites_Request PROTOBUF_FINAL :
                &_CPlayer_GetMutualFriendsForIncomingInvites_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    8;
 
   friend void swap(CPlayer_GetMutualFriendsForIncomingInvites_Request& a, CPlayer_GetMutualFriendsForIncomingInvites_Request& b) {
     a.Swap(&b);
@@ -2196,7 +2721,7 @@ class CPlayer_IncomingInviteMutualFriendList PROTOBUF_FINAL :
                &_CPlayer_IncomingInviteMutualFriendList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    9;
 
   friend void swap(CPlayer_IncomingInviteMutualFriendList& a, CPlayer_IncomingInviteMutualFriendList& b) {
     a.Swap(&b);
@@ -2369,7 +2894,7 @@ class CPlayer_GetMutualFriendsForIncomingInvites_Response PROTOBUF_FINAL :
                &_CPlayer_GetMutualFriendsForIncomingInvites_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    10;
 
   friend void swap(CPlayer_GetMutualFriendsForIncomingInvites_Response& a, CPlayer_GetMutualFriendsForIncomingInvites_Response& b) {
     a.Swap(&b);
@@ -2522,7 +3047,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
                &_CPlayer_GetOwnedGames_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    11;
 
   friend void swap(CPlayer_GetOwnedGames_Request& a, CPlayer_GetOwnedGames_Request& b) {
     a.Swap(&b);
@@ -2792,7 +3317,7 @@ class CPlayer_GetOwnedGames_Response_Game PROTOBUF_FINAL :
                &_CPlayer_GetOwnedGames_Response_Game_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    12;
 
   friend void swap(CPlayer_GetOwnedGames_Response_Game& a, CPlayer_GetOwnedGames_Response_Game& b) {
     a.Swap(&b);
@@ -3233,7 +3758,7 @@ class CPlayer_GetOwnedGames_Response PROTOBUF_FINAL :
                &_CPlayer_GetOwnedGames_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    13;
 
   friend void swap(CPlayer_GetOwnedGames_Response& a, CPlayer_GetOwnedGames_Response& b) {
     a.Swap(&b);
@@ -3404,7 +3929,7 @@ class CPlayer_GetPlayNext_Request PROTOBUF_FINAL :
                &_CPlayer_GetPlayNext_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    14;
 
   friend void swap(CPlayer_GetPlayNext_Request& a, CPlayer_GetPlayNext_Request& b) {
     a.Swap(&b);
@@ -3577,7 +4102,7 @@ class CPlayer_GetPlayNext_Response PROTOBUF_FINAL :
                &_CPlayer_GetPlayNext_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    15;
 
   friend void swap(CPlayer_GetPlayNext_Response& a, CPlayer_GetPlayNext_Response& b) {
     a.Swap(&b);
@@ -3750,7 +4275,7 @@ class CPlayer_GetFriendsGameplayInfo_Request PROTOBUF_FINAL :
                &_CPlayer_GetFriendsGameplayInfo_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    16;
 
   friend void swap(CPlayer_GetFriendsGameplayInfo_Request& a, CPlayer_GetFriendsGameplayInfo_Request& b) {
     a.Swap(&b);
@@ -3899,7 +4424,7 @@ class CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo PROTOBUF_FINAL
                &_CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    17;
 
   friend void swap(CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo& a, CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo& b) {
     a.Swap(&b);
@@ -4078,7 +4603,7 @@ class CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo PROTOBUF_FINAL :
                &_CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    18;
 
   friend void swap(CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo& a, CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo& b) {
     a.Swap(&b);
@@ -4287,7 +4812,7 @@ class CPlayer_GetFriendsGameplayInfo_Response PROTOBUF_FINAL :
                &_CPlayer_GetFriendsGameplayInfo_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    19;
 
   friend void swap(CPlayer_GetFriendsGameplayInfo_Response& a, CPlayer_GetFriendsGameplayInfo_Response& b) {
     a.Swap(&b);
@@ -4544,7 +5069,7 @@ class CPlayer_GetGameBadgeLevels_Request PROTOBUF_FINAL :
                &_CPlayer_GetGameBadgeLevels_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    20;
 
   friend void swap(CPlayer_GetGameBadgeLevels_Request& a, CPlayer_GetGameBadgeLevels_Request& b) {
     a.Swap(&b);
@@ -4693,7 +5218,7 @@ class CPlayer_GetGameBadgeLevels_Response_Badge PROTOBUF_FINAL :
                &_CPlayer_GetGameBadgeLevels_Response_Badge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    21;
 
   friend void swap(CPlayer_GetGameBadgeLevels_Response_Badge& a, CPlayer_GetGameBadgeLevels_Response_Badge& b) {
     a.Swap(&b);
@@ -4872,7 +5397,7 @@ class CPlayer_GetGameBadgeLevels_Response PROTOBUF_FINAL :
                &_CPlayer_GetGameBadgeLevels_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    22;
 
   friend void swap(CPlayer_GetGameBadgeLevels_Response& a, CPlayer_GetGameBadgeLevels_Response& b) {
     a.Swap(&b);
@@ -5043,7 +5568,7 @@ class CPlayer_GetProfileBackground_Request PROTOBUF_FINAL :
                &_CPlayer_GetProfileBackground_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    23;
 
   friend void swap(CPlayer_GetProfileBackground_Request& a, CPlayer_GetProfileBackground_Request& b) {
     a.Swap(&b);
@@ -5214,7 +5739,7 @@ class ProfileItem_ProfileColor PROTOBUF_FINAL :
                &_ProfileItem_ProfileColor_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    24;
 
   friend void swap(ProfileItem_ProfileColor& a, ProfileItem_ProfileColor& b) {
     a.Swap(&b);
@@ -5392,7 +5917,7 @@ class ProfileItem PROTOBUF_FINAL :
                &_ProfileItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    25;
 
   friend void swap(ProfileItem& a, ProfileItem& b) {
     a.Swap(&b);
@@ -5821,7 +6346,7 @@ class CPlayer_GetProfileBackground_Response PROTOBUF_FINAL :
                &_CPlayer_GetProfileBackground_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    26;
 
   friend void swap(CPlayer_GetProfileBackground_Response& a, CPlayer_GetProfileBackground_Response& b) {
     a.Swap(&b);
@@ -5975,7 +6500,7 @@ class CPlayer_SetProfileBackground_Request PROTOBUF_FINAL :
                &_CPlayer_SetProfileBackground_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    27;
 
   friend void swap(CPlayer_SetProfileBackground_Request& a, CPlayer_SetProfileBackground_Request& b) {
     a.Swap(&b);
@@ -6124,7 +6649,7 @@ class CPlayer_SetProfileBackground_Response PROTOBUF_FINAL :
                &_CPlayer_SetProfileBackground_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    28;
 
   friend void swap(CPlayer_SetProfileBackground_Response& a, CPlayer_SetProfileBackground_Response& b) {
     a.Swap(&b);
@@ -6255,7 +6780,7 @@ class CPlayer_GetMiniProfileBackground_Request PROTOBUF_FINAL :
                &_CPlayer_GetMiniProfileBackground_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    29;
 
   friend void swap(CPlayer_GetMiniProfileBackground_Request& a, CPlayer_GetMiniProfileBackground_Request& b) {
     a.Swap(&b);
@@ -6426,7 +6951,7 @@ class CPlayer_GetMiniProfileBackground_Response PROTOBUF_FINAL :
                &_CPlayer_GetMiniProfileBackground_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    30;
 
   friend void swap(CPlayer_GetMiniProfileBackground_Response& a, CPlayer_GetMiniProfileBackground_Response& b) {
     a.Swap(&b);
@@ -6580,7 +7105,7 @@ class CPlayer_SetMiniProfileBackground_Request PROTOBUF_FINAL :
                &_CPlayer_SetMiniProfileBackground_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    31;
 
   friend void swap(CPlayer_SetMiniProfileBackground_Request& a, CPlayer_SetMiniProfileBackground_Request& b) {
     a.Swap(&b);
@@ -6729,7 +7254,7 @@ class CPlayer_SetMiniProfileBackground_Response PROTOBUF_FINAL :
                &_CPlayer_SetMiniProfileBackground_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    32;
 
   friend void swap(CPlayer_SetMiniProfileBackground_Response& a, CPlayer_SetMiniProfileBackground_Response& b) {
     a.Swap(&b);
@@ -6860,7 +7385,7 @@ class CPlayer_GetAvatarFrame_Request PROTOBUF_FINAL :
                &_CPlayer_GetAvatarFrame_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    33;
 
   friend void swap(CPlayer_GetAvatarFrame_Request& a, CPlayer_GetAvatarFrame_Request& b) {
     a.Swap(&b);
@@ -7031,7 +7556,7 @@ class CPlayer_GetAvatarFrame_Response PROTOBUF_FINAL :
                &_CPlayer_GetAvatarFrame_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    34;
 
   friend void swap(CPlayer_GetAvatarFrame_Response& a, CPlayer_GetAvatarFrame_Response& b) {
     a.Swap(&b);
@@ -7185,7 +7710,7 @@ class CPlayer_SetAvatarFrame_Request PROTOBUF_FINAL :
                &_CPlayer_SetAvatarFrame_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    35;
 
   friend void swap(CPlayer_SetAvatarFrame_Request& a, CPlayer_SetAvatarFrame_Request& b) {
     a.Swap(&b);
@@ -7334,7 +7859,7 @@ class CPlayer_SetAvatarFrame_Response PROTOBUF_FINAL :
                &_CPlayer_SetAvatarFrame_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    36;
 
   friend void swap(CPlayer_SetAvatarFrame_Response& a, CPlayer_SetAvatarFrame_Response& b) {
     a.Swap(&b);
@@ -7465,7 +7990,7 @@ class CPlayer_GetAnimatedAvatar_Request PROTOBUF_FINAL :
                &_CPlayer_GetAnimatedAvatar_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    37;
 
   friend void swap(CPlayer_GetAnimatedAvatar_Request& a, CPlayer_GetAnimatedAvatar_Request& b) {
     a.Swap(&b);
@@ -7636,7 +8161,7 @@ class CPlayer_GetAnimatedAvatar_Response PROTOBUF_FINAL :
                &_CPlayer_GetAnimatedAvatar_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    38;
 
   friend void swap(CPlayer_GetAnimatedAvatar_Response& a, CPlayer_GetAnimatedAvatar_Response& b) {
     a.Swap(&b);
@@ -7790,7 +8315,7 @@ class CPlayer_SetAnimatedAvatar_Request PROTOBUF_FINAL :
                &_CPlayer_SetAnimatedAvatar_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    39;
 
   friend void swap(CPlayer_SetAnimatedAvatar_Request& a, CPlayer_SetAnimatedAvatar_Request& b) {
     a.Swap(&b);
@@ -7939,7 +8464,7 @@ class CPlayer_SetAnimatedAvatar_Response PROTOBUF_FINAL :
                &_CPlayer_SetAnimatedAvatar_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    40;
 
   friend void swap(CPlayer_SetAnimatedAvatar_Response& a, CPlayer_SetAnimatedAvatar_Response& b) {
     a.Swap(&b);
@@ -8070,7 +8595,7 @@ class CPlayer_GetSteamDeckKeyboardSkin_Request PROTOBUF_FINAL :
                &_CPlayer_GetSteamDeckKeyboardSkin_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    41;
 
   friend void swap(CPlayer_GetSteamDeckKeyboardSkin_Request& a, CPlayer_GetSteamDeckKeyboardSkin_Request& b) {
     a.Swap(&b);
@@ -8241,7 +8766,7 @@ class CPlayer_GetSteamDeckKeyboardSkin_Response PROTOBUF_FINAL :
                &_CPlayer_GetSteamDeckKeyboardSkin_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    42;
 
   friend void swap(CPlayer_GetSteamDeckKeyboardSkin_Response& a, CPlayer_GetSteamDeckKeyboardSkin_Response& b) {
     a.Swap(&b);
@@ -8395,7 +8920,7 @@ class CPlayer_SetSteamDeckKeyboardSkin_Request PROTOBUF_FINAL :
                &_CPlayer_SetSteamDeckKeyboardSkin_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    43;
 
   friend void swap(CPlayer_SetSteamDeckKeyboardSkin_Request& a, CPlayer_SetSteamDeckKeyboardSkin_Request& b) {
     a.Swap(&b);
@@ -8544,7 +9069,7 @@ class CPlayer_SetSteamDeckKeyboardSkin_Response PROTOBUF_FINAL :
                &_CPlayer_SetSteamDeckKeyboardSkin_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    44;
 
   friend void swap(CPlayer_SetSteamDeckKeyboardSkin_Response& a, CPlayer_SetSteamDeckKeyboardSkin_Response& b) {
     a.Swap(&b);
@@ -8675,7 +9200,7 @@ class CPlayer_GetProfileItemsOwned_Request PROTOBUF_FINAL :
                &_CPlayer_GetProfileItemsOwned_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    45;
 
   friend void swap(CPlayer_GetProfileItemsOwned_Request& a, CPlayer_GetProfileItemsOwned_Request& b) {
     a.Swap(&b);
@@ -8850,7 +9375,7 @@ class CPlayer_GetProfileItemsOwned_Response PROTOBUF_FINAL :
                &_CPlayer_GetProfileItemsOwned_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    46;
 
   friend void swap(CPlayer_GetProfileItemsOwned_Response& a, CPlayer_GetProfileItemsOwned_Response& b) {
     a.Swap(&b);
@@ -9123,7 +9648,7 @@ class CPlayer_GetProfileItemsEquipped_Request PROTOBUF_FINAL :
                &_CPlayer_GetProfileItemsEquipped_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    47;
 
   friend void swap(CPlayer_GetProfileItemsEquipped_Request& a, CPlayer_GetProfileItemsEquipped_Request& b) {
     a.Swap(&b);
@@ -9294,7 +9819,7 @@ class CPlayer_GetProfileItemsEquipped_Response PROTOBUF_FINAL :
                &_CPlayer_GetProfileItemsEquipped_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    48;
 
   friend void swap(CPlayer_GetProfileItemsEquipped_Response& a, CPlayer_GetProfileItemsEquipped_Response& b) {
     a.Swap(&b);
@@ -9548,7 +10073,7 @@ class CPlayer_SetEquippedProfileItemFlags_Request PROTOBUF_FINAL :
                &_CPlayer_SetEquippedProfileItemFlags_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    49;
 
   friend void swap(CPlayer_SetEquippedProfileItemFlags_Request& a, CPlayer_SetEquippedProfileItemFlags_Request& b) {
     a.Swap(&b);
@@ -9712,7 +10237,7 @@ class CPlayer_SetEquippedProfileItemFlags_Response PROTOBUF_FINAL :
                &_CPlayer_SetEquippedProfileItemFlags_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    50;
 
   friend void swap(CPlayer_SetEquippedProfileItemFlags_Response& a, CPlayer_SetEquippedProfileItemFlags_Response& b) {
     a.Swap(&b);
@@ -9843,7 +10368,7 @@ class CPlayer_GetEmoticonList_Request PROTOBUF_FINAL :
                &_CPlayer_GetEmoticonList_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    51;
 
   friend void swap(CPlayer_GetEmoticonList_Request& a, CPlayer_GetEmoticonList_Request& b) {
     a.Swap(&b);
@@ -9974,7 +10499,7 @@ class CPlayer_GetEmoticonList_Response_Emoticon PROTOBUF_FINAL :
                &_CPlayer_GetEmoticonList_Response_Emoticon_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    52;
 
   friend void swap(CPlayer_GetEmoticonList_Response_Emoticon& a, CPlayer_GetEmoticonList_Response_Emoticon& b) {
     a.Swap(&b);
@@ -10205,7 +10730,7 @@ class CPlayer_GetEmoticonList_Response PROTOBUF_FINAL :
                &_CPlayer_GetEmoticonList_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    53;
 
   friend void swap(CPlayer_GetEmoticonList_Response& a, CPlayer_GetEmoticonList_Response& b) {
     a.Swap(&b);
@@ -10360,7 +10885,7 @@ class CPlayer_GetCommunityBadgeProgress_Request PROTOBUF_FINAL :
                &_CPlayer_GetCommunityBadgeProgress_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    54;
 
   friend void swap(CPlayer_GetCommunityBadgeProgress_Request& a, CPlayer_GetCommunityBadgeProgress_Request& b) {
     a.Swap(&b);
@@ -10524,7 +11049,7 @@ class CPlayer_GetCommunityBadgeProgress_Response_Quest PROTOBUF_FINAL :
                &_CPlayer_GetCommunityBadgeProgress_Response_Quest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    55;
 
   friend void swap(CPlayer_GetCommunityBadgeProgress_Response_Quest& a, CPlayer_GetCommunityBadgeProgress_Response_Quest& b) {
     a.Swap(&b);
@@ -10688,7 +11213,7 @@ class CPlayer_GetCommunityBadgeProgress_Response PROTOBUF_FINAL :
                &_CPlayer_GetCommunityBadgeProgress_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    56;
 
   friend void swap(CPlayer_GetCommunityBadgeProgress_Response& a, CPlayer_GetCommunityBadgeProgress_Response& b) {
     a.Swap(&b);
@@ -10843,7 +11368,7 @@ class CPlayer_GetTopAchievementsForGames_Request PROTOBUF_FINAL :
                &_CPlayer_GetTopAchievementsForGames_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    57;
 
   friend void swap(CPlayer_GetTopAchievementsForGames_Request& a, CPlayer_GetTopAchievementsForGames_Request& b) {
     a.Swap(&b);
@@ -11053,7 +11578,7 @@ class CPlayer_GetTopAchievementsForGames_Response_Achievement PROTOBUF_FINAL :
                &_CPlayer_GetTopAchievementsForGames_Response_Achievement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    58;
 
   friend void swap(CPlayer_GetTopAchievementsForGames_Response_Achievement& a, CPlayer_GetTopAchievementsForGames_Response_Achievement& b) {
     a.Swap(&b);
@@ -11342,7 +11867,7 @@ class CPlayer_GetTopAchievementsForGames_Response_Game PROTOBUF_FINAL :
                &_CPlayer_GetTopAchievementsForGames_Response_Game_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    59;
 
   friend void swap(CPlayer_GetTopAchievementsForGames_Response_Game& a, CPlayer_GetTopAchievementsForGames_Response_Game& b) {
     a.Swap(&b);
@@ -11526,7 +12051,7 @@ class CPlayer_GetTopAchievementsForGames_Response PROTOBUF_FINAL :
                &_CPlayer_GetTopAchievementsForGames_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    60;
 
   friend void swap(CPlayer_GetTopAchievementsForGames_Response& a, CPlayer_GetTopAchievementsForGames_Response& b) {
     a.Swap(&b);
@@ -11682,7 +12207,7 @@ class CPlayer_GetAchievementsProgress_Request PROTOBUF_FINAL :
                &_CPlayer_GetAchievementsProgress_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    61;
 
   friend void swap(CPlayer_GetAchievementsProgress_Request& a, CPlayer_GetAchievementsProgress_Request& b) {
     a.Swap(&b);
@@ -11877,7 +12402,7 @@ class CPlayer_GetAchievementsProgress_Response_AchievementProgress PROTOBUF_FINA
                &_CPlayer_GetAchievementsProgress_Response_AchievementProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    62;
 
   friend void swap(CPlayer_GetAchievementsProgress_Response_AchievementProgress& a, CPlayer_GetAchievementsProgress_Response_AchievementProgress& b) {
     a.Swap(&b);
@@ -12101,7 +12626,7 @@ class CPlayer_GetAchievementsProgress_Response PROTOBUF_FINAL :
                &_CPlayer_GetAchievementsProgress_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    63;
 
   friend void swap(CPlayer_GetAchievementsProgress_Response& a, CPlayer_GetAchievementsProgress_Response& b) {
     a.Swap(&b);
@@ -12256,7 +12781,7 @@ class CPlayer_GetGameAchievements_Request PROTOBUF_FINAL :
                &_CPlayer_GetGameAchievements_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    64;
 
   friend void swap(CPlayer_GetGameAchievements_Request& a, CPlayer_GetGameAchievements_Request& b) {
     a.Swap(&b);
@@ -12427,7 +12952,7 @@ class CPlayer_GetGameAchievements_Response_Achievement PROTOBUF_FINAL :
                &_CPlayer_GetGameAchievements_Response_Achievement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    65;
 
   friend void swap(CPlayer_GetGameAchievements_Response_Achievement& a, CPlayer_GetGameAchievements_Response_Achievement& b) {
     a.Swap(&b);
@@ -12708,7 +13233,7 @@ class CPlayer_GetGameAchievements_Response PROTOBUF_FINAL :
                &_CPlayer_GetGameAchievements_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    66;
 
   friend void swap(CPlayer_GetGameAchievements_Response& a, CPlayer_GetGameAchievements_Response& b) {
     a.Swap(&b);
@@ -12863,7 +13388,7 @@ class CPlayer_GetFavoriteBadge_Request PROTOBUF_FINAL :
                &_CPlayer_GetFavoriteBadge_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    67;
 
   friend void swap(CPlayer_GetFavoriteBadge_Request& a, CPlayer_GetFavoriteBadge_Request& b) {
     a.Swap(&b);
@@ -13012,7 +13537,7 @@ class CPlayer_GetFavoriteBadge_Response PROTOBUF_FINAL :
                &_CPlayer_GetFavoriteBadge_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    68;
 
   friend void swap(CPlayer_GetFavoriteBadge_Response& a, CPlayer_GetFavoriteBadge_Response& b) {
     a.Swap(&b);
@@ -13251,7 +13776,7 @@ class CPlayer_SetFavoriteBadge_Request PROTOBUF_FINAL :
                &_CPlayer_SetFavoriteBadge_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    69;
 
   friend void swap(CPlayer_SetFavoriteBadge_Request& a, CPlayer_SetFavoriteBadge_Request& b) {
     a.Swap(&b);
@@ -13415,7 +13940,7 @@ class CPlayer_SetFavoriteBadge_Response PROTOBUF_FINAL :
                &_CPlayer_SetFavoriteBadge_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    70;
 
   friend void swap(CPlayer_SetFavoriteBadge_Response& a, CPlayer_SetFavoriteBadge_Response& b) {
     a.Swap(&b);
@@ -13546,7 +14071,7 @@ class CPlayer_GetProfileCustomization_Request PROTOBUF_FINAL :
                &_CPlayer_GetProfileCustomization_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    71;
 
   friend void swap(CPlayer_GetProfileCustomization_Request& a, CPlayer_GetProfileCustomization_Request& b) {
     a.Swap(&b);
@@ -13725,7 +14250,7 @@ class ProfileCustomizationSlot PROTOBUF_FINAL :
                &_ProfileCustomizationSlot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    72;
 
   friend void swap(ProfileCustomizationSlot& a, ProfileCustomizationSlot& b) {
     a.Swap(&b);
@@ -14083,7 +14608,7 @@ class ProfileCustomization PROTOBUF_FINAL :
                &_ProfileCustomization_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    73;
 
   friend void swap(ProfileCustomization& a, ProfileCustomization& b) {
     a.Swap(&b);
@@ -14327,7 +14852,7 @@ class ProfileTheme PROTOBUF_FINAL :
                &_ProfileTheme_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    74;
 
   friend void swap(ProfileTheme& a, ProfileTheme& b) {
     a.Swap(&b);
@@ -14505,7 +15030,7 @@ class ProfilePreferences PROTOBUF_FINAL :
                &_ProfilePreferences_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    75;
 
   friend void swap(ProfilePreferences& a, ProfilePreferences& b) {
     a.Swap(&b);
@@ -14654,7 +15179,7 @@ class CPlayer_GetProfileCustomization_Response_PurchasedCustomization PROTOBUF_F
                &_CPlayer_GetProfileCustomization_Response_PurchasedCustomization_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    76;
 
   friend void swap(CPlayer_GetProfileCustomization_Response_PurchasedCustomization& a, CPlayer_GetProfileCustomization_Response_PurchasedCustomization& b) {
     a.Swap(&b);
@@ -14833,7 +15358,7 @@ class CPlayer_GetProfileCustomization_Response PROTOBUF_FINAL :
                &_CPlayer_GetProfileCustomization_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    77;
 
   friend void swap(CPlayer_GetProfileCustomization_Response& a, CPlayer_GetProfileCustomization_Response& b) {
     a.Swap(&b);
@@ -15064,7 +15589,7 @@ class CPlayer_GetPurchasedProfileCustomizations_Request PROTOBUF_FINAL :
                &_CPlayer_GetPurchasedProfileCustomizations_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    78;
 
   friend void swap(CPlayer_GetPurchasedProfileCustomizations_Request& a, CPlayer_GetPurchasedProfileCustomizations_Request& b) {
     a.Swap(&b);
@@ -15213,7 +15738,7 @@ class CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization 
                &_CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    79;
 
   friend void swap(CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization& a, CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization& b) {
     a.Swap(&b);
@@ -15377,7 +15902,7 @@ class CPlayer_GetPurchasedProfileCustomizations_Response PROTOBUF_FINAL :
                &_CPlayer_GetPurchasedProfileCustomizations_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    80;
 
   friend void swap(CPlayer_GetPurchasedProfileCustomizations_Response& a, CPlayer_GetPurchasedProfileCustomizations_Response& b) {
     a.Swap(&b);
@@ -15532,7 +16057,7 @@ class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request PROTOBUF_FINA
                &_CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    81;
 
   friend void swap(CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request& a, CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request& b) {
     a.Swap(&b);
@@ -15681,7 +16206,7 @@ class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCus
                &_CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    82;
 
   friend void swap(CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization& a, CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization& b) {
     a.Swap(&b);
@@ -15845,7 +16370,7 @@ class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCust
                &_CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    83;
 
   friend void swap(CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization& a, CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization& b) {
     a.Swap(&b);
@@ -16009,7 +16534,7 @@ class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response PROTOBUF_FIN
                &_CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    84;
 
   friend void swap(CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response& a, CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response& b) {
     a.Swap(&b);
@@ -16185,7 +16710,7 @@ class CPlayer_GetProfileThemesAvailable_Request PROTOBUF_FINAL :
                &_CPlayer_GetProfileThemesAvailable_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    85;
 
   friend void swap(CPlayer_GetProfileThemesAvailable_Request& a, CPlayer_GetProfileThemesAvailable_Request& b) {
     a.Swap(&b);
@@ -16316,7 +16841,7 @@ class CPlayer_GetProfileThemesAvailable_Response PROTOBUF_FINAL :
                &_CPlayer_GetProfileThemesAvailable_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    86;
 
   friend void swap(CPlayer_GetProfileThemesAvailable_Response& a, CPlayer_GetProfileThemesAvailable_Response& b) {
     a.Swap(&b);
@@ -16469,7 +16994,7 @@ class CPlayer_SetProfileTheme_Request PROTOBUF_FINAL :
                &_CPlayer_SetProfileTheme_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    87;
 
   friend void swap(CPlayer_SetProfileTheme_Request& a, CPlayer_SetProfileTheme_Request& b) {
     a.Swap(&b);
@@ -16625,7 +17150,7 @@ class CPlayer_SetProfileTheme_Response PROTOBUF_FINAL :
                &_CPlayer_SetProfileTheme_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    88;
 
   friend void swap(CPlayer_SetProfileTheme_Response& a, CPlayer_SetProfileTheme_Response& b) {
     a.Swap(&b);
@@ -16756,7 +17281,7 @@ class CPlayer_SetProfilePreferences_Request PROTOBUF_FINAL :
                &_CPlayer_SetProfilePreferences_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    89;
 
   friend void swap(CPlayer_SetProfilePreferences_Request& a, CPlayer_SetProfilePreferences_Request& b) {
     a.Swap(&b);
@@ -16910,7 +17435,7 @@ class CPlayer_SetProfilePreferences_Response PROTOBUF_FINAL :
                &_CPlayer_SetProfilePreferences_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    90;
 
   friend void swap(CPlayer_SetProfilePreferences_Response& a, CPlayer_SetProfilePreferences_Response& b) {
     a.Swap(&b);
@@ -17041,7 +17566,7 @@ class CPlayer_PostStatusToFriends_Request PROTOBUF_FINAL :
                &_CPlayer_PostStatusToFriends_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    91;
 
   friend void swap(CPlayer_PostStatusToFriends_Request& a, CPlayer_PostStatusToFriends_Request& b) {
     a.Swap(&b);
@@ -17212,7 +17737,7 @@ class CPlayer_PostStatusToFriends_Response PROTOBUF_FINAL :
                &_CPlayer_PostStatusToFriends_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    92;
 
   friend void swap(CPlayer_PostStatusToFriends_Response& a, CPlayer_PostStatusToFriends_Response& b) {
     a.Swap(&b);
@@ -17343,7 +17868,7 @@ class CPlayer_GetPostedStatus_Request PROTOBUF_FINAL :
                &_CPlayer_GetPostedStatus_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    93;
 
   friend void swap(CPlayer_GetPostedStatus_Request& a, CPlayer_GetPostedStatus_Request& b) {
     a.Swap(&b);
@@ -17507,7 +18032,7 @@ class CPlayer_GetPostedStatus_Response PROTOBUF_FINAL :
                &_CPlayer_GetPostedStatus_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    94;
 
   friend void swap(CPlayer_GetPostedStatus_Response& a, CPlayer_GetPostedStatus_Response& b) {
     a.Swap(&b);
@@ -17723,7 +18248,7 @@ class CPlayer_DeletePostedStatus_Request PROTOBUF_FINAL :
                &_CPlayer_DeletePostedStatus_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    95;
 
   friend void swap(CPlayer_DeletePostedStatus_Request& a, CPlayer_DeletePostedStatus_Request& b) {
     a.Swap(&b);
@@ -17872,7 +18397,7 @@ class CPlayer_DeletePostedStatus_Response PROTOBUF_FINAL :
                &_CPlayer_DeletePostedStatus_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    96;
 
   friend void swap(CPlayer_DeletePostedStatus_Response& a, CPlayer_DeletePostedStatus_Response& b) {
     a.Swap(&b);
@@ -18003,7 +18528,7 @@ class CPlayer_GetLastPlayedTimes_Request PROTOBUF_FINAL :
                &_CPlayer_GetLastPlayedTimes_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    97;
 
   friend void swap(CPlayer_GetLastPlayedTimes_Request& a, CPlayer_GetLastPlayedTimes_Request& b) {
     a.Swap(&b);
@@ -18152,7 +18677,7 @@ class CPlayer_GetLastPlayedTimes_Response_Game PROTOBUF_FINAL :
                &_CPlayer_GetLastPlayedTimes_Response_Game_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    98;
 
   friend void swap(CPlayer_GetLastPlayedTimes_Response_Game& a, CPlayer_GetLastPlayedTimes_Response_Game& b) {
     a.Swap(&b);
@@ -18511,7 +19036,7 @@ class CPlayer_GetLastPlayedTimes_Response PROTOBUF_FINAL :
                &_CPlayer_GetLastPlayedTimes_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    96;
+    99;
 
   friend void swap(CPlayer_GetLastPlayedTimes_Response& a, CPlayer_GetLastPlayedTimes_Response& b) {
     a.Swap(&b);
@@ -18666,7 +19191,7 @@ class CPlayer_GetTimeSSAAccepted_Request PROTOBUF_FINAL :
                &_CPlayer_GetTimeSSAAccepted_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    100;
 
   friend void swap(CPlayer_GetTimeSSAAccepted_Request& a, CPlayer_GetTimeSSAAccepted_Request& b) {
     a.Swap(&b);
@@ -18797,7 +19322,7 @@ class CPlayer_GetTimeSSAAccepted_Response PROTOBUF_FINAL :
                &_CPlayer_GetTimeSSAAccepted_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    101;
 
   friend void swap(CPlayer_GetTimeSSAAccepted_Response& a, CPlayer_GetTimeSSAAccepted_Response& b) {
     a.Swap(&b);
@@ -18976,7 +19501,7 @@ class CPlayer_AcceptSSA_Request PROTOBUF_FINAL :
                &_CPlayer_AcceptSSA_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    102;
 
   friend void swap(CPlayer_AcceptSSA_Request& a, CPlayer_AcceptSSA_Request& b) {
     a.Swap(&b);
@@ -19140,7 +19665,7 @@ class CPlayer_AcceptSSA_Response PROTOBUF_FINAL :
                &_CPlayer_AcceptSSA_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    103;
 
   friend void swap(CPlayer_AcceptSSA_Response& a, CPlayer_AcceptSSA_Response& b) {
     a.Swap(&b);
@@ -19271,7 +19796,7 @@ class CPlayer_GetNicknameList_Request PROTOBUF_FINAL :
                &_CPlayer_GetNicknameList_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    104;
 
   friend void swap(CPlayer_GetNicknameList_Request& a, CPlayer_GetNicknameList_Request& b) {
     a.Swap(&b);
@@ -19402,7 +19927,7 @@ class CPlayer_GetNicknameList_Response_PlayerNickname PROTOBUF_FINAL :
                &_CPlayer_GetNicknameList_Response_PlayerNickname_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    105;
 
   friend void swap(CPlayer_GetNicknameList_Response_PlayerNickname& a, CPlayer_GetNicknameList_Response_PlayerNickname& b) {
     a.Swap(&b);
@@ -19573,7 +20098,7 @@ class CPlayer_GetNicknameList_Response PROTOBUF_FINAL :
                &_CPlayer_GetNicknameList_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    106;
 
   friend void swap(CPlayer_GetNicknameList_Response& a, CPlayer_GetNicknameList_Response& b) {
     a.Swap(&b);
@@ -19728,7 +20253,7 @@ class CPlayer_GetPerFriendPreferences_Request PROTOBUF_FINAL :
                &_CPlayer_GetPerFriendPreferences_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    107;
 
   friend void swap(CPlayer_GetPerFriendPreferences_Request& a, CPlayer_GetPerFriendPreferences_Request& b) {
     a.Swap(&b);
@@ -19859,7 +20384,7 @@ class PerFriendPreferences PROTOBUF_FINAL :
                &_PerFriendPreferences_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    105;
+    108;
 
   friend void swap(PerFriendPreferences& a, PerFriendPreferences& b) {
     a.Swap(&b);
@@ -20135,7 +20660,7 @@ class CPlayer_GetPerFriendPreferences_Response PROTOBUF_FINAL :
                &_CPlayer_GetPerFriendPreferences_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    106;
+    109;
 
   friend void swap(CPlayer_GetPerFriendPreferences_Response& a, CPlayer_GetPerFriendPreferences_Response& b) {
     a.Swap(&b);
@@ -20288,7 +20813,7 @@ class CPlayer_SetPerFriendPreferences_Request PROTOBUF_FINAL :
                &_CPlayer_SetPerFriendPreferences_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    107;
+    110;
 
   friend void swap(CPlayer_SetPerFriendPreferences_Request& a, CPlayer_SetPerFriendPreferences_Request& b) {
     a.Swap(&b);
@@ -20442,7 +20967,7 @@ class CPlayer_SetPerFriendPreferences_Response PROTOBUF_FINAL :
                &_CPlayer_SetPerFriendPreferences_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    108;
+    111;
 
   friend void swap(CPlayer_SetPerFriendPreferences_Response& a, CPlayer_SetPerFriendPreferences_Response& b) {
     a.Swap(&b);
@@ -20573,7 +21098,7 @@ class CPlayer_AddFriend_Request PROTOBUF_FINAL :
                &_CPlayer_AddFriend_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    109;
+    112;
 
   friend void swap(CPlayer_AddFriend_Request& a, CPlayer_AddFriend_Request& b) {
     a.Swap(&b);
@@ -20722,7 +21247,7 @@ class CPlayer_AddFriend_Response PROTOBUF_FINAL :
                &_CPlayer_AddFriend_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    110;
+    113;
 
   friend void swap(CPlayer_AddFriend_Response& a, CPlayer_AddFriend_Response& b) {
     a.Swap(&b);
@@ -20901,7 +21426,7 @@ class CPlayer_RemoveFriend_Request PROTOBUF_FINAL :
                &_CPlayer_RemoveFriend_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    111;
+    114;
 
   friend void swap(CPlayer_RemoveFriend_Request& a, CPlayer_RemoveFriend_Request& b) {
     a.Swap(&b);
@@ -21050,7 +21575,7 @@ class CPlayer_RemoveFriend_Response PROTOBUF_FINAL :
                &_CPlayer_RemoveFriend_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    112;
+    115;
 
   friend void swap(CPlayer_RemoveFriend_Response& a, CPlayer_RemoveFriend_Response& b) {
     a.Swap(&b);
@@ -21199,7 +21724,7 @@ class CPlayer_IgnoreFriend_Request PROTOBUF_FINAL :
                &_CPlayer_IgnoreFriend_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    113;
+    116;
 
   friend void swap(CPlayer_IgnoreFriend_Request& a, CPlayer_IgnoreFriend_Request& b) {
     a.Swap(&b);
@@ -21363,7 +21888,7 @@ class CPlayer_IgnoreFriend_Response PROTOBUF_FINAL :
                &_CPlayer_IgnoreFriend_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    114;
+    117;
 
   friend void swap(CPlayer_IgnoreFriend_Response& a, CPlayer_IgnoreFriend_Response& b) {
     a.Swap(&b);
@@ -21512,7 +22037,7 @@ class CPlayer_GetCommunityPreferences_Request PROTOBUF_FINAL :
                &_CPlayer_GetCommunityPreferences_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    115;
+    118;
 
   friend void swap(CPlayer_GetCommunityPreferences_Request& a, CPlayer_GetCommunityPreferences_Request& b) {
     a.Swap(&b);
@@ -21643,7 +22168,7 @@ class CPlayer_CommunityPreferences PROTOBUF_FINAL :
                &_CPlayer_CommunityPreferences_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    116;
+    119;
 
   friend void swap(CPlayer_CommunityPreferences& a, CPlayer_CommunityPreferences& b) {
     a.Swap(&b);
@@ -21852,7 +22377,7 @@ class CPlayer_GetCommunityPreferences_Response PROTOBUF_FINAL :
                &_CPlayer_GetCommunityPreferences_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    117;
+    120;
 
   friend void swap(CPlayer_GetCommunityPreferences_Response& a, CPlayer_GetCommunityPreferences_Response& b) {
     a.Swap(&b);
@@ -22026,7 +22551,7 @@ class CPlayer_SetCommunityPreferences_Request PROTOBUF_FINAL :
                &_CPlayer_SetCommunityPreferences_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    118;
+    121;
 
   friend void swap(CPlayer_SetCommunityPreferences_Request& a, CPlayer_SetCommunityPreferences_Request& b) {
     a.Swap(&b);
@@ -22180,7 +22705,7 @@ class CPlayer_SetCommunityPreferences_Response PROTOBUF_FINAL :
                &_CPlayer_SetCommunityPreferences_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    119;
+    122;
 
   friend void swap(CPlayer_SetCommunityPreferences_Response& a, CPlayer_SetCommunityPreferences_Response& b) {
     a.Swap(&b);
@@ -22311,7 +22836,7 @@ class CPlayer_GetTextFilterWords_Request PROTOBUF_FINAL :
                &_CPlayer_GetTextFilterWords_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    120;
+    123;
 
   friend void swap(CPlayer_GetTextFilterWords_Request& a, CPlayer_GetTextFilterWords_Request& b) {
     a.Swap(&b);
@@ -22442,7 +22967,7 @@ class CPlayer_TextFilterWords PROTOBUF_FINAL :
                &_CPlayer_TextFilterWords_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    121;
+    124;
 
   friend void swap(CPlayer_TextFilterWords& a, CPlayer_TextFilterWords& b) {
     a.Swap(&b);
@@ -22643,7 +23168,7 @@ class CPlayer_GetTextFilterWords_Response PROTOBUF_FINAL :
                &_CPlayer_GetTextFilterWords_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    122;
+    125;
 
   friend void swap(CPlayer_GetTextFilterWords_Response& a, CPlayer_GetTextFilterWords_Response& b) {
     a.Swap(&b);
@@ -22797,7 +23322,7 @@ class CPlayer_GetNewSteamAnnouncementState_Request PROTOBUF_FINAL :
                &_CPlayer_GetNewSteamAnnouncementState_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    123;
+    126;
 
   friend void swap(CPlayer_GetNewSteamAnnouncementState_Request& a, CPlayer_GetNewSteamAnnouncementState_Request& b) {
     a.Swap(&b);
@@ -22946,7 +23471,7 @@ class CPlayer_GetNewSteamAnnouncementState_Response PROTOBUF_FINAL :
                &_CPlayer_GetNewSteamAnnouncementState_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    124;
+    127;
 
   friend void swap(CPlayer_GetNewSteamAnnouncementState_Response& a, CPlayer_GetNewSteamAnnouncementState_Response& b) {
     a.Swap(&b);
@@ -23169,7 +23694,7 @@ class CPlayer_UpdateSteamAnnouncementLastRead_Request PROTOBUF_FINAL :
                &_CPlayer_UpdateSteamAnnouncementLastRead_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    125;
+    128;
 
   friend void swap(CPlayer_UpdateSteamAnnouncementLastRead_Request& a, CPlayer_UpdateSteamAnnouncementLastRead_Request& b) {
     a.Swap(&b);
@@ -23333,7 +23858,7 @@ class CPlayer_UpdateSteamAnnouncementLastRead_Response PROTOBUF_FINAL :
                &_CPlayer_UpdateSteamAnnouncementLastRead_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    126;
+    129;
 
   friend void swap(CPlayer_UpdateSteamAnnouncementLastRead_Response& a, CPlayer_UpdateSteamAnnouncementLastRead_Response& b) {
     a.Swap(&b);
@@ -23464,7 +23989,7 @@ class CPlayer_GetPrivacySettings_Request PROTOBUF_FINAL :
                &_CPlayer_GetPrivacySettings_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    127;
+    130;
 
   friend void swap(CPlayer_GetPrivacySettings_Request& a, CPlayer_GetPrivacySettings_Request& b) {
     a.Swap(&b);
@@ -23595,7 +24120,7 @@ class CPrivacySettings PROTOBUF_FINAL :
                &_CPrivacySettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    128;
+    131;
 
   friend void swap(CPrivacySettings& a, CPrivacySettings& b) {
     a.Swap(&b);
@@ -23819,7 +24344,7 @@ class CPlayer_GetPrivacySettings_Response PROTOBUF_FINAL :
                &_CPlayer_GetPrivacySettings_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    129;
+    132;
 
   friend void swap(CPlayer_GetPrivacySettings_Response& a, CPlayer_GetPrivacySettings_Response& b) {
     a.Swap(&b);
@@ -23973,7 +24498,7 @@ class CPlayer_GetDurationControl_Request PROTOBUF_FINAL :
                &_CPlayer_GetDurationControl_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    130;
+    133;
 
   friend void swap(CPlayer_GetDurationControl_Request& a, CPlayer_GetDurationControl_Request& b) {
     a.Swap(&b);
@@ -24122,7 +24647,7 @@ class CPlayer_GetDurationControl_Response PROTOBUF_FINAL :
                &_CPlayer_GetDurationControl_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    131;
+    134;
 
   friend void swap(CPlayer_GetDurationControl_Response& a, CPlayer_GetDurationControl_Response& b) {
     a.Swap(&b);
@@ -24376,7 +24901,7 @@ class CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory PROTOBUF_FINAL :
                &_CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    132;
+    135;
 
   friend void swap(CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory& a, CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory& b) {
     a.Swap(&b);
@@ -24585,7 +25110,7 @@ class CPlayer_RecordDisconnectedPlaytime_Request PROTOBUF_FINAL :
                &_CPlayer_RecordDisconnectedPlaytime_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    133;
+    136;
 
   friend void swap(CPlayer_RecordDisconnectedPlaytime_Request& a, CPlayer_RecordDisconnectedPlaytime_Request& b) {
     a.Swap(&b);
@@ -24740,7 +25265,7 @@ class CPlayer_RecordDisconnectedPlaytime_Response PROTOBUF_FINAL :
                &_CPlayer_RecordDisconnectedPlaytime_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    134;
+    137;
 
   friend void swap(CPlayer_RecordDisconnectedPlaytime_Response& a, CPlayer_RecordDisconnectedPlaytime_Response& b) {
     a.Swap(&b);
@@ -24871,7 +25396,7 @@ class CPlayer_LastPlayedTimes_Notification PROTOBUF_FINAL :
                &_CPlayer_LastPlayedTimes_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    135;
+    138;
 
   friend void swap(CPlayer_LastPlayedTimes_Notification& a, CPlayer_LastPlayedTimes_Notification& b) {
     a.Swap(&b);
@@ -25024,7 +25549,7 @@ class CPlayer_FriendNicknameChanged_Notification PROTOBUF_FINAL :
                &_CPlayer_FriendNicknameChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    136;
+    139;
 
   friend void swap(CPlayer_FriendNicknameChanged_Notification& a, CPlayer_FriendNicknameChanged_Notification& b) {
     a.Swap(&b);
@@ -25210,7 +25735,7 @@ class CPlayer_FriendEquippedProfileItemsChanged_Notification PROTOBUF_FINAL :
                &_CPlayer_FriendEquippedProfileItemsChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    137;
+    140;
 
   friend void swap(CPlayer_FriendEquippedProfileItemsChanged_Notification& a, CPlayer_FriendEquippedProfileItemsChanged_Notification& b) {
     a.Swap(&b);
@@ -25359,7 +25884,7 @@ class CPlayer_NewSteamAnnouncementState_Notification PROTOBUF_FINAL :
                &_CPlayer_NewSteamAnnouncementState_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    138;
+    141;
 
   friend void swap(CPlayer_NewSteamAnnouncementState_Notification& a, CPlayer_NewSteamAnnouncementState_Notification& b) {
     a.Swap(&b);
@@ -25582,7 +26107,7 @@ class CPlayer_CommunityPreferencesChanged_Notification PROTOBUF_FINAL :
                &_CPlayer_CommunityPreferencesChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    139;
+    142;
 
   friend void swap(CPlayer_CommunityPreferencesChanged_Notification& a, CPlayer_CommunityPreferencesChanged_Notification& b) {
     a.Swap(&b);
@@ -25756,7 +26281,7 @@ class CPlayer_TextFilterWordsChanged_Notification PROTOBUF_FINAL :
                &_CPlayer_TextFilterWordsChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    140;
+    143;
 
   friend void swap(CPlayer_TextFilterWordsChanged_Notification& a, CPlayer_TextFilterWordsChanged_Notification& b) {
     a.Swap(&b);
@@ -25910,7 +26435,7 @@ class CPlayer_PerFriendPreferencesChanged_Notification PROTOBUF_FINAL :
                &_CPlayer_PerFriendPreferencesChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    141;
+    144;
 
   friend void swap(CPlayer_PerFriendPreferencesChanged_Notification& a, CPlayer_PerFriendPreferencesChanged_Notification& b) {
     a.Swap(&b);
@@ -26079,7 +26604,7 @@ class CPlayer_PrivacySettingsChanged_Notification PROTOBUF_FINAL :
                &_CPlayer_PrivacySettingsChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    142;
+    145;
 
   friend void swap(CPlayer_PrivacySettingsChanged_Notification& a, CPlayer_PrivacySettingsChanged_Notification& b) {
     a.Swap(&b);
@@ -26196,6 +26721,10 @@ class Player : public ::PROTOBUF_NAMESPACE_ID::Service {
 
   static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* descriptor();
 
+  virtual void GetRecentPlaytimeSessionsForChild(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CPlayer_GetRecentPlaytimeSessionsForChild_Request* request,
+                       ::CPlayer_GetRecentPlaytimeSessionsForChild_Response* response,
+                       ::google::protobuf::Closure* done);
   virtual void GetPlayerLinkDetails(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CPlayer_GetPlayerLinkDetails_Request* request,
                        ::CPlayer_GetPlayerLinkDetails_Response* response,
@@ -26433,6 +26962,10 @@ class Player_Stub : public Player {
 
   // implements Player ------------------------------------------
 
+  void GetRecentPlaytimeSessionsForChild(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CPlayer_GetRecentPlaytimeSessionsForChild_Request* request,
+                       ::CPlayer_GetRecentPlaytimeSessionsForChild_Response* response,
+                       ::google::protobuf::Closure* done);
   void GetPlayerLinkDetails(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CPlayer_GetPlayerLinkDetails_Request* request,
                        ::CPlayer_GetPlayerLinkDetails_Response* response,
@@ -26772,6 +27305,225 @@ class PlayerClient_Stub : public PlayerClient {
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// CPlayer_GetRecentPlaytimeSessionsForChild_Request
+
+// optional uint64 steamid = 1;
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Request::_internal_has_steamid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Request::has_steamid() const {
+  return _internal_has_steamid();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Request::clear_steamid() {
+  steamid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPlayer_GetRecentPlaytimeSessionsForChild_Request::_internal_steamid() const {
+  return steamid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPlayer_GetRecentPlaytimeSessionsForChild_Request::steamid() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetRecentPlaytimeSessionsForChild_Request.steamid)
+  return _internal_steamid();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Request::_internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  steamid_ = value;
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Request::set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_steamid(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetRecentPlaytimeSessionsForChild_Request.steamid)
+}
+
+// -------------------------------------------------------------------
+
+// CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession
+
+// optional uint32 time_start = 1;
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_has_time_start() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::has_time_start() const {
+  return _internal_has_time_start();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::clear_time_start() {
+  time_start_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_time_start() const {
+  return time_start_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::time_start() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.time_start)
+  return _internal_time_start();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_set_time_start(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  time_start_ = value;
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::set_time_start(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_time_start(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.time_start)
+}
+
+// optional uint32 time_end = 2;
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_has_time_end() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::has_time_end() const {
+  return _internal_has_time_end();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::clear_time_end() {
+  time_end_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_time_end() const {
+  return time_end_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::time_end() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.time_end)
+  return _internal_time_end();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_set_time_end(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  time_end_ = value;
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::set_time_end(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_time_end(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.time_end)
+}
+
+// optional uint32 appid = 3;
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_has_appid() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::clear_appid() {
+  appid_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_appid() const {
+  return appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::appid() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.appid)
+  return _internal_appid();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  appid_ = value;
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.appid)
+}
+
+// optional uint32 device_type = 4;
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_has_device_type() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::has_device_type() const {
+  return _internal_has_device_type();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::clear_device_type() {
+  device_type_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_device_type() const {
+  return device_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::device_type() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.device_type)
+  return _internal_device_type();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_set_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  device_type_ = value;
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::set_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_device_type(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.device_type)
+}
+
+// optional bool disconnected = 5;
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_has_disconnected() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::has_disconnected() const {
+  return _internal_has_disconnected();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::clear_disconnected() {
+  disconnected_ = false;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_disconnected() const {
+  return disconnected_;
+}
+inline bool CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::disconnected() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.disconnected)
+  return _internal_disconnected();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::_internal_set_disconnected(bool value) {
+  _has_bits_[0] |= 0x00000010u;
+  disconnected_ = value;
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession::set_disconnected(bool value) {
+  _internal_set_disconnected(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession.disconnected)
+}
+
+// -------------------------------------------------------------------
+
+// CPlayer_GetRecentPlaytimeSessionsForChild_Response
+
+// repeated .CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession sessions = 1;
+inline int CPlayer_GetRecentPlaytimeSessionsForChild_Response::_internal_sessions_size() const {
+  return sessions_.size();
+}
+inline int CPlayer_GetRecentPlaytimeSessionsForChild_Response::sessions_size() const {
+  return _internal_sessions_size();
+}
+inline void CPlayer_GetRecentPlaytimeSessionsForChild_Response::clear_sessions() {
+  sessions_.Clear();
+}
+inline ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* CPlayer_GetRecentPlaytimeSessionsForChild_Response::mutable_sessions(int index) {
+  // @@protoc_insertion_point(field_mutable:CPlayer_GetRecentPlaytimeSessionsForChild_Response.sessions)
+  return sessions_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession >*
+CPlayer_GetRecentPlaytimeSessionsForChild_Response::mutable_sessions() {
+  // @@protoc_insertion_point(field_mutable_list:CPlayer_GetRecentPlaytimeSessionsForChild_Response.sessions)
+  return &sessions_;
+}
+inline const ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& CPlayer_GetRecentPlaytimeSessionsForChild_Response::_internal_sessions(int index) const {
+  return sessions_.Get(index);
+}
+inline const ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession& CPlayer_GetRecentPlaytimeSessionsForChild_Response::sessions(int index) const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetRecentPlaytimeSessionsForChild_Response.sessions)
+  return _internal_sessions(index);
+}
+inline ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* CPlayer_GetRecentPlaytimeSessionsForChild_Response::_internal_add_sessions() {
+  return sessions_.Add();
+}
+inline ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession* CPlayer_GetRecentPlaytimeSessionsForChild_Response::add_sessions() {
+  // @@protoc_insertion_point(field_add:CPlayer_GetRecentPlaytimeSessionsForChild_Response.sessions)
+  return _internal_add_sessions();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession >&
+CPlayer_GetRecentPlaytimeSessionsForChild_Response::sessions() const {
+  // @@protoc_insertion_point(field_list:CPlayer_GetRecentPlaytimeSessionsForChild_Response.sessions)
+  return sessions_;
+}
+
+// -------------------------------------------------------------------
+
 // CPlayer_GetPlayerLinkDetails_Request
 
 // repeated uint64 steamids = 1;
@@ -42517,6 +43269,12 @@ inline void CPlayer_PrivacySettingsChanged_Notification::set_allocated_privacy_s
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

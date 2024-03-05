@@ -217,7 +217,8 @@ constexpr CPublishedFile_GetDetails_Request::CPublishedFile_GetDetails_Request(
   , desired_revision_(0)
 
   , strip_description_bbcode_(false)
-  , includereactions_(false){}
+  , includereactions_(false)
+  , admin_query_(false){}
 struct CPublishedFile_GetDetails_RequestDefaultTypeInternal {
   constexpr CPublishedFile_GetDetails_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -541,20 +542,21 @@ constexpr CPublishedFile_GetUserFiles_Request::CPublishedFile_GetUserFiles_Reque
   , privacy_(0u)
   , filetype_(0u)
   , creator_appid_(0u)
+  , admin_query_(false)
   , totalonly_(false)
   , ids_only_(false)
   , return_tags_(false)
   , return_previews_(false)
-  , startindex_override_(0u)
-  , cache_max_age_seconds_(0u)
   , return_children_(false)
   , return_for_sale_data_(false)
   , return_metadata_(false)
-  , strip_description_bbcode_(false)
+  , startindex_override_(0u)
+  , cache_max_age_seconds_(0u)
   , language_(0)
   , return_playtime_stats_(0u)
   , desired_revision_(0)
 
+  , strip_description_bbcode_(false)
   , return_reactions_(false)
   , return_apps_(false)
   , return_vote_data_(true)
@@ -858,25 +860,26 @@ constexpr CPublishedFile_QueryFiles_Request::CPublishedFile_QueryFiles_Request(
   , child_publishedfileid_(PROTOBUF_ULONGLONG(0))
   , filetype_(0u)
   , days_(0u)
+  , return_vote_data_(false)
   , return_tags_(false)
   , return_kv_tags_(false)
   , return_previews_(false)
   , return_children_(false)
-  , include_recent_votes_only_(false)
-  , totalonly_(false)
-  , ids_only_(false)
-  , return_vote_data_(false)
   , return_short_description_(false)
   , return_for_sale_data_(false)
   , return_metadata_(false)
-  , return_details_(false)
+  , include_recent_votes_only_(false)
+  , admin_query_(false)
+  , totalonly_(false)
+  , ids_only_(false)
   , cache_max_age_seconds_(0u)
   , language_(0)
   , return_playtime_stats_(0u)
-  , desired_revision_(0)
-
+  , return_details_(false)
   , strip_description_bbcode_(false)
   , return_reactions_(false)
+  , desired_revision_(0)
+
   , numperpage_(1u)
   , match_all_tags_(true){}
 struct CPublishedFile_QueryFiles_RequestDefaultTypeInternal {
@@ -1623,6 +1626,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetDetails_Request, strip_description_bbcode_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetDetails_Request, desired_revision_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetDetails_Request, includereactions_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetDetails_Request, admin_query_),
   ~0u,
   0,
   1,
@@ -1638,6 +1642,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   12,
   11,
   13,
+  14,
   PROTOBUF_FIELD_OFFSET(::PublishedFileDetails_Tag, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::PublishedFileDetails_Tag, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1975,6 +1980,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Request, language_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Request, taggroups_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Request, excluded_content_descriptors_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Request, admin_query_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Request, totalonly_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Request, ids_only_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Request, return_vote_data_),
@@ -1994,8 +2000,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   3,
   4,
   5,
-  27,
   28,
+  29,
   0,
   1,
   6,
@@ -2005,26 +2011,27 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   7,
   8,
   2,
-  14,
+  18,
   19,
   ~0u,
   ~0u,
   9,
   10,
-  24,
   11,
   25,
   12,
-  15,
   26,
-  16,
-  17,
-  20,
-  18,
-  22,
   13,
-  21,
+  14,
+  27,
+  15,
+  16,
+  20,
+  22,
   23,
+  17,
+  21,
+  24,
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Response_App, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserFiles_Response_App, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2260,6 +2267,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Request, date_range_created_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Request, date_range_updated_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Request, excluded_content_descriptors_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Request, admin_query_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Request, totalonly_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Request, ids_only_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Request, return_vote_data_),
@@ -2278,19 +2286,19 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   4,
   5,
   1,
-  29,
+  30,
   6,
   7,
   ~0u,
   ~0u,
-  30,
+  31,
   ~0u,
   ~0u,
   0,
   9,
   8,
   10,
-  15,
+  19,
   23,
   24,
   ~0u,
@@ -2298,20 +2306,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   2,
   3,
   ~0u,
-  16,
-  17,
-  18,
+  20,
+  21,
+  22,
   11,
   12,
   13,
   14,
-  19,
-  20,
-  21,
+  15,
+  16,
+  17,
+  18,
   25,
-  22,
-  27,
   26,
+  27,
+  29,
   28,
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_QueryFiles_Response, _internal_metadata_),
@@ -2703,88 +2712,88 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 92, -1, sizeof(::CPublishedFile_GetSubSectionData_Response)},
   { 98, 119, sizeof(::CPublishedFile_Publish_Request)},
   { 135, 142, sizeof(::CPublishedFile_Publish_Response)},
-  { 144, 164, sizeof(::CPublishedFile_GetDetails_Request)},
-  { 179, 187, sizeof(::PublishedFileDetails_Tag)},
-  { 190, 203, sizeof(::PublishedFileDetails_Preview)},
-  { 211, 219, sizeof(::PublishedFileDetails_Child)},
-  { 222, 229, sizeof(::PublishedFileDetails_KVTag)},
-  { 231, 239, sizeof(::PublishedFileDetails_VoteData)},
-  { 242, 253, sizeof(::PublishedFileDetails_ForSaleData)},
-  { 259, 266, sizeof(::PublishedFileDetails_PlaytimeStats)},
-  { 268, 275, sizeof(::PublishedFileDetails_Reaction)},
-  { 277, 354, sizeof(::PublishedFileDetails)},
-  { 426, -1, sizeof(::CPublishedFile_GetDetails_Response)},
-  { 432, 440, sizeof(::CPublishedFile_GetItemInfo_Request_WorkshopItem)},
-  { 443, 451, sizeof(::CPublishedFile_GetItemInfo_Request)},
-  { 454, 463, sizeof(::CPublishedFile_GetItemInfo_Response_WorkshopItemInfo)},
-  { 467, 475, sizeof(::CPublishedFile_GetItemInfo_Response)},
-  { 478, 485, sizeof(::CPublishedFile_GetUserFiles_Request_KVTag)},
-  { 487, -1, sizeof(::CPublishedFile_GetUserFiles_Request_TagGroup)},
-  { 493, 532, sizeof(::CPublishedFile_GetUserFiles_Request)},
-  { 566, 575, sizeof(::CPublishedFile_GetUserFiles_Response_App)},
-  { 579, 588, sizeof(::CPublishedFile_GetUserFiles_Response)},
-  { 592, 602, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Request)},
-  { 607, 614, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Response_InList)},
-  { 616, -1, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Response)},
-  { 622, 639, sizeof(::CPublishedFile_Update_Request)},
-  { 651, -1, sizeof(::CPublishedFile_Update_Response)},
-  { 656, 663, sizeof(::CPublishedFile_Delete_Request)},
-  { 665, -1, sizeof(::CPublishedFile_Delete_Response)},
-  { 670, 678, sizeof(::CPublishedFile_GetChangeHistoryEntry_Request)},
-  { 681, 688, sizeof(::CPublishedFile_GetChangeHistoryEntry_Response)},
-  { 690, 700, sizeof(::CPublishedFile_GetChangeHistory_Request)},
-  { 705, 713, sizeof(::CPublishedFile_GetChangeHistory_Response_ChangeLog)},
-  { 716, 723, sizeof(::CPublishedFile_GetChangeHistory_Response)},
-  { 725, 737, sizeof(::CPublishedFile_RefreshVotingQueue_Request)},
-  { 744, -1, sizeof(::CPublishedFile_RefreshVotingQueue_Response)},
-  { 749, 756, sizeof(::CPublishedFile_QueryFiles_Request_KVTag)},
-  { 758, -1, sizeof(::CPublishedFile_QueryFiles_Request_TagGroup)},
-  { 764, 771, sizeof(::CPublishedFile_QueryFiles_Request_DateRange)},
-  { 773, 816, sizeof(::CPublishedFile_QueryFiles_Request)},
-  { 854, 862, sizeof(::CPublishedFile_QueryFiles_Response)},
-  { 865, 873, sizeof(::CPublishedFile_AddAppRelationship_Request)},
-  { 876, -1, sizeof(::CPublishedFile_AddAppRelationship_Response)},
-  { 881, 889, sizeof(::CPublishedFile_RemoveAppRelationship_Request)},
-  { 892, -1, sizeof(::CPublishedFile_RemoveAppRelationship_Response)},
-  { 897, 903, sizeof(::CPublishedFile_GetAppRelationships_Request)},
-  { 904, 911, sizeof(::CPublishedFile_GetAppRelationships_Response_AppRelationship)},
-  { 913, -1, sizeof(::CPublishedFile_GetAppRelationships_Response)},
-  { 919, 926, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Request)},
-  { 928, 935, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship)},
-  { 937, 945, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship)},
-  { 948, -1, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response)},
-  { 954, 961, sizeof(::CPublishedFile_StartPlaytimeTracking_Request)},
-  { 963, -1, sizeof(::CPublishedFile_StartPlaytimeTracking_Response)},
-  { 968, 975, sizeof(::CPublishedFile_StopPlaytimeTracking_Request)},
-  { 977, -1, sizeof(::CPublishedFile_StopPlaytimeTracking_Response)},
-  { 982, 988, sizeof(::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request)},
-  { 989, -1, sizeof(::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response)},
-  { 994, 1001, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage)},
-  { 1003, 1010, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Request)},
-  { 1012, -1, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Response)},
-  { 1017, 1024, sizeof(::CPublishedFile_AddChild_Request)},
-  { 1026, -1, sizeof(::CPublishedFile_AddChild_Response)},
-  { 1031, 1038, sizeof(::CPublishedFile_RemoveChild_Request)},
-  { 1040, -1, sizeof(::CPublishedFile_RemoveChild_Response)},
-  { 1045, 1053, sizeof(::CPublishedFile_SetCollectionChildren_Request)},
-  { 1056, -1, sizeof(::CPublishedFile_SetCollectionChildren_Response)},
-  { 1061, 1070, sizeof(::CPublishedFile_SetSubscriptionListFromCollection_Request)},
-  { 1074, -1, sizeof(::CPublishedFile_SetSubscriptionListFromCollection_Response)},
-  { 1079, -1, sizeof(::CPublishedFile_GetUserVoteSummary_Request)},
-  { 1085, 1094, sizeof(::CPublishedFile_GetUserVoteSummary_Response_VoteSummary)},
-  { 1098, -1, sizeof(::CPublishedFile_GetUserVoteSummary_Response)},
-  { 1104, 1112, sizeof(::CPublishedFile_GetItemChanges_Request)},
-  { 1115, 1123, sizeof(::CPublishedFile_GetItemChanges_Response_WorkshopItemInfo)},
-  { 1126, 1133, sizeof(::CPublishedFile_GetItemChanges_Response)},
-  { 1135, 1141, sizeof(::CPublishedFile_GetContentDescriptors_Request)},
-  { 1142, 1151, sizeof(::CPublishedFile_GetContentDescriptors_Response_ContentDescriptor)},
-  { 1155, -1, sizeof(::CPublishedFile_GetContentDescriptors_Response)},
-  { 1161, 1169, sizeof(::CPublishedFile_UpdateContentDescriptors_Request)},
-  { 1172, 1178, sizeof(::CPublishedFile_UpdateContentDescriptors_Response)},
-  { 1179, 1187, sizeof(::CPublishedFile_FileSubscribed_Notification_RevisionData)},
-  { 1190, 1203, sizeof(::CPublishedFile_FileSubscribed_Notification)},
-  { 1211, 1218, sizeof(::CPublishedFile_FileUnsubscribed_Notification)},
-  { 1220, 1227, sizeof(::CPublishedFile_FileDeleted_Client_Notification)},
+  { 144, 165, sizeof(::CPublishedFile_GetDetails_Request)},
+  { 181, 189, sizeof(::PublishedFileDetails_Tag)},
+  { 192, 205, sizeof(::PublishedFileDetails_Preview)},
+  { 213, 221, sizeof(::PublishedFileDetails_Child)},
+  { 224, 231, sizeof(::PublishedFileDetails_KVTag)},
+  { 233, 241, sizeof(::PublishedFileDetails_VoteData)},
+  { 244, 255, sizeof(::PublishedFileDetails_ForSaleData)},
+  { 261, 268, sizeof(::PublishedFileDetails_PlaytimeStats)},
+  { 270, 277, sizeof(::PublishedFileDetails_Reaction)},
+  { 279, 356, sizeof(::PublishedFileDetails)},
+  { 428, -1, sizeof(::CPublishedFile_GetDetails_Response)},
+  { 434, 442, sizeof(::CPublishedFile_GetItemInfo_Request_WorkshopItem)},
+  { 445, 453, sizeof(::CPublishedFile_GetItemInfo_Request)},
+  { 456, 465, sizeof(::CPublishedFile_GetItemInfo_Response_WorkshopItemInfo)},
+  { 469, 477, sizeof(::CPublishedFile_GetItemInfo_Response)},
+  { 480, 487, sizeof(::CPublishedFile_GetUserFiles_Request_KVTag)},
+  { 489, -1, sizeof(::CPublishedFile_GetUserFiles_Request_TagGroup)},
+  { 495, 535, sizeof(::CPublishedFile_GetUserFiles_Request)},
+  { 570, 579, sizeof(::CPublishedFile_GetUserFiles_Response_App)},
+  { 583, 592, sizeof(::CPublishedFile_GetUserFiles_Response)},
+  { 596, 606, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Request)},
+  { 611, 618, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Response_InList)},
+  { 620, -1, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Response)},
+  { 626, 643, sizeof(::CPublishedFile_Update_Request)},
+  { 655, -1, sizeof(::CPublishedFile_Update_Response)},
+  { 660, 667, sizeof(::CPublishedFile_Delete_Request)},
+  { 669, -1, sizeof(::CPublishedFile_Delete_Response)},
+  { 674, 682, sizeof(::CPublishedFile_GetChangeHistoryEntry_Request)},
+  { 685, 692, sizeof(::CPublishedFile_GetChangeHistoryEntry_Response)},
+  { 694, 704, sizeof(::CPublishedFile_GetChangeHistory_Request)},
+  { 709, 717, sizeof(::CPublishedFile_GetChangeHistory_Response_ChangeLog)},
+  { 720, 727, sizeof(::CPublishedFile_GetChangeHistory_Response)},
+  { 729, 741, sizeof(::CPublishedFile_RefreshVotingQueue_Request)},
+  { 748, -1, sizeof(::CPublishedFile_RefreshVotingQueue_Response)},
+  { 753, 760, sizeof(::CPublishedFile_QueryFiles_Request_KVTag)},
+  { 762, -1, sizeof(::CPublishedFile_QueryFiles_Request_TagGroup)},
+  { 768, 775, sizeof(::CPublishedFile_QueryFiles_Request_DateRange)},
+  { 777, 821, sizeof(::CPublishedFile_QueryFiles_Request)},
+  { 860, 868, sizeof(::CPublishedFile_QueryFiles_Response)},
+  { 871, 879, sizeof(::CPublishedFile_AddAppRelationship_Request)},
+  { 882, -1, sizeof(::CPublishedFile_AddAppRelationship_Response)},
+  { 887, 895, sizeof(::CPublishedFile_RemoveAppRelationship_Request)},
+  { 898, -1, sizeof(::CPublishedFile_RemoveAppRelationship_Response)},
+  { 903, 909, sizeof(::CPublishedFile_GetAppRelationships_Request)},
+  { 910, 917, sizeof(::CPublishedFile_GetAppRelationships_Response_AppRelationship)},
+  { 919, -1, sizeof(::CPublishedFile_GetAppRelationships_Response)},
+  { 925, 932, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Request)},
+  { 934, 941, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship)},
+  { 943, 951, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship)},
+  { 954, -1, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response)},
+  { 960, 967, sizeof(::CPublishedFile_StartPlaytimeTracking_Request)},
+  { 969, -1, sizeof(::CPublishedFile_StartPlaytimeTracking_Response)},
+  { 974, 981, sizeof(::CPublishedFile_StopPlaytimeTracking_Request)},
+  { 983, -1, sizeof(::CPublishedFile_StopPlaytimeTracking_Response)},
+  { 988, 994, sizeof(::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request)},
+  { 995, -1, sizeof(::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response)},
+  { 1000, 1007, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage)},
+  { 1009, 1016, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Request)},
+  { 1018, -1, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Response)},
+  { 1023, 1030, sizeof(::CPublishedFile_AddChild_Request)},
+  { 1032, -1, sizeof(::CPublishedFile_AddChild_Response)},
+  { 1037, 1044, sizeof(::CPublishedFile_RemoveChild_Request)},
+  { 1046, -1, sizeof(::CPublishedFile_RemoveChild_Response)},
+  { 1051, 1059, sizeof(::CPublishedFile_SetCollectionChildren_Request)},
+  { 1062, -1, sizeof(::CPublishedFile_SetCollectionChildren_Response)},
+  { 1067, 1076, sizeof(::CPublishedFile_SetSubscriptionListFromCollection_Request)},
+  { 1080, -1, sizeof(::CPublishedFile_SetSubscriptionListFromCollection_Response)},
+  { 1085, -1, sizeof(::CPublishedFile_GetUserVoteSummary_Request)},
+  { 1091, 1100, sizeof(::CPublishedFile_GetUserVoteSummary_Response_VoteSummary)},
+  { 1104, -1, sizeof(::CPublishedFile_GetUserVoteSummary_Response)},
+  { 1110, 1118, sizeof(::CPublishedFile_GetItemChanges_Request)},
+  { 1121, 1129, sizeof(::CPublishedFile_GetItemChanges_Response_WorkshopItemInfo)},
+  { 1132, 1139, sizeof(::CPublishedFile_GetItemChanges_Response)},
+  { 1141, 1147, sizeof(::CPublishedFile_GetContentDescriptors_Request)},
+  { 1148, 1157, sizeof(::CPublishedFile_GetContentDescriptors_Response_ContentDescriptor)},
+  { 1161, -1, sizeof(::CPublishedFile_GetContentDescriptors_Response)},
+  { 1167, 1175, sizeof(::CPublishedFile_UpdateContentDescriptors_Request)},
+  { 1178, 1184, sizeof(::CPublishedFile_UpdateContentDescriptors_Response)},
+  { 1185, 1193, sizeof(::CPublishedFile_FileSubscribed_Notification_RevisionData)},
+  { 1196, 1209, sizeof(::CPublishedFile_FileSubscribed_Notification)},
+  { 1217, 1224, sizeof(::CPublishedFile_FileUnsubscribed_Notification)},
+  { 1226, 1233, sizeof(::CPublishedFile_FileDeleted_Client_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2926,7 +2935,7 @@ const char descriptor_table_protodef_steammessages_5fpublishedfile_2esteamclient
   "\022\014\n\004tags\030\r \003(\t\022\027\n\017collection_type\030\016 \001(\t\022"
   "\021\n\tgame_type\030\017 \001(\t\022\013\n\003url\030\020 \001(\t\"P\n\037CPubl"
   "ishedFile_Publish_Response\022\027\n\017publishedf"
-  "ileid\030\001 \001(\004\022\024\n\014redirect_uri\030\002 \001(\t\"\344\003\n!CP"
+  "ileid\030\001 \001(\004\022\024\n\014redirect_uri\030\002 \001(\t\"\371\003\n!CP"
   "ublishedFile_GetDetails_Request\022\030\n\020publi"
   "shedfileids\030\001 \003(\006\022\023\n\013includetags\030\002 \001(\010\022!"
   "\n\031includeadditionalpreviews\030\003 \001(\010\022\027\n\017inc"
@@ -2939,423 +2948,424 @@ const char descriptor_table_protodef_steammessages_5fpublishedfile_2esteamclient
   " \001(\010\022Q\n\020desired_revision\030\020 \001(\0162\027.EPublis"
   "hedFileRevision:\036EPublishedFileRevision_"
   "Default\022\037\n\020includereactions\030\021 \001(\010:\005false"
-  "\"\374\025\n\024PublishedFileDetails\022\016\n\006result\030\001 \001("
-  "\r\022\027\n\017publishedfileid\030\002 \001(\004\022\017\n\007creator\030\003 "
-  "\001(\006\022\025\n\rcreator_appid\030\004 \001(\r\022\026\n\016consumer_a"
-  "ppid\030\005 \001(\r\022\033\n\023consumer_shortcutid\030\006 \001(\r\022"
-  "\020\n\010filename\030\007 \001(\t\022\021\n\tfile_size\030\010 \001(\004\022\031\n\021"
-  "preview_file_size\030\t \001(\004\022\020\n\010file_url\030\n \001("
-  "\t\022\023\n\013preview_url\030\013 \001(\t\022\026\n\016youtubevideoid"
-  "\030\014 \001(\t\022\013\n\003url\030\r \001(\t\022\025\n\rhcontent_file\030\016 \001"
-  "(\006\022\030\n\020hcontent_preview\030\017 \001(\006\022\r\n\005title\030\020 "
-  "\001(\t\022\030\n\020file_description\030\021 \001(\t\022\031\n\021short_d"
-  "escription\030\022 \001(\t\022\024\n\014time_created\030\023 \001(\r\022\024"
-  "\n\014time_updated\030\024 \001(\r\022\022\n\nvisibility\030\025 \001(\r"
-  "\022\r\n\005flags\030\026 \001(\r\022\025\n\rworkshop_file\030\027 \001(\010\022\031"
-  "\n\021workshop_accepted\030\030 \001(\010\022\032\n\022show_subscr"
-  "ibe_all\030\031 \001(\010\022\036\n\026num_comments_developer\030"
-  "\032 \001(\005\022\033\n\023num_comments_public\030\033 \001(\005\022\016\n\006ba"
-  "nned\030\034 \001(\010\022\022\n\nban_reason\030\035 \001(\t\022\016\n\006banner"
-  "\030\036 \001(\006\022\026\n\016can_be_deleted\030\037 \001(\010\022\024\n\014incomp"
-  "atible\030  \001(\010\022\020\n\010app_name\030! \001(\t\022\021\n\tfile_t"
-  "ype\030\" \001(\r\022\025\n\rcan_subscribe\030# \001(\010\022\025\n\rsubs"
-  "criptions\030$ \001(\r\022\021\n\tfavorited\030% \001(\r\022\021\n\tfo"
-  "llowers\030& \001(\r\022\036\n\026lifetime_subscriptions\030"
-  "\' \001(\r\022\032\n\022lifetime_favorited\030( \001(\r\022\032\n\022lif"
-  "etime_followers\030) \001(\r\022\031\n\021lifetime_playti"
-  "me\030> \001(\004\022\"\n\032lifetime_playtime_sessions\030\?"
-  " \001(\004\022\r\n\005views\030* \001(\r\022\023\n\013image_width\030+ \001(\r"
-  "\022\024\n\014image_height\030, \001(\r\022\021\n\timage_url\030- \001("
-  "\t\022\023\n\013spoiler_tag\030. \001(\010\022\022\n\nshortcutid\030/ \001"
-  "(\r\022\024\n\014shortcutname\0300 \001(\t\022\024\n\014num_children"
-  "\0301 \001(\r\022\023\n\013num_reports\0302 \001(\r\022/\n\010previews\030"
-  "3 \003(\0132\035.PublishedFileDetails.Preview\022\'\n\004"
-  "tags\0304 \003(\0132\031.PublishedFileDetails.Tag\022-\n"
-  "\010children\0305 \003(\0132\033.PublishedFileDetails.C"
-  "hild\022+\n\006kvtags\0306 \003(\0132\033.PublishedFileDeta"
-  "ils.KVTag\0221\n\tvote_data\0307 \001(\0132\036.Published"
-  "FileDetails.VoteData\022;\n\016playtime_stats\030@"
-  " \001(\0132#.PublishedFileDetails.PlaytimeStat"
-  "s\022\027\n\017time_subscribed\0308 \001(\r\0228\n\rfor_sale_d"
-  "ata\0309 \001(\0132!.PublishedFileDetails.ForSale"
-  "Data\022\020\n\010metadata\030: \001(\t\022\023\n\010language\030= \001(\005"
-  ":\0010\022\037\n\027maybe_inappropriate_sex\030A \001(\010\022$\n\034"
-  "maybe_inappropriate_violence\030B \001(\010\0224\n\025co"
-  "ntent_descriptorids\030H \003(\0162\025.EContentDesc"
-  "riptorID\022\036\n\026revision_change_number\030C \001(\004"
-  "\022I\n\010revision\030D \001(\0162\027.EPublishedFileRevis"
-  "ion:\036EPublishedFileRevision_Default\0224\n\023a"
-  "vailable_revisions\030E \003(\0162\027.EPublishedFil"
-  "eRevision\0221\n\treactions\030F \003(\0132\036.Published"
-  "FileDetails.Reaction\022W\n\023ban_text_checres"
-  "ult\030G \001(\0162\027.EBanContentCheckResult:!EBan"
-  "ContentCheckResult_NotScanned\022\024\n\014search_"
-  "score\030I \001(\002\022\031\n\021external_asset_id\030J \001(\004\032;"
-  "\n\003Tag\022\013\n\003tag\030\001 \001(\t\022\021\n\tadminonly\030\002 \001(\010\022\024\n"
-  "\014display_name\030\003 \001(\t\032\246\001\n\007Preview\022\021\n\tprevi"
-  "ewid\030\001 \001(\004\022\021\n\tsortorder\030\002 \001(\r\022\013\n\003url\030\003 \001"
-  "(\t\022\014\n\004size\030\004 \001(\r\022\020\n\010filename\030\005 \001(\t\022\026\n\016yo"
-  "utubevideoid\030\006 \001(\t\022\024\n\014preview_type\030\007 \001(\r"
-  "\022\032\n\022external_reference\030\010 \001(\t\032F\n\005Child\022\027\n"
-  "\017publishedfileid\030\001 \001(\004\022\021\n\tsortorder\030\002 \001("
-  "\r\022\021\n\tfile_type\030\003 \001(\r\032#\n\005KVTag\022\013\n\003key\030\001 \001"
-  "(\t\022\r\n\005value\030\002 \001(\t\032\?\n\010VoteData\022\r\n\005score\030\001"
-  " \001(\002\022\020\n\010votes_up\030\002 \001(\r\022\022\n\nvotes_down\030\003 \001"
-  "(\r\032\332\001\n\013ForSaleData\022\023\n\013is_for_sale\030\001 \001(\010\022"
-  "\026\n\016price_category\030\002 \001(\r\022\?\n\007estatus\030\003 \001(\016"
-  "2\034.EPublishedFileForSaleStatus:\020PFFSS_No"
-  "tForSale\022\034\n\024price_category_floor\030\004 \001(\r\022\""
-  "\n\032price_is_pay_what_you_want\030\005 \001(\010\022\033\n\023di"
-  "scount_percentage\030\006 \001(\r\032\?\n\rPlaytimeStats"
-  "\022\030\n\020playtime_seconds\030\001 \001(\004\022\024\n\014num_sessio"
-  "ns\030\002 \001(\004\032-\n\010Reaction\022\022\n\nreactionid\030\001 \001(\r"
-  "\022\r\n\005count\030\002 \001(\r\"Y\n\"CPublishedFile_GetDet"
-  "ails_Response\0223\n\024publishedfiledetails\030\001 "
-  "\003(\0132\025.PublishedFileDetails\"\255\002\n\"CPublishe"
-  "dFile_GetItemInfo_Request\022\r\n\005appid\030\001 \001(\r"
-  "\022\031\n\021last_time_updated\030\002 \001(\r\022H\n\016workshop_"
-  "items\030\003 \003(\01320.CPublishedFile_GetItemInfo"
-  "_Request.WorkshopItem\032\222\001\n\014WorkshopItem\022\031"
-  "\n\021published_file_id\030\001 \001(\006\022\024\n\014time_update"
-  "d\030\002 \001(\r\022Q\n\020desired_revision\030\003 \001(\0162\027.EPub"
-  "lishedFileRevision:\036EPublishedFileRevisi"
-  "on_Default\"\211\002\n#CPublishedFile_GetItemInf"
-  "o_Response\022\023\n\013update_time\030\001 \001(\r\022M\n\016works"
-  "hop_items\030\002 \003(\01325.CPublishedFile_GetItem"
-  "Info_Response.WorkshopItemInfo\022\025\n\rprivat"
-  "e_items\030\003 \003(\006\032g\n\020WorkshopItemInfo\022\031\n\021pub"
-  "lished_file_id\030\001 \001(\006\022\024\n\014time_updated\030\002 \001"
-  "(\r\022\023\n\013manifest_id\030\003 \001(\006\022\r\n\005flags\030\004 \001(\r\"\357"
-  "\010\n#CPublishedFile_GetUserFiles_Request\022\017"
-  "\n\007steamid\030\001 \001(\006\022\r\n\005appid\030\002 \001(\r\022\022\n\nshortc"
-  "utid\030\003 \001(\r\022\017\n\004page\030\004 \001(\r:\0011\022\025\n\nnumperpag"
-  "e\030\005 \001(\r:\0011\022\025\n\004type\030\006 \001(\t:\007myfiles\022\037\n\nsor"
-  "tmethod\030\007 \001(\t:\013lastupdated\022\017\n\007privacy\030\t "
-  "\001(\r\022\024\n\014requiredtags\030\n \003(\t\022\024\n\014excludedtag"
-  "s\030\013 \003(\t\022D\n\020required_kv_tags\030\036 \003(\0132*.CPub"
-  "lishedFile_GetUserFiles_Request.KVTag\022\020\n"
-  "\010filetype\030\016 \001(\r\022\025\n\rcreator_appid\030\017 \001(\r\022\034"
-  "\n\024match_cloud_filename\030\020 \001(\t\022 \n\025cache_ma"
-  "x_age_seconds\030\033 \001(\r:\0010\022\023\n\010language\030\035 \001(\005"
-  ":\0010\022@\n\ttaggroups\030\" \003(\0132-.CPublishedFile_"
-  "GetUserFiles_Request.TagGroup\022;\n\034exclude"
-  "d_content_descriptors\030% \003(\0162\025.EContentDe"
-  "scriptorID\022\021\n\ttotalonly\030\021 \001(\010\022\020\n\010ids_onl"
-  "y\030\022 \001(\010\022\036\n\020return_vote_data\030\023 \001(\010:\004true\022"
-  "\023\n\013return_tags\030\024 \001(\010\022\034\n\016return_kv_tags\030\025"
-  " \001(\010:\004true\022\027\n\017return_previews\030\026 \001(\010\022\027\n\017r"
-  "eturn_children\030\027 \001(\010\022&\n\030return_short_des"
-  "cription\030\030 \001(\010:\004true\022\034\n\024return_for_sale_"
-  "data\030\032 \001(\010\022\036\n\017return_metadata\030\034 \001(\010:\005fal"
-  "se\022\035\n\025return_playtime_stats\030\037 \001(\r\022 \n\030str"
-  "ip_description_bbcode\030  \001(\010\022\037\n\020return_re"
-  "actions\030# \001(\010:\005false\022\033\n\023startindex_overr"
-  "ide\030\031 \001(\r\022Q\n\020desired_revision\030! \001(\0162\027.EP"
-  "ublishedFileRevision:\036EPublishedFileRevi"
-  "sion_Default\022\023\n\013return_apps\030$ \001(\010\032#\n\005KVT"
-  "ag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\032\030\n\010TagGro"
-  "up\022\014\n\004tags\030\001 \003(\t\"\200\002\n$CPublishedFile_GetU"
-  "serFiles_Response\022\r\n\005total\030\001 \001(\r\022\022\n\nstar"
-  "tindex\030\002 \001(\r\0223\n\024publishedfiledetails\030\003 \003"
-  "(\0132\025.PublishedFileDetails\0227\n\004apps\030\004 \003(\0132"
-  ").CPublishedFile_GetUserFiles_Response.A"
-  "pp\032G\n\003App\022\r\n\005appid\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\022"
-  "\n\nshortcutid\030\003 \001(\r\022\017\n\007private\030\004 \001(\010\"\232\001\n1"
-  "CPublishedFile_AreFilesInSubscriptionLis"
-  "t_Request\022\r\n\005appid\030\001 \001(\r\022\030\n\020publishedfil"
-  "eids\030\002 \003(\006\022\020\n\010listtype\030\003 \001(\r\022\020\n\010filetype"
-  "\030\004 \001(\r\022\030\n\020workshopfiletype\030\005 \001(\r\"\262\001\n2CPu"
-  "blishedFile_AreFilesInSubscriptionList_R"
-  "esponse\022I\n\005files\030\001 \003(\0132:.CPublishedFile_"
-  "AreFilesInSubscriptionList_Response.InLi"
-  "st\0321\n\006InList\022\027\n\017publishedfileid\030\001 \001(\006\022\016\n"
-  "\006inlist\030\002 \001(\010\"\220\002\n\035CPublishedFile_Update_"
-  "Request\022\r\n\005appid\030\001 \001(\r\022\027\n\017publishedfilei"
-  "d\030\002 \001(\006\022\r\n\005title\030\003 \001(\t\022\030\n\020file_descripti"
-  "on\030\004 \001(\t\022\022\n\nvisibility\030\005 \001(\r\022\014\n\004tags\030\006 \003"
-  "(\t\022\020\n\010filename\030\007 \001(\t\022\030\n\020preview_filename"
-  "\030\010 \001(\t\022\023\n\013spoiler_tag\030\n \001(\010\022\023\n\013image_wid"
-  "th\030\017 \001(\r\022\024\n\014image_height\030\020 \001(\r\022\020\n\010langua"
-  "ge\030\021 \001(\005\" \n\036CPublishedFile_Update_Respon"
-  "se\"G\n\035CPublishedFile_Delete_Request\022\027\n\017p"
-  "ublishedfileid\030\001 \001(\006\022\r\n\005appid\030\005 \001(\r\" \n\036C"
-  "PublishedFile_Delete_Response\"l\n,CPublis"
-  "hedFile_GetChangeHistoryEntry_Request\022\027\n"
-  "\017publishedfileid\030\001 \001(\006\022\021\n\ttimestamp\030\002 \001("
-  "\r\022\020\n\010language\030\003 \001(\005\"]\n-CPublishedFile_Ge"
-  "tChangeHistoryEntry_Response\022\032\n\022change_d"
-  "escription\030\001 \001(\t\022\020\n\010language\030\002 \001(\005\"\216\001\n\'C"
-  "PublishedFile_GetChangeHistory_Request\022\027"
-  "\n\017publishedfileid\030\001 \001(\006\022\022\n\ntotal_only\030\002 "
-  "\001(\010\022\022\n\nstartindex\030\003 \001(\r\022\r\n\005count\030\004 \001(\r\022\023"
-  "\n\010language\030\005 \001(\005:\0010\"\315\001\n(CPublishedFile_G"
-  "etChangeHistory_Response\022D\n\007changes\030\001 \003("
-  "\01323.CPublishedFile_GetChangeHistory_Resp"
-  "onse.ChangeLog\022\r\n\005total\030\002 \001(\r\032L\n\tChangeL"
-  "og\022\021\n\ttimestamp\030\001 \001(\r\022\032\n\022change_descript"
-  "ion\030\002 \001(\t\022\020\n\010language\030\003 \001(\005\"\210\002\n)CPublish"
-  "edFile_RefreshVotingQueue_Request\022\r\n\005app"
-  "id\030\001 \001(\r\022\032\n\022matching_file_type\030\002 \001(\r\022\014\n\004"
-  "tags\030\003 \003(\t\022\034\n\016match_all_tags\030\004 \001(\010:\004true"
-  "\022\025\n\rexcluded_tags\030\005 \003(\t\022\032\n\022desired_queue"
-  "_size\030\006 \001(\r\022Q\n\020desired_revision\030\010 \001(\0162\027."
-  "EPublishedFileRevision:\036EPublishedFileRe"
-  "vision_Default\",\n*CPublishedFile_Refresh"
-  "VotingQueue_Response\"\325\n\n!CPublishedFile_"
-  "QueryFiles_Request\022\022\n\nquery_type\030\001 \001(\r\022\014"
-  "\n\004page\030\002 \001(\r\022\016\n\006cursor\030\' \001(\t\022\025\n\nnumperpa"
-  "ge\030\003 \001(\r:\0011\022\025\n\rcreator_appid\030\004 \001(\r\022\r\n\005ap"
-  "pid\030\005 \001(\r\022\024\n\014requiredtags\030\006 \003(\t\022\024\n\014exclu"
-  "dedtags\030\007 \003(\t\022\034\n\016match_all_tags\030\010 \001(\010:\004t"
-  "rue\022\026\n\016required_flags\030\t \003(\t\022\025\n\romitted_f"
-  "lags\030\n \003(\t\022\023\n\013search_text\030\013 \001(\t\022\020\n\010filet"
-  "ype\030\014 \001(\r\022\035\n\025child_publishedfileid\030\r \001(\006"
-  "\022\014\n\004days\030\016 \001(\r\022!\n\031include_recent_votes_o"
-  "nly\030\017 \001(\010\022 \n\025cache_max_age_seconds\030\037 \001(\r"
-  ":\0010\022\023\n\010language\030! \001(\005:\0010\022B\n\020required_kv_"
-  "tags\030\" \003(\0132(.CPublishedFile_QueryFiles_R"
-  "equest.KVTag\022>\n\ttaggroups\030* \003(\0132+.CPubli"
-  "shedFile_QueryFiles_Request.TagGroup\022H\n\022"
-  "date_range_created\030, \001(\0132,.CPublishedFil"
-  "e_QueryFiles_Request.DateRange\022H\n\022date_r"
-  "ange_updated\030- \001(\0132,.CPublishedFile_Quer"
-  "yFiles_Request.DateRange\022;\n\034excluded_con"
-  "tent_descriptors\030. \003(\0162\025.EContentDescrip"
-  "torID\022\021\n\ttotalonly\030\020 \001(\010\022\020\n\010ids_only\030# \001"
-  "(\010\022\030\n\020return_vote_data\030\021 \001(\010\022\023\n\013return_t"
-  "ags\030\022 \001(\010\022\026\n\016return_kv_tags\030\023 \001(\010\022\027\n\017ret"
-  "urn_previews\030\024 \001(\010\022\027\n\017return_children\030\025 "
-  "\001(\010\022 \n\030return_short_description\030\026 \001(\010\022\034\n"
-  "\024return_for_sale_data\030\036 \001(\010\022\036\n\017return_me"
-  "tadata\030  \001(\010:\005false\022\035\n\025return_playtime_s"
-  "tats\030$ \001(\r\022\026\n\016return_details\030% \001(\010\022 \n\030st"
-  "rip_description_bbcode\030& \001(\010\022Q\n\020desired_"
-  "revision\030( \001(\0162\027.EPublishedFileRevision:"
-  "\036EPublishedFileRevision_Default\022\037\n\020retur"
-  "n_reactions\030+ \001(\010:\005false\032#\n\005KVTag\022\013\n\003key"
-  "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\032\030\n\010TagGroup\022\014\n\004tag"
-  "s\030\001 \003(\t\032;\n\tDateRange\022\027\n\017timestamp_start\030"
-  "\001 \001(\r\022\025\n\rtimestamp_end\030\002 \001(\r\"}\n\"CPublish"
-  "edFile_QueryFiles_Response\022\r\n\005total\030\001 \001("
-  "\r\0223\n\024publishedfiledetails\030\002 \003(\0132\025.Publis"
-  "hedFileDetails\022\023\n\013next_cursor\030\003 \001(\t\"i\n)C"
-  "PublishedFile_AddAppRelationship_Request"
-  "\022\027\n\017publishedfileid\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r"
-  "\022\024\n\014relationship\030\003 \001(\r\",\n*CPublishedFile"
-  "_AddAppRelationship_Response\"l\n,CPublish"
-  "edFile_RemoveAppRelationship_Request\022\027\n\017"
-  "publishedfileid\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r\022\024\n\014"
-  "relationship\030\003 \001(\r\"/\n-CPublishedFile_Rem"
-  "oveAppRelationship_Response\"E\n*CPublishe"
-  "dFile_GetAppRelationships_Request\022\027\n\017pub"
-  "lishedfileid\030\001 \001(\004\"\276\001\n+CPublishedFile_Ge"
-  "tAppRelationships_Response\022W\n\021app_relati"
-  "onships\030\003 \003(\0132<.CPublishedFile_GetAppRel"
-  "ationships_Response.AppRelationship\0326\n\017A"
-  "ppRelationship\022\r\n\005appid\030\001 \001(\r\022\024\n\014relatio"
-  "nship\030\002 \001(\r\"j\n1CPublishedFile_GetAppRela"
-  "tionshipsBatched_Request\022\030\n\020publishedfil"
-  "eids\030\001 \003(\004\022\033\n\023filter_relationship\030\002 \001(\r\""
-  "\377\002\n2CPublishedFile_GetAppRelationshipsBa"
-  "tched_Response\022g\n\rrelationships\030\001 \003(\0132P."
-  "CPublishedFile_GetAppRelationshipsBatche"
-  "d_Response.PublishedFileAppRelationship\032"
-  "6\n\017AppRelationship\022\r\n\005appid\030\001 \001(\r\022\024\n\014rel"
-  "ationship\030\002 \001(\r\032\247\001\n\034PublishedFileAppRela"
-  "tionship\022\027\n\017publishedfileid\030\001 \001(\004\022\016\n\006res"
-  "ult\030\002 \001(\r\022^\n\021app_relationships\030\003 \003(\0132C.C"
-  "PublishedFile_GetAppRelationshipsBatched"
-  "_Response.AppRelationship\"W\n,CPublishedF"
-  "ile_StartPlaytimeTracking_Request\022\r\n\005app"
-  "id\030\001 \001(\r\022\030\n\020publishedfileids\030\002 \003(\004\"/\n-CP"
-  "ublishedFile_StartPlaytimeTracking_Respo"
-  "nse\"V\n+CPublishedFile_StopPlaytimeTracki"
-  "ng_Request\022\r\n\005appid\030\001 \001(\r\022\030\n\020publishedfi"
-  "leids\030\002 \003(\004\".\n,CPublishedFile_StopPlayti"
-  "meTracking_Response\"J\n9CPublishedFile_St"
-  "opPlaytimeTrackingForAllAppItems_Request"
-  "\022\r\n\005appid\030\001 \001(\r\"<\n:CPublishedFile_StopPl"
-  "aytimeTrackingForAllAppItems_Response\"\201\002"
-  "\n6CPublishedFile_SetPlaytimeForControlle"
-  "rConfigs_Request\022\r\n\005appid\030\001 \001(\r\022n\n\027contr"
-  "oller_config_usage\030\002 \003(\0132M.CPublishedFil"
-  "e_SetPlaytimeForControllerConfigs_Reques"
-  "t.ControllerConfigUsage\032H\n\025ControllerCon"
-  "figUsage\022\027\n\017publishedfileid\030\001 \001(\004\022\026\n\016sec"
-  "onds_active\030\002 \001(\002\"9\n7CPublishedFile_SetP"
-  "laytimeForControllerConfigs_Response\"Y\n\037"
-  "CPublishedFile_AddChild_Request\022\027\n\017publi"
-  "shedfileid\030\001 \001(\004\022\035\n\025child_publishedfilei"
-  "d\030\002 \001(\004\"\"\n CPublishedFile_AddChild_Respo"
-  "nse\"\\\n\"CPublishedFile_RemoveChild_Reques"
-  "t\022\027\n\017publishedfileid\030\001 \001(\004\022\035\n\025child_publ"
-  "ishedfileid\030\002 \001(\004\"%\n#CPublishedFile_Remo"
-  "veChild_Response\"h\n,CPublishedFile_SetCo"
-  "llectionChildren_Request\022\r\n\005appid\030\001 \001(\r\022"
-  "\027\n\017publishedfileid\030\002 \001(\004\022\020\n\010children\030\003 \003"
-  "(\004\"/\n-CPublishedFile_SetCollectionChildr"
-  "en_Response\"\207\001\n8CPublishedFile_SetSubscr"
-  "iptionListFromCollection_Request\022\r\n\005appi"
-  "d\030\001 \001(\r\022\021\n\tlist_type\030\002 \001(\r\022\027\n\017publishedf"
-  "ileid\030\003 \001(\004\022\020\n\010add_only\030\004 \001(\010\";\n9CPublis"
-  "hedFile_SetSubscriptionListFromCollectio"
-  "n_Response\"E\n)CPublishedFile_GetUserVote"
-  "Summary_Request\022\030\n\020publishedfileids\030\001 \003("
-  "\006\"\332\001\n*CPublishedFile_GetUserVoteSummary_"
-  "Response\022J\n\tsummaries\030\001 \003(\01327.CPublished"
-  "File_GetUserVoteSummary_Response.VoteSum"
-  "mary\032`\n\013VoteSummary\022\027\n\017publishedfileid\030\001"
-  " \001(\006\022\020\n\010vote_for\030\002 \001(\010\022\024\n\014vote_against\030\003"
-  " \001(\010\022\020\n\010reported\030\004 \001(\010\"h\n%CPublishedFile"
-  "_GetItemChanges_Request\022\r\n\005appid\030\001 \001(\r\022\031"
-  "\n\021last_time_updated\030\002 \001(\r\022\025\n\rnum_items_m"
-  "ax\030\003 \001(\r\"\351\001\n&CPublishedFile_GetItemChang"
-  "es_Response\022\023\n\013update_time\030\001 \001(\r\022P\n\016work"
-  "shop_items\030\002 \003(\01328.CPublishedFile_GetIte"
-  "mChanges_Response.WorkshopItemInfo\032X\n\020Wo"
+  "\022\023\n\013admin_query\030\022 \001(\010\"\374\025\n\024PublishedFileD"
+  "etails\022\016\n\006result\030\001 \001(\r\022\027\n\017publishedfilei"
+  "d\030\002 \001(\004\022\017\n\007creator\030\003 \001(\006\022\025\n\rcreator_appi"
+  "d\030\004 \001(\r\022\026\n\016consumer_appid\030\005 \001(\r\022\033\n\023consu"
+  "mer_shortcutid\030\006 \001(\r\022\020\n\010filename\030\007 \001(\t\022\021"
+  "\n\tfile_size\030\010 \001(\004\022\031\n\021preview_file_size\030\t"
+  " \001(\004\022\020\n\010file_url\030\n \001(\t\022\023\n\013preview_url\030\013 "
+  "\001(\t\022\026\n\016youtubevideoid\030\014 \001(\t\022\013\n\003url\030\r \001(\t"
+  "\022\025\n\rhcontent_file\030\016 \001(\006\022\030\n\020hcontent_prev"
+  "iew\030\017 \001(\006\022\r\n\005title\030\020 \001(\t\022\030\n\020file_descrip"
+  "tion\030\021 \001(\t\022\031\n\021short_description\030\022 \001(\t\022\024\n"
+  "\014time_created\030\023 \001(\r\022\024\n\014time_updated\030\024 \001("
+  "\r\022\022\n\nvisibility\030\025 \001(\r\022\r\n\005flags\030\026 \001(\r\022\025\n\r"
+  "workshop_file\030\027 \001(\010\022\031\n\021workshop_accepted"
+  "\030\030 \001(\010\022\032\n\022show_subscribe_all\030\031 \001(\010\022\036\n\026nu"
+  "m_comments_developer\030\032 \001(\005\022\033\n\023num_commen"
+  "ts_public\030\033 \001(\005\022\016\n\006banned\030\034 \001(\010\022\022\n\nban_r"
+  "eason\030\035 \001(\t\022\016\n\006banner\030\036 \001(\006\022\026\n\016can_be_de"
+  "leted\030\037 \001(\010\022\024\n\014incompatible\030  \001(\010\022\020\n\010app"
+  "_name\030! \001(\t\022\021\n\tfile_type\030\" \001(\r\022\025\n\rcan_su"
+  "bscribe\030# \001(\010\022\025\n\rsubscriptions\030$ \001(\r\022\021\n\t"
+  "favorited\030% \001(\r\022\021\n\tfollowers\030& \001(\r\022\036\n\026li"
+  "fetime_subscriptions\030\' \001(\r\022\032\n\022lifetime_f"
+  "avorited\030( \001(\r\022\032\n\022lifetime_followers\030) \001"
+  "(\r\022\031\n\021lifetime_playtime\030> \001(\004\022\"\n\032lifetim"
+  "e_playtime_sessions\030\? \001(\004\022\r\n\005views\030* \001(\r"
+  "\022\023\n\013image_width\030+ \001(\r\022\024\n\014image_height\030, "
+  "\001(\r\022\021\n\timage_url\030- \001(\t\022\023\n\013spoiler_tag\030. "
+  "\001(\010\022\022\n\nshortcutid\030/ \001(\r\022\024\n\014shortcutname\030"
+  "0 \001(\t\022\024\n\014num_children\0301 \001(\r\022\023\n\013num_repor"
+  "ts\0302 \001(\r\022/\n\010previews\0303 \003(\0132\035.PublishedFi"
+  "leDetails.Preview\022\'\n\004tags\0304 \003(\0132\031.Publis"
+  "hedFileDetails.Tag\022-\n\010children\0305 \003(\0132\033.P"
+  "ublishedFileDetails.Child\022+\n\006kvtags\0306 \003("
+  "\0132\033.PublishedFileDetails.KVTag\0221\n\tvote_d"
+  "ata\0307 \001(\0132\036.PublishedFileDetails.VoteDat"
+  "a\022;\n\016playtime_stats\030@ \001(\0132#.PublishedFil"
+  "eDetails.PlaytimeStats\022\027\n\017time_subscribe"
+  "d\0308 \001(\r\0228\n\rfor_sale_data\0309 \001(\0132!.Publish"
+  "edFileDetails.ForSaleData\022\020\n\010metadata\030: "
+  "\001(\t\022\023\n\010language\030= \001(\005:\0010\022\037\n\027maybe_inappr"
+  "opriate_sex\030A \001(\010\022$\n\034maybe_inappropriate"
+  "_violence\030B \001(\010\0224\n\025content_descriptorids"
+  "\030H \003(\0162\025.EContentDescriptorID\022\036\n\026revisio"
+  "n_change_number\030C \001(\004\022I\n\010revision\030D \001(\0162"
+  "\027.EPublishedFileRevision:\036EPublishedFile"
+  "Revision_Default\0224\n\023available_revisions\030"
+  "E \003(\0162\027.EPublishedFileRevision\0221\n\treacti"
+  "ons\030F \003(\0132\036.PublishedFileDetails.Reactio"
+  "n\022W\n\023ban_text_checresult\030G \001(\0162\027.EBanCon"
+  "tentCheckResult:!EBanContentCheckResult_"
+  "NotScanned\022\024\n\014search_score\030I \001(\002\022\031\n\021exte"
+  "rnal_asset_id\030J \001(\004\032;\n\003Tag\022\013\n\003tag\030\001 \001(\t\022"
+  "\021\n\tadminonly\030\002 \001(\010\022\024\n\014display_name\030\003 \001(\t"
+  "\032\246\001\n\007Preview\022\021\n\tpreviewid\030\001 \001(\004\022\021\n\tsorto"
+  "rder\030\002 \001(\r\022\013\n\003url\030\003 \001(\t\022\014\n\004size\030\004 \001(\r\022\020\n"
+  "\010filename\030\005 \001(\t\022\026\n\016youtubevideoid\030\006 \001(\t\022"
+  "\024\n\014preview_type\030\007 \001(\r\022\032\n\022external_refere"
+  "nce\030\010 \001(\t\032F\n\005Child\022\027\n\017publishedfileid\030\001 "
+  "\001(\004\022\021\n\tsortorder\030\002 \001(\r\022\021\n\tfile_type\030\003 \001("
+  "\r\032#\n\005KVTag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\032\?"
+  "\n\010VoteData\022\r\n\005score\030\001 \001(\002\022\020\n\010votes_up\030\002 "
+  "\001(\r\022\022\n\nvotes_down\030\003 \001(\r\032\332\001\n\013ForSaleData\022"
+  "\023\n\013is_for_sale\030\001 \001(\010\022\026\n\016price_category\030\002"
+  " \001(\r\022\?\n\007estatus\030\003 \001(\0162\034.EPublishedFileFo"
+  "rSaleStatus:\020PFFSS_NotForSale\022\034\n\024price_c"
+  "ategory_floor\030\004 \001(\r\022\"\n\032price_is_pay_what"
+  "_you_want\030\005 \001(\010\022\033\n\023discount_percentage\030\006"
+  " \001(\r\032\?\n\rPlaytimeStats\022\030\n\020playtime_second"
+  "s\030\001 \001(\004\022\024\n\014num_sessions\030\002 \001(\004\032-\n\010Reactio"
+  "n\022\022\n\nreactionid\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\"Y\n\""
+  "CPublishedFile_GetDetails_Response\0223\n\024pu"
+  "blishedfiledetails\030\001 \003(\0132\025.PublishedFile"
+  "Details\"\255\002\n\"CPublishedFile_GetItemInfo_R"
+  "equest\022\r\n\005appid\030\001 \001(\r\022\031\n\021last_time_updat"
+  "ed\030\002 \001(\r\022H\n\016workshop_items\030\003 \003(\01320.CPubl"
+  "ishedFile_GetItemInfo_Request.WorkshopIt"
+  "em\032\222\001\n\014WorkshopItem\022\031\n\021published_file_id"
+  "\030\001 \001(\006\022\024\n\014time_updated\030\002 \001(\r\022Q\n\020desired_"
+  "revision\030\003 \001(\0162\027.EPublishedFileRevision:"
+  "\036EPublishedFileRevision_Default\"\211\002\n#CPub"
+  "lishedFile_GetItemInfo_Response\022\023\n\013updat"
+  "e_time\030\001 \001(\r\022M\n\016workshop_items\030\002 \003(\01325.C"
+  "PublishedFile_GetItemInfo_Response.Works"
+  "hopItemInfo\022\025\n\rprivate_items\030\003 \003(\006\032g\n\020Wo"
   "rkshopItemInfo\022\031\n\021published_file_id\030\001 \001("
   "\006\022\024\n\014time_updated\030\002 \001(\r\022\023\n\013manifest_id\030\003"
-  " \001(\006\"G\n,CPublishedFile_GetContentDescrip"
-  "tors_Request\022\027\n\017publishedfileid\030\001 \001(\006\"\270\002"
-  "\n-CPublishedFile_GetContentDescriptors_R"
-  "esponse\022]\n\023content_descriptors\030\001 \003(\0132@.C"
-  "PublishedFile_GetContentDescriptors_Resp"
-  "onse.ContentDescriptor\032\247\001\n\021ContentDescri"
-  "ptor\022U\n\014descriptorid\030\001 \001(\0162\025.EContentDes"
-  "criptorID:(EContentDescriptor_NudityOrSe"
-  "xualContent\022\021\n\taccountid\030\002 \001(\r\022\021\n\ttimest"
-  "amp\030\003 \001(\r\022\025\n\rmoderator_set\030\004 \001(\010\"\263\001\n/CPu"
-  "blishedFile_UpdateContentDescriptors_Req"
-  "uest\022\027\n\017publishedfileid\030\001 \001(\006\0221\n\022descrip"
-  "tors_to_add\030\002 \003(\0162\025.EContentDescriptorID"
-  "\0224\n\025descriptors_to_remove\030\003 \003(\0162\025.EConte"
-  "ntDescriptorID\"M\n0CPublishedFile_UpdateC"
-  "ontentDescriptors_Response\022\031\n\021timestamp_"
-  "updated\030\001 \001(\r\"\243\003\n*CPublishedFile_FileSub"
-  "scribed_Notification\022\031\n\021published_file_i"
-  "d\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\022\025\n\rfile_hcontent"
-  "\030\003 \001(\006\022\021\n\tfile_size\030\004 \001(\r\022\030\n\020rtime_subsc"
-  "ribed\030\005 \001(\r\022\030\n\020is_depot_content\030\006 \001(\010\022\025\n"
-  "\rrtime_updated\030\007 \001(\r\022K\n\trevisions\030\010 \003(\0132"
-  "8.CPublishedFile_FileSubscribed_Notifica"
-  "tion.RevisionData\032\207\001\n\014RevisionData\022I\n\010re"
-  "vision\030\001 \001(\0162\027.EPublishedFileRevision:\036E"
-  "PublishedFileRevision_Default\022\025\n\rfile_hc"
-  "ontent\030\002 \001(\006\022\025\n\rrtime_updated\030\003 \001(\r\"Y\n,C"
-  "PublishedFile_FileUnsubscribed_Notificat"
+  " \001(\006\022\r\n\005flags\030\004 \001(\r\"\204\t\n#CPublishedFile_G"
+  "etUserFiles_Request\022\017\n\007steamid\030\001 \001(\006\022\r\n\005"
+  "appid\030\002 \001(\r\022\022\n\nshortcutid\030\003 \001(\r\022\017\n\004page\030"
+  "\004 \001(\r:\0011\022\025\n\nnumperpage\030\005 \001(\r:\0011\022\025\n\004type\030"
+  "\006 \001(\t:\007myfiles\022\037\n\nsortmethod\030\007 \001(\t:\013last"
+  "updated\022\017\n\007privacy\030\t \001(\r\022\024\n\014requiredtags"
+  "\030\n \003(\t\022\024\n\014excludedtags\030\013 \003(\t\022D\n\020required"
+  "_kv_tags\030\036 \003(\0132*.CPublishedFile_GetUserF"
+  "iles_Request.KVTag\022\020\n\010filetype\030\016 \001(\r\022\025\n\r"
+  "creator_appid\030\017 \001(\r\022\034\n\024match_cloud_filen"
+  "ame\030\020 \001(\t\022 \n\025cache_max_age_seconds\030\033 \001(\r"
+  ":\0010\022\023\n\010language\030\035 \001(\005:\0010\022@\n\ttaggroups\030\" "
+  "\003(\0132-.CPublishedFile_GetUserFiles_Reques"
+  "t.TagGroup\022;\n\034excluded_content_descripto"
+  "rs\030% \003(\0162\025.EContentDescriptorID\022\023\n\013admin"
+  "_query\030& \001(\010\022\021\n\ttotalonly\030\021 \001(\010\022\020\n\010ids_o"
+  "nly\030\022 \001(\010\022\036\n\020return_vote_data\030\023 \001(\010:\004tru"
+  "e\022\023\n\013return_tags\030\024 \001(\010\022\034\n\016return_kv_tags"
+  "\030\025 \001(\010:\004true\022\027\n\017return_previews\030\026 \001(\010\022\027\n"
+  "\017return_children\030\027 \001(\010\022&\n\030return_short_d"
+  "escription\030\030 \001(\010:\004true\022\034\n\024return_for_sal"
+  "e_data\030\032 \001(\010\022\036\n\017return_metadata\030\034 \001(\010:\005f"
+  "alse\022\035\n\025return_playtime_stats\030\037 \001(\r\022 \n\030s"
+  "trip_description_bbcode\030  \001(\010\022\037\n\020return_"
+  "reactions\030# \001(\010:\005false\022\033\n\023startindex_ove"
+  "rride\030\031 \001(\r\022Q\n\020desired_revision\030! \001(\0162\027."
+  "EPublishedFileRevision:\036EPublishedFileRe"
+  "vision_Default\022\023\n\013return_apps\030$ \001(\010\032#\n\005K"
+  "VTag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\032\030\n\010TagG"
+  "roup\022\014\n\004tags\030\001 \003(\t\"\200\002\n$CPublishedFile_Ge"
+  "tUserFiles_Response\022\r\n\005total\030\001 \001(\r\022\022\n\nst"
+  "artindex\030\002 \001(\r\0223\n\024publishedfiledetails\030\003"
+  " \003(\0132\025.PublishedFileDetails\0227\n\004apps\030\004 \003("
+  "\0132).CPublishedFile_GetUserFiles_Response"
+  ".App\032G\n\003App\022\r\n\005appid\030\001 \001(\r\022\014\n\004name\030\002 \001(\t"
+  "\022\022\n\nshortcutid\030\003 \001(\r\022\017\n\007private\030\004 \001(\010\"\232\001"
+  "\n1CPublishedFile_AreFilesInSubscriptionL"
+  "ist_Request\022\r\n\005appid\030\001 \001(\r\022\030\n\020publishedf"
+  "ileids\030\002 \003(\006\022\020\n\010listtype\030\003 \001(\r\022\020\n\010filety"
+  "pe\030\004 \001(\r\022\030\n\020workshopfiletype\030\005 \001(\r\"\262\001\n2C"
+  "PublishedFile_AreFilesInSubscriptionList"
+  "_Response\022I\n\005files\030\001 \003(\0132:.CPublishedFil"
+  "e_AreFilesInSubscriptionList_Response.In"
+  "List\0321\n\006InList\022\027\n\017publishedfileid\030\001 \001(\006\022"
+  "\016\n\006inlist\030\002 \001(\010\"\220\002\n\035CPublishedFile_Updat"
+  "e_Request\022\r\n\005appid\030\001 \001(\r\022\027\n\017publishedfil"
+  "eid\030\002 \001(\006\022\r\n\005title\030\003 \001(\t\022\030\n\020file_descrip"
+  "tion\030\004 \001(\t\022\022\n\nvisibility\030\005 \001(\r\022\014\n\004tags\030\006"
+  " \003(\t\022\020\n\010filename\030\007 \001(\t\022\030\n\020preview_filena"
+  "me\030\010 \001(\t\022\023\n\013spoiler_tag\030\n \001(\010\022\023\n\013image_w"
+  "idth\030\017 \001(\r\022\024\n\014image_height\030\020 \001(\r\022\020\n\010lang"
+  "uage\030\021 \001(\005\" \n\036CPublishedFile_Update_Resp"
+  "onse\"G\n\035CPublishedFile_Delete_Request\022\027\n"
+  "\017publishedfileid\030\001 \001(\006\022\r\n\005appid\030\005 \001(\r\" \n"
+  "\036CPublishedFile_Delete_Response\"l\n,CPubl"
+  "ishedFile_GetChangeHistoryEntry_Request\022"
+  "\027\n\017publishedfileid\030\001 \001(\006\022\021\n\ttimestamp\030\002 "
+  "\001(\r\022\020\n\010language\030\003 \001(\005\"]\n-CPublishedFile_"
+  "GetChangeHistoryEntry_Response\022\032\n\022change"
+  "_description\030\001 \001(\t\022\020\n\010language\030\002 \001(\005\"\216\001\n"
+  "\'CPublishedFile_GetChangeHistory_Request"
+  "\022\027\n\017publishedfileid\030\001 \001(\006\022\022\n\ntotal_only\030"
+  "\002 \001(\010\022\022\n\nstartindex\030\003 \001(\r\022\r\n\005count\030\004 \001(\r"
+  "\022\023\n\010language\030\005 \001(\005:\0010\"\315\001\n(CPublishedFile"
+  "_GetChangeHistory_Response\022D\n\007changes\030\001 "
+  "\003(\01323.CPublishedFile_GetChangeHistory_Re"
+  "sponse.ChangeLog\022\r\n\005total\030\002 \001(\r\032L\n\tChang"
+  "eLog\022\021\n\ttimestamp\030\001 \001(\r\022\032\n\022change_descri"
+  "ption\030\002 \001(\t\022\020\n\010language\030\003 \001(\005\"\210\002\n)CPubli"
+  "shedFile_RefreshVotingQueue_Request\022\r\n\005a"
+  "ppid\030\001 \001(\r\022\032\n\022matching_file_type\030\002 \001(\r\022\014"
+  "\n\004tags\030\003 \003(\t\022\034\n\016match_all_tags\030\004 \001(\010:\004tr"
+  "ue\022\025\n\rexcluded_tags\030\005 \003(\t\022\032\n\022desired_que"
+  "ue_size\030\006 \001(\r\022Q\n\020desired_revision\030\010 \001(\0162"
+  "\027.EPublishedFileRevision:\036EPublishedFile"
+  "Revision_Default\",\n*CPublishedFile_Refre"
+  "shVotingQueue_Response\"\352\n\n!CPublishedFil"
+  "e_QueryFiles_Request\022\022\n\nquery_type\030\001 \001(\r"
+  "\022\014\n\004page\030\002 \001(\r\022\016\n\006cursor\030\' \001(\t\022\025\n\nnumper"
+  "page\030\003 \001(\r:\0011\022\025\n\rcreator_appid\030\004 \001(\r\022\r\n\005"
+  "appid\030\005 \001(\r\022\024\n\014requiredtags\030\006 \003(\t\022\024\n\014exc"
+  "ludedtags\030\007 \003(\t\022\034\n\016match_all_tags\030\010 \001(\010:"
+  "\004true\022\026\n\016required_flags\030\t \003(\t\022\025\n\romitted"
+  "_flags\030\n \003(\t\022\023\n\013search_text\030\013 \001(\t\022\020\n\010fil"
+  "etype\030\014 \001(\r\022\035\n\025child_publishedfileid\030\r \001"
+  "(\006\022\014\n\004days\030\016 \001(\r\022!\n\031include_recent_votes"
+  "_only\030\017 \001(\010\022 \n\025cache_max_age_seconds\030\037 \001"
+  "(\r:\0010\022\023\n\010language\030! \001(\005:\0010\022B\n\020required_k"
+  "v_tags\030\" \003(\0132(.CPublishedFile_QueryFiles"
+  "_Request.KVTag\022>\n\ttaggroups\030* \003(\0132+.CPub"
+  "lishedFile_QueryFiles_Request.TagGroup\022H"
+  "\n\022date_range_created\030, \001(\0132,.CPublishedF"
+  "ile_QueryFiles_Request.DateRange\022H\n\022date"
+  "_range_updated\030- \001(\0132,.CPublishedFile_Qu"
+  "eryFiles_Request.DateRange\022;\n\034excluded_c"
+  "ontent_descriptors\030. \003(\0162\025.EContentDescr"
+  "iptorID\022\023\n\013admin_query\030/ \001(\010\022\021\n\ttotalonl"
+  "y\030\020 \001(\010\022\020\n\010ids_only\030# \001(\010\022\030\n\020return_vote"
+  "_data\030\021 \001(\010\022\023\n\013return_tags\030\022 \001(\010\022\026\n\016retu"
+  "rn_kv_tags\030\023 \001(\010\022\027\n\017return_previews\030\024 \001("
+  "\010\022\027\n\017return_children\030\025 \001(\010\022 \n\030return_sho"
+  "rt_description\030\026 \001(\010\022\034\n\024return_for_sale_"
+  "data\030\036 \001(\010\022\036\n\017return_metadata\030  \001(\010:\005fal"
+  "se\022\035\n\025return_playtime_stats\030$ \001(\r\022\026\n\016ret"
+  "urn_details\030% \001(\010\022 \n\030strip_description_b"
+  "bcode\030& \001(\010\022Q\n\020desired_revision\030( \001(\0162\027."
+  "EPublishedFileRevision:\036EPublishedFileRe"
+  "vision_Default\022\037\n\020return_reactions\030+ \001(\010"
+  ":\005false\032#\n\005KVTag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002"
+  " \001(\t\032\030\n\010TagGroup\022\014\n\004tags\030\001 \003(\t\032;\n\tDateRa"
+  "nge\022\027\n\017timestamp_start\030\001 \001(\r\022\025\n\rtimestam"
+  "p_end\030\002 \001(\r\"}\n\"CPublishedFile_QueryFiles"
+  "_Response\022\r\n\005total\030\001 \001(\r\0223\n\024publishedfil"
+  "edetails\030\002 \003(\0132\025.PublishedFileDetails\022\023\n"
+  "\013next_cursor\030\003 \001(\t\"i\n)CPublishedFile_Add"
+  "AppRelationship_Request\022\027\n\017publishedfile"
+  "id\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r\022\024\n\014relationship\030"
+  "\003 \001(\r\",\n*CPublishedFile_AddAppRelationsh"
+  "ip_Response\"l\n,CPublishedFile_RemoveAppR"
+  "elationship_Request\022\027\n\017publishedfileid\030\001"
+  " \001(\004\022\r\n\005appid\030\002 \001(\r\022\024\n\014relationship\030\003 \001("
+  "\r\"/\n-CPublishedFile_RemoveAppRelationshi"
+  "p_Response\"E\n*CPublishedFile_GetAppRelat"
+  "ionships_Request\022\027\n\017publishedfileid\030\001 \001("
+  "\004\"\276\001\n+CPublishedFile_GetAppRelationships"
+  "_Response\022W\n\021app_relationships\030\003 \003(\0132<.C"
+  "PublishedFile_GetAppRelationships_Respon"
+  "se.AppRelationship\0326\n\017AppRelationship\022\r\n"
+  "\005appid\030\001 \001(\r\022\024\n\014relationship\030\002 \001(\r\"j\n1CP"
+  "ublishedFile_GetAppRelationshipsBatched_"
+  "Request\022\030\n\020publishedfileids\030\001 \003(\004\022\033\n\023fil"
+  "ter_relationship\030\002 \001(\r\"\377\002\n2CPublishedFil"
+  "e_GetAppRelationshipsBatched_Response\022g\n"
+  "\rrelationships\030\001 \003(\0132P.CPublishedFile_Ge"
+  "tAppRelationshipsBatched_Response.Publis"
+  "hedFileAppRelationship\0326\n\017AppRelationshi"
+  "p\022\r\n\005appid\030\001 \001(\r\022\024\n\014relationship\030\002 \001(\r\032\247"
+  "\001\n\034PublishedFileAppRelationship\022\027\n\017publi"
+  "shedfileid\030\001 \001(\004\022\016\n\006result\030\002 \001(\r\022^\n\021app_"
+  "relationships\030\003 \003(\0132C.CPublishedFile_Get"
+  "AppRelationshipsBatched_Response.AppRela"
+  "tionship\"W\n,CPublishedFile_StartPlaytime"
+  "Tracking_Request\022\r\n\005appid\030\001 \001(\r\022\030\n\020publi"
+  "shedfileids\030\002 \003(\004\"/\n-CPublishedFile_Star"
+  "tPlaytimeTracking_Response\"V\n+CPublished"
+  "File_StopPlaytimeTracking_Request\022\r\n\005app"
+  "id\030\001 \001(\r\022\030\n\020publishedfileids\030\002 \003(\004\".\n,CP"
+  "ublishedFile_StopPlaytimeTracking_Respon"
+  "se\"J\n9CPublishedFile_StopPlaytimeTrackin"
+  "gForAllAppItems_Request\022\r\n\005appid\030\001 \001(\r\"<"
+  "\n:CPublishedFile_StopPlaytimeTrackingFor"
+  "AllAppItems_Response\"\201\002\n6CPublishedFile_"
+  "SetPlaytimeForControllerConfigs_Request\022"
+  "\r\n\005appid\030\001 \001(\r\022n\n\027controller_config_usag"
+  "e\030\002 \003(\0132M.CPublishedFile_SetPlaytimeForC"
+  "ontrollerConfigs_Request.ControllerConfi"
+  "gUsage\032H\n\025ControllerConfigUsage\022\027\n\017publi"
+  "shedfileid\030\001 \001(\004\022\026\n\016seconds_active\030\002 \001(\002"
+  "\"9\n7CPublishedFile_SetPlaytimeForControl"
+  "lerConfigs_Response\"Y\n\037CPublishedFile_Ad"
+  "dChild_Request\022\027\n\017publishedfileid\030\001 \001(\004\022"
+  "\035\n\025child_publishedfileid\030\002 \001(\004\"\"\n CPubli"
+  "shedFile_AddChild_Response\"\\\n\"CPublished"
+  "File_RemoveChild_Request\022\027\n\017publishedfil"
+  "eid\030\001 \001(\004\022\035\n\025child_publishedfileid\030\002 \001(\004"
+  "\"%\n#CPublishedFile_RemoveChild_Response\""
+  "h\n,CPublishedFile_SetCollectionChildren_"
+  "Request\022\r\n\005appid\030\001 \001(\r\022\027\n\017publishedfilei"
+  "d\030\002 \001(\004\022\020\n\010children\030\003 \003(\004\"/\n-CPublishedF"
+  "ile_SetCollectionChildren_Response\"\207\001\n8C"
+  "PublishedFile_SetSubscriptionListFromCol"
+  "lection_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tlist_t"
+  "ype\030\002 \001(\r\022\027\n\017publishedfileid\030\003 \001(\004\022\020\n\010ad"
+  "d_only\030\004 \001(\010\";\n9CPublishedFile_SetSubscr"
+  "iptionListFromCollection_Response\"E\n)CPu"
+  "blishedFile_GetUserVoteSummary_Request\022\030"
+  "\n\020publishedfileids\030\001 \003(\006\"\332\001\n*CPublishedF"
+  "ile_GetUserVoteSummary_Response\022J\n\tsumma"
+  "ries\030\001 \003(\01327.CPublishedFile_GetUserVoteS"
+  "ummary_Response.VoteSummary\032`\n\013VoteSumma"
+  "ry\022\027\n\017publishedfileid\030\001 \001(\006\022\020\n\010vote_for\030"
+  "\002 \001(\010\022\024\n\014vote_against\030\003 \001(\010\022\020\n\010reported\030"
+  "\004 \001(\010\"h\n%CPublishedFile_GetItemChanges_R"
+  "equest\022\r\n\005appid\030\001 \001(\r\022\031\n\021last_time_updat"
+  "ed\030\002 \001(\r\022\025\n\rnum_items_max\030\003 \001(\r\"\351\001\n&CPub"
+  "lishedFile_GetItemChanges_Response\022\023\n\013up"
+  "date_time\030\001 \001(\r\022P\n\016workshop_items\030\002 \003(\0132"
+  "8.CPublishedFile_GetItemChanges_Response"
+  ".WorkshopItemInfo\032X\n\020WorkshopItemInfo\022\031\n"
+  "\021published_file_id\030\001 \001(\006\022\024\n\014time_updated"
+  "\030\002 \001(\r\022\023\n\013manifest_id\030\003 \001(\006\"G\n,CPublishe"
+  "dFile_GetContentDescriptors_Request\022\027\n\017p"
+  "ublishedfileid\030\001 \001(\006\"\270\002\n-CPublishedFile_"
+  "GetContentDescriptors_Response\022]\n\023conten"
+  "t_descriptors\030\001 \003(\0132@.CPublishedFile_Get"
+  "ContentDescriptors_Response.ContentDescr"
+  "iptor\032\247\001\n\021ContentDescriptor\022U\n\014descripto"
+  "rid\030\001 \001(\0162\025.EContentDescriptorID:(EConte"
+  "ntDescriptor_NudityOrSexualContent\022\021\n\tac"
+  "countid\030\002 \001(\r\022\021\n\ttimestamp\030\003 \001(\r\022\025\n\rmode"
+  "rator_set\030\004 \001(\010\"\263\001\n/CPublishedFile_Updat"
+  "eContentDescriptors_Request\022\027\n\017published"
+  "fileid\030\001 \001(\006\0221\n\022descriptors_to_add\030\002 \003(\016"
+  "2\025.EContentDescriptorID\0224\n\025descriptors_t"
+  "o_remove\030\003 \003(\0162\025.EContentDescriptorID\"M\n"
+  "0CPublishedFile_UpdateContentDescriptors"
+  "_Response\022\031\n\021timestamp_updated\030\001 \001(\r\"\243\003\n"
+  "*CPublishedFile_FileSubscribed_Notificat"
   "ion\022\031\n\021published_file_id\030\001 \001(\006\022\016\n\006app_id"
-  "\030\002 \001(\r\"[\n.CPublishedFile_FileDeleted_Cli"
-  "ent_Notification\022\031\n\021published_file_id\030\001 "
-  "\001(\006\022\016\n\006app_id\030\002 \001(\r*\237\002\n\026EPublishedFileRe"
-  "vision\022\"\n\036EPublishedFileRevision_Default"
-  "\020\000\022!\n\035EPublishedFileRevision_Latest\020\001\022+\n"
-  "\'EPublishedFileRevision_ApprovedSnapshot"
-  "\020\002\0221\n-EPublishedFileRevision_ApprovedSna"
-  "pshot_China\020\003\022+\n\'EPublishedFileRevision_"
-  "RejectedSnapshot\020\004\0221\n-EPublishedFileRevi"
-  "sion_RejectedSnapshot_China\020\005*\274\001\n\033EPubli"
-  "shedFileForSaleStatus\022\024\n\020PFFSS_NotForSal"
-  "e\020\000\022\031\n\025PFFSS_PendingApproval\020\001\022\031\n\025PFFSS_"
-  "ApprovedForSale\020\002\022\031\n\025PFFSS_RejectedForSa"
-  "le\020\003\022\031\n\025PFFSS_NoLongerForSale\020\004\022\033\n\027PFFSS"
-  "_TentativeApproval\020\0052\335\033\n\rPublishedFile\022C"
-  "\n\004Vote\022\034.CPublishedFile_Vote_Request\032\035.C"
-  "PublishedFile_Vote_Response\022R\n\tSubscribe"
-  "\022!.CPublishedFile_Subscribe_Request\032\".CP"
-  "ublishedFile_Subscribe_Response\022X\n\013Unsub"
-  "scribe\022#.CPublishedFile_Unsubscribe_Requ"
-  "est\032$.CPublishedFile_Unsubscribe_Respons"
-  "e\022[\n\014CanSubscribe\022$.CPublishedFile_CanSu"
-  "bscribe_Request\032%.CPublishedFile_CanSubs"
-  "cribe_Response\022j\n\021GetSubSectionData\022).CP"
-  "ublishedFile_GetSubSectionData_Request\032*"
-  ".CPublishedFile_GetSubSectionData_Respon"
-  "se\022L\n\007Publish\022\037.CPublishedFile_Publish_R"
-  "equest\032 .CPublishedFile_Publish_Response"
-  "\022U\n\nGetDetails\022\".CPublishedFile_GetDetai"
-  "ls_Request\032#.CPublishedFile_GetDetails_R"
-  "esponse\022X\n\013GetItemInfo\022#.CPublishedFile_"
-  "GetItemInfo_Request\032$.CPublishedFile_Get"
-  "ItemInfo_Response\022[\n\014GetUserFiles\022$.CPub"
+  "\030\002 \001(\r\022\025\n\rfile_hcontent\030\003 \001(\006\022\021\n\tfile_si"
+  "ze\030\004 \001(\r\022\030\n\020rtime_subscribed\030\005 \001(\r\022\030\n\020is"
+  "_depot_content\030\006 \001(\010\022\025\n\rrtime_updated\030\007 "
+  "\001(\r\022K\n\trevisions\030\010 \003(\01328.CPublishedFile_"
+  "FileSubscribed_Notification.RevisionData"
+  "\032\207\001\n\014RevisionData\022I\n\010revision\030\001 \001(\0162\027.EP"
+  "ublishedFileRevision:\036EPublishedFileRevi"
+  "sion_Default\022\025\n\rfile_hcontent\030\002 \001(\006\022\025\n\rr"
+  "time_updated\030\003 \001(\r\"Y\n,CPublishedFile_Fil"
+  "eUnsubscribed_Notification\022\031\n\021published_"
+  "file_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\"[\n.CPublis"
+  "hedFile_FileDeleted_Client_Notification\022"
+  "\031\n\021published_file_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001"
+  "(\r*\237\002\n\026EPublishedFileRevision\022\"\n\036EPublis"
+  "hedFileRevision_Default\020\000\022!\n\035EPublishedF"
+  "ileRevision_Latest\020\001\022+\n\'EPublishedFileRe"
+  "vision_ApprovedSnapshot\020\002\0221\n-EPublishedF"
+  "ileRevision_ApprovedSnapshot_China\020\003\022+\n\'"
+  "EPublishedFileRevision_RejectedSnapshot\020"
+  "\004\0221\n-EPublishedFileRevision_RejectedSnap"
+  "shot_China\020\005*\274\001\n\033EPublishedFileForSaleSt"
+  "atus\022\024\n\020PFFSS_NotForSale\020\000\022\031\n\025PFFSS_Pend"
+  "ingApproval\020\001\022\031\n\025PFFSS_ApprovedForSale\020\002"
+  "\022\031\n\025PFFSS_RejectedForSale\020\003\022\031\n\025PFFSS_NoL"
+  "ongerForSale\020\004\022\033\n\027PFFSS_TentativeApprova"
+  "l\020\0052\335\033\n\rPublishedFile\022C\n\004Vote\022\034.CPublish"
+  "edFile_Vote_Request\032\035.CPublishedFile_Vot"
+  "e_Response\022R\n\tSubscribe\022!.CPublishedFile"
+  "_Subscribe_Request\032\".CPublishedFile_Subs"
+  "cribe_Response\022X\n\013Unsubscribe\022#.CPublish"
+  "edFile_Unsubscribe_Request\032$.CPublishedF"
+  "ile_Unsubscribe_Response\022[\n\014CanSubscribe"
+  "\022$.CPublishedFile_CanSubscribe_Request\032%"
+  ".CPublishedFile_CanSubscribe_Response\022j\n"
+  "\021GetSubSectionData\022).CPublishedFile_GetS"
+  "ubSectionData_Request\032*.CPublishedFile_G"
+  "etSubSectionData_Response\022L\n\007Publish\022\037.C"
+  "PublishedFile_Publish_Request\032 .CPublish"
+  "edFile_Publish_Response\022U\n\nGetDetails\022\"."
+  "CPublishedFile_GetDetails_Request\032#.CPub"
+  "lishedFile_GetDetails_Response\022X\n\013GetIte"
+  "mInfo\022#.CPublishedFile_GetItemInfo_Reque"
+  "st\032$.CPublishedFile_GetItemInfo_Response"
+  "\022[\n\014GetUserFiles\022$.CPublishedFile_GetUse"
+  "rFiles_Request\032%.CPublishedFile_GetUserF"
+  "iles_Response\022_\n\020GetUserFileCount\022$.CPub"
   "lishedFile_GetUserFiles_Request\032%.CPubli"
-  "shedFile_GetUserFiles_Response\022_\n\020GetUse"
-  "rFileCount\022$.CPublishedFile_GetUserFiles"
-  "_Request\032%.CPublishedFile_GetUserFiles_R"
-  "esponse\022\205\001\n\032AreFilesInSubscriptionList\0222"
-  ".CPublishedFile_AreFilesInSubscriptionLi"
-  "st_Request\0323.CPublishedFile_AreFilesInSu"
-  "bscriptionList_Response\022I\n\006Update\022\036.CPub"
-  "lishedFile_Update_Request\032\037.CPublishedFi"
-  "le_Update_Response\022I\n\006Delete\022\036.CPublishe"
-  "dFile_Delete_Request\032\037.CPublishedFile_De"
-  "lete_Response\022v\n\025GetChangeHistoryEntry\022-"
-  ".CPublishedFile_GetChangeHistoryEntry_Re"
-  "quest\032..CPublishedFile_GetChangeHistoryE"
-  "ntry_Response\022g\n\020GetChangeHistory\022(.CPub"
-  "lishedFile_GetChangeHistory_Request\032).CP"
-  "ublishedFile_GetChangeHistory_Response\022m"
-  "\n\022RefreshVotingQueue\022*.CPublishedFile_Re"
-  "freshVotingQueue_Request\032+.CPublishedFil"
-  "e_RefreshVotingQueue_Response\022U\n\nQueryFi"
-  "les\022\".CPublishedFile_QueryFiles_Request\032"
-  "#.CPublishedFile_QueryFiles_Response\022m\n\022"
-  "AddAppRelationship\022*.CPublishedFile_AddA"
-  "ppRelationship_Request\032+.CPublishedFile_"
-  "AddAppRelationship_Response\022v\n\025RemoveApp"
-  "Relationship\022-.CPublishedFile_RemoveAppR"
-  "elationship_Request\032..CPublishedFile_Rem"
-  "oveAppRelationship_Response\022p\n\023GetAppRel"
-  "ationships\022+.CPublishedFile_GetAppRelati"
-  "onships_Request\032,.CPublishedFile_GetAppR"
-  "elationships_Response\022\205\001\n\032GetAppRelation"
-  "shipsBatched\0222.CPublishedFile_GetAppRela"
-  "tionshipsBatched_Request\0323.CPublishedFil"
-  "e_GetAppRelationshipsBatched_Response\022v\n"
-  "\025StartPlaytimeTracking\022-.CPublishedFile_"
-  "StartPlaytimeTracking_Request\032..CPublish"
-  "edFile_StartPlaytimeTracking_Response\022s\n"
-  "\024StopPlaytimeTracking\022,.CPublishedFile_S"
-  "topPlaytimeTracking_Request\032-.CPublished"
-  "File_StopPlaytimeTracking_Response\022\235\001\n\"S"
-  "topPlaytimeTrackingForAllAppItems\022:.CPub"
-  "lishedFile_StopPlaytimeTrackingForAllApp"
-  "Items_Request\032;.CPublishedFile_StopPlayt"
-  "imeTrackingForAllAppItems_Response\022\224\001\n\037S"
-  "etPlaytimeForControllerConfigs\0227.CPublis"
+  "shedFile_GetUserFiles_Response\022\205\001\n\032AreFi"
+  "lesInSubscriptionList\0222.CPublishedFile_A"
+  "reFilesInSubscriptionList_Request\0323.CPub"
+  "lishedFile_AreFilesInSubscriptionList_Re"
+  "sponse\022I\n\006Update\022\036.CPublishedFile_Update"
+  "_Request\032\037.CPublishedFile_Update_Respons"
+  "e\022I\n\006Delete\022\036.CPublishedFile_Delete_Requ"
+  "est\032\037.CPublishedFile_Delete_Response\022v\n\025"
+  "GetChangeHistoryEntry\022-.CPublishedFile_G"
+  "etChangeHistoryEntry_Request\032..CPublishe"
+  "dFile_GetChangeHistoryEntry_Response\022g\n\020"
+  "GetChangeHistory\022(.CPublishedFile_GetCha"
+  "ngeHistory_Request\032).CPublishedFile_GetC"
+  "hangeHistory_Response\022m\n\022RefreshVotingQu"
+  "eue\022*.CPublishedFile_RefreshVotingQueue_"
+  "Request\032+.CPublishedFile_RefreshVotingQu"
+  "eue_Response\022U\n\nQueryFiles\022\".CPublishedF"
+  "ile_QueryFiles_Request\032#.CPublishedFile_"
+  "QueryFiles_Response\022m\n\022AddAppRelationshi"
+  "p\022*.CPublishedFile_AddAppRelationship_Re"
+  "quest\032+.CPublishedFile_AddAppRelationshi"
+  "p_Response\022v\n\025RemoveAppRelationship\022-.CP"
+  "ublishedFile_RemoveAppRelationship_Reque"
+  "st\032..CPublishedFile_RemoveAppRelationshi"
+  "p_Response\022p\n\023GetAppRelationships\022+.CPub"
+  "lishedFile_GetAppRelationships_Request\032,"
+  ".CPublishedFile_GetAppRelationships_Resp"
+  "onse\022\205\001\n\032GetAppRelationshipsBatched\0222.CP"
+  "ublishedFile_GetAppRelationshipsBatched_"
+  "Request\0323.CPublishedFile_GetAppRelations"
+  "hipsBatched_Response\022v\n\025StartPlaytimeTra"
+  "cking\022-.CPublishedFile_StartPlaytimeTrac"
+  "king_Request\032..CPublishedFile_StartPlayt"
+  "imeTracking_Response\022s\n\024StopPlaytimeTrac"
+  "king\022,.CPublishedFile_StopPlaytimeTracki"
+  "ng_Request\032-.CPublishedFile_StopPlaytime"
+  "Tracking_Response\022\235\001\n\"StopPlaytimeTracki"
+  "ngForAllAppItems\022:.CPublishedFile_StopPl"
+  "aytimeTrackingForAllAppItems_Request\032;.C"
+  "PublishedFile_StopPlaytimeTrackingForAll"
+  "AppItems_Response\022\224\001\n\037SetPlaytimeForCont"
+  "rollerConfigs\0227.CPublishedFile_SetPlayti"
+  "meForControllerConfigs_Request\0328.CPublis"
   "hedFile_SetPlaytimeForControllerConfigs_"
-  "Request\0328.CPublishedFile_SetPlaytimeForC"
-  "ontrollerConfigs_Response\022O\n\010AddChild\022 ."
-  "CPublishedFile_AddChild_Request\032!.CPubli"
-  "shedFile_AddChild_Response\022X\n\013RemoveChil"
-  "d\022#.CPublishedFile_RemoveChild_Request\032$"
-  ".CPublishedFile_RemoveChild_Response\022v\n\025"
-  "SetCollectionChildren\022-.CPublishedFile_S"
-  "etCollectionChildren_Request\032..CPublishe"
-  "dFile_SetCollectionChildren_Response\022\232\001\n"
-  "!SetSubscriptionListFromCollection\0229.CPu"
-  "blishedFile_SetSubscriptionListFromColle"
-  "ction_Request\032:.CPublishedFile_SetSubscr"
-  "iptionListFromCollection_Response\022m\n\022Get"
-  "UserVoteSummary\022*.CPublishedFile_GetUser"
-  "VoteSummary_Request\032+.CPublishedFile_Get"
-  "UserVoteSummary_Response\022a\n\016GetItemChang"
-  "es\022&.CPublishedFile_GetItemChanges_Reque"
-  "st\032\'.CPublishedFile_GetItemChanges_Respo"
-  "nse\022v\n\025GetContentDescriptors\022-.CPublishe"
-  "dFile_GetContentDescriptors_Request\032..CP"
-  "ublishedFile_GetContentDescriptors_Respo"
-  "nse\022\177\n\030UpdateContentDescriptors\0220.CPubli"
-  "shedFile_UpdateContentDescriptors_Reques"
-  "t\0321.CPublishedFile_UpdateContentDescript"
-  "ors_Response2\226\002\n\023PublishedFileClient\022P\n\024"
-  "NotifyFileSubscribed\022+.CPublishedFile_Fi"
-  "leSubscribed_Notification\032\013.NoResponse\022T"
-  "\n\026NotifyFileUnsubscribed\022-.CPublishedFil"
-  "e_FileUnsubscribed_Notification\032\013.NoResp"
-  "onse\022Q\n\021NotifyFileDeleted\022/.CPublishedFi"
-  "le_FileDeleted_Client_Notification\032\013.NoR"
-  "esponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Prot"
-  "obuf"
+  "Response\022O\n\010AddChild\022 .CPublishedFile_Ad"
+  "dChild_Request\032!.CPublishedFile_AddChild"
+  "_Response\022X\n\013RemoveChild\022#.CPublishedFil"
+  "e_RemoveChild_Request\032$.CPublishedFile_R"
+  "emoveChild_Response\022v\n\025SetCollectionChil"
+  "dren\022-.CPublishedFile_SetCollectionChild"
+  "ren_Request\032..CPublishedFile_SetCollecti"
+  "onChildren_Response\022\232\001\n!SetSubscriptionL"
+  "istFromCollection\0229.CPublishedFile_SetSu"
+  "bscriptionListFromCollection_Request\032:.C"
+  "PublishedFile_SetSubscriptionListFromCol"
+  "lection_Response\022m\n\022GetUserVoteSummary\022*"
+  ".CPublishedFile_GetUserVoteSummary_Reque"
+  "st\032+.CPublishedFile_GetUserVoteSummary_R"
+  "esponse\022a\n\016GetItemChanges\022&.CPublishedFi"
+  "le_GetItemChanges_Request\032\'.CPublishedFi"
+  "le_GetItemChanges_Response\022v\n\025GetContent"
+  "Descriptors\022-.CPublishedFile_GetContentD"
+  "escriptors_Request\032..CPublishedFile_GetC"
+  "ontentDescriptors_Response\022\177\n\030UpdateCont"
+  "entDescriptors\0220.CPublishedFile_UpdateCo"
+  "ntentDescriptors_Request\0321.CPublishedFil"
+  "e_UpdateContentDescriptors_Response2\226\002\n\023"
+  "PublishedFileClient\022P\n\024NotifyFileSubscri"
+  "bed\022+.CPublishedFile_FileSubscribed_Noti"
+  "fication\032\013.NoResponse\022T\n\026NotifyFileUnsub"
+  "scribed\022-.CPublishedFile_FileUnsubscribe"
+  "d_Notification\032\013.NoResponse\022Q\n\021NotifyFil"
+  "eDeleted\022/.CPublishedFile_FileDeleted_Cl"
+  "ient_Notification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001"
+  "\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_5fproductinfo_2eproto,
@@ -3365,7 +3375,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto = {
-  false, false, 18764, descriptor_table_protodef_steammessages_5fpublishedfile_2esteamclient_2eproto, "steammessages_publishedfile.steamclient.proto", 
+  false, false, 18827, descriptor_table_protodef_steammessages_5fpublishedfile_2esteamclient_2eproto, "steammessages_publishedfile.steamclient.proto", 
   &descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_once, descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_deps, 4, 95,
   schemas, file_default_instances, TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fpublishedfile_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fpublishedfile_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fpublishedfile_2esteamclient_2eproto,
@@ -7145,6 +7155,9 @@ class CPublishedFile_GetDetails_Request::_Internal {
   static void set_has_includereactions(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
+  static void set_has_admin_query(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
 };
 
 CPublishedFile_GetDetails_Request::CPublishedFile_GetDetails_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -7160,16 +7173,16 @@ CPublishedFile_GetDetails_Request::CPublishedFile_GetDetails_Request(const CPubl
       publishedfileids_(from.publishedfileids_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&includetags_, &from.includetags_,
-    static_cast<size_t>(reinterpret_cast<char*>(&includereactions_) -
-    reinterpret_cast<char*>(&includetags_)) + sizeof(includereactions_));
+    static_cast<size_t>(reinterpret_cast<char*>(&admin_query_) -
+    reinterpret_cast<char*>(&includetags_)) + sizeof(admin_query_));
   // @@protoc_insertion_point(copy_constructor:CPublishedFile_GetDetails_Request)
 }
 
 void CPublishedFile_GetDetails_Request::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&includetags_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&includereactions_) -
-    reinterpret_cast<char*>(&includetags_)) + sizeof(includereactions_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&admin_query_) -
+    reinterpret_cast<char*>(&includetags_)) + sizeof(admin_query_));
 }
 
 CPublishedFile_GetDetails_Request::~CPublishedFile_GetDetails_Request() {
@@ -7205,10 +7218,10 @@ void CPublishedFile_GetDetails_Request::Clear() {
         reinterpret_cast<char*>(&includemetadata_) -
         reinterpret_cast<char*>(&includetags_)) + sizeof(includemetadata_));
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00007f00u) {
     ::memset(&language_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&includereactions_) -
-        reinterpret_cast<char*>(&language_)) + sizeof(includereactions_));
+        reinterpret_cast<char*>(&admin_query_) -
+        reinterpret_cast<char*>(&language_)) + sizeof(admin_query_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -7353,6 +7366,14 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool admin_query = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
+          _Internal::set_has_admin_query(&has_bits);
+          admin_query_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -7474,6 +7495,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_includereactions(), target);
   }
 
+  // optional bool admin_query = 18;
+  if (cached_has_bits & 0x00004000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18, this->_internal_admin_query(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -7542,7 +7569,7 @@ size_t CPublishedFile_GetDetails_Request::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00007f00u) {
     // optional int32 language = 12 [default = 0];
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
@@ -7577,6 +7604,11 @@ size_t CPublishedFile_GetDetails_Request::ByteSizeLong() const {
 
     // optional bool includereactions = 17 [default = false];
     if (cached_has_bits & 0x00002000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool admin_query = 18;
+    if (cached_has_bits & 0x00004000u) {
       total_size += 2 + 1;
     }
 
@@ -7641,7 +7673,7 @@ void CPublishedFile_GetDetails_Request::MergeFrom(const CPublishedFile_GetDetail
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00007f00u) {
     if (cached_has_bits & 0x00000100u) {
       language_ = from.language_;
     }
@@ -7659,6 +7691,9 @@ void CPublishedFile_GetDetails_Request::MergeFrom(const CPublishedFile_GetDetail
     }
     if (cached_has_bits & 0x00002000u) {
       includereactions_ = from.includereactions_;
+    }
+    if (cached_has_bits & 0x00004000u) {
+      admin_query_ = from.admin_query_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -7688,8 +7723,8 @@ void CPublishedFile_GetDetails_Request::InternalSwap(CPublishedFile_GetDetails_R
   swap(_has_bits_[0], other->_has_bits_[0]);
   publishedfileids_.InternalSwap(&other->publishedfileids_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CPublishedFile_GetDetails_Request, includereactions_)
-      + sizeof(CPublishedFile_GetDetails_Request::includereactions_)
+      PROTOBUF_FIELD_OFFSET(CPublishedFile_GetDetails_Request, admin_query_)
+      + sizeof(CPublishedFile_GetDetails_Request::admin_query_)
       - PROTOBUF_FIELD_OFFSET(CPublishedFile_GetDetails_Request, includetags_)>(
           reinterpret_cast<char*>(&includetags_),
           reinterpret_cast<char*>(&other->includetags_));
@@ -14497,10 +14532,10 @@ class CPublishedFile_GetUserFiles_Request::_Internal {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_page(HasBits* has_bits) {
-    (*has_bits)[0] |= 134217728u;
+    (*has_bits)[0] |= 268435456u;
   }
   static void set_has_numperpage(HasBits* has_bits) {
-    (*has_bits)[0] |= 268435456u;
+    (*has_bits)[0] |= 536870912u;
   }
   static void set_has_type(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -14521,58 +14556,61 @@ class CPublishedFile_GetUserFiles_Request::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_cache_max_age_seconds(HasBits* has_bits) {
-    (*has_bits)[0] |= 16384u;
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_language(HasBits* has_bits) {
     (*has_bits)[0] |= 524288u;
   }
-  static void set_has_totalonly(HasBits* has_bits) {
+  static void set_has_admin_query(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
-  static void set_has_ids_only(HasBits* has_bits) {
+  static void set_has_totalonly(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
-  static void set_has_return_vote_data(HasBits* has_bits) {
-    (*has_bits)[0] |= 16777216u;
-  }
-  static void set_has_return_tags(HasBits* has_bits) {
+  static void set_has_ids_only(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
-  static void set_has_return_kv_tags(HasBits* has_bits) {
+  static void set_has_return_vote_data(HasBits* has_bits) {
     (*has_bits)[0] |= 33554432u;
   }
-  static void set_has_return_previews(HasBits* has_bits) {
+  static void set_has_return_tags(HasBits* has_bits) {
     (*has_bits)[0] |= 4096u;
   }
-  static void set_has_return_children(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
-  }
-  static void set_has_return_short_description(HasBits* has_bits) {
+  static void set_has_return_kv_tags(HasBits* has_bits) {
     (*has_bits)[0] |= 67108864u;
   }
+  static void set_has_return_previews(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
+  }
+  static void set_has_return_children(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_return_short_description(HasBits* has_bits) {
+    (*has_bits)[0] |= 134217728u;
+  }
   static void set_has_return_for_sale_data(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_return_metadata(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 65536u;
   }
   static void set_has_return_playtime_stats(HasBits* has_bits) {
     (*has_bits)[0] |= 1048576u;
   }
   static void set_has_strip_description_bbcode(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
-  }
-  static void set_has_return_reactions(HasBits* has_bits) {
     (*has_bits)[0] |= 4194304u;
   }
+  static void set_has_return_reactions(HasBits* has_bits) {
+    (*has_bits)[0] |= 8388608u;
+  }
   static void set_has_startindex_override(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 131072u;
   }
   static void set_has_desired_revision(HasBits* has_bits) {
     (*has_bits)[0] |= 2097152u;
   }
   static void set_has_return_apps(HasBits* has_bits) {
-    (*has_bits)[0] |= 8388608u;
+    (*has_bits)[0] |= 16777216u;
   }
 };
 
@@ -14687,15 +14725,16 @@ void CPublishedFile_GetUserFiles_Request::Clear() {
   }
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&creator_appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&return_children_) -
-        reinterpret_cast<char*>(&creator_appid_)) + sizeof(return_children_));
+        reinterpret_cast<char*>(&return_for_sale_data_) -
+        reinterpret_cast<char*>(&creator_appid_)) + sizeof(return_for_sale_data_));
   }
   if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&return_for_sale_data_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&return_apps_) -
-        reinterpret_cast<char*>(&return_for_sale_data_)) + sizeof(return_apps_));
+    ::memset(&return_metadata_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&return_reactions_) -
+        reinterpret_cast<char*>(&return_metadata_)) + sizeof(return_reactions_));
   }
-  if (cached_has_bits & 0x1f000000u) {
+  if (cached_has_bits & 0x3f000000u) {
+    return_apps_ = false;
     return_vote_data_ = true;
     return_kv_tags_ = true;
     return_short_description_ = true;
@@ -15035,6 +15074,14 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool admin_query = 38;
+      case 38:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_admin_query(&has_bits);
+          admin_query_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -15084,13 +15131,13 @@ failure:
   }
 
   // optional uint32 page = 4 [default = 1];
-  if (cached_has_bits & 0x08000000u) {
+  if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_page(), target);
   }
 
   // optional uint32 numperpage = 5 [default = 1];
-  if (cached_has_bits & 0x10000000u) {
+  if (cached_has_bits & 0x20000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_numperpage(), target);
   }
@@ -15164,73 +15211,73 @@ failure:
   }
 
   // optional bool totalonly = 17;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_totalonly(), target);
   }
 
   // optional bool ids_only = 18;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18, this->_internal_ids_only(), target);
   }
 
   // optional bool return_vote_data = 19 [default = true];
-  if (cached_has_bits & 0x01000000u) {
+  if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(19, this->_internal_return_vote_data(), target);
   }
 
   // optional bool return_tags = 20;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20, this->_internal_return_tags(), target);
   }
 
   // optional bool return_kv_tags = 21 [default = true];
-  if (cached_has_bits & 0x02000000u) {
+  if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21, this->_internal_return_kv_tags(), target);
   }
 
   // optional bool return_previews = 22;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22, this->_internal_return_previews(), target);
   }
 
   // optional bool return_children = 23;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(23, this->_internal_return_children(), target);
   }
 
   // optional bool return_short_description = 24 [default = true];
-  if (cached_has_bits & 0x04000000u) {
+  if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24, this->_internal_return_short_description(), target);
   }
 
   // optional uint32 startindex_override = 25;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(25, this->_internal_startindex_override(), target);
   }
 
   // optional bool return_for_sale_data = 26;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(26, this->_internal_return_for_sale_data(), target);
   }
 
   // optional uint32 cache_max_age_seconds = 27 [default = 0];
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(27, this->_internal_cache_max_age_seconds(), target);
   }
 
   // optional bool return_metadata = 28 [default = false];
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(28, this->_internal_return_metadata(), target);
   }
@@ -15256,7 +15303,7 @@ failure:
   }
 
   // optional bool strip_description_bbcode = 32;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(32, this->_internal_strip_description_bbcode(), target);
   }
@@ -15277,13 +15324,13 @@ failure:
   }
 
   // optional bool return_reactions = 35 [default = false];
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(35, this->_internal_return_reactions(), target);
   }
 
   // optional bool return_apps = 36;
-  if (cached_has_bits & 0x00800000u) {
+  if (cached_has_bits & 0x01000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(36, this->_internal_return_apps(), target);
   }
@@ -15293,6 +15340,12 @@ failure:
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
         37, this->_internal_excluded_content_descriptors(i), target);
+  }
+
+  // optional bool admin_query = 38;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(38, this->_internal_admin_query(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -15416,60 +15469,60 @@ size_t CPublishedFile_GetUserFiles_Request::ByteSizeLong() const {
           this->_internal_creator_appid());
     }
 
-    // optional bool totalonly = 17;
+    // optional bool admin_query = 38;
     if (cached_has_bits & 0x00000200u) {
       total_size += 2 + 1;
     }
 
-    // optional bool ids_only = 18;
+    // optional bool totalonly = 17;
     if (cached_has_bits & 0x00000400u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_tags = 20;
+    // optional bool ids_only = 18;
     if (cached_has_bits & 0x00000800u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_previews = 22;
+    // optional bool return_tags = 20;
     if (cached_has_bits & 0x00001000u) {
       total_size += 2 + 1;
     }
 
-    // optional uint32 startindex_override = 25;
+    // optional bool return_previews = 22;
     if (cached_has_bits & 0x00002000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_startindex_override());
-    }
-
-    // optional uint32 cache_max_age_seconds = 27 [default = 0];
-    if (cached_has_bits & 0x00004000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_cache_max_age_seconds());
+      total_size += 2 + 1;
     }
 
     // optional bool return_children = 23;
+    if (cached_has_bits & 0x00004000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool return_for_sale_data = 26;
     if (cached_has_bits & 0x00008000u) {
       total_size += 2 + 1;
     }
 
   }
   if (cached_has_bits & 0x00ff0000u) {
-    // optional bool return_for_sale_data = 26;
+    // optional bool return_metadata = 28 [default = false];
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_metadata = 28 [default = false];
+    // optional uint32 startindex_override = 25;
     if (cached_has_bits & 0x00020000u) {
-      total_size += 2 + 1;
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_startindex_override());
     }
 
-    // optional bool strip_description_bbcode = 32;
+    // optional uint32 cache_max_age_seconds = 27 [default = 0];
     if (cached_has_bits & 0x00040000u) {
-      total_size += 2 + 1;
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_cache_max_age_seconds());
     }
 
     // optional int32 language = 29 [default = 0];
@@ -15492,42 +15545,47 @@ size_t CPublishedFile_GetUserFiles_Request::ByteSizeLong() const {
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
     }
 
-    // optional bool return_reactions = 35 [default = false];
+    // optional bool strip_description_bbcode = 32;
     if (cached_has_bits & 0x00400000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_apps = 36;
+    // optional bool return_reactions = 35 [default = false];
     if (cached_has_bits & 0x00800000u) {
       total_size += 2 + 1;
     }
 
   }
-  if (cached_has_bits & 0x1f000000u) {
-    // optional bool return_vote_data = 19 [default = true];
+  if (cached_has_bits & 0x3f000000u) {
+    // optional bool return_apps = 36;
     if (cached_has_bits & 0x01000000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_kv_tags = 21 [default = true];
+    // optional bool return_vote_data = 19 [default = true];
     if (cached_has_bits & 0x02000000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_short_description = 24 [default = true];
+    // optional bool return_kv_tags = 21 [default = true];
     if (cached_has_bits & 0x04000000u) {
       total_size += 2 + 1;
     }
 
-    // optional uint32 page = 4 [default = 1];
+    // optional bool return_short_description = 24 [default = true];
     if (cached_has_bits & 0x08000000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional uint32 page = 4 [default = 1];
+    if (cached_has_bits & 0x10000000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_page());
     }
 
     // optional uint32 numperpage = 5 [default = 1];
-    if (cached_has_bits & 0x10000000u) {
+    if (cached_has_bits & 0x20000000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_numperpage());
@@ -15603,37 +15661,37 @@ void CPublishedFile_GetUserFiles_Request::MergeFrom(const CPublishedFile_GetUser
       creator_appid_ = from.creator_appid_;
     }
     if (cached_has_bits & 0x00000200u) {
-      totalonly_ = from.totalonly_;
+      admin_query_ = from.admin_query_;
     }
     if (cached_has_bits & 0x00000400u) {
-      ids_only_ = from.ids_only_;
+      totalonly_ = from.totalonly_;
     }
     if (cached_has_bits & 0x00000800u) {
-      return_tags_ = from.return_tags_;
+      ids_only_ = from.ids_only_;
     }
     if (cached_has_bits & 0x00001000u) {
-      return_previews_ = from.return_previews_;
+      return_tags_ = from.return_tags_;
     }
     if (cached_has_bits & 0x00002000u) {
-      startindex_override_ = from.startindex_override_;
+      return_previews_ = from.return_previews_;
     }
     if (cached_has_bits & 0x00004000u) {
-      cache_max_age_seconds_ = from.cache_max_age_seconds_;
+      return_children_ = from.return_children_;
     }
     if (cached_has_bits & 0x00008000u) {
-      return_children_ = from.return_children_;
+      return_for_sale_data_ = from.return_for_sale_data_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      return_for_sale_data_ = from.return_for_sale_data_;
-    }
-    if (cached_has_bits & 0x00020000u) {
       return_metadata_ = from.return_metadata_;
     }
+    if (cached_has_bits & 0x00020000u) {
+      startindex_override_ = from.startindex_override_;
+    }
     if (cached_has_bits & 0x00040000u) {
-      strip_description_bbcode_ = from.strip_description_bbcode_;
+      cache_max_age_seconds_ = from.cache_max_age_seconds_;
     }
     if (cached_has_bits & 0x00080000u) {
       language_ = from.language_;
@@ -15645,27 +15703,30 @@ void CPublishedFile_GetUserFiles_Request::MergeFrom(const CPublishedFile_GetUser
       desired_revision_ = from.desired_revision_;
     }
     if (cached_has_bits & 0x00400000u) {
-      return_reactions_ = from.return_reactions_;
+      strip_description_bbcode_ = from.strip_description_bbcode_;
     }
     if (cached_has_bits & 0x00800000u) {
-      return_apps_ = from.return_apps_;
+      return_reactions_ = from.return_reactions_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x1f000000u) {
+  if (cached_has_bits & 0x3f000000u) {
     if (cached_has_bits & 0x01000000u) {
-      return_vote_data_ = from.return_vote_data_;
+      return_apps_ = from.return_apps_;
     }
     if (cached_has_bits & 0x02000000u) {
-      return_kv_tags_ = from.return_kv_tags_;
+      return_vote_data_ = from.return_vote_data_;
     }
     if (cached_has_bits & 0x04000000u) {
-      return_short_description_ = from.return_short_description_;
+      return_kv_tags_ = from.return_kv_tags_;
     }
     if (cached_has_bits & 0x08000000u) {
-      page_ = from.page_;
+      return_short_description_ = from.return_short_description_;
     }
     if (cached_has_bits & 0x10000000u) {
+      page_ = from.page_;
+    }
+    if (cached_has_bits & 0x20000000u) {
       numperpage_ = from.numperpage_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -20984,7 +21045,7 @@ class CPublishedFile_QueryFiles_Request::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_numperpage(HasBits* has_bits) {
-    (*has_bits)[0] |= 536870912u;
+    (*has_bits)[0] |= 1073741824u;
   }
   static void set_has_creator_appid(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
@@ -20993,7 +21054,7 @@ class CPublishedFile_QueryFiles_Request::_Internal {
     (*has_bits)[0] |= 128u;
   }
   static void set_has_match_all_tags(HasBits* has_bits) {
-    (*has_bits)[0] |= 1073741824u;
+    (*has_bits)[0] |= 2147483648u;
   }
   static void set_has_search_text(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -21008,7 +21069,7 @@ class CPublishedFile_QueryFiles_Request::_Internal {
     (*has_bits)[0] |= 1024u;
   }
   static void set_has_include_recent_votes_only(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
+    (*has_bits)[0] |= 524288u;
   }
   static void set_has_cache_max_age_seconds(HasBits* has_bits) {
     (*has_bits)[0] |= 8388608u;
@@ -21024,47 +21085,50 @@ class CPublishedFile_QueryFiles_Request::_Internal {
   static void set_has_date_range_updated(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_totalonly(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
-  }
-  static void set_has_ids_only(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
-  }
-  static void set_has_return_vote_data(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
-  }
-  static void set_has_return_tags(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
-  }
-  static void set_has_return_kv_tags(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
-  }
-  static void set_has_return_previews(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
-  }
-  static void set_has_return_children(HasBits* has_bits) {
-    (*has_bits)[0] |= 16384u;
-  }
-  static void set_has_return_short_description(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
-  }
-  static void set_has_return_for_sale_data(HasBits* has_bits) {
+  static void set_has_admin_query(HasBits* has_bits) {
     (*has_bits)[0] |= 1048576u;
   }
-  static void set_has_return_metadata(HasBits* has_bits) {
+  static void set_has_totalonly(HasBits* has_bits) {
     (*has_bits)[0] |= 2097152u;
+  }
+  static void set_has_ids_only(HasBits* has_bits) {
+    (*has_bits)[0] |= 4194304u;
+  }
+  static void set_has_return_vote_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
+  static void set_has_return_tags(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
+  static void set_has_return_kv_tags(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
+  }
+  static void set_has_return_previews(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_return_children(HasBits* has_bits) {
+    (*has_bits)[0] |= 32768u;
+  }
+  static void set_has_return_short_description(HasBits* has_bits) {
+    (*has_bits)[0] |= 65536u;
+  }
+  static void set_has_return_for_sale_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 131072u;
+  }
+  static void set_has_return_metadata(HasBits* has_bits) {
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_return_playtime_stats(HasBits* has_bits) {
     (*has_bits)[0] |= 33554432u;
   }
   static void set_has_return_details(HasBits* has_bits) {
-    (*has_bits)[0] |= 4194304u;
+    (*has_bits)[0] |= 67108864u;
   }
   static void set_has_strip_description_bbcode(HasBits* has_bits) {
     (*has_bits)[0] |= 134217728u;
   }
   static void set_has_desired_revision(HasBits* has_bits) {
-    (*has_bits)[0] |= 67108864u;
+    (*has_bits)[0] |= 536870912u;
   }
   static void set_has_return_reactions(HasBits* has_bits) {
     (*has_bits)[0] |= 268435456u;
@@ -21134,8 +21198,8 @@ search_text_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString
 cursor_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&date_range_created_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&return_reactions_) -
-    reinterpret_cast<char*>(&date_range_created_)) + sizeof(return_reactions_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&desired_revision_) -
+    reinterpret_cast<char*>(&date_range_created_)) + sizeof(desired_revision_));
 numperpage_ = 1u;
 match_all_tags_ = true;
 }
@@ -21201,18 +21265,18 @@ void CPublishedFile_QueryFiles_Request::Clear() {
   }
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&child_publishedfileid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&include_recent_votes_only_) -
-        reinterpret_cast<char*>(&child_publishedfileid_)) + sizeof(include_recent_votes_only_));
+        reinterpret_cast<char*>(&return_children_) -
+        reinterpret_cast<char*>(&child_publishedfileid_)) + sizeof(return_children_));
   }
   if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&totalonly_, 0, static_cast<size_t>(
+    ::memset(&return_short_description_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&cache_max_age_seconds_) -
-        reinterpret_cast<char*>(&totalonly_)) + sizeof(cache_max_age_seconds_));
+        reinterpret_cast<char*>(&return_short_description_)) + sizeof(cache_max_age_seconds_));
   }
-  if (cached_has_bits & 0x7f000000u) {
+  if (cached_has_bits & 0xff000000u) {
     ::memset(&language_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&return_reactions_) -
-        reinterpret_cast<char*>(&language_)) + sizeof(return_reactions_));
+        reinterpret_cast<char*>(&desired_revision_) -
+        reinterpret_cast<char*>(&language_)) + sizeof(desired_revision_));
     numperpage_ = 1u;
     match_all_tags_ = true;
   }
@@ -21592,6 +21656,14 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool admin_query = 47;
+      case 47:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
+          _Internal::set_has_admin_query(&has_bits);
+          admin_query_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -21635,7 +21707,7 @@ failure:
   }
 
   // optional uint32 numperpage = 3 [default = 1];
-  if (cached_has_bits & 0x20000000u) {
+  if (cached_has_bits & 0x40000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_numperpage(), target);
   }
@@ -21673,7 +21745,7 @@ failure:
   }
 
   // optional bool match_all_tags = 8 [default = true];
-  if (cached_has_bits & 0x40000000u) {
+  if (cached_has_bits & 0x80000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_match_all_tags(), target);
   }
@@ -21727,55 +21799,55 @@ failure:
   }
 
   // optional bool include_recent_votes_only = 15;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_include_recent_votes_only(), target);
   }
 
   // optional bool totalonly = 16;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(16, this->_internal_totalonly(), target);
   }
 
   // optional bool return_vote_data = 17;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_return_vote_data(), target);
   }
 
   // optional bool return_tags = 18;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18, this->_internal_return_tags(), target);
   }
 
   // optional bool return_kv_tags = 19;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(19, this->_internal_return_kv_tags(), target);
   }
 
   // optional bool return_previews = 20;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20, this->_internal_return_previews(), target);
   }
 
   // optional bool return_children = 21;
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21, this->_internal_return_children(), target);
   }
 
   // optional bool return_short_description = 22;
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22, this->_internal_return_short_description(), target);
   }
 
   // optional bool return_for_sale_data = 30;
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(30, this->_internal_return_for_sale_data(), target);
   }
@@ -21787,7 +21859,7 @@ failure:
   }
 
   // optional bool return_metadata = 32 [default = false];
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(32, this->_internal_return_metadata(), target);
   }
@@ -21807,7 +21879,7 @@ failure:
   }
 
   // optional bool ids_only = 35;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(35, this->_internal_ids_only(), target);
   }
@@ -21819,7 +21891,7 @@ failure:
   }
 
   // optional bool return_details = 37;
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(37, this->_internal_return_details(), target);
   }
@@ -21841,7 +21913,7 @@ failure:
   }
 
   // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
-  if (cached_has_bits & 0x04000000u) {
+  if (cached_has_bits & 0x20000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       40, this->_internal_desired_revision(), target);
@@ -21882,6 +21954,12 @@ failure:
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
         46, this->_internal_excluded_content_descriptors(i), target);
+  }
+
+  // optional bool admin_query = 47;
+  if (cached_has_bits & 0x00100000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(47, this->_internal_admin_query(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -22035,64 +22113,64 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
           this->_internal_days());
     }
 
-    // optional bool return_tags = 18;
+    // optional bool return_vote_data = 17;
     if (cached_has_bits & 0x00000800u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_kv_tags = 19;
+    // optional bool return_tags = 18;
     if (cached_has_bits & 0x00001000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_previews = 20;
+    // optional bool return_kv_tags = 19;
     if (cached_has_bits & 0x00002000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_children = 21;
+    // optional bool return_previews = 20;
     if (cached_has_bits & 0x00004000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool include_recent_votes_only = 15;
+    // optional bool return_children = 21;
     if (cached_has_bits & 0x00008000u) {
-      total_size += 1 + 1;
+      total_size += 2 + 1;
     }
 
   }
   if (cached_has_bits & 0x00ff0000u) {
-    // optional bool totalonly = 16;
+    // optional bool return_short_description = 22;
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool ids_only = 35;
+    // optional bool return_for_sale_data = 30;
     if (cached_has_bits & 0x00020000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_vote_data = 17;
+    // optional bool return_metadata = 32 [default = false];
     if (cached_has_bits & 0x00040000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_short_description = 22;
+    // optional bool include_recent_votes_only = 15;
     if (cached_has_bits & 0x00080000u) {
-      total_size += 2 + 1;
+      total_size += 1 + 1;
     }
 
-    // optional bool return_for_sale_data = 30;
+    // optional bool admin_query = 47;
     if (cached_has_bits & 0x00100000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_metadata = 32 [default = false];
+    // optional bool totalonly = 16;
     if (cached_has_bits & 0x00200000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_details = 37;
+    // optional bool ids_only = 35;
     if (cached_has_bits & 0x00400000u) {
       total_size += 2 + 1;
     }
@@ -22105,7 +22183,7 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x7f000000u) {
+  if (cached_has_bits & 0xff000000u) {
     // optional int32 language = 33 [default = 0];
     if (cached_has_bits & 0x01000000u) {
       total_size += 2 +
@@ -22120,10 +22198,9 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
           this->_internal_return_playtime_stats());
     }
 
-    // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
+    // optional bool return_details = 37;
     if (cached_has_bits & 0x04000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
+      total_size += 2 + 1;
     }
 
     // optional bool strip_description_bbcode = 38;
@@ -22136,15 +22213,21 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
       total_size += 2 + 1;
     }
 
-    // optional uint32 numperpage = 3 [default = 1];
+    // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
     if (cached_has_bits & 0x20000000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
+    }
+
+    // optional uint32 numperpage = 3 [default = 1];
+    if (cached_has_bits & 0x40000000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_numperpage());
     }
 
     // optional bool match_all_tags = 8 [default = true];
-    if (cached_has_bits & 0x40000000u) {
+    if (cached_has_bits & 0x80000000u) {
       total_size += 1 + 1;
     }
 
@@ -22226,50 +22309,50 @@ void CPublishedFile_QueryFiles_Request::MergeFrom(const CPublishedFile_QueryFile
       days_ = from.days_;
     }
     if (cached_has_bits & 0x00000800u) {
-      return_tags_ = from.return_tags_;
+      return_vote_data_ = from.return_vote_data_;
     }
     if (cached_has_bits & 0x00001000u) {
-      return_kv_tags_ = from.return_kv_tags_;
+      return_tags_ = from.return_tags_;
     }
     if (cached_has_bits & 0x00002000u) {
-      return_previews_ = from.return_previews_;
+      return_kv_tags_ = from.return_kv_tags_;
     }
     if (cached_has_bits & 0x00004000u) {
-      return_children_ = from.return_children_;
+      return_previews_ = from.return_previews_;
     }
     if (cached_has_bits & 0x00008000u) {
-      include_recent_votes_only_ = from.include_recent_votes_only_;
+      return_children_ = from.return_children_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      totalonly_ = from.totalonly_;
-    }
-    if (cached_has_bits & 0x00020000u) {
-      ids_only_ = from.ids_only_;
-    }
-    if (cached_has_bits & 0x00040000u) {
-      return_vote_data_ = from.return_vote_data_;
-    }
-    if (cached_has_bits & 0x00080000u) {
       return_short_description_ = from.return_short_description_;
     }
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00020000u) {
       return_for_sale_data_ = from.return_for_sale_data_;
     }
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00040000u) {
       return_metadata_ = from.return_metadata_;
     }
+    if (cached_has_bits & 0x00080000u) {
+      include_recent_votes_only_ = from.include_recent_votes_only_;
+    }
+    if (cached_has_bits & 0x00100000u) {
+      admin_query_ = from.admin_query_;
+    }
+    if (cached_has_bits & 0x00200000u) {
+      totalonly_ = from.totalonly_;
+    }
     if (cached_has_bits & 0x00400000u) {
-      return_details_ = from.return_details_;
+      ids_only_ = from.ids_only_;
     }
     if (cached_has_bits & 0x00800000u) {
       cache_max_age_seconds_ = from.cache_max_age_seconds_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x7f000000u) {
+  if (cached_has_bits & 0xff000000u) {
     if (cached_has_bits & 0x01000000u) {
       language_ = from.language_;
     }
@@ -22277,7 +22360,7 @@ void CPublishedFile_QueryFiles_Request::MergeFrom(const CPublishedFile_QueryFile
       return_playtime_stats_ = from.return_playtime_stats_;
     }
     if (cached_has_bits & 0x04000000u) {
-      desired_revision_ = from.desired_revision_;
+      return_details_ = from.return_details_;
     }
     if (cached_has_bits & 0x08000000u) {
       strip_description_bbcode_ = from.strip_description_bbcode_;
@@ -22286,9 +22369,12 @@ void CPublishedFile_QueryFiles_Request::MergeFrom(const CPublishedFile_QueryFile
       return_reactions_ = from.return_reactions_;
     }
     if (cached_has_bits & 0x20000000u) {
-      numperpage_ = from.numperpage_;
+      desired_revision_ = from.desired_revision_;
     }
     if (cached_has_bits & 0x40000000u) {
+      numperpage_ = from.numperpage_;
+    }
+    if (cached_has_bits & 0x80000000u) {
       match_all_tags_ = from.match_all_tags_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -22327,8 +22413,8 @@ void CPublishedFile_QueryFiles_Request::InternalSwap(CPublishedFile_QueryFiles_R
   search_text_.Swap(&other->search_text_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   cursor_.Swap(&other->cursor_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CPublishedFile_QueryFiles_Request, return_reactions_)
-      + sizeof(CPublishedFile_QueryFiles_Request::return_reactions_)
+      PROTOBUF_FIELD_OFFSET(CPublishedFile_QueryFiles_Request, desired_revision_)
+      + sizeof(CPublishedFile_QueryFiles_Request::desired_revision_)
       - PROTOBUF_FIELD_OFFSET(CPublishedFile_QueryFiles_Request, date_range_created_)>(
           reinterpret_cast<char*>(&date_range_created_),
           reinterpret_cast<char*>(&other->date_range_created_));

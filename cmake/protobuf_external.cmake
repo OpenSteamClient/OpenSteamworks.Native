@@ -78,6 +78,7 @@ ExternalProject_Add(${PROTOBUF_TARGET}
         -DCMAKE_CXX_STANDARD=${CMAKE_CXX_STANDARD}
         -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
         -Dprotobuf_BUILD_TESTS=OFF
+        # This is needed by OSWUpdater
         -Dprotobuf_BUILD_PROTOC_BINARIES=ON
         -Dprotobuf_BUILD_SHARED_LIBS=OFF
         -Dprotobuf_WITH_ZLIB=OFF

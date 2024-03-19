@@ -121,11 +121,13 @@ enum EDisplayStatus : int {
   EDisplayStatusCloudError = 34,
   EDisplayStatusCloudOutOfDate = 35,
   EDisplayStatusTerminating = 36,
-  EDisplayStatusOwnerLocked = 37
+  EDisplayStatusOwnerLocked = 37,
+  EDisplayStatusDownloadFailed = 38,
+  EDisplayStatusUpdateFailed = 39
 };
 bool EDisplayStatus_IsValid(int value);
 constexpr EDisplayStatus EDisplayStatus_MIN = EDisplayStatusInvalid;
-constexpr EDisplayStatus EDisplayStatus_MAX = EDisplayStatusOwnerLocked;
+constexpr EDisplayStatus EDisplayStatus_MAX = EDisplayStatusUpdateFailed;
 constexpr int EDisplayStatus_ARRAYSIZE = EDisplayStatus_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDisplayStatus_descriptor();

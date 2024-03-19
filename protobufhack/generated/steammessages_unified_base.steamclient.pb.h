@@ -86,6 +86,29 @@ inline bool EProtoExecutionSite_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EProtoExecutionSite>(
     EProtoExecutionSite_descriptor(), name, value);
 }
+enum EProtoServiceType : int {
+  EProtoServiceTypeSteamMessages = 0,
+  EProtoServiceTypeVRGamepadUIMessages = 1
+};
+bool EProtoServiceType_IsValid(int value);
+constexpr EProtoServiceType EProtoServiceType_MIN = EProtoServiceTypeSteamMessages;
+constexpr EProtoServiceType EProtoServiceType_MAX = EProtoServiceTypeVRGamepadUIMessages;
+constexpr int EProtoServiceType_ARRAYSIZE = EProtoServiceType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProtoServiceType_descriptor();
+template<typename T>
+inline const std::string& EProtoServiceType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EProtoServiceType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EProtoServiceType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EProtoServiceType_descriptor(), enum_t_value);
+}
+inline bool EProtoServiceType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EProtoServiceType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EProtoServiceType>(
+    EProtoServiceType_descriptor(), name, value);
+}
 // ===================================================================
 
 class NoResponse PROTOBUF_FINAL :
@@ -219,6 +242,14 @@ class NoResponse PROTOBUF_FINAL :
 };
 // ===================================================================
 
+static const int kMessageDescriptionFieldNumber = 51000;
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
+  message_description;
+static const int kForceEmitMessageFieldNumber = 50026;
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< bool >, 8, false >
+  force_emit_message;
 static const int kDescriptionFieldNumber = 50000;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
@@ -231,6 +262,14 @@ static const int kServiceExecutionSiteFieldNumber = 50008;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::EnumTypeTraits< ::EProtoExecutionSite, ::EProtoExecutionSite_IsValid>, 14, false >
   service_execution_site;
+static const int kServiceTypeFieldNumber = 50025;
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::EnumTypeTraits< ::EProtoServiceType, ::EProtoServiceType_IsValid>, 14, false >
+  service_type;
+static const int kForceEmitServiceFieldNumber = 50026;
+extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< bool >, 8, false >
+  force_emit_service;
 static const int kMethodDescriptionFieldNumber = 50000;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
@@ -265,6 +304,11 @@ template <> struct is_proto_enum< ::EProtoExecutionSite> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EProtoExecutionSite>() {
   return ::EProtoExecutionSite_descriptor();
+}
+template <> struct is_proto_enum< ::EProtoServiceType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EProtoServiceType>() {
+  return ::EProtoServiceType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

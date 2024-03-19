@@ -1865,6 +1865,7 @@ class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData
     kLastSeenOnlineFieldNumber = 18,
     kGameOsTypeFieldNumber = 19,
     kGameDeviceTypeFieldNumber = 20,
+    kGameIsPrivateFieldNumber = 22,
   };
   // optional string game_extra_info = 8;
   bool has_game_extra_info() const;
@@ -2174,6 +2175,19 @@ class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData
   void _internal_set_game_device_type(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional bool game_is_private = 22;
+  bool has_game_is_private() const;
+  private:
+  bool _internal_has_game_is_private() const;
+  public:
+  void clear_game_is_private();
+  bool game_is_private() const;
+  void set_game_is_private(bool value);
+  private:
+  bool _internal_game_is_private() const;
+  void _internal_set_game_is_private(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData)
  private:
   class _Internal;
@@ -2204,6 +2218,7 @@ class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData
   ::PROTOBUF_NAMESPACE_ID::uint32 last_seen_online_;
   ::PROTOBUF_NAMESPACE_ID::int32 game_os_type_;
   ::PROTOBUF_NAMESPACE_ID::int32 game_device_type_;
+  bool game_is_private_;
   friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -28807,6 +28822,34 @@ inline void CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPriva
   game_device_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), game_device_name,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData.game_device_name)
+}
+
+// optional bool game_is_private = 22;
+inline bool CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData::_internal_has_game_is_private() const {
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  return value;
+}
+inline bool CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData::has_game_is_private() const {
+  return _internal_has_game_is_private();
+}
+inline void CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData::clear_game_is_private() {
+  game_is_private_ = false;
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline bool CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData::_internal_game_is_private() const {
+  return game_is_private_;
+}
+inline bool CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData::game_is_private() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData.game_is_private)
+  return _internal_game_is_private();
+}
+inline void CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData::_internal_set_game_is_private(bool value) {
+  _has_bits_[0] |= 0x00200000u;
+  game_is_private_ = value;
+}
+inline void CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData::set_game_is_private(bool value) {
+  _internal_set_game_is_private(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData.game_is_private)
 }
 
 // -------------------------------------------------------------------

@@ -17,7 +17,7 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 static constexpr ::PROTOBUF_NAMESPACE_ID::Metadata* file_level_metadata_enums_2eproto = nullptr;
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_enums_2eproto[51];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_enums_2eproto[54];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_enums_2eproto = nullptr;
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_enums_2eproto::offsets[1] = {};
 static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
@@ -361,7 +361,21 @@ const char descriptor_table_protodef_enums_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "ance\020\001*s\n\024ECloudGamingPlatform\022\034\n\030ECloud"
   "GamingPlatformNone\020\000\022\035\n\031ECloudGamingPlat"
   "formValve\020\001\022\036\n\032ECloudGamingPlatformNVIDI"
-  "A\020\002B#H\001\200\001\001\252\002\027OpenSteamworks.Protobuf\200\265\030\001"
+  "A\020\002*\220\001\n\030ECompromiseDetectionType\022!\n\035ECom"
+  "promiseDetectionType_None\020\000\022\'\n#ECompromi"
+  "seDetectionType_TradeEvent\020\001\022(\n$EComprom"
+  "iseDetectionType_ApiCallRate\020\002*\316\001\n\032EAsyn"
+  "cGameSessionUserState\022.\n!EAsyncGameSessi"
+  "onUserStateUnknown\020\377\377\377\377\377\377\377\377\377\001\022.\n*EAsyncG"
+  "ameSessionUserStateWaitingForOthers\020\000\022,\n"
+  "(EAsyncGameSessionUserStateReadyForActio"
+  "n\020\001\022\"\n\036EAsyncGameSessionUserStateDone\020\002*"
+  "\276\001\n\037EAsyncGameSessionUserVisibility\0229\n5E"
+  "AsyncGameSessionUserVisibilityEnvelopeAn"
+  "dSessionList\020\000\0222\n.EAsyncGameSessionUserV"
+  "isibilitySessionListOnly\020\001\022,\n(EAsyncGame"
+  "SessionUserVisibilityDismissed\020\002B#H\001\200\001\001\252"
+  "\002\027OpenSteamworks.Protobuf\200\265\030\001"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_enums_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -369,7 +383,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_enums_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_enums_2eproto = {
-  false, false, 13520, descriptor_table_protodef_enums_2eproto, "enums.proto", 
+  false, false, 14069, descriptor_table_protodef_enums_2eproto, "enums.proto", 
   &descriptor_table_enums_2eproto_once, descriptor_table_enums_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_enums_2eproto::offsets,
   file_level_metadata_enums_2eproto, file_level_enum_descriptors_enums_2eproto, file_level_service_descriptors_enums_2eproto,
@@ -1308,6 +1322,52 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECloudGamingPlatform_descriptor()
   return file_level_enum_descriptors_enums_2eproto[50];
 }
 bool ECloudGamingPlatform_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECompromiseDetectionType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[51];
+}
+bool ECompromiseDetectionType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAsyncGameSessionUserState_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[52];
+}
+bool EAsyncGameSessionUserState_IsValid(int value) {
+  switch (value) {
+    case -1:
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAsyncGameSessionUserVisibility_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[53];
+}
+bool EAsyncGameSessionUserVisibility_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:

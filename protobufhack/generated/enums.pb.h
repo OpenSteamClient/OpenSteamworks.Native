@@ -1453,6 +1453,79 @@ inline bool ECloudGamingPlatform_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ECloudGamingPlatform>(
     ECloudGamingPlatform_descriptor(), name, value);
 }
+enum ECompromiseDetectionType : int {
+  ECompromiseDetectionType_None = 0,
+  ECompromiseDetectionType_TradeEvent = 1,
+  ECompromiseDetectionType_ApiCallRate = 2
+};
+bool ECompromiseDetectionType_IsValid(int value);
+constexpr ECompromiseDetectionType ECompromiseDetectionType_MIN = ECompromiseDetectionType_None;
+constexpr ECompromiseDetectionType ECompromiseDetectionType_MAX = ECompromiseDetectionType_ApiCallRate;
+constexpr int ECompromiseDetectionType_ARRAYSIZE = ECompromiseDetectionType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECompromiseDetectionType_descriptor();
+template<typename T>
+inline const std::string& ECompromiseDetectionType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ECompromiseDetectionType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ECompromiseDetectionType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ECompromiseDetectionType_descriptor(), enum_t_value);
+}
+inline bool ECompromiseDetectionType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ECompromiseDetectionType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ECompromiseDetectionType>(
+    ECompromiseDetectionType_descriptor(), name, value);
+}
+enum EAsyncGameSessionUserState : int {
+  EAsyncGameSessionUserStateUnknown = -1,
+  EAsyncGameSessionUserStateWaitingForOthers = 0,
+  EAsyncGameSessionUserStateReadyForAction = 1,
+  EAsyncGameSessionUserStateDone = 2
+};
+bool EAsyncGameSessionUserState_IsValid(int value);
+constexpr EAsyncGameSessionUserState EAsyncGameSessionUserState_MIN = EAsyncGameSessionUserStateUnknown;
+constexpr EAsyncGameSessionUserState EAsyncGameSessionUserState_MAX = EAsyncGameSessionUserStateDone;
+constexpr int EAsyncGameSessionUserState_ARRAYSIZE = EAsyncGameSessionUserState_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAsyncGameSessionUserState_descriptor();
+template<typename T>
+inline const std::string& EAsyncGameSessionUserState_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EAsyncGameSessionUserState>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EAsyncGameSessionUserState_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EAsyncGameSessionUserState_descriptor(), enum_t_value);
+}
+inline bool EAsyncGameSessionUserState_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAsyncGameSessionUserState* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAsyncGameSessionUserState>(
+    EAsyncGameSessionUserState_descriptor(), name, value);
+}
+enum EAsyncGameSessionUserVisibility : int {
+  EAsyncGameSessionUserVisibilityEnvelopeAndSessionList = 0,
+  EAsyncGameSessionUserVisibilitySessionListOnly = 1,
+  EAsyncGameSessionUserVisibilityDismissed = 2
+};
+bool EAsyncGameSessionUserVisibility_IsValid(int value);
+constexpr EAsyncGameSessionUserVisibility EAsyncGameSessionUserVisibility_MIN = EAsyncGameSessionUserVisibilityEnvelopeAndSessionList;
+constexpr EAsyncGameSessionUserVisibility EAsyncGameSessionUserVisibility_MAX = EAsyncGameSessionUserVisibilityDismissed;
+constexpr int EAsyncGameSessionUserVisibility_ARRAYSIZE = EAsyncGameSessionUserVisibility_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAsyncGameSessionUserVisibility_descriptor();
+template<typename T>
+inline const std::string& EAsyncGameSessionUserVisibility_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EAsyncGameSessionUserVisibility>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EAsyncGameSessionUserVisibility_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EAsyncGameSessionUserVisibility_descriptor(), enum_t_value);
+}
+inline bool EAsyncGameSessionUserVisibility_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAsyncGameSessionUserVisibility* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAsyncGameSessionUserVisibility>(
+    EAsyncGameSessionUserVisibility_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -1728,6 +1801,21 @@ template <> struct is_proto_enum< ::ECloudGamingPlatform> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ECloudGamingPlatform>() {
   return ::ECloudGamingPlatform_descriptor();
+}
+template <> struct is_proto_enum< ::ECompromiseDetectionType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ECompromiseDetectionType>() {
+  return ::ECompromiseDetectionType_descriptor();
+}
+template <> struct is_proto_enum< ::EAsyncGameSessionUserState> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EAsyncGameSessionUserState>() {
+  return ::EAsyncGameSessionUserState_descriptor();
+}
+template <> struct is_proto_enum< ::EAsyncGameSessionUserVisibility> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EAsyncGameSessionUserVisibility>() {
+  return ::EAsyncGameSessionUserVisibility_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

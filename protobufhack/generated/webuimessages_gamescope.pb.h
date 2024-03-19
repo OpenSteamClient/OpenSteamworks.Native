@@ -514,6 +514,7 @@ class CMsgGamescopeState PROTOBUF_FINAL :
     kIsRefreshRateSwitchingSupportedFieldNumber = 7,
     kIsRefreshRateSwitchingRestrictedFieldNumber = 8,
     kIsHdrVisualizationSupportedFieldNumber = 9,
+    kIsMuraCorrectionSupportedFieldNumber = 10,
   };
   // optional .CMsgDisplayInfo active_display_info = 5;
   bool has_active_display_info() const;
@@ -637,6 +638,19 @@ class CMsgGamescopeState PROTOBUF_FINAL :
   void _internal_set_is_hdr_visualization_supported(bool value);
   public:
 
+  // optional bool is_mura_correction_supported = 10;
+  bool has_is_mura_correction_supported() const;
+  private:
+  bool _internal_has_is_mura_correction_supported() const;
+  public:
+  void clear_is_mura_correction_supported();
+  bool is_mura_correction_supported() const;
+  void set_is_mura_correction_supported(bool value);
+  private:
+  bool _internal_is_mura_correction_supported() const;
+  void _internal_set_is_mura_correction_supported(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgGamescopeState)
  private:
   class _Internal;
@@ -655,6 +669,7 @@ class CMsgGamescopeState PROTOBUF_FINAL :
   bool is_refresh_rate_switching_supported_;
   bool is_refresh_rate_switching_restricted_;
   bool is_hdr_visualization_supported_;
+  bool is_mura_correction_supported_;
   friend struct ::TableStruct_webuimessages_5fgamescope_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2175,6 +2190,34 @@ inline void CMsgGamescopeState::_internal_set_is_hdr_visualization_supported(boo
 inline void CMsgGamescopeState::set_is_hdr_visualization_supported(bool value) {
   _internal_set_is_hdr_visualization_supported(value);
   // @@protoc_insertion_point(field_set:CMsgGamescopeState.is_hdr_visualization_supported)
+}
+
+// optional bool is_mura_correction_supported = 10;
+inline bool CMsgGamescopeState::_internal_has_is_mura_correction_supported() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgGamescopeState::has_is_mura_correction_supported() const {
+  return _internal_has_is_mura_correction_supported();
+}
+inline void CMsgGamescopeState::clear_is_mura_correction_supported() {
+  is_mura_correction_supported_ = false;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline bool CMsgGamescopeState::_internal_is_mura_correction_supported() const {
+  return is_mura_correction_supported_;
+}
+inline bool CMsgGamescopeState::is_mura_correction_supported() const {
+  // @@protoc_insertion_point(field_get:CMsgGamescopeState.is_mura_correction_supported)
+  return _internal_is_mura_correction_supported();
+}
+inline void CMsgGamescopeState::_internal_set_is_mura_correction_supported(bool value) {
+  _has_bits_[0] |= 0x00000200u;
+  is_mura_correction_supported_ = value;
+}
+inline void CMsgGamescopeState::set_is_mura_correction_supported(bool value) {
+  _internal_set_is_mura_correction_supported(value);
+  // @@protoc_insertion_point(field_set:CMsgGamescopeState.is_mura_correction_supported)
 }
 
 // -------------------------------------------------------------------

@@ -1162,6 +1162,7 @@ class CUserAccount_GetWalletDetails_Response PROTOBUF_FINAL :
     kWalletCountryCodeFieldNumber = 3,
     kWalletStateFieldNumber = 4,
     kFormattedBalanceFieldNumber = 14,
+    kFormattedDelayedBalanceFieldNumber = 15,
     kBalanceFieldNumber = 5,
     kDelayedBalanceFieldNumber = 6,
     kHasWalletFieldNumber = 1,
@@ -1171,6 +1172,9 @@ class CUserAccount_GetWalletDetails_Response PROTOBUF_FINAL :
     kBalanceInUsdFieldNumber = 10,
     kDelayedBalanceInUsdFieldNumber = 11,
     kTimeMostRecentTxnFieldNumber = 8,
+    kDelayedBalanceAvailableMinTimeFieldNumber = 16,
+    kDelayedBalanceAvailableMaxTimeFieldNumber = 17,
+    kDelayedBalanceNewestSourceFieldNumber = 18,
   };
   // repeated int32 other_regions = 13;
   int other_regions_size() const;
@@ -1272,6 +1276,26 @@ class CUserAccount_GetWalletDetails_Response PROTOBUF_FINAL :
   const std::string& _internal_formatted_balance() const;
   void _internal_set_formatted_balance(const std::string& value);
   std::string* _internal_mutable_formatted_balance();
+  public:
+
+  // optional string formatted_delayed_balance = 15;
+  bool has_formatted_delayed_balance() const;
+  private:
+  bool _internal_has_formatted_delayed_balance() const;
+  public:
+  void clear_formatted_delayed_balance();
+  const std::string& formatted_delayed_balance() const;
+  void set_formatted_delayed_balance(const std::string& value);
+  void set_formatted_delayed_balance(std::string&& value);
+  void set_formatted_delayed_balance(const char* value);
+  void set_formatted_delayed_balance(const char* value, size_t size);
+  std::string* mutable_formatted_delayed_balance();
+  std::string* release_formatted_delayed_balance();
+  void set_allocated_formatted_delayed_balance(std::string* formatted_delayed_balance);
+  private:
+  const std::string& _internal_formatted_delayed_balance() const;
+  void _internal_set_formatted_delayed_balance(const std::string& value);
+  std::string* _internal_mutable_formatted_delayed_balance();
   public:
 
   // optional int64 balance = 5;
@@ -1391,6 +1415,45 @@ class CUserAccount_GetWalletDetails_Response PROTOBUF_FINAL :
   void _internal_set_time_most_recent_txn(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional int32 delayed_balance_available_min_time = 16;
+  bool has_delayed_balance_available_min_time() const;
+  private:
+  bool _internal_has_delayed_balance_available_min_time() const;
+  public:
+  void clear_delayed_balance_available_min_time();
+  ::PROTOBUF_NAMESPACE_ID::int32 delayed_balance_available_min_time() const;
+  void set_delayed_balance_available_min_time(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_delayed_balance_available_min_time() const;
+  void _internal_set_delayed_balance_available_min_time(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 delayed_balance_available_max_time = 17;
+  bool has_delayed_balance_available_max_time() const;
+  private:
+  bool _internal_has_delayed_balance_available_max_time() const;
+  public:
+  void clear_delayed_balance_available_max_time();
+  ::PROTOBUF_NAMESPACE_ID::int32 delayed_balance_available_max_time() const;
+  void set_delayed_balance_available_max_time(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_delayed_balance_available_max_time() const;
+  void _internal_set_delayed_balance_available_max_time(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 delayed_balance_newest_source = 18;
+  bool has_delayed_balance_newest_source() const;
+  private:
+  bool _internal_has_delayed_balance_newest_source() const;
+  public:
+  void clear_delayed_balance_newest_source();
+  ::PROTOBUF_NAMESPACE_ID::int32 delayed_balance_newest_source() const;
+  void set_delayed_balance_newest_source(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_delayed_balance_newest_source() const;
+  void _internal_set_delayed_balance_newest_source(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CUserAccount_GetWalletDetails_Response)
  private:
   class _Internal;
@@ -1405,6 +1468,7 @@ class CUserAccount_GetWalletDetails_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr wallet_country_code_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr wallet_state_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr formatted_balance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr formatted_delayed_balance_;
   ::PROTOBUF_NAMESPACE_ID::int64 balance_;
   ::PROTOBUF_NAMESPACE_ID::int64 delayed_balance_;
   bool has_wallet_;
@@ -1414,6 +1478,9 @@ class CUserAccount_GetWalletDetails_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int64 balance_in_usd_;
   ::PROTOBUF_NAMESPACE_ID::int64 delayed_balance_in_usd_;
   ::PROTOBUF_NAMESPACE_ID::uint32 time_most_recent_txn_;
+  ::PROTOBUF_NAMESPACE_ID::int32 delayed_balance_available_min_time_;
+  ::PROTOBUF_NAMESPACE_ID::int32 delayed_balance_available_max_time_;
+  ::PROTOBUF_NAMESPACE_ID::int32 delayed_balance_newest_source_;
   friend struct ::TableStruct_steammessages_5fuseraccount_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6290,7 +6357,7 @@ inline void CUserAccount_GetClientWalletDetails_Request::set_include_formatted_b
 
 // optional bool has_wallet = 1;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_has_wallet() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_has_wallet() const {
@@ -6298,7 +6365,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_has_wallet() const {
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_has_wallet() {
   has_wallet_ = false;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_wallet() const {
   return has_wallet_;
@@ -6308,7 +6375,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_wallet() const {
   return _internal_has_wallet();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_has_wallet(bool value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   has_wallet_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_has_wallet(bool value) {
@@ -6537,7 +6604,7 @@ inline void CUserAccount_GetWalletDetails_Response::set_allocated_wallet_state(s
 
 // optional int64 balance = 5;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_balance() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_balance() const {
@@ -6545,7 +6612,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_balance() const {
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_balance() {
   balance_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 CUserAccount_GetWalletDetails_Response::_internal_balance() const {
   return balance_;
@@ -6555,7 +6622,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 CUserAccount_GetWalletDetails_Response::ba
   return _internal_balance();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_balance(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   balance_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_balance(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -6565,7 +6632,7 @@ inline void CUserAccount_GetWalletDetails_Response::set_balance(::PROTOBUF_NAMES
 
 // optional int64 delayed_balance = 6;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_delayed_balance() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_delayed_balance() const {
@@ -6573,7 +6640,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_delayed_balance() const 
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_delayed_balance() {
   delayed_balance_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 CUserAccount_GetWalletDetails_Response::_internal_delayed_balance() const {
   return delayed_balance_;
@@ -6583,7 +6650,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 CUserAccount_GetWalletDetails_Response::de
   return _internal_delayed_balance();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_delayed_balance(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   delayed_balance_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_delayed_balance(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -6593,7 +6660,7 @@ inline void CUserAccount_GetWalletDetails_Response::set_delayed_balance(::PROTOB
 
 // optional int32 currency_code = 7;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_currency_code() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_currency_code() const {
@@ -6601,7 +6668,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_currency_code() const {
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_currency_code() {
   currency_code_ = 0;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CUserAccount_GetWalletDetails_Response::_internal_currency_code() const {
   return currency_code_;
@@ -6611,7 +6678,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CUserAccount_GetWalletDetails_Response::cu
   return _internal_currency_code();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_currency_code(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
   currency_code_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_currency_code(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -6621,7 +6688,7 @@ inline void CUserAccount_GetWalletDetails_Response::set_currency_code(::PROTOBUF
 
 // optional uint32 time_most_recent_txn = 8;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_time_most_recent_txn() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_time_most_recent_txn() const {
@@ -6629,7 +6696,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_time_most_recent_txn() c
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_time_most_recent_txn() {
   time_most_recent_txn_ = 0u;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CUserAccount_GetWalletDetails_Response::_internal_time_most_recent_txn() const {
   return time_most_recent_txn_;
@@ -6639,7 +6706,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CUserAccount_GetWalletDetails_Response::t
   return _internal_time_most_recent_txn();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_time_most_recent_txn(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
   time_most_recent_txn_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_time_most_recent_txn(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -6649,7 +6716,7 @@ inline void CUserAccount_GetWalletDetails_Response::set_time_most_recent_txn(::P
 
 // optional uint64 most_recent_txnid = 9;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_most_recent_txnid() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_most_recent_txnid() const {
@@ -6657,7 +6724,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_most_recent_txnid() cons
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_most_recent_txnid() {
   most_recent_txnid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CUserAccount_GetWalletDetails_Response::_internal_most_recent_txnid() const {
   return most_recent_txnid_;
@@ -6667,7 +6734,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CUserAccount_GetWalletDetails_Response::m
   return _internal_most_recent_txnid();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_most_recent_txnid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
   most_recent_txnid_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_most_recent_txnid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -6677,7 +6744,7 @@ inline void CUserAccount_GetWalletDetails_Response::set_most_recent_txnid(::PROT
 
 // optional int64 balance_in_usd = 10;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_balance_in_usd() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_balance_in_usd() const {
@@ -6685,7 +6752,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_balance_in_usd() const {
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_balance_in_usd() {
   balance_in_usd_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 CUserAccount_GetWalletDetails_Response::_internal_balance_in_usd() const {
   return balance_in_usd_;
@@ -6695,7 +6762,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 CUserAccount_GetWalletDetails_Response::ba
   return _internal_balance_in_usd();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_balance_in_usd(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
   balance_in_usd_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_balance_in_usd(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -6705,7 +6772,7 @@ inline void CUserAccount_GetWalletDetails_Response::set_balance_in_usd(::PROTOBU
 
 // optional int64 delayed_balance_in_usd = 11;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_delayed_balance_in_usd() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_delayed_balance_in_usd() const {
@@ -6713,7 +6780,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_delayed_balance_in_usd()
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_delayed_balance_in_usd() {
   delayed_balance_in_usd_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 CUserAccount_GetWalletDetails_Response::_internal_delayed_balance_in_usd() const {
   return delayed_balance_in_usd_;
@@ -6723,7 +6790,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 CUserAccount_GetWalletDetails_Response::de
   return _internal_delayed_balance_in_usd();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_delayed_balance_in_usd(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
   delayed_balance_in_usd_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_delayed_balance_in_usd(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -6733,7 +6800,7 @@ inline void CUserAccount_GetWalletDetails_Response::set_delayed_balance_in_usd(:
 
 // optional bool has_wallet_in_other_regions = 12;
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_has_wallet_in_other_regions() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CUserAccount_GetWalletDetails_Response::has_has_wallet_in_other_regions() const {
@@ -6741,7 +6808,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_has_wallet_in_other_regi
 }
 inline void CUserAccount_GetWalletDetails_Response::clear_has_wallet_in_other_regions() {
   has_wallet_in_other_regions_ = false;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline bool CUserAccount_GetWalletDetails_Response::_internal_has_wallet_in_other_regions() const {
   return has_wallet_in_other_regions_;
@@ -6751,7 +6818,7 @@ inline bool CUserAccount_GetWalletDetails_Response::has_wallet_in_other_regions(
   return _internal_has_wallet_in_other_regions();
 }
 inline void CUserAccount_GetWalletDetails_Response::_internal_set_has_wallet_in_other_regions(bool value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
   has_wallet_in_other_regions_ = value;
 }
 inline void CUserAccount_GetWalletDetails_Response::set_has_wallet_in_other_regions(bool value) {
@@ -6877,6 +6944,163 @@ inline void CUserAccount_GetWalletDetails_Response::set_allocated_formatted_bala
   formatted_balance_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), formatted_balance,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CUserAccount_GetWalletDetails_Response.formatted_balance)
+}
+
+// optional string formatted_delayed_balance = 15;
+inline bool CUserAccount_GetWalletDetails_Response::_internal_has_formatted_delayed_balance() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CUserAccount_GetWalletDetails_Response::has_formatted_delayed_balance() const {
+  return _internal_has_formatted_delayed_balance();
+}
+inline void CUserAccount_GetWalletDetails_Response::clear_formatted_delayed_balance() {
+  formatted_delayed_balance_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline const std::string& CUserAccount_GetWalletDetails_Response::formatted_delayed_balance() const {
+  // @@protoc_insertion_point(field_get:CUserAccount_GetWalletDetails_Response.formatted_delayed_balance)
+  return _internal_formatted_delayed_balance();
+}
+inline void CUserAccount_GetWalletDetails_Response::set_formatted_delayed_balance(const std::string& value) {
+  _internal_set_formatted_delayed_balance(value);
+  // @@protoc_insertion_point(field_set:CUserAccount_GetWalletDetails_Response.formatted_delayed_balance)
+}
+inline std::string* CUserAccount_GetWalletDetails_Response::mutable_formatted_delayed_balance() {
+  // @@protoc_insertion_point(field_mutable:CUserAccount_GetWalletDetails_Response.formatted_delayed_balance)
+  return _internal_mutable_formatted_delayed_balance();
+}
+inline const std::string& CUserAccount_GetWalletDetails_Response::_internal_formatted_delayed_balance() const {
+  return formatted_delayed_balance_.Get();
+}
+inline void CUserAccount_GetWalletDetails_Response::_internal_set_formatted_delayed_balance(const std::string& value) {
+  _has_bits_[0] |= 0x00000010u;
+  formatted_delayed_balance_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CUserAccount_GetWalletDetails_Response::set_formatted_delayed_balance(std::string&& value) {
+  _has_bits_[0] |= 0x00000010u;
+  formatted_delayed_balance_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CUserAccount_GetWalletDetails_Response.formatted_delayed_balance)
+}
+inline void CUserAccount_GetWalletDetails_Response::set_formatted_delayed_balance(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000010u;
+  formatted_delayed_balance_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CUserAccount_GetWalletDetails_Response.formatted_delayed_balance)
+}
+inline void CUserAccount_GetWalletDetails_Response::set_formatted_delayed_balance(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000010u;
+  formatted_delayed_balance_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CUserAccount_GetWalletDetails_Response.formatted_delayed_balance)
+}
+inline std::string* CUserAccount_GetWalletDetails_Response::_internal_mutable_formatted_delayed_balance() {
+  _has_bits_[0] |= 0x00000010u;
+  return formatted_delayed_balance_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CUserAccount_GetWalletDetails_Response::release_formatted_delayed_balance() {
+  // @@protoc_insertion_point(field_release:CUserAccount_GetWalletDetails_Response.formatted_delayed_balance)
+  if (!_internal_has_formatted_delayed_balance()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000010u;
+  return formatted_delayed_balance_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CUserAccount_GetWalletDetails_Response::set_allocated_formatted_delayed_balance(std::string* formatted_delayed_balance) {
+  if (formatted_delayed_balance != nullptr) {
+    _has_bits_[0] |= 0x00000010u;
+  } else {
+    _has_bits_[0] &= ~0x00000010u;
+  }
+  formatted_delayed_balance_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), formatted_delayed_balance,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CUserAccount_GetWalletDetails_Response.formatted_delayed_balance)
+}
+
+// optional int32 delayed_balance_available_min_time = 16;
+inline bool CUserAccount_GetWalletDetails_Response::_internal_has_delayed_balance_available_min_time() const {
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool CUserAccount_GetWalletDetails_Response::has_delayed_balance_available_min_time() const {
+  return _internal_has_delayed_balance_available_min_time();
+}
+inline void CUserAccount_GetWalletDetails_Response::clear_delayed_balance_available_min_time() {
+  delayed_balance_available_min_time_ = 0;
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CUserAccount_GetWalletDetails_Response::_internal_delayed_balance_available_min_time() const {
+  return delayed_balance_available_min_time_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CUserAccount_GetWalletDetails_Response::delayed_balance_available_min_time() const {
+  // @@protoc_insertion_point(field_get:CUserAccount_GetWalletDetails_Response.delayed_balance_available_min_time)
+  return _internal_delayed_balance_available_min_time();
+}
+inline void CUserAccount_GetWalletDetails_Response::_internal_set_delayed_balance_available_min_time(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00004000u;
+  delayed_balance_available_min_time_ = value;
+}
+inline void CUserAccount_GetWalletDetails_Response::set_delayed_balance_available_min_time(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_delayed_balance_available_min_time(value);
+  // @@protoc_insertion_point(field_set:CUserAccount_GetWalletDetails_Response.delayed_balance_available_min_time)
+}
+
+// optional int32 delayed_balance_available_max_time = 17;
+inline bool CUserAccount_GetWalletDetails_Response::_internal_has_delayed_balance_available_max_time() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool CUserAccount_GetWalletDetails_Response::has_delayed_balance_available_max_time() const {
+  return _internal_has_delayed_balance_available_max_time();
+}
+inline void CUserAccount_GetWalletDetails_Response::clear_delayed_balance_available_max_time() {
+  delayed_balance_available_max_time_ = 0;
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CUserAccount_GetWalletDetails_Response::_internal_delayed_balance_available_max_time() const {
+  return delayed_balance_available_max_time_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CUserAccount_GetWalletDetails_Response::delayed_balance_available_max_time() const {
+  // @@protoc_insertion_point(field_get:CUserAccount_GetWalletDetails_Response.delayed_balance_available_max_time)
+  return _internal_delayed_balance_available_max_time();
+}
+inline void CUserAccount_GetWalletDetails_Response::_internal_set_delayed_balance_available_max_time(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00008000u;
+  delayed_balance_available_max_time_ = value;
+}
+inline void CUserAccount_GetWalletDetails_Response::set_delayed_balance_available_max_time(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_delayed_balance_available_max_time(value);
+  // @@protoc_insertion_point(field_set:CUserAccount_GetWalletDetails_Response.delayed_balance_available_max_time)
+}
+
+// optional int32 delayed_balance_newest_source = 18;
+inline bool CUserAccount_GetWalletDetails_Response::_internal_has_delayed_balance_newest_source() const {
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  return value;
+}
+inline bool CUserAccount_GetWalletDetails_Response::has_delayed_balance_newest_source() const {
+  return _internal_has_delayed_balance_newest_source();
+}
+inline void CUserAccount_GetWalletDetails_Response::clear_delayed_balance_newest_source() {
+  delayed_balance_newest_source_ = 0;
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CUserAccount_GetWalletDetails_Response::_internal_delayed_balance_newest_source() const {
+  return delayed_balance_newest_source_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CUserAccount_GetWalletDetails_Response::delayed_balance_newest_source() const {
+  // @@protoc_insertion_point(field_get:CUserAccount_GetWalletDetails_Response.delayed_balance_newest_source)
+  return _internal_delayed_balance_newest_source();
+}
+inline void CUserAccount_GetWalletDetails_Response::_internal_set_delayed_balance_newest_source(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00010000u;
+  delayed_balance_newest_source_ = value;
+}
+inline void CUserAccount_GetWalletDetails_Response::set_delayed_balance_newest_source(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_delayed_balance_newest_source(value);
+  // @@protoc_insertion_point(field_set:CUserAccount_GetWalletDetails_Response.delayed_balance_newest_source)
 }
 
 // -------------------------------------------------------------------

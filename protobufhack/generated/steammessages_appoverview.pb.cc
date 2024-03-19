@@ -437,7 +437,7 @@ const char descriptor_table_protodef_steammessages_5fappoverview_2eproto[] PROTO
   "ete\030\004 \001(\010\"D\n\021CAppBootstrapData\022\r\n\005appid\030"
   "\001 \001(\r\022\016\n\006hidden\030\002 \001(\010\022\020\n\010user_tag\030\003 \003(\t\""
   "=\n\025CLibraryBootstrapData\022$\n\010app_data\030\001 \003"
-  "(\0132\022.CAppBootstrapData*\274\t\n\016EDisplayStatu"
+  "(\0132\022.CAppBootstrapData*\376\t\n\016EDisplayStatu"
   "s\022\031\n\025EDisplayStatusInvalid\020\000\022\033\n\027EDisplay"
   "StatusLaunching\020\001\022\036\n\032EDisplayStatusUnins"
   "talling\020\002\022\034\n\030EDisplayStatusInstalling\020\003\022"
@@ -467,46 +467,48 @@ const char descriptor_table_protodef_steammessages_5fappoverview_2eproto[] PROTO
   "\n\033EDisplayStatusNotLaunchable\020!\022\034\n\030EDisp"
   "layStatusCloudError\020\"\022 \n\034EDisplayStatusC"
   "loudOutOfDate\020#\022\035\n\031EDisplayStatusTermina"
-  "ting\020$\022\035\n\031EDisplayStatusOwnerLocked\020%*\341\002"
-  "\n\017EAppCloudStatus\022\032\n\026EAppCloudStatusInva"
-  "lid\020\000\022\033\n\027EAppCloudStatusDisabled\020\001\022\032\n\026EA"
-  "ppCloudStatusUnknown\020\002\022\037\n\033EAppCloudStatu"
-  "sSynchronized\020\003\022\033\n\027EAppCloudStatusChecki"
-  "ng\020\004\022\034\n\030EAppCloudStatusOutOfSync\020\005\022\034\n\030EA"
-  "ppCloudStatusUploading\020\006\022\036\n\032EAppCloudSta"
-  "tusDownloading\020\007\022\035\n\031EAppCloudStatusSyncF"
-  "ailed\020\010\022\033\n\027EAppCloudStatusConflict\020\t\022#\n\037"
-  "EAppCloudStatusPendingElsewhere\020\n*\302\003\n\rEP"
-  "rotoAppType\022\023\n\017EAppTypeInvalid\020\000\022\020\n\014EApp"
-  "TypeGame\020\001\022\027\n\023EAppTypeApplication\020\002\022\020\n\014E"
-  "AppTypeTool\020\004\022\020\n\014EAppTypeDemo\020\010\022\025\n\021EAppT"
-  "ypeDeprected\020\020\022\017\n\013EAppTypeDLC\020 \022\021\n\rEAppT"
-  "ypeGuide\020@\022\023\n\016EAppTypeDriver\020\200\001\022\023\n\016EAppT"
-  "ypeConfig\020\200\002\022\025\n\020EAppTypeHardware\020\200\004\022\026\n\021E"
-  "AppTypeFranchise\020\200\010\022\022\n\rEAppTypeVideo\020\200\020\022"
-  "\023\n\016EAppTypePlugin\020\200 \022\027\n\022EAppTypeMusicAlb"
-  "um\020\200@\022\024\n\016EAppTypeSeries\020\200\200\001\022\023\n\rEAppTypeC"
-  "omic\020\200\200\002\022\022\n\014EAppTypeBeta\020\200\200\004\022\030\n\020EAppType"
-  "Shortcut\020\200\200\200\200\004\022\036\n\021EAppTypeDepotOnly\020\200\200\200\200"
-  "\370\377\377\377\377\001*\233\001\n\023EAppAssociationType\022\036\n\032EAppAs"
-  "sociationTypeInvalid\020\000\022 \n\034EAppAssociatio"
-  "nTypePublisher\020\001\022 \n\034EAppAssociationTypeD"
-  "eveloper\020\002\022 \n\034EAppAssociationTypeFranchi"
-  "se\020\003*\213\001\n\032EAppControllerSupportLevel\022\"\n\036E"
-  "AppControllerSupportLevelNone\020\000\022%\n!EAppC"
-  "ontrollerSupportLevelPartial\020\001\022\"\n\036EAppCo"
-  "ntrollerSupportLevelFull\020\002*\365\001\n#EAppGamep"
-  "adGyroTrackpadSupportLevel\0227\n*EAppGamepa"
-  "dGyroTrackpadSupportLevelUnknown\020\377\377\377\377\377\377\377"
-  "\377\377\001\0220\n,EAppGamepadGyroTrackpadSupportLev"
-  "elNoGamepad\020\000\022.\n*EAppGamepadGyroTrackpad"
-  "SupportLevelGamepad\020\001\0223\n/EAppGamepadGyro"
-  "TrackpadSupportLevelSimultaneous\020\002*\227\001\n\016E"
-  "AppHDRSupport\022\027\n\023EHDRSupport_Unknown\020\000\022\023"
-  "\n\017EHDRSupport_SDR\020\001\022\023\n\017EHDRSupport_HDR\020\002"
-  "\022\032\n\026EHDRSupport_HDR_Broken\020\003\022&\n\"EHDRSupp"
-  "ort_HDR_RequiresUserAction\020\004B\037H\001\200\001\001\252\002\027Op"
-  "enSteamworks.Protobuf"
+  "ting\020$\022\035\n\031EDisplayStatusOwnerLocked\020%\022 \n"
+  "\034EDisplayStatusDownloadFailed\020&\022\036\n\032EDisp"
+  "layStatusUpdateFailed\020\'*\341\002\n\017EAppCloudSta"
+  "tus\022\032\n\026EAppCloudStatusInvalid\020\000\022\033\n\027EAppC"
+  "loudStatusDisabled\020\001\022\032\n\026EAppCloudStatusU"
+  "nknown\020\002\022\037\n\033EAppCloudStatusSynchronized\020"
+  "\003\022\033\n\027EAppCloudStatusChecking\020\004\022\034\n\030EAppCl"
+  "oudStatusOutOfSync\020\005\022\034\n\030EAppCloudStatusU"
+  "ploading\020\006\022\036\n\032EAppCloudStatusDownloading"
+  "\020\007\022\035\n\031EAppCloudStatusSyncFailed\020\010\022\033\n\027EAp"
+  "pCloudStatusConflict\020\t\022#\n\037EAppCloudStatu"
+  "sPendingElsewhere\020\n*\302\003\n\rEProtoAppType\022\023\n"
+  "\017EAppTypeInvalid\020\000\022\020\n\014EAppTypeGame\020\001\022\027\n\023"
+  "EAppTypeApplication\020\002\022\020\n\014EAppTypeTool\020\004\022"
+  "\020\n\014EAppTypeDemo\020\010\022\025\n\021EAppTypeDeprected\020\020"
+  "\022\017\n\013EAppTypeDLC\020 \022\021\n\rEAppTypeGuide\020@\022\023\n\016"
+  "EAppTypeDriver\020\200\001\022\023\n\016EAppTypeConfig\020\200\002\022\025"
+  "\n\020EAppTypeHardware\020\200\004\022\026\n\021EAppTypeFranchi"
+  "se\020\200\010\022\022\n\rEAppTypeVideo\020\200\020\022\023\n\016EAppTypePlu"
+  "gin\020\200 \022\027\n\022EAppTypeMusicAlbum\020\200@\022\024\n\016EAppT"
+  "ypeSeries\020\200\200\001\022\023\n\rEAppTypeComic\020\200\200\002\022\022\n\014EA"
+  "ppTypeBeta\020\200\200\004\022\030\n\020EAppTypeShortcut\020\200\200\200\200\004"
+  "\022\036\n\021EAppTypeDepotOnly\020\200\200\200\200\370\377\377\377\377\001*\233\001\n\023EAp"
+  "pAssociationType\022\036\n\032EAppAssociationTypeI"
+  "nvalid\020\000\022 \n\034EAppAssociationTypePublisher"
+  "\020\001\022 \n\034EAppAssociationTypeDeveloper\020\002\022 \n\034"
+  "EAppAssociationTypeFranchise\020\003*\213\001\n\032EAppC"
+  "ontrollerSupportLevel\022\"\n\036EAppControllerS"
+  "upportLevelNone\020\000\022%\n!EAppControllerSuppo"
+  "rtLevelPartial\020\001\022\"\n\036EAppControllerSuppor"
+  "tLevelFull\020\002*\365\001\n#EAppGamepadGyroTrackpad"
+  "SupportLevel\0227\n*EAppGamepadGyroTrackpadS"
+  "upportLevelUnknown\020\377\377\377\377\377\377\377\377\377\001\0220\n,EAppGam"
+  "epadGyroTrackpadSupportLevelNoGamepad\020\000\022"
+  ".\n*EAppGamepadGyroTrackpadSupportLevelGa"
+  "mepad\020\001\0223\n/EAppGamepadGyroTrackpadSuppor"
+  "tLevelSimultaneous\020\002*\227\001\n\016EAppHDRSupport\022"
+  "\027\n\023EHDRSupport_Unknown\020\000\022\023\n\017EHDRSupport_"
+  "SDR\020\001\022\023\n\017EHDRSupport_HDR\020\002\022\032\n\026EHDRSuppor"
+  "t_HDR_Broken\020\003\022&\n\"EHDRSupport_HDR_Requir"
+  "esUserAction\020\004B\037H\001\200\001\001\252\002\027OpenSteamworks.P"
+  "rotobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fappoverview_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -514,7 +516,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fappoverview_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fappoverview_2eproto = {
-  false, false, 5501, descriptor_table_protodef_steammessages_5fappoverview_2eproto, "steammessages_appoverview.proto", 
+  false, false, 5567, descriptor_table_protodef_steammessages_5fappoverview_2eproto, "steammessages_appoverview.proto", 
   &descriptor_table_steammessages_5fappoverview_2eproto_once, descriptor_table_steammessages_5fappoverview_2eproto_deps, 2, 6,
   schemas, file_default_instances, TableStruct_steammessages_5fappoverview_2eproto::offsets,
   file_level_metadata_steammessages_5fappoverview_2eproto, file_level_enum_descriptors_steammessages_5fappoverview_2eproto, file_level_service_descriptors_steammessages_5fappoverview_2eproto,
@@ -570,6 +572,8 @@ bool EDisplayStatus_IsValid(int value) {
     case 35:
     case 36:
     case 37:
+    case 38:
+    case 39:
       return true;
     default:
       return false;

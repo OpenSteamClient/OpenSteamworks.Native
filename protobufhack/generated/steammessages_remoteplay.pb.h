@@ -844,12 +844,11 @@ enum EStreamColorspace : int {
   EStreamColorspace_BT601_Full = 2,
   EStreamColorspace_BT709 = 3,
   EStreamColorspace_BT709_Full = 4,
-  EStreamColorspace_BT2020 = 5,
-  EStreamColorspace_BT2020_Full = 6
+  EStreamColorspace_HDR10 = 5
 };
 bool EStreamColorspace_IsValid(int value);
 constexpr EStreamColorspace EStreamColorspace_MIN = EStreamColorspace_Unknown;
-constexpr EStreamColorspace EStreamColorspace_MAX = EStreamColorspace_BT2020_Full;
+constexpr EStreamColorspace EStreamColorspace_MAX = EStreamColorspace_HDR10;
 constexpr int EStreamColorspace_ARRAYSIZE = EStreamColorspace_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStreamColorspace_descriptor();

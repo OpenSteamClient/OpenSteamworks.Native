@@ -974,6 +974,7 @@ constexpr CMsgSystemUpdateCheckResult::CMsgSystemUpdateCheckResult(
 
   , rtime_checked_(0u)
   , available_(false)
+  , system_restart_pending_(false)
   , eresult_(2u){}
 struct CMsgSystemUpdateCheckResultDefaultTypeInternal {
   constexpr CMsgSystemUpdateCheckResultDefaultTypeInternal()
@@ -2135,12 +2136,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   PROTOBUF_FIELD_OFFSET(::CMsgSystemUpdateCheckResult, available_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemUpdateCheckResult, version_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemUpdateCheckResult, auto_message_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemUpdateCheckResult, system_restart_pending_),
   2,
-  5,
+  6,
   3,
   4,
   0,
   1,
+  5,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CMsgSystemUpdateApplyParams, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2352,21 +2355,21 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 837, 878, sizeof(::CMsgSystemManagerSettings)},
   { 914, 921, sizeof(::CMsgSelectOSBranchParams)},
   { 923, 931, sizeof(::CMsgSystemUpdateProgress)},
-  { 934, 945, sizeof(::CMsgSystemUpdateCheckResult)},
-  { 951, -1, sizeof(::CMsgSystemUpdateApplyParams)},
-  { 957, 966, sizeof(::CMsgSystemUpdateApplyResult)},
-  { 970, 980, sizeof(::CMsgSystemUpdateState)},
-  { 985, 991, sizeof(::CMsgAchievementChange)},
-  { 992, 999, sizeof(::CMsgCellList_Cell)},
-  { 1001, -1, sizeof(::CMsgCellList)},
-  { 1007, 1031, sizeof(::CMsgShortcutInfo)},
-  { 1050, -1, sizeof(::CMsgShortcutAppIds)},
-  { 1056, 1063, sizeof(::CMsgMonitorInfo_MonitorInfo)},
-  { 1065, 1072, sizeof(::CMsgMonitorInfo)},
-  { 1074, 1080, sizeof(::CMsgGenerateSystemReportReply)},
-  { 1081, 1088, sizeof(::CMsgWebUITransportInfo)},
-  { 1090, 1098, sizeof(::CMsgClientShaderHitCacheEntry)},
-  { 1101, -1, sizeof(::CMsgClientShaderHitCache)},
+  { 934, 946, sizeof(::CMsgSystemUpdateCheckResult)},
+  { 953, -1, sizeof(::CMsgSystemUpdateApplyParams)},
+  { 959, 968, sizeof(::CMsgSystemUpdateApplyResult)},
+  { 972, 982, sizeof(::CMsgSystemUpdateState)},
+  { 987, 993, sizeof(::CMsgAchievementChange)},
+  { 994, 1001, sizeof(::CMsgCellList_Cell)},
+  { 1003, -1, sizeof(::CMsgCellList)},
+  { 1009, 1033, sizeof(::CMsgShortcutInfo)},
+  { 1052, -1, sizeof(::CMsgShortcutAppIds)},
+  { 1058, 1065, sizeof(::CMsgMonitorInfo_MonitorInfo)},
+  { 1067, 1074, sizeof(::CMsgMonitorInfo)},
+  { 1076, 1082, sizeof(::CMsgGenerateSystemReportReply)},
+  { 1083, 1090, sizeof(::CMsgWebUITransportInfo)},
+  { 1092, 1100, sizeof(::CMsgClientShaderHitCacheEntry)},
+  { 1103, -1, sizeof(::CMsgClientShaderHitCache)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2769,97 +2772,97 @@ const char descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto[] 
   "h_Unknown\022\025\n\rcustom_branch\030\002 \001(\t\"p\n\030CMsg"
   "SystemUpdateProgress\022\026\n\016stage_progress\030\001"
   " \001(\002\022\030\n\020stage_size_bytes\030\002 \001(\003\022\"\n\032rtime_"
-  "estimated_completion\030\003 \001(\007\"\265\001\n\033CMsgSyste"
+  "estimated_completion\030\003 \001(\007\"\325\001\n\033CMsgSyste"
   "mUpdateCheckResult\0221\n\004type\030\001 \001(\0162\r.EUpda"
   "terType:\024EUpdaterType_Invalid\022\022\n\007eresult"
   "\030\002 \001(\r:\0012\022\025\n\rrtime_checked\030\003 \001(\007\022\021\n\tavai"
   "lable\030\004 \001(\010\022\017\n\007version\030\005 \001(\t\022\024\n\014auto_mes"
-  "sage\030\006 \001(\t\"A\n\033CMsgSystemUpdateApplyParam"
-  "s\022\"\n\013apply_types\030\001 \003(\0162\r.EUpdaterType\"\264\001"
-  "\n\033CMsgSystemUpdateApplyResult\0221\n\004type\030\001 "
-  "\001(\0162\r.EUpdaterType:\024EUpdaterType_Invalid"
-  "\022\022\n\007eresult\030\002 \001(\r:\0012\022&\n\027requires_client_"
-  "restart\030\003 \001(\010:\005false\022&\n\027requires_system_"
-  "restart\030\004 \001(\010:\005false\"\215\002\n\025CMsgSystemUpdat"
-  "eState\0224\n\005state\030\001 \001(\0162\016.EUpdaterState:\025E"
-  "UpdaterState_Invalid\022+\n\010progress\030\002 \001(\0132\031"
-  ".CMsgSystemUpdateProgress\0228\n\022update_chec"
-  "results\030\003 \003(\0132\034.CMsgSystemUpdateCheckRes"
-  "ult\022:\n\024update_apply_results\030\004 \003(\0132\034.CMsg"
-  "SystemUpdateApplyResult\022\033\n\023supports_os_u"
-  "pdates\030\005 \001(\010\"&\n\025CMsgAchievementChange\022\r\n"
-  "\005appid\030\001 \001(\r\"\\\n\014CMsgCellList\022!\n\005cells\030\001 "
-  "\003(\0132\022.CMsgCellList.Cell\032)\n\004Cell\022\017\n\007cell_"
-  "id\030\001 \001(\r\022\020\n\010loc_name\030\002 \001(\t\"\214\003\n\020CMsgShort"
-  "cutInfo\022\r\n\005appid\030\001 \001(\r\022\013\n\003exe\030\002 \001(\t\022\021\n\ts"
-  "tart_dir\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\014\n\004path\030\005 \001"
-  "(\t\022\014\n\004args\030\006 \001(\t\022\020\n\010app_name\030\007 \001(\t\022\026\n\016ov"
-  "erride_appid\030\010 \001(\r\022\023\n\013flatpaappid\030\t \001(\t\022"
-  "\014\n\004tags\030\n \003(\t\022\021\n\tis_remote\030\013 \001(\010\022\021\n\tis_h"
-  "idden\030\014 \001(\010\022\024\n\014is_temporary\030\r \001(\010\022\021\n\tis_"
-  "openvr\030\016 \001(\010\022\034\n\024allow_desktop_config\030\017 \001"
-  "(\010\022\025\n\rallow_overlay\030\020 \001(\010\022\033\n\023rt_last_pla"
-  "yed_time\030\021 \001(\r\022\032\n\022is_devkit_shortcut\030\022 \001"
-  "(\010\022\025\n\rdevkit_gameid\030\023 \001(\t\"$\n\022CMsgShortcu"
-  "tAppIds\022\016\n\006appids\030\001 \003(\r\"\252\001\n\017CMsgMonitorI"
-  "nfo\022\035\n\025selected_display_name\030\001 \002(\t\022.\n\010mo"
-  "nitors\030\002 \003(\0132\034.CMsgMonitorInfo.MonitorIn"
-  "fo\032H\n\013MonitorInfo\022\033\n\023monitor_device_name"
-  "\030\001 \002(\t\022\034\n\024monitor_display_name\030\002 \002(\t\"2\n\035"
-  "CMsgGenerateSystemReportReply\022\021\n\treport_"
-  "id\030\001 \001(\t\"8\n\026CMsgWebUITransportInfo\022\014\n\004po"
-  "rt\030\001 \001(\r\022\020\n\010auth_key\030\002 \001(\t\"^\n\035CMsgClient"
-  "ShaderHitCacheEntry\022\017\n\007key_sha\030\001 \001(\014\022\020\n\010"
-  "code_sha\030\002 \001(\014\022\032\n\022time_last_reported\030\003 \001"
-  "(\004\"K\n\030CMsgClientShaderHitCache\022/\n\007entrie"
-  "s\030\001 \003(\0132\036.CMsgClientShaderHitCacheEntry*"
-  "\214\002\n\034ECloudPendingRemoteOperation\022$\n EClo"
-  "udPendingRemoteOperationNone\020\000\0220\n,ECloud"
-  "PendingRemoteOperationAppSessionActive\020\001"
-  "\0220\n,ECloudPendingRemoteOperationUploadIn"
-  "Progress\020\002\022-\n)ECloudPendingRemoteOperati"
-  "onUploadPending\020\003\0223\n/ECloudPendingRemote"
-  "OperationAppSessionSuspended\020\004*\202\014\n\030EStea"
-  "mDeckKeyboardLayout\022#\n\037ESteamDeckKeyboar"
-  "dLayout_QWERTY\020\000\022&\n\"ESteamDeckKeyboardLa"
-  "yout_Bulgarian\020\001\022/\n+ESteamDeckKeyboardLa"
-  "yout_Chinese_Simplified\020\002\0220\n,ESteamDeckK"
-  "eyboardLayout_Chinese_Traditional\020\003\022\"\n\036E"
-  "SteamDeckKeyboardLayout_Czech\020\004\022#\n\037EStea"
-  "mDeckKeyboardLayout_Danish\020\005\022$\n ESteamDe"
-  "ckKeyboardLayout_Finnish\020\006\022#\n\037ESteamDeck"
-  "KeyboardLayout_French\020\007\022#\n\037ESteamDeckKey"
-  "boardLayout_German\020\010\022\"\n\036ESteamDeckKeyboa"
-  "rdLayout_Greek\020\t\022&\n\"ESteamDeckKeyboardLa"
-  "yout_Hungarian\020\n\022$\n ESteamDeckKeyboardLa"
-  "yout_Italian\020\013\022%\n!ESteamDeckKeyboardLayo"
-  "ut_Japanese\020\014\022#\n\037ESteamDeckKeyboardLayou"
-  "t_Korean\020\r\022&\n\"ESteamDeckKeyboardLayout_N"
-  "orwegian\020\016\022#\n\037ESteamDeckKeyboardLayout_P"
-  "olish\020\017\022\'\n#ESteamDeckKeyboardLayout_Port"
-  "uguese\020\020\022%\n!ESteamDeckKeyboardLayout_Rom"
-  "anian\020\021\022$\n ESteamDeckKeyboardLayout_Russ"
-  "ian\020\022\022$\n ESteamDeckKeyboardLayout_Spanis"
-  "h\020\023\022$\n ESteamDeckKeyboardLayout_Swedish\020"
-  "\024\022!\n\035ESteamDeckKeyboardLayout_Thai\020\025\022&\n\""
-  "ESteamDeckKeyboardLayout_Turkish_F\020\026\022&\n\""
-  "ESteamDeckKeyboardLayout_Turkish_Q\020\027\022&\n\""
-  "ESteamDeckKeyboardLayout_Ukrainian\020\030\022\'\n#"
-  "ESteamDeckKeyboardLayout_Vietnamese\020\031\0221\n"
-  "-ESteamDeckKeyboardLayout_QWERTY_Interna"
-  "tional\020\032\022#\n\037ESteamDeckKeyboardLayout_Dvo"
-  "rak\020\033\022$\n ESteamDeckKeyboardLayout_Colema"
-  "k\020\034\022;\n7ESteamDeckKeyboardLayout_Bulgaria"
-  "n_Phonetic_Traditional\020\035\022/\n+ESteamDeckKe"
-  "yboardLayout_Bulgarian_Phonetic\020\036\0229\n5ESt"
-  "eamDeckKeyboardLayout_Chinese_Traditiona"
-  "l_Bopomofo\020\037\0228\n4ESteamDeckKeyboardLayout"
-  "_Chinese_Traditional_Cangjie\020 \022*\n&ESteam"
-  "DeckKeyboardLayout_Japanese_Kana\020!\0226\n2ES"
-  "teamDeckKeyboardLayout_Chinese_Tradition"
-  "al_Quick\020\"\022\'\n#ESteamDeckKeyboardLayout_I"
-  "ndonesian\020#B\037H\001\200\001\000\252\002\027OpenSteamworks.Prot"
-  "obuf"
+  "sage\030\006 \001(\t\022\036\n\026system_restart_pending\030\007 \001"
+  "(\010\"A\n\033CMsgSystemUpdateApplyParams\022\"\n\013app"
+  "ly_types\030\001 \003(\0162\r.EUpdaterType\"\264\001\n\033CMsgSy"
+  "stemUpdateApplyResult\0221\n\004type\030\001 \001(\0162\r.EU"
+  "pdaterType:\024EUpdaterType_Invalid\022\022\n\007eres"
+  "ult\030\002 \001(\r:\0012\022&\n\027requires_client_restart\030"
+  "\003 \001(\010:\005false\022&\n\027requires_system_restart\030"
+  "\004 \001(\010:\005false\"\215\002\n\025CMsgSystemUpdateState\0224"
+  "\n\005state\030\001 \001(\0162\016.EUpdaterState:\025EUpdaterS"
+  "tate_Invalid\022+\n\010progress\030\002 \001(\0132\031.CMsgSys"
+  "temUpdateProgress\0228\n\022update_checresults\030"
+  "\003 \003(\0132\034.CMsgSystemUpdateCheckResult\022:\n\024u"
+  "pdate_apply_results\030\004 \003(\0132\034.CMsgSystemUp"
+  "dateApplyResult\022\033\n\023supports_os_updates\030\005"
+  " \001(\010\"&\n\025CMsgAchievementChange\022\r\n\005appid\030\001"
+  " \001(\r\"\\\n\014CMsgCellList\022!\n\005cells\030\001 \003(\0132\022.CM"
+  "sgCellList.Cell\032)\n\004Cell\022\017\n\007cell_id\030\001 \001(\r"
+  "\022\020\n\010loc_name\030\002 \001(\t\"\214\003\n\020CMsgShortcutInfo\022"
+  "\r\n\005appid\030\001 \001(\r\022\013\n\003exe\030\002 \001(\t\022\021\n\tstart_dir"
+  "\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\014\n\004path\030\005 \001(\t\022\014\n\004ar"
+  "gs\030\006 \001(\t\022\020\n\010app_name\030\007 \001(\t\022\026\n\016override_a"
+  "ppid\030\010 \001(\r\022\023\n\013flatpaappid\030\t \001(\t\022\014\n\004tags\030"
+  "\n \003(\t\022\021\n\tis_remote\030\013 \001(\010\022\021\n\tis_hidden\030\014 "
+  "\001(\010\022\024\n\014is_temporary\030\r \001(\010\022\021\n\tis_openvr\030\016"
+  " \001(\010\022\034\n\024allow_desktop_config\030\017 \001(\010\022\025\n\ral"
+  "low_overlay\030\020 \001(\010\022\033\n\023rt_last_played_time"
+  "\030\021 \001(\r\022\032\n\022is_devkit_shortcut\030\022 \001(\010\022\025\n\rde"
+  "vkit_gameid\030\023 \001(\t\"$\n\022CMsgShortcutAppIds\022"
+  "\016\n\006appids\030\001 \003(\r\"\252\001\n\017CMsgMonitorInfo\022\035\n\025s"
+  "elected_display_name\030\001 \002(\t\022.\n\010monitors\030\002"
+  " \003(\0132\034.CMsgMonitorInfo.MonitorInfo\032H\n\013Mo"
+  "nitorInfo\022\033\n\023monitor_device_name\030\001 \002(\t\022\034"
+  "\n\024monitor_display_name\030\002 \002(\t\"2\n\035CMsgGene"
+  "rateSystemReportReply\022\021\n\treport_id\030\001 \001(\t"
+  "\"8\n\026CMsgWebUITransportInfo\022\014\n\004port\030\001 \001(\r"
+  "\022\020\n\010auth_key\030\002 \001(\t\"^\n\035CMsgClientShaderHi"
+  "tCacheEntry\022\017\n\007key_sha\030\001 \001(\014\022\020\n\010code_sha"
+  "\030\002 \001(\014\022\032\n\022time_last_reported\030\003 \001(\004\"K\n\030CM"
+  "sgClientShaderHitCache\022/\n\007entries\030\001 \003(\0132"
+  "\036.CMsgClientShaderHitCacheEntry*\214\002\n\034EClo"
+  "udPendingRemoteOperation\022$\n ECloudPendin"
+  "gRemoteOperationNone\020\000\0220\n,ECloudPendingR"
+  "emoteOperationAppSessionActive\020\001\0220\n,EClo"
+  "udPendingRemoteOperationUploadInProgress"
+  "\020\002\022-\n)ECloudPendingRemoteOperationUpload"
+  "Pending\020\003\0223\n/ECloudPendingRemoteOperatio"
+  "nAppSessionSuspended\020\004*\202\014\n\030ESteamDeckKey"
+  "boardLayout\022#\n\037ESteamDeckKeyboardLayout_"
+  "QWERTY\020\000\022&\n\"ESteamDeckKeyboardLayout_Bul"
+  "garian\020\001\022/\n+ESteamDeckKeyboardLayout_Chi"
+  "nese_Simplified\020\002\0220\n,ESteamDeckKeyboardL"
+  "ayout_Chinese_Traditional\020\003\022\"\n\036ESteamDec"
+  "kKeyboardLayout_Czech\020\004\022#\n\037ESteamDeckKey"
+  "boardLayout_Danish\020\005\022$\n ESteamDeckKeyboa"
+  "rdLayout_Finnish\020\006\022#\n\037ESteamDeckKeyboard"
+  "Layout_French\020\007\022#\n\037ESteamDeckKeyboardLay"
+  "out_German\020\010\022\"\n\036ESteamDeckKeyboardLayout"
+  "_Greek\020\t\022&\n\"ESteamDeckKeyboardLayout_Hun"
+  "garian\020\n\022$\n ESteamDeckKeyboardLayout_Ita"
+  "lian\020\013\022%\n!ESteamDeckKeyboardLayout_Japan"
+  "ese\020\014\022#\n\037ESteamDeckKeyboardLayout_Korean"
+  "\020\r\022&\n\"ESteamDeckKeyboardLayout_Norwegian"
+  "\020\016\022#\n\037ESteamDeckKeyboardLayout_Polish\020\017\022"
+  "\'\n#ESteamDeckKeyboardLayout_Portuguese\020\020"
+  "\022%\n!ESteamDeckKeyboardLayout_Romanian\020\021\022"
+  "$\n ESteamDeckKeyboardLayout_Russian\020\022\022$\n"
+  " ESteamDeckKeyboardLayout_Spanish\020\023\022$\n E"
+  "SteamDeckKeyboardLayout_Swedish\020\024\022!\n\035ESt"
+  "eamDeckKeyboardLayout_Thai\020\025\022&\n\"ESteamDe"
+  "ckKeyboardLayout_Turkish_F\020\026\022&\n\"ESteamDe"
+  "ckKeyboardLayout_Turkish_Q\020\027\022&\n\"ESteamDe"
+  "ckKeyboardLayout_Ukrainian\020\030\022\'\n#ESteamDe"
+  "ckKeyboardLayout_Vietnamese\020\031\0221\n-ESteamD"
+  "eckKeyboardLayout_QWERTY_International\020\032"
+  "\022#\n\037ESteamDeckKeyboardLayout_Dvorak\020\033\022$\n"
+  " ESteamDeckKeyboardLayout_Colemak\020\034\022;\n7E"
+  "SteamDeckKeyboardLayout_Bulgarian_Phonet"
+  "ic_Traditional\020\035\022/\n+ESteamDeckKeyboardLa"
+  "yout_Bulgarian_Phonetic\020\036\0229\n5ESteamDeckK"
+  "eyboardLayout_Chinese_Traditional_Bopomo"
+  "fo\020\037\0228\n4ESteamDeckKeyboardLayout_Chinese"
+  "_Traditional_Cangjie\020 \022*\n&ESteamDeckKeyb"
+  "oardLayout_Japanese_Kana\020!\0226\n2ESteamDeck"
+  "KeyboardLayout_Chinese_Traditional_Quick"
+  "\020\"\022\'\n#ESteamDeckKeyboardLayout_Indonesia"
+  "n\020#B\037H\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -2867,7 +2870,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclient_5fobjects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclient_5fobjects_2eproto = {
-  false, false, 16724, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
+  false, false, 16756, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
   &descriptor_table_steammessages_5fclient_5fobjects_2eproto_once, descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps, 2, 68,
   schemas, file_default_instances, TableStruct_steammessages_5fclient_5fobjects_2eproto::offsets,
   file_level_metadata_steammessages_5fclient_5fobjects_2eproto, file_level_enum_descriptors_steammessages_5fclient_5fobjects_2eproto, file_level_service_descriptors_steammessages_5fclient_5fobjects_2eproto,
@@ -23433,7 +23436,7 @@ class CMsgSystemUpdateCheckResult::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_eresult(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_rtime_checked(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
@@ -23446,6 +23449,9 @@ class CMsgSystemUpdateCheckResult::_Internal {
   }
   static void set_has_auto_message(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
+  }
+  static void set_has_system_restart_pending(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -23480,8 +23486,8 @@ version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlre
 auto_message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&type_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&available_) -
-    reinterpret_cast<char*>(&type_)) + sizeof(available_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&system_restart_pending_) -
+    reinterpret_cast<char*>(&type_)) + sizeof(system_restart_pending_));
 eresult_ = 2u;
 }
 
@@ -23522,10 +23528,10 @@ void CMsgSystemUpdateCheckResult::Clear() {
       auto_message_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x0000003cu) {
+  if (cached_has_bits & 0x0000007cu) {
     ::memset(&type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&available_) -
-        reinterpret_cast<char*>(&type_)) + sizeof(available_));
+        reinterpret_cast<char*>(&system_restart_pending_) -
+        reinterpret_cast<char*>(&type_)) + sizeof(system_restart_pending_));
     eresult_ = 2u;
   }
   _has_bits_.Clear();
@@ -23598,6 +23604,14 @@ const char* CMsgSystemUpdateCheckResult::_InternalParse(const char* ptr, ::PROTO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool system_restart_pending = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          _Internal::set_has_system_restart_pending(&has_bits);
+          system_restart_pending_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -23636,7 +23650,7 @@ failure:
   }
 
   // optional uint32 eresult = 2 [default = 2];
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_eresult(), target);
   }
@@ -23673,6 +23687,12 @@ failure:
         6, this->_internal_auto_message(), target);
   }
 
+  // optional bool system_restart_pending = 7;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_system_restart_pending(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -23690,7 +23710,7 @@ size_t CMsgSystemUpdateCheckResult::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000007fu) {
     // optional string version = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -23721,8 +23741,13 @@ size_t CMsgSystemUpdateCheckResult::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional uint32 eresult = 2 [default = 2];
+    // optional bool system_restart_pending = 7;
     if (cached_has_bits & 0x00000020u) {
+      total_size += 1 + 1;
+    }
+
+    // optional uint32 eresult = 2 [default = 2];
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_eresult());
@@ -23761,7 +23786,7 @@ void CMsgSystemUpdateCheckResult::MergeFrom(const CMsgSystemUpdateCheckResult& f
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_version(from._internal_version());
     }
@@ -23778,6 +23803,9 @@ void CMsgSystemUpdateCheckResult::MergeFrom(const CMsgSystemUpdateCheckResult& f
       available_ = from.available_;
     }
     if (cached_has_bits & 0x00000020u) {
+      system_restart_pending_ = from.system_restart_pending_;
+    }
+    if (cached_has_bits & 0x00000040u) {
       eresult_ = from.eresult_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -23809,8 +23837,8 @@ void CMsgSystemUpdateCheckResult::InternalSwap(CMsgSystemUpdateCheckResult* othe
   version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   auto_message_.Swap(&other->auto_message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgSystemUpdateCheckResult, available_)
-      + sizeof(CMsgSystemUpdateCheckResult::available_)
+      PROTOBUF_FIELD_OFFSET(CMsgSystemUpdateCheckResult, system_restart_pending_)
+      + sizeof(CMsgSystemUpdateCheckResult::system_restart_pending_)
       - PROTOBUF_FIELD_OFFSET(CMsgSystemUpdateCheckResult, type_)>(
           reinterpret_cast<char*>(&type_),
           reinterpret_cast<char*>(&other->type_));

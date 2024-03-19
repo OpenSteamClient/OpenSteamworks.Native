@@ -2096,6 +2096,7 @@ class CMsgRemoteDeviceAuthorizationRequest PROTOBUF_FINAL :
     kDeviceNameFieldNumber = 2,
     kEncryptedRequestFieldNumber = 3,
     kAuthKeyFieldNumber = 4,
+    kRequestIdFieldNumber = 5,
   };
   // required bytes device_token = 1;
   bool has_device_token() const;
@@ -2177,6 +2178,19 @@ class CMsgRemoteDeviceAuthorizationRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_auth_key();
   public:
 
+  // optional uint32 request_id = 5;
+  bool has_request_id() const;
+  private:
+  bool _internal_has_request_id() const;
+  public:
+  void clear_request_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 request_id() const;
+  void set_request_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_request_id() const;
+  void _internal_set_request_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgRemoteDeviceAuthorizationRequest)
  private:
   class _Internal;
@@ -2193,6 +2207,7 @@ class CMsgRemoteDeviceAuthorizationRequest PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr encrypted_request_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr auth_key_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 request_id_;
   friend struct ::TableStruct_steammessages_5fremoteclient_5fdiscovery_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6472,6 +6487,34 @@ inline void CMsgRemoteDeviceAuthorizationRequest::set_allocated_auth_key(std::st
   auth_key_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), auth_key,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CMsgRemoteDeviceAuthorizationRequest.auth_key)
+}
+
+// optional uint32 request_id = 5;
+inline bool CMsgRemoteDeviceAuthorizationRequest::_internal_has_request_id() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgRemoteDeviceAuthorizationRequest::has_request_id() const {
+  return _internal_has_request_id();
+}
+inline void CMsgRemoteDeviceAuthorizationRequest::clear_request_id() {
+  request_id_ = 0u;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgRemoteDeviceAuthorizationRequest::_internal_request_id() const {
+  return request_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgRemoteDeviceAuthorizationRequest::request_id() const {
+  // @@protoc_insertion_point(field_get:CMsgRemoteDeviceAuthorizationRequest.request_id)
+  return _internal_request_id();
+}
+inline void CMsgRemoteDeviceAuthorizationRequest::_internal_set_request_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  request_id_ = value;
+}
+inline void CMsgRemoteDeviceAuthorizationRequest::set_request_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_request_id(value);
+  // @@protoc_insertion_point(field_set:CMsgRemoteDeviceAuthorizationRequest.request_id)
 }
 
 // -------------------------------------------------------------------

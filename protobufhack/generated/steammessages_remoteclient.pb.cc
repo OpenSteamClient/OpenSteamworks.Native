@@ -70,7 +70,7 @@ constexpr CMsgRemoteClientAppStatus_AppStatus::CMsgRemoteClientAppStatus_AppStat
   , shortcut_info_(nullptr)
   , app_id_(0u)
   , app_state_(0u)
-  , launch_available_(true){}
+  , vr_not_required_(true){}
 struct CMsgRemoteClientAppStatus_AppStatusDefaultTypeInternal {
   constexpr CMsgRemoteClientAppStatus_AppStatusDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -134,6 +134,7 @@ constexpr CMsgRemoteClientStartStreamResponse::CMsgRemoteClientStartStreamRespon
   , relay_server_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , launch_task_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , launch_tasdetail_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , vr_connection_params_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , stream_port_(0u)
   , launch_tasks_done_(0)
   , launch_tasks_total_(0)
@@ -282,7 +283,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteclient_2
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientAppStatus_AppStatus, app_state_),
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientAppStatus_AppStatus, update_info_),
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientAppStatus_AppStatus, shortcut_info_),
-  PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientAppStatus_AppStatus, launch_available_),
+  PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientAppStatus_AppStatus, vr_not_required_),
   2,
   3,
   0,
@@ -345,16 +346,18 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteclient_2
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientStartStreamResponse, launch_tasdetail_),
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientStartStreamResponse, launch_tasks_done_),
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientStartStreamResponse, launch_tasks_total_),
-  7,
-  4,
+  PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientStartStreamResponse, vr_connection_params_),
+  8,
+  5,
   ~0u,
   0,
-  8,
+  9,
   1,
   2,
   3,
-  5,
   6,
+  7,
+  4,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteClientPing, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -407,13 +410,13 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 60, -1, sizeof(::CMsgRemoteClientAppStatus)},
   { 66, 73, sizeof(::CMsgRemoteClientStartStream_ReservedGamepad)},
   { 75, 91, sizeof(::CMsgRemoteClientStartStream)},
-  { 102, 117, sizeof(::CMsgRemoteClientStartStreamResponse)},
-  { 127, -1, sizeof(::CMsgRemoteClientPing)},
-  { 132, -1, sizeof(::CMsgRemoteClientPingResponse)},
-  { 137, -1, sizeof(::CMsgRemoteClientAcceptEULA)},
-  { 145, 152, sizeof(::CMsgRemoteClientGetControllerConfig)},
-  { 154, 161, sizeof(::CMsgRemoteClientGetControllerConfigResponse)},
-  { 163, 169, sizeof(::CMsgRemoteClientStreamingEnabled)},
+  { 102, 118, sizeof(::CMsgRemoteClientStartStreamResponse)},
+  { 129, -1, sizeof(::CMsgRemoteClientPing)},
+  { 134, -1, sizeof(::CMsgRemoteClientPingResponse)},
+  { 139, -1, sizeof(::CMsgRemoteClientAcceptEULA)},
+  { 147, 154, sizeof(::CMsgRemoteClientGetControllerConfig)},
+  { 156, 163, sizeof(::CMsgRemoteClientGetControllerConfigResponse)},
+  { 165, 171, sizeof(::CMsgRemoteClientStreamingEnabled)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -440,7 +443,7 @@ const char descriptor_table_protodef_steammessages_5fremoteclient_2eproto[] PROT
   "nt_discovery.proto\"r\n\026CMsgRemoteClientSt"
   "atus\022\021\n\tclient_id\030\001 \001(\004\022\023\n\013instance_id\030\002"
   " \001(\004\0220\n\006status\030\003 \001(\0132 .CMsgRemoteClientB"
-  "roadcastStatus\"\345\004\n\031CMsgRemoteClientAppSt"
+  "roadcastStatus\"\344\004\n\031CMsgRemoteClientAppSt"
   "atus\022<\n\016status_updates\030\001 \003(\0132$.CMsgRemot"
   "eClientAppStatus.AppStatus\032\350\001\n\rAppUpdate"
   "Info\022\031\n\021time_update_start\030\001 \001(\007\022\031\n\021bytes"
@@ -450,41 +453,42 @@ const char descriptor_table_protodef_steammessages_5fremoteclient_2eproto[] PROT
   "aining\030\006 \001(\005:\002-1\022\025\n\rupdate_result\030\007 \001(\005\022"
   "\024\n\014update_state\030\010 \001(\r\032O\n\014ShortcutInfo\022\014\n"
   "\004name\030\001 \001(\t\022\014\n\004icon\030\002 \001(\t\022\022\n\ncategories\030"
-  "\003 \003(\t\022\017\n\007exepath\030\004 \001(\t\032\315\001\n\tAppStatus\022\016\n\006"
+  "\003 \003(\t\022\017\n\007exepath\030\004 \001(\t\032\314\001\n\tAppStatus\022\016\n\006"
   "app_id\030\001 \001(\r\022\021\n\tapp_state\030\002 \001(\r\022=\n\013updat"
   "e_info\030\003 \001(\0132(.CMsgRemoteClientAppStatus"
   ".AppUpdateInfo\022>\n\rshortcut_info\030\004 \001(\0132\'."
-  "CMsgRemoteClientAppStatus.ShortcutInfo\022\036"
-  "\n\020launch_available\030\005 \001(\010:\004true\"\305\003\n\033CMsgR"
-  "emoteClientStartStream\022\016\n\006app_id\030\001 \001(\r\022\023"
-  "\n\013environment\030\002 \001(\005\022\025\n\rgamepad_count\030\003 \001"
-  "(\005\022\031\n\rlaunch_option\030\004 \001(\005:\002-1\022\037\n\020locpare"
-  "ntal_lock\030\005 \001(\010:\005false\022\032\n\022unlocparental_"
-  "lock\030\006 \001(\t\022\034\n\024maximum_resolution_x\030\007 \001(\005"
-  "\022\034\n\024maximum_resolution_y\030\010 \001(\005\022>\n\010gamepa"
-  "ds\030\t \003(\0132,.CMsgRemoteClientStartStream.R"
-  "eservedGamepad\022\036\n\023audio_channel_count\030\n "
-  "\001(\005:\0012\022.\n\023supported_transport\030\013 \003(\0162\021.ES"
-  "treamTransport\032F\n\017ReservedGamepad\022\027\n\017con"
-  "troller_type\030\001 \001(\r\022\032\n\022controller_subtype"
-  "\030\002 \001(\r\"\271\002\n#CMsgRemoteClientStartStreamRe"
-  "sponse\022\032\n\017e_launch_result\030\001 \001(\005:\0012\022\023\n\013st"
-  "ream_port\030\002 \001(\r\022\026\n\016launch_options\030\003 \003(\005\022"
-  "\022\n\nauth_token\030\004 \001(\014\0229\n\ttransport\030\005 \001(\0162\021"
-  ".EStreamTransport:\023EStreamTransportUDP\022\024"
-  "\n\014relay_server\030\006 \001(\t\022\023\n\013launch_task\030\007 \001("
-  "\t\022\030\n\020launch_tasdetail\030\010 \001(\t\022\031\n\021launch_ta"
-  "sks_done\030\t \001(\005\022\032\n\022launch_tasks_total\030\n \001"
-  "(\005\"\026\n\024CMsgRemoteClientPing\"\036\n\034CMsgRemote"
-  "ClientPingResponse\"S\n\032CMsgRemoteClientAc"
-  "ceptEULA\022\016\n\006app_id\030\001 \003(\r\022\017\n\007eula_id\030\002 \003("
-  "\t\022\024\n\014eula_version\030\003 \003(\r\"O\n#CMsgRemoteCli"
-  "entGetControllerConfig\022\016\n\006app_id\030\001 \001(\r\022\030"
-  "\n\020controller_index\030\003 \001(\r\"U\n+CMsgRemoteCl"
-  "ientGetControllerConfigResponse\022\022\n\007eresu"
-  "lt\030\001 \001(\005:\0012\022\022\n\nconfig_vdf\030\002 \001(\014\"3\n CMsgR"
-  "emoteClientStreamingEnabled\022\017\n\007enabled\030\001"
-  " \002(\010B\037H\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
+  "CMsgRemoteClientAppStatus.ShortcutInfo\022\035"
+  "\n\017vr_not_required\030\005 \001(\010:\004true\"\305\003\n\033CMsgRe"
+  "moteClientStartStream\022\016\n\006app_id\030\001 \001(\r\022\023\n"
+  "\013environment\030\002 \001(\005\022\025\n\rgamepad_count\030\003 \001("
+  "\005\022\031\n\rlaunch_option\030\004 \001(\005:\002-1\022\037\n\020locparen"
+  "tal_lock\030\005 \001(\010:\005false\022\032\n\022unlocparental_l"
+  "ock\030\006 \001(\t\022\034\n\024maximum_resolution_x\030\007 \001(\005\022"
+  "\034\n\024maximum_resolution_y\030\010 \001(\005\022>\n\010gamepad"
+  "s\030\t \003(\0132,.CMsgRemoteClientStartStream.Re"
+  "servedGamepad\022\036\n\023audio_channel_count\030\n \001"
+  "(\005:\0012\022.\n\023supported_transport\030\013 \003(\0162\021.ESt"
+  "reamTransport\032F\n\017ReservedGamepad\022\027\n\017cont"
+  "roller_type\030\001 \001(\r\022\032\n\022controller_subtype\030"
+  "\002 \001(\r\"\327\002\n#CMsgRemoteClientStartStreamRes"
+  "ponse\022\032\n\017e_launch_result\030\001 \001(\005:\0012\022\023\n\013str"
+  "eam_port\030\002 \001(\r\022\026\n\016launch_options\030\003 \003(\005\022\022"
+  "\n\nauth_token\030\004 \001(\014\0229\n\ttransport\030\005 \001(\0162\021."
+  "EStreamTransport:\023EStreamTransportUDP\022\024\n"
+  "\014relay_server\030\006 \001(\t\022\023\n\013launch_task\030\007 \001(\t"
+  "\022\030\n\020launch_tasdetail\030\010 \001(\t\022\031\n\021launch_tas"
+  "ks_done\030\t \001(\005\022\032\n\022launch_tasks_total\030\n \001("
+  "\005\022\034\n\024vr_connection_params\030\013 \001(\t\"\026\n\024CMsgR"
+  "emoteClientPing\"\036\n\034CMsgRemoteClientPingR"
+  "esponse\"S\n\032CMsgRemoteClientAcceptEULA\022\016\n"
+  "\006app_id\030\001 \003(\r\022\017\n\007eula_id\030\002 \003(\t\022\024\n\014eula_v"
+  "ersion\030\003 \003(\r\"O\n#CMsgRemoteClientGetContr"
+  "ollerConfig\022\016\n\006app_id\030\001 \001(\r\022\030\n\020controlle"
+  "r_index\030\003 \001(\r\"U\n+CMsgRemoteClientGetCont"
+  "rollerConfigResponse\022\022\n\007eresult\030\001 \001(\005:\0012"
+  "\022\022\n\nconfig_vdf\030\002 \001(\014\"3\n CMsgRemoteClient"
+  "StreamingEnabled\022\017\n\007enabled\030\001 \002(\010B\037H\001\200\001\000"
+  "\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fremoteclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -493,7 +497,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fremoteclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fremoteclient_2eproto = {
-  false, false, 2037, descriptor_table_protodef_steammessages_5fremoteclient_2eproto, "steammessages_remoteclient.proto", 
+  false, false, 2066, descriptor_table_protodef_steammessages_5fremoteclient_2eproto, "steammessages_remoteclient.proto", 
   &descriptor_table_steammessages_5fremoteclient_2eproto_once, descriptor_table_steammessages_5fremoteclient_2eproto_deps, 3, 14,
   schemas, file_default_instances, TableStruct_steammessages_5fremoteclient_2eproto::offsets,
   file_level_metadata_steammessages_5fremoteclient_2eproto, file_level_enum_descriptors_steammessages_5fremoteclient_2eproto, file_level_service_descriptors_steammessages_5fremoteclient_2eproto,
@@ -1586,7 +1590,7 @@ class CMsgRemoteClientAppStatus_AppStatus::_Internal {
   static void set_has_shortcut_info(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_launch_available(HasBits* has_bits) {
+  static void set_has_vr_not_required(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
 };
@@ -1620,8 +1624,8 @@ CMsgRemoteClientAppStatus_AppStatus::CMsgRemoteClientAppStatus_AppStatus(const C
     shortcut_info_ = nullptr;
   }
   ::memcpy(&app_id_, &from.app_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&launch_available_) -
-    reinterpret_cast<char*>(&app_id_)) + sizeof(launch_available_));
+    static_cast<size_t>(reinterpret_cast<char*>(&vr_not_required_) -
+    reinterpret_cast<char*>(&app_id_)) + sizeof(vr_not_required_));
   // @@protoc_insertion_point(copy_constructor:CMsgRemoteClientAppStatus.AppStatus)
 }
 
@@ -1630,7 +1634,7 @@ void CMsgRemoteClientAppStatus_AppStatus::SharedCtor() {
     reinterpret_cast<char*>(&update_info_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&app_state_) -
     reinterpret_cast<char*>(&update_info_)) + sizeof(app_state_));
-launch_available_ = true;
+vr_not_required_ = true;
 }
 
 CMsgRemoteClientAppStatus_AppStatus::~CMsgRemoteClientAppStatus_AppStatus() {
@@ -1676,7 +1680,7 @@ void CMsgRemoteClientAppStatus_AppStatus::Clear() {
     ::memset(&app_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&app_state_) -
         reinterpret_cast<char*>(&app_id_)) + sizeof(app_state_));
-    launch_available_ = true;
+    vr_not_required_ = true;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1720,11 +1724,11 @@ const char* CMsgRemoteClientAppStatus_AppStatus::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool launch_available = 5 [default = true];
+      // optional bool vr_not_required = 5 [default = true];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          _Internal::set_has_launch_available(&has_bits);
-          launch_available_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _Internal::set_has_vr_not_required(&has_bits);
+          vr_not_required_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1786,10 +1790,10 @@ failure:
         4, _Internal::shortcut_info(this), target, stream);
   }
 
-  // optional bool launch_available = 5 [default = true];
+  // optional bool vr_not_required = 5 [default = true];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_launch_available(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_vr_not_required(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1838,7 +1842,7 @@ size_t CMsgRemoteClientAppStatus_AppStatus::ByteSizeLong() const {
           this->_internal_app_state());
     }
 
-    // optional bool launch_available = 5 [default = true];
+    // optional bool vr_not_required = 5 [default = true];
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
@@ -1890,7 +1894,7 @@ void CMsgRemoteClientAppStatus_AppStatus::MergeFrom(const CMsgRemoteClientAppSta
       app_state_ = from.app_state_;
     }
     if (cached_has_bits & 0x00000010u) {
-      launch_available_ = from.launch_available_;
+      vr_not_required_ = from.vr_not_required_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1924,7 +1928,7 @@ void CMsgRemoteClientAppStatus_AppStatus::InternalSwap(CMsgRemoteClientAppStatus
       - PROTOBUF_FIELD_OFFSET(CMsgRemoteClientAppStatus_AppStatus, update_info_)>(
           reinterpret_cast<char*>(&update_info_),
           reinterpret_cast<char*>(&other->update_info_));
-  swap(launch_available_, other->launch_available_);
+  swap(vr_not_required_, other->vr_not_required_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgRemoteClientAppStatus_AppStatus::GetMetadata() const {
@@ -2915,16 +2919,16 @@ class CMsgRemoteClientStartStreamResponse::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgRemoteClientStartStreamResponse>()._has_bits_);
   static void set_has_e_launch_result(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_stream_port(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_auth_token(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_transport(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_relay_server(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
@@ -2936,10 +2940,13 @@ class CMsgRemoteClientStartStreamResponse::_Internal {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_launch_tasks_done(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_launch_tasks_total(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_vr_connection_params(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
   }
 };
 
@@ -2975,6 +2982,11 @@ CMsgRemoteClientStartStreamResponse::CMsgRemoteClientStartStreamResponse(const C
     launch_tasdetail_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_launch_tasdetail(), 
       GetArena());
   }
+  vr_connection_params_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_vr_connection_params()) {
+    vr_connection_params_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_vr_connection_params(), 
+      GetArena());
+  }
   ::memcpy(&stream_port_, &from.stream_port_,
     static_cast<size_t>(reinterpret_cast<char*>(&transport_) -
     reinterpret_cast<char*>(&stream_port_)) + sizeof(transport_));
@@ -2986,6 +2998,7 @@ auth_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringA
 relay_server_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 launch_task_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 launch_tasdetail_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+vr_connection_params_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&stream_port_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&launch_tasks_total_) -
@@ -3006,6 +3019,7 @@ void CMsgRemoteClientStartStreamResponse::SharedDtor() {
   relay_server_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   launch_task_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   launch_tasdetail_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  vr_connection_params_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void CMsgRemoteClientStartStreamResponse::ArenaDtor(void* object) {
@@ -3026,7 +3040,7 @@ void CMsgRemoteClientStartStreamResponse::Clear() {
 
   launch_options_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       auth_token_.ClearNonDefaultToEmpty();
     }
@@ -3039,14 +3053,19 @@ void CMsgRemoteClientStartStreamResponse::Clear() {
     if (cached_has_bits & 0x00000008u) {
       launch_tasdetail_.ClearNonDefaultToEmpty();
     }
+    if (cached_has_bits & 0x00000010u) {
+      vr_connection_params_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x000000f0u) {
+  if (cached_has_bits & 0x000000e0u) {
     ::memset(&stream_port_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&launch_tasks_total_) -
         reinterpret_cast<char*>(&stream_port_)) + sizeof(launch_tasks_total_));
-    e_launch_result_ = 2;
   }
-  transport_ = 1;
+  if (cached_has_bits & 0x00000300u) {
+    e_launch_result_ = 2;
+    transport_ = 1;
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3159,6 +3178,17 @@ const char* CMsgRemoteClientStartStreamResponse::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional string vr_connection_params = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+          auto str = _internal_mutable_vr_connection_params();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgRemoteClientStartStreamResponse.vr_connection_params");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -3190,13 +3220,13 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional int32 e_launch_result = 1 [default = 2];
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_e_launch_result(), target);
   }
 
   // optional uint32 stream_port = 2;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_stream_port(), target);
   }
@@ -3214,7 +3244,7 @@ failure:
   }
 
   // optional .EStreamTransport transport = 5 [default = EStreamTransportUDP];
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       5, this->_internal_transport(), target);
@@ -3251,15 +3281,25 @@ failure:
   }
 
   // optional int32 launch_tasks_done = 9;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(9, this->_internal_launch_tasks_done(), target);
   }
 
   // optional int32 launch_tasks_total = 10;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(10, this->_internal_launch_tasks_total(), target);
+  }
+
+  // optional string vr_connection_params = 11;
+  if (cached_has_bits & 0x00000010u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_vr_connection_params().data(), static_cast<int>(this->_internal_vr_connection_params().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgRemoteClientStartStreamResponse.vr_connection_params");
+    target = stream->WriteStringMaybeAliased(
+        11, this->_internal_vr_connection_params(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3317,41 +3357,50 @@ size_t CMsgRemoteClientStartStreamResponse::ByteSizeLong() const {
           this->_internal_launch_tasdetail());
     }
 
-    // optional uint32 stream_port = 2;
+    // optional string vr_connection_params = 11;
     if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_vr_connection_params());
+    }
+
+    // optional uint32 stream_port = 2;
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_stream_port());
     }
 
     // optional int32 launch_tasks_done = 9;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_launch_tasks_done());
     }
 
     // optional int32 launch_tasks_total = 10;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_launch_tasks_total());
     }
 
+  }
+  if (cached_has_bits & 0x00000300u) {
     // optional int32 e_launch_result = 1 [default = 2];
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_e_launch_result());
     }
 
-  }
-  // optional .EStreamTransport transport = 5 [default = EStreamTransportUDP];
-  if (cached_has_bits & 0x00000100u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_transport());
-  }
+    // optional .EStreamTransport transport = 5 [default = EStreamTransportUDP];
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_transport());
+    }
 
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -3399,21 +3448,27 @@ void CMsgRemoteClientStartStreamResponse::MergeFrom(const CMsgRemoteClientStartS
       _internal_set_launch_tasdetail(from._internal_launch_tasdetail());
     }
     if (cached_has_bits & 0x00000010u) {
-      stream_port_ = from.stream_port_;
+      _internal_set_vr_connection_params(from._internal_vr_connection_params());
     }
     if (cached_has_bits & 0x00000020u) {
-      launch_tasks_done_ = from.launch_tasks_done_;
+      stream_port_ = from.stream_port_;
     }
     if (cached_has_bits & 0x00000040u) {
-      launch_tasks_total_ = from.launch_tasks_total_;
+      launch_tasks_done_ = from.launch_tasks_done_;
     }
     if (cached_has_bits & 0x00000080u) {
-      e_launch_result_ = from.e_launch_result_;
+      launch_tasks_total_ = from.launch_tasks_total_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000100u) {
-    _internal_set_transport(from._internal_transport());
+  if (cached_has_bits & 0x00000300u) {
+    if (cached_has_bits & 0x00000100u) {
+      e_launch_result_ = from.e_launch_result_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      transport_ = from.transport_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -3444,6 +3499,7 @@ void CMsgRemoteClientStartStreamResponse::InternalSwap(CMsgRemoteClientStartStre
   relay_server_.Swap(&other->relay_server_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   launch_task_.Swap(&other->launch_task_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   launch_tasdetail_.Swap(&other->launch_tasdetail_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  vr_connection_params_.Swap(&other->vr_connection_params_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CMsgRemoteClientStartStreamResponse, launch_tasks_total_)
       + sizeof(CMsgRemoteClientStartStreamResponse::launch_tasks_total_)

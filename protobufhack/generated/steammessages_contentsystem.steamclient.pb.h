@@ -697,7 +697,6 @@ class CContentServerDirectory_ServerInfo PROTOBUF_FINAL :
     kNumEntriesInClientListFieldNumber = 6,
     kSteamChinaOnlyFieldNumber = 7,
     kUseAsProxyFieldNumber = 10,
-    kPreferredServerFieldNumber = 14,
     kPriorityClassFieldNumber = 15,
   };
   // repeated uint32 allowed_app_ids = 13;
@@ -937,19 +936,6 @@ class CContentServerDirectory_ServerInfo PROTOBUF_FINAL :
   void _internal_set_use_as_proxy(bool value);
   public:
 
-  // optional bool preferred_server = 14;
-  bool has_preferred_server() const;
-  private:
-  bool _internal_has_preferred_server() const;
-  public:
-  void clear_preferred_server();
-  bool preferred_server() const;
-  void set_preferred_server(bool value);
-  private:
-  bool _internal_preferred_server() const;
-  void _internal_set_preferred_server(bool value);
-  public:
-
   // optional uint32 priority_class = 15;
   bool has_priority_class() const;
   private:
@@ -986,7 +972,6 @@ class CContentServerDirectory_ServerInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 num_entries_in_client_list_;
   bool steam_china_only_;
   bool use_as_proxy_;
-  bool preferred_server_;
   ::PROTOBUF_NAMESPACE_ID::uint32 priority_class_;
   friend struct ::TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto;
 };
@@ -4543,37 +4528,9 @@ CContentServerDirectory_ServerInfo::mutable_allowed_app_ids() {
   return _internal_mutable_allowed_app_ids();
 }
 
-// optional bool preferred_server = 14;
-inline bool CContentServerDirectory_ServerInfo::_internal_has_preferred_server() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
-  return value;
-}
-inline bool CContentServerDirectory_ServerInfo::has_preferred_server() const {
-  return _internal_has_preferred_server();
-}
-inline void CContentServerDirectory_ServerInfo::clear_preferred_server() {
-  preferred_server_ = false;
-  _has_bits_[0] &= ~0x00001000u;
-}
-inline bool CContentServerDirectory_ServerInfo::_internal_preferred_server() const {
-  return preferred_server_;
-}
-inline bool CContentServerDirectory_ServerInfo::preferred_server() const {
-  // @@protoc_insertion_point(field_get:CContentServerDirectory_ServerInfo.preferred_server)
-  return _internal_preferred_server();
-}
-inline void CContentServerDirectory_ServerInfo::_internal_set_preferred_server(bool value) {
-  _has_bits_[0] |= 0x00001000u;
-  preferred_server_ = value;
-}
-inline void CContentServerDirectory_ServerInfo::set_preferred_server(bool value) {
-  _internal_set_preferred_server(value);
-  // @@protoc_insertion_point(field_set:CContentServerDirectory_ServerInfo.preferred_server)
-}
-
 // optional uint32 priority_class = 15;
 inline bool CContentServerDirectory_ServerInfo::_internal_has_priority_class() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CContentServerDirectory_ServerInfo::has_priority_class() const {
@@ -4581,7 +4538,7 @@ inline bool CContentServerDirectory_ServerInfo::has_priority_class() const {
 }
 inline void CContentServerDirectory_ServerInfo::clear_priority_class() {
   priority_class_ = 0u;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CContentServerDirectory_ServerInfo::_internal_priority_class() const {
   return priority_class_;
@@ -4591,7 +4548,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CContentServerDirectory_ServerInfo::prior
   return _internal_priority_class();
 }
 inline void CContentServerDirectory_ServerInfo::_internal_set_priority_class(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00001000u;
   priority_class_ = value;
 }
 inline void CContentServerDirectory_ServerInfo::set_priority_class(::PROTOBUF_NAMESPACE_ID::uint32 value) {

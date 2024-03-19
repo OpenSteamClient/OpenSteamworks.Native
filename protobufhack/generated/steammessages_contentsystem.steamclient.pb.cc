@@ -63,7 +63,6 @@ constexpr CContentServerDirectory_ServerInfo::CContentServerDirectory_ServerInfo
   , num_entries_in_client_list_(0)
   , steam_china_only_(false)
   , use_as_proxy_(false)
-  , preferred_server_(false)
   , priority_class_(0u){}
 struct CContentServerDirectory_ServerInfoDefaultTypeInternal {
   constexpr CContentServerDirectory_ServerInfoDefaultTypeInternal()
@@ -305,7 +304,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fcontentsystem_
   PROTOBUF_FIELD_OFFSET(::CContentServerDirectory_ServerInfo, proxy_request_path_template_),
   PROTOBUF_FIELD_OFFSET(::CContentServerDirectory_ServerInfo, https_support_),
   PROTOBUF_FIELD_OFFSET(::CContentServerDirectory_ServerInfo, allowed_app_ids_),
-  PROTOBUF_FIELD_OFFSET(::CContentServerDirectory_ServerInfo, preferred_server_),
   PROTOBUF_FIELD_OFFSET(::CContentServerDirectory_ServerInfo, priority_class_),
   PROTOBUF_FIELD_OFFSET(::CContentServerDirectory_ServerInfo, bypass_proxies_of_type_),
   0,
@@ -322,7 +320,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fcontentsystem_
   4,
   ~0u,
   12,
-  13,
   ~0u,
   PROTOBUF_FIELD_OFFSET(::CContentServerDirectory_GetServersForSteamPipe_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CContentServerDirectory_GetServersForSteamPipe_Response, _internal_metadata_),
@@ -467,20 +464,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fcontentsystem_
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, sizeof(::CContentServerDirectory_ConnectedSteamPipeServerInfo)},
   { 11, 22, sizeof(::CContentServerDirectory_GetServersForSteamPipe_Request)},
-  { 28, 49, sizeof(::CContentServerDirectory_ServerInfo)},
-  { 65, 72, sizeof(::CContentServerDirectory_GetServersForSteamPipe_Response)},
-  { 74, 83, sizeof(::CContentServerDirectory_GetDepotPatchInfo_Request)},
-  { 87, 95, sizeof(::CContentServerDirectory_GetDepotPatchInfo_Response)},
-  { 98, 104, sizeof(::CContentServerDirectory_GetClientUpdateHosts_Request)},
-  { 105, 113, sizeof(::CContentServerDirectory_GetClientUpdateHosts_Response)},
-  { 116, 126, sizeof(::CContentServerDirectory_GetManifestRequestCode_Request)},
-  { 131, 137, sizeof(::CContentServerDirectory_GetManifestRequestCode_Response)},
-  { 138, 146, sizeof(::CContentServerDirectory_GetCDNAuthToken_Request)},
-  { 149, 156, sizeof(::CContentServerDirectory_GetCDNAuthToken_Response)},
-  { 158, 168, sizeof(::CContentServerDirectory_RequestPeerContentServer_Request)},
-  { 173, 181, sizeof(::CContentServerDirectory_RequestPeerContentServer_Response)},
-  { 184, 192, sizeof(::CContentServerDirectory_GetPeerContentInfo_Request)},
-  { 195, 202, sizeof(::CContentServerDirectory_GetPeerContentInfo_Response)},
+  { 28, 48, sizeof(::CContentServerDirectory_ServerInfo)},
+  { 63, 70, sizeof(::CContentServerDirectory_GetServersForSteamPipe_Response)},
+  { 72, 81, sizeof(::CContentServerDirectory_GetDepotPatchInfo_Request)},
+  { 85, 93, sizeof(::CContentServerDirectory_GetDepotPatchInfo_Response)},
+  { 96, 102, sizeof(::CContentServerDirectory_GetClientUpdateHosts_Request)},
+  { 103, 111, sizeof(::CContentServerDirectory_GetClientUpdateHosts_Response)},
+  { 114, 124, sizeof(::CContentServerDirectory_GetManifestRequestCode_Request)},
+  { 129, 135, sizeof(::CContentServerDirectory_GetManifestRequestCode_Response)},
+  { 136, 144, sizeof(::CContentServerDirectory_GetCDNAuthToken_Request)},
+  { 147, 154, sizeof(::CContentServerDirectory_GetCDNAuthToken_Response)},
+  { 156, 166, sizeof(::CContentServerDirectory_RequestPeerContentServer_Request)},
+  { 171, 179, sizeof(::CContentServerDirectory_RequestPeerContentServer_Response)},
+  { 182, 190, sizeof(::CContentServerDirectory_GetPeerContentInfo_Request)},
+  { 193, 200, sizeof(::CContentServerDirectory_GetPeerContentInfo_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -515,7 +512,7 @@ const char descriptor_table_protodef_steammessages_5fcontentsystem_2esteamclient
   "0\022\023\n\013ip_override\030\003 \001(\t\022\030\n\rlauncher_type\030"
   "\004 \001(\005:\0010\022\023\n\013ipv6_public\030\005 \001(\t\022R\n\023current"
   "_connections\030\006 \003(\01325.CContentServerDirec"
-  "tory_ConnectedSteamPipeServerInfo\"\223\003\n\"CC"
+  "tory_ConnectedSteamPipeServerInfo\"\371\002\n\"CC"
   "ontentServerDirectory_ServerInfo\022\014\n\004type"
   "\030\001 \001(\t\022\021\n\tsource_id\030\002 \001(\005\022\017\n\007cell_id\030\003 \001"
   "(\005\022\014\n\004load\030\004 \001(\005\022\025\n\rweighted_load\030\005 \001(\002\022"
@@ -523,74 +520,73 @@ const char descriptor_table_protodef_steammessages_5fcontentsystem_2esteamclient
   "team_china_only\030\007 \001(\010\022\014\n\004host\030\010 \001(\t\022\r\n\005v"
   "host\030\t \001(\t\022\024\n\014use_as_proxy\030\n \001(\010\022#\n\033prox"
   "y_request_path_template\030\013 \001(\t\022\025\n\rhttps_s"
-  "upport\030\014 \001(\t\022\027\n\017allowed_app_ids\030\r \003(\r\022\030\n"
-  "\020preferred_server\030\016 \001(\010\022\026\n\016priority_clas"
-  "s\030\017 \001(\r\022\036\n\026bypass_proxies_of_type\030\020 \003(\t\""
-  "\202\001\n7CContentServerDirectory_GetServersFo"
-  "rSteamPipe_Response\0224\n\007servers\030\001 \003(\0132#.C"
-  "ContentServerDirectory_ServerInfo\022\021\n\tno_"
-  "change\030\002 \001(\010\"\211\001\n1CContentServerDirectory"
-  "_GetDepotPatchInfo_Request\022\r\n\005appid\030\001 \001("
-  "\r\022\017\n\007depotid\030\002 \001(\r\022\031\n\021source_manifestid\030"
-  "\003 \001(\004\022\031\n\021target_manifestid\030\004 \001(\004\"{\n2CCon"
-  "tentServerDirectory_GetDepotPatchInfo_Re"
-  "sponse\022\024\n\014is_available\030\001 \001(\010\022\022\n\npatch_si"
-  "ze\030\002 \001(\004\022\033\n\023patched_chunks_size\030\003 \001(\004\"P\n"
-  "4CContentServerDirectory_GetClientUpdate"
-  "Hosts_Request\022\030\n\020cached_signature\030\001 \001(\t\""
-  "w\n5CContentServerDirectory_GetClientUpda"
-  "teHosts_Response\022\020\n\010hosts_kv\030\001 \001(\t\022\030\n\020va"
-  "lid_until_time\030\002 \001(\004\022\022\n\nip_country\030\003 \001(\t"
-  "\"\241\001\n6CContentServerDirectory_GetManifest"
-  "RequestCode_Request\022\016\n\006app_id\030\001 \001(\r\022\020\n\010d"
-  "epot_id\030\002 \001(\r\022\023\n\013manifest_id\030\003 \001(\004\022\022\n\nap"
-  "p_branch\030\004 \001(\t\022\034\n\024branch_password_hash\030\005"
-  " \001(\t\"X\n7CContentServerDirectory_GetManif"
-  "estRequestCode_Response\022\035\n\025manifest_requ"
-  "est_code\030\001 \001(\004\"f\n/CContentServerDirector"
-  "y_GetCDNAuthToken_Request\022\020\n\010depot_id\030\001 "
-  "\001(\r\022\021\n\thost_name\030\002 \001(\t\022\016\n\006app_id\030\003 \001(\r\"Z"
-  "\n0CContentServerDirectory_GetCDNAuthToke"
-  "n_Response\022\r\n\005token\030\001 \001(\t\022\027\n\017expiration_"
-  "time\030\002 \001(\r\"\260\001\n8CContentServerDirectory_R"
-  "equestPeerContentServer_Request\022\030\n\020remot"
-  "e_client_id\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\004\022\037\n\027se"
-  "rver_remote_client_id\030\003 \001(\004\022\016\n\006app_id\030\004 "
-  "\001(\r\022\030\n\020current_build_id\030\005 \001(\r\"\200\001\n9CConte"
-  "ntServerDirectory_RequestPeerContentServ"
-  "er_Response\022\023\n\013server_port\030\001 \001(\r\022\030\n\020inst"
-  "alled_depots\030\002 \003(\r\022\024\n\014access_token\030\003 \001(\004"
-  "\"\200\001\n2CContentServerDirectory_GetPeerCont"
-  "entInfo_Request\022\030\n\020remote_client_id\030\001 \001("
-  "\004\022\017\n\007steamid\030\002 \001(\004\022\037\n\027server_remote_clie"
-  "nt_id\030\003 \001(\004\"X\n3CContentServerDirectory_G"
-  "etPeerContentInfo_Response\022\016\n\006appids\030\001 \003"
-  "(\r\022\021\n\tip_public\030\002 \001(\t2\307\007\n\026ContentServerD"
-  "irectory\022\213\001\n\026GetServersForSteamPipe\0227.CC"
-  "ontentServerDirectory_GetServersForSteam"
-  "Pipe_Request\0328.CContentServerDirectory_G"
-  "etServersForSteamPipe_Response\022|\n\021GetDep"
-  "otPatchInfo\0222.CContentServerDirectory_Ge"
-  "tDepotPatchInfo_Request\0323.CContentServer"
-  "Directory_GetDepotPatchInfo_Response\022\205\001\n"
-  "\024GetClientUpdateHosts\0225.CContentServerDi"
-  "rectory_GetClientUpdateHosts_Request\0326.C"
-  "ContentServerDirectory_GetClientUpdateHo"
-  "sts_Response\022\213\001\n\026GetManifestRequestCode\022"
-  "7.CContentServerDirectory_GetManifestReq"
-  "uestCode_Request\0328.CContentServerDirecto"
-  "ry_GetManifestRequestCode_Response\022v\n\017Ge"
-  "tCDNAuthToken\0220.CContentServerDirectory_"
-  "GetCDNAuthToken_Request\0321.CContentServer"
-  "Directory_GetCDNAuthToken_Response\022\221\001\n\030R"
-  "equestPeerContentServer\0229.CContentServer"
-  "Directory_RequestPeerContentServer_Reque"
-  "st\032:.CContentServerDirectory_RequestPeer"
-  "ContentServer_Response\022\177\n\022GetPeerContent"
-  "Info\0223.CContentServerDirectory_GetPeerCo"
-  "ntentInfo_Request\0324.CContentServerDirect"
-  "ory_GetPeerContentInfo_ResponseB\035\200\001\001\252\002\027O"
-  "penSteamworks.Protobuf"
+  "upport\030\014 \001(\t\022\027\n\017allowed_app_ids\030\r \003(\r\022\026\n"
+  "\016priority_class\030\017 \001(\r\022\036\n\026bypass_proxies_"
+  "of_type\030\020 \003(\t\"\202\001\n7CContentServerDirector"
+  "y_GetServersForSteamPipe_Response\0224\n\007ser"
+  "vers\030\001 \003(\0132#.CContentServerDirectory_Ser"
+  "verInfo\022\021\n\tno_change\030\002 \001(\010\"\211\001\n1CContentS"
+  "erverDirectory_GetDepotPatchInfo_Request"
+  "\022\r\n\005appid\030\001 \001(\r\022\017\n\007depotid\030\002 \001(\r\022\031\n\021sour"
+  "ce_manifestid\030\003 \001(\004\022\031\n\021target_manifestid"
+  "\030\004 \001(\004\"{\n2CContentServerDirectory_GetDep"
+  "otPatchInfo_Response\022\024\n\014is_available\030\001 \001"
+  "(\010\022\022\n\npatch_size\030\002 \001(\004\022\033\n\023patched_chunks"
+  "_size\030\003 \001(\004\"P\n4CContentServerDirectory_G"
+  "etClientUpdateHosts_Request\022\030\n\020cached_si"
+  "gnature\030\001 \001(\t\"w\n5CContentServerDirectory"
+  "_GetClientUpdateHosts_Response\022\020\n\010hosts_"
+  "kv\030\001 \001(\t\022\030\n\020valid_until_time\030\002 \001(\004\022\022\n\nip"
+  "_country\030\003 \001(\t\"\241\001\n6CContentServerDirecto"
+  "ry_GetManifestRequestCode_Request\022\016\n\006app"
+  "_id\030\001 \001(\r\022\020\n\010depot_id\030\002 \001(\r\022\023\n\013manifest_"
+  "id\030\003 \001(\004\022\022\n\napp_branch\030\004 \001(\t\022\034\n\024branch_p"
+  "assword_hash\030\005 \001(\t\"X\n7CContentServerDire"
+  "ctory_GetManifestRequestCode_Response\022\035\n"
+  "\025manifest_request_code\030\001 \001(\004\"f\n/CContent"
+  "ServerDirectory_GetCDNAuthToken_Request\022"
+  "\020\n\010depot_id\030\001 \001(\r\022\021\n\thost_name\030\002 \001(\t\022\016\n\006"
+  "app_id\030\003 \001(\r\"Z\n0CContentServerDirectory_"
+  "GetCDNAuthToken_Response\022\r\n\005token\030\001 \001(\t\022"
+  "\027\n\017expiration_time\030\002 \001(\r\"\260\001\n8CContentSer"
+  "verDirectory_RequestPeerContentServer_Re"
+  "quest\022\030\n\020remote_client_id\030\001 \001(\004\022\017\n\007steam"
+  "id\030\002 \001(\004\022\037\n\027server_remote_client_id\030\003 \001("
+  "\004\022\016\n\006app_id\030\004 \001(\r\022\030\n\020current_build_id\030\005 "
+  "\001(\r\"\200\001\n9CContentServerDirectory_RequestP"
+  "eerContentServer_Response\022\023\n\013server_port"
+  "\030\001 \001(\r\022\030\n\020installed_depots\030\002 \003(\r\022\024\n\014acce"
+  "ss_token\030\003 \001(\004\"\200\001\n2CContentServerDirecto"
+  "ry_GetPeerContentInfo_Request\022\030\n\020remote_"
+  "client_id\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\004\022\037\n\027serv"
+  "er_remote_client_id\030\003 \001(\004\"X\n3CContentSer"
+  "verDirectory_GetPeerContentInfo_Response"
+  "\022\016\n\006appids\030\001 \003(\r\022\021\n\tip_public\030\002 \001(\t2\307\007\n\026"
+  "ContentServerDirectory\022\213\001\n\026GetServersFor"
+  "SteamPipe\0227.CContentServerDirectory_GetS"
+  "erversForSteamPipe_Request\0328.CContentSer"
+  "verDirectory_GetServersForSteamPipe_Resp"
+  "onse\022|\n\021GetDepotPatchInfo\0222.CContentServ"
+  "erDirectory_GetDepotPatchInfo_Request\0323."
+  "CContentServerDirectory_GetDepotPatchInf"
+  "o_Response\022\205\001\n\024GetClientUpdateHosts\0225.CC"
+  "ontentServerDirectory_GetClientUpdateHos"
+  "ts_Request\0326.CContentServerDirectory_Get"
+  "ClientUpdateHosts_Response\022\213\001\n\026GetManife"
+  "stRequestCode\0227.CContentServerDirectory_"
+  "GetManifestRequestCode_Request\0328.CConten"
+  "tServerDirectory_GetManifestRequestCode_"
+  "Response\022v\n\017GetCDNAuthToken\0220.CContentSe"
+  "rverDirectory_GetCDNAuthToken_Request\0321."
+  "CContentServerDirectory_GetCDNAuthToken_"
+  "Response\022\221\001\n\030RequestPeerContentServer\0229."
+  "CContentServerDirectory_RequestPeerConte"
+  "ntServer_Request\032:.CContentServerDirecto"
+  "ry_RequestPeerContentServer_Response\022\177\n\022"
+  "GetPeerContentInfo\0223.CContentServerDirec"
+  "tory_GetPeerContentInfo_Request\0324.CConte"
+  "ntServerDirectory_GetPeerContentInfo_Res"
+  "ponseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -599,7 +595,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto = {
-  false, false, 3502, descriptor_table_protodef_steammessages_5fcontentsystem_2esteamclient_2eproto, "steammessages_contentsystem.steamclient.proto", 
+  false, false, 3476, descriptor_table_protodef_steammessages_5fcontentsystem_2esteamclient_2eproto, "steammessages_contentsystem.steamclient.proto", 
   &descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_deps, 3, 16,
   schemas, file_default_instances, TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fcontentsystem_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fcontentsystem_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fcontentsystem_2esteamclient_2eproto,
@@ -1357,11 +1353,8 @@ class CContentServerDirectory_ServerInfo::_Internal {
   static void set_has_https_support(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
-  static void set_has_preferred_server(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
-  }
   static void set_has_priority_class(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 4096u;
   }
 };
 
@@ -1478,7 +1471,7 @@ void CContentServerDirectory_ServerInfo::Clear() {
         reinterpret_cast<char*>(&load_) -
         reinterpret_cast<char*>(&source_id_)) + sizeof(load_));
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     ::memset(&weighted_load_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&priority_class_) -
         reinterpret_cast<char*>(&weighted_load_)) + sizeof(priority_class_));
@@ -1618,14 +1611,6 @@ const char* CContentServerDirectory_ServerInfo::_InternalParse(const char* ptr, 
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<104>(ptr));
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_allowed_app_ids(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool preferred_server = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
-          _Internal::set_has_preferred_server(&has_bits);
-          preferred_server_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1781,14 +1766,8 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_allowed_app_ids(i), target);
   }
 
-  // optional bool preferred_server = 14;
-  if (cached_has_bits & 0x00001000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_preferred_server(), target);
-  }
-
   // optional uint32 priority_class = 15;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(15, this->_internal_priority_class(), target);
   }
@@ -1895,7 +1874,7 @@ size_t CContentServerDirectory_ServerInfo::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     // optional float weighted_load = 5;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 4;
@@ -1918,13 +1897,8 @@ size_t CContentServerDirectory_ServerInfo::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional bool preferred_server = 14;
-    if (cached_has_bits & 0x00001000u) {
-      total_size += 1 + 1;
-    }
-
     // optional uint32 priority_class = 15;
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_priority_class());
@@ -1992,7 +1966,7 @@ void CContentServerDirectory_ServerInfo::MergeFrom(const CContentServerDirectory
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
       weighted_load_ = from.weighted_load_;
     }
@@ -2006,9 +1980,6 @@ void CContentServerDirectory_ServerInfo::MergeFrom(const CContentServerDirectory
       use_as_proxy_ = from.use_as_proxy_;
     }
     if (cached_has_bits & 0x00001000u) {
-      preferred_server_ = from.preferred_server_;
-    }
-    if (cached_has_bits & 0x00002000u) {
       priority_class_ = from.priority_class_;
     }
     _has_bits_[0] |= cached_has_bits;

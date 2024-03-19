@@ -28,7 +28,7 @@ struct NoResponseDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NoResponseDefaultTypeInternal _NoResponse_default_instance_;
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5funified_5fbase_2esteamclient_2eproto[1];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5funified_5fbase_2esteamclient_2eproto[1];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5funified_5fbase_2esteamclient_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5funified_5fbase_2esteamclient_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5funified_5fbase_2esteamclient_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -51,26 +51,36 @@ const char descriptor_table_protodef_steammessages_5funified_5fbase_2esteamclien
   ".proto\032 google/protobuf/descriptor.proto"
   "\"\014\n\nNoResponse*Y\n\023EProtoExecutionSite\022\036\n"
   "\032EProtoExecutionSiteUnknown\020\000\022\"\n\036EProtoE"
-  "xecutionSiteSteamClient\020\002:4\n\013description"
-  "\022\035.google.protobuf.FieldOptions\030\320\206\003 \001(\t:"
-  ">\n\023service_description\022\037.google.protobuf"
-  ".ServiceOptions\030\320\206\003 \001(\t:s\n\026service_execu"
-  "tion_site\022\037.google.protobuf.ServiceOptio"
-  "ns\030\330\206\003 \001(\0162\024.EProtoExecutionSite:\032EProto"
-  "ExecutionSiteUnknown:<\n\022method_descripti"
-  "on\022\036.google.protobuf.MethodOptions\030\320\206\003 \001"
-  "(\t:8\n\020enum_description\022\034.google.protobuf"
-  ".EnumOptions\030\320\206\003 \001(\t:C\n\026enum_value_descr"
-  "iption\022!.google.protobuf.EnumValueOption"
-  "s\030\320\206\003 \001(\tB\037H\001\200\001\000\252\002\027OpenSteamworks.Protob"
-  "uf"
+  "xecutionSiteSteamClient\020\002*a\n\021EProtoServi"
+  "ceType\022\"\n\036EProtoServiceTypeSteamMessages"
+  "\020\000\022(\n$EProtoServiceTypeVRGamepadUIMessag"
+  "es\020\001:>\n\023message_description\022\037.google.pro"
+  "tobuf.MessageOptions\030\270\216\003 \001(\t:D\n\022force_em"
+  "it_message\022\037.google.protobuf.MessageOpti"
+  "ons\030\352\206\003 \001(\010:\005false:4\n\013description\022\035.goog"
+  "le.protobuf.FieldOptions\030\320\206\003 \001(\t:>\n\023serv"
+  "ice_description\022\037.google.protobuf.Servic"
+  "eOptions\030\320\206\003 \001(\t:s\n\026service_execution_si"
+  "te\022\037.google.protobuf.ServiceOptions\030\330\206\003 "
+  "\001(\0162\024.EProtoExecutionSite:\032EProtoExecuti"
+  "onSiteUnknown:k\n\014service_type\022\037.google.p"
+  "rotobuf.ServiceOptions\030\351\206\003 \001(\0162\022.EProtoS"
+  "erviceType:\036EProtoServiceTypeSteamMessag"
+  "es:D\n\022force_emit_service\022\037.google.protob"
+  "uf.ServiceOptions\030\352\206\003 \001(\010:\005false:<\n\022meth"
+  "od_description\022\036.google.protobuf.MethodO"
+  "ptions\030\320\206\003 \001(\t:8\n\020enum_description\022\034.goo"
+  "gle.protobuf.EnumOptions\030\320\206\003 \001(\t:C\n\026enum"
+  "_value_description\022!.google.protobuf.Enu"
+  "mValueOptions\030\320\206\003 \001(\tB\037H\001\200\001\000\252\002\027OpenSteam"
+  "works.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5funified_5fbase_2esteamclient_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5funified_5fbase_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5funified_5fbase_2esteamclient_2eproto = {
-  false, false, 642, descriptor_table_protodef_steammessages_5funified_5fbase_2esteamclient_2eproto, "steammessages_unified_base.steamclient.proto", 
+  false, false, 1054, descriptor_table_protodef_steammessages_5funified_5fbase_2esteamclient_2eproto, "steammessages_unified_base.steamclient.proto", 
   &descriptor_table_steammessages_5funified_5fbase_2esteamclient_2eproto_once, descriptor_table_steammessages_5funified_5fbase_2esteamclient_2eproto_deps, 1, 1,
   schemas, file_default_instances, TableStruct_steammessages_5funified_5fbase_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5funified_5fbase_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5funified_5fbase_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5funified_5fbase_2esteamclient_2eproto,
@@ -91,6 +101,20 @@ bool EProtoExecutionSite_IsValid(int value) {
   switch (value) {
     case 0:
     case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProtoServiceType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5funified_5fbase_2esteamclient_2eproto);
+  return file_level_enum_descriptors_steammessages_5funified_5fbase_2esteamclient_2eproto[1];
+}
+bool EProtoServiceType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
       return true;
     default:
       return false;
@@ -254,6 +278,13 @@ void NoResponse::InternalSwap(NoResponse* other) {
   return GetMetadataStatic();
 }
 
+const std::string message_description_default("");
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
+  message_description(kMessageDescriptionFieldNumber, message_description_default);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< bool >, 8, false >
+  force_emit_message(kForceEmitMessageFieldNumber, false);
 const std::string description_default("");
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
@@ -265,6 +296,12 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIde
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::EnumTypeTraits< ::EProtoExecutionSite, ::EProtoExecutionSite_IsValid>, 14, false >
   service_execution_site(kServiceExecutionSiteFieldNumber, static_cast< ::EProtoExecutionSite >(0));
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::EnumTypeTraits< ::EProtoServiceType, ::EProtoServiceType_IsValid>, 14, false >
+  service_type(kServiceTypeFieldNumber, static_cast< ::EProtoServiceType >(0));
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::ServiceOptions,
+    ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< bool >, 8, false >
+  force_emit_service(kForceEmitServiceFieldNumber, false);
 const std::string method_description_default("");
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::google::protobuf::MethodOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >

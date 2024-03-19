@@ -133,7 +133,8 @@ constexpr CMsgRemoteDeviceAuthorizationRequest::CMsgRemoteDeviceAuthorizationReq
   : device_token_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , device_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , encrypted_request_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , auth_key_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+  , auth_key_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , request_id_(0u){}
 struct CMsgRemoteDeviceAuthorizationRequestDefaultTypeInternal {
   constexpr CMsgRemoteDeviceAuthorizationRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -444,10 +445,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteclient_5
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteDeviceAuthorizationRequest, device_name_),
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteDeviceAuthorizationRequest, encrypted_request_),
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteDeviceAuthorizationRequest, auth_key_),
+  PROTOBUF_FIELD_OFFSET(::CMsgRemoteDeviceAuthorizationRequest, request_id_),
   0,
   1,
   2,
   3,
+  4,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CMsgRemoteDeviceAuthorizationCancelRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -601,18 +604,18 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 77, 84, sizeof(::CMsgRemoteClientBroadcastDiscovery)},
   { 86, -1, sizeof(::CMsgRemoteClientBroadcastClientIDDeconflict)},
   { 92, 106, sizeof(::CMsgRemoteDeviceAuthorizationRequest_CKeyEscrow_Ticket)},
-  { 115, 124, sizeof(::CMsgRemoteDeviceAuthorizationRequest)},
-  { 128, -1, sizeof(::CMsgRemoteDeviceAuthorizationCancelRequest)},
-  { 133, 142, sizeof(::CMsgRemoteDeviceAuthorizationResponse)},
-  { 146, 152, sizeof(::CMsgRemoteDeviceAuthorizationConfirmed)},
-  { 153, 160, sizeof(::CMsgRemoteDeviceStreamingRequest_ReservedGamepad)},
-  { 162, 187, sizeof(::CMsgRemoteDeviceStreamingRequest)},
-  { 207, 213, sizeof(::CMsgRemoteDeviceStreamingCancelRequest)},
-  { 214, 221, sizeof(::CMsgRemoteDeviceStreamingProgress)},
-  { 223, 235, sizeof(::CMsgRemoteDeviceStreamingResponse)},
-  { 242, 250, sizeof(::CMsgRemoteDeviceProofRequest)},
-  { 253, 261, sizeof(::CMsgRemoteDeviceProofResponse)},
-  { 264, 271, sizeof(::CMsgRemoteDeviceStreamTransportSignal)},
+  { 115, 125, sizeof(::CMsgRemoteDeviceAuthorizationRequest)},
+  { 130, -1, sizeof(::CMsgRemoteDeviceAuthorizationCancelRequest)},
+  { 135, 144, sizeof(::CMsgRemoteDeviceAuthorizationResponse)},
+  { 148, 154, sizeof(::CMsgRemoteDeviceAuthorizationConfirmed)},
+  { 155, 162, sizeof(::CMsgRemoteDeviceStreamingRequest_ReservedGamepad)},
+  { 164, 189, sizeof(::CMsgRemoteDeviceStreamingRequest)},
+  { 209, 215, sizeof(::CMsgRemoteDeviceStreamingCancelRequest)},
+  { 216, 223, sizeof(::CMsgRemoteDeviceStreamingProgress)},
+  { 225, 237, sizeof(::CMsgRemoteDeviceStreamingResponse)},
+  { 244, 252, sizeof(::CMsgRemoteDeviceProofRequest)},
+  { 255, 263, sizeof(::CMsgRemoteDeviceProofResponse)},
+  { 266, 273, sizeof(::CMsgRemoteDeviceStreamTransportSignal)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -665,139 +668,139 @@ const char descriptor_table_protodef_steammessages_5fremoteclient_5fdiscovery_2e
   "roadcastDiscovery\022\017\n\007seq_num\030\001 \001(\r\022\022\n\ncl"
   "ient_ids\030\002 \003(\004\"A\n+CMsgRemoteClientBroadc"
   "astClientIDDeconflict\022\022\n\nclient_ids\030\002 \003("
-  "\004\"\335\003\n$CMsgRemoteDeviceAuthorizationReque"
+  "\004\"\361\003\n$CMsgRemoteDeviceAuthorizationReque"
   "st\022\024\n\014device_token\030\001 \002(\014\022\023\n\013device_name\030"
   "\002 \001(\t\022\031\n\021encrypted_request\030\003 \002(\014\022\020\n\010auth"
-  "_key\030\004 \001(\014\032\245\002\n\021CKeyEscrow_Ticket\022\020\n\010pass"
-  "word\030\001 \001(\014\022\022\n\nidentifier\030\002 \001(\004\022\017\n\007payloa"
-  "d\030\003 \001(\014\022\021\n\ttimestamp\030\004 \001(\r\022d\n\005usage\030\005 \001("
-  "\01625.CMsgRemoteDeviceAuthorizationRequest"
-  ".EKeyEscrowUsage:\036EKeyEscrowUsageStreami"
-  "ngDevice\022\023\n\013device_name\030\006 \001(\t\022\024\n\014device_"
-  "model\030\007 \001(\t\022\025\n\rdevice_serial\030\010 \001(\t\022\036\n\026de"
-  "vice_provisioning_id\030\t \001(\r\"5\n\017EKeyEscrow"
-  "Usage\022\"\n\036EKeyEscrowUsageStreamingDevice\020"
-  "\000\",\n*CMsgRemoteDeviceAuthorizationCancel"
-  "Request\"\266\001\n%CMsgRemoteDeviceAuthorizatio"
-  "nResponse\022T\n\006result\030\001 \002(\0162!.ERemoteDevic"
-  "eAuthorizationResult:!ERemoteDeviceAutho"
-  "rizationSuccess\022\017\n\007steamid\030\002 \001(\006\022\020\n\010auth"
-  "_key\030\003 \001(\014\022\024\n\014device_token\030\004 \001(\014\"~\n&CMsg"
-  "RemoteDeviceAuthorizationConfirmed\022T\n\006re"
-  "sult\030\001 \002(\0162!.ERemoteDeviceAuthorizationR"
-  "esult:!ERemoteDeviceAuthorizationSuccess"
-  "\"\213\006\n CMsgRemoteDeviceStreamingRequest\022\022\n"
-  "\nrequest_id\030\001 \002(\r\022\034\n\024maximum_resolution_"
-  "x\030\002 \001(\005\022\034\n\024maximum_resolution_y\030\003 \001(\005\022\036\n"
-  "\023audio_channel_count\030\004 \001(\005:\0012\022\026\n\016device_"
-  "version\030\005 \001(\t\022\026\n\016stream_desktop\030\006 \001(\010\022\024\n"
-  "\014device_token\030\007 \001(\014\022\013\n\003pin\030\010 \001(\014\022$\n\026enab"
-  "le_video_streaming\030\t \001(\010:\004true\022$\n\026enable"
-  "_audio_streaming\030\n \001(\010:\004true\022$\n\026enable_i"
-  "nput_streaming\030\013 \001(\010:\004true\022\022\n\nnetwortest"
-  "\030\014 \001(\010\022\021\n\tclient_id\030\r \001(\004\022.\n\023supported_t"
-  "ransport\030\016 \003(\0162\021.EStreamTransport\022\022\n\nres"
-  "tricted\030\017 \001(\010\022M\n\013form_factor\030\020 \001(\0162\030.ESt"
-  "reamDeviceFormFactor:\036EStreamDeviceFormF"
-  "actorUnknown\022\025\n\rgamepad_count\030\021 \001(\005\022C\n\010g"
-  "amepads\030\022 \003(\01321.CMsgRemoteDeviceStreamin"
-  "gRequest.ReservedGamepad\022\016\n\006gameid\030\023 \001(\004"
-  "\022D\n\020stream_interface\030\024 \001(\0162\021.EStreamInte"
-  "rface:\027EStreamInterfaceDefault\032F\n\017Reserv"
-  "edGamepad\022\027\n\017controller_type\030\001 \001(\r\022\032\n\022co"
-  "ntroller_subtype\030\002 \001(\r\"<\n&CMsgRemoteDevi"
-  "ceStreamingCancelRequest\022\022\n\nrequest_id\030\001"
-  " \002(\r\"I\n!CMsgRemoteDeviceStreamingProgres"
-  "s\022\022\n\nrequest_id\030\001 \002(\r\022\020\n\010progress\030\002 \001(\002\""
-  "\221\002\n!CMsgRemoteDeviceStreamingResponse\022\022\n"
-  "\nrequest_id\030\001 \002(\r\022L\n\006result\030\002 \002(\0162\035.ERem"
-  "oteDeviceStreamingResult:\035ERemoteDeviceS"
-  "treamingSuccess\022\014\n\004port\030\003 \001(\r\022\035\n\025encrypt"
-  "ed_session_key\030\004 \001(\014\0229\n\ttransport\030\006 \001(\0162"
-  "\021.EStreamTransport:\023EStreamTransportUDP\022"
-  "\024\n\014relay_server\030\007 \001(\t\022\014\n\004cert\030\010 \001(\t\"\\\n\034C"
-  "MsgRemoteDeviceProofRequest\022\021\n\tchallenge"
-  "\030\001 \002(\014\022\022\n\nrequest_id\030\002 \001(\r\022\025\n\rupdate_sec"
-  "ret\030\003 \001(\010\"]\n\035CMsgRemoteDeviceProofRespon"
-  "se\022\020\n\010response\030\001 \002(\014\022\022\n\nrequest_id\030\002 \001(\r"
-  "\022\026\n\016updated_secret\030\003 \001(\010\"G\n%CMsgRemoteDe"
-  "viceStreamTransportSignal\022\r\n\005token\030\001 \001(\014"
-  "\022\017\n\007payload\030\002 \001(\014*\337\004\n\031ERemoteClientBroad"
-  "castMsg\022&\n\"ERemoteClientBroadcastMsgDisc"
-  "overy\020\000\022#\n\037ERemoteClientBroadcastMsgStat"
-  "us\020\001\022$\n ERemoteClientBroadcastMsgOffline"
-  "\020\002\022%\n!ERemoteDeviceAuthorizationRequest\020"
-  "\003\022&\n\"ERemoteDeviceAuthorizationResponse\020"
-  "\004\022!\n\035ERemoteDeviceStreamingRequest\020\005\022\"\n\036"
-  "ERemoteDeviceStreamingResponse\020\006\022\035\n\031ERem"
-  "oteDeviceProofRequest\020\007\022\036\n\032ERemoteDevice"
-  "ProofResponse\020\010\022+\n\'ERemoteDeviceAuthoriz"
-  "ationCancelRequest\020\t\022\'\n#ERemoteDeviceStr"
-  "eamingCancelRequest\020\n\022/\n+ERemoteClientBr"
-  "oadcastMsgClientIDDeconflict\020\013\022&\n\"ERemot"
-  "eDeviceStreamTransportSignal\020\014\022\"\n\036ERemot"
-  "eDeviceStreamingProgress\020\r\022\'\n#ERemoteDev"
-  "iceAuthorizationConfirmed\020\016*\364\001\n\024ERemoteC"
-  "lientService\022\034\n\030ERemoteClientServiceNone"
-  "\020\000\022%\n!ERemoteClientServiceRemoteControl\020"
-  "\001\022%\n!ERemoteClientServiceGameStreaming\020\002"
-  "\022#\n\037ERemoteClientServiceSiteLicense\020\004\022$\n"
-  " ERemoteClientServiceContentCache\020\010\022%\n!E"
-  "RemoteClientServiceContentServer\020\020*\205\001\n\013E"
-  "VRLinkCaps\022\026\n\022EVRLinkCapsUnknown\020\000\022\030\n\024EV"
-  "RLinkCapsAvailable\020\001\022\034\n\030EVRLinkCapsUnimp"
-  "lemented\020\002\022&\n\"EVRLinkCapsMissingHardware"
-  "Encoding\020\003*\205\003\n ERemoteDeviceAuthorizatio"
-  "nResult\022%\n!ERemoteDeviceAuthorizationSuc"
-  "cess\020\000\022$\n ERemoteDeviceAuthorizationDeni"
-  "ed\020\001\022)\n%ERemoteDeviceAuthorizationNotLog"
-  "gedIn\020\002\022%\n!ERemoteDeviceAuthorizationOff"
-  "line\020\003\022\"\n\036ERemoteDeviceAuthorizationBusy"
-  "\020\004\022(\n$ERemoteDeviceAuthorizationInProgre"
-  "ss\020\005\022&\n\"ERemoteDeviceAuthorizationTimedO"
-  "ut\020\006\022$\n ERemoteDeviceAuthorizationFailed"
-  "\020\007\022&\n\"ERemoteDeviceAuthorizationCanceled"
-  "\020\010*\354\001\n\027EStreamDeviceFormFactor\022\"\n\036EStrea"
-  "mDeviceFormFactorUnknown\020\000\022 \n\034EStreamDev"
-  "iceFormFactorPhone\020\001\022!\n\035EStreamDeviceFor"
-  "mFactorTablet\020\002\022#\n\037EStreamDeviceFormFact"
-  "orComputer\020\003\022\035\n\031EStreamDeviceFormFactorT"
-  "V\020\004\022$\n EStreamDeviceFormFactorVRHeadset\020"
-  "\005*\340\001\n\020EStreamTransport\022\030\n\024EStreamTranspo"
-  "rtNone\020\000\022\027\n\023EStreamTransportUDP\020\001\022\034\n\030ESt"
-  "reamTransportUDPRelay\020\002\022#\n\037EStreamTransp"
-  "ortWebRTC_OBSOLETE\020\003\022\027\n\023EStreamTransport"
-  "SDR\020\004\022\033\n\027EStreamTransportUDP_SNS\020\005\022 \n\034ES"
-  "treamTransportUDPRelay_SNS\020\006*\252\001\n\020EStream"
-  "Interface\022\033\n\027EStreamInterfaceDefault\020\000\022\037"
-  "\n\033EStreamInterfaceRecentGames\020\001\022\036\n\032EStre"
-  "amInterfaceBigPicture\020\002\022\033\n\027EStreamInterf"
-  "aceDesktop\020\003\022\033\n\027EStreamInterfaceSteamVR\020"
-  "\004*\231\005\n\034ERemoteDeviceStreamingResult\022!\n\035ER"
-  "emoteDeviceStreamingSuccess\020\000\022&\n\"ERemote"
-  "DeviceStreamingUnauthorized\020\001\022&\n\"ERemote"
-  "DeviceStreamingScreenLocked\020\002\022 \n\034ERemote"
-  "DeviceStreamingFailed\020\003\022\036\n\032ERemoteDevice"
-  "StreamingBusy\020\004\022$\n ERemoteDeviceStreamin"
-  "gInProgress\020\005\022\"\n\036ERemoteDeviceStreamingC"
-  "anceled\020\006\022-\n)ERemoteDeviceStreamingDrive"
-  "rsNotInstalled\020\007\022\"\n\036ERemoteDeviceStreami"
-  "ngDisabled\020\010\022,\n(ERemoteDeviceStreamingBr"
-  "oadcastingActive\020\t\022\"\n\036ERemoteDeviceStrea"
-  "mingVRActive\020\n\022%\n!ERemoteDeviceStreaming"
-  "PINRequired\020\013\022.\n*ERemoteDeviceStreamingT"
-  "ransportUnavailable\020\014\022#\n\037ERemoteDeviceSt"
-  "reamingInvisible\020\r\022*\n&ERemoteDeviceStrea"
-  "mingGameLaunchFailed\020\016\022-\n)ERemoteDeviceS"
-  "treamingSteamVRNotInstalled\020\017B\034H\001\252\002\027Open"
-  "Steamworks.Protobuf"
+  "_key\030\004 \001(\014\022\022\n\nrequest_id\030\005 \001(\r\032\245\002\n\021CKeyE"
+  "scrow_Ticket\022\020\n\010password\030\001 \001(\014\022\022\n\nidenti"
+  "fier\030\002 \001(\004\022\017\n\007payload\030\003 \001(\014\022\021\n\ttimestamp"
+  "\030\004 \001(\r\022d\n\005usage\030\005 \001(\01625.CMsgRemoteDevice"
+  "AuthorizationRequest.EKeyEscrowUsage:\036EK"
+  "eyEscrowUsageStreamingDevice\022\023\n\013device_n"
+  "ame\030\006 \001(\t\022\024\n\014device_model\030\007 \001(\t\022\025\n\rdevic"
+  "e_serial\030\010 \001(\t\022\036\n\026device_provisioning_id"
+  "\030\t \001(\r\"5\n\017EKeyEscrowUsage\022\"\n\036EKeyEscrowU"
+  "sageStreamingDevice\020\000\",\n*CMsgRemoteDevic"
+  "eAuthorizationCancelRequest\"\266\001\n%CMsgRemo"
+  "teDeviceAuthorizationResponse\022T\n\006result\030"
+  "\001 \002(\0162!.ERemoteDeviceAuthorizationResult"
+  ":!ERemoteDeviceAuthorizationSuccess\022\017\n\007s"
+  "teamid\030\002 \001(\006\022\020\n\010auth_key\030\003 \001(\014\022\024\n\014device"
+  "_token\030\004 \001(\014\"~\n&CMsgRemoteDeviceAuthoriz"
+  "ationConfirmed\022T\n\006result\030\001 \002(\0162!.ERemote"
+  "DeviceAuthorizationResult:!ERemoteDevice"
+  "AuthorizationSuccess\"\213\006\n CMsgRemoteDevic"
+  "eStreamingRequest\022\022\n\nrequest_id\030\001 \002(\r\022\034\n"
+  "\024maximum_resolution_x\030\002 \001(\005\022\034\n\024maximum_r"
+  "esolution_y\030\003 \001(\005\022\036\n\023audio_channel_count"
+  "\030\004 \001(\005:\0012\022\026\n\016device_version\030\005 \001(\t\022\026\n\016str"
+  "eam_desktop\030\006 \001(\010\022\024\n\014device_token\030\007 \001(\014\022"
+  "\013\n\003pin\030\010 \001(\014\022$\n\026enable_video_streaming\030\t"
+  " \001(\010:\004true\022$\n\026enable_audio_streaming\030\n \001"
+  "(\010:\004true\022$\n\026enable_input_streaming\030\013 \001(\010"
+  ":\004true\022\022\n\nnetwortest\030\014 \001(\010\022\021\n\tclient_id\030"
+  "\r \001(\004\022.\n\023supported_transport\030\016 \003(\0162\021.ESt"
+  "reamTransport\022\022\n\nrestricted\030\017 \001(\010\022M\n\013for"
+  "m_factor\030\020 \001(\0162\030.EStreamDeviceFormFactor"
+  ":\036EStreamDeviceFormFactorUnknown\022\025\n\rgame"
+  "pad_count\030\021 \001(\005\022C\n\010gamepads\030\022 \003(\01321.CMsg"
+  "RemoteDeviceStreamingRequest.ReservedGam"
+  "epad\022\016\n\006gameid\030\023 \001(\004\022D\n\020stream_interface"
+  "\030\024 \001(\0162\021.EStreamInterface:\027EStreamInterf"
+  "aceDefault\032F\n\017ReservedGamepad\022\027\n\017control"
+  "ler_type\030\001 \001(\r\022\032\n\022controller_subtype\030\002 \001"
+  "(\r\"<\n&CMsgRemoteDeviceStreamingCancelReq"
+  "uest\022\022\n\nrequest_id\030\001 \002(\r\"I\n!CMsgRemoteDe"
+  "viceStreamingProgress\022\022\n\nrequest_id\030\001 \002("
+  "\r\022\020\n\010progress\030\002 \001(\002\"\221\002\n!CMsgRemoteDevice"
+  "StreamingResponse\022\022\n\nrequest_id\030\001 \002(\r\022L\n"
+  "\006result\030\002 \002(\0162\035.ERemoteDeviceStreamingRe"
+  "sult:\035ERemoteDeviceStreamingSuccess\022\014\n\004p"
+  "ort\030\003 \001(\r\022\035\n\025encrypted_session_key\030\004 \001(\014"
+  "\0229\n\ttransport\030\006 \001(\0162\021.EStreamTransport:\023"
+  "EStreamTransportUDP\022\024\n\014relay_server\030\007 \001("
+  "\t\022\014\n\004cert\030\010 \001(\t\"\\\n\034CMsgRemoteDeviceProof"
+  "Request\022\021\n\tchallenge\030\001 \002(\014\022\022\n\nrequest_id"
+  "\030\002 \001(\r\022\025\n\rupdate_secret\030\003 \001(\010\"]\n\035CMsgRem"
+  "oteDeviceProofResponse\022\020\n\010response\030\001 \002(\014"
+  "\022\022\n\nrequest_id\030\002 \001(\r\022\026\n\016updated_secret\030\003"
+  " \001(\010\"G\n%CMsgRemoteDeviceStreamTransportS"
+  "ignal\022\r\n\005token\030\001 \001(\014\022\017\n\007payload\030\002 \001(\014*\337\004"
+  "\n\031ERemoteClientBroadcastMsg\022&\n\"ERemoteCl"
+  "ientBroadcastMsgDiscovery\020\000\022#\n\037ERemoteCl"
+  "ientBroadcastMsgStatus\020\001\022$\n ERemoteClien"
+  "tBroadcastMsgOffline\020\002\022%\n!ERemoteDeviceA"
+  "uthorizationRequest\020\003\022&\n\"ERemoteDeviceAu"
+  "thorizationResponse\020\004\022!\n\035ERemoteDeviceSt"
+  "reamingRequest\020\005\022\"\n\036ERemoteDeviceStreami"
+  "ngResponse\020\006\022\035\n\031ERemoteDeviceProofReques"
+  "t\020\007\022\036\n\032ERemoteDeviceProofResponse\020\010\022+\n\'E"
+  "RemoteDeviceAuthorizationCancelRequest\020\t"
+  "\022\'\n#ERemoteDeviceStreamingCancelRequest\020"
+  "\n\022/\n+ERemoteClientBroadcastMsgClientIDDe"
+  "conflict\020\013\022&\n\"ERemoteDeviceStreamTranspo"
+  "rtSignal\020\014\022\"\n\036ERemoteDeviceStreamingProg"
+  "ress\020\r\022\'\n#ERemoteDeviceAuthorizationConf"
+  "irmed\020\016*\364\001\n\024ERemoteClientService\022\034\n\030ERem"
+  "oteClientServiceNone\020\000\022%\n!ERemoteClientS"
+  "erviceRemoteControl\020\001\022%\n!ERemoteClientSe"
+  "rviceGameStreaming\020\002\022#\n\037ERemoteClientSer"
+  "viceSiteLicense\020\004\022$\n ERemoteClientServic"
+  "eContentCache\020\010\022%\n!ERemoteClientServiceC"
+  "ontentServer\020\020*\205\001\n\013EVRLinkCaps\022\026\n\022EVRLin"
+  "kCapsUnknown\020\000\022\030\n\024EVRLinkCapsAvailable\020\001"
+  "\022\034\n\030EVRLinkCapsUnimplemented\020\002\022&\n\"EVRLin"
+  "kCapsMissingHardwareEncoding\020\003*\205\003\n ERemo"
+  "teDeviceAuthorizationResult\022%\n!ERemoteDe"
+  "viceAuthorizationSuccess\020\000\022$\n ERemoteDev"
+  "iceAuthorizationDenied\020\001\022)\n%ERemoteDevic"
+  "eAuthorizationNotLoggedIn\020\002\022%\n!ERemoteDe"
+  "viceAuthorizationOffline\020\003\022\"\n\036ERemoteDev"
+  "iceAuthorizationBusy\020\004\022(\n$ERemoteDeviceA"
+  "uthorizationInProgress\020\005\022&\n\"ERemoteDevic"
+  "eAuthorizationTimedOut\020\006\022$\n ERemoteDevic"
+  "eAuthorizationFailed\020\007\022&\n\"ERemoteDeviceA"
+  "uthorizationCanceled\020\010*\354\001\n\027EStreamDevice"
+  "FormFactor\022\"\n\036EStreamDeviceFormFactorUnk"
+  "nown\020\000\022 \n\034EStreamDeviceFormFactorPhone\020\001"
+  "\022!\n\035EStreamDeviceFormFactorTablet\020\002\022#\n\037E"
+  "StreamDeviceFormFactorComputer\020\003\022\035\n\031EStr"
+  "eamDeviceFormFactorTV\020\004\022$\n EStreamDevice"
+  "FormFactorVRHeadset\020\005*\340\001\n\020EStreamTranspo"
+  "rt\022\030\n\024EStreamTransportNone\020\000\022\027\n\023EStreamT"
+  "ransportUDP\020\001\022\034\n\030EStreamTransportUDPRela"
+  "y\020\002\022#\n\037EStreamTransportWebRTC_OBSOLETE\020\003"
+  "\022\027\n\023EStreamTransportSDR\020\004\022\033\n\027EStreamTran"
+  "sportUDP_SNS\020\005\022 \n\034EStreamTransportUDPRel"
+  "ay_SNS\020\006*\252\001\n\020EStreamInterface\022\033\n\027EStream"
+  "InterfaceDefault\020\000\022\037\n\033EStreamInterfaceRe"
+  "centGames\020\001\022\036\n\032EStreamInterfaceBigPictur"
+  "e\020\002\022\033\n\027EStreamInterfaceDesktop\020\003\022\033\n\027EStr"
+  "eamInterfaceSteamVR\020\004*\231\005\n\034ERemoteDeviceS"
+  "treamingResult\022!\n\035ERemoteDeviceStreaming"
+  "Success\020\000\022&\n\"ERemoteDeviceStreamingUnaut"
+  "horized\020\001\022&\n\"ERemoteDeviceStreamingScree"
+  "nLocked\020\002\022 \n\034ERemoteDeviceStreamingFaile"
+  "d\020\003\022\036\n\032ERemoteDeviceStreamingBusy\020\004\022$\n E"
+  "RemoteDeviceStreamingInProgress\020\005\022\"\n\036ERe"
+  "moteDeviceStreamingCanceled\020\006\022-\n)ERemote"
+  "DeviceStreamingDriversNotInstalled\020\007\022\"\n\036"
+  "ERemoteDeviceStreamingDisabled\020\010\022,\n(ERem"
+  "oteDeviceStreamingBroadcastingActive\020\t\022\""
+  "\n\036ERemoteDeviceStreamingVRActive\020\n\022%\n!ER"
+  "emoteDeviceStreamingPINRequired\020\013\022.\n*ERe"
+  "moteDeviceStreamingTransportUnavailable\020"
+  "\014\022#\n\037ERemoteDeviceStreamingInvisible\020\r\022*"
+  "\n&ERemoteDeviceStreamingGameLaunchFailed"
+  "\020\016\022-\n)ERemoteDeviceStreamingSteamVRNotIn"
+  "stalled\020\017B\034H\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fremoteclient_5fdiscovery_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fremoteclient_5fdiscovery_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fremoteclient_5fdiscovery_2eproto = {
-  false, false, 6139, descriptor_table_protodef_steammessages_5fremoteclient_5fdiscovery_2eproto, "steammessages_remoteclient_discovery.proto", 
+  false, false, 6159, descriptor_table_protodef_steammessages_5fremoteclient_5fdiscovery_2eproto, "steammessages_remoteclient_discovery.proto", 
   &descriptor_table_steammessages_5fremoteclient_5fdiscovery_2eproto_once, descriptor_table_steammessages_5fremoteclient_5fdiscovery_2eproto_deps, 1, 18,
   schemas, file_default_instances, TableStruct_steammessages_5fremoteclient_5fdiscovery_2eproto::offsets,
   file_level_metadata_steammessages_5fremoteclient_5fdiscovery_2eproto, file_level_enum_descriptors_steammessages_5fremoteclient_5fdiscovery_2eproto, file_level_service_descriptors_steammessages_5fremoteclient_5fdiscovery_2eproto,
@@ -3477,6 +3480,9 @@ class CMsgRemoteDeviceAuthorizationRequest::_Internal {
   static void set_has_auth_key(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
+  static void set_has_request_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x00000005) ^ 0x00000005) != 0;
   }
@@ -3512,6 +3518,7 @@ CMsgRemoteDeviceAuthorizationRequest::CMsgRemoteDeviceAuthorizationRequest(const
     auth_key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_auth_key(), 
       GetArena());
   }
+  request_id_ = from.request_id_;
   // @@protoc_insertion_point(copy_constructor:CMsgRemoteDeviceAuthorizationRequest)
 }
 
@@ -3520,6 +3527,7 @@ device_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStrin
 device_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 encrypted_request_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 auth_key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+request_id_ = 0u;
 }
 
 CMsgRemoteDeviceAuthorizationRequest::~CMsgRemoteDeviceAuthorizationRequest() {
@@ -3567,6 +3575,7 @@ void CMsgRemoteDeviceAuthorizationRequest::Clear() {
       auth_key_.ClearNonDefaultToEmpty();
     }
   }
+  request_id_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3611,6 +3620,14 @@ const char* CMsgRemoteDeviceAuthorizationRequest::_InternalParse(const char* ptr
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_auth_key();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 request_id = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_request_id(&has_bits);
+          request_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3672,6 +3689,12 @@ failure:
         4, this->_internal_auth_key(), target);
   }
 
+  // optional uint32 request_id = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_request_id(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3730,13 +3753,22 @@ size_t CMsgRemoteDeviceAuthorizationRequest::ByteSizeLong() const {
         this->_internal_device_name());
   }
 
-  // optional bytes auth_key = 4;
-  if (cached_has_bits & 0x00000008u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_auth_key());
-  }
+  if (cached_has_bits & 0x00000018u) {
+    // optional bytes auth_key = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+          this->_internal_auth_key());
+    }
 
+    // optional uint32 request_id = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_request_id());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -3769,7 +3801,7 @@ void CMsgRemoteDeviceAuthorizationRequest::MergeFrom(const CMsgRemoteDeviceAutho
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_device_token(from._internal_device_token());
     }
@@ -3782,6 +3814,10 @@ void CMsgRemoteDeviceAuthorizationRequest::MergeFrom(const CMsgRemoteDeviceAutho
     if (cached_has_bits & 0x00000008u) {
       _internal_set_auth_key(from._internal_auth_key());
     }
+    if (cached_has_bits & 0x00000010u) {
+      request_id_ = from.request_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -3812,6 +3848,7 @@ void CMsgRemoteDeviceAuthorizationRequest::InternalSwap(CMsgRemoteDeviceAuthoriz
   device_name_.Swap(&other->device_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   encrypted_request_.Swap(&other->encrypted_request_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   auth_key_.Swap(&other->auth_key_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(request_id_, other->request_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgRemoteDeviceAuthorizationRequest::GetMetadata() const {

@@ -867,9 +867,23 @@ class CMsgClientUCMAddScreenshotResponse PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kPublishedfileidFieldNumber = 3,
     kEresultFieldNumber = 1,
     kScreenshotidFieldNumber = 2,
   };
+  // optional uint64 publishedfileid = 3;
+  bool has_publishedfileid() const;
+  private:
+  bool _internal_has_publishedfileid() const;
+  public:
+  void clear_publishedfileid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 publishedfileid() const;
+  void set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_publishedfileid() const;
+  void _internal_set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // optional int32 eresult = 1 [default = 2];
   bool has_eresult() const;
   private:
@@ -905,6 +919,7 @@ class CMsgClientUCMAddScreenshotResponse PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 publishedfileid_;
   ::PROTOBUF_NAMESPACE_ID::int32 eresult_;
   ::PROTOBUF_NAMESPACE_ID::uint64 screenshotid_;
   friend struct ::TableStruct_steammessages_5fclientserver_5fucm_2eproto;
@@ -6638,7 +6653,7 @@ CMsgClientUCMAddScreenshot::mutable_tagged_publishedfileid() {
 
 // optional int32 eresult = 1 [default = 2];
 inline bool CMsgClientUCMAddScreenshotResponse::_internal_has_eresult() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgClientUCMAddScreenshotResponse::has_eresult() const {
@@ -6646,7 +6661,7 @@ inline bool CMsgClientUCMAddScreenshotResponse::has_eresult() const {
 }
 inline void CMsgClientUCMAddScreenshotResponse::clear_eresult() {
   eresult_ = 2;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientUCMAddScreenshotResponse::_internal_eresult() const {
   return eresult_;
@@ -6656,7 +6671,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientUCMAddScreenshotResponse::eresul
   return _internal_eresult();
 }
 inline void CMsgClientUCMAddScreenshotResponse::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   eresult_ = value;
 }
 inline void CMsgClientUCMAddScreenshotResponse::set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -6666,7 +6681,7 @@ inline void CMsgClientUCMAddScreenshotResponse::set_eresult(::PROTOBUF_NAMESPACE
 
 // optional fixed64 screenshotid = 2 [default = 18446744073709551615];
 inline bool CMsgClientUCMAddScreenshotResponse::_internal_has_screenshotid() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientUCMAddScreenshotResponse::has_screenshotid() const {
@@ -6674,7 +6689,7 @@ inline bool CMsgClientUCMAddScreenshotResponse::has_screenshotid() const {
 }
 inline void CMsgClientUCMAddScreenshotResponse::clear_screenshotid() {
   screenshotid_ = PROTOBUF_ULONGLONG(18446744073709551615);
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMAddScreenshotResponse::_internal_screenshotid() const {
   return screenshotid_;
@@ -6684,12 +6699,40 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMAddScreenshotResponse::scree
   return _internal_screenshotid();
 }
 inline void CMsgClientUCMAddScreenshotResponse::_internal_set_screenshotid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   screenshotid_ = value;
 }
 inline void CMsgClientUCMAddScreenshotResponse::set_screenshotid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_screenshotid(value);
   // @@protoc_insertion_point(field_set:CMsgClientUCMAddScreenshotResponse.screenshotid)
+}
+
+// optional uint64 publishedfileid = 3;
+inline bool CMsgClientUCMAddScreenshotResponse::_internal_has_publishedfileid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientUCMAddScreenshotResponse::has_publishedfileid() const {
+  return _internal_has_publishedfileid();
+}
+inline void CMsgClientUCMAddScreenshotResponse::clear_publishedfileid() {
+  publishedfileid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMAddScreenshotResponse::_internal_publishedfileid() const {
+  return publishedfileid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMAddScreenshotResponse::publishedfileid() const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMAddScreenshotResponse.publishedfileid)
+  return _internal_publishedfileid();
+}
+inline void CMsgClientUCMAddScreenshotResponse::_internal_set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  publishedfileid_ = value;
+}
+inline void CMsgClientUCMAddScreenshotResponse::set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_publishedfileid(value);
+  // @@protoc_insertion_point(field_set:CMsgClientUCMAddScreenshotResponse.publishedfileid)
 }
 
 // -------------------------------------------------------------------

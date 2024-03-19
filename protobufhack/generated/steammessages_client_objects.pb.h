@@ -13286,6 +13286,7 @@ class CMsgSystemUpdateCheckResult PROTOBUF_FINAL :
     kTypeFieldNumber = 1,
     kRtimeCheckedFieldNumber = 3,
     kAvailableFieldNumber = 4,
+    kSystemRestartPendingFieldNumber = 7,
     kEresultFieldNumber = 2,
   };
   // optional string version = 5;
@@ -13367,6 +13368,19 @@ class CMsgSystemUpdateCheckResult PROTOBUF_FINAL :
   void _internal_set_available(bool value);
   public:
 
+  // optional bool system_restart_pending = 7;
+  bool has_system_restart_pending() const;
+  private:
+  bool _internal_has_system_restart_pending() const;
+  public:
+  void clear_system_restart_pending();
+  bool system_restart_pending() const;
+  void set_system_restart_pending(bool value);
+  private:
+  bool _internal_system_restart_pending() const;
+  void _internal_set_system_restart_pending(bool value);
+  public:
+
   // optional uint32 eresult = 2 [default = 2];
   bool has_eresult() const;
   private:
@@ -13394,6 +13408,7 @@ class CMsgSystemUpdateCheckResult PROTOBUF_FINAL :
   int type_;
   ::PROTOBUF_NAMESPACE_ID::uint32 rtime_checked_;
   bool available_;
+  bool system_restart_pending_;
   ::PROTOBUF_NAMESPACE_ID::uint32 eresult_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
 };
@@ -29236,7 +29251,7 @@ inline void CMsgSystemUpdateCheckResult::set_type(::EUpdaterType value) {
 
 // optional uint32 eresult = 2 [default = 2];
 inline bool CMsgSystemUpdateCheckResult::_internal_has_eresult() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgSystemUpdateCheckResult::has_eresult() const {
@@ -29244,7 +29259,7 @@ inline bool CMsgSystemUpdateCheckResult::has_eresult() const {
 }
 inline void CMsgSystemUpdateCheckResult::clear_eresult() {
   eresult_ = 2u;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSystemUpdateCheckResult::_internal_eresult() const {
   return eresult_;
@@ -29254,7 +29269,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSystemUpdateCheckResult::eresult() co
   return _internal_eresult();
 }
 inline void CMsgSystemUpdateCheckResult::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   eresult_ = value;
 }
 inline void CMsgSystemUpdateCheckResult::set_eresult(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -29462,6 +29477,34 @@ inline void CMsgSystemUpdateCheckResult::set_allocated_auto_message(std::string*
   auto_message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), auto_message,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CMsgSystemUpdateCheckResult.auto_message)
+}
+
+// optional bool system_restart_pending = 7;
+inline bool CMsgSystemUpdateCheckResult::_internal_has_system_restart_pending() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgSystemUpdateCheckResult::has_system_restart_pending() const {
+  return _internal_has_system_restart_pending();
+}
+inline void CMsgSystemUpdateCheckResult::clear_system_restart_pending() {
+  system_restart_pending_ = false;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline bool CMsgSystemUpdateCheckResult::_internal_system_restart_pending() const {
+  return system_restart_pending_;
+}
+inline bool CMsgSystemUpdateCheckResult::system_restart_pending() const {
+  // @@protoc_insertion_point(field_get:CMsgSystemUpdateCheckResult.system_restart_pending)
+  return _internal_system_restart_pending();
+}
+inline void CMsgSystemUpdateCheckResult::_internal_set_system_restart_pending(bool value) {
+  _has_bits_[0] |= 0x00000020u;
+  system_restart_pending_ = value;
+}
+inline void CMsgSystemUpdateCheckResult::set_system_restart_pending(bool value) {
+  _internal_set_system_restart_pending(value);
+  // @@protoc_insertion_point(field_set:CMsgSystemUpdateCheckResult.system_restart_pending)
 }
 
 // -------------------------------------------------------------------

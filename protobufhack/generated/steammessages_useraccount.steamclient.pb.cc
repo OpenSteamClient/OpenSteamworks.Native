@@ -83,6 +83,7 @@ constexpr CUserAccount_GetWalletDetails_Response::CUserAccount_GetWalletDetails_
   , wallet_country_code_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , wallet_state_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , formatted_balance_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , formatted_delayed_balance_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , balance_(PROTOBUF_LONGLONG(0))
   , delayed_balance_(PROTOBUF_LONGLONG(0))
   , has_wallet_(false)
@@ -91,7 +92,10 @@ constexpr CUserAccount_GetWalletDetails_Response::CUserAccount_GetWalletDetails_
   , most_recent_txnid_(PROTOBUF_ULONGLONG(0))
   , balance_in_usd_(PROTOBUF_LONGLONG(0))
   , delayed_balance_in_usd_(PROTOBUF_LONGLONG(0))
-  , time_most_recent_txn_(0u){}
+  , time_most_recent_txn_(0u)
+  , delayed_balance_available_min_time_(0)
+  , delayed_balance_available_max_time_(0)
+  , delayed_balance_newest_source_(0){}
 struct CUserAccount_GetWalletDetails_ResponseDefaultTypeInternal {
   constexpr CUserAccount_GetWalletDetails_ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -489,20 +493,28 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fuseraccount_2e
   PROTOBUF_FIELD_OFFSET(::CUserAccount_GetWalletDetails_Response, has_wallet_in_other_regions_),
   PROTOBUF_FIELD_OFFSET(::CUserAccount_GetWalletDetails_Response, other_regions_),
   PROTOBUF_FIELD_OFFSET(::CUserAccount_GetWalletDetails_Response, formatted_balance_),
-  6,
+  PROTOBUF_FIELD_OFFSET(::CUserAccount_GetWalletDetails_Response, formatted_delayed_balance_),
+  PROTOBUF_FIELD_OFFSET(::CUserAccount_GetWalletDetails_Response, delayed_balance_available_min_time_),
+  PROTOBUF_FIELD_OFFSET(::CUserAccount_GetWalletDetails_Response, delayed_balance_available_max_time_),
+  PROTOBUF_FIELD_OFFSET(::CUserAccount_GetWalletDetails_Response, delayed_balance_newest_source_),
+  7,
   0,
   1,
   2,
-  4,
   5,
-  8,
-  12,
+  6,
   9,
+  13,
   10,
   11,
-  7,
+  12,
+  8,
   ~0u,
   3,
+  4,
+  14,
+  15,
+  16,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CUserAccount_GetAccountLinkStatus_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -719,31 +731,31 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 7, 23, sizeof(::CUserAccount_GetAvailableValveDiscountPromotions_Response_ValveDiscountPromotionDetails)},
   { 34, -1, sizeof(::CUserAccount_GetAvailableValveDiscountPromotions_Response)},
   { 40, 48, sizeof(::CUserAccount_GetClientWalletDetails_Request)},
-  { 51, 70, sizeof(::CUserAccount_GetWalletDetails_Response)},
-  { 84, -1, sizeof(::CUserAccount_GetAccountLinkStatus_Request)},
-  { 89, 97, sizeof(::CUserAccount_GetAccountLinkStatus_Response)},
-  { 100, 106, sizeof(::CUserAccount_CancelLicenseForApp_Request)},
-  { 107, -1, sizeof(::CUserAccount_CancelLicenseForApp_Response)},
-  { 112, 118, sizeof(::CUserAccount_GetUserCountry_Request)},
-  { 119, 125, sizeof(::CUserAccount_GetUserCountry_Response)},
-  { 126, 134, sizeof(::CUserAccount_CreateFriendInviteToken_Request)},
-  { 137, 147, sizeof(::CUserAccount_CreateFriendInviteToken_Response)},
-  { 152, -1, sizeof(::CUserAccount_GetFriendInviteTokens_Request)},
-  { 157, -1, sizeof(::CUserAccount_GetFriendInviteTokens_Response)},
-  { 163, 170, sizeof(::CUserAccount_ViewFriendInviteToken_Request)},
-  { 172, 180, sizeof(::CUserAccount_ViewFriendInviteToken_Response)},
-  { 183, 190, sizeof(::CUserAccount_RedeemFriendInviteToken_Request)},
-  { 192, -1, sizeof(::CUserAccount_RedeemFriendInviteToken_Response)},
-  { 197, 203, sizeof(::CUserAccount_RevokeFriendInviteToken_Request)},
-  { 204, -1, sizeof(::CUserAccount_RevokeFriendInviteToken_Response)},
-  { 209, 215, sizeof(::CUserAccount_RegisterCompatTool_Request)},
-  { 216, -1, sizeof(::CUserAccount_RegisterCompatTool_Response)},
-  { 221, 230, sizeof(::CAccountLinking_GetLinkedAccountInfo_Request)},
-  { 234, 246, sizeof(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response)},
-  { 253, -1, sizeof(::CAccountLinking_GetLinkedAccountInfo_Response)},
-  { 259, 268, sizeof(::CEmbeddedClient_AuthorizeCurrentDevice_Request)},
-  { 272, 281, sizeof(::CEmbeddedClient_Token)},
-  { 285, 292, sizeof(::CEmbeddedClient_AuthorizeDevice_Response)},
+  { 51, 74, sizeof(::CUserAccount_GetWalletDetails_Response)},
+  { 92, -1, sizeof(::CUserAccount_GetAccountLinkStatus_Request)},
+  { 97, 105, sizeof(::CUserAccount_GetAccountLinkStatus_Response)},
+  { 108, 114, sizeof(::CUserAccount_CancelLicenseForApp_Request)},
+  { 115, -1, sizeof(::CUserAccount_CancelLicenseForApp_Response)},
+  { 120, 126, sizeof(::CUserAccount_GetUserCountry_Request)},
+  { 127, 133, sizeof(::CUserAccount_GetUserCountry_Response)},
+  { 134, 142, sizeof(::CUserAccount_CreateFriendInviteToken_Request)},
+  { 145, 155, sizeof(::CUserAccount_CreateFriendInviteToken_Response)},
+  { 160, -1, sizeof(::CUserAccount_GetFriendInviteTokens_Request)},
+  { 165, -1, sizeof(::CUserAccount_GetFriendInviteTokens_Response)},
+  { 171, 178, sizeof(::CUserAccount_ViewFriendInviteToken_Request)},
+  { 180, 188, sizeof(::CUserAccount_ViewFriendInviteToken_Response)},
+  { 191, 198, sizeof(::CUserAccount_RedeemFriendInviteToken_Request)},
+  { 200, -1, sizeof(::CUserAccount_RedeemFriendInviteToken_Response)},
+  { 205, 211, sizeof(::CUserAccount_RevokeFriendInviteToken_Request)},
+  { 212, -1, sizeof(::CUserAccount_RevokeFriendInviteToken_Response)},
+  { 217, 223, sizeof(::CUserAccount_RegisterCompatTool_Request)},
+  { 224, -1, sizeof(::CUserAccount_RegisterCompatTool_Response)},
+  { 229, 238, sizeof(::CAccountLinking_GetLinkedAccountInfo_Request)},
+  { 242, 254, sizeof(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response)},
+  { 261, -1, sizeof(::CAccountLinking_GetLinkedAccountInfo_Response)},
+  { 267, 276, sizeof(::CEmbeddedClient_AuthorizeCurrentDevice_Request)},
+  { 280, 289, sizeof(::CEmbeddedClient_Token)},
+  { 293, 300, sizeof(::CEmbeddedClient_AuthorizeDevice_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -801,7 +813,7 @@ const char descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2
   "serAccount_GetClientWalletDetails_Reques"
   "t\022\036\n\026include_balance_in_usd\030\001 \001(\010\022\030\n\rwal"
   "let_region\030\002 \001(\005:\0011\022!\n\031include_formatted"
-  "_balance\030\003 \001(\010\"\223\003\n&CUserAccount_GetWalle"
+  "_balance\030\003 \001(\010\"\265\004\n&CUserAccount_GetWalle"
   "tDetails_Response\022\022\n\nhas_wallet\030\001 \001(\010\022\031\n"
   "\021user_country_code\030\002 \001(\t\022\033\n\023wallet_count"
   "ry_code\030\003 \001(\t\022\024\n\014wallet_state\030\004 \001(\t\022\017\n\007b"
@@ -811,115 +823,119 @@ const char descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2
   "\016balance_in_usd\030\n \001(\003\022\036\n\026delayed_balance"
   "_in_usd\030\013 \001(\003\022#\n\033has_wallet_in_other_reg"
   "ions\030\014 \001(\010\022\025\n\rother_regions\030\r \003(\005\022\031\n\021for"
-  "matted_balance\030\016 \001(\t\"+\n)CUserAccount_Get"
-  "AccountLinkStatus_Request\"}\n*CUserAccoun"
-  "t_GetAccountLinkStatus_Response\022\014\n\004pwid\030"
-  "\001 \001(\r\022\035\n\025identity_verification\030\002 \001(\r\022\"\n\032"
-  "performed_age_verification\030\003 \001(\010\"9\n(CUse"
-  "rAccount_CancelLicenseForApp_Request\022\r\n\005"
-  "appid\030\001 \001(\r\"+\n)CUserAccount_CancelLicens"
-  "eForApp_Response\"6\n#CUserAccount_GetUser"
-  "Country_Request\022\017\n\007steamid\030\001 \001(\006\"7\n$CUse"
-  "rAccount_GetUserCountry_Response\022\017\n\007coun"
-  "try\030\001 \001(\t\"r\n,CUserAccount_CreateFriendIn"
-  "viteToken_Request\022\024\n\014invite_limit\030\001 \001(\r\022"
-  "\027\n\017invite_duration\030\002 \001(\r\022\023\n\013invite_note\030"
-  "\003 \001(\t\"\231\001\n-CUserAccount_CreateFriendInvit"
-  "eToken_Response\022\024\n\014invite_token\030\001 \001(\t\022\024\n"
-  "\014invite_limit\030\002 \001(\004\022\027\n\017invite_duration\030\003"
-  " \001(\004\022\024\n\014time_created\030\004 \001(\007\022\r\n\005valid\030\005 \001("
-  "\010\",\n*CUserAccount_GetFriendInviteTokens_"
-  "Request\"m\n+CUserAccount_GetFriendInviteT"
-  "okens_Response\022>\n\006tokens\030\001 \003(\0132..CUserAc"
-  "count_CreateFriendInviteToken_Response\"S"
-  "\n*CUserAccount_ViewFriendInviteToken_Req"
-  "uest\022\017\n\007steamid\030\001 \001(\006\022\024\n\014invite_token\030\002 "
-  "\001(\t\"f\n+CUserAccount_ViewFriendInviteToke"
-  "n_Response\022\r\n\005valid\030\001 \001(\010\022\017\n\007steamid\030\002 \001"
-  "(\004\022\027\n\017invite_duration\030\003 \001(\004\"U\n,CUserAcco"
-  "unt_RedeemFriendInviteToken_Request\022\017\n\007s"
-  "teamid\030\001 \001(\006\022\024\n\014invite_token\030\002 \001(\t\"/\n-CU"
-  "serAccount_RedeemFriendInviteToken_Respo"
-  "nse\"D\n,CUserAccount_RevokeFriendInviteTo"
-  "ken_Request\022\024\n\014invite_token\030\001 \001(\t\"/\n-CUs"
-  "erAccount_RevokeFriendInviteToken_Respon"
-  "se\">\n\'CUserAccount_RegisterCompatTool_Re"
-  "quest\022\023\n\013compat_tool\030\001 \001(\r\"*\n(CUserAccou"
-  "nt_RegisterCompatTool_Response\"\335\001\n,CAcco"
-  "untLinking_GetLinkedAccountInfo_Request\022"
-  "F\n\014account_type\030\001 \001(\0162\025.EInternalAccount"
-  "Type:\031EInternalSteamAccountType\022\022\n\naccou"
-  "nt_id\030\002 \001(\004\0224\n\006filter\030\003 \001(\0162\025.EExternalA"
-  "ccountType:\rEExternalNone\022\033\n\023return_acce"
-  "ss_token\030\004 \001(\010\"\205\003\n-CAccountLinking_GetLi"
-  "nkedAccountInfo_Response\022h\n\021external_acc"
-  "ounts\030\001 \003(\0132M.CAccountLinking_GetLinkedA"
-  "ccountInfo_Response.CExternalAccountTupl"
-  "e_Response\032\351\001\n\036CExternalAccountTuple_Res"
-  "ponse\022;\n\rexternal_type\030\001 \001(\0162\025.EExternal"
-  "AccountType:\rEExternalNone\022\023\n\013external_i"
-  "d\030\002 \001(\t\022\032\n\022external_user_name\030\003 \001(\t\022\024\n\014e"
-  "xternal_url\030\004 \001(\t\022\024\n\014access_token\030\005 \001(\t\022"
-  "\033\n\023access_token_secret\030\006 \001(\t\022\020\n\010is_valid"
-  "\030\007 \001(\010\"w\n.CEmbeddedClient_AuthorizeCurre"
-  "ntDevice_Request\022\017\n\007steamid\030\001 \001(\006\022\r\n\005app"
-  "id\030\002 \001(\r\022\023\n\013device_info\030\003 \001(\t\022\020\n\010devicei"
-  "d\030\004 \001(\r\"`\n\025CEmbeddedClient_Token\022\017\n\007stea"
-  "mid\030\001 \001(\006\022\024\n\014client_token\030\002 \001(\014\022\016\n\006expir"
-  "y\030\003 \001(\r\022\020\n\010deviceid\030\004 \001(\r\"a\n(CEmbeddedCl"
-  "ient_AuthorizeDevice_Response\022\016\n\006result\030"
-  "\001 \001(\r\022%\n\005token\030\002 \001(\0132\026.CEmbeddedClient_T"
-  "oken*\205\001\n\024EInternalAccountType\022\035\n\031EIntern"
-  "alSteamAccountType\020\001\022\025\n\021EInternalClanTyp"
-  "e\020\002\022\024\n\020EInternalAppType\020\003\022!\n\035EInternalBr"
-  "oadcastChannelType\020\004*\366\001\n\024EExternalAccoun"
-  "tType\022\021\n\rEExternalNone\020\000\022\031\n\025EExternalSte"
-  "amAccount\020\001\022\032\n\026EExternalGoogleAccount\020\002\022"
-  "\034\n\030EExternalFacebookAccount\020\003\022\033\n\027EExtern"
-  "alTwitterAccount\020\004\022\032\n\026EExternalTwitchAcc"
-  "ount\020\005\022\"\n\036EExternalYouTubeChannelAccount"
-  "\020\006\022\031\n\025EExternalFacebookPage\020\0072\234\n\n\013UserAc"
-  "count\022\234\001\n#GetAvailableValveDiscountPromo"
-  "tions\0229.CUserAccount_GetAvailableValveDi"
-  "scountPromotions_Request\032:.CUserAccount_"
-  "GetAvailableValveDiscountPromotions_Resp"
-  "onse\022o\n\026GetClientWalletDetails\022,.CUserAc"
-  "count_GetClientWalletDetails_Request\032\'.C"
-  "UserAccount_GetWalletDetails_Response\022o\n"
-  "\024GetAccountLinkStatus\022*.CUserAccount_Get"
-  "AccountLinkStatus_Request\032+.CUserAccount"
-  "_GetAccountLinkStatus_Response\022l\n\023Cancel"
-  "LicenseForApp\022).CUserAccount_CancelLicen"
-  "seForApp_Request\032*.CUserAccount_CancelLi"
-  "censeForApp_Response\022]\n\016GetUserCountry\022$"
-  ".CUserAccount_GetUserCountry_Request\032%.C"
-  "UserAccount_GetUserCountry_Response\022x\n\027C"
-  "reateFriendInviteToken\022-.CUserAccount_Cr"
-  "eateFriendInviteToken_Request\032..CUserAcc"
-  "ount_CreateFriendInviteToken_Response\022r\n"
-  "\025GetFriendInviteTokens\022+.CUserAccount_Ge"
-  "tFriendInviteTokens_Request\032,.CUserAccou"
-  "nt_GetFriendInviteTokens_Response\022r\n\025Vie"
-  "wFriendInviteToken\022+.CUserAccount_ViewFr"
-  "iendInviteToken_Request\032,.CUserAccount_V"
-  "iewFriendInviteToken_Response\022x\n\027RedeemF"
-  "riendInviteToken\022-.CUserAccount_RedeemFr"
-  "iendInviteToken_Request\032..CUserAccount_R"
-  "edeemFriendInviteToken_Response\022x\n\027Revok"
-  "eFriendInviteToken\022-.CUserAccount_Revoke"
+  "matted_balance\030\016 \001(\t\022!\n\031formatted_delaye"
+  "d_balance\030\017 \001(\t\022*\n\"delayed_balance_avail"
+  "able_min_time\030\020 \001(\005\022*\n\"delayed_balance_a"
+  "vailable_max_time\030\021 \001(\005\022%\n\035delayed_balan"
+  "ce_newest_source\030\022 \001(\005\"+\n)CUserAccount_G"
+  "etAccountLinkStatus_Request\"}\n*CUserAcco"
+  "unt_GetAccountLinkStatus_Response\022\014\n\004pwi"
+  "d\030\001 \001(\r\022\035\n\025identity_verification\030\002 \001(\r\022\""
+  "\n\032performed_age_verification\030\003 \001(\010\"9\n(CU"
+  "serAccount_CancelLicenseForApp_Request\022\r"
+  "\n\005appid\030\001 \001(\r\"+\n)CUserAccount_CancelLice"
+  "nseForApp_Response\"6\n#CUserAccount_GetUs"
+  "erCountry_Request\022\017\n\007steamid\030\001 \001(\006\"7\n$CU"
+  "serAccount_GetUserCountry_Response\022\017\n\007co"
+  "untry\030\001 \001(\t\"r\n,CUserAccount_CreateFriend"
+  "InviteToken_Request\022\024\n\014invite_limit\030\001 \001("
+  "\r\022\027\n\017invite_duration\030\002 \001(\r\022\023\n\013invite_not"
+  "e\030\003 \001(\t\"\231\001\n-CUserAccount_CreateFriendInv"
+  "iteToken_Response\022\024\n\014invite_token\030\001 \001(\t\022"
+  "\024\n\014invite_limit\030\002 \001(\004\022\027\n\017invite_duration"
+  "\030\003 \001(\004\022\024\n\014time_created\030\004 \001(\007\022\r\n\005valid\030\005 "
+  "\001(\010\",\n*CUserAccount_GetFriendInviteToken"
+  "s_Request\"m\n+CUserAccount_GetFriendInvit"
+  "eTokens_Response\022>\n\006tokens\030\001 \003(\0132..CUser"
+  "Account_CreateFriendInviteToken_Response"
+  "\"S\n*CUserAccount_ViewFriendInviteToken_R"
+  "equest\022\017\n\007steamid\030\001 \001(\006\022\024\n\014invite_token\030"
+  "\002 \001(\t\"f\n+CUserAccount_ViewFriendInviteTo"
+  "ken_Response\022\r\n\005valid\030\001 \001(\010\022\017\n\007steamid\030\002"
+  " \001(\004\022\027\n\017invite_duration\030\003 \001(\004\"U\n,CUserAc"
+  "count_RedeemFriendInviteToken_Request\022\017\n"
+  "\007steamid\030\001 \001(\006\022\024\n\014invite_token\030\002 \001(\t\"/\n-"
+  "CUserAccount_RedeemFriendInviteToken_Res"
+  "ponse\"D\n,CUserAccount_RevokeFriendInvite"
+  "Token_Request\022\024\n\014invite_token\030\001 \001(\t\"/\n-C"
+  "UserAccount_RevokeFriendInviteToken_Resp"
+  "onse\">\n\'CUserAccount_RegisterCompatTool_"
+  "Request\022\023\n\013compat_tool\030\001 \001(\r\"*\n(CUserAcc"
+  "ount_RegisterCompatTool_Response\"\335\001\n,CAc"
+  "countLinking_GetLinkedAccountInfo_Reques"
+  "t\022F\n\014account_type\030\001 \001(\0162\025.EInternalAccou"
+  "ntType:\031EInternalSteamAccountType\022\022\n\nacc"
+  "ount_id\030\002 \001(\004\0224\n\006filter\030\003 \001(\0162\025.EExterna"
+  "lAccountType:\rEExternalNone\022\033\n\023return_ac"
+  "cess_token\030\004 \001(\010\"\205\003\n-CAccountLinking_Get"
+  "LinkedAccountInfo_Response\022h\n\021external_a"
+  "ccounts\030\001 \003(\0132M.CAccountLinking_GetLinke"
+  "dAccountInfo_Response.CExternalAccountTu"
+  "ple_Response\032\351\001\n\036CExternalAccountTuple_R"
+  "esponse\022;\n\rexternal_type\030\001 \001(\0162\025.EExtern"
+  "alAccountType:\rEExternalNone\022\023\n\013external"
+  "_id\030\002 \001(\t\022\032\n\022external_user_name\030\003 \001(\t\022\024\n"
+  "\014external_url\030\004 \001(\t\022\024\n\014access_token\030\005 \001("
+  "\t\022\033\n\023access_token_secret\030\006 \001(\t\022\020\n\010is_val"
+  "id\030\007 \001(\010\"w\n.CEmbeddedClient_AuthorizeCur"
+  "rentDevice_Request\022\017\n\007steamid\030\001 \001(\006\022\r\n\005a"
+  "ppid\030\002 \001(\r\022\023\n\013device_info\030\003 \001(\t\022\020\n\010devic"
+  "eid\030\004 \001(\r\"`\n\025CEmbeddedClient_Token\022\017\n\007st"
+  "eamid\030\001 \001(\006\022\024\n\014client_token\030\002 \001(\014\022\016\n\006exp"
+  "iry\030\003 \001(\r\022\020\n\010deviceid\030\004 \001(\r\"a\n(CEmbedded"
+  "Client_AuthorizeDevice_Response\022\016\n\006resul"
+  "t\030\001 \001(\r\022%\n\005token\030\002 \001(\0132\026.CEmbeddedClient"
+  "_Token*\205\001\n\024EInternalAccountType\022\035\n\031EInte"
+  "rnalSteamAccountType\020\001\022\025\n\021EInternalClanT"
+  "ype\020\002\022\024\n\020EInternalAppType\020\003\022!\n\035EInternal"
+  "BroadcastChannelType\020\004*\366\001\n\024EExternalAcco"
+  "untType\022\021\n\rEExternalNone\020\000\022\031\n\025EExternalS"
+  "teamAccount\020\001\022\032\n\026EExternalGoogleAccount\020"
+  "\002\022\034\n\030EExternalFacebookAccount\020\003\022\033\n\027EExte"
+  "rnalTwitterAccount\020\004\022\032\n\026EExternalTwitchA"
+  "ccount\020\005\022\"\n\036EExternalYouTubeChannelAccou"
+  "nt\020\006\022\031\n\025EExternalFacebookPage\020\0072\234\n\n\013User"
+  "Account\022\234\001\n#GetAvailableValveDiscountPro"
+  "motions\0229.CUserAccount_GetAvailableValve"
+  "DiscountPromotions_Request\032:.CUserAccoun"
+  "t_GetAvailableValveDiscountPromotions_Re"
+  "sponse\022o\n\026GetClientWalletDetails\022,.CUser"
+  "Account_GetClientWalletDetails_Request\032\'"
+  ".CUserAccount_GetWalletDetails_Response\022"
+  "o\n\024GetAccountLinkStatus\022*.CUserAccount_G"
+  "etAccountLinkStatus_Request\032+.CUserAccou"
+  "nt_GetAccountLinkStatus_Response\022l\n\023Canc"
+  "elLicenseForApp\022).CUserAccount_CancelLic"
+  "enseForApp_Request\032*.CUserAccount_Cancel"
+  "LicenseForApp_Response\022]\n\016GetUserCountry"
+  "\022$.CUserAccount_GetUserCountry_Request\032%"
+  ".CUserAccount_GetUserCountry_Response\022x\n"
+  "\027CreateFriendInviteToken\022-.CUserAccount_"
+  "CreateFriendInviteToken_Request\032..CUserA"
+  "ccount_CreateFriendInviteToken_Response\022"
+  "r\n\025GetFriendInviteTokens\022+.CUserAccount_"
+  "GetFriendInviteTokens_Request\032,.CUserAcc"
+  "ount_GetFriendInviteTokens_Response\022r\n\025V"
+  "iewFriendInviteToken\022+.CUserAccount_View"
+  "FriendInviteToken_Request\032,.CUserAccount"
+  "_ViewFriendInviteToken_Response\022x\n\027Redee"
+  "mFriendInviteToken\022-.CUserAccount_Redeem"
   "FriendInviteToken_Request\032..CUserAccount"
-  "_RevokeFriendInviteToken_Response\022i\n\022Reg"
-  "isterCompatTool\022(.CUserAccount_RegisterC"
-  "ompatTool_Request\032).CUserAccount_Registe"
-  "rCompatTool_Response2\207\001\n\016AccountLinking\022"
-  "u\n\024GetLinkedAccountInfo\022-.CAccountLinkin"
-  "g_GetLinkedAccountInfo_Request\032..CAccoun"
-  "tLinking_GetLinkedAccountInfo_Response2\206"
-  "\001\n\016EmbeddedClient\022t\n\026AuthorizeCurrentDev"
-  "ice\022/.CEmbeddedClient_AuthorizeCurrentDe"
-  "vice_Request\032).CEmbeddedClient_Authorize"
-  "Device_ResponseB\035\200\001\001\252\002\027OpenSteamworks.Pr"
-  "otobuf"
+  "_RedeemFriendInviteToken_Response\022x\n\027Rev"
+  "okeFriendInviteToken\022-.CUserAccount_Revo"
+  "keFriendInviteToken_Request\032..CUserAccou"
+  "nt_RevokeFriendInviteToken_Response\022i\n\022R"
+  "egisterCompatTool\022(.CUserAccount_Registe"
+  "rCompatTool_Request\032).CUserAccount_Regis"
+  "terCompatTool_Response2\207\001\n\016AccountLinkin"
+  "g\022u\n\024GetLinkedAccountInfo\022-.CAccountLink"
+  "ing_GetLinkedAccountInfo_Request\032..CAcco"
+  "untLinking_GetLinkedAccountInfo_Response"
+  "2\206\001\n\016EmbeddedClient\022t\n\026AuthorizeCurrentD"
+  "evice\022/.CEmbeddedClient_AuthorizeCurrent"
+  "Device_Request\032).CEmbeddedClient_Authori"
+  "zeDevice_ResponseB\035\200\001\001\252\002\027OpenSteamworks."
+  "Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -928,7 +944,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto = {
-  false, false, 5606, descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2eproto, "steammessages_useraccount.steamclient.proto", 
+  false, false, 5768, descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2eproto, "steammessages_useraccount.steamclient.proto", 
   &descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_once, descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_deps, 3, 29,
   schemas, file_default_instances, TableStruct_steammessages_5fuseraccount_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fuseraccount_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto,
@@ -2206,7 +2222,7 @@ class CUserAccount_GetWalletDetails_Response::_Internal {
  public:
   using HasBits = decltype(std::declval<CUserAccount_GetWalletDetails_Response>()._has_bits_);
   static void set_has_has_wallet(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_user_country_code(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -2218,31 +2234,43 @@ class CUserAccount_GetWalletDetails_Response::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_balance(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_delayed_balance(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
+  static void set_has_delayed_balance(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
   static void set_has_currency_code(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
-  }
-  static void set_has_time_most_recent_txn(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
-  }
-  static void set_has_most_recent_txnid(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
-  static void set_has_balance_in_usd(HasBits* has_bits) {
+  static void set_has_time_most_recent_txn(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
+  }
+  static void set_has_most_recent_txnid(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
-  static void set_has_delayed_balance_in_usd(HasBits* has_bits) {
+  static void set_has_balance_in_usd(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
+  static void set_has_delayed_balance_in_usd(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
   static void set_has_has_wallet_in_other_regions(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_formatted_balance(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_formatted_delayed_balance(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_delayed_balance_available_min_time(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_delayed_balance_available_max_time(HasBits* has_bits) {
+    (*has_bits)[0] |= 32768u;
+  }
+  static void set_has_delayed_balance_newest_source(HasBits* has_bits) {
+    (*has_bits)[0] |= 65536u;
   }
 };
 
@@ -2278,9 +2306,14 @@ CUserAccount_GetWalletDetails_Response::CUserAccount_GetWalletDetails_Response(c
     formatted_balance_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_formatted_balance(), 
       GetArena());
   }
+  formatted_delayed_balance_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_formatted_delayed_balance()) {
+    formatted_delayed_balance_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_formatted_delayed_balance(), 
+      GetArena());
+  }
   ::memcpy(&balance_, &from.balance_,
-    static_cast<size_t>(reinterpret_cast<char*>(&time_most_recent_txn_) -
-    reinterpret_cast<char*>(&balance_)) + sizeof(time_most_recent_txn_));
+    static_cast<size_t>(reinterpret_cast<char*>(&delayed_balance_newest_source_) -
+    reinterpret_cast<char*>(&balance_)) + sizeof(delayed_balance_newest_source_));
   // @@protoc_insertion_point(copy_constructor:CUserAccount_GetWalletDetails_Response)
 }
 
@@ -2289,10 +2322,11 @@ user_country_code_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmpty
 wallet_country_code_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 wallet_state_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 formatted_balance_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+formatted_delayed_balance_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&balance_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&time_most_recent_txn_) -
-    reinterpret_cast<char*>(&balance_)) + sizeof(time_most_recent_txn_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&delayed_balance_newest_source_) -
+    reinterpret_cast<char*>(&balance_)) + sizeof(delayed_balance_newest_source_));
 }
 
 CUserAccount_GetWalletDetails_Response::~CUserAccount_GetWalletDetails_Response() {
@@ -2307,6 +2341,7 @@ void CUserAccount_GetWalletDetails_Response::SharedDtor() {
   wallet_country_code_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   wallet_state_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   formatted_balance_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  formatted_delayed_balance_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void CUserAccount_GetWalletDetails_Response::ArenaDtor(void* object) {
@@ -2327,7 +2362,7 @@ void CUserAccount_GetWalletDetails_Response::Clear() {
 
   other_regions_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       user_country_code_.ClearNonDefaultToEmpty();
     }
@@ -2340,17 +2375,21 @@ void CUserAccount_GetWalletDetails_Response::Clear() {
     if (cached_has_bits & 0x00000008u) {
       formatted_balance_.ClearNonDefaultToEmpty();
     }
+    if (cached_has_bits & 0x00000010u) {
+      formatted_delayed_balance_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x000000f0u) {
+  if (cached_has_bits & 0x000000e0u) {
     ::memset(&balance_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&has_wallet_in_other_regions_) -
-        reinterpret_cast<char*>(&balance_)) + sizeof(has_wallet_in_other_regions_));
+        reinterpret_cast<char*>(&has_wallet_) -
+        reinterpret_cast<char*>(&balance_)) + sizeof(has_wallet_));
   }
-  if (cached_has_bits & 0x00001f00u) {
-    ::memset(&currency_code_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&time_most_recent_txn_) -
-        reinterpret_cast<char*>(&currency_code_)) + sizeof(time_most_recent_txn_));
+  if (cached_has_bits & 0x0000ff00u) {
+    ::memset(&has_wallet_in_other_regions_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&delayed_balance_available_max_time_) -
+        reinterpret_cast<char*>(&has_wallet_in_other_regions_)) + sizeof(delayed_balance_available_max_time_));
   }
+  delayed_balance_newest_source_ = 0;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2494,6 +2533,41 @@ const char* CUserAccount_GetWalletDetails_Response::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional string formatted_delayed_balance = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+          auto str = _internal_mutable_formatted_delayed_balance();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CUserAccount_GetWalletDetails_Response.formatted_delayed_balance");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 delayed_balance_available_min_time = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
+          _Internal::set_has_delayed_balance_available_min_time(&has_bits);
+          delayed_balance_available_min_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 delayed_balance_available_max_time = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
+          _Internal::set_has_delayed_balance_available_max_time(&has_bits);
+          delayed_balance_available_max_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 delayed_balance_newest_source = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
+          _Internal::set_has_delayed_balance_newest_source(&has_bits);
+          delayed_balance_newest_source_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -2525,7 +2599,7 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional bool has_wallet = 1;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_has_wallet(), target);
   }
@@ -2561,49 +2635,49 @@ failure:
   }
 
   // optional int64 balance = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(5, this->_internal_balance(), target);
   }
 
   // optional int64 delayed_balance = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(6, this->_internal_delayed_balance(), target);
   }
 
   // optional int32 currency_code = 7;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(7, this->_internal_currency_code(), target);
   }
 
   // optional uint32 time_most_recent_txn = 8;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_time_most_recent_txn(), target);
   }
 
   // optional uint64 most_recent_txnid = 9;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(9, this->_internal_most_recent_txnid(), target);
   }
 
   // optional int64 balance_in_usd = 10;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(10, this->_internal_balance_in_usd(), target);
   }
 
   // optional int64 delayed_balance_in_usd = 11;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(11, this->_internal_delayed_balance_in_usd(), target);
   }
 
   // optional bool has_wallet_in_other_regions = 12;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_has_wallet_in_other_regions(), target);
   }
@@ -2622,6 +2696,34 @@ failure:
       "CUserAccount_GetWalletDetails_Response.formatted_balance");
     target = stream->WriteStringMaybeAliased(
         14, this->_internal_formatted_balance(), target);
+  }
+
+  // optional string formatted_delayed_balance = 15;
+  if (cached_has_bits & 0x00000010u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_formatted_delayed_balance().data(), static_cast<int>(this->_internal_formatted_delayed_balance().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CUserAccount_GetWalletDetails_Response.formatted_delayed_balance");
+    target = stream->WriteStringMaybeAliased(
+        15, this->_internal_formatted_delayed_balance(), target);
+  }
+
+  // optional int32 delayed_balance_available_min_time = 16;
+  if (cached_has_bits & 0x00004000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(16, this->_internal_delayed_balance_available_min_time(), target);
+  }
+
+  // optional int32 delayed_balance_available_max_time = 17;
+  if (cached_has_bits & 0x00008000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(17, this->_internal_delayed_balance_available_max_time(), target);
+  }
+
+  // optional int32 delayed_balance_newest_source = 18;
+  if (cached_has_bits & 0x00010000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(18, this->_internal_delayed_balance_newest_source(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2679,68 +2781,96 @@ size_t CUserAccount_GetWalletDetails_Response::ByteSizeLong() const {
           this->_internal_formatted_balance());
     }
 
-    // optional int64 balance = 5;
+    // optional string formatted_delayed_balance = 15;
     if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_formatted_delayed_balance());
+    }
+
+    // optional int64 balance = 5;
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
           this->_internal_balance());
     }
 
     // optional int64 delayed_balance = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
           this->_internal_delayed_balance());
     }
 
     // optional bool has_wallet = 1;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool has_wallet_in_other_regions = 12;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
 
   }
-  if (cached_has_bits & 0x00001f00u) {
-    // optional int32 currency_code = 7;
+  if (cached_has_bits & 0x0000ff00u) {
+    // optional bool has_wallet_in_other_regions = 12;
     if (cached_has_bits & 0x00000100u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 currency_code = 7;
+    if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_currency_code());
     }
 
     // optional uint64 most_recent_txnid = 9;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_most_recent_txnid());
     }
 
     // optional int64 balance_in_usd = 10;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
           this->_internal_balance_in_usd());
     }
 
     // optional int64 delayed_balance_in_usd = 11;
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
           this->_internal_delayed_balance_in_usd());
     }
 
     // optional uint32 time_most_recent_txn = 8;
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00002000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_most_recent_txn());
     }
 
+    // optional int32 delayed_balance_available_min_time = 16;
+    if (cached_has_bits & 0x00004000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_delayed_balance_available_min_time());
+    }
+
+    // optional int32 delayed_balance_available_max_time = 17;
+    if (cached_has_bits & 0x00008000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_delayed_balance_available_max_time());
+    }
+
   }
+  // optional int32 delayed_balance_newest_source = 18;
+  if (cached_has_bits & 0x00010000u) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_delayed_balance_newest_source());
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -2788,36 +2918,48 @@ void CUserAccount_GetWalletDetails_Response::MergeFrom(const CUserAccount_GetWal
       _internal_set_formatted_balance(from._internal_formatted_balance());
     }
     if (cached_has_bits & 0x00000010u) {
-      balance_ = from.balance_;
+      _internal_set_formatted_delayed_balance(from._internal_formatted_delayed_balance());
     }
     if (cached_has_bits & 0x00000020u) {
-      delayed_balance_ = from.delayed_balance_;
+      balance_ = from.balance_;
     }
     if (cached_has_bits & 0x00000040u) {
-      has_wallet_ = from.has_wallet_;
+      delayed_balance_ = from.delayed_balance_;
     }
     if (cached_has_bits & 0x00000080u) {
-      has_wallet_in_other_regions_ = from.has_wallet_in_other_regions_;
+      has_wallet_ = from.has_wallet_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00001f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
-      currency_code_ = from.currency_code_;
+      has_wallet_in_other_regions_ = from.has_wallet_in_other_regions_;
     }
     if (cached_has_bits & 0x00000200u) {
-      most_recent_txnid_ = from.most_recent_txnid_;
+      currency_code_ = from.currency_code_;
     }
     if (cached_has_bits & 0x00000400u) {
-      balance_in_usd_ = from.balance_in_usd_;
+      most_recent_txnid_ = from.most_recent_txnid_;
     }
     if (cached_has_bits & 0x00000800u) {
-      delayed_balance_in_usd_ = from.delayed_balance_in_usd_;
+      balance_in_usd_ = from.balance_in_usd_;
     }
     if (cached_has_bits & 0x00001000u) {
+      delayed_balance_in_usd_ = from.delayed_balance_in_usd_;
+    }
+    if (cached_has_bits & 0x00002000u) {
       time_most_recent_txn_ = from.time_most_recent_txn_;
     }
+    if (cached_has_bits & 0x00004000u) {
+      delayed_balance_available_min_time_ = from.delayed_balance_available_min_time_;
+    }
+    if (cached_has_bits & 0x00008000u) {
+      delayed_balance_available_max_time_ = from.delayed_balance_available_max_time_;
+    }
     _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00010000u) {
+    _internal_set_delayed_balance_newest_source(from._internal_delayed_balance_newest_source());
   }
 }
 
@@ -2848,9 +2990,10 @@ void CUserAccount_GetWalletDetails_Response::InternalSwap(CUserAccount_GetWallet
   wallet_country_code_.Swap(&other->wallet_country_code_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   wallet_state_.Swap(&other->wallet_state_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   formatted_balance_.Swap(&other->formatted_balance_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  formatted_delayed_balance_.Swap(&other->formatted_delayed_balance_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CUserAccount_GetWalletDetails_Response, time_most_recent_txn_)
-      + sizeof(CUserAccount_GetWalletDetails_Response::time_most_recent_txn_)
+      PROTOBUF_FIELD_OFFSET(CUserAccount_GetWalletDetails_Response, delayed_balance_newest_source_)
+      + sizeof(CUserAccount_GetWalletDetails_Response::delayed_balance_newest_source_)
       - PROTOBUF_FIELD_OFFSET(CUserAccount_GetWalletDetails_Response, balance_)>(
           reinterpret_cast<char*>(&balance_),
           reinterpret_cast<char*>(&other->balance_));

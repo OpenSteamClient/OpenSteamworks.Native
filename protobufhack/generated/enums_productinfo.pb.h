@@ -63,11 +63,12 @@ enum EContentDescriptorID : int {
   EContentDescriptor_FrequentViolenceOrGore = 2,
   EContentDescriptor_AdultOnlySexualContent = 3,
   EContentDescriptor_GratuitousSexualContent = 4,
-  EContentDescriptor_AnyMatureContent = 5
+  EContentDescriptor_AnyMatureContent = 5,
+  EContentDescriptorMAX = 6
 };
 bool EContentDescriptorID_IsValid(int value);
 constexpr EContentDescriptorID EContentDescriptorID_MIN = EContentDescriptor_NudityOrSexualContent;
-constexpr EContentDescriptorID EContentDescriptorID_MAX = EContentDescriptor_AnyMatureContent;
+constexpr EContentDescriptorID EContentDescriptorID_MAX = EContentDescriptorMAX;
 constexpr int EContentDescriptorID_ARRAYSIZE = EContentDescriptorID_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EContentDescriptorID_descriptor();

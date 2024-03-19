@@ -72,6 +72,8 @@ constexpr ParentalSettings::ParentalSettings(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : applist_base_()
   , applist_custom_()
+  , excluded_store_content_descriptors_()
+  , excluded_community_content_descriptors_()
   , applist_base_description_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , salt_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , passwordhash_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -650,6 +652,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fparental_2este
   PROTOBUF_FIELD_OFFSET(::ParentalSettings, rtime_temporary_feature_expiration_),
   PROTOBUF_FIELD_OFFSET(::ParentalSettings, playtime_restrictions_),
   PROTOBUF_FIELD_OFFSET(::ParentalSettings, temporary_playtime_restrictions_),
+  PROTOBUF_FIELD_OFFSET(::ParentalSettings, excluded_store_content_descriptors_),
+  PROTOBUF_FIELD_OFFSET(::ParentalSettings, excluded_community_content_descriptors_),
   6,
   7,
   0,
@@ -666,6 +670,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fparental_2este
   13,
   4,
   5,
+  ~0u,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CParental_EnableParentalSettings_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CParental_EnableParentalSettings_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1010,45 +1016,45 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 9, 16, sizeof(::ParentalPlaytimeDay)},
   { 18, 25, sizeof(::ParentalPlaytimeRestrictions)},
   { 27, 34, sizeof(::ParentalTemporaryPlaytimeRestrictions)},
-  { 36, 57, sizeof(::ParentalSettings)},
-  { 73, 83, sizeof(::CParental_EnableParentalSettings_Request)},
-  { 88, -1, sizeof(::CParental_EnableParentalSettings_Response)},
-  { 93, 100, sizeof(::CParental_DisableParentalSettings_Request)},
-  { 102, -1, sizeof(::CParental_DisableParentalSettings_Response)},
-  { 107, 113, sizeof(::CParental_GetParentalSettings_Request)},
-  { 114, 120, sizeof(::CParental_GetParentalSettings_Response)},
-  { 121, 127, sizeof(::CParental_GetSignedParentalSettings_Request)},
-  { 128, 135, sizeof(::CParental_GetSignedParentalSettings_Response)},
-  { 137, 147, sizeof(::CParental_SetParentalSettings_Request)},
-  { 152, -1, sizeof(::CParental_SetParentalSettings_Response)},
-  { 157, 163, sizeof(::CParental_ValidateToken_Request)},
-  { 164, -1, sizeof(::CParental_ValidateToken_Response)},
-  { 169, 177, sizeof(::CParental_ValidatePassword_Request)},
-  { 180, 186, sizeof(::CParental_ValidatePassword_Response)},
-  { 187, 193, sizeof(::CParental_LockClient_Request)},
-  { 194, -1, sizeof(::CParental_LockClient_Response)},
-  { 199, -1, sizeof(::CParental_RequestRecoveryCode_Request)},
-  { 204, -1, sizeof(::CParental_RequestRecoveryCode_Response)},
-  { 209, 216, sizeof(::CParental_DisableWithRecoveryCode_Request)},
-  { 218, -1, sizeof(::CParental_DisableWithRecoveryCode_Response)},
-  { 223, 230, sizeof(::CParental_RequestFeatureAccess_Request)},
-  { 232, 238, sizeof(::CParental_RequestFeatureAccess_Response)},
-  { 239, 249, sizeof(::CParental_ApproveFeatureAccess_Request)},
-  { 254, -1, sizeof(::CParental_ApproveFeatureAccess_Response)},
-  { 259, 267, sizeof(::CParental_RequestPlaytime_Request)},
-  { 270, 276, sizeof(::CParental_RequestPlaytime_Response)},
-  { 277, 286, sizeof(::CParental_ApprovePlaytime_Request)},
-  { 290, -1, sizeof(::CParental_ApprovePlaytime_Response)},
-  { 295, 302, sizeof(::CParental_GetRequests_Request)},
-  { 304, 317, sizeof(::ParentalFeatureRequest)},
-  { 325, 340, sizeof(::ParentalPlaytimeRequest)},
-  { 350, -1, sizeof(::CParental_GetRequests_Response)},
-  { 357, 365, sizeof(::CParental_ReportPlaytimeAndNotify_Request)},
-  { 368, -1, sizeof(::CParental_ReportPlaytimeAndNotify_Response)},
-  { 373, 382, sizeof(::CParental_ParentalSettingsChange_Notification)},
-  { 386, 393, sizeof(::CParental_ParentalUnlocNotification)},
-  { 395, 401, sizeof(::CParental_ParentalLocNotification)},
-  { 402, 409, sizeof(::CParental_PlaytimeUsed_Notification)},
+  { 36, 59, sizeof(::ParentalSettings)},
+  { 77, 87, sizeof(::CParental_EnableParentalSettings_Request)},
+  { 92, -1, sizeof(::CParental_EnableParentalSettings_Response)},
+  { 97, 104, sizeof(::CParental_DisableParentalSettings_Request)},
+  { 106, -1, sizeof(::CParental_DisableParentalSettings_Response)},
+  { 111, 117, sizeof(::CParental_GetParentalSettings_Request)},
+  { 118, 124, sizeof(::CParental_GetParentalSettings_Response)},
+  { 125, 131, sizeof(::CParental_GetSignedParentalSettings_Request)},
+  { 132, 139, sizeof(::CParental_GetSignedParentalSettings_Response)},
+  { 141, 151, sizeof(::CParental_SetParentalSettings_Request)},
+  { 156, -1, sizeof(::CParental_SetParentalSettings_Response)},
+  { 161, 167, sizeof(::CParental_ValidateToken_Request)},
+  { 168, -1, sizeof(::CParental_ValidateToken_Response)},
+  { 173, 181, sizeof(::CParental_ValidatePassword_Request)},
+  { 184, 190, sizeof(::CParental_ValidatePassword_Response)},
+  { 191, 197, sizeof(::CParental_LockClient_Request)},
+  { 198, -1, sizeof(::CParental_LockClient_Response)},
+  { 203, -1, sizeof(::CParental_RequestRecoveryCode_Request)},
+  { 208, -1, sizeof(::CParental_RequestRecoveryCode_Response)},
+  { 213, 220, sizeof(::CParental_DisableWithRecoveryCode_Request)},
+  { 222, -1, sizeof(::CParental_DisableWithRecoveryCode_Response)},
+  { 227, 234, sizeof(::CParental_RequestFeatureAccess_Request)},
+  { 236, 242, sizeof(::CParental_RequestFeatureAccess_Response)},
+  { 243, 253, sizeof(::CParental_ApproveFeatureAccess_Request)},
+  { 258, -1, sizeof(::CParental_ApproveFeatureAccess_Response)},
+  { 263, 271, sizeof(::CParental_RequestPlaytime_Request)},
+  { 274, 280, sizeof(::CParental_RequestPlaytime_Response)},
+  { 281, 290, sizeof(::CParental_ApprovePlaytime_Request)},
+  { 294, -1, sizeof(::CParental_ApprovePlaytime_Response)},
+  { 299, 306, sizeof(::CParental_GetRequests_Request)},
+  { 308, 321, sizeof(::ParentalFeatureRequest)},
+  { 329, 344, sizeof(::ParentalPlaytimeRequest)},
+  { 354, -1, sizeof(::CParental_GetRequests_Response)},
+  { 361, 369, sizeof(::CParental_ReportPlaytimeAndNotify_Request)},
+  { 372, -1, sizeof(::CParental_ReportPlaytimeAndNotify_Response)},
+  { 377, 386, sizeof(::CParental_ParentalSettingsChange_Notification)},
+  { 390, 397, sizeof(::CParental_ParentalUnlocNotification)},
+  { 399, 405, sizeof(::CParental_ParentalLocNotification)},
+  { 406, 413, sizeof(::CParental_PlaytimeUsed_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1110,7 +1116,7 @@ const char descriptor_table_protodef_steammessages_5fparental_2esteamclient_2epr
   "ime_days\030\017 \003(\0132\024.ParentalPlaytimeDay\"j\n%"
   "ParentalTemporaryPlaytimeRestrictions\022*\n"
   "\014restrictions\030\001 \001(\0132\024.ParentalPlaytimeDa"
-  "y\022\025\n\rrtime_expires\030\002 \001(\r\"\251\004\n\020ParentalSet"
+  "y\022\025\n\rrtime_expires\030\002 \001(\r\"\205\005\n\020ParentalSet"
   "tings\022\017\n\007steamid\030\001 \001(\006\022\027\n\017applist_base_i"
   "d\030\002 \001(\r\022 \n\030applist_base_description\030\003 \001("
   "\t\022\"\n\014applist_base\030\004 \003(\0132\014.ParentalApp\022$\n"
@@ -1124,140 +1130,142 @@ const char descriptor_table_protodef_steammessages_5fparental_2esteamclient_2epr
   "\025playtime_restrictions\030\017 \001(\0132\035.ParentalP"
   "laytimeRestrictions\022O\n\037temporary_playtim"
   "e_restrictions\030\020 \001(\0132&.ParentalTemporary"
-  "PlaytimeRestrictions\"\231\001\n(CParental_Enabl"
-  "eParentalSettings_Request\022\020\n\010password\030\001 "
-  "\001(\t\022#\n\010settings\030\002 \001(\0132\021.ParentalSettings"
-  "\022\021\n\tsessionid\030\003 \001(\t\022\022\n\nenablecode\030\004 \001(\r\022"
-  "\017\n\007steamid\030\n \001(\006\"+\n)CParental_EnablePare"
-  "ntalSettings_Response\"N\n)CParental_Disab"
-  "leParentalSettings_Request\022\020\n\010password\030\001"
-  " \001(\t\022\017\n\007steamid\030\n \001(\006\",\n*CParental_Disab"
-  "leParentalSettings_Response\"8\n%CParental"
-  "_GetParentalSettings_Request\022\017\n\007steamid\030"
-  "\n \001(\006\"M\n&CParental_GetParentalSettings_R"
-  "esponse\022#\n\010settings\030\001 \001(\0132\021.ParentalSett"
-  "ings\"\?\n+CParental_GetSignedParentalSetti"
-  "ngs_Request\022\020\n\010priority\030\001 \001(\r\"^\n,CParent"
-  "al_GetSignedParentalSettings_Response\022\033\n"
-  "\023serialized_settings\030\001 \001(\014\022\021\n\tsignature\030"
-  "\002 \001(\014\"\230\001\n%CParental_SetParentalSettings_"
-  "Request\022\020\n\010password\030\001 \001(\t\022#\n\010settings\030\002 "
-  "\001(\0132\021.ParentalSettings\022\024\n\014new_password\030\003"
-  " \001(\t\022\021\n\tsessionid\030\004 \001(\t\022\017\n\007steamid\030\n \001(\006"
-  "\"(\n&CParental_SetParentalSettings_Respon"
-  "se\"5\n\037CParental_ValidateToken_Request\022\022\n"
-  "\nunloctoken\030\001 \001(\t\"\"\n CParental_ValidateT"
-  "oken_Response\"e\n\"CParental_ValidatePassw"
-  "ord_Request\022\020\n\010password\030\001 \001(\t\022\017\n\007session"
-  "\030\002 \001(\t\022\034\n\024send_unlocon_success\030\003 \001(\010\"4\n#"
-  "CParental_ValidatePassword_Response\022\r\n\005t"
-  "oken\030\001 \001(\t\"/\n\034CParental_LockClient_Reque"
-  "st\022\017\n\007session\030\001 \001(\t\"\037\n\035CParental_LockCli"
-  "ent_Response\"\'\n%CParental_RequestRecover"
-  "yCode_Request\"(\n&CParental_RequestRecove"
-  "ryCode_Response\"S\n)CParental_DisableWith"
-  "RecoveryCode_Request\022\025\n\rrecovery_code\030\001 "
-  "\001(\r\022\017\n\007steamid\030\n \001(\006\",\n*CParental_Disabl"
-  "eWithRecoveryCode_Response\"K\n&CParental_"
-  "RequestFeatureAccess_Request\022\020\n\010features"
-  "\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\"<\n\'CParental_Req"
-  "uestFeatureAccess_Response\022\021\n\trequestid\030"
-  "\001 \001(\006\"\201\001\n&CParental_ApproveFeatureAccess"
-  "_Request\022\017\n\007approve\030\001 \001(\010\022\021\n\trequestid\030\002"
-  " \001(\006\022\020\n\010features\030\003 \001(\r\022\020\n\010duration\030\004 \001(\r"
-  "\022\017\n\007steamid\030\n \001(\006\")\n\'CParental_ApproveFe"
-  "atureAccess_Response\"\207\001\n!CParental_Reque"
-  "stPlaytime_Request\022\024\n\014time_expires\030\001 \001(\r"
-  "\022;\n\035current_playtime_restrictions\030\002 \001(\0132"
-  "\024.ParentalPlaytimeDay\022\017\n\007steamid\030\n \001(\006\"7"
-  "\n\"CParental_RequestPlaytime_Response\022\021\n\t"
-  "requestid\030\001 \001(\006\"\237\001\n!CParental_ApprovePla"
-  "ytime_Request\022\017\n\007approve\030\001 \001(\010\022\021\n\treques"
-  "tid\030\002 \001(\006\022E\n\025restrictions_approved\030\003 \001(\013"
-  "2&.ParentalTemporaryPlaytimeRestrictions"
-  "\022\017\n\007steamid\030\n \001(\006\"$\n\"CParental_ApprovePl"
-  "aytime_Response\"T\n\035CParental_GetRequests"
-  "_Request\022\"\n\032rt_include_completed_since\030\001"
-  " \001(\r\022\017\n\007steamid\030\n \001(\006\"\303\001\n\026ParentalFeatur"
-  "eRequest\022\021\n\trequestid\030\001 \001(\006\022\026\n\016family_gr"
-  "oupid\030\002 \001(\006\022\017\n\007steamid\030\003 \001(\006\022\020\n\010features"
-  "\030\004 \001(\r\022\026\n\016time_requested\030\005 \001(\r\022\020\n\010approv"
-  "ed\030\006 \001(\010\022\031\n\021steamid_responder\030\007 \001(\006\022\026\n\016t"
-  "ime_responded\030\010 \001(\r\"\314\002\n\027ParentalPlaytime"
-  "Request\022\021\n\trequestid\030\001 \001(\006\022\026\n\016family_gro"
-  "upid\030\002 \001(\006\022\017\n\007steamid\030\003 \001(\006\022;\n\035current_p"
-  "laytime_restrictions\030\004 \001(\0132\024.ParentalPla"
-  "ytimeDay\022\024\n\014time_expires\030\005 \001(\r\022\026\n\016time_r"
-  "equested\030\006 \001(\r\022\020\n\010approved\030\007 \001(\010\022\031\n\021stea"
-  "mid_responder\030\010 \001(\006\022\026\n\016time_responded\030\t "
-  "\001(\r\022E\n\025restrictions_approved\030\n \001(\0132&.Par"
-  "entalTemporaryPlaytimeRestrictions\"\210\001\n\036C"
-  "Parental_GetRequests_Response\0221\n\020feature"
-  "_requests\030\001 \003(\0132\027.ParentalFeatureRequest"
-  "\0223\n\021playtime_requests\030\002 \003(\0132\030.ParentalPl"
-  "aytimeRequest\"g\n)CParental_ReportPlaytim"
-  "eAndNotify_Request\022\023\n\013day_of_week\030\001 \001(\r\022"
-  "\024\n\014minutes_used\030\002 \001(\r\022\017\n\007steamid\030\n \001(\006\","
-  "\n*CParental_ReportPlaytimeAndNotify_Resp"
-  "onse\"\204\001\n-CParental_ParentalSettingsChang"
-  "e_Notification\022\033\n\023serialized_settings\030\001 "
-  "\001(\014\022\021\n\tsignature\030\002 \001(\014\022\020\n\010password\030\003 \001(\t"
-  "\022\021\n\tsessionid\030\004 \001(\t\"J\n#CParental_Parenta"
-  "lUnlocNotification\022\020\n\010password\030\001 \001(\t\022\021\n\t"
-  "sessionid\030\002 \001(\t\"6\n!CParental_ParentalLoc"
-  "Notification\022\021\n\tsessionid\030\001 \001(\t\"P\n#CPare"
-  "ntal_PlaytimeUsed_Notification\022\023\n\013day_of"
-  "_week\030\001 \001(\r\022\024\n\014minutes_used\030\002 \001(\r2\351\014\n\010Pa"
-  "rental\022o\n\026EnableParentalSettings\022).CPare"
-  "ntal_EnableParentalSettings_Request\032*.CP"
-  "arental_EnableParentalSettings_Response\022"
-  "r\n\027DisableParentalSettings\022*.CParental_D"
-  "isableParentalSettings_Request\032+.CParent"
-  "al_DisableParentalSettings_Response\022f\n\023G"
-  "etParentalSettings\022&.CParental_GetParent"
-  "alSettings_Request\032\'.CParental_GetParent"
-  "alSettings_Response\022x\n\031GetSignedParental"
-  "Settings\022,.CParental_GetSignedParentalSe"
-  "ttings_Request\032-.CParental_GetSignedPare"
-  "ntalSettings_Response\022f\n\023SetParentalSett"
-  "ings\022&.CParental_SetParentalSettings_Req"
-  "uest\032\'.CParental_SetParentalSettings_Res"
-  "ponse\022T\n\rValidateToken\022 .CParental_Valid"
-  "ateToken_Request\032!.CParental_ValidateTok"
-  "en_Response\022]\n\020ValidatePassword\022#.CParen"
-  "tal_ValidatePassword_Request\032$.CParental"
-  "_ValidatePassword_Response\022K\n\nLockClient"
-  "\022\035.CParental_LockClient_Request\032\036.CParen"
-  "tal_LockClient_Response\022f\n\023RequestRecove"
-  "ryCode\022&.CParental_RequestRecoveryCode_R"
-  "equest\032\'.CParental_RequestRecoveryCode_R"
-  "esponse\022r\n\027DisableWithRecoveryCode\022*.CPa"
-  "rental_DisableWithRecoveryCode_Request\032+"
-  ".CParental_DisableWithRecoveryCode_Respo"
-  "nse\022i\n\024RequestFeatureAccess\022\'.CParental_"
-  "RequestFeatureAccess_Request\032(.CParental"
-  "_RequestFeatureAccess_Response\022i\n\024Approv"
-  "eFeatureAccess\022\'.CParental_ApproveFeatur"
-  "eAccess_Request\032(.CParental_ApproveFeatu"
-  "reAccess_Response\022Z\n\017RequestPlaytime\022\".C"
-  "Parental_RequestPlaytime_Request\032#.CPare"
-  "ntal_RequestPlaytime_Response\022Z\n\017Approve"
-  "Playtime\022\".CParental_ApprovePlaytime_Req"
-  "uest\032#.CParental_ApprovePlaytime_Respons"
-  "e\022N\n\013GetRequests\022\036.CParental_GetRequests"
-  "_Request\032\037.CParental_GetRequests_Respons"
-  "e\022r\n\027ReportPlaytimeAndNotify\022*.CParental"
-  "_ReportPlaytimeAndNotify_Request\032+.CPare"
-  "ntal_ReportPlaytimeAndNotify_Response2\266\002"
-  "\n\016ParentalClient\022S\n\024NotifySettingsChange"
-  "\022..CParental_ParentalSettingsChange_Noti"
-  "fication\032\013.NoResponse\022A\n\014NotifyUnlock\022$."
-  "CParental_ParentalUnlocNotification\032\013.No"
-  "Response\022=\n\nNotifyLock\022\".CParental_Paren"
-  "talLocNotification\032\013.NoResponse\022G\n\022Notif"
-  "yPlaytimeUsed\022$.CParental_PlaytimeUsed_N"
-  "otification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027Op"
-  "enSteamworks.Protobuf"
+  "PlaytimeRestrictions\022*\n\"excluded_store_c"
+  "ontent_descriptors\030\021 \003(\r\022.\n&excluded_com"
+  "munity_content_descriptors\030\022 \003(\r\"\231\001\n(CPa"
+  "rental_EnableParentalSettings_Request\022\020\n"
+  "\010password\030\001 \001(\t\022#\n\010settings\030\002 \001(\0132\021.Pare"
+  "ntalSettings\022\021\n\tsessionid\030\003 \001(\t\022\022\n\nenabl"
+  "ecode\030\004 \001(\r\022\017\n\007steamid\030\n \001(\006\"+\n)CParenta"
+  "l_EnableParentalSettings_Response\"N\n)CPa"
+  "rental_DisableParentalSettings_Request\022\020"
+  "\n\010password\030\001 \001(\t\022\017\n\007steamid\030\n \001(\006\",\n*CPa"
+  "rental_DisableParentalSettings_Response\""
+  "8\n%CParental_GetParentalSettings_Request"
+  "\022\017\n\007steamid\030\n \001(\006\"M\n&CParental_GetParent"
+  "alSettings_Response\022#\n\010settings\030\001 \001(\0132\021."
+  "ParentalSettings\"\?\n+CParental_GetSignedP"
+  "arentalSettings_Request\022\020\n\010priority\030\001 \001("
+  "\r\"^\n,CParental_GetSignedParentalSettings"
+  "_Response\022\033\n\023serialized_settings\030\001 \001(\014\022\021"
+  "\n\tsignature\030\002 \001(\014\"\230\001\n%CParental_SetParen"
+  "talSettings_Request\022\020\n\010password\030\001 \001(\t\022#\n"
+  "\010settings\030\002 \001(\0132\021.ParentalSettings\022\024\n\014ne"
+  "w_password\030\003 \001(\t\022\021\n\tsessionid\030\004 \001(\t\022\017\n\007s"
+  "teamid\030\n \001(\006\"(\n&CParental_SetParentalSet"
+  "tings_Response\"5\n\037CParental_ValidateToke"
+  "n_Request\022\022\n\nunloctoken\030\001 \001(\t\"\"\n CParent"
+  "al_ValidateToken_Response\"e\n\"CParental_V"
+  "alidatePassword_Request\022\020\n\010password\030\001 \001("
+  "\t\022\017\n\007session\030\002 \001(\t\022\034\n\024send_unlocon_succe"
+  "ss\030\003 \001(\010\"4\n#CParental_ValidatePassword_R"
+  "esponse\022\r\n\005token\030\001 \001(\t\"/\n\034CParental_Lock"
+  "Client_Request\022\017\n\007session\030\001 \001(\t\"\037\n\035CPare"
+  "ntal_LockClient_Response\"\'\n%CParental_Re"
+  "questRecoveryCode_Request\"(\n&CParental_R"
+  "equestRecoveryCode_Response\"S\n)CParental"
+  "_DisableWithRecoveryCode_Request\022\025\n\rreco"
+  "very_code\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\",\n*CPar"
+  "ental_DisableWithRecoveryCode_Response\"K"
+  "\n&CParental_RequestFeatureAccess_Request"
+  "\022\020\n\010features\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\"<\n\'C"
+  "Parental_RequestFeatureAccess_Response\022\021"
+  "\n\trequestid\030\001 \001(\006\"\201\001\n&CParental_ApproveF"
+  "eatureAccess_Request\022\017\n\007approve\030\001 \001(\010\022\021\n"
+  "\trequestid\030\002 \001(\006\022\020\n\010features\030\003 \001(\r\022\020\n\010du"
+  "ration\030\004 \001(\r\022\017\n\007steamid\030\n \001(\006\")\n\'CParent"
+  "al_ApproveFeatureAccess_Response\"\207\001\n!CPa"
+  "rental_RequestPlaytime_Request\022\024\n\014time_e"
+  "xpires\030\001 \001(\r\022;\n\035current_playtime_restric"
+  "tions\030\002 \001(\0132\024.ParentalPlaytimeDay\022\017\n\007ste"
+  "amid\030\n \001(\006\"7\n\"CParental_RequestPlaytime_"
+  "Response\022\021\n\trequestid\030\001 \001(\006\"\237\001\n!CParenta"
+  "l_ApprovePlaytime_Request\022\017\n\007approve\030\001 \001"
+  "(\010\022\021\n\trequestid\030\002 \001(\006\022E\n\025restrictions_ap"
+  "proved\030\003 \001(\0132&.ParentalTemporaryPlaytime"
+  "Restrictions\022\017\n\007steamid\030\n \001(\006\"$\n\"CParent"
+  "al_ApprovePlaytime_Response\"T\n\035CParental"
+  "_GetRequests_Request\022\"\n\032rt_include_compl"
+  "eted_since\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\"\303\001\n\026Pa"
+  "rentalFeatureRequest\022\021\n\trequestid\030\001 \001(\006\022"
+  "\026\n\016family_groupid\030\002 \001(\006\022\017\n\007steamid\030\003 \001(\006"
+  "\022\020\n\010features\030\004 \001(\r\022\026\n\016time_requested\030\005 \001"
+  "(\r\022\020\n\010approved\030\006 \001(\010\022\031\n\021steamid_responde"
+  "r\030\007 \001(\006\022\026\n\016time_responded\030\010 \001(\r\"\314\002\n\027Pare"
+  "ntalPlaytimeRequest\022\021\n\trequestid\030\001 \001(\006\022\026"
+  "\n\016family_groupid\030\002 \001(\006\022\017\n\007steamid\030\003 \001(\006\022"
+  ";\n\035current_playtime_restrictions\030\004 \001(\0132\024"
+  ".ParentalPlaytimeDay\022\024\n\014time_expires\030\005 \001"
+  "(\r\022\026\n\016time_requested\030\006 \001(\r\022\020\n\010approved\030\007"
+  " \001(\010\022\031\n\021steamid_responder\030\010 \001(\006\022\026\n\016time_"
+  "responded\030\t \001(\r\022E\n\025restrictions_approved"
+  "\030\n \001(\0132&.ParentalTemporaryPlaytimeRestri"
+  "ctions\"\210\001\n\036CParental_GetRequests_Respons"
+  "e\0221\n\020feature_requests\030\001 \003(\0132\027.ParentalFe"
+  "atureRequest\0223\n\021playtime_requests\030\002 \003(\0132"
+  "\030.ParentalPlaytimeRequest\"g\n)CParental_R"
+  "eportPlaytimeAndNotify_Request\022\023\n\013day_of"
+  "_week\030\001 \001(\r\022\024\n\014minutes_used\030\002 \001(\r\022\017\n\007ste"
+  "amid\030\n \001(\006\",\n*CParental_ReportPlaytimeAn"
+  "dNotify_Response\"\204\001\n-CParental_ParentalS"
+  "ettingsChange_Notification\022\033\n\023serialized"
+  "_settings\030\001 \001(\014\022\021\n\tsignature\030\002 \001(\014\022\020\n\010pa"
+  "ssword\030\003 \001(\t\022\021\n\tsessionid\030\004 \001(\t\"J\n#CPare"
+  "ntal_ParentalUnlocNotification\022\020\n\010passwo"
+  "rd\030\001 \001(\t\022\021\n\tsessionid\030\002 \001(\t\"6\n!CParental"
+  "_ParentalLocNotification\022\021\n\tsessionid\030\001 "
+  "\001(\t\"P\n#CParental_PlaytimeUsed_Notificati"
+  "on\022\023\n\013day_of_week\030\001 \001(\r\022\024\n\014minutes_used\030"
+  "\002 \001(\r2\351\014\n\010Parental\022o\n\026EnableParentalSett"
+  "ings\022).CParental_EnableParentalSettings_"
+  "Request\032*.CParental_EnableParentalSettin"
+  "gs_Response\022r\n\027DisableParentalSettings\022*"
+  ".CParental_DisableParentalSettings_Reque"
+  "st\032+.CParental_DisableParentalSettings_R"
+  "esponse\022f\n\023GetParentalSettings\022&.CParent"
+  "al_GetParentalSettings_Request\032\'.CParent"
+  "al_GetParentalSettings_Response\022x\n\031GetSi"
+  "gnedParentalSettings\022,.CParental_GetSign"
+  "edParentalSettings_Request\032-.CParental_G"
+  "etSignedParentalSettings_Response\022f\n\023Set"
+  "ParentalSettings\022&.CParental_SetParental"
+  "Settings_Request\032\'.CParental_SetParental"
+  "Settings_Response\022T\n\rValidateToken\022 .CPa"
+  "rental_ValidateToken_Request\032!.CParental"
+  "_ValidateToken_Response\022]\n\020ValidatePassw"
+  "ord\022#.CParental_ValidatePassword_Request"
+  "\032$.CParental_ValidatePassword_Response\022K"
+  "\n\nLockClient\022\035.CParental_LockClient_Requ"
+  "est\032\036.CParental_LockClient_Response\022f\n\023R"
+  "equestRecoveryCode\022&.CParental_RequestRe"
+  "coveryCode_Request\032\'.CParental_RequestRe"
+  "coveryCode_Response\022r\n\027DisableWithRecove"
+  "ryCode\022*.CParental_DisableWithRecoveryCo"
+  "de_Request\032+.CParental_DisableWithRecove"
+  "ryCode_Response\022i\n\024RequestFeatureAccess\022"
+  "\'.CParental_RequestFeatureAccess_Request"
+  "\032(.CParental_RequestFeatureAccess_Respon"
+  "se\022i\n\024ApproveFeatureAccess\022\'.CParental_A"
+  "pproveFeatureAccess_Request\032(.CParental_"
+  "ApproveFeatureAccess_Response\022Z\n\017Request"
+  "Playtime\022\".CParental_RequestPlaytime_Req"
+  "uest\032#.CParental_RequestPlaytime_Respons"
+  "e\022Z\n\017ApprovePlaytime\022\".CParental_Approve"
+  "Playtime_Request\032#.CParental_ApprovePlay"
+  "time_Response\022N\n\013GetRequests\022\036.CParental"
+  "_GetRequests_Request\032\037.CParental_GetRequ"
+  "ests_Response\022r\n\027ReportPlaytimeAndNotify"
+  "\022*.CParental_ReportPlaytimeAndNotify_Req"
+  "uest\032+.CParental_ReportPlaytimeAndNotify"
+  "_Response2\266\002\n\016ParentalClient\022S\n\024NotifySe"
+  "ttingsChange\022..CParental_ParentalSetting"
+  "sChange_Notification\032\013.NoResponse\022A\n\014Not"
+  "ifyUnlock\022$.CParental_ParentalUnlocNotif"
+  "ication\032\013.NoResponse\022=\n\nNotifyLock\022\".CPa"
+  "rental_ParentalLocNotification\032\013.NoRespo"
+  "nse\022G\n\022NotifyPlaytimeUsed\022$.CParental_Pl"
+  "aytimeUsed_Notification\032\013.NoResponse\032\004\300\265"
+  "\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fparental_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -1266,7 +1274,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fparental_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fparental_2esteamclient_2eproto = {
-  false, false, 6381, descriptor_table_protodef_steammessages_5fparental_2esteamclient_2eproto, "steammessages_parental.steamclient.proto", 
+  false, false, 6473, descriptor_table_protodef_steammessages_5fparental_2esteamclient_2eproto, "steammessages_parental.steamclient.proto", 
   &descriptor_table_steammessages_5fparental_2esteamclient_2eproto_once, descriptor_table_steammessages_5fparental_2esteamclient_2eproto_deps, 3, 43,
   schemas, file_default_instances, TableStruct_steammessages_5fparental_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fparental_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fparental_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fparental_2esteamclient_2eproto,
@@ -2328,7 +2336,9 @@ ParentalSettings::_Internal::temporary_playtime_restrictions(const ParentalSetti
 ParentalSettings::ParentalSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   applist_base_(arena),
-  applist_custom_(arena) {
+  applist_custom_(arena),
+  excluded_store_content_descriptors_(arena),
+  excluded_community_content_descriptors_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:ParentalSettings)
@@ -2337,7 +2347,9 @@ ParentalSettings::ParentalSettings(const ParentalSettings& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
       applist_base_(from.applist_base_),
-      applist_custom_(from.applist_custom_) {
+      applist_custom_(from.applist_custom_),
+      excluded_store_content_descriptors_(from.excluded_store_content_descriptors_),
+      excluded_community_content_descriptors_(from.excluded_community_content_descriptors_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   applist_base_description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_applist_base_description()) {
@@ -2420,6 +2432,8 @@ void ParentalSettings::Clear() {
 
   applist_base_.Clear();
   applist_custom_.Clear();
+  excluded_store_content_descriptors_.Clear();
+  excluded_community_content_descriptors_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2605,6 +2619,36 @@ const char* ParentalSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // repeated uint32 excluded_store_content_descriptors = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            _internal_add_excluded_store_content_descriptors(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<136>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 138) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_excluded_store_content_descriptors(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated uint32 excluded_community_content_descriptors = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            _internal_add_excluded_community_content_descriptors(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<144>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_excluded_community_content_descriptors(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -2747,6 +2791,18 @@ failure:
         16, _Internal::temporary_playtime_restrictions(this), target, stream);
   }
 
+  // repeated uint32 excluded_store_content_descriptors = 17;
+  for (int i = 0, n = this->_internal_excluded_store_content_descriptors_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(17, this->_internal_excluded_store_content_descriptors(i), target);
+  }
+
+  // repeated uint32 excluded_community_content_descriptors = 18;
+  for (int i = 0, n = this->_internal_excluded_community_content_descriptors_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(18, this->_internal_excluded_community_content_descriptors(i), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2775,6 +2831,24 @@ size_t ParentalSettings::ByteSizeLong() const {
   for (const auto& msg : this->applist_custom_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated uint32 excluded_store_content_descriptors = 17;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->excluded_store_content_descriptors_);
+    total_size += 2 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_excluded_store_content_descriptors_size());
+    total_size += data_size;
+  }
+
+  // repeated uint32 excluded_community_content_descriptors = 18;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->excluded_community_content_descriptors_);
+    total_size += 2 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_excluded_community_content_descriptors_size());
+    total_size += data_size;
   }
 
   cached_has_bits = _has_bits_[0];
@@ -2907,6 +2981,8 @@ void ParentalSettings::MergeFrom(const ParentalSettings& from) {
 
   applist_base_.MergeFrom(from.applist_base_);
   applist_custom_.MergeFrom(from.applist_custom_);
+  excluded_store_content_descriptors_.MergeFrom(from.excluded_store_content_descriptors_);
+  excluded_community_content_descriptors_.MergeFrom(from.excluded_community_content_descriptors_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2982,6 +3058,8 @@ void ParentalSettings::InternalSwap(ParentalSettings* other) {
   swap(_has_bits_[0], other->_has_bits_[0]);
   applist_base_.InternalSwap(&other->applist_base_);
   applist_custom_.InternalSwap(&other->applist_custom_);
+  excluded_store_content_descriptors_.InternalSwap(&other->excluded_store_content_descriptors_);
+  excluded_community_content_descriptors_.InternalSwap(&other->excluded_community_content_descriptors_);
   applist_base_description_.Swap(&other->applist_base_description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   salt_.Swap(&other->salt_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   passwordhash_.Swap(&other->passwordhash_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());

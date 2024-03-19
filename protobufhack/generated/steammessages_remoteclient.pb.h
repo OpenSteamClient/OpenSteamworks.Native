@@ -906,7 +906,7 @@ class CMsgRemoteClientAppStatus_AppStatus PROTOBUF_FINAL :
     kShortcutInfoFieldNumber = 4,
     kAppIdFieldNumber = 1,
     kAppStateFieldNumber = 2,
-    kLaunchAvailableFieldNumber = 5,
+    kVrNotRequiredFieldNumber = 5,
   };
   // optional .CMsgRemoteClientAppStatus.AppUpdateInfo update_info = 3;
   bool has_update_info() const;
@@ -970,17 +970,17 @@ class CMsgRemoteClientAppStatus_AppStatus PROTOBUF_FINAL :
   void _internal_set_app_state(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool launch_available = 5 [default = true];
-  bool has_launch_available() const;
+  // optional bool vr_not_required = 5 [default = true];
+  bool has_vr_not_required() const;
   private:
-  bool _internal_has_launch_available() const;
+  bool _internal_has_vr_not_required() const;
   public:
-  void clear_launch_available();
-  bool launch_available() const;
-  void set_launch_available(bool value);
+  void clear_vr_not_required();
+  bool vr_not_required() const;
+  void set_vr_not_required(bool value);
   private:
-  bool _internal_launch_available() const;
-  void _internal_set_launch_available(bool value);
+  bool _internal_vr_not_required() const;
+  void _internal_set_vr_not_required(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgRemoteClientAppStatus.AppStatus)
@@ -996,7 +996,7 @@ class CMsgRemoteClientAppStatus_AppStatus PROTOBUF_FINAL :
   ::CMsgRemoteClientAppStatus_ShortcutInfo* shortcut_info_;
   ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 app_state_;
-  bool launch_available_;
+  bool vr_not_required_;
   friend struct ::TableStruct_steammessages_5fremoteclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1764,6 +1764,7 @@ class CMsgRemoteClientStartStreamResponse PROTOBUF_FINAL :
     kRelayServerFieldNumber = 6,
     kLaunchTaskFieldNumber = 7,
     kLaunchTasdetailFieldNumber = 8,
+    kVrConnectionParamsFieldNumber = 11,
     kStreamPortFieldNumber = 2,
     kLaunchTasksDoneFieldNumber = 9,
     kLaunchTasksTotalFieldNumber = 10,
@@ -1872,6 +1873,26 @@ class CMsgRemoteClientStartStreamResponse PROTOBUF_FINAL :
   std::string* _internal_mutable_launch_tasdetail();
   public:
 
+  // optional string vr_connection_params = 11;
+  bool has_vr_connection_params() const;
+  private:
+  bool _internal_has_vr_connection_params() const;
+  public:
+  void clear_vr_connection_params();
+  const std::string& vr_connection_params() const;
+  void set_vr_connection_params(const std::string& value);
+  void set_vr_connection_params(std::string&& value);
+  void set_vr_connection_params(const char* value);
+  void set_vr_connection_params(const char* value, size_t size);
+  std::string* mutable_vr_connection_params();
+  std::string* release_vr_connection_params();
+  void set_allocated_vr_connection_params(std::string* vr_connection_params);
+  private:
+  const std::string& _internal_vr_connection_params() const;
+  void _internal_set_vr_connection_params(const std::string& value);
+  std::string* _internal_mutable_vr_connection_params();
+  public:
+
   // optional uint32 stream_port = 2;
   bool has_stream_port() const;
   private:
@@ -1951,6 +1972,7 @@ class CMsgRemoteClientStartStreamResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr relay_server_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr launch_task_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr launch_tasdetail_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vr_connection_params_;
   ::PROTOBUF_NAMESPACE_ID::uint32 stream_port_;
   ::PROTOBUF_NAMESPACE_ID::int32 launch_tasks_done_;
   ::PROTOBUF_NAMESPACE_ID::int32 launch_tasks_total_;
@@ -3808,32 +3830,32 @@ inline void CMsgRemoteClientAppStatus_AppStatus::set_allocated_shortcut_info(::C
   // @@protoc_insertion_point(field_set_allocated:CMsgRemoteClientAppStatus.AppStatus.shortcut_info)
 }
 
-// optional bool launch_available = 5 [default = true];
-inline bool CMsgRemoteClientAppStatus_AppStatus::_internal_has_launch_available() const {
+// optional bool vr_not_required = 5 [default = true];
+inline bool CMsgRemoteClientAppStatus_AppStatus::_internal_has_vr_not_required() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
-inline bool CMsgRemoteClientAppStatus_AppStatus::has_launch_available() const {
-  return _internal_has_launch_available();
+inline bool CMsgRemoteClientAppStatus_AppStatus::has_vr_not_required() const {
+  return _internal_has_vr_not_required();
 }
-inline void CMsgRemoteClientAppStatus_AppStatus::clear_launch_available() {
-  launch_available_ = true;
+inline void CMsgRemoteClientAppStatus_AppStatus::clear_vr_not_required() {
+  vr_not_required_ = true;
   _has_bits_[0] &= ~0x00000010u;
 }
-inline bool CMsgRemoteClientAppStatus_AppStatus::_internal_launch_available() const {
-  return launch_available_;
+inline bool CMsgRemoteClientAppStatus_AppStatus::_internal_vr_not_required() const {
+  return vr_not_required_;
 }
-inline bool CMsgRemoteClientAppStatus_AppStatus::launch_available() const {
-  // @@protoc_insertion_point(field_get:CMsgRemoteClientAppStatus.AppStatus.launch_available)
-  return _internal_launch_available();
+inline bool CMsgRemoteClientAppStatus_AppStatus::vr_not_required() const {
+  // @@protoc_insertion_point(field_get:CMsgRemoteClientAppStatus.AppStatus.vr_not_required)
+  return _internal_vr_not_required();
 }
-inline void CMsgRemoteClientAppStatus_AppStatus::_internal_set_launch_available(bool value) {
+inline void CMsgRemoteClientAppStatus_AppStatus::_internal_set_vr_not_required(bool value) {
   _has_bits_[0] |= 0x00000010u;
-  launch_available_ = value;
+  vr_not_required_ = value;
 }
-inline void CMsgRemoteClientAppStatus_AppStatus::set_launch_available(bool value) {
-  _internal_set_launch_available(value);
-  // @@protoc_insertion_point(field_set:CMsgRemoteClientAppStatus.AppStatus.launch_available)
+inline void CMsgRemoteClientAppStatus_AppStatus::set_vr_not_required(bool value) {
+  _internal_set_vr_not_required(value);
+  // @@protoc_insertion_point(field_set:CMsgRemoteClientAppStatus.AppStatus.vr_not_required)
 }
 
 // -------------------------------------------------------------------
@@ -4330,7 +4352,7 @@ CMsgRemoteClientStartStream::mutable_supported_transport() {
 
 // optional int32 e_launch_result = 1 [default = 2];
 inline bool CMsgRemoteClientStartStreamResponse::_internal_has_e_launch_result() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgRemoteClientStartStreamResponse::has_e_launch_result() const {
@@ -4338,7 +4360,7 @@ inline bool CMsgRemoteClientStartStreamResponse::has_e_launch_result() const {
 }
 inline void CMsgRemoteClientStartStreamResponse::clear_e_launch_result() {
   e_launch_result_ = 2;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgRemoteClientStartStreamResponse::_internal_e_launch_result() const {
   return e_launch_result_;
@@ -4348,7 +4370,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgRemoteClientStartStreamResponse::e_lau
   return _internal_e_launch_result();
 }
 inline void CMsgRemoteClientStartStreamResponse::_internal_set_e_launch_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
   e_launch_result_ = value;
 }
 inline void CMsgRemoteClientStartStreamResponse::set_e_launch_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -4358,7 +4380,7 @@ inline void CMsgRemoteClientStartStreamResponse::set_e_launch_result(::PROTOBUF_
 
 // optional uint32 stream_port = 2;
 inline bool CMsgRemoteClientStartStreamResponse::_internal_has_stream_port() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgRemoteClientStartStreamResponse::has_stream_port() const {
@@ -4366,7 +4388,7 @@ inline bool CMsgRemoteClientStartStreamResponse::has_stream_port() const {
 }
 inline void CMsgRemoteClientStartStreamResponse::clear_stream_port() {
   stream_port_ = 0u;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgRemoteClientStartStreamResponse::_internal_stream_port() const {
   return stream_port_;
@@ -4376,7 +4398,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgRemoteClientStartStreamResponse::stre
   return _internal_stream_port();
 }
 inline void CMsgRemoteClientStartStreamResponse::_internal_set_stream_port(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   stream_port_ = value;
 }
 inline void CMsgRemoteClientStartStreamResponse::set_stream_port(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4506,7 +4528,7 @@ inline void CMsgRemoteClientStartStreamResponse::set_allocated_auth_token(std::s
 
 // optional .EStreamTransport transport = 5 [default = EStreamTransportUDP];
 inline bool CMsgRemoteClientStartStreamResponse::_internal_has_transport() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgRemoteClientStartStreamResponse::has_transport() const {
@@ -4514,7 +4536,7 @@ inline bool CMsgRemoteClientStartStreamResponse::has_transport() const {
 }
 inline void CMsgRemoteClientStartStreamResponse::clear_transport() {
   transport_ = 1;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::EStreamTransport CMsgRemoteClientStartStreamResponse::_internal_transport() const {
   return static_cast< ::EStreamTransport >(transport_);
@@ -4525,7 +4547,7 @@ inline ::EStreamTransport CMsgRemoteClientStartStreamResponse::transport() const
 }
 inline void CMsgRemoteClientStartStreamResponse::_internal_set_transport(::EStreamTransport value) {
   assert(::EStreamTransport_IsValid(value));
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
   transport_ = value;
 }
 inline void CMsgRemoteClientStartStreamResponse::set_transport(::EStreamTransport value) {
@@ -4754,7 +4776,7 @@ inline void CMsgRemoteClientStartStreamResponse::set_allocated_launch_tasdetail(
 
 // optional int32 launch_tasks_done = 9;
 inline bool CMsgRemoteClientStartStreamResponse::_internal_has_launch_tasks_done() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgRemoteClientStartStreamResponse::has_launch_tasks_done() const {
@@ -4762,7 +4784,7 @@ inline bool CMsgRemoteClientStartStreamResponse::has_launch_tasks_done() const {
 }
 inline void CMsgRemoteClientStartStreamResponse::clear_launch_tasks_done() {
   launch_tasks_done_ = 0;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgRemoteClientStartStreamResponse::_internal_launch_tasks_done() const {
   return launch_tasks_done_;
@@ -4772,7 +4794,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgRemoteClientStartStreamResponse::launc
   return _internal_launch_tasks_done();
 }
 inline void CMsgRemoteClientStartStreamResponse::_internal_set_launch_tasks_done(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   launch_tasks_done_ = value;
 }
 inline void CMsgRemoteClientStartStreamResponse::set_launch_tasks_done(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -4782,7 +4804,7 @@ inline void CMsgRemoteClientStartStreamResponse::set_launch_tasks_done(::PROTOBU
 
 // optional int32 launch_tasks_total = 10;
 inline bool CMsgRemoteClientStartStreamResponse::_internal_has_launch_tasks_total() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgRemoteClientStartStreamResponse::has_launch_tasks_total() const {
@@ -4790,7 +4812,7 @@ inline bool CMsgRemoteClientStartStreamResponse::has_launch_tasks_total() const 
 }
 inline void CMsgRemoteClientStartStreamResponse::clear_launch_tasks_total() {
   launch_tasks_total_ = 0;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgRemoteClientStartStreamResponse::_internal_launch_tasks_total() const {
   return launch_tasks_total_;
@@ -4800,12 +4822,85 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgRemoteClientStartStreamResponse::launc
   return _internal_launch_tasks_total();
 }
 inline void CMsgRemoteClientStartStreamResponse::_internal_set_launch_tasks_total(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   launch_tasks_total_ = value;
 }
 inline void CMsgRemoteClientStartStreamResponse::set_launch_tasks_total(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_launch_tasks_total(value);
   // @@protoc_insertion_point(field_set:CMsgRemoteClientStartStreamResponse.launch_tasks_total)
+}
+
+// optional string vr_connection_params = 11;
+inline bool CMsgRemoteClientStartStreamResponse::_internal_has_vr_connection_params() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgRemoteClientStartStreamResponse::has_vr_connection_params() const {
+  return _internal_has_vr_connection_params();
+}
+inline void CMsgRemoteClientStartStreamResponse::clear_vr_connection_params() {
+  vr_connection_params_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline const std::string& CMsgRemoteClientStartStreamResponse::vr_connection_params() const {
+  // @@protoc_insertion_point(field_get:CMsgRemoteClientStartStreamResponse.vr_connection_params)
+  return _internal_vr_connection_params();
+}
+inline void CMsgRemoteClientStartStreamResponse::set_vr_connection_params(const std::string& value) {
+  _internal_set_vr_connection_params(value);
+  // @@protoc_insertion_point(field_set:CMsgRemoteClientStartStreamResponse.vr_connection_params)
+}
+inline std::string* CMsgRemoteClientStartStreamResponse::mutable_vr_connection_params() {
+  // @@protoc_insertion_point(field_mutable:CMsgRemoteClientStartStreamResponse.vr_connection_params)
+  return _internal_mutable_vr_connection_params();
+}
+inline const std::string& CMsgRemoteClientStartStreamResponse::_internal_vr_connection_params() const {
+  return vr_connection_params_.Get();
+}
+inline void CMsgRemoteClientStartStreamResponse::_internal_set_vr_connection_params(const std::string& value) {
+  _has_bits_[0] |= 0x00000010u;
+  vr_connection_params_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgRemoteClientStartStreamResponse::set_vr_connection_params(std::string&& value) {
+  _has_bits_[0] |= 0x00000010u;
+  vr_connection_params_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgRemoteClientStartStreamResponse.vr_connection_params)
+}
+inline void CMsgRemoteClientStartStreamResponse::set_vr_connection_params(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000010u;
+  vr_connection_params_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgRemoteClientStartStreamResponse.vr_connection_params)
+}
+inline void CMsgRemoteClientStartStreamResponse::set_vr_connection_params(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000010u;
+  vr_connection_params_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgRemoteClientStartStreamResponse.vr_connection_params)
+}
+inline std::string* CMsgRemoteClientStartStreamResponse::_internal_mutable_vr_connection_params() {
+  _has_bits_[0] |= 0x00000010u;
+  return vr_connection_params_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgRemoteClientStartStreamResponse::release_vr_connection_params() {
+  // @@protoc_insertion_point(field_release:CMsgRemoteClientStartStreamResponse.vr_connection_params)
+  if (!_internal_has_vr_connection_params()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000010u;
+  return vr_connection_params_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgRemoteClientStartStreamResponse::set_allocated_vr_connection_params(std::string* vr_connection_params) {
+  if (vr_connection_params != nullptr) {
+    _has_bits_[0] |= 0x00000010u;
+  } else {
+    _has_bits_[0] &= ~0x00000010u;
+  }
+  vr_connection_params_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), vr_connection_params,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgRemoteClientStartStreamResponse.vr_connection_params)
 }
 
 // -------------------------------------------------------------------

@@ -26,14 +26,15 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances
 const char descriptor_table_protodef_enums_5fproductinfo_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\027enums_productinfo.proto\032 google/protob"
   "uf/descriptor.proto\032\030steammessages_base."
-  "proto*\373\001\n\024EContentDescriptorID\022,\n(EConte"
+  "proto*\226\002\n\024EContentDescriptorID\022,\n(EConte"
   "ntDescriptor_NudityOrSexualContent\020\001\022-\n)"
   "EContentDescriptor_FrequentViolenceOrGor"
   "e\020\002\022-\n)EContentDescriptor_AdultOnlySexua"
   "lContent\020\003\022.\n*EContentDescriptor_Gratuit"
   "ousSexualContent\020\004\022\'\n#EContentDescriptor"
-  "_AnyMatureContent\020\005B#H\001\200\001\001\252\002\027OpenSteamwo"
-  "rks.Protobuf\200\265\030\001"
+  "_AnyMatureContent\020\005\022\031\n\025EContentDescripto"
+  "rMAX\020\006B#H\001\200\001\001\252\002\027OpenSteamworks.Protobuf\200"
+  "\265\030\001"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_enums_5fproductinfo_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -41,7 +42,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_enums_5fproductinfo_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_enums_5fproductinfo_2eproto = {
-  false, false, 376, descriptor_table_protodef_enums_5fproductinfo_2eproto, "enums_productinfo.proto", 
+  false, false, 403, descriptor_table_protodef_enums_5fproductinfo_2eproto, "enums_productinfo.proto", 
   &descriptor_table_enums_5fproductinfo_2eproto_once, descriptor_table_enums_5fproductinfo_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_enums_5fproductinfo_2eproto::offsets,
   file_level_metadata_enums_5fproductinfo_2eproto, file_level_enum_descriptors_enums_5fproductinfo_2eproto, file_level_service_descriptors_enums_5fproductinfo_2eproto,
@@ -65,6 +66,7 @@ bool EContentDescriptorID_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
       return true;
     default:
       return false;

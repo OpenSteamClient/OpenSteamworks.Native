@@ -48,7 +48,7 @@ struct TableStruct_htmlmessages_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[169]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[170]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -272,6 +272,9 @@ extern CMsgJSDialogResponseDefaultTypeInternal _CMsgJSDialogResponse_default_ins
 class CMsgJSExecuteCallback;
 struct CMsgJSExecuteCallbackDefaultTypeInternal;
 extern CMsgJSExecuteCallbackDefaultTypeInternal _CMsgJSExecuteCallback_default_instance_;
+class CMsgJSExecutePromise;
+struct CMsgJSExecutePromiseDefaultTypeInternal;
+extern CMsgJSExecutePromiseDefaultTypeInternal _CMsgJSExecutePromise_default_instance_;
 class CMsgJSMethodCall;
 struct CMsgJSMethodCallDefaultTypeInternal;
 extern CMsgJSMethodCallDefaultTypeInternal _CMsgJSMethodCall_default_instance_;
@@ -636,6 +639,7 @@ template<> ::CMsgJSAlert* Arena::CreateMaybeMessage<::CMsgJSAlert>(Arena*);
 template<> ::CMsgJSConfirm* Arena::CreateMaybeMessage<::CMsgJSConfirm>(Arena*);
 template<> ::CMsgJSDialogResponse* Arena::CreateMaybeMessage<::CMsgJSDialogResponse>(Arena*);
 template<> ::CMsgJSExecuteCallback* Arena::CreateMaybeMessage<::CMsgJSExecuteCallback>(Arena*);
+template<> ::CMsgJSExecutePromise* Arena::CreateMaybeMessage<::CMsgJSExecutePromise>(Arena*);
 template<> ::CMsgJSMethodCall* Arena::CreateMaybeMessage<::CMsgJSMethodCall>(Arena*);
 template<> ::CMsgJSRaiseException* Arena::CreateMaybeMessage<::CMsgJSRaiseException>(Arena*);
 template<> ::CMsgJSRegisterMethod* Arena::CreateMaybeMessage<::CMsgJSRegisterMethod>(Arena*);
@@ -25139,6 +25143,227 @@ class CMsgJSExecuteCallback PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMsgJSExecutePromise PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgJSExecutePromise) */ {
+ public:
+  inline CMsgJSExecutePromise() : CMsgJSExecutePromise(nullptr) {}
+  virtual ~CMsgJSExecutePromise();
+  explicit constexpr CMsgJSExecutePromise(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgJSExecutePromise(const CMsgJSExecutePromise& from);
+  CMsgJSExecutePromise(CMsgJSExecutePromise&& from) noexcept
+    : CMsgJSExecutePromise() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgJSExecutePromise& operator=(const CMsgJSExecutePromise& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgJSExecutePromise& operator=(CMsgJSExecutePromise&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgJSExecutePromise& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgJSExecutePromise* internal_default_instance() {
+    return reinterpret_cast<const CMsgJSExecutePromise*>(
+               &_CMsgJSExecutePromise_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    130;
+
+  friend void swap(CMsgJSExecutePromise& a, CMsgJSExecutePromise& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgJSExecutePromise* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgJSExecutePromise* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgJSExecutePromise* New() const final {
+    return CreateMaybeMessage<CMsgJSExecutePromise>(nullptr);
+  }
+
+  CMsgJSExecutePromise* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgJSExecutePromise>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgJSExecutePromise& from);
+  void MergeFrom(const CMsgJSExecutePromise& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgJSExecutePromise* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgJSExecutePromise";
+  }
+  protected:
+  explicit CMsgJSExecutePromise(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_htmlmessages_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRejectReasonFieldNumber = 4,
+    kArgumentFieldNumber = 5,
+    kBrowserHandleFieldNumber = 1,
+    kOwningBrowserHandleFieldNumber = 2,
+    kPromiseHandleFieldNumber = 3,
+  };
+  // optional string reject_reason = 4;
+  bool has_reject_reason() const;
+  private:
+  bool _internal_has_reject_reason() const;
+  public:
+  void clear_reject_reason();
+  const std::string& reject_reason() const;
+  void set_reject_reason(const std::string& value);
+  void set_reject_reason(std::string&& value);
+  void set_reject_reason(const char* value);
+  void set_reject_reason(const char* value, size_t size);
+  std::string* mutable_reject_reason();
+  std::string* release_reject_reason();
+  void set_allocated_reject_reason(std::string* reject_reason);
+  private:
+  const std::string& _internal_reject_reason() const;
+  void _internal_set_reject_reason(const std::string& value);
+  std::string* _internal_mutable_reject_reason();
+  public:
+
+  // optional .CMsgJSValue argument = 5;
+  bool has_argument() const;
+  private:
+  bool _internal_has_argument() const;
+  public:
+  void clear_argument();
+  const ::CMsgJSValue& argument() const;
+  ::CMsgJSValue* release_argument();
+  ::CMsgJSValue* mutable_argument();
+  void set_allocated_argument(::CMsgJSValue* argument);
+  private:
+  const ::CMsgJSValue& _internal_argument() const;
+  ::CMsgJSValue* _internal_mutable_argument();
+  public:
+  void unsafe_arena_set_allocated_argument(
+      ::CMsgJSValue* argument);
+  ::CMsgJSValue* unsafe_arena_release_argument();
+
+  // optional uint32 browser_handle = 1;
+  bool has_browser_handle() const;
+  private:
+  bool _internal_has_browser_handle() const;
+  public:
+  void clear_browser_handle();
+  ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle() const;
+  void set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_browser_handle() const;
+  void _internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 owning_browser_handle = 2;
+  bool has_owning_browser_handle() const;
+  private:
+  bool _internal_has_owning_browser_handle() const;
+  public:
+  void clear_owning_browser_handle();
+  ::PROTOBUF_NAMESPACE_ID::uint32 owning_browser_handle() const;
+  void set_owning_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_owning_browser_handle() const;
+  void _internal_set_owning_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint64 promise_handle = 3;
+  bool has_promise_handle() const;
+  private:
+  bool _internal_has_promise_handle() const;
+  public:
+  void clear_promise_handle();
+  ::PROTOBUF_NAMESPACE_ID::uint64 promise_handle() const;
+  void set_promise_handle(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_promise_handle() const;
+  void _internal_set_promise_handle(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgJSExecutePromise)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr reject_reason_;
+  ::CMsgJSValue* argument_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 owning_browser_handle_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 promise_handle_;
+  friend struct ::TableStruct_htmlmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgJSReleaseCallback PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgJSReleaseCallback) */ {
  public:
@@ -25189,7 +25414,7 @@ class CMsgJSReleaseCallback PROTOBUF_FINAL :
                &_CMsgJSReleaseCallback_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    130;
+    131;
 
   friend void swap(CMsgJSReleaseCallback& a, CMsgJSReleaseCallback& b) {
     a.Swap(&b);
@@ -25368,7 +25593,7 @@ class CMsgJSRaiseException PROTOBUF_FINAL :
                &_CMsgJSRaiseException_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    131;
+    132;
 
   friend void swap(CMsgJSRaiseException& a, CMsgJSRaiseException& b) {
     a.Swap(&b);
@@ -25554,7 +25779,7 @@ class CMsgLoadLocalization PROTOBUF_FINAL :
                &_CMsgLoadLocalization_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    132;
+    133;
 
   friend void swap(CMsgLoadLocalization& a, CMsgLoadLocalization& b) {
     a.Swap(&b);
@@ -25747,7 +25972,7 @@ class CMsgNotifyUserActivation PROTOBUF_FINAL :
                &_CMsgNotifyUserActivation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    133;
+    134;
 
   friend void swap(CMsgNotifyUserActivation& a, CMsgNotifyUserActivation& b) {
     a.Swap(&b);
@@ -25896,7 +26121,7 @@ class CMsgSetNetFakeLocalSystemState PROTOBUF_FINAL :
                &_CMsgSetNetFakeLocalSystemState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    134;
+    135;
 
   friend void swap(CMsgSetNetFakeLocalSystemState& a, CMsgSetNetFakeLocalSystemState& b) {
     a.Swap(&b);
@@ -26045,7 +26270,7 @@ class CMsgSetGameOverlayTargetPIDs PROTOBUF_FINAL :
                &_CMsgSetGameOverlayTargetPIDs_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    135;
+    136;
 
   friend void swap(CMsgSetGameOverlayTargetPIDs& a, CMsgSetGameOverlayTargetPIDs& b) {
     a.Swap(&b);
@@ -26218,7 +26443,7 @@ class CMsgGameOverlayTargetTextureID PROTOBUF_FINAL :
                &_CMsgGameOverlayTargetTextureID_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    136;
+    137;
 
   friend void swap(CMsgGameOverlayTargetTextureID& a, CMsgGameOverlayTargetTextureID& b) {
     a.Swap(&b);
@@ -26397,7 +26622,7 @@ class CMsgDraggableRegionsChanged_DraggableRects PROTOBUF_FINAL :
                &_CMsgDraggableRegionsChanged_DraggableRects_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    137;
+    138;
 
   friend void swap(CMsgDraggableRegionsChanged_DraggableRects& a, CMsgDraggableRegionsChanged_DraggableRects& b) {
     a.Swap(&b);
@@ -26606,7 +26831,7 @@ class CMsgDraggableRegionsChanged PROTOBUF_FINAL :
                &_CMsgDraggableRegionsChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    138;
+    139;
 
   friend void swap(CMsgDraggableRegionsChanged& a, CMsgDraggableRegionsChanged& b) {
     a.Swap(&b);
@@ -26777,7 +27002,7 @@ class CMsgResizeGripChanged PROTOBUF_FINAL :
                &_CMsgResizeGripChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    139;
+    140;
 
   friend void swap(CMsgResizeGripChanged& a, CMsgResizeGripChanged& b) {
     a.Swap(&b);
@@ -26956,7 +27181,7 @@ class CMsgSetWindowPosition PROTOBUF_FINAL :
                &_CMsgSetWindowPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    140;
+    141;
 
   friend void swap(CMsgSetWindowPosition& a, CMsgSetWindowPosition& b) {
     a.Swap(&b);
@@ -27225,7 +27450,7 @@ class CMsgShowWindow PROTOBUF_FINAL :
                &_CMsgShowWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    141;
+    142;
 
   friend void swap(CMsgShowWindow& a, CMsgShowWindow& b) {
     a.Swap(&b);
@@ -27374,7 +27599,7 @@ class CMsgHideWindow PROTOBUF_FINAL :
                &_CMsgHideWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    142;
+    143;
 
   friend void swap(CMsgHideWindow& a, CMsgHideWindow& b) {
     a.Swap(&b);
@@ -27523,7 +27748,7 @@ class CMsgBringWindowToFront PROTOBUF_FINAL :
                &_CMsgBringWindowToFront_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    143;
+    144;
 
   friend void swap(CMsgBringWindowToFront& a, CMsgBringWindowToFront& b) {
     a.Swap(&b);
@@ -27672,7 +27897,7 @@ class CMsgSetForegroundWindow PROTOBUF_FINAL :
                &_CMsgSetForegroundWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    144;
+    145;
 
   friend void swap(CMsgSetForegroundWindow& a, CMsgSetForegroundWindow& b) {
     a.Swap(&b);
@@ -27821,7 +28046,7 @@ class CMsgMaximizeRestoreWindow PROTOBUF_FINAL :
                &_CMsgMaximizeRestoreWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    145;
+    146;
 
   friend void swap(CMsgMaximizeRestoreWindow& a, CMsgMaximizeRestoreWindow& b) {
     a.Swap(&b);
@@ -27970,7 +28195,7 @@ class CMsgMinimizeWindow PROTOBUF_FINAL :
                &_CMsgMinimizeWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    146;
+    147;
 
   friend void swap(CMsgMinimizeWindow& a, CMsgMinimizeWindow& b) {
     a.Swap(&b);
@@ -28119,7 +28344,7 @@ class CMsgShowBrowserContextMenu_ContextCommand PROTOBUF_FINAL :
                &_CMsgShowBrowserContextMenu_ContextCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    147;
+    148;
 
   friend void swap(CMsgShowBrowserContextMenu_ContextCommand& a, CMsgShowBrowserContextMenu_ContextCommand& b) {
     a.Swap(&b);
@@ -28290,7 +28515,7 @@ class CMsgShowBrowserContextMenu PROTOBUF_FINAL :
                &_CMsgShowBrowserContextMenu_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    148;
+    149;
 
   friend void swap(CMsgShowBrowserContextMenu& a, CMsgShowBrowserContextMenu& b) {
     a.Swap(&b);
@@ -28631,7 +28856,7 @@ class CMsgHandleContextMenuCommand PROTOBUF_FINAL :
                &_CMsgHandleContextMenuCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    149;
+    150;
 
   friend void swap(CMsgHandleContextMenuCommand& a, CMsgHandleContextMenuCommand& b) {
     a.Swap(&b);
@@ -28795,7 +29020,7 @@ class CMsgTouchGesture PROTOBUF_FINAL :
                &_CMsgTouchGesture_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    150;
+    151;
 
   friend void swap(CMsgTouchGesture& a, CMsgTouchGesture& b) {
     a.Swap(&b);
@@ -29064,7 +29289,7 @@ class CMsgSetTouchGesturesToCancel PROTOBUF_FINAL :
                &_CMsgSetTouchGesturesToCancel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    151;
+    152;
 
   friend void swap(CMsgSetTouchGesturesToCancel& a, CMsgSetTouchGesturesToCancel& b) {
     a.Swap(&b);
@@ -29237,7 +29462,7 @@ class CMsgImeSetComposition PROTOBUF_FINAL :
                &_CMsgImeSetComposition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    152;
+    153;
 
   friend void swap(CMsgImeSetComposition& a, CMsgImeSetComposition& b) {
     a.Swap(&b);
@@ -29408,7 +29633,7 @@ class CMsgImeCommitText PROTOBUF_FINAL :
                &_CMsgImeCommitText_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    153;
+    154;
 
   friend void swap(CMsgImeCommitText& a, CMsgImeCommitText& b) {
     a.Swap(&b);
@@ -29579,7 +29804,7 @@ class CMsgImeCancelComposition PROTOBUF_FINAL :
                &_CMsgImeCancelComposition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    154;
+    155;
 
   friend void swap(CMsgImeCancelComposition& a, CMsgImeCancelComposition& b) {
     a.Swap(&b);
@@ -29728,7 +29953,7 @@ class CMsgImeCompositionRangeChanged PROTOBUF_FINAL :
                &_CMsgImeCompositionRangeChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    155;
+    156;
 
   friend void swap(CMsgImeCompositionRangeChanged& a, CMsgImeCompositionRangeChanged& b) {
     a.Swap(&b);
@@ -29907,7 +30132,7 @@ class CMsgInspectElement PROTOBUF_FINAL :
                &_CMsgInspectElement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    156;
+    157;
 
   friend void swap(CMsgInspectElement& a, CMsgInspectElement& b) {
     a.Swap(&b);
@@ -30086,7 +30311,7 @@ class CMsgDisableF5 PROTOBUF_FINAL :
                &_CMsgDisableF5_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    157;
+    158;
 
   friend void swap(CMsgDisableF5& a, CMsgDisableF5& b) {
     a.Swap(&b);
@@ -30250,7 +30475,7 @@ class CMsgStartDownload PROTOBUF_FINAL :
                &_CMsgStartDownload_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    158;
+    159;
 
   friend void swap(CMsgStartDownload& a, CMsgStartDownload& b) {
     a.Swap(&b);
@@ -30421,7 +30646,7 @@ class CMsgSetTopWindow PROTOBUF_FINAL :
                &_CMsgSetTopWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    159;
+    160;
 
   friend void swap(CMsgSetTopWindow& a, CMsgSetTopWindow& b) {
     a.Swap(&b);
@@ -30570,7 +30795,7 @@ class CMsgBrowserViewPostMessageToParentRequest PROTOBUF_FINAL :
                &_CMsgBrowserViewPostMessageToParentRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    160;
+    161;
 
   friend void swap(CMsgBrowserViewPostMessageToParentRequest& a, CMsgBrowserViewPostMessageToParentRequest& b) {
     a.Swap(&b);
@@ -30785,7 +31010,7 @@ class CMsgBlockedRequest PROTOBUF_FINAL :
                &_CMsgBlockedRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    161;
+    162;
 
   friend void swap(CMsgBlockedRequest& a, CMsgBlockedRequest& b) {
     a.Swap(&b);
@@ -30956,7 +31181,7 @@ class CMsgBrowserFocusChanged PROTOBUF_FINAL :
                &_CMsgBrowserFocusChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    162;
+    163;
 
   friend void swap(CMsgBrowserFocusChanged& a, CMsgBrowserFocusChanged& b) {
     a.Swap(&b);
@@ -31120,7 +31345,7 @@ class CMsgSetProtocolBlockList PROTOBUF_FINAL :
                &_CMsgSetProtocolBlockList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    163;
+    164;
 
   friend void swap(CMsgSetProtocolBlockList& a, CMsgSetProtocolBlockList& b) {
     a.Swap(&b);
@@ -31291,7 +31516,7 @@ class CMsgSetForceDeviceScaleFactors PROTOBUF_FINAL :
                &_CMsgSetForceDeviceScaleFactors_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    164;
+    165;
 
   friend void swap(CMsgSetForceDeviceScaleFactors& a, CMsgSetForceDeviceScaleFactors& b) {
     a.Swap(&b);
@@ -31455,7 +31680,7 @@ class CMsgSetUIMode PROTOBUF_FINAL :
                &_CMsgSetUIMode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    165;
+    166;
 
   friend void swap(CMsgSetUIMode& a, CMsgSetUIMode& b) {
     a.Swap(&b);
@@ -31604,7 +31829,7 @@ class CMsgPopupCreated PROTOBUF_FINAL :
                &_CMsgPopupCreated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    166;
+    167;
 
   friend void swap(CMsgPopupCreated& a, CMsgPopupCreated& b) {
     a.Swap(&b);
@@ -31753,7 +31978,7 @@ class CMsgSetVRKeyboardVisibility PROTOBUF_FINAL :
                &_CMsgSetVRKeyboardVisibility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    167;
+    168;
 
   friend void swap(CMsgSetVRKeyboardVisibility& a, CMsgSetVRKeyboardVisibility& b) {
     a.Swap(&b);
@@ -31917,7 +32142,7 @@ class CMsgRestartJSContext PROTOBUF_FINAL :
                &_CMsgRestartJSContext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    168;
+    169;
 
   friend void swap(CMsgRestartJSContext& a, CMsgRestartJSContext& b) {
     a.Swap(&b);
@@ -48483,6 +48708,250 @@ CMsgJSExecuteCallback::arguments() const {
 
 // -------------------------------------------------------------------
 
+// CMsgJSExecutePromise
+
+// optional uint32 browser_handle = 1;
+inline bool CMsgJSExecutePromise::_internal_has_browser_handle() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgJSExecutePromise::has_browser_handle() const {
+  return _internal_has_browser_handle();
+}
+inline void CMsgJSExecutePromise::clear_browser_handle() {
+  browser_handle_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgJSExecutePromise::_internal_browser_handle() const {
+  return browser_handle_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgJSExecutePromise::browser_handle() const {
+  // @@protoc_insertion_point(field_get:CMsgJSExecutePromise.browser_handle)
+  return _internal_browser_handle();
+}
+inline void CMsgJSExecutePromise::_internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  browser_handle_ = value;
+}
+inline void CMsgJSExecutePromise::set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_browser_handle(value);
+  // @@protoc_insertion_point(field_set:CMsgJSExecutePromise.browser_handle)
+}
+
+// optional uint32 owning_browser_handle = 2;
+inline bool CMsgJSExecutePromise::_internal_has_owning_browser_handle() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgJSExecutePromise::has_owning_browser_handle() const {
+  return _internal_has_owning_browser_handle();
+}
+inline void CMsgJSExecutePromise::clear_owning_browser_handle() {
+  owning_browser_handle_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgJSExecutePromise::_internal_owning_browser_handle() const {
+  return owning_browser_handle_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgJSExecutePromise::owning_browser_handle() const {
+  // @@protoc_insertion_point(field_get:CMsgJSExecutePromise.owning_browser_handle)
+  return _internal_owning_browser_handle();
+}
+inline void CMsgJSExecutePromise::_internal_set_owning_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  owning_browser_handle_ = value;
+}
+inline void CMsgJSExecutePromise::set_owning_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_owning_browser_handle(value);
+  // @@protoc_insertion_point(field_set:CMsgJSExecutePromise.owning_browser_handle)
+}
+
+// optional uint64 promise_handle = 3;
+inline bool CMsgJSExecutePromise::_internal_has_promise_handle() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgJSExecutePromise::has_promise_handle() const {
+  return _internal_has_promise_handle();
+}
+inline void CMsgJSExecutePromise::clear_promise_handle() {
+  promise_handle_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgJSExecutePromise::_internal_promise_handle() const {
+  return promise_handle_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgJSExecutePromise::promise_handle() const {
+  // @@protoc_insertion_point(field_get:CMsgJSExecutePromise.promise_handle)
+  return _internal_promise_handle();
+}
+inline void CMsgJSExecutePromise::_internal_set_promise_handle(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000010u;
+  promise_handle_ = value;
+}
+inline void CMsgJSExecutePromise::set_promise_handle(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_promise_handle(value);
+  // @@protoc_insertion_point(field_set:CMsgJSExecutePromise.promise_handle)
+}
+
+// optional string reject_reason = 4;
+inline bool CMsgJSExecutePromise::_internal_has_reject_reason() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgJSExecutePromise::has_reject_reason() const {
+  return _internal_has_reject_reason();
+}
+inline void CMsgJSExecutePromise::clear_reject_reason() {
+  reject_reason_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgJSExecutePromise::reject_reason() const {
+  // @@protoc_insertion_point(field_get:CMsgJSExecutePromise.reject_reason)
+  return _internal_reject_reason();
+}
+inline void CMsgJSExecutePromise::set_reject_reason(const std::string& value) {
+  _internal_set_reject_reason(value);
+  // @@protoc_insertion_point(field_set:CMsgJSExecutePromise.reject_reason)
+}
+inline std::string* CMsgJSExecutePromise::mutable_reject_reason() {
+  // @@protoc_insertion_point(field_mutable:CMsgJSExecutePromise.reject_reason)
+  return _internal_mutable_reject_reason();
+}
+inline const std::string& CMsgJSExecutePromise::_internal_reject_reason() const {
+  return reject_reason_.Get();
+}
+inline void CMsgJSExecutePromise::_internal_set_reject_reason(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  reject_reason_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgJSExecutePromise::set_reject_reason(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  reject_reason_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgJSExecutePromise.reject_reason)
+}
+inline void CMsgJSExecutePromise::set_reject_reason(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  reject_reason_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgJSExecutePromise.reject_reason)
+}
+inline void CMsgJSExecutePromise::set_reject_reason(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  reject_reason_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgJSExecutePromise.reject_reason)
+}
+inline std::string* CMsgJSExecutePromise::_internal_mutable_reject_reason() {
+  _has_bits_[0] |= 0x00000001u;
+  return reject_reason_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgJSExecutePromise::release_reject_reason() {
+  // @@protoc_insertion_point(field_release:CMsgJSExecutePromise.reject_reason)
+  if (!_internal_has_reject_reason()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return reject_reason_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgJSExecutePromise::set_allocated_reject_reason(std::string* reject_reason) {
+  if (reject_reason != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  reject_reason_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), reject_reason,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgJSExecutePromise.reject_reason)
+}
+
+// optional .CMsgJSValue argument = 5;
+inline bool CMsgJSExecutePromise::_internal_has_argument() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || argument_ != nullptr);
+  return value;
+}
+inline bool CMsgJSExecutePromise::has_argument() const {
+  return _internal_has_argument();
+}
+inline void CMsgJSExecutePromise::clear_argument() {
+  if (argument_ != nullptr) argument_->Clear();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CMsgJSValue& CMsgJSExecutePromise::_internal_argument() const {
+  const ::CMsgJSValue* p = argument_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgJSValue&>(
+      ::_CMsgJSValue_default_instance_);
+}
+inline const ::CMsgJSValue& CMsgJSExecutePromise::argument() const {
+  // @@protoc_insertion_point(field_get:CMsgJSExecutePromise.argument)
+  return _internal_argument();
+}
+inline void CMsgJSExecutePromise::unsafe_arena_set_allocated_argument(
+    ::CMsgJSValue* argument) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(argument_);
+  }
+  argument_ = argument;
+  if (argument) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgJSExecutePromise.argument)
+}
+inline ::CMsgJSValue* CMsgJSExecutePromise::release_argument() {
+  _has_bits_[0] &= ~0x00000002u;
+  ::CMsgJSValue* temp = argument_;
+  argument_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CMsgJSValue* CMsgJSExecutePromise::unsafe_arena_release_argument() {
+  // @@protoc_insertion_point(field_release:CMsgJSExecutePromise.argument)
+  _has_bits_[0] &= ~0x00000002u;
+  ::CMsgJSValue* temp = argument_;
+  argument_ = nullptr;
+  return temp;
+}
+inline ::CMsgJSValue* CMsgJSExecutePromise::_internal_mutable_argument() {
+  _has_bits_[0] |= 0x00000002u;
+  if (argument_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgJSValue>(GetArena());
+    argument_ = p;
+  }
+  return argument_;
+}
+inline ::CMsgJSValue* CMsgJSExecutePromise::mutable_argument() {
+  // @@protoc_insertion_point(field_mutable:CMsgJSExecutePromise.argument)
+  return _internal_mutable_argument();
+}
+inline void CMsgJSExecutePromise::set_allocated_argument(::CMsgJSValue* argument) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete argument_;
+  }
+  if (argument) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(argument);
+    if (message_arena != submessage_arena) {
+      argument = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, argument, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  argument_ = argument;
+  // @@protoc_insertion_point(field_set_allocated:CMsgJSExecutePromise.argument)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgJSReleaseCallback
 
 // optional uint32 browser_handle = 1;
@@ -52237,6 +52706,8 @@ inline void CMsgSetVRKeyboardVisibility::set_visible(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

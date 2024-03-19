@@ -51,7 +51,7 @@ struct TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[58]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[62]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -104,6 +104,12 @@ extern CFamilyGroups_DeleteFamilyGroup_RequestDefaultTypeInternal _CFamilyGroups
 class CFamilyGroups_DeleteFamilyGroup_Response;
 struct CFamilyGroups_DeleteFamilyGroup_ResponseDefaultTypeInternal;
 extern CFamilyGroups_DeleteFamilyGroup_ResponseDefaultTypeInternal _CFamilyGroups_DeleteFamilyGroup_Response_default_instance_;
+class CFamilyGroups_FamilyDispersionGraph;
+struct CFamilyGroups_FamilyDispersionGraphDefaultTypeInternal;
+extern CFamilyGroups_FamilyDispersionGraphDefaultTypeInternal _CFamilyGroups_FamilyDispersionGraph_default_instance_;
+class CFamilyGroups_FamilyDispersionGraph_Edge;
+struct CFamilyGroups_FamilyDispersionGraph_EdgeDefaultTypeInternal;
+extern CFamilyGroups_FamilyDispersionGraph_EdgeDefaultTypeInternal _CFamilyGroups_FamilyDispersionGraph_Edge_default_instance_;
 class CFamilyGroups_GetChangeLog_Request;
 struct CFamilyGroups_GetChangeLog_RequestDefaultTypeInternal;
 extern CFamilyGroups_GetChangeLog_RequestDefaultTypeInternal _CFamilyGroups_GetChangeLog_Request_default_instance_;
@@ -113,6 +119,12 @@ extern CFamilyGroups_GetChangeLog_ResponseDefaultTypeInternal _CFamilyGroups_Get
 class CFamilyGroups_GetChangeLog_Response_Change;
 struct CFamilyGroups_GetChangeLog_Response_ChangeDefaultTypeInternal;
 extern CFamilyGroups_GetChangeLog_Response_ChangeDefaultTypeInternal _CFamilyGroups_GetChangeLog_Response_Change_default_instance_;
+class CFamilyGroups_GetDispersionForFamily_Request;
+struct CFamilyGroups_GetDispersionForFamily_RequestDefaultTypeInternal;
+extern CFamilyGroups_GetDispersionForFamily_RequestDefaultTypeInternal _CFamilyGroups_GetDispersionForFamily_Request_default_instance_;
+class CFamilyGroups_GetDispersionForFamily_Response;
+struct CFamilyGroups_GetDispersionForFamily_ResponseDefaultTypeInternal;
+extern CFamilyGroups_GetDispersionForFamily_ResponseDefaultTypeInternal _CFamilyGroups_GetDispersionForFamily_Response_default_instance_;
 class CFamilyGroups_GetFamilyGroupForUser_Request;
 struct CFamilyGroups_GetFamilyGroupForUser_RequestDefaultTypeInternal;
 extern CFamilyGroups_GetFamilyGroupForUser_RequestDefaultTypeInternal _CFamilyGroups_GetFamilyGroupForUser_Request_default_instance_;
@@ -249,9 +261,13 @@ template<> ::CFamilyGroups_CreateFamilyGroup_Request* Arena::CreateMaybeMessage<
 template<> ::CFamilyGroups_CreateFamilyGroup_Response* Arena::CreateMaybeMessage<::CFamilyGroups_CreateFamilyGroup_Response>(Arena*);
 template<> ::CFamilyGroups_DeleteFamilyGroup_Request* Arena::CreateMaybeMessage<::CFamilyGroups_DeleteFamilyGroup_Request>(Arena*);
 template<> ::CFamilyGroups_DeleteFamilyGroup_Response* Arena::CreateMaybeMessage<::CFamilyGroups_DeleteFamilyGroup_Response>(Arena*);
+template<> ::CFamilyGroups_FamilyDispersionGraph* Arena::CreateMaybeMessage<::CFamilyGroups_FamilyDispersionGraph>(Arena*);
+template<> ::CFamilyGroups_FamilyDispersionGraph_Edge* Arena::CreateMaybeMessage<::CFamilyGroups_FamilyDispersionGraph_Edge>(Arena*);
 template<> ::CFamilyGroups_GetChangeLog_Request* Arena::CreateMaybeMessage<::CFamilyGroups_GetChangeLog_Request>(Arena*);
 template<> ::CFamilyGroups_GetChangeLog_Response* Arena::CreateMaybeMessage<::CFamilyGroups_GetChangeLog_Response>(Arena*);
 template<> ::CFamilyGroups_GetChangeLog_Response_Change* Arena::CreateMaybeMessage<::CFamilyGroups_GetChangeLog_Response_Change>(Arena*);
+template<> ::CFamilyGroups_GetDispersionForFamily_Request* Arena::CreateMaybeMessage<::CFamilyGroups_GetDispersionForFamily_Request>(Arena*);
+template<> ::CFamilyGroups_GetDispersionForFamily_Response* Arena::CreateMaybeMessage<::CFamilyGroups_GetDispersionForFamily_Response>(Arena*);
 template<> ::CFamilyGroups_GetFamilyGroupForUser_Request* Arena::CreateMaybeMessage<::CFamilyGroups_GetFamilyGroupForUser_Request>(Arena*);
 template<> ::CFamilyGroups_GetFamilyGroupForUser_Response* Arena::CreateMaybeMessage<::CFamilyGroups_GetFamilyGroupForUser_Response>(Arena*);
 template<> ::CFamilyGroups_GetFamilyGroup_Request* Arena::CreateMaybeMessage<::CFamilyGroups_GetFamilyGroup_Request>(Arena*);
@@ -413,15 +429,39 @@ inline bool EFamilyGroupChangeLogType_Parse(
 }
 enum ESharedLibraryExcludeReason : int {
   ESharedLibrary_Included = 0,
-  ESharedLibrary_AppExcluded = 1,
+  ESharedLibrary_AppExcluded_ByPartner = 1,
   ESharedLibrary_LicenseExcluded = 2,
   ESharedLibrary_FreeGame = 3,
   ESharedLibrary_LicensePrivate = 4,
-  ESharedLibrary_OptedOut = 5
+  ESharedLibrary_AppExcluded_WrongAppType = 6,
+  ESharedLibrary_AppExcluded_NonrefundableDLC = 7,
+  ESharedLibrary_AppExcluded_UnreleasedApp = 8,
+  ESharedLibrary_AppExcluded_ParentAppExcluded = 9,
+  ESharedLibrary_PackageExcluded_ByPartner = 10,
+  ESharedLibrary_PackageExcluded_Special = 11,
+  ESharedLibrary_PackageExcluded_Dev = 12,
+  ESharedLibrary_PackageExcluded_FreeWeekend = 13,
+  ESharedLibrary_PackageExcluded_FreePromotion = 14,
+  ESharedLibrary_PackageExcluded_Invalid = 15,
+  ESharedLibrary_PackageExcluded_RecurringLicense = 16,
+  ESharedLibrary_PackageExcluded_WrongLicenseType = 17,
+  ESharedLibrary_PackageExcluded_MasterSub = 18,
+  ESharedLibrary_PackageExcluded_NoShareableApps = 19,
+  ESharedLibrary_LicenseExcluded_PaymentMasterSub = 20,
+  ESharedLibrary_LicenseExcluded_PaymentFamilyGroup = 21,
+  ESharedLibrary_LicenseExcluded_PaymentAuthorizedDevice = 22,
+  ESharedLibrary_LicenseExcluded_PaymentAutoGrant = 23,
+  ESharedLibrary_LicenseExcluded_FlagPending = 24,
+  ESharedLibrary_LicenseExcluded_FlagPendingRefund = 25,
+  ESharedLibrary_LicenseExcluded_FlagBorrowed = 26,
+  ESharedLibrary_LicenseExcluded_FlagAutoGrant = 27,
+  ESharedLibrary_LicenseExcluded_FlagTimedTrial = 28,
+  ESharedLibrary_LicenseExcluded_FreeSub = 29,
+  ESharedLibrary_LicenseExcluded_Inactive = 30
 };
 bool ESharedLibraryExcludeReason_IsValid(int value);
 constexpr ESharedLibraryExcludeReason ESharedLibraryExcludeReason_MIN = ESharedLibrary_Included;
-constexpr ESharedLibraryExcludeReason ESharedLibraryExcludeReason_MAX = ESharedLibrary_OptedOut;
+constexpr ESharedLibraryExcludeReason ESharedLibraryExcludeReason_MAX = ESharedLibrary_LicenseExcluded_Inactive;
 constexpr int ESharedLibraryExcludeReason_ARRAYSIZE = ESharedLibraryExcludeReason_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESharedLibraryExcludeReason_descriptor();
@@ -1047,6 +1087,7 @@ class FamilyGroupMember PROTOBUF_FINAL :
     kSteamidFieldNumber = 1,
     kRoleFieldNumber = 2,
     kTimeJoinedFieldNumber = 3,
+    kCooldownSecondsRemainingFieldNumber = 4,
   };
   // optional fixed64 steamid = 1;
   bool has_steamid() const;
@@ -1087,6 +1128,19 @@ class FamilyGroupMember PROTOBUF_FINAL :
   void _internal_set_time_joined(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 cooldown_seconds_remaining = 4;
+  bool has_cooldown_seconds_remaining() const;
+  private:
+  bool _internal_has_cooldown_seconds_remaining() const;
+  public:
+  void clear_cooldown_seconds_remaining();
+  ::PROTOBUF_NAMESPACE_ID::uint32 cooldown_seconds_remaining() const;
+  void set_cooldown_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cooldown_seconds_remaining() const;
+  void _internal_set_cooldown_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:FamilyGroupMember)
  private:
   class _Internal;
@@ -1099,6 +1153,7 @@ class FamilyGroupMember PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 steamid_;
   int role_;
   ::PROTOBUF_NAMESPACE_ID::uint32 time_joined_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cooldown_seconds_remaining_;
   friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1820,6 +1875,7 @@ class CFamilyGroups_GetFamilyGroupForUser_Request PROTOBUF_FINAL :
 
   enum : int {
     kSteamidFieldNumber = 1,
+    kIncludeFamilyGroupResponseFieldNumber = 2,
   };
   // optional uint64 steamid = 1;
   bool has_steamid() const;
@@ -1834,6 +1890,19 @@ class CFamilyGroups_GetFamilyGroupForUser_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional bool include_family_group_response = 2;
+  bool has_include_family_group_response() const;
+  private:
+  bool _internal_has_include_family_group_response() const;
+  public:
+  void clear_include_family_group_response();
+  bool include_family_group_response() const;
+  void set_include_family_group_response(bool value);
+  private:
+  bool _internal_include_family_group_response() const;
+  void _internal_set_include_family_group_response(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CFamilyGroups_GetFamilyGroupForUser_Request)
  private:
   class _Internal;
@@ -1844,6 +1913,7 @@ class CFamilyGroups_GetFamilyGroupForUser_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steamid_;
+  bool include_family_group_response_;
   friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2148,6 +2218,7 @@ class CFamilyGroups_GetFamilyGroupForUser_Response PROTOBUF_FINAL :
 
   enum : int {
     kPendingGroupInvitesFieldNumber = 5,
+    kFamilyGroupFieldNumber = 8,
     kFamilyGroupidFieldNumber = 1,
     kIsNotMemberOfAnyGroupFieldNumber = 2,
     kLatestTimeJoinedFieldNumber = 3,
@@ -2172,6 +2243,24 @@ class CFamilyGroups_GetFamilyGroupForUser_Response PROTOBUF_FINAL :
   ::FamilyGroupPendingInviteForUser* add_pending_group_invites();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::FamilyGroupPendingInviteForUser >&
       pending_group_invites() const;
+
+  // optional .CFamilyGroups_GetFamilyGroup_Response family_group = 8;
+  bool has_family_group() const;
+  private:
+  bool _internal_has_family_group() const;
+  public:
+  void clear_family_group();
+  const ::CFamilyGroups_GetFamilyGroup_Response& family_group() const;
+  ::CFamilyGroups_GetFamilyGroup_Response* release_family_group();
+  ::CFamilyGroups_GetFamilyGroup_Response* mutable_family_group();
+  void set_allocated_family_group(::CFamilyGroups_GetFamilyGroup_Response* family_group);
+  private:
+  const ::CFamilyGroups_GetFamilyGroup_Response& _internal_family_group() const;
+  ::CFamilyGroups_GetFamilyGroup_Response* _internal_mutable_family_group();
+  public:
+  void unsafe_arena_set_allocated_family_group(
+      ::CFamilyGroups_GetFamilyGroup_Response* family_group);
+  ::CFamilyGroups_GetFamilyGroup_Response* unsafe_arena_release_family_group();
 
   // optional uint64 family_groupid = 1;
   bool has_family_groupid() const;
@@ -2261,6 +2350,7 @@ class CFamilyGroups_GetFamilyGroupForUser_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::FamilyGroupPendingInviteForUser > pending_group_invites_;
+  ::CFamilyGroups_GetFamilyGroup_Response* family_group_;
   ::PROTOBUF_NAMESPACE_ID::uint64 family_groupid_;
   bool is_not_member_of_any_group_;
   ::PROTOBUF_NAMESPACE_ID::uint32 latest_time_joined_;
@@ -6331,9 +6421,32 @@ class CFamilyGroups_GetPurchaseRequests_Request PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kRequestIdsFieldNumber = 3,
     kFamilyGroupidFieldNumber = 1,
-    kIncludeCompletedFieldNumber = 2,
+    kRtIncludeCompletedSinceFieldNumber = 4,
   };
+  // repeated uint64 request_ids = 3;
+  int request_ids_size() const;
+  private:
+  int _internal_request_ids_size() const;
+  public:
+  void clear_request_ids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_request_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_request_ids() const;
+  void _internal_add_request_ids(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_request_ids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint64 request_ids(int index) const;
+  void set_request_ids(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void add_request_ids(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      request_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_request_ids();
+
   // optional uint64 family_groupid = 1;
   bool has_family_groupid() const;
   private:
@@ -6347,17 +6460,17 @@ class CFamilyGroups_GetPurchaseRequests_Request PROTOBUF_FINAL :
   void _internal_set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool include_completed = 2;
-  bool has_include_completed() const;
+  // optional uint32 rt_include_completed_since = 4;
+  bool has_rt_include_completed_since() const;
   private:
-  bool _internal_has_include_completed() const;
+  bool _internal_has_rt_include_completed_since() const;
   public:
-  void clear_include_completed();
-  bool include_completed() const;
-  void set_include_completed(bool value);
+  void clear_rt_include_completed_since();
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_include_completed_since() const;
+  void set_rt_include_completed_since(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  bool _internal_include_completed() const;
-  void _internal_set_include_completed(bool value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_include_completed_since() const;
+  void _internal_set_rt_include_completed_since(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:CFamilyGroups_GetPurchaseRequests_Request)
@@ -6369,8 +6482,9 @@ class CFamilyGroups_GetPurchaseRequests_Request PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > request_ids_;
   ::PROTOBUF_NAMESPACE_ID::uint64 family_groupid_;
-  bool include_completed_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_include_completed_since_;
   friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6495,6 +6609,10 @@ class PurchaseRequest PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kRequestedPackageidsFieldNumber = 9,
+    kPurchasedPackageidsFieldNumber = 10,
+    kRequestedBundleidsFieldNumber = 11,
+    kPurchasedBundleidsFieldNumber = 12,
     kRequesterSteamidFieldNumber = 1,
     kGidshoppingcartFieldNumber = 2,
     kTimeRequestedFieldNumber = 3,
@@ -6504,6 +6622,94 @@ class PurchaseRequest PROTOBUF_FINAL :
     kIsCompletedFieldNumber = 7,
     kRequestIdFieldNumber = 8,
   };
+  // repeated uint32 requested_packageids = 9;
+  int requested_packageids_size() const;
+  private:
+  int _internal_requested_packageids_size() const;
+  public:
+  void clear_requested_packageids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_requested_packageids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_requested_packageids() const;
+  void _internal_add_requested_packageids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_requested_packageids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 requested_packageids(int index) const;
+  void set_requested_packageids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_requested_packageids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      requested_packageids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_requested_packageids();
+
+  // repeated uint32 purchased_packageids = 10;
+  int purchased_packageids_size() const;
+  private:
+  int _internal_purchased_packageids_size() const;
+  public:
+  void clear_purchased_packageids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_purchased_packageids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_purchased_packageids() const;
+  void _internal_add_purchased_packageids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_purchased_packageids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 purchased_packageids(int index) const;
+  void set_purchased_packageids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_purchased_packageids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      purchased_packageids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_purchased_packageids();
+
+  // repeated uint32 requested_bundleids = 11;
+  int requested_bundleids_size() const;
+  private:
+  int _internal_requested_bundleids_size() const;
+  public:
+  void clear_requested_bundleids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_requested_bundleids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_requested_bundleids() const;
+  void _internal_add_requested_bundleids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_requested_bundleids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 requested_bundleids(int index) const;
+  void set_requested_bundleids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_requested_bundleids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      requested_bundleids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_requested_bundleids();
+
+  // repeated uint32 purchased_bundleids = 12;
+  int purchased_bundleids_size() const;
+  private:
+  int _internal_purchased_bundleids_size() const;
+  public:
+  void clear_purchased_bundleids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_purchased_bundleids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_purchased_bundleids() const;
+  void _internal_add_purchased_bundleids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_purchased_bundleids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 purchased_bundleids(int index) const;
+  void set_purchased_bundleids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_purchased_bundleids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      purchased_bundleids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_purchased_bundleids();
+
   // optional fixed64 requester_steamid = 1;
   bool has_requester_steamid() const;
   private:
@@ -6617,6 +6823,10 @@ class PurchaseRequest PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > requested_packageids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > purchased_packageids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > requested_bundleids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > purchased_bundleids_;
   ::PROTOBUF_NAMESPACE_ID::uint64 requester_steamid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 gidshoppingcart_;
   ::PROTOBUF_NAMESPACE_ID::uint32 time_requested_;
@@ -8247,10 +8457,12 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp PROTOBUF_FINAL :
     kNameFieldNumber = 6,
     kSortAsFieldNumber = 7,
     kCapsuleFilenameFieldNumber = 8,
-    kImgIconUrlFieldNumber = 9,
+    kImgIconHashFieldNumber = 9,
     kAppidFieldNumber = 1,
     kExcludeReasonFieldNumber = 10,
+    kRtPlaytimeFieldNumber = 13,
     kRtTimeAcquiredFieldNumber = 11,
+    kRtLastPlayedFieldNumber = 12,
   };
   // repeated fixed64 owner_steamids = 2;
   int owner_steamids_size() const;
@@ -8334,24 +8546,24 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp PROTOBUF_FINAL :
   std::string* _internal_mutable_capsule_filename();
   public:
 
-  // optional string img_icon_url = 9;
-  bool has_img_icon_url() const;
+  // optional string img_icon_hash = 9;
+  bool has_img_icon_hash() const;
   private:
-  bool _internal_has_img_icon_url() const;
+  bool _internal_has_img_icon_hash() const;
   public:
-  void clear_img_icon_url();
-  const std::string& img_icon_url() const;
-  void set_img_icon_url(const std::string& value);
-  void set_img_icon_url(std::string&& value);
-  void set_img_icon_url(const char* value);
-  void set_img_icon_url(const char* value, size_t size);
-  std::string* mutable_img_icon_url();
-  std::string* release_img_icon_url();
-  void set_allocated_img_icon_url(std::string* img_icon_url);
+  void clear_img_icon_hash();
+  const std::string& img_icon_hash() const;
+  void set_img_icon_hash(const std::string& value);
+  void set_img_icon_hash(std::string&& value);
+  void set_img_icon_hash(const char* value);
+  void set_img_icon_hash(const char* value, size_t size);
+  std::string* mutable_img_icon_hash();
+  std::string* release_img_icon_hash();
+  void set_allocated_img_icon_hash(std::string* img_icon_hash);
   private:
-  const std::string& _internal_img_icon_url() const;
-  void _internal_set_img_icon_url(const std::string& value);
-  std::string* _internal_mutable_img_icon_url();
+  const std::string& _internal_img_icon_hash() const;
+  void _internal_set_img_icon_hash(const std::string& value);
+  std::string* _internal_mutable_img_icon_hash();
   public:
 
   // optional uint32 appid = 1;
@@ -8380,6 +8592,19 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp PROTOBUF_FINAL :
   void _internal_set_exclude_reason(::ESharedLibraryExcludeReason value);
   public:
 
+  // optional uint32 rt_playtime = 13;
+  bool has_rt_playtime() const;
+  private:
+  bool _internal_has_rt_playtime() const;
+  public:
+  void clear_rt_playtime();
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_playtime() const;
+  void set_rt_playtime(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_playtime() const;
+  void _internal_set_rt_playtime(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // optional uint32 rt_time_acquired = 11;
   bool has_rt_time_acquired() const;
   private:
@@ -8391,6 +8616,19 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_time_acquired() const;
   void _internal_set_rt_time_acquired(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 rt_last_played = 12;
+  bool has_rt_last_played() const;
+  private:
+  bool _internal_has_rt_last_played() const;
+  public:
+  void clear_rt_last_played();
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_last_played() const;
+  void set_rt_last_played(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_last_played() const;
+  void _internal_set_rt_last_played(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp)
@@ -8406,10 +8644,12 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sort_as_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr capsule_filename_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr img_icon_url_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr img_icon_hash_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   int exclude_reason_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_playtime_;
   ::PROTOBUF_NAMESPACE_ID::uint32 rt_time_acquired_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_last_played_;
   friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -9356,6 +9596,658 @@ class CFamilyGroups_GetPreferredLenders_Response PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CFamilyGroups_GetDispersionForFamily_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CFamilyGroups_GetDispersionForFamily_Request) */ {
+ public:
+  inline CFamilyGroups_GetDispersionForFamily_Request() : CFamilyGroups_GetDispersionForFamily_Request(nullptr) {}
+  virtual ~CFamilyGroups_GetDispersionForFamily_Request();
+  explicit constexpr CFamilyGroups_GetDispersionForFamily_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CFamilyGroups_GetDispersionForFamily_Request(const CFamilyGroups_GetDispersionForFamily_Request& from);
+  CFamilyGroups_GetDispersionForFamily_Request(CFamilyGroups_GetDispersionForFamily_Request&& from) noexcept
+    : CFamilyGroups_GetDispersionForFamily_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CFamilyGroups_GetDispersionForFamily_Request& operator=(const CFamilyGroups_GetDispersionForFamily_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CFamilyGroups_GetDispersionForFamily_Request& operator=(CFamilyGroups_GetDispersionForFamily_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CFamilyGroups_GetDispersionForFamily_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CFamilyGroups_GetDispersionForFamily_Request* internal_default_instance() {
+    return reinterpret_cast<const CFamilyGroups_GetDispersionForFamily_Request*>(
+               &_CFamilyGroups_GetDispersionForFamily_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    53;
+
+  friend void swap(CFamilyGroups_GetDispersionForFamily_Request& a, CFamilyGroups_GetDispersionForFamily_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CFamilyGroups_GetDispersionForFamily_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CFamilyGroups_GetDispersionForFamily_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CFamilyGroups_GetDispersionForFamily_Request* New() const final {
+    return CreateMaybeMessage<CFamilyGroups_GetDispersionForFamily_Request>(nullptr);
+  }
+
+  CFamilyGroups_GetDispersionForFamily_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CFamilyGroups_GetDispersionForFamily_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CFamilyGroups_GetDispersionForFamily_Request& from);
+  void MergeFrom(const CFamilyGroups_GetDispersionForFamily_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CFamilyGroups_GetDispersionForFamily_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CFamilyGroups_GetDispersionForFamily_Request";
+  }
+  protected:
+  explicit CFamilyGroups_GetDispersionForFamily_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFamilyGroupidFieldNumber = 1,
+  };
+  // optional uint64 family_groupid = 1;
+  bool has_family_groupid() const;
+  private:
+  bool _internal_has_family_groupid() const;
+  public:
+  void clear_family_groupid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 family_groupid() const;
+  void set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_family_groupid() const;
+  void _internal_set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CFamilyGroups_GetDispersionForFamily_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 family_groupid_;
+  friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CFamilyGroups_FamilyDispersionGraph_Edge PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CFamilyGroups_FamilyDispersionGraph.Edge) */ {
+ public:
+  inline CFamilyGroups_FamilyDispersionGraph_Edge() : CFamilyGroups_FamilyDispersionGraph_Edge(nullptr) {}
+  virtual ~CFamilyGroups_FamilyDispersionGraph_Edge();
+  explicit constexpr CFamilyGroups_FamilyDispersionGraph_Edge(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CFamilyGroups_FamilyDispersionGraph_Edge(const CFamilyGroups_FamilyDispersionGraph_Edge& from);
+  CFamilyGroups_FamilyDispersionGraph_Edge(CFamilyGroups_FamilyDispersionGraph_Edge&& from) noexcept
+    : CFamilyGroups_FamilyDispersionGraph_Edge() {
+    *this = ::std::move(from);
+  }
+
+  inline CFamilyGroups_FamilyDispersionGraph_Edge& operator=(const CFamilyGroups_FamilyDispersionGraph_Edge& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CFamilyGroups_FamilyDispersionGraph_Edge& operator=(CFamilyGroups_FamilyDispersionGraph_Edge&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CFamilyGroups_FamilyDispersionGraph_Edge& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CFamilyGroups_FamilyDispersionGraph_Edge* internal_default_instance() {
+    return reinterpret_cast<const CFamilyGroups_FamilyDispersionGraph_Edge*>(
+               &_CFamilyGroups_FamilyDispersionGraph_Edge_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    54;
+
+  friend void swap(CFamilyGroups_FamilyDispersionGraph_Edge& a, CFamilyGroups_FamilyDispersionGraph_Edge& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CFamilyGroups_FamilyDispersionGraph_Edge* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CFamilyGroups_FamilyDispersionGraph_Edge* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CFamilyGroups_FamilyDispersionGraph_Edge* New() const final {
+    return CreateMaybeMessage<CFamilyGroups_FamilyDispersionGraph_Edge>(nullptr);
+  }
+
+  CFamilyGroups_FamilyDispersionGraph_Edge* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CFamilyGroups_FamilyDispersionGraph_Edge>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CFamilyGroups_FamilyDispersionGraph_Edge& from);
+  void MergeFrom(const CFamilyGroups_FamilyDispersionGraph_Edge& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CFamilyGroups_FamilyDispersionGraph_Edge* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CFamilyGroups_FamilyDispersionGraph.Edge";
+  }
+  protected:
+  explicit CFamilyGroups_FamilyDispersionGraph_Edge(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAccountid1FieldNumber = 1,
+    kAccountid2FieldNumber = 2,
+    kDistanceFieldNumber = 3,
+  };
+  // optional uint32 accountid1 = 1;
+  bool has_accountid1() const;
+  private:
+  bool _internal_has_accountid1() const;
+  public:
+  void clear_accountid1();
+  ::PROTOBUF_NAMESPACE_ID::uint32 accountid1() const;
+  void set_accountid1(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_accountid1() const;
+  void _internal_set_accountid1(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 accountid2 = 2;
+  bool has_accountid2() const;
+  private:
+  bool _internal_has_accountid2() const;
+  public:
+  void clear_accountid2();
+  ::PROTOBUF_NAMESPACE_ID::uint32 accountid2() const;
+  void set_accountid2(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_accountid2() const;
+  void _internal_set_accountid2(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional double distance = 3;
+  bool has_distance() const;
+  private:
+  bool _internal_has_distance() const;
+  public:
+  void clear_distance();
+  double distance() const;
+  void set_distance(double value);
+  private:
+  double _internal_distance() const;
+  void _internal_set_distance(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CFamilyGroups_FamilyDispersionGraph.Edge)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 accountid1_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 accountid2_;
+  double distance_;
+  friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CFamilyGroups_FamilyDispersionGraph PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CFamilyGroups_FamilyDispersionGraph) */ {
+ public:
+  inline CFamilyGroups_FamilyDispersionGraph() : CFamilyGroups_FamilyDispersionGraph(nullptr) {}
+  virtual ~CFamilyGroups_FamilyDispersionGraph();
+  explicit constexpr CFamilyGroups_FamilyDispersionGraph(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CFamilyGroups_FamilyDispersionGraph(const CFamilyGroups_FamilyDispersionGraph& from);
+  CFamilyGroups_FamilyDispersionGraph(CFamilyGroups_FamilyDispersionGraph&& from) noexcept
+    : CFamilyGroups_FamilyDispersionGraph() {
+    *this = ::std::move(from);
+  }
+
+  inline CFamilyGroups_FamilyDispersionGraph& operator=(const CFamilyGroups_FamilyDispersionGraph& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CFamilyGroups_FamilyDispersionGraph& operator=(CFamilyGroups_FamilyDispersionGraph&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CFamilyGroups_FamilyDispersionGraph& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CFamilyGroups_FamilyDispersionGraph* internal_default_instance() {
+    return reinterpret_cast<const CFamilyGroups_FamilyDispersionGraph*>(
+               &_CFamilyGroups_FamilyDispersionGraph_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    55;
+
+  friend void swap(CFamilyGroups_FamilyDispersionGraph& a, CFamilyGroups_FamilyDispersionGraph& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CFamilyGroups_FamilyDispersionGraph* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CFamilyGroups_FamilyDispersionGraph* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CFamilyGroups_FamilyDispersionGraph* New() const final {
+    return CreateMaybeMessage<CFamilyGroups_FamilyDispersionGraph>(nullptr);
+  }
+
+  CFamilyGroups_FamilyDispersionGraph* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CFamilyGroups_FamilyDispersionGraph>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CFamilyGroups_FamilyDispersionGraph& from);
+  void MergeFrom(const CFamilyGroups_FamilyDispersionGraph& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CFamilyGroups_FamilyDispersionGraph* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CFamilyGroups_FamilyDispersionGraph";
+  }
+  protected:
+  explicit CFamilyGroups_FamilyDispersionGraph(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CFamilyGroups_FamilyDispersionGraph_Edge Edge;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEdgesFieldNumber = 1,
+  };
+  // repeated .CFamilyGroups_FamilyDispersionGraph.Edge edges = 1;
+  int edges_size() const;
+  private:
+  int _internal_edges_size() const;
+  public:
+  void clear_edges();
+  ::CFamilyGroups_FamilyDispersionGraph_Edge* mutable_edges(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CFamilyGroups_FamilyDispersionGraph_Edge >*
+      mutable_edges();
+  private:
+  const ::CFamilyGroups_FamilyDispersionGraph_Edge& _internal_edges(int index) const;
+  ::CFamilyGroups_FamilyDispersionGraph_Edge* _internal_add_edges();
+  public:
+  const ::CFamilyGroups_FamilyDispersionGraph_Edge& edges(int index) const;
+  ::CFamilyGroups_FamilyDispersionGraph_Edge* add_edges();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CFamilyGroups_FamilyDispersionGraph_Edge >&
+      edges() const;
+
+  // @@protoc_insertion_point(class_scope:CFamilyGroups_FamilyDispersionGraph)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CFamilyGroups_FamilyDispersionGraph_Edge > edges_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CFamilyGroups_GetDispersionForFamily_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CFamilyGroups_GetDispersionForFamily_Response) */ {
+ public:
+  inline CFamilyGroups_GetDispersionForFamily_Response() : CFamilyGroups_GetDispersionForFamily_Response(nullptr) {}
+  virtual ~CFamilyGroups_GetDispersionForFamily_Response();
+  explicit constexpr CFamilyGroups_GetDispersionForFamily_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CFamilyGroups_GetDispersionForFamily_Response(const CFamilyGroups_GetDispersionForFamily_Response& from);
+  CFamilyGroups_GetDispersionForFamily_Response(CFamilyGroups_GetDispersionForFamily_Response&& from) noexcept
+    : CFamilyGroups_GetDispersionForFamily_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CFamilyGroups_GetDispersionForFamily_Response& operator=(const CFamilyGroups_GetDispersionForFamily_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CFamilyGroups_GetDispersionForFamily_Response& operator=(CFamilyGroups_GetDispersionForFamily_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CFamilyGroups_GetDispersionForFamily_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CFamilyGroups_GetDispersionForFamily_Response* internal_default_instance() {
+    return reinterpret_cast<const CFamilyGroups_GetDispersionForFamily_Response*>(
+               &_CFamilyGroups_GetDispersionForFamily_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    56;
+
+  friend void swap(CFamilyGroups_GetDispersionForFamily_Response& a, CFamilyGroups_GetDispersionForFamily_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CFamilyGroups_GetDispersionForFamily_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CFamilyGroups_GetDispersionForFamily_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CFamilyGroups_GetDispersionForFamily_Response* New() const final {
+    return CreateMaybeMessage<CFamilyGroups_GetDispersionForFamily_Response>(nullptr);
+  }
+
+  CFamilyGroups_GetDispersionForFamily_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CFamilyGroups_GetDispersionForFamily_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CFamilyGroups_GetDispersionForFamily_Response& from);
+  void MergeFrom(const CFamilyGroups_GetDispersionForFamily_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CFamilyGroups_GetDispersionForFamily_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CFamilyGroups_GetDispersionForFamily_Response";
+  }
+  protected:
+  explicit CFamilyGroups_GetDispersionForFamily_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGraphFieldNumber = 2,
+    kTotalDispersionFieldNumber = 1,
+  };
+  // optional .CFamilyGroups_FamilyDispersionGraph graph = 2;
+  bool has_graph() const;
+  private:
+  bool _internal_has_graph() const;
+  public:
+  void clear_graph();
+  const ::CFamilyGroups_FamilyDispersionGraph& graph() const;
+  ::CFamilyGroups_FamilyDispersionGraph* release_graph();
+  ::CFamilyGroups_FamilyDispersionGraph* mutable_graph();
+  void set_allocated_graph(::CFamilyGroups_FamilyDispersionGraph* graph);
+  private:
+  const ::CFamilyGroups_FamilyDispersionGraph& _internal_graph() const;
+  ::CFamilyGroups_FamilyDispersionGraph* _internal_mutable_graph();
+  public:
+  void unsafe_arena_set_allocated_graph(
+      ::CFamilyGroups_FamilyDispersionGraph* graph);
+  ::CFamilyGroups_FamilyDispersionGraph* unsafe_arena_release_graph();
+
+  // optional double total_dispersion = 1;
+  bool has_total_dispersion() const;
+  private:
+  bool _internal_has_total_dispersion() const;
+  public:
+  void clear_total_dispersion();
+  double total_dispersion() const;
+  void set_total_dispersion(double value);
+  private:
+  double _internal_total_dispersion() const;
+  void _internal_set_total_dispersion(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CFamilyGroups_GetDispersionForFamily_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::CFamilyGroups_FamilyDispersionGraph* graph_;
+  double total_dispersion_;
+  friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember) */ {
  public:
@@ -9406,7 +10298,7 @@ class CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember PROTOBUF_
                &_CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    57;
 
   friend void swap(CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember& a, CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember& b) {
     a.Swap(&b);
@@ -9570,7 +10462,7 @@ class CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp PROTOBUF_FIN
                &_CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    58;
 
   friend void swap(CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp& a, CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp& b) {
     a.Swap(&b);
@@ -9739,7 +10631,7 @@ class CFamilyGroupsClient_NotifyRunningApps_Notification PROTOBUF_FINAL :
                &_CFamilyGroupsClient_NotifyRunningApps_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    59;
 
   friend void swap(CFamilyGroupsClient_NotifyRunningApps_Notification& a, CFamilyGroupsClient_NotifyRunningApps_Notification& b) {
     a.Swap(&b);
@@ -9911,7 +10803,7 @@ class CFamilyGroupsClient_InviteStatus_Notification PROTOBUF_FINAL :
                &_CFamilyGroupsClient_InviteStatus_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    60;
 
   friend void swap(CFamilyGroupsClient_InviteStatus_Notification& a, CFamilyGroupsClient_InviteStatus_Notification& b) {
     a.Swap(&b);
@@ -10042,7 +10934,7 @@ class CFamilyGroupsClient_GroupChanged_Notification PROTOBUF_FINAL :
                &_CFamilyGroupsClient_GroupChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    61;
 
   friend void swap(CFamilyGroupsClient_GroupChanged_Notification& a, CFamilyGroupsClient_GroupChanged_Notification& b) {
     a.Swap(&b);
@@ -10242,6 +11134,10 @@ class FamilyGroups : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CFamilyGroups_GetPreferredLenders_Request* request,
                        ::CFamilyGroups_GetPreferredLenders_Response* response,
                        ::google::protobuf::Closure* done);
+  virtual void GetDispersionForFamily(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CFamilyGroups_GetDispersionForFamily_Request* request,
+                       ::CFamilyGroups_GetDispersionForFamily_Response* response,
+                       ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
 
@@ -10358,6 +11254,10 @@ class FamilyGroups_Stub : public FamilyGroups {
   void GetPreferredLenders(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CFamilyGroups_GetPreferredLenders_Request* request,
                        ::CFamilyGroups_GetPreferredLenders_Response* response,
+                       ::google::protobuf::Closure* done);
+  void GetDispersionForFamily(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CFamilyGroups_GetDispersionForFamily_Request* request,
+                       ::CFamilyGroups_GetDispersionForFamily_Response* response,
                        ::google::protobuf::Closure* done);
  private:
   ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
@@ -10732,6 +11632,34 @@ inline void FamilyGroupMember::_internal_set_time_joined(::PROTOBUF_NAMESPACE_ID
 inline void FamilyGroupMember::set_time_joined(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_time_joined(value);
   // @@protoc_insertion_point(field_set:FamilyGroupMember.time_joined)
+}
+
+// optional uint32 cooldown_seconds_remaining = 4;
+inline bool FamilyGroupMember::_internal_has_cooldown_seconds_remaining() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool FamilyGroupMember::has_cooldown_seconds_remaining() const {
+  return _internal_has_cooldown_seconds_remaining();
+}
+inline void FamilyGroupMember::clear_cooldown_seconds_remaining() {
+  cooldown_seconds_remaining_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 FamilyGroupMember::_internal_cooldown_seconds_remaining() const {
+  return cooldown_seconds_remaining_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 FamilyGroupMember::cooldown_seconds_remaining() const {
+  // @@protoc_insertion_point(field_get:FamilyGroupMember.cooldown_seconds_remaining)
+  return _internal_cooldown_seconds_remaining();
+}
+inline void FamilyGroupMember::_internal_set_cooldown_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  cooldown_seconds_remaining_ = value;
+}
+inline void FamilyGroupMember::set_cooldown_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_cooldown_seconds_remaining(value);
+  // @@protoc_insertion_point(field_set:FamilyGroupMember.cooldown_seconds_remaining)
 }
 
 // -------------------------------------------------------------------
@@ -11210,6 +12138,34 @@ inline void CFamilyGroups_GetFamilyGroupForUser_Request::set_steamid(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CFamilyGroups_GetFamilyGroupForUser_Request.steamid)
 }
 
+// optional bool include_family_group_response = 2;
+inline bool CFamilyGroups_GetFamilyGroupForUser_Request::_internal_has_include_family_group_response() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CFamilyGroups_GetFamilyGroupForUser_Request::has_include_family_group_response() const {
+  return _internal_has_include_family_group_response();
+}
+inline void CFamilyGroups_GetFamilyGroupForUser_Request::clear_include_family_group_response() {
+  include_family_group_response_ = false;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline bool CFamilyGroups_GetFamilyGroupForUser_Request::_internal_include_family_group_response() const {
+  return include_family_group_response_;
+}
+inline bool CFamilyGroups_GetFamilyGroupForUser_Request::include_family_group_response() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetFamilyGroupForUser_Request.include_family_group_response)
+  return _internal_include_family_group_response();
+}
+inline void CFamilyGroups_GetFamilyGroupForUser_Request::_internal_set_include_family_group_response(bool value) {
+  _has_bits_[0] |= 0x00000002u;
+  include_family_group_response_ = value;
+}
+inline void CFamilyGroups_GetFamilyGroupForUser_Request::set_include_family_group_response(bool value) {
+  _internal_set_include_family_group_response(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetFamilyGroupForUser_Request.include_family_group_response)
+}
+
 // -------------------------------------------------------------------
 
 // FamilyGroupPendingInviteForUser
@@ -11305,7 +12261,7 @@ inline void FamilyGroupPendingInviteForUser::set_inviter_steamid(::PROTOBUF_NAME
 
 // optional uint64 family_groupid = 1;
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::_internal_has_family_groupid() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_family_groupid() const {
@@ -11313,7 +12269,7 @@ inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_family_groupid() c
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::clear_family_groupid() {
   family_groupid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CFamilyGroups_GetFamilyGroupForUser_Response::_internal_family_groupid() const {
   return family_groupid_;
@@ -11323,7 +12279,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CFamilyGroups_GetFamilyGroupForUser_Respo
   return _internal_family_groupid();
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::_internal_set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   family_groupid_ = value;
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -11333,7 +12289,7 @@ inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_family_groupid(::P
 
 // optional bool is_not_member_of_any_group = 2;
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::_internal_has_is_not_member_of_any_group() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_is_not_member_of_any_group() const {
@@ -11341,7 +12297,7 @@ inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_is_not_member_of_a
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::clear_is_not_member_of_any_group() {
   is_not_member_of_any_group_ = false;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::_internal_is_not_member_of_any_group() const {
   return is_not_member_of_any_group_;
@@ -11351,7 +12307,7 @@ inline bool CFamilyGroups_GetFamilyGroupForUser_Response::is_not_member_of_any_g
   return _internal_is_not_member_of_any_group();
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::_internal_set_is_not_member_of_any_group(bool value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   is_not_member_of_any_group_ = value;
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_is_not_member_of_any_group(bool value) {
@@ -11361,7 +12317,7 @@ inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_is_not_member_of_a
 
 // optional uint32 latest_time_joined = 3;
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::_internal_has_latest_time_joined() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_latest_time_joined() const {
@@ -11369,7 +12325,7 @@ inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_latest_time_joined
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::clear_latest_time_joined() {
   latest_time_joined_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetFamilyGroupForUser_Response::_internal_latest_time_joined() const {
   return latest_time_joined_;
@@ -11379,7 +12335,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetFamilyGroupForUser_Respo
   return _internal_latest_time_joined();
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::_internal_set_latest_time_joined(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   latest_time_joined_ = value;
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_latest_time_joined(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -11389,7 +12345,7 @@ inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_latest_time_joined
 
 // optional uint64 latest_joined_family_groupid = 4;
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::_internal_has_latest_joined_family_groupid() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_latest_joined_family_groupid() const {
@@ -11397,7 +12353,7 @@ inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_latest_joined_fami
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::clear_latest_joined_family_groupid() {
   latest_joined_family_groupid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CFamilyGroups_GetFamilyGroupForUser_Response::_internal_latest_joined_family_groupid() const {
   return latest_joined_family_groupid_;
@@ -11407,7 +12363,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CFamilyGroups_GetFamilyGroupForUser_Respo
   return _internal_latest_joined_family_groupid();
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::_internal_set_latest_joined_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   latest_joined_family_groupid_ = value;
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_latest_joined_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -11456,7 +12412,7 @@ CFamilyGroups_GetFamilyGroupForUser_Response::pending_group_invites() const {
 
 // optional uint32 role = 6;
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::_internal_has_role() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_role() const {
@@ -11464,7 +12420,7 @@ inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_role() const {
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::clear_role() {
   role_ = 0u;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetFamilyGroupForUser_Response::_internal_role() const {
   return role_;
@@ -11474,7 +12430,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetFamilyGroupForUser_Respo
   return _internal_role();
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::_internal_set_role(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   role_ = value;
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_role(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -11484,7 +12440,7 @@ inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_role(::PROTOBUF_NA
 
 // optional uint32 cooldown_seconds_remaining = 7;
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::_internal_has_cooldown_seconds_remaining() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_cooldown_seconds_remaining() const {
@@ -11492,7 +12448,7 @@ inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_cooldown_seconds_r
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::clear_cooldown_seconds_remaining() {
   cooldown_seconds_remaining_ = 0u;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetFamilyGroupForUser_Response::_internal_cooldown_seconds_remaining() const {
   return cooldown_seconds_remaining_;
@@ -11502,12 +12458,95 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetFamilyGroupForUser_Respo
   return _internal_cooldown_seconds_remaining();
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::_internal_set_cooldown_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   cooldown_seconds_remaining_ = value;
 }
 inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_cooldown_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_cooldown_seconds_remaining(value);
   // @@protoc_insertion_point(field_set:CFamilyGroups_GetFamilyGroupForUser_Response.cooldown_seconds_remaining)
+}
+
+// optional .CFamilyGroups_GetFamilyGroup_Response family_group = 8;
+inline bool CFamilyGroups_GetFamilyGroupForUser_Response::_internal_has_family_group() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || family_group_ != nullptr);
+  return value;
+}
+inline bool CFamilyGroups_GetFamilyGroupForUser_Response::has_family_group() const {
+  return _internal_has_family_group();
+}
+inline void CFamilyGroups_GetFamilyGroupForUser_Response::clear_family_group() {
+  if (family_group_ != nullptr) family_group_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CFamilyGroups_GetFamilyGroup_Response& CFamilyGroups_GetFamilyGroupForUser_Response::_internal_family_group() const {
+  const ::CFamilyGroups_GetFamilyGroup_Response* p = family_group_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CFamilyGroups_GetFamilyGroup_Response&>(
+      ::_CFamilyGroups_GetFamilyGroup_Response_default_instance_);
+}
+inline const ::CFamilyGroups_GetFamilyGroup_Response& CFamilyGroups_GetFamilyGroupForUser_Response::family_group() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetFamilyGroupForUser_Response.family_group)
+  return _internal_family_group();
+}
+inline void CFamilyGroups_GetFamilyGroupForUser_Response::unsafe_arena_set_allocated_family_group(
+    ::CFamilyGroups_GetFamilyGroup_Response* family_group) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(family_group_);
+  }
+  family_group_ = family_group;
+  if (family_group) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CFamilyGroups_GetFamilyGroupForUser_Response.family_group)
+}
+inline ::CFamilyGroups_GetFamilyGroup_Response* CFamilyGroups_GetFamilyGroupForUser_Response::release_family_group() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::CFamilyGroups_GetFamilyGroup_Response* temp = family_group_;
+  family_group_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CFamilyGroups_GetFamilyGroup_Response* CFamilyGroups_GetFamilyGroupForUser_Response::unsafe_arena_release_family_group() {
+  // @@protoc_insertion_point(field_release:CFamilyGroups_GetFamilyGroupForUser_Response.family_group)
+  _has_bits_[0] &= ~0x00000001u;
+  ::CFamilyGroups_GetFamilyGroup_Response* temp = family_group_;
+  family_group_ = nullptr;
+  return temp;
+}
+inline ::CFamilyGroups_GetFamilyGroup_Response* CFamilyGroups_GetFamilyGroupForUser_Response::_internal_mutable_family_group() {
+  _has_bits_[0] |= 0x00000001u;
+  if (family_group_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CFamilyGroups_GetFamilyGroup_Response>(GetArena());
+    family_group_ = p;
+  }
+  return family_group_;
+}
+inline ::CFamilyGroups_GetFamilyGroup_Response* CFamilyGroups_GetFamilyGroupForUser_Response::mutable_family_group() {
+  // @@protoc_insertion_point(field_mutable:CFamilyGroups_GetFamilyGroupForUser_Response.family_group)
+  return _internal_mutable_family_group();
+}
+inline void CFamilyGroups_GetFamilyGroupForUser_Response::set_allocated_family_group(::CFamilyGroups_GetFamilyGroup_Response* family_group) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete family_group_;
+  }
+  if (family_group) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(family_group);
+    if (message_arena != submessage_arena) {
+      family_group = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, family_group, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  family_group_ = family_group;
+  // @@protoc_insertion_point(field_set_allocated:CFamilyGroups_GetFamilyGroupForUser_Response.family_group)
 }
 
 // -------------------------------------------------------------------
@@ -12857,32 +13896,79 @@ inline void CFamilyGroups_GetPurchaseRequests_Request::set_family_groupid(::PROT
   // @@protoc_insertion_point(field_set:CFamilyGroups_GetPurchaseRequests_Request.family_groupid)
 }
 
-// optional bool include_completed = 2;
-inline bool CFamilyGroups_GetPurchaseRequests_Request::_internal_has_include_completed() const {
+// repeated uint64 request_ids = 3;
+inline int CFamilyGroups_GetPurchaseRequests_Request::_internal_request_ids_size() const {
+  return request_ids_.size();
+}
+inline int CFamilyGroups_GetPurchaseRequests_Request::request_ids_size() const {
+  return _internal_request_ids_size();
+}
+inline void CFamilyGroups_GetPurchaseRequests_Request::clear_request_ids() {
+  request_ids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CFamilyGroups_GetPurchaseRequests_Request::_internal_request_ids(int index) const {
+  return request_ids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CFamilyGroups_GetPurchaseRequests_Request::request_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetPurchaseRequests_Request.request_ids)
+  return _internal_request_ids(index);
+}
+inline void CFamilyGroups_GetPurchaseRequests_Request::set_request_ids(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  request_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetPurchaseRequests_Request.request_ids)
+}
+inline void CFamilyGroups_GetPurchaseRequests_Request::_internal_add_request_ids(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  request_ids_.Add(value);
+}
+inline void CFamilyGroups_GetPurchaseRequests_Request::add_request_ids(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_add_request_ids(value);
+  // @@protoc_insertion_point(field_add:CFamilyGroups_GetPurchaseRequests_Request.request_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+CFamilyGroups_GetPurchaseRequests_Request::_internal_request_ids() const {
+  return request_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+CFamilyGroups_GetPurchaseRequests_Request::request_ids() const {
+  // @@protoc_insertion_point(field_list:CFamilyGroups_GetPurchaseRequests_Request.request_ids)
+  return _internal_request_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+CFamilyGroups_GetPurchaseRequests_Request::_internal_mutable_request_ids() {
+  return &request_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+CFamilyGroups_GetPurchaseRequests_Request::mutable_request_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CFamilyGroups_GetPurchaseRequests_Request.request_ids)
+  return _internal_mutable_request_ids();
+}
+
+// optional uint32 rt_include_completed_since = 4;
+inline bool CFamilyGroups_GetPurchaseRequests_Request::_internal_has_rt_include_completed_since() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CFamilyGroups_GetPurchaseRequests_Request::has_include_completed() const {
-  return _internal_has_include_completed();
+inline bool CFamilyGroups_GetPurchaseRequests_Request::has_rt_include_completed_since() const {
+  return _internal_has_rt_include_completed_since();
 }
-inline void CFamilyGroups_GetPurchaseRequests_Request::clear_include_completed() {
-  include_completed_ = false;
+inline void CFamilyGroups_GetPurchaseRequests_Request::clear_rt_include_completed_since() {
+  rt_include_completed_since_ = 0u;
   _has_bits_[0] &= ~0x00000002u;
 }
-inline bool CFamilyGroups_GetPurchaseRequests_Request::_internal_include_completed() const {
-  return include_completed_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetPurchaseRequests_Request::_internal_rt_include_completed_since() const {
+  return rt_include_completed_since_;
 }
-inline bool CFamilyGroups_GetPurchaseRequests_Request::include_completed() const {
-  // @@protoc_insertion_point(field_get:CFamilyGroups_GetPurchaseRequests_Request.include_completed)
-  return _internal_include_completed();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetPurchaseRequests_Request::rt_include_completed_since() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetPurchaseRequests_Request.rt_include_completed_since)
+  return _internal_rt_include_completed_since();
 }
-inline void CFamilyGroups_GetPurchaseRequests_Request::_internal_set_include_completed(bool value) {
+inline void CFamilyGroups_GetPurchaseRequests_Request::_internal_set_rt_include_completed_since(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _has_bits_[0] |= 0x00000002u;
-  include_completed_ = value;
+  rt_include_completed_since_ = value;
 }
-inline void CFamilyGroups_GetPurchaseRequests_Request::set_include_completed(bool value) {
-  _internal_set_include_completed(value);
-  // @@protoc_insertion_point(field_set:CFamilyGroups_GetPurchaseRequests_Request.include_completed)
+inline void CFamilyGroups_GetPurchaseRequests_Request::set_rt_include_completed_since(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_rt_include_completed_since(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetPurchaseRequests_Request.rt_include_completed_since)
 }
 
 // -------------------------------------------------------------------
@@ -13112,6 +14198,194 @@ inline void PurchaseRequest::_internal_set_request_id(::PROTOBUF_NAMESPACE_ID::u
 inline void PurchaseRequest::set_request_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_request_id(value);
   // @@protoc_insertion_point(field_set:PurchaseRequest.request_id)
+}
+
+// repeated uint32 requested_packageids = 9;
+inline int PurchaseRequest::_internal_requested_packageids_size() const {
+  return requested_packageids_.size();
+}
+inline int PurchaseRequest::requested_packageids_size() const {
+  return _internal_requested_packageids_size();
+}
+inline void PurchaseRequest::clear_requested_packageids() {
+  requested_packageids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PurchaseRequest::_internal_requested_packageids(int index) const {
+  return requested_packageids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PurchaseRequest::requested_packageids(int index) const {
+  // @@protoc_insertion_point(field_get:PurchaseRequest.requested_packageids)
+  return _internal_requested_packageids(index);
+}
+inline void PurchaseRequest::set_requested_packageids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  requested_packageids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:PurchaseRequest.requested_packageids)
+}
+inline void PurchaseRequest::_internal_add_requested_packageids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  requested_packageids_.Add(value);
+}
+inline void PurchaseRequest::add_requested_packageids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_requested_packageids(value);
+  // @@protoc_insertion_point(field_add:PurchaseRequest.requested_packageids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+PurchaseRequest::_internal_requested_packageids() const {
+  return requested_packageids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+PurchaseRequest::requested_packageids() const {
+  // @@protoc_insertion_point(field_list:PurchaseRequest.requested_packageids)
+  return _internal_requested_packageids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+PurchaseRequest::_internal_mutable_requested_packageids() {
+  return &requested_packageids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+PurchaseRequest::mutable_requested_packageids() {
+  // @@protoc_insertion_point(field_mutable_list:PurchaseRequest.requested_packageids)
+  return _internal_mutable_requested_packageids();
+}
+
+// repeated uint32 purchased_packageids = 10;
+inline int PurchaseRequest::_internal_purchased_packageids_size() const {
+  return purchased_packageids_.size();
+}
+inline int PurchaseRequest::purchased_packageids_size() const {
+  return _internal_purchased_packageids_size();
+}
+inline void PurchaseRequest::clear_purchased_packageids() {
+  purchased_packageids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PurchaseRequest::_internal_purchased_packageids(int index) const {
+  return purchased_packageids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PurchaseRequest::purchased_packageids(int index) const {
+  // @@protoc_insertion_point(field_get:PurchaseRequest.purchased_packageids)
+  return _internal_purchased_packageids(index);
+}
+inline void PurchaseRequest::set_purchased_packageids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  purchased_packageids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:PurchaseRequest.purchased_packageids)
+}
+inline void PurchaseRequest::_internal_add_purchased_packageids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  purchased_packageids_.Add(value);
+}
+inline void PurchaseRequest::add_purchased_packageids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_purchased_packageids(value);
+  // @@protoc_insertion_point(field_add:PurchaseRequest.purchased_packageids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+PurchaseRequest::_internal_purchased_packageids() const {
+  return purchased_packageids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+PurchaseRequest::purchased_packageids() const {
+  // @@protoc_insertion_point(field_list:PurchaseRequest.purchased_packageids)
+  return _internal_purchased_packageids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+PurchaseRequest::_internal_mutable_purchased_packageids() {
+  return &purchased_packageids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+PurchaseRequest::mutable_purchased_packageids() {
+  // @@protoc_insertion_point(field_mutable_list:PurchaseRequest.purchased_packageids)
+  return _internal_mutable_purchased_packageids();
+}
+
+// repeated uint32 requested_bundleids = 11;
+inline int PurchaseRequest::_internal_requested_bundleids_size() const {
+  return requested_bundleids_.size();
+}
+inline int PurchaseRequest::requested_bundleids_size() const {
+  return _internal_requested_bundleids_size();
+}
+inline void PurchaseRequest::clear_requested_bundleids() {
+  requested_bundleids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PurchaseRequest::_internal_requested_bundleids(int index) const {
+  return requested_bundleids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PurchaseRequest::requested_bundleids(int index) const {
+  // @@protoc_insertion_point(field_get:PurchaseRequest.requested_bundleids)
+  return _internal_requested_bundleids(index);
+}
+inline void PurchaseRequest::set_requested_bundleids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  requested_bundleids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:PurchaseRequest.requested_bundleids)
+}
+inline void PurchaseRequest::_internal_add_requested_bundleids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  requested_bundleids_.Add(value);
+}
+inline void PurchaseRequest::add_requested_bundleids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_requested_bundleids(value);
+  // @@protoc_insertion_point(field_add:PurchaseRequest.requested_bundleids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+PurchaseRequest::_internal_requested_bundleids() const {
+  return requested_bundleids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+PurchaseRequest::requested_bundleids() const {
+  // @@protoc_insertion_point(field_list:PurchaseRequest.requested_bundleids)
+  return _internal_requested_bundleids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+PurchaseRequest::_internal_mutable_requested_bundleids() {
+  return &requested_bundleids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+PurchaseRequest::mutable_requested_bundleids() {
+  // @@protoc_insertion_point(field_mutable_list:PurchaseRequest.requested_bundleids)
+  return _internal_mutable_requested_bundleids();
+}
+
+// repeated uint32 purchased_bundleids = 12;
+inline int PurchaseRequest::_internal_purchased_bundleids_size() const {
+  return purchased_bundleids_.size();
+}
+inline int PurchaseRequest::purchased_bundleids_size() const {
+  return _internal_purchased_bundleids_size();
+}
+inline void PurchaseRequest::clear_purchased_bundleids() {
+  purchased_bundleids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PurchaseRequest::_internal_purchased_bundleids(int index) const {
+  return purchased_bundleids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PurchaseRequest::purchased_bundleids(int index) const {
+  // @@protoc_insertion_point(field_get:PurchaseRequest.purchased_bundleids)
+  return _internal_purchased_bundleids(index);
+}
+inline void PurchaseRequest::set_purchased_bundleids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  purchased_bundleids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:PurchaseRequest.purchased_bundleids)
+}
+inline void PurchaseRequest::_internal_add_purchased_bundleids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  purchased_bundleids_.Add(value);
+}
+inline void PurchaseRequest::add_purchased_bundleids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_purchased_bundleids(value);
+  // @@protoc_insertion_point(field_add:PurchaseRequest.purchased_bundleids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+PurchaseRequest::_internal_purchased_bundleids() const {
+  return purchased_bundleids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+PurchaseRequest::purchased_bundleids() const {
+  // @@protoc_insertion_point(field_list:PurchaseRequest.purchased_bundleids)
+  return _internal_purchased_bundleids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+PurchaseRequest::_internal_mutable_purchased_bundleids() {
+  return &purchased_bundleids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+PurchaseRequest::mutable_purchased_bundleids() {
+  // @@protoc_insertion_point(field_mutable_list:PurchaseRequest.purchased_bundleids)
+  return _internal_mutable_purchased_bundleids();
 }
 
 // -------------------------------------------------------------------
@@ -14066,77 +15340,77 @@ inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_allocated
   // @@protoc_insertion_point(field_set_allocated:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.capsule_filename)
 }
 
-// optional string img_icon_url = 9;
-inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_has_img_icon_url() const {
+// optional string img_icon_hash = 9;
+inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_has_img_icon_hash() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::has_img_icon_url() const {
-  return _internal_has_img_icon_url();
+inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::has_img_icon_hash() const {
+  return _internal_has_img_icon_hash();
 }
-inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::clear_img_icon_url() {
-  img_icon_url_.ClearToEmpty();
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::clear_img_icon_hash() {
+  img_icon_hash_.ClearToEmpty();
   _has_bits_[0] &= ~0x00000008u;
 }
-inline const std::string& CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::img_icon_url() const {
-  // @@protoc_insertion_point(field_get:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_url)
-  return _internal_img_icon_url();
+inline const std::string& CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::img_icon_hash() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_hash)
+  return _internal_img_icon_hash();
 }
-inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_img_icon_url(const std::string& value) {
-  _internal_set_img_icon_url(value);
-  // @@protoc_insertion_point(field_set:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_url)
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_img_icon_hash(const std::string& value) {
+  _internal_set_img_icon_hash(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_hash)
 }
-inline std::string* CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::mutable_img_icon_url() {
-  // @@protoc_insertion_point(field_mutable:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_url)
-  return _internal_mutable_img_icon_url();
+inline std::string* CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::mutable_img_icon_hash() {
+  // @@protoc_insertion_point(field_mutable:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_hash)
+  return _internal_mutable_img_icon_hash();
 }
-inline const std::string& CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_img_icon_url() const {
-  return img_icon_url_.Get();
+inline const std::string& CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_img_icon_hash() const {
+  return img_icon_hash_.Get();
 }
-inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_set_img_icon_url(const std::string& value) {
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_set_img_icon_hash(const std::string& value) {
   _has_bits_[0] |= 0x00000008u;
-  img_icon_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  img_icon_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_img_icon_url(std::string&& value) {
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_img_icon_hash(std::string&& value) {
   _has_bits_[0] |= 0x00000008u;
-  img_icon_url_.Set(
+  img_icon_hash_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_url)
+  // @@protoc_insertion_point(field_set_rvalue:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_hash)
 }
-inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_img_icon_url(const char* value) {
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_img_icon_hash(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   _has_bits_[0] |= 0x00000008u;
-  img_icon_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_url)
+  img_icon_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_hash)
 }
-inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_img_icon_url(const char* value,
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_img_icon_hash(const char* value,
     size_t size) {
   _has_bits_[0] |= 0x00000008u;
-  img_icon_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  img_icon_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_url)
+  // @@protoc_insertion_point(field_set_pointer:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_hash)
 }
-inline std::string* CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_mutable_img_icon_url() {
+inline std::string* CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_mutable_img_icon_hash() {
   _has_bits_[0] |= 0x00000008u;
-  return img_icon_url_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return img_icon_hash_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::release_img_icon_url() {
-  // @@protoc_insertion_point(field_release:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_url)
-  if (!_internal_has_img_icon_url()) {
+inline std::string* CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::release_img_icon_hash() {
+  // @@protoc_insertion_point(field_release:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_hash)
+  if (!_internal_has_img_icon_hash()) {
     return nullptr;
   }
   _has_bits_[0] &= ~0x00000008u;
-  return img_icon_url_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  return img_icon_hash_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_allocated_img_icon_url(std::string* img_icon_url) {
-  if (img_icon_url != nullptr) {
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_allocated_img_icon_hash(std::string* img_icon_hash) {
+  if (img_icon_hash != nullptr) {
     _has_bits_[0] |= 0x00000008u;
   } else {
     _has_bits_[0] &= ~0x00000008u;
   }
-  img_icon_url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), img_icon_url,
+  img_icon_hash_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), img_icon_hash,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_url)
+  // @@protoc_insertion_point(field_set_allocated:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.img_icon_hash)
 }
 
 // optional .ESharedLibraryExcludeReason exclude_reason = 10 [default = ESharedLibrary_Included];
@@ -14170,7 +15444,7 @@ inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_exclude_r
 
 // optional uint32 rt_time_acquired = 11;
 inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_has_rt_time_acquired() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::has_rt_time_acquired() const {
@@ -14178,7 +15452,7 @@ inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::has_rt_time_a
 }
 inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::clear_rt_time_acquired() {
   rt_time_acquired_ = 0u;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_rt_time_acquired() const {
   return rt_time_acquired_;
@@ -14188,12 +15462,68 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetSharedLibraryApps_Respon
   return _internal_rt_time_acquired();
 }
 inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_set_rt_time_acquired(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   rt_time_acquired_ = value;
 }
 inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_rt_time_acquired(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_rt_time_acquired(value);
   // @@protoc_insertion_point(field_set:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.rt_time_acquired)
+}
+
+// optional uint32 rt_last_played = 12;
+inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_has_rt_last_played() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::has_rt_last_played() const {
+  return _internal_has_rt_last_played();
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::clear_rt_last_played() {
+  rt_last_played_ = 0u;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_rt_last_played() const {
+  return rt_last_played_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::rt_last_played() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.rt_last_played)
+  return _internal_rt_last_played();
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_set_rt_last_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000100u;
+  rt_last_played_ = value;
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_rt_last_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_rt_last_played(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.rt_last_played)
+}
+
+// optional uint32 rt_playtime = 13;
+inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_has_rt_playtime() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::has_rt_playtime() const {
+  return _internal_has_rt_playtime();
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::clear_rt_playtime() {
+  rt_playtime_ = 0u;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_rt_playtime() const {
+  return rt_playtime_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::rt_playtime() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.rt_playtime)
+  return _internal_rt_playtime();
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_set_rt_playtime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000040u;
+  rt_playtime_ = value;
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_rt_playtime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_rt_playtime(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.rt_playtime)
 }
 
 // -------------------------------------------------------------------
@@ -14487,6 +15817,284 @@ CFamilyGroups_GetPreferredLenders_Response::members() const {
 
 // -------------------------------------------------------------------
 
+// CFamilyGroups_GetDispersionForFamily_Request
+
+// optional uint64 family_groupid = 1;
+inline bool CFamilyGroups_GetDispersionForFamily_Request::_internal_has_family_groupid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CFamilyGroups_GetDispersionForFamily_Request::has_family_groupid() const {
+  return _internal_has_family_groupid();
+}
+inline void CFamilyGroups_GetDispersionForFamily_Request::clear_family_groupid() {
+  family_groupid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CFamilyGroups_GetDispersionForFamily_Request::_internal_family_groupid() const {
+  return family_groupid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CFamilyGroups_GetDispersionForFamily_Request::family_groupid() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetDispersionForFamily_Request.family_groupid)
+  return _internal_family_groupid();
+}
+inline void CFamilyGroups_GetDispersionForFamily_Request::_internal_set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  family_groupid_ = value;
+}
+inline void CFamilyGroups_GetDispersionForFamily_Request::set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_family_groupid(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetDispersionForFamily_Request.family_groupid)
+}
+
+// -------------------------------------------------------------------
+
+// CFamilyGroups_FamilyDispersionGraph_Edge
+
+// optional uint32 accountid1 = 1;
+inline bool CFamilyGroups_FamilyDispersionGraph_Edge::_internal_has_accountid1() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CFamilyGroups_FamilyDispersionGraph_Edge::has_accountid1() const {
+  return _internal_has_accountid1();
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::clear_accountid1() {
+  accountid1_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_FamilyDispersionGraph_Edge::_internal_accountid1() const {
+  return accountid1_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_FamilyDispersionGraph_Edge::accountid1() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_FamilyDispersionGraph.Edge.accountid1)
+  return _internal_accountid1();
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::_internal_set_accountid1(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  accountid1_ = value;
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::set_accountid1(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_accountid1(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_FamilyDispersionGraph.Edge.accountid1)
+}
+
+// optional uint32 accountid2 = 2;
+inline bool CFamilyGroups_FamilyDispersionGraph_Edge::_internal_has_accountid2() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CFamilyGroups_FamilyDispersionGraph_Edge::has_accountid2() const {
+  return _internal_has_accountid2();
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::clear_accountid2() {
+  accountid2_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_FamilyDispersionGraph_Edge::_internal_accountid2() const {
+  return accountid2_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_FamilyDispersionGraph_Edge::accountid2() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_FamilyDispersionGraph.Edge.accountid2)
+  return _internal_accountid2();
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::_internal_set_accountid2(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  accountid2_ = value;
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::set_accountid2(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_accountid2(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_FamilyDispersionGraph.Edge.accountid2)
+}
+
+// optional double distance = 3;
+inline bool CFamilyGroups_FamilyDispersionGraph_Edge::_internal_has_distance() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CFamilyGroups_FamilyDispersionGraph_Edge::has_distance() const {
+  return _internal_has_distance();
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::clear_distance() {
+  distance_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline double CFamilyGroups_FamilyDispersionGraph_Edge::_internal_distance() const {
+  return distance_;
+}
+inline double CFamilyGroups_FamilyDispersionGraph_Edge::distance() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_FamilyDispersionGraph.Edge.distance)
+  return _internal_distance();
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::_internal_set_distance(double value) {
+  _has_bits_[0] |= 0x00000004u;
+  distance_ = value;
+}
+inline void CFamilyGroups_FamilyDispersionGraph_Edge::set_distance(double value) {
+  _internal_set_distance(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_FamilyDispersionGraph.Edge.distance)
+}
+
+// -------------------------------------------------------------------
+
+// CFamilyGroups_FamilyDispersionGraph
+
+// repeated .CFamilyGroups_FamilyDispersionGraph.Edge edges = 1;
+inline int CFamilyGroups_FamilyDispersionGraph::_internal_edges_size() const {
+  return edges_.size();
+}
+inline int CFamilyGroups_FamilyDispersionGraph::edges_size() const {
+  return _internal_edges_size();
+}
+inline void CFamilyGroups_FamilyDispersionGraph::clear_edges() {
+  edges_.Clear();
+}
+inline ::CFamilyGroups_FamilyDispersionGraph_Edge* CFamilyGroups_FamilyDispersionGraph::mutable_edges(int index) {
+  // @@protoc_insertion_point(field_mutable:CFamilyGroups_FamilyDispersionGraph.edges)
+  return edges_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CFamilyGroups_FamilyDispersionGraph_Edge >*
+CFamilyGroups_FamilyDispersionGraph::mutable_edges() {
+  // @@protoc_insertion_point(field_mutable_list:CFamilyGroups_FamilyDispersionGraph.edges)
+  return &edges_;
+}
+inline const ::CFamilyGroups_FamilyDispersionGraph_Edge& CFamilyGroups_FamilyDispersionGraph::_internal_edges(int index) const {
+  return edges_.Get(index);
+}
+inline const ::CFamilyGroups_FamilyDispersionGraph_Edge& CFamilyGroups_FamilyDispersionGraph::edges(int index) const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_FamilyDispersionGraph.edges)
+  return _internal_edges(index);
+}
+inline ::CFamilyGroups_FamilyDispersionGraph_Edge* CFamilyGroups_FamilyDispersionGraph::_internal_add_edges() {
+  return edges_.Add();
+}
+inline ::CFamilyGroups_FamilyDispersionGraph_Edge* CFamilyGroups_FamilyDispersionGraph::add_edges() {
+  // @@protoc_insertion_point(field_add:CFamilyGroups_FamilyDispersionGraph.edges)
+  return _internal_add_edges();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CFamilyGroups_FamilyDispersionGraph_Edge >&
+CFamilyGroups_FamilyDispersionGraph::edges() const {
+  // @@protoc_insertion_point(field_list:CFamilyGroups_FamilyDispersionGraph.edges)
+  return edges_;
+}
+
+// -------------------------------------------------------------------
+
+// CFamilyGroups_GetDispersionForFamily_Response
+
+// optional double total_dispersion = 1;
+inline bool CFamilyGroups_GetDispersionForFamily_Response::_internal_has_total_dispersion() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CFamilyGroups_GetDispersionForFamily_Response::has_total_dispersion() const {
+  return _internal_has_total_dispersion();
+}
+inline void CFamilyGroups_GetDispersionForFamily_Response::clear_total_dispersion() {
+  total_dispersion_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline double CFamilyGroups_GetDispersionForFamily_Response::_internal_total_dispersion() const {
+  return total_dispersion_;
+}
+inline double CFamilyGroups_GetDispersionForFamily_Response::total_dispersion() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetDispersionForFamily_Response.total_dispersion)
+  return _internal_total_dispersion();
+}
+inline void CFamilyGroups_GetDispersionForFamily_Response::_internal_set_total_dispersion(double value) {
+  _has_bits_[0] |= 0x00000002u;
+  total_dispersion_ = value;
+}
+inline void CFamilyGroups_GetDispersionForFamily_Response::set_total_dispersion(double value) {
+  _internal_set_total_dispersion(value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetDispersionForFamily_Response.total_dispersion)
+}
+
+// optional .CFamilyGroups_FamilyDispersionGraph graph = 2;
+inline bool CFamilyGroups_GetDispersionForFamily_Response::_internal_has_graph() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || graph_ != nullptr);
+  return value;
+}
+inline bool CFamilyGroups_GetDispersionForFamily_Response::has_graph() const {
+  return _internal_has_graph();
+}
+inline void CFamilyGroups_GetDispersionForFamily_Response::clear_graph() {
+  if (graph_ != nullptr) graph_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CFamilyGroups_FamilyDispersionGraph& CFamilyGroups_GetDispersionForFamily_Response::_internal_graph() const {
+  const ::CFamilyGroups_FamilyDispersionGraph* p = graph_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CFamilyGroups_FamilyDispersionGraph&>(
+      ::_CFamilyGroups_FamilyDispersionGraph_default_instance_);
+}
+inline const ::CFamilyGroups_FamilyDispersionGraph& CFamilyGroups_GetDispersionForFamily_Response::graph() const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetDispersionForFamily_Response.graph)
+  return _internal_graph();
+}
+inline void CFamilyGroups_GetDispersionForFamily_Response::unsafe_arena_set_allocated_graph(
+    ::CFamilyGroups_FamilyDispersionGraph* graph) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(graph_);
+  }
+  graph_ = graph;
+  if (graph) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CFamilyGroups_GetDispersionForFamily_Response.graph)
+}
+inline ::CFamilyGroups_FamilyDispersionGraph* CFamilyGroups_GetDispersionForFamily_Response::release_graph() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::CFamilyGroups_FamilyDispersionGraph* temp = graph_;
+  graph_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CFamilyGroups_FamilyDispersionGraph* CFamilyGroups_GetDispersionForFamily_Response::unsafe_arena_release_graph() {
+  // @@protoc_insertion_point(field_release:CFamilyGroups_GetDispersionForFamily_Response.graph)
+  _has_bits_[0] &= ~0x00000001u;
+  ::CFamilyGroups_FamilyDispersionGraph* temp = graph_;
+  graph_ = nullptr;
+  return temp;
+}
+inline ::CFamilyGroups_FamilyDispersionGraph* CFamilyGroups_GetDispersionForFamily_Response::_internal_mutable_graph() {
+  _has_bits_[0] |= 0x00000001u;
+  if (graph_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CFamilyGroups_FamilyDispersionGraph>(GetArena());
+    graph_ = p;
+  }
+  return graph_;
+}
+inline ::CFamilyGroups_FamilyDispersionGraph* CFamilyGroups_GetDispersionForFamily_Response::mutable_graph() {
+  // @@protoc_insertion_point(field_mutable:CFamilyGroups_GetDispersionForFamily_Response.graph)
+  return _internal_mutable_graph();
+}
+inline void CFamilyGroups_GetDispersionForFamily_Response::set_allocated_graph(::CFamilyGroups_FamilyDispersionGraph* graph) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete graph_;
+  }
+  if (graph) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(graph);
+    if (message_arena != submessage_arena) {
+      graph = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, graph, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  graph_ = graph;
+  // @@protoc_insertion_point(field_set_allocated:CFamilyGroups_GetDispersionForFamily_Response.graph)
+}
+
+// -------------------------------------------------------------------
+
 // CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember
 
 // optional fixed64 member_steamid = 1;
@@ -14726,6 +16334,14 @@ inline void CFamilyGroupsClient_GroupChanged_Notification::set_family_groupid(::
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

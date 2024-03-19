@@ -226,12 +226,11 @@ template<> ::CMsgSteamNetworkingP2PSDRRoutingSummary* Arena::CreateMaybeMessage<
 PROTOBUF_NAMESPACE_CLOSE
 
 enum CMsgSteamDatagramRouterPingReply_AltAddress_Protocol : int {
-  CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_DefaultProtocol = 0,
-  CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_NetworkNext = 1
+  CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_DefaultProtocol = 0
 };
 bool CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_IsValid(int value);
 constexpr CMsgSteamDatagramRouterPingReply_AltAddress_Protocol CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_Protocol_MIN = CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_DefaultProtocol;
-constexpr CMsgSteamDatagramRouterPingReply_AltAddress_Protocol CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_Protocol_MAX = CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_NetworkNext;
+constexpr CMsgSteamDatagramRouterPingReply_AltAddress_Protocol CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_Protocol_MAX = CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_DefaultProtocol;
 constexpr int CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_Protocol_ARRAYSIZE = CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_Protocol_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_descriptor();
@@ -1192,8 +1191,6 @@ class CMsgSteamDatagramRouterPingReply_AltAddress PROTOBUF_FINAL :
   typedef CMsgSteamDatagramRouterPingReply_AltAddress_Protocol Protocol;
   static constexpr Protocol DefaultProtocol =
     CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_DefaultProtocol;
-  static constexpr Protocol NetworkNext =
-    CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_NetworkNext;
   static inline bool Protocol_IsValid(int value) {
     return CMsgSteamDatagramRouterPingReply_AltAddress_Protocol_IsValid(value);
   }

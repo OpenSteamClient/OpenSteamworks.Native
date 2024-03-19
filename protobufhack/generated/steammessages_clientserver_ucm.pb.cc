@@ -56,7 +56,8 @@ struct CMsgClientUCMAddScreenshotDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientUCMAddScreenshotDefaultTypeInternal _CMsgClientUCMAddScreenshot_default_instance_;
 constexpr CMsgClientUCMAddScreenshotResponse::CMsgClientUCMAddScreenshotResponse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : eresult_(2)
+  : publishedfileid_(PROTOBUF_ULONGLONG(0))
+  , eresult_(2)
   , screenshotid_(PROTOBUF_ULONGLONG(18446744073709551615)){}
 struct CMsgClientUCMAddScreenshotResponseDefaultTypeInternal {
   constexpr CMsgClientUCMAddScreenshotResponseDefaultTypeInternal()
@@ -480,8 +481,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMAddScreenshotResponse, eresult_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMAddScreenshotResponse, screenshotid_),
-  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMAddScreenshotResponse, publishedfileid_),
   1,
+  2,
+  0,
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMDeleteScreenshot, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMDeleteScreenshot, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -813,30 +816,30 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::CMsgClientUCMAddScreenshot_Tag)},
   { 9, 28, sizeof(::CMsgClientUCMAddScreenshot)},
-  { 42, 49, sizeof(::CMsgClientUCMAddScreenshotResponse)},
-  { 51, 57, sizeof(::CMsgClientUCMDeleteScreenshot)},
-  { 58, 64, sizeof(::CMsgClientUCMDeleteScreenshotResponse)},
-  { 65, 85, sizeof(::CMsgClientUCMPublishFile)},
-  { 100, 108, sizeof(::CMsgClientUCMPublishFileResponse)},
-  { 111, 118, sizeof(::CMsgClientUCMUpdatePublishedFile_KeyValueTag)},
-  { 120, 130, sizeof(::CMsgClientUCMUpdatePublishedFile_AdditionalPreview)},
-  { 135, 172, sizeof(::CMsgClientUCMUpdatePublishedFile)},
-  { 204, 211, sizeof(::CMsgClientUCMUpdatePublishedFileResponse)},
-  { 213, 220, sizeof(::CMsgClientUCMDeletePublishedFile)},
-  { 222, 228, sizeof(::CMsgClientUCMDeletePublishedFileResponse)},
-  { 229, 238, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates)},
-  { 242, 254, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId)},
-  { 261, 269, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse)},
-  { 272, 284, sizeof(::CMsgClientUCMPublishedFileUpdated)},
-  { 291, 299, sizeof(::CMsgClientWorkshopItemChangesRequest)},
-  { 302, 310, sizeof(::CMsgClientWorkshopItemChangesResponse_WorkshopItemInfo)},
-  { 313, 321, sizeof(::CMsgClientWorkshopItemChangesResponse)},
-  { 324, 332, sizeof(::CMsgClientUCMSetUserPublishedFileAction)},
-  { 335, 341, sizeof(::CMsgClientUCMSetUserPublishedFileActionResponse)},
-  { 342, 350, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserAction)},
-  { 353, 360, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId)},
-  { 362, 370, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse)},
-  { 373, -1, sizeof(::CMsgClientScreenshotsChanged)},
+  { 42, 50, sizeof(::CMsgClientUCMAddScreenshotResponse)},
+  { 53, 59, sizeof(::CMsgClientUCMDeleteScreenshot)},
+  { 60, 66, sizeof(::CMsgClientUCMDeleteScreenshotResponse)},
+  { 67, 87, sizeof(::CMsgClientUCMPublishFile)},
+  { 102, 110, sizeof(::CMsgClientUCMPublishFileResponse)},
+  { 113, 120, sizeof(::CMsgClientUCMUpdatePublishedFile_KeyValueTag)},
+  { 122, 132, sizeof(::CMsgClientUCMUpdatePublishedFile_AdditionalPreview)},
+  { 137, 174, sizeof(::CMsgClientUCMUpdatePublishedFile)},
+  { 206, 213, sizeof(::CMsgClientUCMUpdatePublishedFileResponse)},
+  { 215, 222, sizeof(::CMsgClientUCMDeletePublishedFile)},
+  { 224, 230, sizeof(::CMsgClientUCMDeletePublishedFileResponse)},
+  { 231, 240, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates)},
+  { 244, 256, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId)},
+  { 263, 271, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse)},
+  { 274, 286, sizeof(::CMsgClientUCMPublishedFileUpdated)},
+  { 293, 301, sizeof(::CMsgClientWorkshopItemChangesRequest)},
+  { 304, 312, sizeof(::CMsgClientWorkshopItemChangesResponse_WorkshopItemInfo)},
+  { 315, 323, sizeof(::CMsgClientWorkshopItemChangesResponse)},
+  { 326, 334, sizeof(::CMsgClientUCMSetUserPublishedFileAction)},
+  { 337, 343, sizeof(::CMsgClientUCMSetUserPublishedFileActionResponse)},
+  { 344, 352, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserAction)},
+  { 355, 362, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId)},
+  { 364, 372, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse)},
+  { 375, -1, sizeof(::CMsgClientScreenshotsChanged)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -881,102 +884,103 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5fucm_2eproto[
   "t.Tag\022\026\n\016tagged_steamid\030\013 \003(\006\022\023\n\013spoiler"
   "_tag\030\014 \001(\010\022\036\n\026tagged_publishedfileid\030\r \003"
   "(\004\032*\n\003Tag\022\020\n\010tag_name\030\001 \001(\t\022\021\n\ttag_value"
-  "\030\002 \001(\t\"d\n\"CMsgClientUCMAddScreenshotResp"
+  "\030\002 \001(\t\"}\n\"CMsgClientUCMAddScreenshotResp"
   "onse\022\022\n\007eresult\030\001 \001(\005:\0012\022*\n\014screenshotid"
-  "\030\002 \001(\006:\02418446744073709551615\"K\n\035CMsgClie"
-  "ntUCMDeleteScreenshot\022*\n\014screenshotid\030\001 "
-  "\001(\006:\02418446744073709551615\";\n%CMsgClientU"
-  "CMDeleteScreenshotResponse\022\022\n\007eresult\030\001 "
-  "\001(\005:\0012\"\321\002\n\030CMsgClientUCMPublishFile\022\016\n\006a"
-  "pp_id\030\001 \001(\r\022\021\n\tfile_name\030\002 \001(\t\022\031\n\021previe"
-  "w_file_name\030\003 \001(\t\022\027\n\017consumer_app_id\030\004 \001"
-  "(\r\022\r\n\005title\030\005 \001(\t\022\023\n\013description\030\006 \001(\t\022\014"
-  "\n\004tags\030\010 \003(\t\022\025\n\rworkshop_file\030\t \001(\010\022\022\n\nv"
-  "isibility\030\n \001(\005\022\021\n\tfile_type\030\013 \001(\r\022\013\n\003ur"
-  "l\030\014 \001(\t\022\026\n\016video_provider\030\r \001(\r\022\032\n\022video"
-  "_account_name\030\016 \001(\t\022\030\n\020video_identifier\030"
-  "\017 \001(\t\022\023\n\013in_progress\030\020 \001(\010\"\241\001\n CMsgClien"
-  "tUCMPublishFileResponse\022\022\n\007eresult\030\001 \001(\005"
-  ":\0012\022/\n\021published_file_id\030\002 \001(\006:\02418446744"
-  "073709551615\0228\n)needs_workshop_legal_agr"
-  "eement_acceptance\030\003 \001(\010:\005false\"\276\010\n CMsgC"
-  "lientUCMUpdatePublishedFile\022\016\n\006app_id\030\001 "
-  "\001(\r\022\031\n\021published_file_id\030\002 \001(\006\022\021\n\tfile_n"
-  "ame\030\003 \001(\t\022\031\n\021preview_file_name\030\004 \001(\t\022\r\n\005"
-  "title\030\005 \001(\t\022\023\n\013description\030\006 \001(\t\022\014\n\004tags"
-  "\030\007 \003(\t\022\022\n\nvisibility\030\010 \001(\005\022\023\n\013update_fil"
-  "e\030\t \001(\010\022\033\n\023update_preview_file\030\n \001(\010\022\024\n\014"
-  "update_title\030\013 \001(\010\022\032\n\022update_description"
-  "\030\014 \001(\010\022\023\n\013update_tags\030\r \001(\010\022\031\n\021update_vi"
-  "sibility\030\016 \001(\010\022\032\n\022change_description\030\017 \001"
-  "(\t\022\022\n\nupdate_url\030\020 \001(\010\022\013\n\003url\030\021 \001(\t\022\037\n\027u"
-  "pdate_content_manifest\030\022 \001(\010\022\030\n\020content_"
-  "manifest\030\023 \001(\006\022\020\n\010metadata\030\024 \001(\t\022\027\n\017upda"
-  "te_metadata\030\025 \001(\010\022\023\n\010language\030\026 \001(\005:\0010\022\026"
-  "\n\016removed_kvtags\030\027 \003(\t\022=\n\006kvtags\030\030 \003(\0132-"
-  ".CMsgClientUCMUpdatePublishedFile.KeyVal"
-  "ueTag\022E\n\010previews\030\031 \003(\01323.CMsgClientUCMU"
-  "pdatePublishedFile.AdditionalPreview\022\032\n\022"
-  "previews_to_remove\030\032 \003(\005\022\031\n\021clear_in_pro"
-  "gress\030\033 \001(\010\022\031\n\021remove_all_kvtags\030\034 \001(\010\022\""
-  "\n\032content_descriptors_to_add\030\035 \003(\005\022%\n\035co"
-  "ntent_descriptors_to_remove\030\036 \003(\005\022\037\n\020all"
-  "ow_admin_tags\030\037 \001(\010:\005false\022\031\n\021external_a"
-  "sset_id\030  \001(\004\032)\n\013KeyValueTag\022\013\n\003key\030\001 \001("
-  "\t\022\r\n\005value\030\002 \001(\t\032\214\001\n\021AdditionalPreview\022\032"
-  "\n\022original_file_name\030\001 \001(\t\022\032\n\022internal_f"
-  "ile_name\030\002 \001(\t\022\017\n\007videoid\030\003 \001(\t\022\024\n\014previ"
-  "ew_type\030\004 \001(\r\022\030\n\014update_index\030\005 \001(\005:\002-1\""
-  "x\n(CMsgClientUCMUpdatePublishedFileRespo"
-  "nse\022\022\n\007eresult\030\001 \001(\005:\0012\0228\n)needs_worksho"
-  "p_legal_agreement_acceptance\030\002 \001(\010:\005fals"
-  "e\"M\n CMsgClientUCMDeletePublishedFile\022\031\n"
-  "\021published_file_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r"
-  "\">\n(CMsgClientUCMDeletePublishedFileResp"
-  "onse\022\022\n\007eresult\030\001 \001(\005:\0012\"\214\001\n4CMsgClientU"
-  "CMEnumerateUserSubscribedFilesWithUpdate"
-  "s\022\016\n\006app_id\030\001 \001(\r\022\023\n\013start_index\030\002 \001(\r\022\022"
-  "\n\nstart_time\030\003 \001(\007\022\033\n\020desired_revision\030\004"
-  " \001(\r:\0010\"\221\003\n<CMsgClientUCMEnumerateUserSu"
-  "bscribedFilesWithUpdatesResponse\022\022\n\007eres"
-  "ult\030\001 \001(\005:\0012\022g\n\020subscribed_files\030\002 \003(\0132M"
-  ".CMsgClientUCMEnumerateUserSubscribedFil"
-  "esWithUpdatesResponse.PublishedFileId\022\025\n"
-  "\rtotal_results\030\003 \001(\r\032\274\001\n\017PublishedFileId"
-  "\022\031\n\021published_file_id\030\001 \001(\006\022\035\n\022rtime32_s"
-  "ubscribed\030\002 \001(\007:\0010\022\r\n\005appid\030\003 \001(\r\022\025\n\rfil"
-  "e_hcontent\030\004 \001(\006\022\021\n\tfile_size\030\005 \001(\r\022\034\n\024r"
-  "time32_last_updated\030\006 \001(\007\022\030\n\020is_depot_co"
-  "ntent\030\007 \001(\010\"\265\001\n!CMsgClientUCMPublishedFi"
-  "leUpdated\022\031\n\021published_file_id\030\001 \001(\006\022\016\n\006"
-  "app_id\030\002 \001(\r\022\024\n\014time_updated\030\003 \001(\r\022\020\n\010hc"
-  "ontent\030\004 \001(\006\022\021\n\tfile_size\030\005 \001(\007\022\030\n\020is_de"
-  "pot_content\030\006 \001(\010\022\020\n\010revision\030\007 \001(\r\"k\n$C"
-  "MsgClientWorkshopItemChangesRequest\022\016\n\006a"
-  "pp_id\030\001 \001(\r\022\031\n\021last_time_updated\030\002 \001(\r\022\030"
-  "\n\020num_items_needed\030\003 \001(\r\"\373\001\n%CMsgClientW"
-  "orkshopItemChangesResponse\022\022\n\007eresult\030\001 "
-  "\001(\005:\0012\022\023\n\013update_time\030\002 \001(\r\022O\n\016workshop_"
-  "items\030\005 \003(\01327.CMsgClientWorkshopItemChan"
-  "gesResponse.WorkshopItemInfo\032X\n\020Workshop"
-  "ItemInfo\022\031\n\021published_file_id\030\001 \001(\006\022\024\n\014t"
-  "ime_updated\030\002 \001(\r\022\023\n\013manifest_id\030\003 \001(\006\"d"
-  "\n\'CMsgClientUCMSetUserPublishedFileActio"
-  "n\022\031\n\021published_file_id\030\001 \001(\006\022\016\n\006app_id\030\002"
-  " \001(\r\022\016\n\006action\030\003 \001(\005\"E\n/CMsgClientUCMSet"
-  "UserPublishedFileActionResponse\022\022\n\007eresu"
-  "lt\030\001 \001(\005:\0012\"g\n0CMsgClientUCMEnumeratePub"
-  "lishedFilesByUserAction\022\016\n\006app_id\030\001 \001(\r\022"
-  "\023\n\013start_index\030\002 \001(\r\022\016\n\006action\030\003 \001(\005\"\224\002\n"
-  "8CMsgClientUCMEnumeratePublishedFilesByU"
-  "serActionResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022b\n"
-  "\017published_files\030\002 \003(\0132I.CMsgClientUCMEn"
-  "umeratePublishedFilesByUserActionRespons"
-  "e.PublishedFileId\022\025\n\rtotal_results\030\003 \001(\r"
-  "\032I\n\017PublishedFileId\022\031\n\021published_file_id"
-  "\030\001 \001(\006\022\033\n\020rtime_time_stamp\030\002 \001(\007:\0010\"\036\n\034C"
-  "MsgClientScreenshotsChangedB\037H\001\200\001\000\252\002\027Ope"
-  "nSteamworks.Protobuf"
+  "\030\002 \001(\006:\02418446744073709551615\022\027\n\017publishe"
+  "dfileid\030\003 \001(\004\"K\n\035CMsgClientUCMDeleteScre"
+  "enshot\022*\n\014screenshotid\030\001 \001(\006:\0241844674407"
+  "3709551615\";\n%CMsgClientUCMDeleteScreens"
+  "hotResponse\022\022\n\007eresult\030\001 \001(\005:\0012\"\321\002\n\030CMsg"
+  "ClientUCMPublishFile\022\016\n\006app_id\030\001 \001(\r\022\021\n\t"
+  "file_name\030\002 \001(\t\022\031\n\021preview_file_name\030\003 \001"
+  "(\t\022\027\n\017consumer_app_id\030\004 \001(\r\022\r\n\005title\030\005 \001"
+  "(\t\022\023\n\013description\030\006 \001(\t\022\014\n\004tags\030\010 \003(\t\022\025\n"
+  "\rworkshop_file\030\t \001(\010\022\022\n\nvisibility\030\n \001(\005"
+  "\022\021\n\tfile_type\030\013 \001(\r\022\013\n\003url\030\014 \001(\t\022\026\n\016vide"
+  "o_provider\030\r \001(\r\022\032\n\022video_account_name\030\016"
+  " \001(\t\022\030\n\020video_identifier\030\017 \001(\t\022\023\n\013in_pro"
+  "gress\030\020 \001(\010\"\241\001\n CMsgClientUCMPublishFile"
+  "Response\022\022\n\007eresult\030\001 \001(\005:\0012\022/\n\021publishe"
+  "d_file_id\030\002 \001(\006:\02418446744073709551615\0228\n"
+  ")needs_workshop_legal_agreement_acceptan"
+  "ce\030\003 \001(\010:\005false\"\276\010\n CMsgClientUCMUpdateP"
+  "ublishedFile\022\016\n\006app_id\030\001 \001(\r\022\031\n\021publishe"
+  "d_file_id\030\002 \001(\006\022\021\n\tfile_name\030\003 \001(\t\022\031\n\021pr"
+  "eview_file_name\030\004 \001(\t\022\r\n\005title\030\005 \001(\t\022\023\n\013"
+  "description\030\006 \001(\t\022\014\n\004tags\030\007 \003(\t\022\022\n\nvisib"
+  "ility\030\010 \001(\005\022\023\n\013update_file\030\t \001(\010\022\033\n\023upda"
+  "te_preview_file\030\n \001(\010\022\024\n\014update_title\030\013 "
+  "\001(\010\022\032\n\022update_description\030\014 \001(\010\022\023\n\013updat"
+  "e_tags\030\r \001(\010\022\031\n\021update_visibility\030\016 \001(\010\022"
+  "\032\n\022change_description\030\017 \001(\t\022\022\n\nupdate_ur"
+  "l\030\020 \001(\010\022\013\n\003url\030\021 \001(\t\022\037\n\027update_content_m"
+  "anifest\030\022 \001(\010\022\030\n\020content_manifest\030\023 \001(\006\022"
+  "\020\n\010metadata\030\024 \001(\t\022\027\n\017update_metadata\030\025 \001"
+  "(\010\022\023\n\010language\030\026 \001(\005:\0010\022\026\n\016removed_kvtag"
+  "s\030\027 \003(\t\022=\n\006kvtags\030\030 \003(\0132-.CMsgClientUCMU"
+  "pdatePublishedFile.KeyValueTag\022E\n\010previe"
+  "ws\030\031 \003(\01323.CMsgClientUCMUpdatePublishedF"
+  "ile.AdditionalPreview\022\032\n\022previews_to_rem"
+  "ove\030\032 \003(\005\022\031\n\021clear_in_progress\030\033 \001(\010\022\031\n\021"
+  "remove_all_kvtags\030\034 \001(\010\022\"\n\032content_descr"
+  "iptors_to_add\030\035 \003(\005\022%\n\035content_descripto"
+  "rs_to_remove\030\036 \003(\005\022\037\n\020allow_admin_tags\030\037"
+  " \001(\010:\005false\022\031\n\021external_asset_id\030  \001(\004\032)"
+  "\n\013KeyValueTag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001("
+  "\t\032\214\001\n\021AdditionalPreview\022\032\n\022original_file"
+  "_name\030\001 \001(\t\022\032\n\022internal_file_name\030\002 \001(\t\022"
+  "\017\n\007videoid\030\003 \001(\t\022\024\n\014preview_type\030\004 \001(\r\022\030"
+  "\n\014update_index\030\005 \001(\005:\002-1\"x\n(CMsgClientUC"
+  "MUpdatePublishedFileResponse\022\022\n\007eresult\030"
+  "\001 \001(\005:\0012\0228\n)needs_workshop_legal_agreeme"
+  "nt_acceptance\030\002 \001(\010:\005false\"M\n CMsgClient"
+  "UCMDeletePublishedFile\022\031\n\021published_file"
+  "_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\">\n(CMsgClientU"
+  "CMDeletePublishedFileResponse\022\022\n\007eresult"
+  "\030\001 \001(\005:\0012\"\214\001\n4CMsgClientUCMEnumerateUser"
+  "SubscribedFilesWithUpdates\022\016\n\006app_id\030\001 \001"
+  "(\r\022\023\n\013start_index\030\002 \001(\r\022\022\n\nstart_time\030\003 "
+  "\001(\007\022\033\n\020desired_revision\030\004 \001(\r:\0010\"\221\003\n<CMs"
+  "gClientUCMEnumerateUserSubscribedFilesWi"
+  "thUpdatesResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022g\n"
+  "\020subscribed_files\030\002 \003(\0132M.CMsgClientUCME"
+  "numerateUserSubscribedFilesWithUpdatesRe"
+  "sponse.PublishedFileId\022\025\n\rtotal_results\030"
+  "\003 \001(\r\032\274\001\n\017PublishedFileId\022\031\n\021published_f"
+  "ile_id\030\001 \001(\006\022\035\n\022rtime32_subscribed\030\002 \001(\007"
+  ":\0010\022\r\n\005appid\030\003 \001(\r\022\025\n\rfile_hcontent\030\004 \001("
+  "\006\022\021\n\tfile_size\030\005 \001(\r\022\034\n\024rtime32_last_upd"
+  "ated\030\006 \001(\007\022\030\n\020is_depot_content\030\007 \001(\010\"\265\001\n"
+  "!CMsgClientUCMPublishedFileUpdated\022\031\n\021pu"
+  "blished_file_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\022\024\n"
+  "\014time_updated\030\003 \001(\r\022\020\n\010hcontent\030\004 \001(\006\022\021\n"
+  "\tfile_size\030\005 \001(\007\022\030\n\020is_depot_content\030\006 \001"
+  "(\010\022\020\n\010revision\030\007 \001(\r\"k\n$CMsgClientWorksh"
+  "opItemChangesRequest\022\016\n\006app_id\030\001 \001(\r\022\031\n\021"
+  "last_time_updated\030\002 \001(\r\022\030\n\020num_items_nee"
+  "ded\030\003 \001(\r\"\373\001\n%CMsgClientWorkshopItemChan"
+  "gesResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022\023\n\013updat"
+  "e_time\030\002 \001(\r\022O\n\016workshop_items\030\005 \003(\01327.C"
+  "MsgClientWorkshopItemChangesResponse.Wor"
+  "kshopItemInfo\032X\n\020WorkshopItemInfo\022\031\n\021pub"
+  "lished_file_id\030\001 \001(\006\022\024\n\014time_updated\030\002 \001"
+  "(\r\022\023\n\013manifest_id\030\003 \001(\006\"d\n\'CMsgClientUCM"
+  "SetUserPublishedFileAction\022\031\n\021published_"
+  "file_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\022\016\n\006action\030"
+  "\003 \001(\005\"E\n/CMsgClientUCMSetUserPublishedFi"
+  "leActionResponse\022\022\n\007eresult\030\001 \001(\005:\0012\"g\n0"
+  "CMsgClientUCMEnumeratePublishedFilesByUs"
+  "erAction\022\016\n\006app_id\030\001 \001(\r\022\023\n\013start_index\030"
+  "\002 \001(\r\022\016\n\006action\030\003 \001(\005\"\224\002\n8CMsgClientUCME"
+  "numeratePublishedFilesByUserActionRespon"
+  "se\022\022\n\007eresult\030\001 \001(\005:\0012\022b\n\017published_file"
+  "s\030\002 \003(\0132I.CMsgClientUCMEnumeratePublishe"
+  "dFilesByUserActionResponse.PublishedFile"
+  "Id\022\025\n\rtotal_results\030\003 \001(\r\032I\n\017PublishedFi"
+  "leId\022\031\n\021published_file_id\030\001 \001(\006\022\033\n\020rtime"
+  "_time_stamp\030\002 \001(\007:\0010\"\036\n\034CMsgClientScreen"
+  "shotsChangedB\037H\001\200\001\000\252\002\027OpenSteamworks.Pro"
+  "tobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_5fucm_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -984,7 +988,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5fucm_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5fucm_2eproto = {
-  false, false, 4300, descriptor_table_protodef_steammessages_5fclientserver_5fucm_2eproto, "steammessages_clientserver_ucm.proto", 
+  false, false, 4325, descriptor_table_protodef_steammessages_5fclientserver_5fucm_2eproto, "steammessages_clientserver_ucm.proto", 
   &descriptor_table_steammessages_5fclientserver_5fucm_2eproto_once, descriptor_table_steammessages_5fclientserver_5fucm_2eproto_deps, 2, 26,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5fucm_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5fucm_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5fucm_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5fucm_2eproto,
@@ -1964,10 +1968,13 @@ class CMsgClientUCMAddScreenshotResponse::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgClientUCMAddScreenshotResponse>()._has_bits_);
   static void set_has_eresult(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_screenshotid(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_publishedfileid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -1981,13 +1988,14 @@ CMsgClientUCMAddScreenshotResponse::CMsgClientUCMAddScreenshotResponse(const CMs
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&eresult_, &from.eresult_,
+  ::memcpy(&publishedfileid_, &from.publishedfileid_,
     static_cast<size_t>(reinterpret_cast<char*>(&screenshotid_) -
-    reinterpret_cast<char*>(&eresult_)) + sizeof(screenshotid_));
+    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(screenshotid_));
   // @@protoc_insertion_point(copy_constructor:CMsgClientUCMAddScreenshotResponse)
 }
 
 void CMsgClientUCMAddScreenshotResponse::SharedCtor() {
+publishedfileid_ = PROTOBUF_ULONGLONG(0);
 eresult_ = 2;
 screenshotid_ = PROTOBUF_ULONGLONG(18446744073709551615);
 }
@@ -2019,7 +2027,8 @@ void CMsgClientUCMAddScreenshotResponse::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
+    publishedfileid_ = PROTOBUF_ULONGLONG(0);
     eresult_ = 2;
     screenshotid_ = PROTOBUF_ULONGLONG(18446744073709551615);
   }
@@ -2049,6 +2058,14 @@ const char* CMsgClientUCMAddScreenshotResponse::_InternalParse(const char* ptr, 
           _Internal::set_has_screenshotid(&has_bits);
           screenshotid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 publishedfileid = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_publishedfileid(&has_bits);
+          publishedfileid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -2082,15 +2099,21 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional int32 eresult = 1 [default = 2];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_eresult(), target);
   }
 
   // optional fixed64 screenshotid = 2 [default = 18446744073709551615];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_screenshotid(), target);
+  }
+
+  // optional uint64 publishedfileid = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_publishedfileid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2110,16 +2133,23 @@ size_t CMsgClientUCMAddScreenshotResponse::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional int32 eresult = 1 [default = 2];
+  if (cached_has_bits & 0x00000007u) {
+    // optional uint64 publishedfileid = 3;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_publishedfileid());
+    }
+
+    // optional int32 eresult = 1 [default = 2];
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_eresult());
     }
 
     // optional fixed64 screenshotid = 2 [default = 18446744073709551615];
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
@@ -2156,11 +2186,14 @@ void CMsgClientUCMAddScreenshotResponse::MergeFrom(const CMsgClientUCMAddScreens
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      eresult_ = from.eresult_;
+      publishedfileid_ = from.publishedfileid_;
     }
     if (cached_has_bits & 0x00000002u) {
+      eresult_ = from.eresult_;
+    }
+    if (cached_has_bits & 0x00000004u) {
       screenshotid_ = from.screenshotid_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -2189,6 +2222,7 @@ void CMsgClientUCMAddScreenshotResponse::InternalSwap(CMsgClientUCMAddScreenshot
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(publishedfileid_, other->publishedfileid_);
   swap(eresult_, other->eresult_);
   swap(screenshotid_, other->screenshotid_);
 }

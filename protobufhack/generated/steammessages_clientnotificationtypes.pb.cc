@@ -486,7 +486,19 @@ struct CClientNotificationPlaytimeWarningDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientNotificationPlaytimeWarningDefaultTypeInternal _CClientNotificationPlaytimeWarning_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientnotificationtypes_2eproto[36];
+constexpr CClientNotificationGRE::CClientNotificationGRE(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : game_id_(PROTOBUF_ULONGLONG(0)){}
+struct CClientNotificationGREDefaultTypeInternal {
+  constexpr CClientNotificationGREDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CClientNotificationGREDefaultTypeInternal() {}
+  union {
+    CClientNotificationGRE _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientNotificationGREDefaultTypeInternal _CClientNotificationGRE_default_instance_;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientnotificationtypes_2eproto[37];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fclientnotificationtypes_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fclientnotificationtypes_2eproto = nullptr;
 
@@ -817,6 +829,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientnotifica
   PROTOBUF_FIELD_OFFSET(::CClientNotificationPlaytimeWarning, playtime_remaining_),
   0,
   1,
+  PROTOBUF_FIELD_OFFSET(::CClientNotificationGRE, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CClientNotificationGRE, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CClientNotificationGRE, game_id_),
+  0,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 6, sizeof(::CClientNotificationCloudSyncFailure)},
@@ -855,6 +874,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 297, 304, sizeof(::CClientNotificationRemoteClientStartStream)},
   { 306, 314, sizeof(::CClientNotificationStreamingClientConnection)},
   { 317, 324, sizeof(::CClientNotificationPlaytimeWarning)},
+  { 326, 332, sizeof(::CClientNotificationGRE)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -894,6 +914,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientNotificationRemoteClientStartStream_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientNotificationStreamingClientConnection_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientNotificationPlaytimeWarning_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientNotificationGRE_default_instance_),
 };
 
 const char descriptor_table_protodef_steammessages_5fclientnotificationtypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -974,79 +995,85 @@ const char descriptor_table_protodef_steammessages_5fclientnotificationtypes_2ep
   "ction\022\020\n\010hostname\030\001 \001(\t\022\017\n\007machine\030\002 \001(\t"
   "\022\021\n\tconnected\030\003 \001(\010\"N\n\"CClientNotificati"
   "onPlaytimeWarning\022\014\n\004type\030\001 \001(\t\022\032\n\022playt"
-  "ime_remaining\030\002 \001(\r*\267\022\n\027EClientNotificat"
-  "ionType\022#\n\037EClientNotificationType_Inval"
-  "id\020\000\022-\n)EClientNotificationType_Download"
-  "Completed\020\001\022(\n$EClientNotificationType_F"
-  "riendInvite\020\002\022(\n$EClientNotificationType"
-  "_FriendInGame\020\003\022(\n$EClientNotificationTy"
-  "pe_FriendOnline\020\004\022\'\n#EClientNotification"
-  "Type_Achievement\020\005\022&\n\"EClientNotificatio"
-  "nType_LowBattery\020\006\022(\n$EClientNotificatio"
-  "nType_SystemUpdate\020\007\022)\n%EClientNotificat"
-  "ionType_FriendMessage\020\010\022,\n(EClientNotifi"
-  "cationType_GroupChatMessage\020\t\022.\n*EClient"
-  "NotificationType_FriendInviteRollup\020\n\022C\n"
-  "\?EClientNotificationType_FamilySharingDe"
-  "viceAuthorizationChanged\020\013\0224\n0EClientNot"
-  "ificationType_FamilySharingStopPlaying\020\014"
-  "\0229\n5EClientNotificationType_FamilySharin"
-  "gLibraryAvailable\020\r\022&\n\"EClientNotificati"
-  "onType_Screenshot\020\016\022,\n(EClientNotificati"
-  "onType_CloudSyncFailure\020\017\022-\n)EClientNoti"
-  "ficationType_CloudSyncConflict\020\020\022-\n)ECli"
-  "entNotificationType_IncomingVoiceChat\020\021\022"
-  "1\n-EClientNotificationType_ClaimSteamDec"
-  "kRewards\020\022\022(\n$EClientNotificationType_Gi"
-  "ftReceived\020\023\022,\n(EClientNotificationType_"
-  "ItemAnnouncement\020\024\022*\n&EClientNotificatio"
-  "nType_HardwareSurvey\020\025\022(\n$EClientNotific"
-  "ationType_LowDiskSpace\020\026\022.\n*EClientNotif"
-  "icationType_BatteryTemperature\020\027\0223\n/ECli"
-  "entNotificationType_DockUnsupportedFirmw"
-  "are\020\030\022-\n)EClientNotificationType_PeerCon"
-  "tentUpload\020\031\022;\n7EClientNotificationType_"
-  "CannotReadControllerGuideButton\020\032\022#\n\037ECl"
-  "ientNotificationType_Comment\020\033\022$\n EClien"
-  "tNotificationType_Wishlist\020\034\022&\n\"EClientN"
-  "otificationType_TradeOffer\020\035\022%\n!EClientN"
-  "otificationType_AsyncGame\020\036\022#\n\037EClientNo"
-  "tificationType_General\020\037\022\'\n#EClientNotif"
-  "icationType_HelpRequest\020 \022/\n+EClientNoti"
-  "ficationType_OverlaySplashScreen\020!\0225\n1EC"
-  "lientNotificationType_BroadcastAvailable"
-  "ToWatch\020\"\022/\n+EClientNotificationType_Tim"
-  "edTrialRemaining\020#\022(\n$EClientNotificatio"
-  "nType_LoginRefresh\020$\022%\n!EClientNotificat"
-  "ionType_MajorSale\020%\022(\n$EClientNotificati"
-  "onType_TimerExpired\020&\022(\n$EClientNotifica"
-  "tionType_ModeratorMsg\020\'\0226\n2EClientNotifi"
-  "cationType_SteamInputActionSetChanged\020(\022"
-  "2\n.EClientNotificationType_RemoteClientC"
-  "onnection\020)\0223\n/EClientNotificationType_R"
-  "emoteClientStartStream\020*\0225\n1EClientNotif"
-  "icationType_StreamingClientConnection\020+\022"
-  "(\n$EClientNotificationType_FamilyInvite\020"
-  ",\022+\n\'EClientNotificationType_PlaytimeWar"
-  "ning\020-\0221\n-EClientNotificationType_Family"
-  "PurchaseRequest\020.\0229\n5EClientNotification"
-  "Type_FamilyPurchaseRequestResponse\020/\0222\n."
-  "EClientNotificationType_ParentalFeatureR"
-  "equest\0200\0223\n/EClientNotificationType_Pare"
-  "ntalPlaytimeRequest\0201*\247\001\n\035ESystemUpdateN"
-  "otificationType\022)\n%ESystemUpdateNotifica"
-  "tionType_Invalid\020\000\022+\n\'ESystemUpdateNotif"
-  "icationType_Available\020\001\022.\n*ESystemUpdate"
-  "NotificationType_NeedsRestart\020\002B\037H\001\200\001\001\252\002"
-  "\027OpenSteamworks.Protobuf"
+  "ime_remaining\030\002 \001(\r\")\n\026CClientNotificati"
+  "onGRE\022\017\n\007game_id\030\001 \001(\006*\363\023\n\027EClientNotifi"
+  "cationType\022#\n\037EClientNotificationType_In"
+  "valid\020\000\022-\n)EClientNotificationType_Downl"
+  "oadCompleted\020\001\022(\n$EClientNotificationTyp"
+  "e_FriendInvite\020\002\022(\n$EClientNotificationT"
+  "ype_FriendInGame\020\003\022(\n$EClientNotificatio"
+  "nType_FriendOnline\020\004\022\'\n#EClientNotificat"
+  "ionType_Achievement\020\005\022&\n\"EClientNotifica"
+  "tionType_LowBattery\020\006\022(\n$EClientNotifica"
+  "tionType_SystemUpdate\020\007\022)\n%EClientNotifi"
+  "cationType_FriendMessage\020\010\022,\n(EClientNot"
+  "ificationType_GroupChatMessage\020\t\022.\n*ECli"
+  "entNotificationType_FriendInviteRollup\020\n"
+  "\022C\n\?EClientNotificationType_FamilySharin"
+  "gDeviceAuthorizationChanged\020\013\0224\n0EClient"
+  "NotificationType_FamilySharingStopPlayin"
+  "g\020\014\0229\n5EClientNotificationType_FamilySha"
+  "ringLibraryAvailable\020\r\022&\n\"EClientNotific"
+  "ationType_Screenshot\020\016\022,\n(EClientNotific"
+  "ationType_CloudSyncFailure\020\017\022-\n)EClientN"
+  "otificationType_CloudSyncConflict\020\020\022-\n)E"
+  "ClientNotificationType_IncomingVoiceChat"
+  "\020\021\0221\n-EClientNotificationType_ClaimSteam"
+  "DeckRewards\020\022\022(\n$EClientNotificationType"
+  "_GiftReceived\020\023\022,\n(EClientNotificationTy"
+  "pe_ItemAnnouncement\020\024\022*\n&EClientNotifica"
+  "tionType_HardwareSurvey\020\025\022(\n$EClientNoti"
+  "ficationType_LowDiskSpace\020\026\022.\n*EClientNo"
+  "tificationType_BatteryTemperature\020\027\0223\n/E"
+  "ClientNotificationType_DockUnsupportedFi"
+  "rmware\020\030\022-\n)EClientNotificationType_Peer"
+  "ContentUpload\020\031\022;\n7EClientNotificationTy"
+  "pe_CannotReadControllerGuideButton\020\032\022#\n\037"
+  "EClientNotificationType_Comment\020\033\022$\n ECl"
+  "ientNotificationType_Wishlist\020\034\022&\n\"EClie"
+  "ntNotificationType_TradeOffer\020\035\022%\n!EClie"
+  "ntNotificationType_AsyncGame\020\036\022#\n\037EClien"
+  "tNotificationType_General\020\037\022\'\n#EClientNo"
+  "tificationType_HelpRequest\020 \022/\n+EClientN"
+  "otificationType_OverlaySplashScreen\020!\0225\n"
+  "1EClientNotificationType_BroadcastAvaila"
+  "bleToWatch\020\"\022/\n+EClientNotificationType_"
+  "TimedTrialRemaining\020#\022(\n$EClientNotifica"
+  "tionType_LoginRefresh\020$\022%\n!EClientNotifi"
+  "cationType_MajorSale\020%\022(\n$EClientNotific"
+  "ationType_TimerExpired\020&\022(\n$EClientNotif"
+  "icationType_ModeratorMsg\020\'\0226\n2EClientNot"
+  "ificationType_SteamInputActionSetChanged"
+  "\020(\0222\n.EClientNotificationType_RemoteClie"
+  "ntConnection\020)\0223\n/EClientNotificationTyp"
+  "e_RemoteClientStartStream\020*\0225\n1EClientNo"
+  "tificationType_StreamingClientConnection"
+  "\020+\022(\n$EClientNotificationType_FamilyInvi"
+  "te\020,\022+\n\'EClientNotificationType_Playtime"
+  "Warning\020-\0221\n-EClientNotificationType_Fam"
+  "ilyPurchaseRequest\020.\0229\n5EClientNotificat"
+  "ionType_FamilyPurchaseRequestResponse\020/\022"
+  "2\n.EClientNotificationType_ParentalFeatu"
+  "reRequest\0200\0223\n/EClientNotificationType_P"
+  "arentalPlaytimeRequest\0201\022\037\n\033EClientNotif"
+  "icationType_GRE\0202\0223\n/EClientNotification"
+  "Type_ParentalFeatureResponse\0203\0224\n0EClien"
+  "tNotificationType_ParentalPlaytimeRespon"
+  "se\0204\022.\n*EClientNotificationType_Requeste"
+  "dGameAdded\0205*\247\001\n\035ESystemUpdateNotificati"
+  "onType\022)\n%ESystemUpdateNotificationType_"
+  "Invalid\020\000\022+\n\'ESystemUpdateNotificationTy"
+  "pe_Available\020\001\022.\n*ESystemUpdateNotificat"
+  "ionType_NeedsRestart\020\002B\037H\001\200\001\001\252\002\027OpenStea"
+  "mworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientnotificationtypes_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientnotificationtypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientnotificationtypes_2eproto = {
-  false, false, 5664, descriptor_table_protodef_steammessages_5fclientnotificationtypes_2eproto, "steammessages_clientnotificationtypes.proto", 
-  &descriptor_table_steammessages_5fclientnotificationtypes_2eproto_once, descriptor_table_steammessages_5fclientnotificationtypes_2eproto_deps, 1, 36,
+  false, false, 5895, descriptor_table_protodef_steammessages_5fclientnotificationtypes_2eproto, "steammessages_clientnotificationtypes.proto", 
+  &descriptor_table_steammessages_5fclientnotificationtypes_2eproto_once, descriptor_table_steammessages_5fclientnotificationtypes_2eproto_deps, 1, 37,
   schemas, file_default_instances, TableStruct_steammessages_5fclientnotificationtypes_2eproto::offsets,
   file_level_metadata_steammessages_5fclientnotificationtypes_2eproto, file_level_enum_descriptors_steammessages_5fclientnotificationtypes_2eproto, file_level_service_descriptors_steammessages_5fclientnotificationtypes_2eproto,
 };
@@ -1114,6 +1141,10 @@ bool EClientNotificationType_IsValid(int value) {
     case 47:
     case 48:
     case 49:
+    case 50:
+    case 51:
+    case 52:
+    case 53:
       return true;
     default:
       return false;
@@ -10027,6 +10058,205 @@ void CClientNotificationPlaytimeWarning::InternalSwap(CClientNotificationPlaytim
 }
 
 
+// ===================================================================
+
+class CClientNotificationGRE::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CClientNotificationGRE>()._has_bits_);
+  static void set_has_game_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CClientNotificationGRE::CClientNotificationGRE(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CClientNotificationGRE)
+}
+CClientNotificationGRE::CClientNotificationGRE(const CClientNotificationGRE& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  game_id_ = from.game_id_;
+  // @@protoc_insertion_point(copy_constructor:CClientNotificationGRE)
+}
+
+void CClientNotificationGRE::SharedCtor() {
+game_id_ = PROTOBUF_ULONGLONG(0);
+}
+
+CClientNotificationGRE::~CClientNotificationGRE() {
+  // @@protoc_insertion_point(destructor:CClientNotificationGRE)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CClientNotificationGRE::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CClientNotificationGRE::ArenaDtor(void* object) {
+  CClientNotificationGRE* _this = reinterpret_cast< CClientNotificationGRE* >(object);
+  (void)_this;
+}
+void CClientNotificationGRE::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CClientNotificationGRE::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CClientNotificationGRE::Clear() {
+// @@protoc_insertion_point(message_clear_start:CClientNotificationGRE)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CClientNotificationGRE::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 game_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_game_id(&has_bits);
+          game_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CClientNotificationGRE::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CClientNotificationGRE)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 game_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_game_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CClientNotificationGRE)
+  return target;
+}
+
+size_t CClientNotificationGRE::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CClientNotificationGRE)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional fixed64 game_id = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CClientNotificationGRE::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CClientNotificationGRE)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CClientNotificationGRE* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CClientNotificationGRE>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CClientNotificationGRE)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CClientNotificationGRE)
+    MergeFrom(*source);
+  }
+}
+
+void CClientNotificationGRE::MergeFrom(const CClientNotificationGRE& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CClientNotificationGRE)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_game_id()) {
+    _internal_set_game_id(from._internal_game_id());
+  }
+}
+
+void CClientNotificationGRE::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CClientNotificationGRE)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CClientNotificationGRE::CopyFrom(const CClientNotificationGRE& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CClientNotificationGRE)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CClientNotificationGRE::IsInitialized() const {
+  return true;
+}
+
+void CClientNotificationGRE::InternalSwap(CClientNotificationGRE* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(game_id_, other->game_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CClientNotificationGRE::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::CClientNotificationCloudSyncFailure* Arena::CreateMaybeMessage< ::CClientNotificationCloudSyncFailure >(Arena* arena) {
@@ -10136,6 +10366,9 @@ template<> PROTOBUF_NOINLINE ::CClientNotificationStreamingClientConnection* Are
 }
 template<> PROTOBUF_NOINLINE ::CClientNotificationPlaytimeWarning* Arena::CreateMaybeMessage< ::CClientNotificationPlaytimeWarning >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CClientNotificationPlaytimeWarning >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CClientNotificationGRE* Arena::CreateMaybeMessage< ::CClientNotificationGRE >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CClientNotificationGRE >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

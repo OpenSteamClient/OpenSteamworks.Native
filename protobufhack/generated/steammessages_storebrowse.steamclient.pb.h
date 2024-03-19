@@ -54,7 +54,7 @@ struct TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[42]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[43]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -110,6 +110,9 @@ extern CStoreBrowse_GetStoreCategories_Response_CategoryDefaultTypeInternal _CSt
 class StoreBrowseContext;
 struct StoreBrowseContextDefaultTypeInternal;
 extern StoreBrowseContextDefaultTypeInternal _StoreBrowseContext_default_instance_;
+class StoreBrowseFilterFailure;
+struct StoreBrowseFilterFailureDefaultTypeInternal;
+extern StoreBrowseFilterFailureDefaultTypeInternal _StoreBrowseFilterFailure_default_instance_;
 class StoreBrowseItemDataRequest;
 struct StoreBrowseItemDataRequestDefaultTypeInternal;
 extern StoreBrowseItemDataRequestDefaultTypeInternal _StoreBrowseItemDataRequest_default_instance_;
@@ -205,6 +208,7 @@ template<> ::CStoreBrowse_GetStoreCategories_Request* Arena::CreateMaybeMessage<
 template<> ::CStoreBrowse_GetStoreCategories_Response* Arena::CreateMaybeMessage<::CStoreBrowse_GetStoreCategories_Response>(Arena*);
 template<> ::CStoreBrowse_GetStoreCategories_Response_Category* Arena::CreateMaybeMessage<::CStoreBrowse_GetStoreCategories_Response_Category>(Arena*);
 template<> ::StoreBrowseContext* Arena::CreateMaybeMessage<::StoreBrowseContext>(Arena*);
+template<> ::StoreBrowseFilterFailure* Arena::CreateMaybeMessage<::StoreBrowseFilterFailure>(Arena*);
 template<> ::StoreBrowseItemDataRequest* Arena::CreateMaybeMessage<::StoreBrowseItemDataRequest>(Arena*);
 template<> ::StoreGameRating* Arena::CreateMaybeMessage<::StoreGameRating>(Arena*);
 template<> ::StoreItem* Arena::CreateMaybeMessage<::StoreItem>(Arena*);
@@ -328,6 +332,32 @@ inline bool EUserReviewScore_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EUserReviewScore* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EUserReviewScore>(
     EUserReviewScore_descriptor(), name, value);
+}
+enum EStoreBrowseFilterFailure : int {
+  EStoreBrowseFilterFailure_None = 0,
+  EStoreBrowseFilterFailure_Redundant = 10,
+  EStoreBrowseFilterFailure_NotPreferred = 20,
+  EStoreBrowseFilterFailure_NotInterested = 30,
+  EStoreBrowseFilterFailure_UnwantedContent = 40
+};
+bool EStoreBrowseFilterFailure_IsValid(int value);
+constexpr EStoreBrowseFilterFailure EStoreBrowseFilterFailure_MIN = EStoreBrowseFilterFailure_None;
+constexpr EStoreBrowseFilterFailure EStoreBrowseFilterFailure_MAX = EStoreBrowseFilterFailure_UnwantedContent;
+constexpr int EStoreBrowseFilterFailure_ARRAYSIZE = EStoreBrowseFilterFailure_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStoreBrowseFilterFailure_descriptor();
+template<typename T>
+inline const std::string& EStoreBrowseFilterFailure_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EStoreBrowseFilterFailure>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EStoreBrowseFilterFailure_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EStoreBrowseFilterFailure_descriptor(), enum_t_value);
+}
+inline bool EStoreBrowseFilterFailure_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EStoreBrowseFilterFailure* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EStoreBrowseFilterFailure>(
+    EStoreBrowseFilterFailure_descriptor(), name, value);
 }
 enum EStoreCategoryType : int {
   EStoreCategoryType_Category = 0,
@@ -924,6 +954,7 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
     kIncludeFullDescriptionFieldNumber = 12,
     kIncludeIncludedItemsFieldNumber = 13,
     kIncludeAssetsWithoutOverridesFieldNumber = 15,
+    kApplyUserFiltersFieldNumber = 16,
   };
   // optional .StoreBrowseItemDataRequest included_item_data_request = 14;
   bool has_included_item_data_request() const;
@@ -1125,6 +1156,19 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
   void _internal_set_include_assets_without_overrides(bool value);
   public:
 
+  // optional bool apply_user_filters = 16;
+  bool has_apply_user_filters() const;
+  private:
+  bool _internal_has_apply_user_filters() const;
+  public:
+  void clear_apply_user_filters();
+  bool apply_user_filters() const;
+  void set_apply_user_filters(bool value);
+  private:
+  bool _internal_apply_user_filters() const;
+  void _internal_set_apply_user_filters(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:StoreBrowseItemDataRequest)
  private:
   class _Internal;
@@ -1149,6 +1193,7 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
   bool include_full_description_;
   bool include_included_items_;
   bool include_assets_without_overrides_;
+  bool apply_user_filters_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6041,24 +6086,12 @@ class StoreItem_SupportedLanguage PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kElanguageFieldNumber = 1,
     kSupportedFieldNumber = 2,
     kFullAudioFieldNumber = 3,
     kSubtitlesFieldNumber = 4,
+    kElanguageFieldNumber = 1,
+    kEadditionallanguageFieldNumber = 5,
   };
-  // optional int32 elanguage = 1;
-  bool has_elanguage() const;
-  private:
-  bool _internal_has_elanguage() const;
-  public:
-  void clear_elanguage();
-  ::PROTOBUF_NAMESPACE_ID::int32 elanguage() const;
-  void set_elanguage(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_elanguage() const;
-  void _internal_set_elanguage(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // optional bool supported = 2;
   bool has_supported() const;
   private:
@@ -6098,6 +6131,32 @@ class StoreItem_SupportedLanguage PROTOBUF_FINAL :
   void _internal_set_subtitles(bool value);
   public:
 
+  // optional int32 elanguage = 1 [default = -1];
+  bool has_elanguage() const;
+  private:
+  bool _internal_has_elanguage() const;
+  public:
+  void clear_elanguage();
+  ::PROTOBUF_NAMESPACE_ID::int32 elanguage() const;
+  void set_elanguage(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_elanguage() const;
+  void _internal_set_elanguage(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 eadditionallanguage = 5 [default = -1];
+  bool has_eadditionallanguage() const;
+  private:
+  bool _internal_has_eadditionallanguage() const;
+  public:
+  void clear_eadditionallanguage();
+  ::PROTOBUF_NAMESPACE_ID::int32 eadditionallanguage() const;
+  void set_eadditionallanguage(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_eadditionallanguage() const;
+  void _internal_set_eadditionallanguage(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:StoreItem.SupportedLanguage)
  private:
   class _Internal;
@@ -6107,10 +6166,11 @@ class StoreItem_SupportedLanguage PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::int32 elanguage_;
   bool supported_;
   bool full_audio_;
   bool subtitles_;
+  ::PROTOBUF_NAMESPACE_ID::int32 elanguage_;
+  ::PROTOBUF_NAMESPACE_ID::int32 eadditionallanguage_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6459,10 +6519,12 @@ class StoreItem PROTOBUF_FINAL :
     kPlatformsFieldNumber = 32,
     kGameRatingFieldNumber = 33,
     kBestPurchaseOptionFieldNumber = 40,
+    kSelfPurchaseOptionFieldNumber = 43,
     kScreenshotsFieldNumber = 50,
     kTrailersFieldNumber = 51,
     kFreeWeekendFieldNumber = 54,
     kAssetsWithoutOverridesFieldNumber = 60,
+    kUserFilterFailureFieldNumber = 70,
     kIdFieldNumber = 2,
     kSuccessFieldNumber = 3,
     kAppidFieldNumber = 9,
@@ -6906,6 +6968,24 @@ class StoreItem PROTOBUF_FINAL :
       ::StoreItem_PurchaseOption* best_purchase_option);
   ::StoreItem_PurchaseOption* unsafe_arena_release_best_purchase_option();
 
+  // optional .StoreItem.PurchaseOption self_purchase_option = 43;
+  bool has_self_purchase_option() const;
+  private:
+  bool _internal_has_self_purchase_option() const;
+  public:
+  void clear_self_purchase_option();
+  const ::StoreItem_PurchaseOption& self_purchase_option() const;
+  ::StoreItem_PurchaseOption* release_self_purchase_option();
+  ::StoreItem_PurchaseOption* mutable_self_purchase_option();
+  void set_allocated_self_purchase_option(::StoreItem_PurchaseOption* self_purchase_option);
+  private:
+  const ::StoreItem_PurchaseOption& _internal_self_purchase_option() const;
+  ::StoreItem_PurchaseOption* _internal_mutable_self_purchase_option();
+  public:
+  void unsafe_arena_set_allocated_self_purchase_option(
+      ::StoreItem_PurchaseOption* self_purchase_option);
+  ::StoreItem_PurchaseOption* unsafe_arena_release_self_purchase_option();
+
   // optional .StoreItem.Screenshots screenshots = 50;
   bool has_screenshots() const;
   private:
@@ -6977,6 +7057,24 @@ class StoreItem PROTOBUF_FINAL :
   void unsafe_arena_set_allocated_assets_without_overrides(
       ::StoreItem_Assets* assets_without_overrides);
   ::StoreItem_Assets* unsafe_arena_release_assets_without_overrides();
+
+  // optional .StoreBrowseFilterFailure user_filter_failure = 70;
+  bool has_user_filter_failure() const;
+  private:
+  bool _internal_has_user_filter_failure() const;
+  public:
+  void clear_user_filter_failure();
+  const ::StoreBrowseFilterFailure& user_filter_failure() const;
+  ::StoreBrowseFilterFailure* release_user_filter_failure();
+  ::StoreBrowseFilterFailure* mutable_user_filter_failure();
+  void set_allocated_user_filter_failure(::StoreBrowseFilterFailure* user_filter_failure);
+  private:
+  const ::StoreBrowseFilterFailure& _internal_user_filter_failure() const;
+  ::StoreBrowseFilterFailure* _internal_mutable_user_filter_failure();
+  public:
+  void unsafe_arena_set_allocated_user_filter_failure(
+      ::StoreBrowseFilterFailure* user_filter_failure);
+  ::StoreBrowseFilterFailure* unsafe_arena_release_user_filter_failure();
 
   // optional uint32 id = 2;
   bool has_id() const;
@@ -7141,7 +7239,7 @@ class StoreItem PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<2> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> included_types_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > included_appids_;
@@ -7166,10 +7264,12 @@ class StoreItem PROTOBUF_FINAL :
   ::StoreItem_Platforms* platforms_;
   ::StoreGameRating* game_rating_;
   ::StoreItem_PurchaseOption* best_purchase_option_;
+  ::StoreItem_PurchaseOption* self_purchase_option_;
   ::StoreItem_Screenshots* screenshots_;
   ::StoreItem_Trailers* trailers_;
   ::StoreItem_FreeWeekend* free_weekend_;
   ::StoreItem_Assets* assets_without_overrides_;
+  ::StoreBrowseFilterFailure* user_filter_failure_;
   ::PROTOBUF_NAMESPACE_ID::uint32 id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 success_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
@@ -7486,6 +7586,318 @@ class StoreGameRating PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class StoreBrowseFilterFailure PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StoreBrowseFilterFailure) */ {
+ public:
+  inline StoreBrowseFilterFailure() : StoreBrowseFilterFailure(nullptr) {}
+  virtual ~StoreBrowseFilterFailure();
+  explicit constexpr StoreBrowseFilterFailure(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  StoreBrowseFilterFailure(const StoreBrowseFilterFailure& from);
+  StoreBrowseFilterFailure(StoreBrowseFilterFailure&& from) noexcept
+    : StoreBrowseFilterFailure() {
+    *this = ::std::move(from);
+  }
+
+  inline StoreBrowseFilterFailure& operator=(const StoreBrowseFilterFailure& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StoreBrowseFilterFailure& operator=(StoreBrowseFilterFailure&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const StoreBrowseFilterFailure& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StoreBrowseFilterFailure* internal_default_instance() {
+    return reinterpret_cast<const StoreBrowseFilterFailure*>(
+               &_StoreBrowseFilterFailure_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    28;
+
+  friend void swap(StoreBrowseFilterFailure& a, StoreBrowseFilterFailure& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StoreBrowseFilterFailure* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StoreBrowseFilterFailure* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StoreBrowseFilterFailure* New() const final {
+    return CreateMaybeMessage<StoreBrowseFilterFailure>(nullptr);
+  }
+
+  StoreBrowseFilterFailure* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<StoreBrowseFilterFailure>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const StoreBrowseFilterFailure& from);
+  void MergeFrom(const StoreBrowseFilterFailure& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StoreBrowseFilterFailure* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "StoreBrowseFilterFailure";
+  }
+  protected:
+  explicit StoreBrowseFilterFailure(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kExcludedTagidsFieldNumber = 21,
+    kExcludedContentDescriptoridsFieldNumber = 30,
+    kFilterFailureFieldNumber = 1,
+    kAlreadyOwnedFieldNumber = 5,
+    kOnWishlistFieldNumber = 6,
+    kIgnoredFieldNumber = 7,
+    kNotInUsersLanguageFieldNumber = 10,
+    kNotOnUsersPlatformFieldNumber = 11,
+    kDemoForOwnedGameFieldNumber = 12,
+    kDlcForUnownedGameFieldNumber = 13,
+    kNonpreferredProductTypeFieldNumber = 20,
+  };
+  // repeated uint32 excluded_tagids = 21;
+  int excluded_tagids_size() const;
+  private:
+  int _internal_excluded_tagids_size() const;
+  public:
+  void clear_excluded_tagids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_excluded_tagids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_excluded_tagids() const;
+  void _internal_add_excluded_tagids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_excluded_tagids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 excluded_tagids(int index) const;
+  void set_excluded_tagids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_excluded_tagids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      excluded_tagids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_excluded_tagids();
+
+  // repeated .EContentDescriptorID excluded_content_descriptorids = 30;
+  int excluded_content_descriptorids_size() const;
+  private:
+  int _internal_excluded_content_descriptorids_size() const;
+  public:
+  void clear_excluded_content_descriptorids();
+  private:
+  ::EContentDescriptorID _internal_excluded_content_descriptorids(int index) const;
+  void _internal_add_excluded_content_descriptorids(::EContentDescriptorID value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_excluded_content_descriptorids();
+  public:
+  ::EContentDescriptorID excluded_content_descriptorids(int index) const;
+  void set_excluded_content_descriptorids(int index, ::EContentDescriptorID value);
+  void add_excluded_content_descriptorids(::EContentDescriptorID value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& excluded_content_descriptorids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_excluded_content_descriptorids();
+
+  // optional .EStoreBrowseFilterFailure filter_failure = 1 [default = EStoreBrowseFilterFailure_None];
+  bool has_filter_failure() const;
+  private:
+  bool _internal_has_filter_failure() const;
+  public:
+  void clear_filter_failure();
+  ::EStoreBrowseFilterFailure filter_failure() const;
+  void set_filter_failure(::EStoreBrowseFilterFailure value);
+  private:
+  ::EStoreBrowseFilterFailure _internal_filter_failure() const;
+  void _internal_set_filter_failure(::EStoreBrowseFilterFailure value);
+  public:
+
+  // optional bool already_owned = 5;
+  bool has_already_owned() const;
+  private:
+  bool _internal_has_already_owned() const;
+  public:
+  void clear_already_owned();
+  bool already_owned() const;
+  void set_already_owned(bool value);
+  private:
+  bool _internal_already_owned() const;
+  void _internal_set_already_owned(bool value);
+  public:
+
+  // optional bool on_wishlist = 6;
+  bool has_on_wishlist() const;
+  private:
+  bool _internal_has_on_wishlist() const;
+  public:
+  void clear_on_wishlist();
+  bool on_wishlist() const;
+  void set_on_wishlist(bool value);
+  private:
+  bool _internal_on_wishlist() const;
+  void _internal_set_on_wishlist(bool value);
+  public:
+
+  // optional bool ignored = 7;
+  bool has_ignored() const;
+  private:
+  bool _internal_has_ignored() const;
+  public:
+  void clear_ignored();
+  bool ignored() const;
+  void set_ignored(bool value);
+  private:
+  bool _internal_ignored() const;
+  void _internal_set_ignored(bool value);
+  public:
+
+  // optional bool not_in_users_language = 10;
+  bool has_not_in_users_language() const;
+  private:
+  bool _internal_has_not_in_users_language() const;
+  public:
+  void clear_not_in_users_language();
+  bool not_in_users_language() const;
+  void set_not_in_users_language(bool value);
+  private:
+  bool _internal_not_in_users_language() const;
+  void _internal_set_not_in_users_language(bool value);
+  public:
+
+  // optional bool not_on_users_platform = 11;
+  bool has_not_on_users_platform() const;
+  private:
+  bool _internal_has_not_on_users_platform() const;
+  public:
+  void clear_not_on_users_platform();
+  bool not_on_users_platform() const;
+  void set_not_on_users_platform(bool value);
+  private:
+  bool _internal_not_on_users_platform() const;
+  void _internal_set_not_on_users_platform(bool value);
+  public:
+
+  // optional bool demo_for_owned_game = 12;
+  bool has_demo_for_owned_game() const;
+  private:
+  bool _internal_has_demo_for_owned_game() const;
+  public:
+  void clear_demo_for_owned_game();
+  bool demo_for_owned_game() const;
+  void set_demo_for_owned_game(bool value);
+  private:
+  bool _internal_demo_for_owned_game() const;
+  void _internal_set_demo_for_owned_game(bool value);
+  public:
+
+  // optional bool dlc_for_unowned_game = 13;
+  bool has_dlc_for_unowned_game() const;
+  private:
+  bool _internal_has_dlc_for_unowned_game() const;
+  public:
+  void clear_dlc_for_unowned_game();
+  bool dlc_for_unowned_game() const;
+  void set_dlc_for_unowned_game(bool value);
+  private:
+  bool _internal_dlc_for_unowned_game() const;
+  void _internal_set_dlc_for_unowned_game(bool value);
+  public:
+
+  // optional bool nonpreferred_product_type = 20;
+  bool has_nonpreferred_product_type() const;
+  private:
+  bool _internal_has_nonpreferred_product_type() const;
+  public:
+  void clear_nonpreferred_product_type();
+  bool nonpreferred_product_type() const;
+  void set_nonpreferred_product_type(bool value);
+  private:
+  bool _internal_nonpreferred_product_type() const;
+  void _internal_set_nonpreferred_product_type(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:StoreBrowseFilterFailure)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > excluded_tagids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> excluded_content_descriptorids_;
+  int filter_failure_;
+  bool already_owned_;
+  bool on_wishlist_;
+  bool ignored_;
+  bool not_in_users_language_;
+  bool not_on_users_platform_;
+  bool demo_for_owned_game_;
+  bool dlc_for_unowned_game_;
+  bool nonpreferred_product_type_;
+  friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CStoreBrowse_GetItems_Response PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetItems_Response) */ {
  public:
@@ -7536,7 +7948,7 @@ class CStoreBrowse_GetItems_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetItems_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CStoreBrowse_GetItems_Response& a, CStoreBrowse_GetItems_Response& b) {
     a.Swap(&b);
@@ -7689,7 +8101,7 @@ class CStoreBrowse_GetStoreCategories_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetStoreCategories_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CStoreBrowse_GetStoreCategories_Request& a, CStoreBrowse_GetStoreCategories_Request& b) {
     a.Swap(&b);
@@ -7860,7 +8272,7 @@ class CStoreBrowse_GetStoreCategories_Response_Category PROTOBUF_FINAL :
                &_CStoreBrowse_GetStoreCategories_Response_Category_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CStoreBrowse_GetStoreCategories_Response_Category& a, CStoreBrowse_GetStoreCategories_Response_Category& b) {
     a.Swap(&b);
@@ -7936,6 +8348,7 @@ class CStoreBrowse_GetStoreCategories_Response_Category PROTOBUF_FINAL :
     kCategoryidFieldNumber = 1,
     kTypeFieldNumber = 2,
     kShowInSearchFieldNumber = 6,
+    kComputedFieldNumber = 7,
   };
   // optional string internal_name = 3;
   bool has_internal_name() const;
@@ -8036,6 +8449,19 @@ class CStoreBrowse_GetStoreCategories_Response_Category PROTOBUF_FINAL :
   void _internal_set_show_in_search(bool value);
   public:
 
+  // optional bool computed = 7;
+  bool has_computed() const;
+  private:
+  bool _internal_has_computed() const;
+  public:
+  void clear_computed();
+  bool computed() const;
+  void set_computed(bool value);
+  private:
+  bool _internal_computed() const;
+  void _internal_set_computed(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CStoreBrowse_GetStoreCategories_Response.Category)
  private:
   class _Internal;
@@ -8051,6 +8477,7 @@ class CStoreBrowse_GetStoreCategories_Response_Category PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 categoryid_;
   int type_;
   bool show_in_search_;
+  bool computed_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -8105,7 +8532,7 @@ class CStoreBrowse_GetStoreCategories_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetStoreCategories_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CStoreBrowse_GetStoreCategories_Response& a, CStoreBrowse_GetStoreCategories_Response& b) {
     a.Swap(&b);
@@ -8260,7 +8687,7 @@ class CStoreBrowse_GetDLCForApps_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Request& a, CStoreBrowse_GetDLCForApps_Request& b) {
     a.Swap(&b);
@@ -8469,7 +8896,7 @@ class CStoreBrowse_GetDLCForApps_Response_DLCData PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_DLCData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response_DLCData& a, CStoreBrowse_GetDLCForApps_Response_DLCData& b) {
     a.Swap(&b);
@@ -8708,7 +9135,7 @@ class CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp& a, CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp& b) {
     a.Swap(&b);
@@ -8887,7 +9314,7 @@ class CStoreBrowse_GetDLCForApps_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response& a, CStoreBrowse_GetDLCForApps_Response& b) {
     a.Swap(&b);
@@ -9063,7 +9490,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Request& a, CStoreBrowse_GetDLCForAppsSolr_Request& b) {
     a.Swap(&b);
@@ -9298,7 +9725,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Response_DLCList PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Response_DLCList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Response_DLCList& a, CStoreBrowse_GetDLCForAppsSolr_Response_DLCList& b) {
     a.Swap(&b);
@@ -9471,7 +9898,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Response& a, CStoreBrowse_GetDLCForAppsSolr_Response& b) {
     a.Swap(&b);
@@ -9626,7 +10053,7 @@ class CStoreBrowse_GetHardwareItems_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetHardwareItems_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(CStoreBrowse_GetHardwareItems_Request& a, CStoreBrowse_GetHardwareItems_Request& b) {
     a.Swap(&b);
@@ -9804,7 +10231,7 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
                &_CHardwarePackageDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(CHardwarePackageDetails& a, CHardwarePackageDetails& b) {
     a.Swap(&b);
@@ -10185,7 +10612,7 @@ class CStoreBrowse_GetHardwareItems_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetHardwareItems_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(CStoreBrowse_GetHardwareItems_Response& a, CStoreBrowse_GetHardwareItems_Response& b) {
     a.Swap(&b);
@@ -11239,6 +11666,34 @@ inline void StoreBrowseItemDataRequest::_internal_set_include_assets_without_ove
 inline void StoreBrowseItemDataRequest::set_include_assets_without_overrides(bool value) {
   _internal_set_include_assets_without_overrides(value);
   // @@protoc_insertion_point(field_set:StoreBrowseItemDataRequest.include_assets_without_overrides)
+}
+
+// optional bool apply_user_filters = 16;
+inline bool StoreBrowseItemDataRequest::_internal_has_apply_user_filters() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool StoreBrowseItemDataRequest::has_apply_user_filters() const {
+  return _internal_has_apply_user_filters();
+}
+inline void StoreBrowseItemDataRequest::clear_apply_user_filters() {
+  apply_user_filters_ = false;
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline bool StoreBrowseItemDataRequest::_internal_apply_user_filters() const {
+  return apply_user_filters_;
+}
+inline bool StoreBrowseItemDataRequest::apply_user_filters() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseItemDataRequest.apply_user_filters)
+  return _internal_apply_user_filters();
+}
+inline void StoreBrowseItemDataRequest::_internal_set_apply_user_filters(bool value) {
+  _has_bits_[0] |= 0x00008000u;
+  apply_user_filters_ = value;
+}
+inline void StoreBrowseItemDataRequest::set_apply_user_filters(bool value) {
+  _internal_set_apply_user_filters(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseItemDataRequest.apply_user_filters)
 }
 
 // -------------------------------------------------------------------
@@ -16257,17 +16712,17 @@ StoreItem_Trailers::other_trailers() const {
 
 // StoreItem_SupportedLanguage
 
-// optional int32 elanguage = 1;
+// optional int32 elanguage = 1 [default = -1];
 inline bool StoreItem_SupportedLanguage::_internal_has_elanguage() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool StoreItem_SupportedLanguage::has_elanguage() const {
   return _internal_has_elanguage();
 }
 inline void StoreItem_SupportedLanguage::clear_elanguage() {
-  elanguage_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
+  elanguage_ = -1;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_SupportedLanguage::_internal_elanguage() const {
   return elanguage_;
@@ -16277,7 +16732,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_SupportedLanguage::elanguage() c
   return _internal_elanguage();
 }
 inline void StoreItem_SupportedLanguage::_internal_set_elanguage(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000008u;
   elanguage_ = value;
 }
 inline void StoreItem_SupportedLanguage::set_elanguage(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -16285,9 +16740,37 @@ inline void StoreItem_SupportedLanguage::set_elanguage(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:StoreItem.SupportedLanguage.elanguage)
 }
 
+// optional int32 eadditionallanguage = 5 [default = -1];
+inline bool StoreItem_SupportedLanguage::_internal_has_eadditionallanguage() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool StoreItem_SupportedLanguage::has_eadditionallanguage() const {
+  return _internal_has_eadditionallanguage();
+}
+inline void StoreItem_SupportedLanguage::clear_eadditionallanguage() {
+  eadditionallanguage_ = -1;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_SupportedLanguage::_internal_eadditionallanguage() const {
+  return eadditionallanguage_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_SupportedLanguage::eadditionallanguage() const {
+  // @@protoc_insertion_point(field_get:StoreItem.SupportedLanguage.eadditionallanguage)
+  return _internal_eadditionallanguage();
+}
+inline void StoreItem_SupportedLanguage::_internal_set_eadditionallanguage(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  eadditionallanguage_ = value;
+}
+inline void StoreItem_SupportedLanguage::set_eadditionallanguage(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_eadditionallanguage(value);
+  // @@protoc_insertion_point(field_set:StoreItem.SupportedLanguage.eadditionallanguage)
+}
+
 // optional bool supported = 2;
 inline bool StoreItem_SupportedLanguage::_internal_has_supported() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool StoreItem_SupportedLanguage::has_supported() const {
@@ -16295,7 +16778,7 @@ inline bool StoreItem_SupportedLanguage::has_supported() const {
 }
 inline void StoreItem_SupportedLanguage::clear_supported() {
   supported_ = false;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline bool StoreItem_SupportedLanguage::_internal_supported() const {
   return supported_;
@@ -16305,7 +16788,7 @@ inline bool StoreItem_SupportedLanguage::supported() const {
   return _internal_supported();
 }
 inline void StoreItem_SupportedLanguage::_internal_set_supported(bool value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   supported_ = value;
 }
 inline void StoreItem_SupportedLanguage::set_supported(bool value) {
@@ -16315,7 +16798,7 @@ inline void StoreItem_SupportedLanguage::set_supported(bool value) {
 
 // optional bool full_audio = 3;
 inline bool StoreItem_SupportedLanguage::_internal_has_full_audio() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool StoreItem_SupportedLanguage::has_full_audio() const {
@@ -16323,7 +16806,7 @@ inline bool StoreItem_SupportedLanguage::has_full_audio() const {
 }
 inline void StoreItem_SupportedLanguage::clear_full_audio() {
   full_audio_ = false;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline bool StoreItem_SupportedLanguage::_internal_full_audio() const {
   return full_audio_;
@@ -16333,7 +16816,7 @@ inline bool StoreItem_SupportedLanguage::full_audio() const {
   return _internal_full_audio();
 }
 inline void StoreItem_SupportedLanguage::_internal_set_full_audio(bool value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
   full_audio_ = value;
 }
 inline void StoreItem_SupportedLanguage::set_full_audio(bool value) {
@@ -16343,7 +16826,7 @@ inline void StoreItem_SupportedLanguage::set_full_audio(bool value) {
 
 // optional bool subtitles = 4;
 inline bool StoreItem_SupportedLanguage::_internal_has_subtitles() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool StoreItem_SupportedLanguage::has_subtitles() const {
@@ -16351,7 +16834,7 @@ inline bool StoreItem_SupportedLanguage::has_subtitles() const {
 }
 inline void StoreItem_SupportedLanguage::clear_subtitles() {
   subtitles_ = false;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline bool StoreItem_SupportedLanguage::_internal_subtitles() const {
   return subtitles_;
@@ -16361,7 +16844,7 @@ inline bool StoreItem_SupportedLanguage::subtitles() const {
   return _internal_subtitles();
 }
 inline void StoreItem_SupportedLanguage::_internal_set_subtitles(bool value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
   subtitles_ = value;
 }
 inline void StoreItem_SupportedLanguage::set_subtitles(bool value) {
@@ -16508,7 +16991,7 @@ inline void StoreItem_FreeWeekend::set_allocated_text(std::string* text) {
 
 // optional .EStoreItemType item_type = 1 [default = EStoreItemType_Invalid];
 inline bool StoreItem::_internal_has_item_type() const {
-  bool value = (_has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool StoreItem::has_item_type() const {
@@ -16516,7 +16999,7 @@ inline bool StoreItem::has_item_type() const {
 }
 inline void StoreItem::clear_item_type() {
   item_type_ = -1;
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[1] &= ~0x00000001u;
 }
 inline ::EStoreItemType StoreItem::_internal_item_type() const {
   return static_cast< ::EStoreItemType >(item_type_);
@@ -16527,7 +17010,7 @@ inline ::EStoreItemType StoreItem::item_type() const {
 }
 inline void StoreItem::_internal_set_item_type(::EStoreItemType value) {
   assert(::EStoreItemType_IsValid(value));
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[1] |= 0x00000001u;
   item_type_ = value;
 }
 inline void StoreItem::set_item_type(::EStoreItemType value) {
@@ -16537,7 +17020,7 @@ inline void StoreItem::set_item_type(::EStoreItemType value) {
 
 // optional uint32 id = 2;
 inline bool StoreItem::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool StoreItem::has_id() const {
@@ -16545,7 +17028,7 @@ inline bool StoreItem::has_id() const {
 }
 inline void StoreItem::clear_id() {
   id_ = 0u;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::_internal_id() const {
   return id_;
@@ -16555,7 +17038,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::id() const {
   return _internal_id();
 }
 inline void StoreItem::_internal_set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00200000u;
   id_ = value;
 }
 inline void StoreItem::set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -16565,7 +17048,7 @@ inline void StoreItem::set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // optional uint32 success = 3;
 inline bool StoreItem::_internal_has_success() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool StoreItem::has_success() const {
@@ -16573,7 +17056,7 @@ inline bool StoreItem::has_success() const {
 }
 inline void StoreItem::clear_success() {
   success_ = 0u;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::_internal_success() const {
   return success_;
@@ -16583,7 +17066,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::success() const {
   return _internal_success();
 }
 inline void StoreItem::_internal_set_success(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00400000u;
   success_ = value;
 }
 inline void StoreItem::set_success(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -16593,7 +17076,7 @@ inline void StoreItem::set_success(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // optional bool visible = 4;
 inline bool StoreItem::_internal_has_visible() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_visible() const {
@@ -16601,7 +17084,7 @@ inline bool StoreItem::has_visible() const {
 }
 inline void StoreItem::clear_visible() {
   visible_ = false;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline bool StoreItem::_internal_visible() const {
   return visible_;
@@ -16611,7 +17094,7 @@ inline bool StoreItem::visible() const {
   return _internal_visible();
 }
 inline void StoreItem::_internal_set_visible(bool value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x01000000u;
   visible_ = value;
 }
 inline void StoreItem::set_visible(bool value) {
@@ -16621,7 +17104,7 @@ inline void StoreItem::set_visible(bool value) {
 
 // optional bool unvailable_for_country_restriction = 5;
 inline bool StoreItem::_internal_has_unvailable_for_country_restriction() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_unvailable_for_country_restriction() const {
@@ -16629,7 +17112,7 @@ inline bool StoreItem::has_unvailable_for_country_restriction() const {
 }
 inline void StoreItem::clear_unvailable_for_country_restriction() {
   unvailable_for_country_restriction_ = false;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline bool StoreItem::_internal_unvailable_for_country_restriction() const {
   return unvailable_for_country_restriction_;
@@ -16639,7 +17122,7 @@ inline bool StoreItem::unvailable_for_country_restriction() const {
   return _internal_unvailable_for_country_restriction();
 }
 inline void StoreItem::_internal_set_unvailable_for_country_restriction(bool value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x02000000u;
   unvailable_for_country_restriction_ = value;
 }
 inline void StoreItem::set_unvailable_for_country_restriction(bool value) {
@@ -16795,7 +17278,7 @@ inline void StoreItem::set_allocated_store_url_path(std::string* store_url_path)
 
 // optional uint32 appid = 9;
 inline bool StoreItem::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool StoreItem::has_appid() const {
@@ -16803,7 +17286,7 @@ inline bool StoreItem::has_appid() const {
 }
 inline void StoreItem::clear_appid() {
   appid_ = 0u;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::_internal_appid() const {
   return appid_;
@@ -16813,7 +17296,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::appid() const {
   return _internal_appid();
 }
 inline void StoreItem::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00800000u;
   appid_ = value;
 }
 inline void StoreItem::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -16823,7 +17306,7 @@ inline void StoreItem::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // optional .EStoreAppType type = 10 [default = EStoreAppType_Game];
 inline bool StoreItem::_internal_has_type() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_type() const {
@@ -16831,7 +17314,7 @@ inline bool StoreItem::has_type() const {
 }
 inline void StoreItem::clear_type() {
   type_ = 0;
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline ::EStoreAppType StoreItem::_internal_type() const {
   return static_cast< ::EStoreAppType >(type_);
@@ -16842,7 +17325,7 @@ inline ::EStoreAppType StoreItem::type() const {
 }
 inline void StoreItem::_internal_set_type(::EStoreAppType value) {
   assert(::EStoreAppType_IsValid(value));
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x10000000u;
   type_ = value;
 }
 inline void StoreItem::set_type(::EStoreAppType value) {
@@ -16944,7 +17427,7 @@ StoreItem::mutable_included_appids() {
 
 // optional bool is_free = 13;
 inline bool StoreItem::_internal_has_is_free() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_is_free() const {
@@ -16952,7 +17435,7 @@ inline bool StoreItem::has_is_free() const {
 }
 inline void StoreItem::clear_is_free() {
   is_free_ = false;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline bool StoreItem::_internal_is_free() const {
   return is_free_;
@@ -16962,7 +17445,7 @@ inline bool StoreItem::is_free() const {
   return _internal_is_free();
 }
 inline void StoreItem::_internal_set_is_free(bool value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x04000000u;
   is_free_ = value;
 }
 inline void StoreItem::set_is_free(bool value) {
@@ -16972,7 +17455,7 @@ inline void StoreItem::set_is_free(bool value) {
 
 // optional bool is_early_access = 14;
 inline bool StoreItem::_internal_has_is_early_access() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_is_early_access() const {
@@ -16980,7 +17463,7 @@ inline bool StoreItem::has_is_early_access() const {
 }
 inline void StoreItem::clear_is_early_access() {
   is_early_access_ = false;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline bool StoreItem::_internal_is_early_access() const {
   return is_early_access_;
@@ -16990,7 +17473,7 @@ inline bool StoreItem::is_early_access() const {
   return _internal_is_early_access();
 }
 inline void StoreItem::_internal_set_is_early_access(bool value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x08000000u;
   is_early_access_ = value;
 }
 inline void StoreItem::set_is_early_access(bool value) {
@@ -18037,9 +18520,92 @@ StoreItem::accessories() const {
   return accessories_;
 }
 
+// optional .StoreItem.PurchaseOption self_purchase_option = 43;
+inline bool StoreItem::_internal_has_self_purchase_option() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  PROTOBUF_ASSUME(!value || self_purchase_option_ != nullptr);
+  return value;
+}
+inline bool StoreItem::has_self_purchase_option() const {
+  return _internal_has_self_purchase_option();
+}
+inline void StoreItem::clear_self_purchase_option() {
+  if (self_purchase_option_ != nullptr) self_purchase_option_->Clear();
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline const ::StoreItem_PurchaseOption& StoreItem::_internal_self_purchase_option() const {
+  const ::StoreItem_PurchaseOption* p = self_purchase_option_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StoreItem_PurchaseOption&>(
+      ::_StoreItem_PurchaseOption_default_instance_);
+}
+inline const ::StoreItem_PurchaseOption& StoreItem::self_purchase_option() const {
+  // @@protoc_insertion_point(field_get:StoreItem.self_purchase_option)
+  return _internal_self_purchase_option();
+}
+inline void StoreItem::unsafe_arena_set_allocated_self_purchase_option(
+    ::StoreItem_PurchaseOption* self_purchase_option) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(self_purchase_option_);
+  }
+  self_purchase_option_ = self_purchase_option;
+  if (self_purchase_option) {
+    _has_bits_[0] |= 0x00008000u;
+  } else {
+    _has_bits_[0] &= ~0x00008000u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StoreItem.self_purchase_option)
+}
+inline ::StoreItem_PurchaseOption* StoreItem::release_self_purchase_option() {
+  _has_bits_[0] &= ~0x00008000u;
+  ::StoreItem_PurchaseOption* temp = self_purchase_option_;
+  self_purchase_option_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::StoreItem_PurchaseOption* StoreItem::unsafe_arena_release_self_purchase_option() {
+  // @@protoc_insertion_point(field_release:StoreItem.self_purchase_option)
+  _has_bits_[0] &= ~0x00008000u;
+  ::StoreItem_PurchaseOption* temp = self_purchase_option_;
+  self_purchase_option_ = nullptr;
+  return temp;
+}
+inline ::StoreItem_PurchaseOption* StoreItem::_internal_mutable_self_purchase_option() {
+  _has_bits_[0] |= 0x00008000u;
+  if (self_purchase_option_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StoreItem_PurchaseOption>(GetArena());
+    self_purchase_option_ = p;
+  }
+  return self_purchase_option_;
+}
+inline ::StoreItem_PurchaseOption* StoreItem::mutable_self_purchase_option() {
+  // @@protoc_insertion_point(field_mutable:StoreItem.self_purchase_option)
+  return _internal_mutable_self_purchase_option();
+}
+inline void StoreItem::set_allocated_self_purchase_option(::StoreItem_PurchaseOption* self_purchase_option) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete self_purchase_option_;
+  }
+  if (self_purchase_option) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(self_purchase_option);
+    if (message_arena != submessage_arena) {
+      self_purchase_option = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, self_purchase_option, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00008000u;
+  } else {
+    _has_bits_[0] &= ~0x00008000u;
+  }
+  self_purchase_option_ = self_purchase_option;
+  // @@protoc_insertion_point(field_set_allocated:StoreItem.self_purchase_option)
+}
+
 // optional .StoreItem.Screenshots screenshots = 50;
 inline bool StoreItem::_internal_has_screenshots() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   PROTOBUF_ASSUME(!value || screenshots_ != nullptr);
   return value;
 }
@@ -18048,7 +18614,7 @@ inline bool StoreItem::has_screenshots() const {
 }
 inline void StoreItem::clear_screenshots() {
   if (screenshots_ != nullptr) screenshots_->Clear();
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline const ::StoreItem_Screenshots& StoreItem::_internal_screenshots() const {
   const ::StoreItem_Screenshots* p = screenshots_;
@@ -18066,14 +18632,14 @@ inline void StoreItem::unsafe_arena_set_allocated_screenshots(
   }
   screenshots_ = screenshots;
   if (screenshots) {
-    _has_bits_[0] |= 0x00008000u;
+    _has_bits_[0] |= 0x00010000u;
   } else {
-    _has_bits_[0] &= ~0x00008000u;
+    _has_bits_[0] &= ~0x00010000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StoreItem.screenshots)
 }
 inline ::StoreItem_Screenshots* StoreItem::release_screenshots() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
   ::StoreItem_Screenshots* temp = screenshots_;
   screenshots_ = nullptr;
   if (GetArena() != nullptr) {
@@ -18083,13 +18649,13 @@ inline ::StoreItem_Screenshots* StoreItem::release_screenshots() {
 }
 inline ::StoreItem_Screenshots* StoreItem::unsafe_arena_release_screenshots() {
   // @@protoc_insertion_point(field_release:StoreItem.screenshots)
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
   ::StoreItem_Screenshots* temp = screenshots_;
   screenshots_ = nullptr;
   return temp;
 }
 inline ::StoreItem_Screenshots* StoreItem::_internal_mutable_screenshots() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
   if (screenshots_ == nullptr) {
     auto* p = CreateMaybeMessage<::StoreItem_Screenshots>(GetArena());
     screenshots_ = p;
@@ -18112,9 +18678,9 @@ inline void StoreItem::set_allocated_screenshots(::StoreItem_Screenshots* screen
       screenshots = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, screenshots, submessage_arena);
     }
-    _has_bits_[0] |= 0x00008000u;
+    _has_bits_[0] |= 0x00010000u;
   } else {
-    _has_bits_[0] &= ~0x00008000u;
+    _has_bits_[0] &= ~0x00010000u;
   }
   screenshots_ = screenshots;
   // @@protoc_insertion_point(field_set_allocated:StoreItem.screenshots)
@@ -18122,7 +18688,7 @@ inline void StoreItem::set_allocated_screenshots(::StoreItem_Screenshots* screen
 
 // optional .StoreItem.Trailers trailers = 51;
 inline bool StoreItem::_internal_has_trailers() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   PROTOBUF_ASSUME(!value || trailers_ != nullptr);
   return value;
 }
@@ -18131,7 +18697,7 @@ inline bool StoreItem::has_trailers() const {
 }
 inline void StoreItem::clear_trailers() {
   if (trailers_ != nullptr) trailers_->Clear();
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline const ::StoreItem_Trailers& StoreItem::_internal_trailers() const {
   const ::StoreItem_Trailers* p = trailers_;
@@ -18149,14 +18715,14 @@ inline void StoreItem::unsafe_arena_set_allocated_trailers(
   }
   trailers_ = trailers;
   if (trailers) {
-    _has_bits_[0] |= 0x00010000u;
+    _has_bits_[0] |= 0x00020000u;
   } else {
-    _has_bits_[0] &= ~0x00010000u;
+    _has_bits_[0] &= ~0x00020000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StoreItem.trailers)
 }
 inline ::StoreItem_Trailers* StoreItem::release_trailers() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
   ::StoreItem_Trailers* temp = trailers_;
   trailers_ = nullptr;
   if (GetArena() != nullptr) {
@@ -18166,13 +18732,13 @@ inline ::StoreItem_Trailers* StoreItem::release_trailers() {
 }
 inline ::StoreItem_Trailers* StoreItem::unsafe_arena_release_trailers() {
   // @@protoc_insertion_point(field_release:StoreItem.trailers)
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
   ::StoreItem_Trailers* temp = trailers_;
   trailers_ = nullptr;
   return temp;
 }
 inline ::StoreItem_Trailers* StoreItem::_internal_mutable_trailers() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
   if (trailers_ == nullptr) {
     auto* p = CreateMaybeMessage<::StoreItem_Trailers>(GetArena());
     trailers_ = p;
@@ -18195,9 +18761,9 @@ inline void StoreItem::set_allocated_trailers(::StoreItem_Trailers* trailers) {
       trailers = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, trailers, submessage_arena);
     }
-    _has_bits_[0] |= 0x00010000u;
+    _has_bits_[0] |= 0x00020000u;
   } else {
-    _has_bits_[0] &= ~0x00010000u;
+    _has_bits_[0] &= ~0x00020000u;
   }
   trailers_ = trailers;
   // @@protoc_insertion_point(field_set_allocated:StoreItem.trailers)
@@ -18317,7 +18883,7 @@ inline void StoreItem::set_allocated_store_url_path_override(std::string* store_
 
 // optional .StoreItem.FreeWeekend free_weekend = 54;
 inline bool StoreItem::_internal_has_free_weekend() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   PROTOBUF_ASSUME(!value || free_weekend_ != nullptr);
   return value;
 }
@@ -18326,7 +18892,7 @@ inline bool StoreItem::has_free_weekend() const {
 }
 inline void StoreItem::clear_free_weekend() {
   if (free_weekend_ != nullptr) free_weekend_->Clear();
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline const ::StoreItem_FreeWeekend& StoreItem::_internal_free_weekend() const {
   const ::StoreItem_FreeWeekend* p = free_weekend_;
@@ -18344,14 +18910,14 @@ inline void StoreItem::unsafe_arena_set_allocated_free_weekend(
   }
   free_weekend_ = free_weekend;
   if (free_weekend) {
-    _has_bits_[0] |= 0x00020000u;
+    _has_bits_[0] |= 0x00040000u;
   } else {
-    _has_bits_[0] &= ~0x00020000u;
+    _has_bits_[0] &= ~0x00040000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StoreItem.free_weekend)
 }
 inline ::StoreItem_FreeWeekend* StoreItem::release_free_weekend() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
   ::StoreItem_FreeWeekend* temp = free_weekend_;
   free_weekend_ = nullptr;
   if (GetArena() != nullptr) {
@@ -18361,13 +18927,13 @@ inline ::StoreItem_FreeWeekend* StoreItem::release_free_weekend() {
 }
 inline ::StoreItem_FreeWeekend* StoreItem::unsafe_arena_release_free_weekend() {
   // @@protoc_insertion_point(field_release:StoreItem.free_weekend)
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
   ::StoreItem_FreeWeekend* temp = free_weekend_;
   free_weekend_ = nullptr;
   return temp;
 }
 inline ::StoreItem_FreeWeekend* StoreItem::_internal_mutable_free_weekend() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
   if (free_weekend_ == nullptr) {
     auto* p = CreateMaybeMessage<::StoreItem_FreeWeekend>(GetArena());
     free_weekend_ = p;
@@ -18390,9 +18956,9 @@ inline void StoreItem::set_allocated_free_weekend(::StoreItem_FreeWeekend* free_
       free_weekend = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, free_weekend, submessage_arena);
     }
-    _has_bits_[0] |= 0x00020000u;
+    _has_bits_[0] |= 0x00040000u;
   } else {
-    _has_bits_[0] &= ~0x00020000u;
+    _has_bits_[0] &= ~0x00040000u;
   }
   free_weekend_ = free_weekend;
   // @@protoc_insertion_point(field_set_allocated:StoreItem.free_weekend)
@@ -18400,7 +18966,7 @@ inline void StoreItem::set_allocated_free_weekend(::StoreItem_FreeWeekend* free_
 
 // optional bool unlisted = 55;
 inline bool StoreItem::_internal_has_unlisted() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_unlisted() const {
@@ -18408,7 +18974,7 @@ inline bool StoreItem::has_unlisted() const {
 }
 inline void StoreItem::clear_unlisted() {
   unlisted_ = false;
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline bool StoreItem::_internal_unlisted() const {
   return unlisted_;
@@ -18418,7 +18984,7 @@ inline bool StoreItem::unlisted() const {
   return _internal_unlisted();
 }
 inline void StoreItem::_internal_set_unlisted(bool value) {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x40000000u;
   unlisted_ = value;
 }
 inline void StoreItem::set_unlisted(bool value) {
@@ -18428,7 +18994,7 @@ inline void StoreItem::set_unlisted(bool value) {
 
 // optional uint32 game_count = 56;
 inline bool StoreItem::_internal_has_game_count() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_game_count() const {
@@ -18436,7 +19002,7 @@ inline bool StoreItem::has_game_count() const {
 }
 inline void StoreItem::clear_game_count() {
   game_count_ = 0u;
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::_internal_game_count() const {
   return game_count_;
@@ -18446,7 +19012,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::game_count() const {
   return _internal_game_count();
 }
 inline void StoreItem::_internal_set_game_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x20000000u;
   game_count_ = value;
 }
 inline void StoreItem::set_game_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -18602,7 +19168,7 @@ inline void StoreItem::set_allocated_full_description(std::string* full_descript
 
 // optional bool is_free_temporarily = 59;
 inline bool StoreItem::_internal_has_is_free_temporarily() const {
-  bool value = (_has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_is_free_temporarily() const {
@@ -18610,7 +19176,7 @@ inline bool StoreItem::has_is_free_temporarily() const {
 }
 inline void StoreItem::clear_is_free_temporarily() {
   is_free_temporarily_ = false;
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x80000000u;
 }
 inline bool StoreItem::_internal_is_free_temporarily() const {
   return is_free_temporarily_;
@@ -18620,7 +19186,7 @@ inline bool StoreItem::is_free_temporarily() const {
   return _internal_is_free_temporarily();
 }
 inline void StoreItem::_internal_set_is_free_temporarily(bool value) {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x80000000u;
   is_free_temporarily_ = value;
 }
 inline void StoreItem::set_is_free_temporarily(bool value) {
@@ -18630,7 +19196,7 @@ inline void StoreItem::set_is_free_temporarily(bool value) {
 
 // optional .StoreItem.Assets assets_without_overrides = 60;
 inline bool StoreItem::_internal_has_assets_without_overrides() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   PROTOBUF_ASSUME(!value || assets_without_overrides_ != nullptr);
   return value;
 }
@@ -18639,7 +19205,7 @@ inline bool StoreItem::has_assets_without_overrides() const {
 }
 inline void StoreItem::clear_assets_without_overrides() {
   if (assets_without_overrides_ != nullptr) assets_without_overrides_->Clear();
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline const ::StoreItem_Assets& StoreItem::_internal_assets_without_overrides() const {
   const ::StoreItem_Assets* p = assets_without_overrides_;
@@ -18657,14 +19223,14 @@ inline void StoreItem::unsafe_arena_set_allocated_assets_without_overrides(
   }
   assets_without_overrides_ = assets_without_overrides;
   if (assets_without_overrides) {
-    _has_bits_[0] |= 0x00040000u;
+    _has_bits_[0] |= 0x00080000u;
   } else {
-    _has_bits_[0] &= ~0x00040000u;
+    _has_bits_[0] &= ~0x00080000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StoreItem.assets_without_overrides)
 }
 inline ::StoreItem_Assets* StoreItem::release_assets_without_overrides() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
   ::StoreItem_Assets* temp = assets_without_overrides_;
   assets_without_overrides_ = nullptr;
   if (GetArena() != nullptr) {
@@ -18674,13 +19240,13 @@ inline ::StoreItem_Assets* StoreItem::release_assets_without_overrides() {
 }
 inline ::StoreItem_Assets* StoreItem::unsafe_arena_release_assets_without_overrides() {
   // @@protoc_insertion_point(field_release:StoreItem.assets_without_overrides)
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
   ::StoreItem_Assets* temp = assets_without_overrides_;
   assets_without_overrides_ = nullptr;
   return temp;
 }
 inline ::StoreItem_Assets* StoreItem::_internal_mutable_assets_without_overrides() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
   if (assets_without_overrides_ == nullptr) {
     auto* p = CreateMaybeMessage<::StoreItem_Assets>(GetArena());
     assets_without_overrides_ = p;
@@ -18703,12 +19269,95 @@ inline void StoreItem::set_allocated_assets_without_overrides(::StoreItem_Assets
       assets_without_overrides = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, assets_without_overrides, submessage_arena);
     }
-    _has_bits_[0] |= 0x00040000u;
+    _has_bits_[0] |= 0x00080000u;
   } else {
-    _has_bits_[0] &= ~0x00040000u;
+    _has_bits_[0] &= ~0x00080000u;
   }
   assets_without_overrides_ = assets_without_overrides;
   // @@protoc_insertion_point(field_set_allocated:StoreItem.assets_without_overrides)
+}
+
+// optional .StoreBrowseFilterFailure user_filter_failure = 70;
+inline bool StoreItem::_internal_has_user_filter_failure() const {
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  PROTOBUF_ASSUME(!value || user_filter_failure_ != nullptr);
+  return value;
+}
+inline bool StoreItem::has_user_filter_failure() const {
+  return _internal_has_user_filter_failure();
+}
+inline void StoreItem::clear_user_filter_failure() {
+  if (user_filter_failure_ != nullptr) user_filter_failure_->Clear();
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline const ::StoreBrowseFilterFailure& StoreItem::_internal_user_filter_failure() const {
+  const ::StoreBrowseFilterFailure* p = user_filter_failure_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StoreBrowseFilterFailure&>(
+      ::_StoreBrowseFilterFailure_default_instance_);
+}
+inline const ::StoreBrowseFilterFailure& StoreItem::user_filter_failure() const {
+  // @@protoc_insertion_point(field_get:StoreItem.user_filter_failure)
+  return _internal_user_filter_failure();
+}
+inline void StoreItem::unsafe_arena_set_allocated_user_filter_failure(
+    ::StoreBrowseFilterFailure* user_filter_failure) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(user_filter_failure_);
+  }
+  user_filter_failure_ = user_filter_failure;
+  if (user_filter_failure) {
+    _has_bits_[0] |= 0x00100000u;
+  } else {
+    _has_bits_[0] &= ~0x00100000u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StoreItem.user_filter_failure)
+}
+inline ::StoreBrowseFilterFailure* StoreItem::release_user_filter_failure() {
+  _has_bits_[0] &= ~0x00100000u;
+  ::StoreBrowseFilterFailure* temp = user_filter_failure_;
+  user_filter_failure_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::StoreBrowseFilterFailure* StoreItem::unsafe_arena_release_user_filter_failure() {
+  // @@protoc_insertion_point(field_release:StoreItem.user_filter_failure)
+  _has_bits_[0] &= ~0x00100000u;
+  ::StoreBrowseFilterFailure* temp = user_filter_failure_;
+  user_filter_failure_ = nullptr;
+  return temp;
+}
+inline ::StoreBrowseFilterFailure* StoreItem::_internal_mutable_user_filter_failure() {
+  _has_bits_[0] |= 0x00100000u;
+  if (user_filter_failure_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StoreBrowseFilterFailure>(GetArena());
+    user_filter_failure_ = p;
+  }
+  return user_filter_failure_;
+}
+inline ::StoreBrowseFilterFailure* StoreItem::mutable_user_filter_failure() {
+  // @@protoc_insertion_point(field_mutable:StoreItem.user_filter_failure)
+  return _internal_mutable_user_filter_failure();
+}
+inline void StoreItem::set_allocated_user_filter_failure(::StoreBrowseFilterFailure* user_filter_failure) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete user_filter_failure_;
+  }
+  if (user_filter_failure) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(user_filter_failure);
+    if (message_arena != submessage_arena) {
+      user_filter_failure = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, user_filter_failure, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00100000u;
+  } else {
+    _has_bits_[0] &= ~0x00100000u;
+  }
+  user_filter_failure_ = user_filter_failure;
+  // @@protoc_insertion_point(field_set_allocated:StoreItem.user_filter_failure)
 }
 
 // -------------------------------------------------------------------
@@ -19212,6 +19861,355 @@ inline void StoreGameRating::set_allocated_image_target(std::string* image_targe
 
 // -------------------------------------------------------------------
 
+// StoreBrowseFilterFailure
+
+// optional .EStoreBrowseFilterFailure filter_failure = 1 [default = EStoreBrowseFilterFailure_None];
+inline bool StoreBrowseFilterFailure::_internal_has_filter_failure() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_filter_failure() const {
+  return _internal_has_filter_failure();
+}
+inline void StoreBrowseFilterFailure::clear_filter_failure() {
+  filter_failure_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::EStoreBrowseFilterFailure StoreBrowseFilterFailure::_internal_filter_failure() const {
+  return static_cast< ::EStoreBrowseFilterFailure >(filter_failure_);
+}
+inline ::EStoreBrowseFilterFailure StoreBrowseFilterFailure::filter_failure() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.filter_failure)
+  return _internal_filter_failure();
+}
+inline void StoreBrowseFilterFailure::_internal_set_filter_failure(::EStoreBrowseFilterFailure value) {
+  assert(::EStoreBrowseFilterFailure_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  filter_failure_ = value;
+}
+inline void StoreBrowseFilterFailure::set_filter_failure(::EStoreBrowseFilterFailure value) {
+  _internal_set_filter_failure(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.filter_failure)
+}
+
+// optional bool already_owned = 5;
+inline bool StoreBrowseFilterFailure::_internal_has_already_owned() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_already_owned() const {
+  return _internal_has_already_owned();
+}
+inline void StoreBrowseFilterFailure::clear_already_owned() {
+  already_owned_ = false;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline bool StoreBrowseFilterFailure::_internal_already_owned() const {
+  return already_owned_;
+}
+inline bool StoreBrowseFilterFailure::already_owned() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.already_owned)
+  return _internal_already_owned();
+}
+inline void StoreBrowseFilterFailure::_internal_set_already_owned(bool value) {
+  _has_bits_[0] |= 0x00000002u;
+  already_owned_ = value;
+}
+inline void StoreBrowseFilterFailure::set_already_owned(bool value) {
+  _internal_set_already_owned(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.already_owned)
+}
+
+// optional bool on_wishlist = 6;
+inline bool StoreBrowseFilterFailure::_internal_has_on_wishlist() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_on_wishlist() const {
+  return _internal_has_on_wishlist();
+}
+inline void StoreBrowseFilterFailure::clear_on_wishlist() {
+  on_wishlist_ = false;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline bool StoreBrowseFilterFailure::_internal_on_wishlist() const {
+  return on_wishlist_;
+}
+inline bool StoreBrowseFilterFailure::on_wishlist() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.on_wishlist)
+  return _internal_on_wishlist();
+}
+inline void StoreBrowseFilterFailure::_internal_set_on_wishlist(bool value) {
+  _has_bits_[0] |= 0x00000004u;
+  on_wishlist_ = value;
+}
+inline void StoreBrowseFilterFailure::set_on_wishlist(bool value) {
+  _internal_set_on_wishlist(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.on_wishlist)
+}
+
+// optional bool ignored = 7;
+inline bool StoreBrowseFilterFailure::_internal_has_ignored() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_ignored() const {
+  return _internal_has_ignored();
+}
+inline void StoreBrowseFilterFailure::clear_ignored() {
+  ignored_ = false;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline bool StoreBrowseFilterFailure::_internal_ignored() const {
+  return ignored_;
+}
+inline bool StoreBrowseFilterFailure::ignored() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.ignored)
+  return _internal_ignored();
+}
+inline void StoreBrowseFilterFailure::_internal_set_ignored(bool value) {
+  _has_bits_[0] |= 0x00000008u;
+  ignored_ = value;
+}
+inline void StoreBrowseFilterFailure::set_ignored(bool value) {
+  _internal_set_ignored(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.ignored)
+}
+
+// optional bool not_in_users_language = 10;
+inline bool StoreBrowseFilterFailure::_internal_has_not_in_users_language() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_not_in_users_language() const {
+  return _internal_has_not_in_users_language();
+}
+inline void StoreBrowseFilterFailure::clear_not_in_users_language() {
+  not_in_users_language_ = false;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline bool StoreBrowseFilterFailure::_internal_not_in_users_language() const {
+  return not_in_users_language_;
+}
+inline bool StoreBrowseFilterFailure::not_in_users_language() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.not_in_users_language)
+  return _internal_not_in_users_language();
+}
+inline void StoreBrowseFilterFailure::_internal_set_not_in_users_language(bool value) {
+  _has_bits_[0] |= 0x00000010u;
+  not_in_users_language_ = value;
+}
+inline void StoreBrowseFilterFailure::set_not_in_users_language(bool value) {
+  _internal_set_not_in_users_language(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.not_in_users_language)
+}
+
+// optional bool not_on_users_platform = 11;
+inline bool StoreBrowseFilterFailure::_internal_has_not_on_users_platform() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_not_on_users_platform() const {
+  return _internal_has_not_on_users_platform();
+}
+inline void StoreBrowseFilterFailure::clear_not_on_users_platform() {
+  not_on_users_platform_ = false;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline bool StoreBrowseFilterFailure::_internal_not_on_users_platform() const {
+  return not_on_users_platform_;
+}
+inline bool StoreBrowseFilterFailure::not_on_users_platform() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.not_on_users_platform)
+  return _internal_not_on_users_platform();
+}
+inline void StoreBrowseFilterFailure::_internal_set_not_on_users_platform(bool value) {
+  _has_bits_[0] |= 0x00000020u;
+  not_on_users_platform_ = value;
+}
+inline void StoreBrowseFilterFailure::set_not_on_users_platform(bool value) {
+  _internal_set_not_on_users_platform(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.not_on_users_platform)
+}
+
+// optional bool demo_for_owned_game = 12;
+inline bool StoreBrowseFilterFailure::_internal_has_demo_for_owned_game() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_demo_for_owned_game() const {
+  return _internal_has_demo_for_owned_game();
+}
+inline void StoreBrowseFilterFailure::clear_demo_for_owned_game() {
+  demo_for_owned_game_ = false;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline bool StoreBrowseFilterFailure::_internal_demo_for_owned_game() const {
+  return demo_for_owned_game_;
+}
+inline bool StoreBrowseFilterFailure::demo_for_owned_game() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.demo_for_owned_game)
+  return _internal_demo_for_owned_game();
+}
+inline void StoreBrowseFilterFailure::_internal_set_demo_for_owned_game(bool value) {
+  _has_bits_[0] |= 0x00000040u;
+  demo_for_owned_game_ = value;
+}
+inline void StoreBrowseFilterFailure::set_demo_for_owned_game(bool value) {
+  _internal_set_demo_for_owned_game(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.demo_for_owned_game)
+}
+
+// optional bool dlc_for_unowned_game = 13;
+inline bool StoreBrowseFilterFailure::_internal_has_dlc_for_unowned_game() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_dlc_for_unowned_game() const {
+  return _internal_has_dlc_for_unowned_game();
+}
+inline void StoreBrowseFilterFailure::clear_dlc_for_unowned_game() {
+  dlc_for_unowned_game_ = false;
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline bool StoreBrowseFilterFailure::_internal_dlc_for_unowned_game() const {
+  return dlc_for_unowned_game_;
+}
+inline bool StoreBrowseFilterFailure::dlc_for_unowned_game() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.dlc_for_unowned_game)
+  return _internal_dlc_for_unowned_game();
+}
+inline void StoreBrowseFilterFailure::_internal_set_dlc_for_unowned_game(bool value) {
+  _has_bits_[0] |= 0x00000080u;
+  dlc_for_unowned_game_ = value;
+}
+inline void StoreBrowseFilterFailure::set_dlc_for_unowned_game(bool value) {
+  _internal_set_dlc_for_unowned_game(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.dlc_for_unowned_game)
+}
+
+// optional bool nonpreferred_product_type = 20;
+inline bool StoreBrowseFilterFailure::_internal_has_nonpreferred_product_type() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool StoreBrowseFilterFailure::has_nonpreferred_product_type() const {
+  return _internal_has_nonpreferred_product_type();
+}
+inline void StoreBrowseFilterFailure::clear_nonpreferred_product_type() {
+  nonpreferred_product_type_ = false;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline bool StoreBrowseFilterFailure::_internal_nonpreferred_product_type() const {
+  return nonpreferred_product_type_;
+}
+inline bool StoreBrowseFilterFailure::nonpreferred_product_type() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.nonpreferred_product_type)
+  return _internal_nonpreferred_product_type();
+}
+inline void StoreBrowseFilterFailure::_internal_set_nonpreferred_product_type(bool value) {
+  _has_bits_[0] |= 0x00000100u;
+  nonpreferred_product_type_ = value;
+}
+inline void StoreBrowseFilterFailure::set_nonpreferred_product_type(bool value) {
+  _internal_set_nonpreferred_product_type(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.nonpreferred_product_type)
+}
+
+// repeated uint32 excluded_tagids = 21;
+inline int StoreBrowseFilterFailure::_internal_excluded_tagids_size() const {
+  return excluded_tagids_.size();
+}
+inline int StoreBrowseFilterFailure::excluded_tagids_size() const {
+  return _internal_excluded_tagids_size();
+}
+inline void StoreBrowseFilterFailure::clear_excluded_tagids() {
+  excluded_tagids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreBrowseFilterFailure::_internal_excluded_tagids(int index) const {
+  return excluded_tagids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreBrowseFilterFailure::excluded_tagids(int index) const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.excluded_tagids)
+  return _internal_excluded_tagids(index);
+}
+inline void StoreBrowseFilterFailure::set_excluded_tagids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  excluded_tagids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.excluded_tagids)
+}
+inline void StoreBrowseFilterFailure::_internal_add_excluded_tagids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  excluded_tagids_.Add(value);
+}
+inline void StoreBrowseFilterFailure::add_excluded_tagids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_excluded_tagids(value);
+  // @@protoc_insertion_point(field_add:StoreBrowseFilterFailure.excluded_tagids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+StoreBrowseFilterFailure::_internal_excluded_tagids() const {
+  return excluded_tagids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+StoreBrowseFilterFailure::excluded_tagids() const {
+  // @@protoc_insertion_point(field_list:StoreBrowseFilterFailure.excluded_tagids)
+  return _internal_excluded_tagids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+StoreBrowseFilterFailure::_internal_mutable_excluded_tagids() {
+  return &excluded_tagids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+StoreBrowseFilterFailure::mutable_excluded_tagids() {
+  // @@protoc_insertion_point(field_mutable_list:StoreBrowseFilterFailure.excluded_tagids)
+  return _internal_mutable_excluded_tagids();
+}
+
+// repeated .EContentDescriptorID excluded_content_descriptorids = 30;
+inline int StoreBrowseFilterFailure::_internal_excluded_content_descriptorids_size() const {
+  return excluded_content_descriptorids_.size();
+}
+inline int StoreBrowseFilterFailure::excluded_content_descriptorids_size() const {
+  return _internal_excluded_content_descriptorids_size();
+}
+inline void StoreBrowseFilterFailure::clear_excluded_content_descriptorids() {
+  excluded_content_descriptorids_.Clear();
+}
+inline ::EContentDescriptorID StoreBrowseFilterFailure::_internal_excluded_content_descriptorids(int index) const {
+  return static_cast< ::EContentDescriptorID >(excluded_content_descriptorids_.Get(index));
+}
+inline ::EContentDescriptorID StoreBrowseFilterFailure::excluded_content_descriptorids(int index) const {
+  // @@protoc_insertion_point(field_get:StoreBrowseFilterFailure.excluded_content_descriptorids)
+  return _internal_excluded_content_descriptorids(index);
+}
+inline void StoreBrowseFilterFailure::set_excluded_content_descriptorids(int index, ::EContentDescriptorID value) {
+  assert(::EContentDescriptorID_IsValid(value));
+  excluded_content_descriptorids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:StoreBrowseFilterFailure.excluded_content_descriptorids)
+}
+inline void StoreBrowseFilterFailure::_internal_add_excluded_content_descriptorids(::EContentDescriptorID value) {
+  assert(::EContentDescriptorID_IsValid(value));
+  excluded_content_descriptorids_.Add(value);
+}
+inline void StoreBrowseFilterFailure::add_excluded_content_descriptorids(::EContentDescriptorID value) {
+  // @@protoc_insertion_point(field_add:StoreBrowseFilterFailure.excluded_content_descriptorids)
+  _internal_add_excluded_content_descriptorids(value);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+StoreBrowseFilterFailure::excluded_content_descriptorids() const {
+  // @@protoc_insertion_point(field_list:StoreBrowseFilterFailure.excluded_content_descriptorids)
+  return excluded_content_descriptorids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+StoreBrowseFilterFailure::_internal_mutable_excluded_content_descriptorids() {
+  return &excluded_content_descriptorids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+StoreBrowseFilterFailure::mutable_excluded_content_descriptorids() {
+  // @@protoc_insertion_point(field_mutable_list:StoreBrowseFilterFailure.excluded_content_descriptorids)
+  return _internal_mutable_excluded_content_descriptorids();
+}
+
+// -------------------------------------------------------------------
+
 // CStoreBrowse_GetItems_Response
 
 // repeated .StoreItem store_items = 1;
@@ -19664,6 +20662,34 @@ inline void CStoreBrowse_GetStoreCategories_Response_Category::_internal_set_sho
 inline void CStoreBrowse_GetStoreCategories_Response_Category::set_show_in_search(bool value) {
   _internal_set_show_in_search(value);
   // @@protoc_insertion_point(field_set:CStoreBrowse_GetStoreCategories_Response.Category.show_in_search)
+}
+
+// optional bool computed = 7;
+inline bool CStoreBrowse_GetStoreCategories_Response_Category::_internal_has_computed() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetStoreCategories_Response_Category::has_computed() const {
+  return _internal_has_computed();
+}
+inline void CStoreBrowse_GetStoreCategories_Response_Category::clear_computed() {
+  computed_ = false;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline bool CStoreBrowse_GetStoreCategories_Response_Category::_internal_computed() const {
+  return computed_;
+}
+inline bool CStoreBrowse_GetStoreCategories_Response_Category::computed() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetStoreCategories_Response.Category.computed)
+  return _internal_computed();
+}
+inline void CStoreBrowse_GetStoreCategories_Response_Category::_internal_set_computed(bool value) {
+  _has_bits_[0] |= 0x00000040u;
+  computed_ = value;
+}
+inline void CStoreBrowse_GetStoreCategories_Response_Category::set_computed(bool value) {
+  _internal_set_computed(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetStoreCategories_Response.Category.computed)
 }
 
 // -------------------------------------------------------------------
@@ -21507,6 +22533,8 @@ CStoreBrowse_GetHardwareItems_Response::details() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -21527,6 +22555,11 @@ template <> struct is_proto_enum< ::EUserReviewScore> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EUserReviewScore>() {
   return ::EUserReviewScore_descriptor();
+}
+template <> struct is_proto_enum< ::EStoreBrowseFilterFailure> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EStoreBrowseFilterFailure>() {
+  return ::EStoreBrowseFilterFailure_descriptor();
 }
 template <> struct is_proto_enum< ::EStoreCategoryType> : ::std::true_type {};
 template <>

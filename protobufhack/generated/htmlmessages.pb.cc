@@ -1863,6 +1863,22 @@ struct CMsgJSExecuteCallbackDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgJSExecuteCallbackDefaultTypeInternal _CMsgJSExecuteCallback_default_instance_;
+constexpr CMsgJSExecutePromise::CMsgJSExecutePromise(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : reject_reason_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , argument_(nullptr)
+  , browser_handle_(0u)
+  , owning_browser_handle_(0u)
+  , promise_handle_(PROTOBUF_ULONGLONG(0)){}
+struct CMsgJSExecutePromiseDefaultTypeInternal {
+  constexpr CMsgJSExecutePromiseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgJSExecutePromiseDefaultTypeInternal() {}
+  union {
+    CMsgJSExecutePromise _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgJSExecutePromiseDefaultTypeInternal _CMsgJSExecutePromise_default_instance_;
 constexpr CMsgJSReleaseCallback::CMsgJSReleaseCallback(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : browser_handle_(0u)
@@ -2391,7 +2407,7 @@ struct CMsgRestartJSContextDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgRestartJSContextDefaultTypeInternal _CMsgRestartJSContext_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_htmlmessages_2eproto[169];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_htmlmessages_2eproto[170];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_htmlmessages_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_htmlmessages_2eproto = nullptr;
 
@@ -3877,6 +3893,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   1,
   2,
   ~0u,
+  PROTOBUF_FIELD_OFFSET(::CMsgJSExecutePromise, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgJSExecutePromise, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgJSExecutePromise, browser_handle_),
+  PROTOBUF_FIELD_OFFSET(::CMsgJSExecutePromise, owning_browser_handle_),
+  PROTOBUF_FIELD_OFFSET(::CMsgJSExecutePromise, promise_handle_),
+  PROTOBUF_FIELD_OFFSET(::CMsgJSExecutePromise, reject_reason_),
+  PROTOBUF_FIELD_OFFSET(::CMsgJSExecutePromise, argument_),
+  2,
+  3,
+  4,
+  0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CMsgJSReleaseCallback, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgJSReleaseCallback, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4402,45 +4433,46 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 1428, 1444, sizeof(::CMsgJSValue)},
   { 1455, 1464, sizeof(::CMsgJSMethodCall)},
   { 1468, 1477, sizeof(::CMsgJSExecuteCallback)},
-  { 1481, 1489, sizeof(::CMsgJSReleaseCallback)},
-  { 1492, 1500, sizeof(::CMsgJSRaiseException)},
-  { 1503, 1511, sizeof(::CMsgLoadLocalization)},
-  { 1514, 1520, sizeof(::CMsgNotifyUserActivation)},
-  { 1521, 1527, sizeof(::CMsgSetNetFakeLocalSystemState)},
-  { 1528, 1535, sizeof(::CMsgSetGameOverlayTargetPIDs)},
-  { 1537, 1545, sizeof(::CMsgGameOverlayTargetTextureID)},
-  { 1548, 1558, sizeof(::CMsgDraggableRegionsChanged_DraggableRects)},
-  { 1563, 1570, sizeof(::CMsgDraggableRegionsChanged)},
-  { 1572, 1580, sizeof(::CMsgResizeGripChanged)},
-  { 1583, 1597, sizeof(::CMsgSetWindowPosition)},
-  { 1606, 1612, sizeof(::CMsgShowWindow)},
-  { 1613, 1619, sizeof(::CMsgHideWindow)},
-  { 1620, 1626, sizeof(::CMsgBringWindowToFront)},
-  { 1627, 1633, sizeof(::CMsgSetForegroundWindow)},
-  { 1634, 1640, sizeof(::CMsgMaximizeRestoreWindow)},
-  { 1641, 1647, sizeof(::CMsgMinimizeWindow)},
-  { 1648, 1655, sizeof(::CMsgShowBrowserContextMenu_ContextCommand)},
-  { 1657, 1673, sizeof(::CMsgShowBrowserContextMenu)},
-  { 1684, 1691, sizeof(::CMsgHandleContextMenuCommand)},
-  { 1693, 1707, sizeof(::CMsgTouchGesture)},
-  { 1716, 1723, sizeof(::CMsgSetTouchGesturesToCancel)},
-  { 1725, 1732, sizeof(::CMsgImeSetComposition)},
-  { 1734, 1741, sizeof(::CMsgImeCommitText)},
-  { 1743, 1749, sizeof(::CMsgImeCancelComposition)},
-  { 1750, 1758, sizeof(::CMsgImeCompositionRangeChanged)},
-  { 1761, 1769, sizeof(::CMsgInspectElement)},
-  { 1772, 1779, sizeof(::CMsgDisableF5)},
-  { 1781, 1788, sizeof(::CMsgStartDownload)},
-  { 1790, 1796, sizeof(::CMsgSetTopWindow)},
-  { 1797, 1806, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
-  { 1810, 1817, sizeof(::CMsgBlockedRequest)},
-  { 1819, 1826, sizeof(::CMsgBrowserFocusChanged)},
-  { 1828, 1835, sizeof(::CMsgSetProtocolBlockList)},
-  { 1837, 1844, sizeof(::CMsgSetForceDeviceScaleFactors)},
-  { 1846, 1852, sizeof(::CMsgSetUIMode)},
-  { 1853, 1859, sizeof(::CMsgPopupCreated)},
-  { 1860, 1867, sizeof(::CMsgSetVRKeyboardVisibility)},
-  { 1869, -1, sizeof(::CMsgRestartJSContext)},
+  { 1481, 1491, sizeof(::CMsgJSExecutePromise)},
+  { 1496, 1504, sizeof(::CMsgJSReleaseCallback)},
+  { 1507, 1515, sizeof(::CMsgJSRaiseException)},
+  { 1518, 1526, sizeof(::CMsgLoadLocalization)},
+  { 1529, 1535, sizeof(::CMsgNotifyUserActivation)},
+  { 1536, 1542, sizeof(::CMsgSetNetFakeLocalSystemState)},
+  { 1543, 1550, sizeof(::CMsgSetGameOverlayTargetPIDs)},
+  { 1552, 1560, sizeof(::CMsgGameOverlayTargetTextureID)},
+  { 1563, 1573, sizeof(::CMsgDraggableRegionsChanged_DraggableRects)},
+  { 1578, 1585, sizeof(::CMsgDraggableRegionsChanged)},
+  { 1587, 1595, sizeof(::CMsgResizeGripChanged)},
+  { 1598, 1612, sizeof(::CMsgSetWindowPosition)},
+  { 1621, 1627, sizeof(::CMsgShowWindow)},
+  { 1628, 1634, sizeof(::CMsgHideWindow)},
+  { 1635, 1641, sizeof(::CMsgBringWindowToFront)},
+  { 1642, 1648, sizeof(::CMsgSetForegroundWindow)},
+  { 1649, 1655, sizeof(::CMsgMaximizeRestoreWindow)},
+  { 1656, 1662, sizeof(::CMsgMinimizeWindow)},
+  { 1663, 1670, sizeof(::CMsgShowBrowserContextMenu_ContextCommand)},
+  { 1672, 1688, sizeof(::CMsgShowBrowserContextMenu)},
+  { 1699, 1706, sizeof(::CMsgHandleContextMenuCommand)},
+  { 1708, 1722, sizeof(::CMsgTouchGesture)},
+  { 1731, 1738, sizeof(::CMsgSetTouchGesturesToCancel)},
+  { 1740, 1747, sizeof(::CMsgImeSetComposition)},
+  { 1749, 1756, sizeof(::CMsgImeCommitText)},
+  { 1758, 1764, sizeof(::CMsgImeCancelComposition)},
+  { 1765, 1773, sizeof(::CMsgImeCompositionRangeChanged)},
+  { 1776, 1784, sizeof(::CMsgInspectElement)},
+  { 1787, 1794, sizeof(::CMsgDisableF5)},
+  { 1796, 1803, sizeof(::CMsgStartDownload)},
+  { 1805, 1811, sizeof(::CMsgSetTopWindow)},
+  { 1812, 1821, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
+  { 1825, 1832, sizeof(::CMsgBlockedRequest)},
+  { 1834, 1841, sizeof(::CMsgBrowserFocusChanged)},
+  { 1843, 1850, sizeof(::CMsgSetProtocolBlockList)},
+  { 1852, 1859, sizeof(::CMsgSetForceDeviceScaleFactors)},
+  { 1861, 1867, sizeof(::CMsgSetUIMode)},
+  { 1868, 1874, sizeof(::CMsgPopupCreated)},
+  { 1875, 1882, sizeof(::CMsgSetVRKeyboardVisibility)},
+  { 1884, -1, sizeof(::CMsgRestartJSContext)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -4574,6 +4606,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgJSValue_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgJSMethodCall_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgJSExecuteCallback_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgJSExecutePromise_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgJSReleaseCallback_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgJSRaiseException_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgLoadLocalization_default_instance_),
@@ -4906,96 +4939,100 @@ const char descriptor_table_protodef_htmlmessages_2eproto[] PROTOBUF_SECTION_VAR
   "eCallback\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025own"
   "ing_browser_handle\030\002 \001(\r\022\027\n\017function_han"
   "dle\030\003 \001(\004\022\037\n\targuments\030\004 \003(\0132\014.CMsgJSVal"
-  "ue\"g\n\025CMsgJSReleaseCallback\022\026\n\016browser_h"
+  "ue\"\234\001\n\024CMsgJSExecutePromise\022\026\n\016browser_h"
   "andle\030\001 \001(\r\022\035\n\025owning_browser_handle\030\002 \001"
-  "(\r\022\027\n\017function_handle\030\003 \001(\004\"`\n\024CMsgJSRai"
-  "seException\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025o"
-  "wning_browser_handle\030\002 \001(\r\022\021\n\texception\030"
-  "\003 \001(\t\"[\n\024CMsgLoadLocalization\022\026\n\016browser"
-  "_handle\030\001 \001(\r\022\031\n\021localization_path\030\002 \001(\t"
-  "\022\020\n\010language\030\003 \001(\t\"2\n\030CMsgNotifyUserActi"
-  "vation\022\026\n\016browser_handle\030\001 \001(\r\"/\n\036CMsgSe"
-  "tNetFakeLocalSystemState\022\r\n\005state\030\001 \001(\r\""
-  "J\n\034CMsgSetGameOverlayTargetPIDs\022\026\n\016brows"
-  "er_handle\030\001 \001(\r\022\022\n\ntarget_pid\030\002 \003(\r\"d\n\036C"
-  "MsgGameOverlayTargetTextureID\022\026\n\016browser"
-  "_handle\030\001 \001(\r\022\022\n\ntarget_pid\030\002 \001(\r\022\026\n\016tex"
-  "ture_handle\030\003 \001(\r\"\313\001\n\033CMsgDraggableRegio"
-  "nsChanged\022\026\n\016browser_handle\030\001 \001(\r\022:\n\005rec"
-  "ts\030\002 \003(\0132+.CMsgDraggableRegionsChanged.D"
-  "raggableRects\032X\n\016DraggableRects\022\t\n\001x\030\001 \001"
-  "(\005\022\t\n\001y\030\002 \001(\005\022\r\n\005width\030\003 \001(\005\022\016\n\006height\030\004"
-  " \001(\005\022\021\n\tdraggable\030\005 \001(\010\"N\n\025CMsgResizeGri"
-  "pChanged\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005widt"
-  "h\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\"\262\001\n\025CMsgSetWindo"
-  "wPosition\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002"
-  " \001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005width\030\004 \001(\001\022\016\n\006height"
-  "\030\005 \001(\001\022\021\n\tmin_width\030\006 \001(\001\022\022\n\nmin_height\030"
-  "\007 \001(\001\022\021\n\tmax_width\030\010 \001(\001\022\022\n\nmax_height\030\t"
-  " \001(\001\"(\n\016CMsgShowWindow\022\026\n\016browser_handle"
-  "\030\001 \001(\r\"(\n\016CMsgHideWindow\022\026\n\016browser_hand"
-  "le\030\001 \001(\r\"0\n\026CMsgBringWindowToFront\022\026\n\016br"
-  "owser_handle\030\001 \001(\r\"1\n\027CMsgSetForegroundW"
-  "indow\022\026\n\016browser_handle\030\001 \001(\r\"3\n\031CMsgMax"
-  "imizeRestoreWindow\022\026\n\016browser_handle\030\001 \001"
-  "(\r\",\n\022CMsgMinimizeWindow\022\026\n\016browser_hand"
-  "le\030\001 \001(\r\"\344\002\n\032CMsgShowBrowserContextMenu\022"
-  "\026\n\016browser_handle\030\001 \001(\r\022C\n\017custom_comman"
-  "ds\030\002 \003(\0132*.CMsgShowBrowserContextMenu.Co"
-  "ntextCommand\022\022\n\ntype_flags\030\003 \001(\r\022\020\n\010page"
-  "_url\030\004 \001(\t\022\017\n\007coord_x\030\005 \001(\005\022\017\n\007coord_y\030\006"
-  " \001(\005\022\016\n\006linurl\030\007 \001(\t\022\031\n\021unfiltered_linur"
-  "l\030\010 \001(\t\022\026\n\016selection_text\030\t \001(\t\022\027\n\017missp"
-  "elled_word\030\n \001(\t\022\030\n\020edit_state_flags\030\013 \001"
-  "(\r\032+\n\016ContextCommand\022\n\n\002id\030\001 \001(\005\022\r\n\005labe"
-  "l\030\002 \001(\t\"J\n\034CMsgHandleContextMenuCommand\022"
-  "\026\n\016browser_handle\030\001 \001(\r\022\022\n\ncommand_id\030\002 "
-  "\001(\005\"\244\001\n\020CMsgTouchGesture\022\026\n\016browser_hand"
-  "le\030\001 \001(\r\022\n\n\002id\030\002 \001(\005\022\017\n\007gesture\030\003 \001(\r\022\t\n"
-  "\001x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\r\n\005width\030\006 \001(\001\022\016\n\006he"
-  "ight\030\007 \001(\001\022\021\n\ttap_count\030\010 \001(\r\022\023\n\013pinch_s"
-  "cale\030\t \001(\001\"H\n\034CMsgSetTouchGesturesToCanc"
-  "el\022\026\n\016browser_handle\030\001 \001(\r\022\020\n\010gestures\030\002"
-  " \003(\r\"=\n\025CMsgImeSetComposition\022\026\n\016browser"
-  "_handle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\"9\n\021CMsgImeCo"
-  "mmitText\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004text"
-  "\030\002 \001(\t\"2\n\030CMsgImeCancelComposition\022\026\n\016br"
-  "owser_handle\030\001 \001(\r\"N\n\036CMsgImeComposition"
-  "RangeChanged\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001"
-  "x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"B\n\022CMsgInspectElement"
-  "\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y"
-  "\030\003 \001(\r\"8\n\rCMsgDisableF5\022\026\n\016browser_handl"
-  "e\030\001 \001(\r\022\017\n\007disable\030\002 \001(\010\"8\n\021CMsgStartDow"
-  "nload\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001"
-  "(\t\"*\n\020CMsgSetTopWindow\022\026\n\016browser_handle"
-  "\030\001 \001(\r\"z\n)CMsgBrowserViewPostMessageToPa"
-  "rentRequest\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007m"
-  "essage\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016requesting"
-  "_url\030\004 \001(\t\"9\n\022CMsgBlockedRequest\022\026\n\016brow"
-  "ser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"B\n\027CMsgBro"
-  "wserFocusChanged\022\026\n\016browser_handle\030\001 \001(\r"
-  "\022\017\n\007focused\030\002 \001(\010\"@\n\030CMsgSetProtocolBloc"
-  "kList\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 "
-  "\001(\t\"J\n\036CMsgSetForceDeviceScaleFactors\022\021\n"
-  "\tdpi_scale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\""
-  " \n\rCMsgSetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"*\n\020CMs"
-  "gPopupCreated\022\026\n\016browser_handle\030\001 \001(\r\"F\n"
-  "\033CMsgSetVRKeyboardVisibility\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n\024CMsgRes"
-  "tartJSContext*\245\001\n\025EJSRegisterMethodType\022"
-  "!\n\035EJSRegisterMethodType_Invalid\020\000\022\"\n\036EJ"
-  "SRegisterMethodType_Function\020\001\022\"\n\036EJSReg"
-  "isterMethodType_Callback\020\002\022!\n\035EJSRegiste"
-  "rMethodType_Promise\020\003B\037H\001\200\001\000\252\002\027OpenSteam"
-  "works.Protobuf"
+  "(\r\022\026\n\016promise_handle\030\003 \001(\004\022\025\n\rreject_rea"
+  "son\030\004 \001(\t\022\036\n\010argument\030\005 \001(\0132\014.CMsgJSValu"
+  "e\"g\n\025CMsgJSReleaseCallback\022\026\n\016browser_ha"
+  "ndle\030\001 \001(\r\022\035\n\025owning_browser_handle\030\002 \001("
+  "\r\022\027\n\017function_handle\030\003 \001(\004\"`\n\024CMsgJSRais"
+  "eException\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025ow"
+  "ning_browser_handle\030\002 \001(\r\022\021\n\texception\030\003"
+  " \001(\t\"[\n\024CMsgLoadLocalization\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\031\n\021localization_path\030\002 \001(\t\022"
+  "\020\n\010language\030\003 \001(\t\"2\n\030CMsgNotifyUserActiv"
+  "ation\022\026\n\016browser_handle\030\001 \001(\r\"/\n\036CMsgSet"
+  "NetFakeLocalSystemState\022\r\n\005state\030\001 \001(\r\"J"
+  "\n\034CMsgSetGameOverlayTargetPIDs\022\026\n\016browse"
+  "r_handle\030\001 \001(\r\022\022\n\ntarget_pid\030\002 \003(\r\"d\n\036CM"
+  "sgGameOverlayTargetTextureID\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\022\n\ntarget_pid\030\002 \001(\r\022\026\n\016text"
+  "ure_handle\030\003 \001(\r\"\313\001\n\033CMsgDraggableRegion"
+  "sChanged\022\026\n\016browser_handle\030\001 \001(\r\022:\n\005rect"
+  "s\030\002 \003(\0132+.CMsgDraggableRegionsChanged.Dr"
+  "aggableRects\032X\n\016DraggableRects\022\t\n\001x\030\001 \001("
+  "\005\022\t\n\001y\030\002 \001(\005\022\r\n\005width\030\003 \001(\005\022\016\n\006height\030\004 "
+  "\001(\005\022\021\n\tdraggable\030\005 \001(\010\"N\n\025CMsgResizeGrip"
+  "Changed\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005width"
+  "\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\"\262\001\n\025CMsgSetWindow"
+  "Position\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 "
+  "\001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005width\030\004 \001(\001\022\016\n\006height\030"
+  "\005 \001(\001\022\021\n\tmin_width\030\006 \001(\001\022\022\n\nmin_height\030\007"
+  " \001(\001\022\021\n\tmax_width\030\010 \001(\001\022\022\n\nmax_height\030\t "
+  "\001(\001\"(\n\016CMsgShowWindow\022\026\n\016browser_handle\030"
+  "\001 \001(\r\"(\n\016CMsgHideWindow\022\026\n\016browser_handl"
+  "e\030\001 \001(\r\"0\n\026CMsgBringWindowToFront\022\026\n\016bro"
+  "wser_handle\030\001 \001(\r\"1\n\027CMsgSetForegroundWi"
+  "ndow\022\026\n\016browser_handle\030\001 \001(\r\"3\n\031CMsgMaxi"
+  "mizeRestoreWindow\022\026\n\016browser_handle\030\001 \001("
+  "\r\",\n\022CMsgMinimizeWindow\022\026\n\016browser_handl"
+  "e\030\001 \001(\r\"\344\002\n\032CMsgShowBrowserContextMenu\022\026"
+  "\n\016browser_handle\030\001 \001(\r\022C\n\017custom_command"
+  "s\030\002 \003(\0132*.CMsgShowBrowserContextMenu.Con"
+  "textCommand\022\022\n\ntype_flags\030\003 \001(\r\022\020\n\010page_"
+  "url\030\004 \001(\t\022\017\n\007coord_x\030\005 \001(\005\022\017\n\007coord_y\030\006 "
+  "\001(\005\022\016\n\006linurl\030\007 \001(\t\022\031\n\021unfiltered_linurl"
+  "\030\010 \001(\t\022\026\n\016selection_text\030\t \001(\t\022\027\n\017misspe"
+  "lled_word\030\n \001(\t\022\030\n\020edit_state_flags\030\013 \001("
+  "\r\032+\n\016ContextCommand\022\n\n\002id\030\001 \001(\005\022\r\n\005label"
+  "\030\002 \001(\t\"J\n\034CMsgHandleContextMenuCommand\022\026"
+  "\n\016browser_handle\030\001 \001(\r\022\022\n\ncommand_id\030\002 \001"
+  "(\005\"\244\001\n\020CMsgTouchGesture\022\026\n\016browser_handl"
+  "e\030\001 \001(\r\022\n\n\002id\030\002 \001(\005\022\017\n\007gesture\030\003 \001(\r\022\t\n\001"
+  "x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\r\n\005width\030\006 \001(\001\022\016\n\006hei"
+  "ght\030\007 \001(\001\022\021\n\ttap_count\030\010 \001(\r\022\023\n\013pinch_sc"
+  "ale\030\t \001(\001\"H\n\034CMsgSetTouchGesturesToCance"
+  "l\022\026\n\016browser_handle\030\001 \001(\r\022\020\n\010gestures\030\002 "
+  "\003(\r\"=\n\025CMsgImeSetComposition\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\"9\n\021CMsgImeCom"
+  "mitText\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004text\030"
+  "\002 \001(\t\"2\n\030CMsgImeCancelComposition\022\026\n\016bro"
+  "wser_handle\030\001 \001(\r\"N\n\036CMsgImeCompositionR"
+  "angeChanged\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x"
+  "\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"B\n\022CMsgInspectElement\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030"
+  "\003 \001(\r\"8\n\rCMsgDisableF5\022\026\n\016browser_handle"
+  "\030\001 \001(\r\022\017\n\007disable\030\002 \001(\010\"8\n\021CMsgStartDown"
+  "load\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001("
+  "\t\"*\n\020CMsgSetTopWindow\022\026\n\016browser_handle\030"
+  "\001 \001(\r\"z\n)CMsgBrowserViewPostMessageToPar"
+  "entRequest\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007me"
+  "ssage\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016requesting_"
+  "url\030\004 \001(\t\"9\n\022CMsgBlockedRequest\022\026\n\016brows"
+  "er_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"B\n\027CMsgBrow"
+  "serFocusChanged\022\026\n\016browser_handle\030\001 \001(\r\022"
+  "\017\n\007focused\030\002 \001(\010\"@\n\030CMsgSetProtocolBlock"
+  "List\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 \001"
+  "(\t\"J\n\036CMsgSetForceDeviceScaleFactors\022\021\n\t"
+  "dpi_scale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\" "
+  "\n\rCMsgSetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"*\n\020CMsg"
+  "PopupCreated\022\026\n\016browser_handle\030\001 \001(\r\"F\n\033"
+  "CMsgSetVRKeyboardVisibility\022\026\n\016browser_h"
+  "andle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n\024CMsgRest"
+  "artJSContext*\245\001\n\025EJSRegisterMethodType\022!"
+  "\n\035EJSRegisterMethodType_Invalid\020\000\022\"\n\036EJS"
+  "RegisterMethodType_Function\020\001\022\"\n\036EJSRegi"
+  "sterMethodType_Callback\020\002\022!\n\035EJSRegister"
+  "MethodType_Promise\020\003B\037H\001\200\001\000\252\002\027OpenSteamw"
+  "orks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_htmlmessages_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_htmlmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_htmlmessages_2eproto = {
-  false, false, 14854, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
-  &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 169,
+  false, false, 15013, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
+  &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 170,
   schemas, file_default_instances, TableStruct_htmlmessages_2eproto::offsets,
   file_level_metadata_htmlmessages_2eproto, file_level_enum_descriptors_htmlmessages_2eproto, file_level_service_descriptors_htmlmessages_2eproto,
 };
@@ -42002,6 +42039,372 @@ void CMsgJSExecuteCallback::InternalSwap(CMsgJSExecuteCallback* other) {
 
 // ===================================================================
 
+class CMsgJSExecutePromise::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgJSExecutePromise>()._has_bits_);
+  static void set_has_browser_handle(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_owning_browser_handle(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_promise_handle(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_reject_reason(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static const ::CMsgJSValue& argument(const CMsgJSExecutePromise* msg);
+  static void set_has_argument(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+const ::CMsgJSValue&
+CMsgJSExecutePromise::_Internal::argument(const CMsgJSExecutePromise* msg) {
+  return *msg->argument_;
+}
+CMsgJSExecutePromise::CMsgJSExecutePromise(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgJSExecutePromise)
+}
+CMsgJSExecutePromise::CMsgJSExecutePromise(const CMsgJSExecutePromise& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  reject_reason_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_reject_reason()) {
+    reject_reason_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_reject_reason(), 
+      GetArena());
+  }
+  if (from._internal_has_argument()) {
+    argument_ = new ::CMsgJSValue(*from.argument_);
+  } else {
+    argument_ = nullptr;
+  }
+  ::memcpy(&browser_handle_, &from.browser_handle_,
+    static_cast<size_t>(reinterpret_cast<char*>(&promise_handle_) -
+    reinterpret_cast<char*>(&browser_handle_)) + sizeof(promise_handle_));
+  // @@protoc_insertion_point(copy_constructor:CMsgJSExecutePromise)
+}
+
+void CMsgJSExecutePromise::SharedCtor() {
+reject_reason_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&argument_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&promise_handle_) -
+    reinterpret_cast<char*>(&argument_)) + sizeof(promise_handle_));
+}
+
+CMsgJSExecutePromise::~CMsgJSExecutePromise() {
+  // @@protoc_insertion_point(destructor:CMsgJSExecutePromise)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgJSExecutePromise::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  reject_reason_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete argument_;
+}
+
+void CMsgJSExecutePromise::ArenaDtor(void* object) {
+  CMsgJSExecutePromise* _this = reinterpret_cast< CMsgJSExecutePromise* >(object);
+  (void)_this;
+}
+void CMsgJSExecutePromise::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgJSExecutePromise::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgJSExecutePromise::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgJSExecutePromise)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      reject_reason_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(argument_ != nullptr);
+      argument_->Clear();
+    }
+  }
+  if (cached_has_bits & 0x0000001cu) {
+    ::memset(&browser_handle_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&promise_handle_) -
+        reinterpret_cast<char*>(&browser_handle_)) + sizeof(promise_handle_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgJSExecutePromise::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 browser_handle = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_browser_handle(&has_bits);
+          browser_handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 owning_browser_handle = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_owning_browser_handle(&has_bits);
+          owning_browser_handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 promise_handle = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_promise_handle(&has_bits);
+          promise_handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string reject_reason = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_reject_reason();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgJSExecutePromise.reject_reason");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .CMsgJSValue argument = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_argument(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgJSExecutePromise::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgJSExecutePromise)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 browser_handle = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_browser_handle(), target);
+  }
+
+  // optional uint32 owning_browser_handle = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_owning_browser_handle(), target);
+  }
+
+  // optional uint64 promise_handle = 3;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_promise_handle(), target);
+  }
+
+  // optional string reject_reason = 4;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_reject_reason().data(), static_cast<int>(this->_internal_reject_reason().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgJSExecutePromise.reject_reason");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_reject_reason(), target);
+  }
+
+  // optional .CMsgJSValue argument = 5;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::argument(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgJSExecutePromise)
+  return target;
+}
+
+size_t CMsgJSExecutePromise::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgJSExecutePromise)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional string reject_reason = 4;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_reject_reason());
+    }
+
+    // optional .CMsgJSValue argument = 5;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *argument_);
+    }
+
+    // optional uint32 browser_handle = 1;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_browser_handle());
+    }
+
+    // optional uint32 owning_browser_handle = 2;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_owning_browser_handle());
+    }
+
+    // optional uint64 promise_handle = 3;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_promise_handle());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgJSExecutePromise::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgJSExecutePromise)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgJSExecutePromise* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgJSExecutePromise>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgJSExecutePromise)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgJSExecutePromise)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgJSExecutePromise::MergeFrom(const CMsgJSExecutePromise& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgJSExecutePromise)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_reject_reason(from._internal_reject_reason());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_mutable_argument()->::CMsgJSValue::MergeFrom(from._internal_argument());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      browser_handle_ = from.browser_handle_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      owning_browser_handle_ = from.owning_browser_handle_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      promise_handle_ = from.promise_handle_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CMsgJSExecutePromise::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgJSExecutePromise)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgJSExecutePromise::CopyFrom(const CMsgJSExecutePromise& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgJSExecutePromise)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgJSExecutePromise::IsInitialized() const {
+  return true;
+}
+
+void CMsgJSExecutePromise::InternalSwap(CMsgJSExecutePromise* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  reject_reason_.Swap(&other->reject_reason_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgJSExecutePromise, promise_handle_)
+      + sizeof(CMsgJSExecutePromise::promise_handle_)
+      - PROTOBUF_FIELD_OFFSET(CMsgJSExecutePromise, argument_)>(
+          reinterpret_cast<char*>(&argument_),
+          reinterpret_cast<char*>(&other->argument_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgJSExecutePromise::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CMsgJSReleaseCallback::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgJSReleaseCallback>()._has_bits_);
@@ -52516,6 +52919,9 @@ template<> PROTOBUF_NOINLINE ::CMsgJSMethodCall* Arena::CreateMaybeMessage< ::CM
 }
 template<> PROTOBUF_NOINLINE ::CMsgJSExecuteCallback* Arena::CreateMaybeMessage< ::CMsgJSExecuteCallback >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgJSExecuteCallback >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgJSExecutePromise* Arena::CreateMaybeMessage< ::CMsgJSExecutePromise >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgJSExecutePromise >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgJSReleaseCallback* Arena::CreateMaybeMessage< ::CMsgJSReleaseCallback >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgJSReleaseCallback >(arena);

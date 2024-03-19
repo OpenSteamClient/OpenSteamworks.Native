@@ -1023,6 +1023,8 @@ class ParentalSettings PROTOBUF_FINAL :
   enum : int {
     kApplistBaseFieldNumber = 4,
     kApplistCustomFieldNumber = 5,
+    kExcludedStoreContentDescriptorsFieldNumber = 17,
+    kExcludedCommunityContentDescriptorsFieldNumber = 18,
     kApplistBaseDescriptionFieldNumber = 3,
     kSaltFieldNumber = 7,
     kPasswordhashFieldNumber = 8,
@@ -1073,6 +1075,50 @@ class ParentalSettings PROTOBUF_FINAL :
   ::ParentalApp* add_applist_custom();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ParentalApp >&
       applist_custom() const;
+
+  // repeated uint32 excluded_store_content_descriptors = 17;
+  int excluded_store_content_descriptors_size() const;
+  private:
+  int _internal_excluded_store_content_descriptors_size() const;
+  public:
+  void clear_excluded_store_content_descriptors();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_excluded_store_content_descriptors(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_excluded_store_content_descriptors() const;
+  void _internal_add_excluded_store_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_excluded_store_content_descriptors();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 excluded_store_content_descriptors(int index) const;
+  void set_excluded_store_content_descriptors(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_excluded_store_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      excluded_store_content_descriptors() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_excluded_store_content_descriptors();
+
+  // repeated uint32 excluded_community_content_descriptors = 18;
+  int excluded_community_content_descriptors_size() const;
+  private:
+  int _internal_excluded_community_content_descriptors_size() const;
+  public:
+  void clear_excluded_community_content_descriptors();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_excluded_community_content_descriptors(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_excluded_community_content_descriptors() const;
+  void _internal_add_excluded_community_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_excluded_community_content_descriptors();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 excluded_community_content_descriptors(int index) const;
+  void set_excluded_community_content_descriptors(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_excluded_community_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      excluded_community_content_descriptors() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_excluded_community_content_descriptors();
 
   // optional string applist_base_description = 3;
   bool has_applist_base_description() const;
@@ -1305,6 +1351,8 @@ class ParentalSettings PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ParentalApp > applist_base_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ParentalApp > applist_custom_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > excluded_store_content_descriptors_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > excluded_community_content_descriptors_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr applist_base_description_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr salt_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr passwordhash_;
@@ -9026,6 +9074,100 @@ inline void ParentalSettings::set_allocated_temporary_playtime_restrictions(::Pa
   }
   temporary_playtime_restrictions_ = temporary_playtime_restrictions;
   // @@protoc_insertion_point(field_set_allocated:ParentalSettings.temporary_playtime_restrictions)
+}
+
+// repeated uint32 excluded_store_content_descriptors = 17;
+inline int ParentalSettings::_internal_excluded_store_content_descriptors_size() const {
+  return excluded_store_content_descriptors_.size();
+}
+inline int ParentalSettings::excluded_store_content_descriptors_size() const {
+  return _internal_excluded_store_content_descriptors_size();
+}
+inline void ParentalSettings::clear_excluded_store_content_descriptors() {
+  excluded_store_content_descriptors_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ParentalSettings::_internal_excluded_store_content_descriptors(int index) const {
+  return excluded_store_content_descriptors_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ParentalSettings::excluded_store_content_descriptors(int index) const {
+  // @@protoc_insertion_point(field_get:ParentalSettings.excluded_store_content_descriptors)
+  return _internal_excluded_store_content_descriptors(index);
+}
+inline void ParentalSettings::set_excluded_store_content_descriptors(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  excluded_store_content_descriptors_.Set(index, value);
+  // @@protoc_insertion_point(field_set:ParentalSettings.excluded_store_content_descriptors)
+}
+inline void ParentalSettings::_internal_add_excluded_store_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  excluded_store_content_descriptors_.Add(value);
+}
+inline void ParentalSettings::add_excluded_store_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_excluded_store_content_descriptors(value);
+  // @@protoc_insertion_point(field_add:ParentalSettings.excluded_store_content_descriptors)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+ParentalSettings::_internal_excluded_store_content_descriptors() const {
+  return excluded_store_content_descriptors_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+ParentalSettings::excluded_store_content_descriptors() const {
+  // @@protoc_insertion_point(field_list:ParentalSettings.excluded_store_content_descriptors)
+  return _internal_excluded_store_content_descriptors();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+ParentalSettings::_internal_mutable_excluded_store_content_descriptors() {
+  return &excluded_store_content_descriptors_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+ParentalSettings::mutable_excluded_store_content_descriptors() {
+  // @@protoc_insertion_point(field_mutable_list:ParentalSettings.excluded_store_content_descriptors)
+  return _internal_mutable_excluded_store_content_descriptors();
+}
+
+// repeated uint32 excluded_community_content_descriptors = 18;
+inline int ParentalSettings::_internal_excluded_community_content_descriptors_size() const {
+  return excluded_community_content_descriptors_.size();
+}
+inline int ParentalSettings::excluded_community_content_descriptors_size() const {
+  return _internal_excluded_community_content_descriptors_size();
+}
+inline void ParentalSettings::clear_excluded_community_content_descriptors() {
+  excluded_community_content_descriptors_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ParentalSettings::_internal_excluded_community_content_descriptors(int index) const {
+  return excluded_community_content_descriptors_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ParentalSettings::excluded_community_content_descriptors(int index) const {
+  // @@protoc_insertion_point(field_get:ParentalSettings.excluded_community_content_descriptors)
+  return _internal_excluded_community_content_descriptors(index);
+}
+inline void ParentalSettings::set_excluded_community_content_descriptors(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  excluded_community_content_descriptors_.Set(index, value);
+  // @@protoc_insertion_point(field_set:ParentalSettings.excluded_community_content_descriptors)
+}
+inline void ParentalSettings::_internal_add_excluded_community_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  excluded_community_content_descriptors_.Add(value);
+}
+inline void ParentalSettings::add_excluded_community_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_excluded_community_content_descriptors(value);
+  // @@protoc_insertion_point(field_add:ParentalSettings.excluded_community_content_descriptors)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+ParentalSettings::_internal_excluded_community_content_descriptors() const {
+  return excluded_community_content_descriptors_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+ParentalSettings::excluded_community_content_descriptors() const {
+  // @@protoc_insertion_point(field_list:ParentalSettings.excluded_community_content_descriptors)
+  return _internal_excluded_community_content_descriptors();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+ParentalSettings::_internal_mutable_excluded_community_content_descriptors() {
+  return &excluded_community_content_descriptors_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+ParentalSettings::mutable_excluded_community_content_descriptors() {
+  // @@protoc_insertion_point(field_mutable_list:ParentalSettings.excluded_community_content_descriptors)
+  return _internal_mutable_excluded_community_content_descriptors();
 }
 
 // -------------------------------------------------------------------

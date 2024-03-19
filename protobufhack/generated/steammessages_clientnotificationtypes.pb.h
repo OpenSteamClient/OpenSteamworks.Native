@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fclientnotificationtypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[36]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[37]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -107,6 +107,9 @@ extern CClientNotificationFriendMessageDefaultTypeInternal _CClientNotificationF
 class CClientNotificationFriendOnline;
 struct CClientNotificationFriendOnlineDefaultTypeInternal;
 extern CClientNotificationFriendOnlineDefaultTypeInternal _CClientNotificationFriendOnline_default_instance_;
+class CClientNotificationGRE;
+struct CClientNotificationGREDefaultTypeInternal;
+extern CClientNotificationGREDefaultTypeInternal _CClientNotificationGRE_default_instance_;
 class CClientNotificationGiftReceived;
 struct CClientNotificationGiftReceivedDefaultTypeInternal;
 extern CClientNotificationGiftReceivedDefaultTypeInternal _CClientNotificationGiftReceived_default_instance_;
@@ -182,6 +185,7 @@ template<> ::CClientNotificationFriendInvite* Arena::CreateMaybeMessage<::CClien
 template<> ::CClientNotificationFriendInviteRollup* Arena::CreateMaybeMessage<::CClientNotificationFriendInviteRollup>(Arena*);
 template<> ::CClientNotificationFriendMessage* Arena::CreateMaybeMessage<::CClientNotificationFriendMessage>(Arena*);
 template<> ::CClientNotificationFriendOnline* Arena::CreateMaybeMessage<::CClientNotificationFriendOnline>(Arena*);
+template<> ::CClientNotificationGRE* Arena::CreateMaybeMessage<::CClientNotificationGRE>(Arena*);
 template<> ::CClientNotificationGiftReceived* Arena::CreateMaybeMessage<::CClientNotificationGiftReceived>(Arena*);
 template<> ::CClientNotificationGroupChatMessage* Arena::CreateMaybeMessage<::CClientNotificationGroupChatMessage>(Arena*);
 template<> ::CClientNotificationHardwareSurveyPending* Arena::CreateMaybeMessage<::CClientNotificationHardwareSurveyPending>(Arena*);
@@ -253,11 +257,15 @@ enum EClientNotificationType : int {
   EClientNotificationType_FamilyPurchaseRequest = 46,
   EClientNotificationType_FamilyPurchaseRequestResponse = 47,
   EClientNotificationType_ParentalFeatureRequest = 48,
-  EClientNotificationType_ParentalPlaytimeRequest = 49
+  EClientNotificationType_ParentalPlaytimeRequest = 49,
+  EClientNotificationType_GRE = 50,
+  EClientNotificationType_ParentalFeatureResponse = 51,
+  EClientNotificationType_ParentalPlaytimeResponse = 52,
+  EClientNotificationType_RequestedGameAdded = 53
 };
 bool EClientNotificationType_IsValid(int value);
 constexpr EClientNotificationType EClientNotificationType_MIN = EClientNotificationType_Invalid;
-constexpr EClientNotificationType EClientNotificationType_MAX = EClientNotificationType_ParentalPlaytimeRequest;
+constexpr EClientNotificationType EClientNotificationType_MAX = EClientNotificationType_RequestedGameAdded;
 constexpr int EClientNotificationType_ARRAYSIZE = EClientNotificationType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EClientNotificationType_descriptor();
@@ -6430,6 +6438,155 @@ class CClientNotificationPlaytimeWarning PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 playtime_remaining_;
   friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CClientNotificationGRE PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientNotificationGRE) */ {
+ public:
+  inline CClientNotificationGRE() : CClientNotificationGRE(nullptr) {}
+  virtual ~CClientNotificationGRE();
+  explicit constexpr CClientNotificationGRE(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientNotificationGRE(const CClientNotificationGRE& from);
+  CClientNotificationGRE(CClientNotificationGRE&& from) noexcept
+    : CClientNotificationGRE() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientNotificationGRE& operator=(const CClientNotificationGRE& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientNotificationGRE& operator=(CClientNotificationGRE&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientNotificationGRE& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientNotificationGRE* internal_default_instance() {
+    return reinterpret_cast<const CClientNotificationGRE*>(
+               &_CClientNotificationGRE_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    36;
+
+  friend void swap(CClientNotificationGRE& a, CClientNotificationGRE& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientNotificationGRE* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientNotificationGRE* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientNotificationGRE* New() const final {
+    return CreateMaybeMessage<CClientNotificationGRE>(nullptr);
+  }
+
+  CClientNotificationGRE* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientNotificationGRE>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientNotificationGRE& from);
+  void MergeFrom(const CClientNotificationGRE& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientNotificationGRE* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientNotificationGRE";
+  }
+  protected:
+  explicit CClientNotificationGRE(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientnotificationtypes_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGameIdFieldNumber = 1,
+  };
+  // optional fixed64 game_id = 1;
+  bool has_game_id() const;
+  private:
+  bool _internal_has_game_id() const;
+  public:
+  void clear_game_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id() const;
+  void set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_game_id() const;
+  void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientNotificationGRE)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
+  friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
+};
 // ===================================================================
 
 
@@ -10111,9 +10268,43 @@ inline void CClientNotificationPlaytimeWarning::set_playtime_remaining(::PROTOBU
   // @@protoc_insertion_point(field_set:CClientNotificationPlaytimeWarning.playtime_remaining)
 }
 
+// -------------------------------------------------------------------
+
+// CClientNotificationGRE
+
+// optional fixed64 game_id = 1;
+inline bool CClientNotificationGRE::_internal_has_game_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientNotificationGRE::has_game_id() const {
+  return _internal_has_game_id();
+}
+inline void CClientNotificationGRE::clear_game_id() {
+  game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGRE::_internal_game_id() const {
+  return game_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGRE::game_id() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGRE.game_id)
+  return _internal_game_id();
+}
+inline void CClientNotificationGRE::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  game_id_ = value;
+}
+inline void CClientNotificationGRE::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_game_id(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGRE.game_id)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

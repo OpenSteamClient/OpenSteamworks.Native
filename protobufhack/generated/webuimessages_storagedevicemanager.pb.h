@@ -869,6 +869,7 @@ class CStorageDeviceManagerBlockDevice PROTOBUF_FINAL :
     kIsUnmountingFieldNumber = 13,
     kContentTypeFieldNumber = 10,
     kFilesystemTypeFieldNumber = 11,
+    kHasSteamLibraryFieldNumber = 14,
   };
   // repeated string mount_paths = 12;
   int mount_paths_size() const;
@@ -1071,6 +1072,19 @@ class CStorageDeviceManagerBlockDevice PROTOBUF_FINAL :
   void _internal_set_filesystem_type(::EStorageBlockFileSystemType value);
   public:
 
+  // optional bool has_steam_library = 14;
+  bool has_has_steam_library() const;
+  private:
+  bool _internal_has_has_steam_library() const;
+  public:
+  void clear_has_steam_library();
+  bool has_steam_library() const;
+  void set_has_steam_library(bool value);
+  private:
+  bool _internal_has_steam_library() const;
+  void _internal_set_has_steam_library(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CStorageDeviceManagerBlockDevice)
  private:
   class _Internal;
@@ -1093,6 +1107,7 @@ class CStorageDeviceManagerBlockDevice PROTOBUF_FINAL :
   bool is_unmounting_;
   int content_type_;
   int filesystem_type_;
+  bool has_steam_library_;
   friend struct ::TableStruct_webuimessages_5fstoragedevicemanager_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2149,6 +2164,7 @@ class CStorageDeviceManager_Adopt_Request PROTOBUF_FINAL :
   enum : int {
     kLabelFieldNumber = 2,
     kDriveIdFieldNumber = 1,
+    kValidateFieldNumber = 3,
   };
   // optional string label = 2;
   bool has_label() const;
@@ -2183,6 +2199,19 @@ class CStorageDeviceManager_Adopt_Request PROTOBUF_FINAL :
   void _internal_set_drive_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional bool validate = 3;
+  bool has_validate() const;
+  private:
+  bool _internal_has_validate() const;
+  public:
+  void clear_validate();
+  bool validate() const;
+  void set_validate(bool value);
+  private:
+  bool _internal_validate() const;
+  void _internal_set_validate(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CStorageDeviceManager_Adopt_Request)
  private:
   class _Internal;
@@ -2194,6 +2223,7 @@ class CStorageDeviceManager_Adopt_Request PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr label_;
   ::PROTOBUF_NAMESPACE_ID::uint32 drive_id_;
+  bool validate_;
   friend struct ::TableStruct_webuimessages_5fstoragedevicemanager_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4307,6 +4337,34 @@ inline void CStorageDeviceManagerBlockDevice::set_is_unmounting(bool value) {
   // @@protoc_insertion_point(field_set:CStorageDeviceManagerBlockDevice.is_unmounting)
 }
 
+// optional bool has_steam_library = 14;
+inline bool CStorageDeviceManagerBlockDevice::_internal_has_has_steam_library() const {
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CStorageDeviceManagerBlockDevice::has_has_steam_library() const {
+  return _internal_has_has_steam_library();
+}
+inline void CStorageDeviceManagerBlockDevice::clear_has_steam_library() {
+  has_steam_library_ = false;
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline bool CStorageDeviceManagerBlockDevice::_internal_has_steam_library() const {
+  return has_steam_library_;
+}
+inline bool CStorageDeviceManagerBlockDevice::has_steam_library() const {
+  // @@protoc_insertion_point(field_get:CStorageDeviceManagerBlockDevice.has_steam_library)
+  return _internal_has_steam_library();
+}
+inline void CStorageDeviceManagerBlockDevice::_internal_set_has_steam_library(bool value) {
+  _has_bits_[0] |= 0x00001000u;
+  has_steam_library_ = value;
+}
+inline void CStorageDeviceManagerBlockDevice::set_has_steam_library(bool value) {
+  _internal_set_has_steam_library(value);
+  // @@protoc_insertion_point(field_set:CStorageDeviceManagerBlockDevice.has_steam_library)
+}
+
 // -------------------------------------------------------------------
 
 // CStorageDeviceManagerState
@@ -4735,6 +4793,34 @@ inline void CStorageDeviceManager_Adopt_Request::set_allocated_label(std::string
   label_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), label,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CStorageDeviceManager_Adopt_Request.label)
+}
+
+// optional bool validate = 3;
+inline bool CStorageDeviceManager_Adopt_Request::_internal_has_validate() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CStorageDeviceManager_Adopt_Request::has_validate() const {
+  return _internal_has_validate();
+}
+inline void CStorageDeviceManager_Adopt_Request::clear_validate() {
+  validate_ = false;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline bool CStorageDeviceManager_Adopt_Request::_internal_validate() const {
+  return validate_;
+}
+inline bool CStorageDeviceManager_Adopt_Request::validate() const {
+  // @@protoc_insertion_point(field_get:CStorageDeviceManager_Adopt_Request.validate)
+  return _internal_validate();
+}
+inline void CStorageDeviceManager_Adopt_Request::_internal_set_validate(bool value) {
+  _has_bits_[0] |= 0x00000004u;
+  validate_ = value;
+}
+inline void CStorageDeviceManager_Adopt_Request::set_validate(bool value) {
+  _internal_set_validate(value);
+  // @@protoc_insertion_point(field_set:CStorageDeviceManager_Adopt_Request.validate)
 }
 
 // -------------------------------------------------------------------

@@ -619,6 +619,32 @@ struct CMsgSystemPerfUpdateSettingsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSystemPerfUpdateSettingsDefaultTypeInternal _CMsgSystemPerfUpdateSettings_default_instance_;
+constexpr CMsgSystemPerfLegacySettingEntry::CMsgSystemPerfLegacySettingEntry(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : settings_(nullptr)
+  , profile_game_id_(PROTOBUF_ULONGLONG(0)){}
+struct CMsgSystemPerfLegacySettingEntryDefaultTypeInternal {
+  constexpr CMsgSystemPerfLegacySettingEntryDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgSystemPerfLegacySettingEntryDefaultTypeInternal() {}
+  union {
+    CMsgSystemPerfLegacySettingEntry _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSystemPerfLegacySettingEntryDefaultTypeInternal _CMsgSystemPerfLegacySettingEntry_default_instance_;
+constexpr CMsgSystemPerfLegacySettings::CMsgSystemPerfLegacySettings(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : per_app_settings_()
+  , global_(nullptr){}
+struct CMsgSystemPerfLegacySettingsDefaultTypeInternal {
+  constexpr CMsgSystemPerfLegacySettingsDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgSystemPerfLegacySettingsDefaultTypeInternal() {}
+  union {
+    CMsgSystemPerfLegacySettings _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSystemPerfLegacySettingsDefaultTypeInternal _CMsgSystemPerfLegacySettings_default_instance_;
 constexpr CMsgSystemDockUpdateState::CMsgSystemDockUpdateState(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : version_current_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -1160,6 +1186,18 @@ struct CMsgWebUITransportInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgWebUITransportInfoDefaultTypeInternal _CMsgWebUITransportInfo_default_instance_;
+constexpr CMsgWebUITransportFailure::CMsgWebUITransportFailure(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : connect_count_(0u){}
+struct CMsgWebUITransportFailureDefaultTypeInternal {
+  constexpr CMsgWebUITransportFailureDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgWebUITransportFailureDefaultTypeInternal() {}
+  union {
+    CMsgWebUITransportFailure _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgWebUITransportFailureDefaultTypeInternal _CMsgWebUITransportFailure_default_instance_;
 constexpr CMsgClientShaderHitCacheEntry::CMsgClientShaderHitCacheEntry(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : key_sha_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -1186,7 +1224,7 @@ struct CMsgClientShaderHitCacheDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientShaderHitCacheDefaultTypeInternal _CMsgClientShaderHitCache_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclient_5fobjects_2eproto[68];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclient_5fobjects_2eproto[71];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fclient_5fobjects_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fclient_5fobjects_2eproto = nullptr;
 
@@ -1793,6 +1831,24 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   1,
   ~0u,
   ~0u,
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLegacySettingEntry, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLegacySettingEntry, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLegacySettingEntry, profile_game_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLegacySettingEntry, settings_),
+  1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLegacySettings, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLegacySettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLegacySettings, global_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLegacySettings, per_app_settings_),
+  0,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CMsgSystemDockUpdateState, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemDockUpdateState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2283,6 +2339,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   PROTOBUF_FIELD_OFFSET(::CMsgWebUITransportInfo, auth_key_),
   1,
   0,
+  PROTOBUF_FIELD_OFFSET(::CMsgWebUITransportFailure, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgWebUITransportFailure, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgWebUITransportFailure, connect_count_),
+  0,
   PROTOBUF_FIELD_OFFSET(::CMsgClientShaderHitCacheEntry, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientShaderHitCacheEntry, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2335,41 +2398,44 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 528, 554, sizeof(::CMsgSystemPerfSettingsV1)},
   { 575, 584, sizeof(::CMsgSystemPerfState)},
   { 588, 598, sizeof(::CMsgSystemPerfUpdateSettings)},
-  { 602, 614, sizeof(::CMsgSystemDockUpdateState)},
-  { 621, 627, sizeof(::CMsgSystemDockState)},
-  { 628, 634, sizeof(::CMsgSystemDockUpdateFirmware)},
-  { 635, 642, sizeof(::CMsgSystemAudioVolume_ChannelEntry)},
-  { 644, 651, sizeof(::CMsgSystemAudioVolume)},
-  { 653, 660, sizeof(::CMsgSystemAudioManagerObject)},
-  { 662, 672, sizeof(::CMsgSystemAudioManagerDevice)},
-  { 677, 689, sizeof(::CMsgSystemAudioManagerNode)},
-  { 696, 711, sizeof(::CMsgSystemAudioManagerPort)},
-  { 721, 731, sizeof(::CMsgSystemAudioManagerLink)},
-  { 736, -1, sizeof(::CMsgSystemAudioManagerStateHW)},
-  { 745, 753, sizeof(::CMsgSystemAudioManagerState)},
-  { 756, 762, sizeof(::CMsgSystemAudioManagerUpdateSomething)},
-  { 763, 772, sizeof(::CMsgSystemDisplayMode)},
-  { 776, 799, sizeof(::CMsgSystemDisplay)},
-  { 817, 825, sizeof(::CMsgSystemDisplayManagerState)},
-  { 828, 835, sizeof(::CMsgSystemDisplayManagerSetMode)},
-  { 837, 878, sizeof(::CMsgSystemManagerSettings)},
-  { 914, 921, sizeof(::CMsgSelectOSBranchParams)},
-  { 923, 931, sizeof(::CMsgSystemUpdateProgress)},
-  { 934, 946, sizeof(::CMsgSystemUpdateCheckResult)},
-  { 953, -1, sizeof(::CMsgSystemUpdateApplyParams)},
-  { 959, 968, sizeof(::CMsgSystemUpdateApplyResult)},
-  { 972, 982, sizeof(::CMsgSystemUpdateState)},
-  { 987, 993, sizeof(::CMsgAchievementChange)},
-  { 994, 1001, sizeof(::CMsgCellList_Cell)},
-  { 1003, -1, sizeof(::CMsgCellList)},
-  { 1009, 1033, sizeof(::CMsgShortcutInfo)},
-  { 1052, -1, sizeof(::CMsgShortcutAppIds)},
-  { 1058, 1065, sizeof(::CMsgMonitorInfo_MonitorInfo)},
-  { 1067, 1074, sizeof(::CMsgMonitorInfo)},
-  { 1076, 1082, sizeof(::CMsgGenerateSystemReportReply)},
-  { 1083, 1090, sizeof(::CMsgWebUITransportInfo)},
-  { 1092, 1100, sizeof(::CMsgClientShaderHitCacheEntry)},
-  { 1103, -1, sizeof(::CMsgClientShaderHitCache)},
+  { 602, 609, sizeof(::CMsgSystemPerfLegacySettingEntry)},
+  { 611, 618, sizeof(::CMsgSystemPerfLegacySettings)},
+  { 620, 632, sizeof(::CMsgSystemDockUpdateState)},
+  { 639, 645, sizeof(::CMsgSystemDockState)},
+  { 646, 652, sizeof(::CMsgSystemDockUpdateFirmware)},
+  { 653, 660, sizeof(::CMsgSystemAudioVolume_ChannelEntry)},
+  { 662, 669, sizeof(::CMsgSystemAudioVolume)},
+  { 671, 678, sizeof(::CMsgSystemAudioManagerObject)},
+  { 680, 690, sizeof(::CMsgSystemAudioManagerDevice)},
+  { 695, 707, sizeof(::CMsgSystemAudioManagerNode)},
+  { 714, 729, sizeof(::CMsgSystemAudioManagerPort)},
+  { 739, 749, sizeof(::CMsgSystemAudioManagerLink)},
+  { 754, -1, sizeof(::CMsgSystemAudioManagerStateHW)},
+  { 763, 771, sizeof(::CMsgSystemAudioManagerState)},
+  { 774, 780, sizeof(::CMsgSystemAudioManagerUpdateSomething)},
+  { 781, 790, sizeof(::CMsgSystemDisplayMode)},
+  { 794, 817, sizeof(::CMsgSystemDisplay)},
+  { 835, 843, sizeof(::CMsgSystemDisplayManagerState)},
+  { 846, 853, sizeof(::CMsgSystemDisplayManagerSetMode)},
+  { 855, 896, sizeof(::CMsgSystemManagerSettings)},
+  { 932, 939, sizeof(::CMsgSelectOSBranchParams)},
+  { 941, 949, sizeof(::CMsgSystemUpdateProgress)},
+  { 952, 964, sizeof(::CMsgSystemUpdateCheckResult)},
+  { 971, -1, sizeof(::CMsgSystemUpdateApplyParams)},
+  { 977, 986, sizeof(::CMsgSystemUpdateApplyResult)},
+  { 990, 1000, sizeof(::CMsgSystemUpdateState)},
+  { 1005, 1011, sizeof(::CMsgAchievementChange)},
+  { 1012, 1019, sizeof(::CMsgCellList_Cell)},
+  { 1021, -1, sizeof(::CMsgCellList)},
+  { 1027, 1051, sizeof(::CMsgShortcutInfo)},
+  { 1070, -1, sizeof(::CMsgShortcutAppIds)},
+  { 1076, 1083, sizeof(::CMsgMonitorInfo_MonitorInfo)},
+  { 1085, 1092, sizeof(::CMsgMonitorInfo)},
+  { 1094, 1100, sizeof(::CMsgGenerateSystemReportReply)},
+  { 1101, 1108, sizeof(::CMsgWebUITransportInfo)},
+  { 1110, 1116, sizeof(::CMsgWebUITransportFailure)},
+  { 1117, 1125, sizeof(::CMsgClientShaderHitCacheEntry)},
+  { 1128, -1, sizeof(::CMsgClientShaderHitCache)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2406,6 +2472,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSystemPerfSettingsV1_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSystemPerfState_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSystemPerfUpdateSettings_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSystemPerfLegacySettingEntry_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSystemPerfLegacySettings_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSystemDockUpdateState_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSystemDockState_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSystemDockUpdateFirmware_default_instance_),
@@ -2439,6 +2507,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgMonitorInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgGenerateSystemReportReply_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgWebUITransportInfo_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgWebUITransportFailure_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientShaderHitCacheEntry_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientShaderHitCache_default_instance_),
 };
@@ -2662,207 +2731,215 @@ const char descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto[] 
   "\022\016\n\006gameid\030\001 \001(\004\022\033\n\023skip_storage_update\030"
   "\004 \001(\010\022\032\n\020reset_to_default\030\002 \001(\010H\000\0221\n\016set"
   "tings_delta\030\003 \001(\0132\027.CMsgSystemPerfSettin"
-  "gsH\000B\010\n\006update\"\370\001\n\031CMsgSystemDockUpdateS"
-  "tate\0224\n\005state\030\001 \001(\0162\016.EUpdaterState:\025EUp"
-  "daterState_Invalid\022\032\n\022rtime_last_checked"
-  "\030\002 \001(\007\022\027\n\017version_current\030\003 \001(\t\022\031\n\021versi"
-  "on_available\030\004 \001(\t\022\026\n\016stage_progress\030\005 \001"
-  "(\002\022\"\n\032rtime_estimated_completion\030\006 \001(\007\022\031"
-  "\n\021old_fw_workaround\030\007 \001(\005\"G\n\023CMsgSystemD"
-  "ockState\0220\n\014update_state\030\001 \001(\0132\032.CMsgSys"
-  "temDockUpdateState\"0\n\034CMsgSystemDockUpda"
-  "teFirmware\022\020\n\010checonly\030\001 \001(\010\"\303\001\n\025CMsgSys"
-  "temAudioVolume\0224\n\007entries\030\001 \003(\0132#.CMsgSy"
-  "stemAudioVolume.ChannelEntry\022\020\n\010is_muted"
-  "\030\002 \001(\010\032b\n\014ChannelEntry\022B\n\010echannel\030\001 \001(\016"
-  "2\024.ESystemAudioChannel:\032SystemAudioChann"
-  "el_Invalid\022\016\n\006volume\030\002 \001(\002\"E\n\034CMsgSystem"
-  "AudioManagerObject\022\n\n\002id\030\001 \001(\r\022\031\n\021rtime_"
-  "last_update\030\002 \001(\007\"\211\001\n\034CMsgSystemAudioMan"
-  "agerDevice\022+\n\004base\030\001 \001(\0132\035.CMsgSystemAud"
-  "ioManagerObject\022\014\n\004name\030\002 \001(\t\022\014\n\004nick\030\003 "
-  "\001(\t\022\023\n\013description\030\004 \001(\t\022\013\n\003api\030\005 \001(\t\"\377\001"
-  "\n\032CMsgSystemAudioManagerNode\022+\n\004base\030\001 \001"
-  "(\0132\035.CMsgSystemAudioManagerObject\022\021\n\tdev"
-  "ice_id\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\014\n\004nick\030\004 \001(\t"
-  "\022\023\n\013description\030\005 \001(\t\022H\n\nedirection\030\006 \001("
-  "\0162\026.ESystemAudioDirection:\034SystemAudioDi"
-  "rection_Invalid\022&\n\006volume\030\007 \001(\0132\026.CMsgSy"
-  "stemAudioVolume\"\336\002\n\032CMsgSystemAudioManag"
-  "erPort\022+\n\004base\030\001 \001(\0132\035.CMsgSystemAudioMa"
-  "nagerObject\022\017\n\007node_id\030\003 \001(\r\022\014\n\004name\030\004 \001"
-  "(\t\022\r\n\005alias\030\005 \001(\t\022A\n\005etype\030\006 \001(\0162\025.ESyst"
-  "emAudioPortType:\033SystemAudioPortType_Inv"
-  "alid\022P\n\nedirection\030\007 \001(\0162\032.ESystemAudioP"
-  "ortDirection: SystemAudioPortDirection_I"
-  "nvalid\022\023\n\013is_physical\030\010 \001(\010\022\023\n\013is_termin"
-  "al\030\t \001(\010\022\022\n\nis_control\030\n \001(\010\022\022\n\nis_monit"
-  "or\030\013 \001(\010\"\247\001\n\032CMsgSystemAudioManagerLink\022"
+  "gsH\000B\010\n\006update\"l\n CMsgSystemPerfLegacySe"
+  "ttingEntry\022\027\n\017profile_game_id\030\001 \001(\004\022/\n\010s"
+  "ettings\030\002 \001(\0132\035.CMsgSystemPerfSettingsPe"
+  "rApp\"\212\001\n\034CMsgSystemPerfLegacySettings\022-\n"
+  "\006global\030\001 \001(\0132\035.CMsgSystemPerfSettingsGl"
+  "obal\022;\n\020per_app_settings\030\002 \003(\0132!.CMsgSys"
+  "temPerfLegacySettingEntry\"\370\001\n\031CMsgSystem"
+  "DockUpdateState\0224\n\005state\030\001 \001(\0162\016.EUpdate"
+  "rState:\025EUpdaterState_Invalid\022\032\n\022rtime_l"
+  "ast_checked\030\002 \001(\007\022\027\n\017version_current\030\003 \001"
+  "(\t\022\031\n\021version_available\030\004 \001(\t\022\026\n\016stage_p"
+  "rogress\030\005 \001(\002\022\"\n\032rtime_estimated_complet"
+  "ion\030\006 \001(\007\022\031\n\021old_fw_workaround\030\007 \001(\005\"G\n\023"
+  "CMsgSystemDockState\0220\n\014update_state\030\001 \001("
+  "\0132\032.CMsgSystemDockUpdateState\"0\n\034CMsgSys"
+  "temDockUpdateFirmware\022\020\n\010checonly\030\001 \001(\010\""
+  "\303\001\n\025CMsgSystemAudioVolume\0224\n\007entries\030\001 \003"
+  "(\0132#.CMsgSystemAudioVolume.ChannelEntry\022"
+  "\020\n\010is_muted\030\002 \001(\010\032b\n\014ChannelEntry\022B\n\010ech"
+  "annel\030\001 \001(\0162\024.ESystemAudioChannel:\032Syste"
+  "mAudioChannel_Invalid\022\016\n\006volume\030\002 \001(\002\"E\n"
+  "\034CMsgSystemAudioManagerObject\022\n\n\002id\030\001 \001("
+  "\r\022\031\n\021rtime_last_update\030\002 \001(\007\"\211\001\n\034CMsgSys"
+  "temAudioManagerDevice\022+\n\004base\030\001 \001(\0132\035.CM"
+  "sgSystemAudioManagerObject\022\014\n\004name\030\002 \001(\t"
+  "\022\014\n\004nick\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\013\n\003a"
+  "pi\030\005 \001(\t\"\377\001\n\032CMsgSystemAudioManagerNode\022"
   "+\n\004base\030\001 \001(\0132\035.CMsgSystemAudioManagerOb"
-  "ject\022\026\n\016output_node_id\030\002 \001(\r\022\026\n\016output_p"
-  "ort_id\030\003 \001(\r\022\025\n\rinput_node_id\030\004 \001(\r\022\025\n\ri"
-  "nput_port_id\030\005 \001(\r\"\323\001\n\035CMsgSystemAudioMa"
-  "nagerStateHW\022.\n\007devices\030\001 \003(\0132\035.CMsgSyst"
-  "emAudioManagerDevice\022*\n\005nodes\030\002 \003(\0132\033.CM"
-  "sgSystemAudioManagerNode\022*\n\005ports\030\003 \003(\0132"
-  "\033.CMsgSystemAudioManagerPort\022*\n\005links\030\004 "
-  "\003(\0132\033.CMsgSystemAudioManagerLink\"p\n\033CMsg"
-  "SystemAudioManagerState\022\024\n\014rtime_filter\030"
-  "\001 \001(\007\022\017\n\007counter\030\002 \001(\005\022*\n\002hw\030\003 \001(\0132\036.CMs"
-  "gSystemAudioManagerStateHW\"8\n%CMsgSystem"
-  "AudioManagerUpdateSomething\022\017\n\007counter\030\001"
-  " \001(\005\"V\n\025CMsgSystemDisplayMode\022\n\n\002id\030\001 \001("
-  "\005\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\022\n\nrefr"
-  "esh_hz\030\004 \001(\005\"\264\003\n\021CMsgSystemDisplay\022\n\n\002id"
-  "\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001("
-  "\t\022\022\n\nis_primary\030\004 \001(\010\022\022\n\nis_enabled\030\005 \001("
-  "\010\022\023\n\013is_internal\030\006 \001(\010\022\031\n\021has_mode_overr"
-  "ide\030\007 \001(\010\022\020\n\010width_mm\030\010 \001(\005\022\021\n\theight_mm"
-  "\030\t \001(\005\022\027\n\017current_mode_id\030\n \001(\005\022%\n\005modes"
-  "\030\013 \003(\0132\026.CMsgSystemDisplayMode\022\030\n\020refres"
-  "h_rate_min\030\014 \001(\005\022\030\n\020refresh_rate_max\030\r \001"
-  "(\005\022\026\n\016is_vrr_capable\030\016 \001(\010\022\026\n\016is_vrr_ena"
-  "bled\030\017 \001(\010\022\026\n\016is_hdr_capable\030\020 \001(\010\022\026\n\016is"
-  "_hdr_enabled\030\021 \001(\010\022\037\n\027supported_refresh_"
-  "rates\030\022 \003(\005\"\321\001\n\035CMsgSystemDisplayManager"
-  "State\022$\n\010displays\030\001 \003(\0132\022.CMsgSystemDisp"
-  "lay\022#\n\033is_mode_switching_supported\030\002 \001(\010"
-  "\022e\n\022compatibility_mode\030\003 \001(\0162 .ESystemDi"
-  "splayCompatibilityMode:\'ESystemDisplayCo"
-  "mpatibilityMode_Invalid\"F\n\037CMsgSystemDis"
-  "playManagerSetMode\022\022\n\ndisplay_id\030\001 \001(\005\022\017"
-  "\n\007mode_id\030\002 \001(\005\"\234\013\n\031CMsgSystemManagerSet"
-  "tings\022*\n\"idle_backlight_dim_battery_seco"
-  "nds\030\001 \001(\002\022%\n\035idle_backlight_dim_ac_secon"
-  "ds\030\002 \001(\002\022$\n\034idle_suspend_battery_seconds"
-  "\030\003 \001(\002\022\037\n\027idle_suspend_ac_seconds\030\004 \001(\002\022"
-  "\036\n\026idle_suspend_supressed\030\005 \001(\010\022(\n is_ad"
-  "aptive_brightness_available\030\006 \001(\010\022+\n#dis"
-  "play_adaptive_brightness_enabled\030\007 \001(\010\022!"
-  "\n\031display_nightmode_enabled\030\n \001(\010\022&\n\036dis"
-  "play_nightmode_tintstrength\030\013 \001(\002\022 \n\030dis"
-  "play_nightmode_maxhue\030\014 \001(\002\022 \n\030display_n"
-  "ightmode_maxsat\030\r \001(\002\022\037\n\027display_nightmo"
-  "de_uiexp\030\016 \001(\002\022\037\n\027display_nightmode_blen"
-  "d\030\017 \001(\002\022\037\n\027display_nightmode_reset\030\020 \001(\010"
-  "\022*\n\"display_nightmode_schedule_enabled\030\021"
-  " \001(\010\022,\n$display_nightmode_schedule_start"
-  "time\030\022 \001(\002\022*\n\"display_nightmode_schedule"
-  "_endtime\030\023 \001(\002\022#\n\033display_diagnostics_en"
-  "abled\030\024 \001(\010\022\027\n\017als_lux_primary\030\025 \001(\002\022\026\n\016"
-  "als_lux_median\030\026 \001(\002\022\035\n\025display_backligh"
-  "t_raw\030\027 \001(\002\022&\n\036display_brightness_adapti"
-  "vemin\030\030 \001(\002\022&\n\036display_brightness_adapti"
-  "vemax\030\031 \001(\002\022!\n\031is_wifi_powersave_enabled"
-  "\030\032 \001(\010\022 \n\030is_fan_control_available\030\033 \001(\010"
-  "\022N\n\020fan_control_mode\030\034 \001(\0162\026.ESystemFanC"
-  "ontrolMode:\034SystemFanControlMode_Invalid"
-  "\022\'\n\037is_display_brightness_available\030\035 \001("
-  "\010\022,\n$is_display_colormanagement_availabl"
-  "e\030\037 \001(\010\022\032\n\022display_colorgamut\030  \001(\002\022\031\n\021a"
-  "ls_lux_alternate\030! \001(\002\022&\n\036is_display_col"
-  "ortemp_available\030\" \001(\010\022\031\n\021display_colort"
-  "emp\030# \001(\002\022!\n\031display_colortemp_default\030$"
-  " \001(\002\022!\n\031display_colortemp_enabled\030% \001(\010\022"
-  "U\n\033display_colorgamut_labelset\030& \001(\0162\024.E"
-  "ColorGamutLabelSet:\032ColorGamutLabelSet_D"
-  "efault\022.\n&display_brightness_overdrive_h"
-  "dr_split\030\' \001(\002\"`\n\030CMsgSelectOSBranchPara"
-  "ms\022-\n\006branch\030\001 \001(\0162\n.EOSBranch:\021EOSBranc"
-  "h_Unknown\022\025\n\rcustom_branch\030\002 \001(\t\"p\n\030CMsg"
-  "SystemUpdateProgress\022\026\n\016stage_progress\030\001"
-  " \001(\002\022\030\n\020stage_size_bytes\030\002 \001(\003\022\"\n\032rtime_"
-  "estimated_completion\030\003 \001(\007\"\325\001\n\033CMsgSyste"
-  "mUpdateCheckResult\0221\n\004type\030\001 \001(\0162\r.EUpda"
-  "terType:\024EUpdaterType_Invalid\022\022\n\007eresult"
-  "\030\002 \001(\r:\0012\022\025\n\rrtime_checked\030\003 \001(\007\022\021\n\tavai"
-  "lable\030\004 \001(\010\022\017\n\007version\030\005 \001(\t\022\024\n\014auto_mes"
-  "sage\030\006 \001(\t\022\036\n\026system_restart_pending\030\007 \001"
-  "(\010\"A\n\033CMsgSystemUpdateApplyParams\022\"\n\013app"
-  "ly_types\030\001 \003(\0162\r.EUpdaterType\"\264\001\n\033CMsgSy"
-  "stemUpdateApplyResult\0221\n\004type\030\001 \001(\0162\r.EU"
-  "pdaterType:\024EUpdaterType_Invalid\022\022\n\007eres"
-  "ult\030\002 \001(\r:\0012\022&\n\027requires_client_restart\030"
-  "\003 \001(\010:\005false\022&\n\027requires_system_restart\030"
-  "\004 \001(\010:\005false\"\215\002\n\025CMsgSystemUpdateState\0224"
-  "\n\005state\030\001 \001(\0162\016.EUpdaterState:\025EUpdaterS"
-  "tate_Invalid\022+\n\010progress\030\002 \001(\0132\031.CMsgSys"
-  "temUpdateProgress\0228\n\022update_checresults\030"
-  "\003 \003(\0132\034.CMsgSystemUpdateCheckResult\022:\n\024u"
-  "pdate_apply_results\030\004 \003(\0132\034.CMsgSystemUp"
-  "dateApplyResult\022\033\n\023supports_os_updates\030\005"
-  " \001(\010\"&\n\025CMsgAchievementChange\022\r\n\005appid\030\001"
-  " \001(\r\"\\\n\014CMsgCellList\022!\n\005cells\030\001 \003(\0132\022.CM"
-  "sgCellList.Cell\032)\n\004Cell\022\017\n\007cell_id\030\001 \001(\r"
-  "\022\020\n\010loc_name\030\002 \001(\t\"\214\003\n\020CMsgShortcutInfo\022"
-  "\r\n\005appid\030\001 \001(\r\022\013\n\003exe\030\002 \001(\t\022\021\n\tstart_dir"
-  "\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\014\n\004path\030\005 \001(\t\022\014\n\004ar"
-  "gs\030\006 \001(\t\022\020\n\010app_name\030\007 \001(\t\022\026\n\016override_a"
-  "ppid\030\010 \001(\r\022\023\n\013flatpaappid\030\t \001(\t\022\014\n\004tags\030"
-  "\n \003(\t\022\021\n\tis_remote\030\013 \001(\010\022\021\n\tis_hidden\030\014 "
-  "\001(\010\022\024\n\014is_temporary\030\r \001(\010\022\021\n\tis_openvr\030\016"
-  " \001(\010\022\034\n\024allow_desktop_config\030\017 \001(\010\022\025\n\ral"
-  "low_overlay\030\020 \001(\010\022\033\n\023rt_last_played_time"
-  "\030\021 \001(\r\022\032\n\022is_devkit_shortcut\030\022 \001(\010\022\025\n\rde"
-  "vkit_gameid\030\023 \001(\t\"$\n\022CMsgShortcutAppIds\022"
-  "\016\n\006appids\030\001 \003(\r\"\252\001\n\017CMsgMonitorInfo\022\035\n\025s"
-  "elected_display_name\030\001 \002(\t\022.\n\010monitors\030\002"
-  " \003(\0132\034.CMsgMonitorInfo.MonitorInfo\032H\n\013Mo"
-  "nitorInfo\022\033\n\023monitor_device_name\030\001 \002(\t\022\034"
-  "\n\024monitor_display_name\030\002 \002(\t\"2\n\035CMsgGene"
-  "rateSystemReportReply\022\021\n\treport_id\030\001 \001(\t"
-  "\"8\n\026CMsgWebUITransportInfo\022\014\n\004port\030\001 \001(\r"
-  "\022\020\n\010auth_key\030\002 \001(\t\"^\n\035CMsgClientShaderHi"
-  "tCacheEntry\022\017\n\007key_sha\030\001 \001(\014\022\020\n\010code_sha"
-  "\030\002 \001(\014\022\032\n\022time_last_reported\030\003 \001(\004\"K\n\030CM"
-  "sgClientShaderHitCache\022/\n\007entries\030\001 \003(\0132"
-  "\036.CMsgClientShaderHitCacheEntry*\214\002\n\034EClo"
-  "udPendingRemoteOperation\022$\n ECloudPendin"
-  "gRemoteOperationNone\020\000\0220\n,ECloudPendingR"
-  "emoteOperationAppSessionActive\020\001\0220\n,EClo"
-  "udPendingRemoteOperationUploadInProgress"
-  "\020\002\022-\n)ECloudPendingRemoteOperationUpload"
-  "Pending\020\003\0223\n/ECloudPendingRemoteOperatio"
-  "nAppSessionSuspended\020\004*\202\014\n\030ESteamDeckKey"
-  "boardLayout\022#\n\037ESteamDeckKeyboardLayout_"
-  "QWERTY\020\000\022&\n\"ESteamDeckKeyboardLayout_Bul"
-  "garian\020\001\022/\n+ESteamDeckKeyboardLayout_Chi"
-  "nese_Simplified\020\002\0220\n,ESteamDeckKeyboardL"
-  "ayout_Chinese_Traditional\020\003\022\"\n\036ESteamDec"
-  "kKeyboardLayout_Czech\020\004\022#\n\037ESteamDeckKey"
-  "boardLayout_Danish\020\005\022$\n ESteamDeckKeyboa"
-  "rdLayout_Finnish\020\006\022#\n\037ESteamDeckKeyboard"
-  "Layout_French\020\007\022#\n\037ESteamDeckKeyboardLay"
-  "out_German\020\010\022\"\n\036ESteamDeckKeyboardLayout"
-  "_Greek\020\t\022&\n\"ESteamDeckKeyboardLayout_Hun"
-  "garian\020\n\022$\n ESteamDeckKeyboardLayout_Ita"
-  "lian\020\013\022%\n!ESteamDeckKeyboardLayout_Japan"
-  "ese\020\014\022#\n\037ESteamDeckKeyboardLayout_Korean"
-  "\020\r\022&\n\"ESteamDeckKeyboardLayout_Norwegian"
-  "\020\016\022#\n\037ESteamDeckKeyboardLayout_Polish\020\017\022"
-  "\'\n#ESteamDeckKeyboardLayout_Portuguese\020\020"
-  "\022%\n!ESteamDeckKeyboardLayout_Romanian\020\021\022"
-  "$\n ESteamDeckKeyboardLayout_Russian\020\022\022$\n"
-  " ESteamDeckKeyboardLayout_Spanish\020\023\022$\n E"
-  "SteamDeckKeyboardLayout_Swedish\020\024\022!\n\035ESt"
-  "eamDeckKeyboardLayout_Thai\020\025\022&\n\"ESteamDe"
-  "ckKeyboardLayout_Turkish_F\020\026\022&\n\"ESteamDe"
-  "ckKeyboardLayout_Turkish_Q\020\027\022&\n\"ESteamDe"
-  "ckKeyboardLayout_Ukrainian\020\030\022\'\n#ESteamDe"
-  "ckKeyboardLayout_Vietnamese\020\031\0221\n-ESteamD"
-  "eckKeyboardLayout_QWERTY_International\020\032"
-  "\022#\n\037ESteamDeckKeyboardLayout_Dvorak\020\033\022$\n"
-  " ESteamDeckKeyboardLayout_Colemak\020\034\022;\n7E"
-  "SteamDeckKeyboardLayout_Bulgarian_Phonet"
-  "ic_Traditional\020\035\022/\n+ESteamDeckKeyboardLa"
-  "yout_Bulgarian_Phonetic\020\036\0229\n5ESteamDeckK"
-  "eyboardLayout_Chinese_Traditional_Bopomo"
-  "fo\020\037\0228\n4ESteamDeckKeyboardLayout_Chinese"
-  "_Traditional_Cangjie\020 \022*\n&ESteamDeckKeyb"
-  "oardLayout_Japanese_Kana\020!\0226\n2ESteamDeck"
-  "KeyboardLayout_Chinese_Traditional_Quick"
-  "\020\"\022\'\n#ESteamDeckKeyboardLayout_Indonesia"
-  "n\020#B\037H\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
+  "ject\022\021\n\tdevice_id\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\014\n"
+  "\004nick\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022H\n\nedir"
+  "ection\030\006 \001(\0162\026.ESystemAudioDirection:\034Sy"
+  "stemAudioDirection_Invalid\022&\n\006volume\030\007 \001"
+  "(\0132\026.CMsgSystemAudioVolume\"\336\002\n\032CMsgSyste"
+  "mAudioManagerPort\022+\n\004base\030\001 \001(\0132\035.CMsgSy"
+  "stemAudioManagerObject\022\017\n\007node_id\030\003 \001(\r\022"
+  "\014\n\004name\030\004 \001(\t\022\r\n\005alias\030\005 \001(\t\022A\n\005etype\030\006 "
+  "\001(\0162\025.ESystemAudioPortType:\033SystemAudioP"
+  "ortType_Invalid\022P\n\nedirection\030\007 \001(\0162\032.ES"
+  "ystemAudioPortDirection: SystemAudioPort"
+  "Direction_Invalid\022\023\n\013is_physical\030\010 \001(\010\022\023"
+  "\n\013is_terminal\030\t \001(\010\022\022\n\nis_control\030\n \001(\010\022"
+  "\022\n\nis_monitor\030\013 \001(\010\"\247\001\n\032CMsgSystemAudioM"
+  "anagerLink\022+\n\004base\030\001 \001(\0132\035.CMsgSystemAud"
+  "ioManagerObject\022\026\n\016output_node_id\030\002 \001(\r\022"
+  "\026\n\016output_port_id\030\003 \001(\r\022\025\n\rinput_node_id"
+  "\030\004 \001(\r\022\025\n\rinput_port_id\030\005 \001(\r\"\323\001\n\035CMsgSy"
+  "stemAudioManagerStateHW\022.\n\007devices\030\001 \003(\013"
+  "2\035.CMsgSystemAudioManagerDevice\022*\n\005nodes"
+  "\030\002 \003(\0132\033.CMsgSystemAudioManagerNode\022*\n\005p"
+  "orts\030\003 \003(\0132\033.CMsgSystemAudioManagerPort\022"
+  "*\n\005links\030\004 \003(\0132\033.CMsgSystemAudioManagerL"
+  "ink\"p\n\033CMsgSystemAudioManagerState\022\024\n\014rt"
+  "ime_filter\030\001 \001(\007\022\017\n\007counter\030\002 \001(\005\022*\n\002hw\030"
+  "\003 \001(\0132\036.CMsgSystemAudioManagerStateHW\"8\n"
+  "%CMsgSystemAudioManagerUpdateSomething\022\017"
+  "\n\007counter\030\001 \001(\005\"V\n\025CMsgSystemDisplayMode"
+  "\022\n\n\002id\030\001 \001(\005\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 "
+  "\001(\005\022\022\n\nrefresh_hz\030\004 \001(\005\"\264\003\n\021CMsgSystemDi"
+  "splay\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013descr"
+  "iption\030\003 \001(\t\022\022\n\nis_primary\030\004 \001(\010\022\022\n\nis_e"
+  "nabled\030\005 \001(\010\022\023\n\013is_internal\030\006 \001(\010\022\031\n\021has"
+  "_mode_override\030\007 \001(\010\022\020\n\010width_mm\030\010 \001(\005\022\021"
+  "\n\theight_mm\030\t \001(\005\022\027\n\017current_mode_id\030\n \001"
+  "(\005\022%\n\005modes\030\013 \003(\0132\026.CMsgSystemDisplayMod"
+  "e\022\030\n\020refresh_rate_min\030\014 \001(\005\022\030\n\020refresh_r"
+  "ate_max\030\r \001(\005\022\026\n\016is_vrr_capable\030\016 \001(\010\022\026\n"
+  "\016is_vrr_enabled\030\017 \001(\010\022\026\n\016is_hdr_capable\030"
+  "\020 \001(\010\022\026\n\016is_hdr_enabled\030\021 \001(\010\022\037\n\027support"
+  "ed_refresh_rates\030\022 \003(\005\"\321\001\n\035CMsgSystemDis"
+  "playManagerState\022$\n\010displays\030\001 \003(\0132\022.CMs"
+  "gSystemDisplay\022#\n\033is_mode_switching_supp"
+  "orted\030\002 \001(\010\022e\n\022compatibility_mode\030\003 \001(\0162"
+  " .ESystemDisplayCompatibilityMode:\'ESyst"
+  "emDisplayCompatibilityMode_Invalid\"F\n\037CM"
+  "sgSystemDisplayManagerSetMode\022\022\n\ndisplay"
+  "_id\030\001 \001(\005\022\017\n\007mode_id\030\002 \001(\005\"\234\013\n\031CMsgSyste"
+  "mManagerSettings\022*\n\"idle_backlight_dim_b"
+  "attery_seconds\030\001 \001(\002\022%\n\035idle_backlight_d"
+  "im_ac_seconds\030\002 \001(\002\022$\n\034idle_suspend_batt"
+  "ery_seconds\030\003 \001(\002\022\037\n\027idle_suspend_ac_sec"
+  "onds\030\004 \001(\002\022\036\n\026idle_suspend_supressed\030\005 \001"
+  "(\010\022(\n is_adaptive_brightness_available\030\006"
+  " \001(\010\022+\n#display_adaptive_brightness_enab"
+  "led\030\007 \001(\010\022!\n\031display_nightmode_enabled\030\n"
+  " \001(\010\022&\n\036display_nightmode_tintstrength\030\013"
+  " \001(\002\022 \n\030display_nightmode_maxhue\030\014 \001(\002\022 "
+  "\n\030display_nightmode_maxsat\030\r \001(\002\022\037\n\027disp"
+  "lay_nightmode_uiexp\030\016 \001(\002\022\037\n\027display_nig"
+  "htmode_blend\030\017 \001(\002\022\037\n\027display_nightmode_"
+  "reset\030\020 \001(\010\022*\n\"display_nightmode_schedul"
+  "e_enabled\030\021 \001(\010\022,\n$display_nightmode_sch"
+  "edule_starttime\030\022 \001(\002\022*\n\"display_nightmo"
+  "de_schedule_endtime\030\023 \001(\002\022#\n\033display_dia"
+  "gnostics_enabled\030\024 \001(\010\022\027\n\017als_lux_primar"
+  "y\030\025 \001(\002\022\026\n\016als_lux_median\030\026 \001(\002\022\035\n\025displ"
+  "ay_backlight_raw\030\027 \001(\002\022&\n\036display_bright"
+  "ness_adaptivemin\030\030 \001(\002\022&\n\036display_bright"
+  "ness_adaptivemax\030\031 \001(\002\022!\n\031is_wifi_powers"
+  "ave_enabled\030\032 \001(\010\022 \n\030is_fan_control_avai"
+  "lable\030\033 \001(\010\022N\n\020fan_control_mode\030\034 \001(\0162\026."
+  "ESystemFanControlMode:\034SystemFanControlM"
+  "ode_Invalid\022\'\n\037is_display_brightness_ava"
+  "ilable\030\035 \001(\010\022,\n$is_display_colormanageme"
+  "nt_available\030\037 \001(\010\022\032\n\022display_colorgamut"
+  "\030  \001(\002\022\031\n\021als_lux_alternate\030! \001(\002\022&\n\036is_"
+  "display_colortemp_available\030\" \001(\010\022\031\n\021dis"
+  "play_colortemp\030# \001(\002\022!\n\031display_colortem"
+  "p_default\030$ \001(\002\022!\n\031display_colortemp_ena"
+  "bled\030% \001(\010\022U\n\033display_colorgamut_labelse"
+  "t\030& \001(\0162\024.EColorGamutLabelSet:\032ColorGamu"
+  "tLabelSet_Default\022.\n&display_brightness_"
+  "overdrive_hdr_split\030\' \001(\002\"`\n\030CMsgSelectO"
+  "SBranchParams\022-\n\006branch\030\001 \001(\0162\n.EOSBranc"
+  "h:\021EOSBranch_Unknown\022\025\n\rcustom_branch\030\002 "
+  "\001(\t\"p\n\030CMsgSystemUpdateProgress\022\026\n\016stage"
+  "_progress\030\001 \001(\002\022\030\n\020stage_size_bytes\030\002 \001("
+  "\003\022\"\n\032rtime_estimated_completion\030\003 \001(\007\"\325\001"
+  "\n\033CMsgSystemUpdateCheckResult\0221\n\004type\030\001 "
+  "\001(\0162\r.EUpdaterType:\024EUpdaterType_Invalid"
+  "\022\022\n\007eresult\030\002 \001(\r:\0012\022\025\n\rrtime_checked\030\003 "
+  "\001(\007\022\021\n\tavailable\030\004 \001(\010\022\017\n\007version\030\005 \001(\t\022"
+  "\024\n\014auto_message\030\006 \001(\t\022\036\n\026system_restart_"
+  "pending\030\007 \001(\010\"A\n\033CMsgSystemUpdateApplyPa"
+  "rams\022\"\n\013apply_types\030\001 \003(\0162\r.EUpdaterType"
+  "\"\264\001\n\033CMsgSystemUpdateApplyResult\0221\n\004type"
+  "\030\001 \001(\0162\r.EUpdaterType:\024EUpdaterType_Inva"
+  "lid\022\022\n\007eresult\030\002 \001(\r:\0012\022&\n\027requires_clie"
+  "nt_restart\030\003 \001(\010:\005false\022&\n\027requires_syst"
+  "em_restart\030\004 \001(\010:\005false\"\215\002\n\025CMsgSystemUp"
+  "dateState\0224\n\005state\030\001 \001(\0162\016.EUpdaterState"
+  ":\025EUpdaterState_Invalid\022+\n\010progress\030\002 \001("
+  "\0132\031.CMsgSystemUpdateProgress\0228\n\022update_c"
+  "hecresults\030\003 \003(\0132\034.CMsgSystemUpdateCheck"
+  "Result\022:\n\024update_apply_results\030\004 \003(\0132\034.C"
+  "MsgSystemUpdateApplyResult\022\033\n\023supports_o"
+  "s_updates\030\005 \001(\010\"&\n\025CMsgAchievementChange"
+  "\022\r\n\005appid\030\001 \001(\r\"\\\n\014CMsgCellList\022!\n\005cells"
+  "\030\001 \003(\0132\022.CMsgCellList.Cell\032)\n\004Cell\022\017\n\007ce"
+  "ll_id\030\001 \001(\r\022\020\n\010loc_name\030\002 \001(\t\"\214\003\n\020CMsgSh"
+  "ortcutInfo\022\r\n\005appid\030\001 \001(\r\022\013\n\003exe\030\002 \001(\t\022\021"
+  "\n\tstart_dir\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\014\n\004path\030"
+  "\005 \001(\t\022\014\n\004args\030\006 \001(\t\022\020\n\010app_name\030\007 \001(\t\022\026\n"
+  "\016override_appid\030\010 \001(\r\022\023\n\013flatpaappid\030\t \001"
+  "(\t\022\014\n\004tags\030\n \003(\t\022\021\n\tis_remote\030\013 \001(\010\022\021\n\ti"
+  "s_hidden\030\014 \001(\010\022\024\n\014is_temporary\030\r \001(\010\022\021\n\t"
+  "is_openvr\030\016 \001(\010\022\034\n\024allow_desktop_config\030"
+  "\017 \001(\010\022\025\n\rallow_overlay\030\020 \001(\010\022\033\n\023rt_last_"
+  "played_time\030\021 \001(\r\022\032\n\022is_devkit_shortcut\030"
+  "\022 \001(\010\022\025\n\rdevkit_gameid\030\023 \001(\t\"$\n\022CMsgShor"
+  "tcutAppIds\022\016\n\006appids\030\001 \003(\r\"\252\001\n\017CMsgMonit"
+  "orInfo\022\035\n\025selected_display_name\030\001 \002(\t\022.\n"
+  "\010monitors\030\002 \003(\0132\034.CMsgMonitorInfo.Monito"
+  "rInfo\032H\n\013MonitorInfo\022\033\n\023monitor_device_n"
+  "ame\030\001 \002(\t\022\034\n\024monitor_display_name\030\002 \002(\t\""
+  "2\n\035CMsgGenerateSystemReportReply\022\021\n\trepo"
+  "rt_id\030\001 \001(\t\"8\n\026CMsgWebUITransportInfo\022\014\n"
+  "\004port\030\001 \001(\r\022\020\n\010auth_key\030\002 \001(\t\"2\n\031CMsgWeb"
+  "UITransportFailure\022\025\n\rconnect_count\030\001 \001("
+  "\r\"^\n\035CMsgClientShaderHitCacheEntry\022\017\n\007ke"
+  "y_sha\030\001 \001(\014\022\020\n\010code_sha\030\002 \001(\014\022\032\n\022time_la"
+  "st_reported\030\003 \001(\004\"K\n\030CMsgClientShaderHit"
+  "Cache\022/\n\007entries\030\001 \003(\0132\036.CMsgClientShade"
+  "rHitCacheEntry*\214\002\n\034ECloudPendingRemoteOp"
+  "eration\022$\n ECloudPendingRemoteOperationN"
+  "one\020\000\0220\n,ECloudPendingRemoteOperationApp"
+  "SessionActive\020\001\0220\n,ECloudPendingRemoteOp"
+  "erationUploadInProgress\020\002\022-\n)ECloudPendi"
+  "ngRemoteOperationUploadPending\020\003\0223\n/EClo"
+  "udPendingRemoteOperationAppSessionSuspen"
+  "ded\020\004*\202\014\n\030ESteamDeckKeyboardLayout\022#\n\037ES"
+  "teamDeckKeyboardLayout_QWERTY\020\000\022&\n\"EStea"
+  "mDeckKeyboardLayout_Bulgarian\020\001\022/\n+EStea"
+  "mDeckKeyboardLayout_Chinese_Simplified\020\002"
+  "\0220\n,ESteamDeckKeyboardLayout_Chinese_Tra"
+  "ditional\020\003\022\"\n\036ESteamDeckKeyboardLayout_C"
+  "zech\020\004\022#\n\037ESteamDeckKeyboardLayout_Danis"
+  "h\020\005\022$\n ESteamDeckKeyboardLayout_Finnish\020"
+  "\006\022#\n\037ESteamDeckKeyboardLayout_French\020\007\022#"
+  "\n\037ESteamDeckKeyboardLayout_German\020\010\022\"\n\036E"
+  "SteamDeckKeyboardLayout_Greek\020\t\022&\n\"EStea"
+  "mDeckKeyboardLayout_Hungarian\020\n\022$\n EStea"
+  "mDeckKeyboardLayout_Italian\020\013\022%\n!ESteamD"
+  "eckKeyboardLayout_Japanese\020\014\022#\n\037ESteamDe"
+  "ckKeyboardLayout_Korean\020\r\022&\n\"ESteamDeckK"
+  "eyboardLayout_Norwegian\020\016\022#\n\037ESteamDeckK"
+  "eyboardLayout_Polish\020\017\022\'\n#ESteamDeckKeyb"
+  "oardLayout_Portuguese\020\020\022%\n!ESteamDeckKey"
+  "boardLayout_Romanian\020\021\022$\n ESteamDeckKeyb"
+  "oardLayout_Russian\020\022\022$\n ESteamDeckKeyboa"
+  "rdLayout_Spanish\020\023\022$\n ESteamDeckKeyboard"
+  "Layout_Swedish\020\024\022!\n\035ESteamDeckKeyboardLa"
+  "yout_Thai\020\025\022&\n\"ESteamDeckKeyboardLayout_"
+  "Turkish_F\020\026\022&\n\"ESteamDeckKeyboardLayout_"
+  "Turkish_Q\020\027\022&\n\"ESteamDeckKeyboardLayout_"
+  "Ukrainian\020\030\022\'\n#ESteamDeckKeyboardLayout_"
+  "Vietnamese\020\031\0221\n-ESteamDeckKeyboardLayout"
+  "_QWERTY_International\020\032\022#\n\037ESteamDeckKey"
+  "boardLayout_Dvorak\020\033\022$\n ESteamDeckKeyboa"
+  "rdLayout_Colemak\020\034\022;\n7ESteamDeckKeyboard"
+  "Layout_Bulgarian_Phonetic_Traditional\020\035\022"
+  "/\n+ESteamDeckKeyboardLayout_Bulgarian_Ph"
+  "onetic\020\036\0229\n5ESteamDeckKeyboardLayout_Chi"
+  "nese_Traditional_Bopomofo\020\037\0228\n4ESteamDec"
+  "kKeyboardLayout_Chinese_Traditional_Cang"
+  "jie\020 \022*\n&ESteamDeckKeyboardLayout_Japane"
+  "se_Kana\020!\0226\n2ESteamDeckKeyboardLayout_Ch"
+  "inese_Traditional_Quick\020\"\022\'\n#ESteamDeckK"
+  "eyboardLayout_Indonesian\020#B\037H\001\200\001\000\252\002\027Open"
+  "Steamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -2870,8 +2947,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclient_5fobjects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclient_5fobjects_2eproto = {
-  false, false, 16756, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
-  &descriptor_table_steammessages_5fclient_5fobjects_2eproto_once, descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps, 2, 68,
+  false, false, 17059, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
+  &descriptor_table_steammessages_5fclient_5fobjects_2eproto_once, descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps, 2, 71,
   schemas, file_default_instances, TableStruct_steammessages_5fclient_5fobjects_2eproto::offsets,
   file_level_metadata_steammessages_5fclient_5fobjects_2eproto, file_level_enum_descriptors_steammessages_5fclient_5fobjects_2eproto, file_level_service_descriptors_steammessages_5fclient_5fobjects_2eproto,
 };
@@ -16090,6 +16167,513 @@ void CMsgSystemPerfUpdateSettings::InternalSwap(CMsgSystemPerfUpdateSettings* ot
 
 // ===================================================================
 
+class CMsgSystemPerfLegacySettingEntry::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSystemPerfLegacySettingEntry>()._has_bits_);
+  static void set_has_profile_game_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::CMsgSystemPerfSettingsPerApp& settings(const CMsgSystemPerfLegacySettingEntry* msg);
+  static void set_has_settings(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgSystemPerfSettingsPerApp&
+CMsgSystemPerfLegacySettingEntry::_Internal::settings(const CMsgSystemPerfLegacySettingEntry* msg) {
+  return *msg->settings_;
+}
+CMsgSystemPerfLegacySettingEntry::CMsgSystemPerfLegacySettingEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgSystemPerfLegacySettingEntry)
+}
+CMsgSystemPerfLegacySettingEntry::CMsgSystemPerfLegacySettingEntry(const CMsgSystemPerfLegacySettingEntry& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_settings()) {
+    settings_ = new ::CMsgSystemPerfSettingsPerApp(*from.settings_);
+  } else {
+    settings_ = nullptr;
+  }
+  profile_game_id_ = from.profile_game_id_;
+  // @@protoc_insertion_point(copy_constructor:CMsgSystemPerfLegacySettingEntry)
+}
+
+void CMsgSystemPerfLegacySettingEntry::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&settings_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&profile_game_id_) -
+    reinterpret_cast<char*>(&settings_)) + sizeof(profile_game_id_));
+}
+
+CMsgSystemPerfLegacySettingEntry::~CMsgSystemPerfLegacySettingEntry() {
+  // @@protoc_insertion_point(destructor:CMsgSystemPerfLegacySettingEntry)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgSystemPerfLegacySettingEntry::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete settings_;
+}
+
+void CMsgSystemPerfLegacySettingEntry::ArenaDtor(void* object) {
+  CMsgSystemPerfLegacySettingEntry* _this = reinterpret_cast< CMsgSystemPerfLegacySettingEntry* >(object);
+  (void)_this;
+}
+void CMsgSystemPerfLegacySettingEntry::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgSystemPerfLegacySettingEntry::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgSystemPerfLegacySettingEntry::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSystemPerfLegacySettingEntry)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(settings_ != nullptr);
+    settings_->Clear();
+  }
+  profile_game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSystemPerfLegacySettingEntry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 profile_game_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_profile_game_id(&has_bits);
+          profile_game_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .CMsgSystemPerfSettingsPerApp settings = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_settings(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgSystemPerfLegacySettingEntry::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSystemPerfLegacySettingEntry)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 profile_game_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_profile_game_id(), target);
+  }
+
+  // optional .CMsgSystemPerfSettingsPerApp settings = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::settings(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSystemPerfLegacySettingEntry)
+  return target;
+}
+
+size_t CMsgSystemPerfLegacySettingEntry::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSystemPerfLegacySettingEntry)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgSystemPerfSettingsPerApp settings = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *settings_);
+    }
+
+    // optional uint64 profile_game_id = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_profile_game_id());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgSystemPerfLegacySettingEntry::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgSystemPerfLegacySettingEntry)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgSystemPerfLegacySettingEntry* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgSystemPerfLegacySettingEntry>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgSystemPerfLegacySettingEntry)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgSystemPerfLegacySettingEntry)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgSystemPerfLegacySettingEntry::MergeFrom(const CMsgSystemPerfLegacySettingEntry& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgSystemPerfLegacySettingEntry)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_settings()->::CMsgSystemPerfSettingsPerApp::MergeFrom(from._internal_settings());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      profile_game_id_ = from.profile_game_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CMsgSystemPerfLegacySettingEntry::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgSystemPerfLegacySettingEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgSystemPerfLegacySettingEntry::CopyFrom(const CMsgSystemPerfLegacySettingEntry& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSystemPerfLegacySettingEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSystemPerfLegacySettingEntry::IsInitialized() const {
+  return true;
+}
+
+void CMsgSystemPerfLegacySettingEntry::InternalSwap(CMsgSystemPerfLegacySettingEntry* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgSystemPerfLegacySettingEntry, profile_game_id_)
+      + sizeof(CMsgSystemPerfLegacySettingEntry::profile_game_id_)
+      - PROTOBUF_FIELD_OFFSET(CMsgSystemPerfLegacySettingEntry, settings_)>(
+          reinterpret_cast<char*>(&settings_),
+          reinterpret_cast<char*>(&other->settings_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSystemPerfLegacySettingEntry::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMsgSystemPerfLegacySettings::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSystemPerfLegacySettings>()._has_bits_);
+  static const ::CMsgSystemPerfSettingsGlobal& global(const CMsgSystemPerfLegacySettings* msg);
+  static void set_has_global(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgSystemPerfSettingsGlobal&
+CMsgSystemPerfLegacySettings::_Internal::global(const CMsgSystemPerfLegacySettings* msg) {
+  return *msg->global_;
+}
+CMsgSystemPerfLegacySettings::CMsgSystemPerfLegacySettings(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  per_app_settings_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgSystemPerfLegacySettings)
+}
+CMsgSystemPerfLegacySettings::CMsgSystemPerfLegacySettings(const CMsgSystemPerfLegacySettings& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      per_app_settings_(from.per_app_settings_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_global()) {
+    global_ = new ::CMsgSystemPerfSettingsGlobal(*from.global_);
+  } else {
+    global_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:CMsgSystemPerfLegacySettings)
+}
+
+void CMsgSystemPerfLegacySettings::SharedCtor() {
+global_ = nullptr;
+}
+
+CMsgSystemPerfLegacySettings::~CMsgSystemPerfLegacySettings() {
+  // @@protoc_insertion_point(destructor:CMsgSystemPerfLegacySettings)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgSystemPerfLegacySettings::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete global_;
+}
+
+void CMsgSystemPerfLegacySettings::ArenaDtor(void* object) {
+  CMsgSystemPerfLegacySettings* _this = reinterpret_cast< CMsgSystemPerfLegacySettings* >(object);
+  (void)_this;
+}
+void CMsgSystemPerfLegacySettings::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgSystemPerfLegacySettings::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgSystemPerfLegacySettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSystemPerfLegacySettings)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  per_app_settings_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(global_ != nullptr);
+    global_->Clear();
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSystemPerfLegacySettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional .CMsgSystemPerfSettingsGlobal global = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_global(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .CMsgSystemPerfLegacySettingEntry per_app_settings = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_per_app_settings(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgSystemPerfLegacySettings::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSystemPerfLegacySettings)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .CMsgSystemPerfSettingsGlobal global = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::global(this), target, stream);
+  }
+
+  // repeated .CMsgSystemPerfLegacySettingEntry per_app_settings = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_per_app_settings_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_per_app_settings(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSystemPerfLegacySettings)
+  return target;
+}
+
+size_t CMsgSystemPerfLegacySettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSystemPerfLegacySettings)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgSystemPerfLegacySettingEntry per_app_settings = 2;
+  total_size += 1UL * this->_internal_per_app_settings_size();
+  for (const auto& msg : this->per_app_settings_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // optional .CMsgSystemPerfSettingsGlobal global = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *global_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgSystemPerfLegacySettings::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgSystemPerfLegacySettings)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgSystemPerfLegacySettings* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgSystemPerfLegacySettings>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgSystemPerfLegacySettings)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgSystemPerfLegacySettings)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgSystemPerfLegacySettings::MergeFrom(const CMsgSystemPerfLegacySettings& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgSystemPerfLegacySettings)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  per_app_settings_.MergeFrom(from.per_app_settings_);
+  if (from._internal_has_global()) {
+    _internal_mutable_global()->::CMsgSystemPerfSettingsGlobal::MergeFrom(from._internal_global());
+  }
+}
+
+void CMsgSystemPerfLegacySettings::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgSystemPerfLegacySettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgSystemPerfLegacySettings::CopyFrom(const CMsgSystemPerfLegacySettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSystemPerfLegacySettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSystemPerfLegacySettings::IsInitialized() const {
+  return true;
+}
+
+void CMsgSystemPerfLegacySettings::InternalSwap(CMsgSystemPerfLegacySettings* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  per_app_settings_.InternalSwap(&other->per_app_settings_);
+  swap(global_, other->global_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSystemPerfLegacySettings::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CMsgSystemDockUpdateState::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgSystemDockUpdateState>()._has_bits_);
@@ -27440,6 +28024,207 @@ void CMsgWebUITransportInfo::InternalSwap(CMsgWebUITransportInfo* other) {
 
 // ===================================================================
 
+class CMsgWebUITransportFailure::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgWebUITransportFailure>()._has_bits_);
+  static void set_has_connect_count(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgWebUITransportFailure::CMsgWebUITransportFailure(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgWebUITransportFailure)
+}
+CMsgWebUITransportFailure::CMsgWebUITransportFailure(const CMsgWebUITransportFailure& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  connect_count_ = from.connect_count_;
+  // @@protoc_insertion_point(copy_constructor:CMsgWebUITransportFailure)
+}
+
+void CMsgWebUITransportFailure::SharedCtor() {
+connect_count_ = 0u;
+}
+
+CMsgWebUITransportFailure::~CMsgWebUITransportFailure() {
+  // @@protoc_insertion_point(destructor:CMsgWebUITransportFailure)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgWebUITransportFailure::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMsgWebUITransportFailure::ArenaDtor(void* object) {
+  CMsgWebUITransportFailure* _this = reinterpret_cast< CMsgWebUITransportFailure* >(object);
+  (void)_this;
+}
+void CMsgWebUITransportFailure::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgWebUITransportFailure::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgWebUITransportFailure::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgWebUITransportFailure)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  connect_count_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgWebUITransportFailure::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 connect_count = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_connect_count(&has_bits);
+          connect_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgWebUITransportFailure::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgWebUITransportFailure)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 connect_count = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_connect_count(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgWebUITransportFailure)
+  return target;
+}
+
+size_t CMsgWebUITransportFailure::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgWebUITransportFailure)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional uint32 connect_count = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_connect_count());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgWebUITransportFailure::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgWebUITransportFailure)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgWebUITransportFailure* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgWebUITransportFailure>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgWebUITransportFailure)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgWebUITransportFailure)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgWebUITransportFailure::MergeFrom(const CMsgWebUITransportFailure& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgWebUITransportFailure)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_connect_count()) {
+    _internal_set_connect_count(from._internal_connect_count());
+  }
+}
+
+void CMsgWebUITransportFailure::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgWebUITransportFailure)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgWebUITransportFailure::CopyFrom(const CMsgWebUITransportFailure& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgWebUITransportFailure)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgWebUITransportFailure::IsInitialized() const {
+  return true;
+}
+
+void CMsgWebUITransportFailure::InternalSwap(CMsgWebUITransportFailure* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(connect_count_, other->connect_count_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgWebUITransportFailure::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CMsgClientShaderHitCacheEntry::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgClientShaderHitCacheEntry>()._has_bits_);
@@ -28019,6 +28804,12 @@ template<> PROTOBUF_NOINLINE ::CMsgSystemPerfState* Arena::CreateMaybeMessage< :
 template<> PROTOBUF_NOINLINE ::CMsgSystemPerfUpdateSettings* Arena::CreateMaybeMessage< ::CMsgSystemPerfUpdateSettings >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSystemPerfUpdateSettings >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CMsgSystemPerfLegacySettingEntry* Arena::CreateMaybeMessage< ::CMsgSystemPerfLegacySettingEntry >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSystemPerfLegacySettingEntry >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgSystemPerfLegacySettings* Arena::CreateMaybeMessage< ::CMsgSystemPerfLegacySettings >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSystemPerfLegacySettings >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CMsgSystemDockUpdateState* Arena::CreateMaybeMessage< ::CMsgSystemDockUpdateState >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSystemDockUpdateState >(arena);
 }
@@ -28117,6 +28908,9 @@ template<> PROTOBUF_NOINLINE ::CMsgGenerateSystemReportReply* Arena::CreateMaybe
 }
 template<> PROTOBUF_NOINLINE ::CMsgWebUITransportInfo* Arena::CreateMaybeMessage< ::CMsgWebUITransportInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgWebUITransportInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgWebUITransportFailure* Arena::CreateMaybeMessage< ::CMsgWebUITransportFailure >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgWebUITransportFailure >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientShaderHitCacheEntry* Arena::CreateMaybeMessage< ::CMsgClientShaderHitCacheEntry >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientShaderHitCacheEntry >(arena);

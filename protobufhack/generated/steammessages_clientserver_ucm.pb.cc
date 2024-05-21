@@ -177,6 +177,8 @@ constexpr CMsgClientUCMUpdatePublishedFile::CMsgClientUCMUpdatePublishedFile(
   , change_description_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , url_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , metadata_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , game_branch_min_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , game_branch_max_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , published_file_id_(PROTOBUF_ULONGLONG(0))
   , app_id_(0u)
   , visibility_(0)
@@ -257,9 +259,25 @@ struct CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesDefaultTypeInternal _CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates_default_instance_;
+constexpr CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : game_branch_min_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , game_branch_max_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , manifestid_(PROTOBUF_ULONGLONG(0))
+  , timestamp_(0u){}
+struct CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshotDefaultTypeInternal {
+  constexpr CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshotDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshotDefaultTypeInternal() {}
+  union {
+    CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshotDefaultTypeInternal _CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot_default_instance_;
 constexpr CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : published_file_id_(PROTOBUF_ULONGLONG(0))
+  : author_snapshots_()
+  , published_file_id_(PROTOBUF_ULONGLONG(0))
   , rtime32_subscribed_(0u)
   , appid_(0u)
   , file_hcontent_(PROTOBUF_ULONGLONG(0))
@@ -427,7 +445,7 @@ struct CMsgClientScreenshotsChangedDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientScreenshotsChangedDefaultTypeInternal _CMsgClientScreenshotsChanged_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientserver_5fucm_2eproto[26];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientserver_5fucm_2eproto[27];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_steammessages_5fclientserver_5fucm_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fclientserver_5fucm_2eproto = nullptr;
 
@@ -606,38 +624,42 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMUpdatePublishedFile, content_descriptors_to_remove_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMUpdatePublishedFile, allow_admin_tags_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMUpdatePublishedFile, external_asset_id_),
-  8,
-  7,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMUpdatePublishedFile, game_branch_min_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMUpdatePublishedFile, game_branch_max_),
+  10,
+  9,
   0,
   1,
   2,
   3,
   ~0u,
-  9,
-  10,
   11,
   12,
   13,
   14,
   15,
-  4,
   16,
-  5,
   17,
+  4,
   18,
-  6,
-  20,
+  5,
   19,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  21,
+  20,
+  6,
   22,
+  21,
+  ~0u,
+  ~0u,
   ~0u,
   ~0u,
   23,
   24,
+  ~0u,
+  ~0u,
+  25,
+  26,
+  7,
+  8,
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMUpdatePublishedFileResponse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMUpdatePublishedFileResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -676,6 +698,19 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   1,
   2,
   3,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot, game_branch_min_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot, game_branch_max_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot, manifestid_),
+  3,
+  0,
+  1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -688,6 +723,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId, file_size_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId, rtime32_last_updated_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId, is_depot_content_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId, author_snapshots_),
   0,
   1,
   2,
@@ -695,6 +731,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   4,
   5,
   6,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -823,23 +860,24 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 102, 110, sizeof(::CMsgClientUCMPublishFileResponse)},
   { 113, 120, sizeof(::CMsgClientUCMUpdatePublishedFile_KeyValueTag)},
   { 122, 132, sizeof(::CMsgClientUCMUpdatePublishedFile_AdditionalPreview)},
-  { 137, 174, sizeof(::CMsgClientUCMUpdatePublishedFile)},
-  { 206, 213, sizeof(::CMsgClientUCMUpdatePublishedFileResponse)},
-  { 215, 222, sizeof(::CMsgClientUCMDeletePublishedFile)},
-  { 224, 230, sizeof(::CMsgClientUCMDeletePublishedFileResponse)},
-  { 231, 240, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates)},
-  { 244, 256, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId)},
-  { 263, 271, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse)},
-  { 274, 286, sizeof(::CMsgClientUCMPublishedFileUpdated)},
-  { 293, 301, sizeof(::CMsgClientWorkshopItemChangesRequest)},
-  { 304, 312, sizeof(::CMsgClientWorkshopItemChangesResponse_WorkshopItemInfo)},
-  { 315, 323, sizeof(::CMsgClientWorkshopItemChangesResponse)},
-  { 326, 334, sizeof(::CMsgClientUCMSetUserPublishedFileAction)},
-  { 337, 343, sizeof(::CMsgClientUCMSetUserPublishedFileActionResponse)},
-  { 344, 352, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserAction)},
-  { 355, 362, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId)},
-  { 364, 372, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse)},
-  { 375, -1, sizeof(::CMsgClientScreenshotsChanged)},
+  { 137, 176, sizeof(::CMsgClientUCMUpdatePublishedFile)},
+  { 210, 217, sizeof(::CMsgClientUCMUpdatePublishedFileResponse)},
+  { 219, 226, sizeof(::CMsgClientUCMDeletePublishedFile)},
+  { 228, 234, sizeof(::CMsgClientUCMDeletePublishedFileResponse)},
+  { 235, 244, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates)},
+  { 248, 257, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot)},
+  { 261, 274, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId)},
+  { 282, 290, sizeof(::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse)},
+  { 293, 305, sizeof(::CMsgClientUCMPublishedFileUpdated)},
+  { 312, 320, sizeof(::CMsgClientWorkshopItemChangesRequest)},
+  { 323, 331, sizeof(::CMsgClientWorkshopItemChangesResponse_WorkshopItemInfo)},
+  { 334, 342, sizeof(::CMsgClientWorkshopItemChangesResponse)},
+  { 345, 353, sizeof(::CMsgClientUCMSetUserPublishedFileAction)},
+  { 356, 362, sizeof(::CMsgClientUCMSetUserPublishedFileActionResponse)},
+  { 363, 371, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserAction)},
+  { 374, 381, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId)},
+  { 383, 391, sizeof(::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse)},
+  { 394, -1, sizeof(::CMsgClientScreenshotsChanged)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -857,6 +895,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUCMDeletePublishedFile_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUCMDeletePublishedFileResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUCMPublishedFileUpdated_default_instance_),
@@ -903,7 +942,7 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5fucm_2eproto[
   "Response\022\022\n\007eresult\030\001 \001(\005:\0012\022/\n\021publishe"
   "d_file_id\030\002 \001(\006:\02418446744073709551615\0228\n"
   ")needs_workshop_legal_agreement_acceptan"
-  "ce\030\003 \001(\010:\005false\"\276\010\n CMsgClientUCMUpdateP"
+  "ce\030\003 \001(\010:\005false\"\360\010\n CMsgClientUCMUpdateP"
   "ublishedFile\022\016\n\006app_id\030\001 \001(\r\022\031\n\021publishe"
   "d_file_id\030\002 \001(\006\022\021\n\tfile_name\030\003 \001(\t\022\031\n\021pr"
   "eview_file_name\030\004 \001(\t\022\r\n\005title\030\005 \001(\t\022\023\n\013"
@@ -925,62 +964,68 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5fucm_2eproto[
   "remove_all_kvtags\030\034 \001(\010\022\"\n\032content_descr"
   "iptors_to_add\030\035 \003(\005\022%\n\035content_descripto"
   "rs_to_remove\030\036 \003(\005\022\037\n\020allow_admin_tags\030\037"
-  " \001(\010:\005false\022\031\n\021external_asset_id\030  \001(\004\032)"
-  "\n\013KeyValueTag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001("
-  "\t\032\214\001\n\021AdditionalPreview\022\032\n\022original_file"
-  "_name\030\001 \001(\t\022\032\n\022internal_file_name\030\002 \001(\t\022"
-  "\017\n\007videoid\030\003 \001(\t\022\024\n\014preview_type\030\004 \001(\r\022\030"
-  "\n\014update_index\030\005 \001(\005:\002-1\"x\n(CMsgClientUC"
-  "MUpdatePublishedFileResponse\022\022\n\007eresult\030"
-  "\001 \001(\005:\0012\0228\n)needs_workshop_legal_agreeme"
-  "nt_acceptance\030\002 \001(\010:\005false\"M\n CMsgClient"
-  "UCMDeletePublishedFile\022\031\n\021published_file"
-  "_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\">\n(CMsgClientU"
-  "CMDeletePublishedFileResponse\022\022\n\007eresult"
-  "\030\001 \001(\005:\0012\"\214\001\n4CMsgClientUCMEnumerateUser"
-  "SubscribedFilesWithUpdates\022\016\n\006app_id\030\001 \001"
-  "(\r\022\023\n\013start_index\030\002 \001(\r\022\022\n\nstart_time\030\003 "
-  "\001(\007\022\033\n\020desired_revision\030\004 \001(\r:\0010\"\221\003\n<CMs"
-  "gClientUCMEnumerateUserSubscribedFilesWi"
-  "thUpdatesResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022g\n"
-  "\020subscribed_files\030\002 \003(\0132M.CMsgClientUCME"
-  "numerateUserSubscribedFilesWithUpdatesRe"
-  "sponse.PublishedFileId\022\025\n\rtotal_results\030"
-  "\003 \001(\r\032\274\001\n\017PublishedFileId\022\031\n\021published_f"
-  "ile_id\030\001 \001(\006\022\035\n\022rtime32_subscribed\030\002 \001(\007"
-  ":\0010\022\r\n\005appid\030\003 \001(\r\022\025\n\rfile_hcontent\030\004 \001("
-  "\006\022\021\n\tfile_size\030\005 \001(\r\022\034\n\024rtime32_last_upd"
-  "ated\030\006 \001(\007\022\030\n\020is_depot_content\030\007 \001(\010\"\265\001\n"
-  "!CMsgClientUCMPublishedFileUpdated\022\031\n\021pu"
-  "blished_file_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\022\024\n"
-  "\014time_updated\030\003 \001(\r\022\020\n\010hcontent\030\004 \001(\006\022\021\n"
-  "\tfile_size\030\005 \001(\007\022\030\n\020is_depot_content\030\006 \001"
-  "(\010\022\020\n\010revision\030\007 \001(\r\"k\n$CMsgClientWorksh"
-  "opItemChangesRequest\022\016\n\006app_id\030\001 \001(\r\022\031\n\021"
-  "last_time_updated\030\002 \001(\r\022\030\n\020num_items_nee"
-  "ded\030\003 \001(\r\"\373\001\n%CMsgClientWorkshopItemChan"
-  "gesResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022\023\n\013updat"
-  "e_time\030\002 \001(\r\022O\n\016workshop_items\030\005 \003(\01327.C"
-  "MsgClientWorkshopItemChangesResponse.Wor"
-  "kshopItemInfo\032X\n\020WorkshopItemInfo\022\031\n\021pub"
-  "lished_file_id\030\001 \001(\006\022\024\n\014time_updated\030\002 \001"
-  "(\r\022\023\n\013manifest_id\030\003 \001(\006\"d\n\'CMsgClientUCM"
-  "SetUserPublishedFileAction\022\031\n\021published_"
-  "file_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\022\016\n\006action\030"
-  "\003 \001(\005\"E\n/CMsgClientUCMSetUserPublishedFi"
-  "leActionResponse\022\022\n\007eresult\030\001 \001(\005:\0012\"g\n0"
-  "CMsgClientUCMEnumeratePublishedFilesByUs"
-  "erAction\022\016\n\006app_id\030\001 \001(\r\022\023\n\013start_index\030"
-  "\002 \001(\r\022\016\n\006action\030\003 \001(\005\"\224\002\n8CMsgClientUCME"
-  "numeratePublishedFilesByUserActionRespon"
-  "se\022\022\n\007eresult\030\001 \001(\005:\0012\022b\n\017published_file"
-  "s\030\002 \003(\0132I.CMsgClientUCMEnumeratePublishe"
-  "dFilesByUserActionResponse.PublishedFile"
-  "Id\022\025\n\rtotal_results\030\003 \001(\r\032I\n\017PublishedFi"
-  "leId\022\031\n\021published_file_id\030\001 \001(\006\022\033\n\020rtime"
-  "_time_stamp\030\002 \001(\007:\0010\"\036\n\034CMsgClientScreen"
-  "shotsChangedB\037H\001\200\001\000\252\002\027OpenSteamworks.Pro"
-  "tobuf"
+  " \001(\010:\005false\022\031\n\021external_asset_id\030  \001(\004\022\027"
+  "\n\017game_branch_min\030! \001(\t\022\027\n\017game_branch_m"
+  "ax\030\" \001(\t\032)\n\013KeyValueTag\022\013\n\003key\030\001 \001(\t\022\r\n\005"
+  "value\030\002 \001(\t\032\214\001\n\021AdditionalPreview\022\032\n\022ori"
+  "ginal_file_name\030\001 \001(\t\022\032\n\022internal_file_n"
+  "ame\030\002 \001(\t\022\017\n\007videoid\030\003 \001(\t\022\024\n\014preview_ty"
+  "pe\030\004 \001(\r\022\030\n\014update_index\030\005 \001(\005:\002-1\"x\n(CM"
+  "sgClientUCMUpdatePublishedFileResponse\022\022"
+  "\n\007eresult\030\001 \001(\005:\0012\0228\n)needs_workshop_leg"
+  "al_agreement_acceptance\030\002 \001(\010:\005false\"M\n "
+  "CMsgClientUCMDeletePublishedFile\022\031\n\021publ"
+  "ished_file_id\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\">\n(C"
+  "MsgClientUCMDeletePublishedFileResponse\022"
+  "\022\n\007eresult\030\001 \001(\005:\0012\"\214\001\n4CMsgClientUCMEnu"
+  "merateUserSubscribedFilesWithUpdates\022\016\n\006"
+  "app_id\030\001 \001(\r\022\023\n\013start_index\030\002 \001(\r\022\022\n\nsta"
+  "rt_time\030\003 \001(\007\022\033\n\020desired_revision\030\004 \001(\r:"
+  "\0010\"\344\004\n<CMsgClientUCMEnumerateUserSubscri"
+  "bedFilesWithUpdatesResponse\022\022\n\007eresult\030\001"
+  " \001(\005:\0012\022g\n\020subscribed_files\030\002 \003(\0132M.CMsg"
+  "ClientUCMEnumerateUserSubscribedFilesWit"
+  "hUpdatesResponse.PublishedFileId\022\025\n\rtota"
+  "l_results\030\003 \001(\r\032i\n\016AuthorSnapshot\022\021\n\ttim"
+  "estamp\030\001 \001(\r\022\027\n\017game_branch_min\030\002 \001(\t\022\027\n"
+  "\017game_branch_max\030\003 \001(\t\022\022\n\nmanifestid\030\004 \001"
+  "(\006\032\244\002\n\017PublishedFileId\022\031\n\021published_file"
+  "_id\030\001 \001(\006\022\035\n\022rtime32_subscribed\030\002 \001(\007:\0010"
+  "\022\r\n\005appid\030\003 \001(\r\022\025\n\rfile_hcontent\030\004 \001(\006\022\021"
+  "\n\tfile_size\030\005 \001(\r\022\034\n\024rtime32_last_update"
+  "d\030\006 \001(\007\022\030\n\020is_depot_content\030\007 \001(\010\022f\n\020aut"
+  "hor_snapshots\030\010 \003(\0132L.CMsgClientUCMEnume"
+  "rateUserSubscribedFilesWithUpdatesRespon"
+  "se.AuthorSnapshot\"\265\001\n!CMsgClientUCMPubli"
+  "shedFileUpdated\022\031\n\021published_file_id\030\001 \001"
+  "(\006\022\016\n\006app_id\030\002 \001(\r\022\024\n\014time_updated\030\003 \001(\r"
+  "\022\020\n\010hcontent\030\004 \001(\006\022\021\n\tfile_size\030\005 \001(\007\022\030\n"
+  "\020is_depot_content\030\006 \001(\010\022\020\n\010revision\030\007 \001("
+  "\r\"k\n$CMsgClientWorkshopItemChangesReques"
+  "t\022\016\n\006app_id\030\001 \001(\r\022\031\n\021last_time_updated\030\002"
+  " \001(\r\022\030\n\020num_items_needed\030\003 \001(\r\"\373\001\n%CMsgC"
+  "lientWorkshopItemChangesResponse\022\022\n\007eres"
+  "ult\030\001 \001(\005:\0012\022\023\n\013update_time\030\002 \001(\r\022O\n\016wor"
+  "kshop_items\030\005 \003(\01327.CMsgClientWorkshopIt"
+  "emChangesResponse.WorkshopItemInfo\032X\n\020Wo"
+  "rkshopItemInfo\022\031\n\021published_file_id\030\001 \001("
+  "\006\022\024\n\014time_updated\030\002 \001(\r\022\023\n\013manifest_id\030\003"
+  " \001(\006\"d\n\'CMsgClientUCMSetUserPublishedFil"
+  "eAction\022\031\n\021published_file_id\030\001 \001(\006\022\016\n\006ap"
+  "p_id\030\002 \001(\r\022\016\n\006action\030\003 \001(\005\"E\n/CMsgClient"
+  "UCMSetUserPublishedFileActionResponse\022\022\n"
+  "\007eresult\030\001 \001(\005:\0012\"g\n0CMsgClientUCMEnumer"
+  "atePublishedFilesByUserAction\022\016\n\006app_id\030"
+  "\001 \001(\r\022\023\n\013start_index\030\002 \001(\r\022\016\n\006action\030\003 \001"
+  "(\005\"\224\002\n8CMsgClientUCMEnumeratePublishedFi"
+  "lesByUserActionResponse\022\022\n\007eresult\030\001 \001(\005"
+  ":\0012\022b\n\017published_files\030\002 \003(\0132I.CMsgClien"
+  "tUCMEnumeratePublishedFilesByUserActionR"
+  "esponse.PublishedFileId\022\025\n\rtotal_results"
+  "\030\003 \001(\r\032I\n\017PublishedFileId\022\031\n\021published_f"
+  "ile_id\030\001 \001(\006\022\033\n\020rtime_time_stamp\030\002 \001(\007:\001"
+  "0\"\036\n\034CMsgClientScreenshotsChangedB\037H\001\200\001\000"
+  "\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_5fucm_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -988,8 +1033,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5fucm_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5fucm_2eproto = {
-  false, false, 4325, descriptor_table_protodef_steammessages_5fclientserver_5fucm_2eproto, "steammessages_clientserver_ucm.proto", 
-  &descriptor_table_steammessages_5fclientserver_5fucm_2eproto_once, descriptor_table_steammessages_5fclientserver_5fucm_2eproto_deps, 2, 26,
+  false, false, 4586, descriptor_table_protodef_steammessages_5fclientserver_5fucm_2eproto, "steammessages_clientserver_ucm.proto", 
+  &descriptor_table_steammessages_5fclientserver_5fucm_2eproto_once, descriptor_table_steammessages_5fclientserver_5fucm_2eproto_deps, 2, 27,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5fucm_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5fucm_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5fucm_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5fucm_2eproto,
 };
@@ -4295,10 +4340,10 @@ class CMsgClientUCMUpdatePublishedFile::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgClientUCMUpdatePublishedFile>()._has_bits_);
   static void set_has_app_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_published_file_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_file_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -4313,61 +4358,67 @@ class CMsgClientUCMUpdatePublishedFile::_Internal {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_visibility(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
-  }
-  static void set_has_update_file(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
-  }
-  static void set_has_update_preview_file(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
-  static void set_has_update_title(HasBits* has_bits) {
+  static void set_has_update_file(HasBits* has_bits) {
     (*has_bits)[0] |= 4096u;
   }
-  static void set_has_update_description(HasBits* has_bits) {
+  static void set_has_update_preview_file(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
-  static void set_has_update_tags(HasBits* has_bits) {
+  static void set_has_update_title(HasBits* has_bits) {
     (*has_bits)[0] |= 16384u;
   }
-  static void set_has_update_visibility(HasBits* has_bits) {
+  static void set_has_update_description(HasBits* has_bits) {
     (*has_bits)[0] |= 32768u;
+  }
+  static void set_has_update_tags(HasBits* has_bits) {
+    (*has_bits)[0] |= 65536u;
+  }
+  static void set_has_update_visibility(HasBits* has_bits) {
+    (*has_bits)[0] |= 131072u;
   }
   static void set_has_change_description(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_update_url(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_url(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_update_content_manifest(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 524288u;
   }
   static void set_has_content_manifest(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 1048576u;
   }
   static void set_has_metadata(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
   static void set_has_update_metadata(HasBits* has_bits) {
-    (*has_bits)[0] |= 1048576u;
-  }
-  static void set_has_language(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
-  }
-  static void set_has_clear_in_progress(HasBits* has_bits) {
-    (*has_bits)[0] |= 2097152u;
-  }
-  static void set_has_remove_all_kvtags(HasBits* has_bits) {
     (*has_bits)[0] |= 4194304u;
   }
-  static void set_has_allow_admin_tags(HasBits* has_bits) {
+  static void set_has_language(HasBits* has_bits) {
+    (*has_bits)[0] |= 2097152u;
+  }
+  static void set_has_clear_in_progress(HasBits* has_bits) {
     (*has_bits)[0] |= 8388608u;
   }
-  static void set_has_external_asset_id(HasBits* has_bits) {
+  static void set_has_remove_all_kvtags(HasBits* has_bits) {
     (*has_bits)[0] |= 16777216u;
+  }
+  static void set_has_allow_admin_tags(HasBits* has_bits) {
+    (*has_bits)[0] |= 33554432u;
+  }
+  static void set_has_external_asset_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 67108864u;
+  }
+  static void set_has_game_branch_min(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_game_branch_max(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
   }
 };
 
@@ -4430,6 +4481,16 @@ CMsgClientUCMUpdatePublishedFile::CMsgClientUCMUpdatePublishedFile(const CMsgCli
     metadata_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_metadata(), 
       GetArena());
   }
+  game_branch_min_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_game_branch_min()) {
+    game_branch_min_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_game_branch_min(), 
+      GetArena());
+  }
+  game_branch_max_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_game_branch_max()) {
+    game_branch_max_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_game_branch_max(), 
+      GetArena());
+  }
   ::memcpy(&published_file_id_, &from.published_file_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&external_asset_id_) -
     reinterpret_cast<char*>(&published_file_id_)) + sizeof(external_asset_id_));
@@ -4444,6 +4505,8 @@ description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString
 change_description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 metadata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+game_branch_min_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+game_branch_max_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&published_file_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&external_asset_id_) -
@@ -4465,6 +4528,8 @@ void CMsgClientUCMUpdatePublishedFile::SharedDtor() {
   change_description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   url_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   metadata_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  game_branch_min_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  game_branch_max_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void CMsgClientUCMUpdatePublishedFile::ArenaDtor(void* object) {
@@ -4491,7 +4556,7 @@ void CMsgClientUCMUpdatePublishedFile::Clear() {
   content_descriptors_to_add_.Clear();
   content_descriptors_to_remove_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
       file_name_.ClearNonDefaultToEmpty();
     }
@@ -4513,19 +4578,28 @@ void CMsgClientUCMUpdatePublishedFile::Clear() {
     if (cached_has_bits & 0x00000040u) {
       metadata_.ClearNonDefaultToEmpty();
     }
+    if (cached_has_bits & 0x00000080u) {
+      game_branch_min_.ClearNonDefaultToEmpty();
+    }
   }
-  published_file_id_ = PROTOBUF_ULONGLONG(0);
-  if (cached_has_bits & 0x0000ff00u) {
-    ::memset(&app_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&update_visibility_) -
-        reinterpret_cast<char*>(&app_id_)) + sizeof(update_visibility_));
+  if (cached_has_bits & 0x00000100u) {
+    game_branch_max_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x0000fe00u) {
+    ::memset(&published_file_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&update_description_) -
+        reinterpret_cast<char*>(&published_file_id_)) + sizeof(update_description_));
   }
   if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&update_url_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&allow_admin_tags_) -
-        reinterpret_cast<char*>(&update_url_)) + sizeof(allow_admin_tags_));
+    ::memset(&update_tags_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&clear_in_progress_) -
+        reinterpret_cast<char*>(&update_tags_)) + sizeof(clear_in_progress_));
   }
-  external_asset_id_ = PROTOBUF_ULONGLONG(0);
+  if (cached_has_bits & 0x07000000u) {
+    ::memset(&remove_all_kvtags_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&external_asset_id_) -
+        reinterpret_cast<char*>(&remove_all_kvtags_)) + sizeof(external_asset_id_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -4860,6 +4934,28 @@ const char* CMsgClientUCMUpdatePublishedFile::_InternalParse(const char* ptr, ::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional string game_branch_min = 33;
+      case 33:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_game_branch_min();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientUCMUpdatePublishedFile.game_branch_min");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string game_branch_max = 34;
+      case 34:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_game_branch_max();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientUCMUpdatePublishedFile.game_branch_max");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -4891,13 +4987,13 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional uint32 app_id = 1;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_app_id(), target);
   }
 
   // optional fixed64 published_file_id = 2;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_published_file_id(), target);
   }
@@ -4953,43 +5049,43 @@ failure:
   }
 
   // optional int32 visibility = 8;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_visibility(), target);
   }
 
   // optional bool update_file = 9;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_update_file(), target);
   }
 
   // optional bool update_preview_file = 10;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_update_preview_file(), target);
   }
 
   // optional bool update_title = 11;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_update_title(), target);
   }
 
   // optional bool update_description = 12;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_update_description(), target);
   }
 
   // optional bool update_tags = 13;
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_update_tags(), target);
   }
 
   // optional bool update_visibility = 14;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_update_visibility(), target);
   }
@@ -5005,7 +5101,7 @@ failure:
   }
 
   // optional bool update_url = 16;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(16, this->_internal_update_url(), target);
   }
@@ -5021,13 +5117,13 @@ failure:
   }
 
   // optional bool update_content_manifest = 18;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18, this->_internal_update_content_manifest(), target);
   }
 
   // optional fixed64 content_manifest = 19;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(19, this->_internal_content_manifest(), target);
   }
@@ -5043,13 +5139,13 @@ failure:
   }
 
   // optional bool update_metadata = 21;
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21, this->_internal_update_metadata(), target);
   }
 
   // optional int32 language = 22 [default = 0];
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(22, this->_internal_language(), target);
   }
@@ -5087,13 +5183,13 @@ failure:
   }
 
   // optional bool clear_in_progress = 27;
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(27, this->_internal_clear_in_progress(), target);
   }
 
   // optional bool remove_all_kvtags = 28;
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x01000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(28, this->_internal_remove_all_kvtags(), target);
   }
@@ -5111,15 +5207,35 @@ failure:
   }
 
   // optional bool allow_admin_tags = 31 [default = false];
-  if (cached_has_bits & 0x00800000u) {
+  if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(31, this->_internal_allow_admin_tags(), target);
   }
 
   // optional uint64 external_asset_id = 32;
-  if (cached_has_bits & 0x01000000u) {
+  if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(32, this->_internal_external_asset_id(), target);
+  }
+
+  // optional string game_branch_min = 33;
+  if (cached_has_bits & 0x00000080u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_game_branch_min().data(), static_cast<int>(this->_internal_game_branch_min().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgClientUCMUpdatePublishedFile.game_branch_min");
+    target = stream->WriteStringMaybeAliased(
+        33, this->_internal_game_branch_min(), target);
+  }
+
+  // optional string game_branch_max = 34;
+  if (cached_has_bits & 0x00000100u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_game_branch_max().data(), static_cast<int>(this->_internal_game_branch_max().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgClientUCMUpdatePublishedFile.game_branch_max");
+    target = stream->WriteStringMaybeAliased(
+        34, this->_internal_game_branch_max(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5246,109 +5362,125 @@ size_t CMsgClientUCMUpdatePublishedFile::ByteSizeLong() const {
           this->_internal_metadata());
     }
 
-    // optional fixed64 published_file_id = 2;
+    // optional string game_branch_min = 33;
     if (cached_has_bits & 0x00000080u) {
-      total_size += 1 + 8;
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_game_branch_min());
     }
 
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional uint32 app_id = 1;
+    // optional string game_branch_max = 34;
     if (cached_has_bits & 0x00000100u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_game_branch_max());
+    }
+
+    // optional fixed64 published_file_id = 2;
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint32 app_id = 1;
+    if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_app_id());
     }
 
     // optional int32 visibility = 8;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_visibility());
     }
 
     // optional bool update_file = 9;
-    if (cached_has_bits & 0x00000400u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool update_preview_file = 10;
-    if (cached_has_bits & 0x00000800u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool update_title = 11;
     if (cached_has_bits & 0x00001000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool update_description = 12;
+    // optional bool update_preview_file = 10;
     if (cached_has_bits & 0x00002000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool update_tags = 13;
+    // optional bool update_title = 11;
     if (cached_has_bits & 0x00004000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool update_visibility = 14;
+    // optional bool update_description = 12;
     if (cached_has_bits & 0x00008000u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00ff0000u) {
-    // optional bool update_url = 16;
+    // optional bool update_tags = 13;
     if (cached_has_bits & 0x00010000u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool update_visibility = 14;
+    if (cached_has_bits & 0x00020000u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool update_url = 16;
+    if (cached_has_bits & 0x00040000u) {
       total_size += 2 + 1;
     }
 
     // optional bool update_content_manifest = 18;
-    if (cached_has_bits & 0x00020000u) {
+    if (cached_has_bits & 0x00080000u) {
       total_size += 2 + 1;
     }
 
     // optional fixed64 content_manifest = 19;
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00100000u) {
       total_size += 2 + 8;
     }
 
     // optional int32 language = 22 [default = 0];
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00200000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_language());
     }
 
     // optional bool update_metadata = 21;
-    if (cached_has_bits & 0x00100000u) {
-      total_size += 2 + 1;
-    }
-
-    // optional bool clear_in_progress = 27;
-    if (cached_has_bits & 0x00200000u) {
-      total_size += 2 + 1;
-    }
-
-    // optional bool remove_all_kvtags = 28;
     if (cached_has_bits & 0x00400000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool allow_admin_tags = 31 [default = false];
+    // optional bool clear_in_progress = 27;
     if (cached_has_bits & 0x00800000u) {
       total_size += 2 + 1;
     }
 
   }
-  // optional uint64 external_asset_id = 32;
-  if (cached_has_bits & 0x01000000u) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_external_asset_id());
-  }
+  if (cached_has_bits & 0x07000000u) {
+    // optional bool remove_all_kvtags = 28;
+    if (cached_has_bits & 0x01000000u) {
+      total_size += 2 + 1;
+    }
 
+    // optional bool allow_admin_tags = 31 [default = false];
+    if (cached_has_bits & 0x02000000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional uint64 external_asset_id = 32;
+    if (cached_has_bits & 0x04000000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_external_asset_id());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -5411,66 +5543,74 @@ void CMsgClientUCMUpdatePublishedFile::MergeFrom(const CMsgClientUCMUpdatePublis
       _internal_set_metadata(from._internal_metadata());
     }
     if (cached_has_bits & 0x00000080u) {
-      published_file_id_ = from.published_file_id_;
+      _internal_set_game_branch_min(from._internal_game_branch_min());
     }
-    _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
-      app_id_ = from.app_id_;
+      _internal_set_game_branch_max(from._internal_game_branch_max());
     }
     if (cached_has_bits & 0x00000200u) {
-      visibility_ = from.visibility_;
+      published_file_id_ = from.published_file_id_;
     }
     if (cached_has_bits & 0x00000400u) {
-      update_file_ = from.update_file_;
+      app_id_ = from.app_id_;
     }
     if (cached_has_bits & 0x00000800u) {
-      update_preview_file_ = from.update_preview_file_;
+      visibility_ = from.visibility_;
     }
     if (cached_has_bits & 0x00001000u) {
-      update_title_ = from.update_title_;
+      update_file_ = from.update_file_;
     }
     if (cached_has_bits & 0x00002000u) {
-      update_description_ = from.update_description_;
+      update_preview_file_ = from.update_preview_file_;
     }
     if (cached_has_bits & 0x00004000u) {
-      update_tags_ = from.update_tags_;
+      update_title_ = from.update_title_;
     }
     if (cached_has_bits & 0x00008000u) {
-      update_visibility_ = from.update_visibility_;
+      update_description_ = from.update_description_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      update_url_ = from.update_url_;
+      update_tags_ = from.update_tags_;
     }
     if (cached_has_bits & 0x00020000u) {
-      update_content_manifest_ = from.update_content_manifest_;
+      update_visibility_ = from.update_visibility_;
     }
     if (cached_has_bits & 0x00040000u) {
-      content_manifest_ = from.content_manifest_;
+      update_url_ = from.update_url_;
     }
     if (cached_has_bits & 0x00080000u) {
-      language_ = from.language_;
+      update_content_manifest_ = from.update_content_manifest_;
     }
     if (cached_has_bits & 0x00100000u) {
-      update_metadata_ = from.update_metadata_;
+      content_manifest_ = from.content_manifest_;
     }
     if (cached_has_bits & 0x00200000u) {
-      clear_in_progress_ = from.clear_in_progress_;
+      language_ = from.language_;
     }
     if (cached_has_bits & 0x00400000u) {
-      remove_all_kvtags_ = from.remove_all_kvtags_;
+      update_metadata_ = from.update_metadata_;
     }
     if (cached_has_bits & 0x00800000u) {
-      allow_admin_tags_ = from.allow_admin_tags_;
+      clear_in_progress_ = from.clear_in_progress_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x01000000u) {
-    _internal_set_external_asset_id(from._internal_external_asset_id());
+  if (cached_has_bits & 0x07000000u) {
+    if (cached_has_bits & 0x01000000u) {
+      remove_all_kvtags_ = from.remove_all_kvtags_;
+    }
+    if (cached_has_bits & 0x02000000u) {
+      allow_admin_tags_ = from.allow_admin_tags_;
+    }
+    if (cached_has_bits & 0x04000000u) {
+      external_asset_id_ = from.external_asset_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -5510,6 +5650,8 @@ void CMsgClientUCMUpdatePublishedFile::InternalSwap(CMsgClientUCMUpdatePublished
   change_description_.Swap(&other->change_description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   url_.Swap(&other->url_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   metadata_.Swap(&other->metadata_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  game_branch_min_.Swap(&other->game_branch_min_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  game_branch_max_.Swap(&other->game_branch_max_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CMsgClientUCMUpdatePublishedFile, external_asset_id_)
       + sizeof(CMsgClientUCMUpdatePublishedFile::external_asset_id_)
@@ -6514,6 +6656,345 @@ void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates::InternalSwap(CMsgClie
 
 // ===================================================================
 
+class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot>()._has_bits_);
+  static void set_has_timestamp(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_game_branch_min(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_game_branch_max(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_manifestid(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+}
+CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot(const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  game_branch_min_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_game_branch_min()) {
+    game_branch_min_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_game_branch_min(), 
+      GetArena());
+  }
+  game_branch_max_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_game_branch_max()) {
+    game_branch_max_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_game_branch_max(), 
+      GetArena());
+  }
+  ::memcpy(&manifestid_, &from.manifestid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&timestamp_) -
+    reinterpret_cast<char*>(&manifestid_)) + sizeof(timestamp_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::SharedCtor() {
+game_branch_min_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+game_branch_max_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&manifestid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&timestamp_) -
+    reinterpret_cast<char*>(&manifestid_)) + sizeof(timestamp_));
+}
+
+CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::~CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot() {
+  // @@protoc_insertion_point(destructor:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  game_branch_min_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  game_branch_max_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::ArenaDtor(void* object) {
+  CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* _this = reinterpret_cast< CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* >(object);
+  (void)_this;
+}
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      game_branch_min_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      game_branch_max_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (cached_has_bits & 0x0000000cu) {
+    ::memset(&manifestid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&timestamp_) -
+        reinterpret_cast<char*>(&manifestid_)) + sizeof(timestamp_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 timestamp = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_timestamp(&has_bits);
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string game_branch_min = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_game_branch_min();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string game_branch_max = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_game_branch_max();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional fixed64 manifestid = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          _Internal::set_has_manifestid(&has_bits);
+          manifestid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 timestamp = 1;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_timestamp(), target);
+  }
+
+  // optional string game_branch_min = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_game_branch_min().data(), static_cast<int>(this->_internal_game_branch_min().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_game_branch_min(), target);
+  }
+
+  // optional string game_branch_max = 3;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_game_branch_max().data(), static_cast<int>(this->_internal_game_branch_max().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_game_branch_max(), target);
+  }
+
+  // optional fixed64 manifestid = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(4, this->_internal_manifestid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  return target;
+}
+
+size_t CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional string game_branch_min = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_game_branch_min());
+    }
+
+    // optional string game_branch_max = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_game_branch_max());
+    }
+
+    // optional fixed64 manifestid = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint32 timestamp = 1;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_timestamp());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::MergeFrom(const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_game_branch_min(from._internal_game_branch_min());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_game_branch_max(from._internal_game_branch_max());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      manifestid_ = from.manifestid_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      timestamp_ = from.timestamp_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::CopyFrom(const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::InternalSwap(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  game_branch_min_.Swap(&other->game_branch_min_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  game_branch_max_.Swap(&other->game_branch_max_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot, timestamp_)
+      + sizeof(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::timestamp_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot, manifestid_)>(
+          reinterpret_cast<char*>(&manifestid_),
+          reinterpret_cast<char*>(&other->manifestid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId>()._has_bits_);
@@ -6541,14 +7022,16 @@ class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFile
 };
 
 CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  author_snapshots_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.PublishedFileId)
 }
 CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId(const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
+      _has_bits_(from._has_bits_),
+      author_snapshots_(from.author_snapshots_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&published_file_id_, &from.published_file_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&is_depot_content_) -
@@ -6589,6 +7072,7 @@ void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileI
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  author_snapshots_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
     ::memset(&published_file_id_, 0, static_cast<size_t>(
@@ -6663,6 +7147,18 @@ const char* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_Publish
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // repeated .CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot author_snapshots = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_author_snapshots(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -6735,6 +7231,14 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_is_depot_content(), target);
   }
 
+  // repeated .CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot author_snapshots = 8;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_author_snapshots_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(8, this->_internal_author_snapshots(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6750,6 +7254,13 @@ size_t CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFil
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated .CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot author_snapshots = 8;
+  total_size += 1UL * this->_internal_author_snapshots_size();
+  for (const auto& msg : this->author_snapshots_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
@@ -6824,6 +7335,7 @@ void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileI
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  author_snapshots_.MergeFrom(from.author_snapshots_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -6873,6 +7385,7 @@ void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileI
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
+  author_snapshots_.InternalSwap(&other->author_snapshots_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId, is_depot_content_)
       + sizeof(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::is_depot_content_)
@@ -9828,6 +10341,9 @@ template<> PROTOBUF_NOINLINE ::CMsgClientUCMDeletePublishedFileResponse* Arena::
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates* Arena::CreateMaybeMessage< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* Arena::CreateMaybeMessage< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId* Arena::CreateMaybeMessage< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId >(arena);

@@ -2371,6 +2371,18 @@ struct CMsgSetUIModeDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSetUIModeDefaultTypeInternal _CMsgSetUIMode_default_instance_;
+constexpr CMsgSetSteamBetaName::CMsgSetSteamBetaName(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : steam_beta_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct CMsgSetSteamBetaNameDefaultTypeInternal {
+  constexpr CMsgSetSteamBetaNameDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgSetSteamBetaNameDefaultTypeInternal() {}
+  union {
+    CMsgSetSteamBetaName _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSetSteamBetaNameDefaultTypeInternal _CMsgSetSteamBetaName_default_instance_;
 constexpr CMsgPopupCreated::CMsgPopupCreated(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : browser_handle_(0u){}
@@ -2407,7 +2419,7 @@ struct CMsgRestartJSContextDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgRestartJSContextDefaultTypeInternal _CMsgRestartJSContext_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_htmlmessages_2eproto[170];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_htmlmessages_2eproto[171];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_htmlmessages_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_htmlmessages_2eproto = nullptr;
 
@@ -4280,6 +4292,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMsgSetUIMode, ui_mode_),
   0,
+  PROTOBUF_FIELD_OFFSET(::CMsgSetSteamBetaName, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSetSteamBetaName, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgSetSteamBetaName, steam_beta_name_),
+  0,
   PROTOBUF_FIELD_OFFSET(::CMsgPopupCreated, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgPopupCreated, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4470,9 +4489,10 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 1843, 1850, sizeof(::CMsgSetProtocolBlockList)},
   { 1852, 1859, sizeof(::CMsgSetForceDeviceScaleFactors)},
   { 1861, 1867, sizeof(::CMsgSetUIMode)},
-  { 1868, 1874, sizeof(::CMsgPopupCreated)},
-  { 1875, 1882, sizeof(::CMsgSetVRKeyboardVisibility)},
-  { 1884, -1, sizeof(::CMsgRestartJSContext)},
+  { 1868, 1874, sizeof(::CMsgSetSteamBetaName)},
+  { 1875, 1881, sizeof(::CMsgPopupCreated)},
+  { 1882, 1889, sizeof(::CMsgSetVRKeyboardVisibility)},
+  { 1891, -1, sizeof(::CMsgRestartJSContext)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -4643,6 +4663,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetProtocolBlockList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetForceDeviceScaleFactors_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetUIMode_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetSteamBetaName_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgPopupCreated_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetVRKeyboardVisibility_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgRestartJSContext_default_instance_),
@@ -5015,24 +5036,25 @@ const char descriptor_table_protodef_htmlmessages_2eproto[] PROTOBUF_SECTION_VAR
   "List\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 \001"
   "(\t\"J\n\036CMsgSetForceDeviceScaleFactors\022\021\n\t"
   "dpi_scale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\" "
-  "\n\rCMsgSetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"*\n\020CMsg"
-  "PopupCreated\022\026\n\016browser_handle\030\001 \001(\r\"F\n\033"
-  "CMsgSetVRKeyboardVisibility\022\026\n\016browser_h"
-  "andle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n\024CMsgRest"
-  "artJSContext*\245\001\n\025EJSRegisterMethodType\022!"
-  "\n\035EJSRegisterMethodType_Invalid\020\000\022\"\n\036EJS"
-  "RegisterMethodType_Function\020\001\022\"\n\036EJSRegi"
-  "sterMethodType_Callback\020\002\022!\n\035EJSRegister"
-  "MethodType_Promise\020\003B\037H\001\200\001\000\252\002\027OpenSteamw"
-  "orks.Protobuf"
+  "\n\rCMsgSetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"/\n\024CMsg"
+  "SetSteamBetaName\022\027\n\017steam_beta_name\030\001 \001("
+  "\t\"*\n\020CMsgPopupCreated\022\026\n\016browser_handle\030"
+  "\001 \001(\r\"F\n\033CMsgSetVRKeyboardVisibility\022\026\n\016"
+  "browser_handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n"
+  "\024CMsgRestartJSContext*\245\001\n\025EJSRegisterMet"
+  "hodType\022!\n\035EJSRegisterMethodType_Invalid"
+  "\020\000\022\"\n\036EJSRegisterMethodType_Function\020\001\022\""
+  "\n\036EJSRegisterMethodType_Callback\020\002\022!\n\035EJ"
+  "SRegisterMethodType_Promise\020\003B\037H\001\200\001\000\252\002\027O"
+  "penSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_htmlmessages_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_htmlmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_htmlmessages_2eproto = {
-  false, false, 15013, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
-  &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 170,
+  false, false, 15062, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
+  &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 171,
   schemas, file_default_instances, TableStruct_htmlmessages_2eproto::offsets,
   file_level_metadata_htmlmessages_2eproto, file_level_enum_descriptors_htmlmessages_2eproto, file_level_service_descriptors_htmlmessages_2eproto,
 };
@@ -51925,6 +51947,222 @@ void CMsgSetUIMode::InternalSwap(CMsgSetUIMode* other) {
 
 // ===================================================================
 
+class CMsgSetSteamBetaName::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSetSteamBetaName>()._has_bits_);
+  static void set_has_steam_beta_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgSetSteamBetaName::CMsgSetSteamBetaName(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgSetSteamBetaName)
+}
+CMsgSetSteamBetaName::CMsgSetSteamBetaName(const CMsgSetSteamBetaName& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  steam_beta_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_steam_beta_name()) {
+    steam_beta_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_steam_beta_name(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:CMsgSetSteamBetaName)
+}
+
+void CMsgSetSteamBetaName::SharedCtor() {
+steam_beta_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+CMsgSetSteamBetaName::~CMsgSetSteamBetaName() {
+  // @@protoc_insertion_point(destructor:CMsgSetSteamBetaName)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgSetSteamBetaName::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  steam_beta_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CMsgSetSteamBetaName::ArenaDtor(void* object) {
+  CMsgSetSteamBetaName* _this = reinterpret_cast< CMsgSetSteamBetaName* >(object);
+  (void)_this;
+}
+void CMsgSetSteamBetaName::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgSetSteamBetaName::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgSetSteamBetaName::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSetSteamBetaName)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    steam_beta_name_.ClearNonDefaultToEmpty();
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSetSteamBetaName::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string steam_beta_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_steam_beta_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgSetSteamBetaName.steam_beta_name");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgSetSteamBetaName::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSetSteamBetaName)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string steam_beta_name = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_steam_beta_name().data(), static_cast<int>(this->_internal_steam_beta_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgSetSteamBetaName.steam_beta_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_steam_beta_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSetSteamBetaName)
+  return target;
+}
+
+size_t CMsgSetSteamBetaName::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSetSteamBetaName)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional string steam_beta_name = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_steam_beta_name());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgSetSteamBetaName::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgSetSteamBetaName)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgSetSteamBetaName* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgSetSteamBetaName>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgSetSteamBetaName)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgSetSteamBetaName)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgSetSteamBetaName::MergeFrom(const CMsgSetSteamBetaName& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgSetSteamBetaName)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_steam_beta_name()) {
+    _internal_set_steam_beta_name(from._internal_steam_beta_name());
+  }
+}
+
+void CMsgSetSteamBetaName::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgSetSteamBetaName)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgSetSteamBetaName::CopyFrom(const CMsgSetSteamBetaName& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSetSteamBetaName)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSetSteamBetaName::IsInitialized() const {
+  return true;
+}
+
+void CMsgSetSteamBetaName::InternalSwap(CMsgSetSteamBetaName* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  steam_beta_name_.Swap(&other->steam_beta_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSetSteamBetaName::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CMsgPopupCreated::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgPopupCreated>()._has_bits_);
@@ -53030,6 +53268,9 @@ template<> PROTOBUF_NOINLINE ::CMsgSetForceDeviceScaleFactors* Arena::CreateMayb
 }
 template<> PROTOBUF_NOINLINE ::CMsgSetUIMode* Arena::CreateMaybeMessage< ::CMsgSetUIMode >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSetUIMode >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgSetSteamBetaName* Arena::CreateMaybeMessage< ::CMsgSetSteamBetaName >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSetSteamBetaName >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgPopupCreated* Arena::CreateMaybeMessage< ::CMsgPopupCreated >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgPopupCreated >(arena);

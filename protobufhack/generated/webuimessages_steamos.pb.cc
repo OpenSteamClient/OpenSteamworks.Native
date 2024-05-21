@@ -35,11 +35,15 @@ constexpr CSteamOSManagerState::CSteamOSManagerState(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : os_version_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , factory_reset_state_(nullptr)
+  , startup_movie_variant_(0)
+
   , is_service_available_(false)
   , is_mandatory_update_available_(false)
   , is_status_led_control_available_(false)
-  , startup_movie_variant_(0)
-{}
+  , is_tdp_limit_available_(false)
+  , tdp_limit_min_(0)
+  , tdp_limit_max_(0)
+  , is_cec_available_(false){}
 struct CSteamOSManagerStateDefaultTypeInternal {
   constexpr CSteamOSManagerStateDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -314,12 +318,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, startup_movie_variant_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_status_led_control_available_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, factory_reset_state_),
-  2,
-  0,
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_tdp_limit_available_),
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, tdp_limit_min_),
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, tdp_limit_max_),
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_cec_available_),
   3,
-  5,
+  0,
   4,
+  2,
+  5,
   1,
+  6,
+  7,
+  8,
+  9,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CSteamOSManager_GetState_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -449,27 +461,27 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, sizeof(::CMsgFactoryResetState)},
-  { 13, 24, sizeof(::CSteamOSManagerState)},
-  { 30, -1, sizeof(::CSteamOSManager_GetState_Request)},
-  { 35, 41, sizeof(::CSteamOSManager_GetState_Response)},
-  { 42, -1, sizeof(::CSteamOSManager_StateChanged_Notification)},
-  { 47, 53, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Request)},
-  { 54, 60, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Response)},
-  { 61, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Request)},
-  { 66, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
-  { 71, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
-  { 76, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
-  { 81, -1, sizeof(::CSteamOSManager_FactoryReset_Request)},
-  { 86, -1, sizeof(::CSteamOSManager_FactoryReset_Response)},
-  { 91, 99, sizeof(::CSteamOSSLSPlugin)},
-  { 102, 110, sizeof(::CSteamOSSLSState)},
-  { 113, -1, sizeof(::CSteamOSSLS_GetState_Request)},
-  { 118, 124, sizeof(::CSteamOSSLS_GetState_Response)},
-  { 125, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
-  { 130, 136, sizeof(::CSteamOSSLS_SetEnabled_Request)},
-  { 137, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
-  { 142, 149, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
-  { 151, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
+  { 13, 28, sizeof(::CSteamOSManagerState)},
+  { 38, -1, sizeof(::CSteamOSManager_GetState_Request)},
+  { 43, 49, sizeof(::CSteamOSManager_GetState_Response)},
+  { 50, -1, sizeof(::CSteamOSManager_StateChanged_Notification)},
+  { 55, 61, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Request)},
+  { 62, 68, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Response)},
+  { 69, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Request)},
+  { 74, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
+  { 79, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
+  { 84, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
+  { 89, -1, sizeof(::CSteamOSManager_FactoryReset_Request)},
+  { 94, -1, sizeof(::CSteamOSManager_FactoryReset_Response)},
+  { 99, 107, sizeof(::CSteamOSSLSPlugin)},
+  { 110, 118, sizeof(::CSteamOSSLSState)},
+  { 121, -1, sizeof(::CSteamOSSLS_GetState_Request)},
+  { 126, 132, sizeof(::CSteamOSSLS_GetState_Response)},
+  { 133, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
+  { 138, 144, sizeof(::CSteamOSSLS_SetEnabled_Request)},
+  { 145, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
+  { 150, 157, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
+  { 159, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -504,67 +516,70 @@ const char descriptor_table_protodef_webuimessages_5fsteamos_2eproto[] PROTOBUF_
   "se.proto\"}\n\025CMsgFactoryResetState\022\022\n\nis_"
   "running\030\001 \001(\010\022\020\n\010progress\030\002 \001(\005\022\032\n\022is_re"
   "start_pending\030\003 \001(\010\022\"\n\032rtime_estimated_c"
-  "ompletion\030\004 \001(\007\"\241\002\n\024CSteamOSManagerState"
+  "ompletion\030\004 \001(\007\"\211\003\n\024CSteamOSManagerState"
   "\022\034\n\024is_service_available\030\001 \001(\010\022\022\n\nos_ver"
   "sion\030\002 \001(\t\022%\n\035is_mandatory_update_availa"
   "ble\030\003 \001(\010\022R\n\025startup_movie_variant\030\004 \001(\016"
   "2\025.EStartupMovieVariant:\034EStartupMovieVa"
   "riant_Invalid\022\'\n\037is_status_led_control_a"
   "vailable\030\005 \001(\010\0223\n\023factory_reset_state\030\006 "
-  "\001(\0132\026.CMsgFactoryResetState\"\"\n CSteamOSM"
-  "anager_GetState_Request\"I\n!CSteamOSManag"
-  "er_GetState_Response\022$\n\005state\030\001 \001(\0132\025.CS"
-  "teamOSManagerState\"+\n)CSteamOSManager_St"
-  "ateChanged_Notification\"d\n2CSteamOSManag"
-  "er_IsTelemetryHelperAvailable_Request\022.\n"
-  "\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLSHelper_In"
-  "valid\"H\n3CSteamOSManager_IsTelemetryHelp"
-  "erAvailable_Response\022\021\n\tavailable\030\001 \001(\010\""
-  "2\n0CSteamOSManager_OptOutOfSideloadedCli"
-  "ent_Request\"3\n1CSteamOSManager_OptOutOfS"
-  "ideloadedClient_Response\".\n,CSteamOSMana"
-  "ger_ApplyMandatoryUpdate_Request\"/\n-CSte"
-  "amOSManager_ApplyMandatoryUpdate_Respons"
-  "e\"&\n$CSteamOSManager_FactoryReset_Reques"
-  "t\"\'\n%CSteamOSManager_FactoryReset_Respon"
-  "se\"m\n\021CSteamOSSLSPlugin\022.\n\005etype\030\001 \001(\0162\013"
-  ".ESLSHelper:\022ESLSHelper_Invalid\022\024\n\014is_av"
-  "ailable\030\002 \001(\010\022\022\n\nis_enabled\030\003 \001(\010\"a\n\020CSt"
-  "eamOSSLSState\022\024\n\014is_available\030\001 \001(\010\022\022\n\ni"
-  "s_enabled\030\002 \001(\010\022#\n\007plugins\030\003 \003(\0132\022.CStea"
-  "mOSSLSPlugin\"\036\n\034CSteamOSSLS_GetState_Req"
-  "uest\"A\n\035CSteamOSSLS_GetState_Response\022 \n"
-  "\005state\030\001 \001(\0132\021.CSteamOSSLSState\"\'\n%CStea"
-  "mOSSLS_StateChanged_Notification\"1\n\036CSte"
-  "amOSSLS_SetEnabled_Request\022\017\n\007enabled\030\001 "
-  "\001(\010\"!\n\037CSteamOSSLS_SetEnabled_Response\"g"
-  "\n$CSteamOSSLS_SetPluginEnabled_Request\022."
-  "\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLSHelper_I"
-  "nvalid\022\017\n\007enabled\030\002 \001(\010\"\'\n%CSteamOSSLS_S"
-  "etPluginEnabled_Response2\227\004\n\016SteamOSMana"
-  "ger\022Q\n\010GetState\022!.CSteamOSManager_GetSta"
-  "te_Request\032\".CSteamOSManager_GetState_Re"
-  "sponse\022R\n\022NotifyStateChanged\022*.CSteamOSM"
-  "anager_StateChanged_Notification\032\020.WebUI"
-  "NoResponse\022\201\001\n\030OptOutOfSideloadedClient\022"
-  "1.CSteamOSManager_OptOutOfSideloadedClie"
-  "nt_Request\0322.CSteamOSManager_OptOutOfSid"
-  "eloadedClient_Response\022u\n\024ApplyMandatory"
-  "Update\022-.CSteamOSManager_ApplyMandatoryU"
-  "pdate_Request\032..CSteamOSManager_ApplyMan"
-  "datoryUpdate_Response\022]\n\014FactoryReset\022%."
-  "CSteamOSManager_FactoryReset_Request\032&.C"
-  "SteamOSManager_FactoryReset_Response\032\004\200\227"
-  "\"\0012\341\002\n\nSteamOSSLS\022I\n\010GetState\022\035.CSteamOS"
-  "SLS_GetState_Request\032\036.CSteamOSSLS_GetSt"
-  "ate_Response\022N\n\022NotifyStateChanged\022&.CSt"
-  "eamOSSLS_StateChanged_Notification\032\020.Web"
-  "UINoResponse\022O\n\nSetEnabled\022\037.CSteamOSSLS"
-  "_SetEnabled_Request\032 .CSteamOSSLS_SetEna"
-  "bled_Response\022a\n\020SetPluginEnabled\022%.CSte"
-  "amOSSLS_SetPluginEnabled_Request\032&.CStea"
-  "mOSSLS_SetPluginEnabled_Response\032\004\200\227\"\001B\037"
-  "H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "\001(\0132\026.CMsgFactoryResetState\022\036\n\026is_tdp_li"
+  "mit_available\030\007 \001(\010\022\025\n\rtdp_limit_min\030\010 \001"
+  "(\005\022\025\n\rtdp_limit_max\030\t \001(\005\022\030\n\020is_cec_avai"
+  "lable\030\n \001(\010\"\"\n CSteamOSManager_GetState_"
+  "Request\"I\n!CSteamOSManager_GetState_Resp"
+  "onse\022$\n\005state\030\001 \001(\0132\025.CSteamOSManagerSta"
+  "te\"+\n)CSteamOSManager_StateChanged_Notif"
+  "ication\"d\n2CSteamOSManager_IsTelemetryHe"
+  "lperAvailable_Request\022.\n\005etype\030\001 \001(\0162\013.E"
+  "SLSHelper:\022ESLSHelper_Invalid\"H\n3CSteamO"
+  "SManager_IsTelemetryHelperAvailable_Resp"
+  "onse\022\021\n\tavailable\030\001 \001(\010\"2\n0CSteamOSManag"
+  "er_OptOutOfSideloadedClient_Request\"3\n1C"
+  "SteamOSManager_OptOutOfSideloadedClient_"
+  "Response\".\n,CSteamOSManager_ApplyMandato"
+  "ryUpdate_Request\"/\n-CSteamOSManager_Appl"
+  "yMandatoryUpdate_Response\"&\n$CSteamOSMan"
+  "ager_FactoryReset_Request\"\'\n%CSteamOSMan"
+  "ager_FactoryReset_Response\"m\n\021CSteamOSSL"
+  "SPlugin\022.\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESL"
+  "SHelper_Invalid\022\024\n\014is_available\030\002 \001(\010\022\022\n"
+  "\nis_enabled\030\003 \001(\010\"a\n\020CSteamOSSLSState\022\024\n"
+  "\014is_available\030\001 \001(\010\022\022\n\nis_enabled\030\002 \001(\010\022"
+  "#\n\007plugins\030\003 \003(\0132\022.CSteamOSSLSPlugin\"\036\n\034"
+  "CSteamOSSLS_GetState_Request\"A\n\035CSteamOS"
+  "SLS_GetState_Response\022 \n\005state\030\001 \001(\0132\021.C"
+  "SteamOSSLSState\"\'\n%CSteamOSSLS_StateChan"
+  "ged_Notification\"1\n\036CSteamOSSLS_SetEnabl"
+  "ed_Request\022\017\n\007enabled\030\001 \001(\010\"!\n\037CSteamOSS"
+  "LS_SetEnabled_Response\"g\n$CSteamOSSLS_Se"
+  "tPluginEnabled_Request\022.\n\005etype\030\001 \001(\0162\013."
+  "ESLSHelper:\022ESLSHelper_Invalid\022\017\n\007enable"
+  "d\030\002 \001(\010\"\'\n%CSteamOSSLS_SetPluginEnabled_"
+  "Response2\227\004\n\016SteamOSManager\022Q\n\010GetState\022"
+  "!.CSteamOSManager_GetState_Request\032\".CSt"
+  "eamOSManager_GetState_Response\022R\n\022Notify"
+  "StateChanged\022*.CSteamOSManager_StateChan"
+  "ged_Notification\032\020.WebUINoResponse\022\201\001\n\030O"
+  "ptOutOfSideloadedClient\0221.CSteamOSManage"
+  "r_OptOutOfSideloadedClient_Request\0322.CSt"
+  "eamOSManager_OptOutOfSideloadedClient_Re"
+  "sponse\022u\n\024ApplyMandatoryUpdate\022-.CSteamO"
+  "SManager_ApplyMandatoryUpdate_Request\032.."
+  "CSteamOSManager_ApplyMandatoryUpdate_Res"
+  "ponse\022]\n\014FactoryReset\022%.CSteamOSManager_"
+  "FactoryReset_Request\032&.CSteamOSManager_F"
+  "actoryReset_Response\032\004\200\227\"\0012\341\002\n\nSteamOSSL"
+  "S\022I\n\010GetState\022\035.CSteamOSSLS_GetState_Req"
+  "uest\032\036.CSteamOSSLS_GetState_Response\022N\n\022"
+  "NotifyStateChanged\022&.CSteamOSSLS_StateCh"
+  "anged_Notification\032\020.WebUINoResponse\022O\n\n"
+  "SetEnabled\022\037.CSteamOSSLS_SetEnabled_Requ"
+  "est\032 .CSteamOSSLS_SetEnabled_Response\022a\n"
+  "\020SetPluginEnabled\022%.CSteamOSSLS_SetPlugi"
+  "nEnabled_Request\032&.CSteamOSSLS_SetPlugin"
+  "Enabled_Response\032\004\200\227\"\001B\037H\001\200\001\001\252\002\027OpenStea"
+  "mworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fsteamos_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -574,7 +589,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fsteamos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fsteamos_2eproto = {
-  false, false, 2671, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
+  false, false, 2775, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
   &descriptor_table_webuimessages_5fsteamos_2eproto_once, descriptor_table_webuimessages_5fsteamos_2eproto_deps, 4, 22,
   schemas, file_default_instances, TableStruct_webuimessages_5fsteamos_2eproto::offsets,
   file_level_metadata_webuimessages_5fsteamos_2eproto, file_level_enum_descriptors_webuimessages_5fsteamos_2eproto, file_level_service_descriptors_webuimessages_5fsteamos_2eproto,
@@ -891,23 +906,35 @@ class CSteamOSManagerState::_Internal {
  public:
   using HasBits = decltype(std::declval<CSteamOSManagerState>()._has_bits_);
   static void set_has_is_service_available(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_os_version(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_is_mandatory_update_available(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_startup_movie_variant(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_is_status_led_control_available(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 32u;
   }
   static const ::CMsgFactoryResetState& factory_reset_state(const CSteamOSManagerState* msg);
   static void set_has_factory_reset_state(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
+  }
+  static void set_has_is_tdp_limit_available(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
+  static void set_has_tdp_limit_min(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_tdp_limit_max(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_is_cec_available(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
   }
 };
 
@@ -935,9 +962,9 @@ CSteamOSManagerState::CSteamOSManagerState(const CSteamOSManagerState& from)
   } else {
     factory_reset_state_ = nullptr;
   }
-  ::memcpy(&is_service_available_, &from.is_service_available_,
-    static_cast<size_t>(reinterpret_cast<char*>(&startup_movie_variant_) -
-    reinterpret_cast<char*>(&is_service_available_)) + sizeof(startup_movie_variant_));
+  ::memcpy(&startup_movie_variant_, &from.startup_movie_variant_,
+    static_cast<size_t>(reinterpret_cast<char*>(&is_cec_available_) -
+    reinterpret_cast<char*>(&startup_movie_variant_)) + sizeof(is_cec_available_));
   // @@protoc_insertion_point(copy_constructor:CSteamOSManagerState)
 }
 
@@ -945,8 +972,8 @@ void CSteamOSManagerState::SharedCtor() {
 os_version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&factory_reset_state_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&startup_movie_variant_) -
-    reinterpret_cast<char*>(&factory_reset_state_)) + sizeof(startup_movie_variant_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_cec_available_) -
+    reinterpret_cast<char*>(&factory_reset_state_)) + sizeof(is_cec_available_));
 }
 
 CSteamOSManagerState::~CSteamOSManagerState() {
@@ -987,10 +1014,15 @@ void CSteamOSManagerState::Clear() {
       factory_reset_state_->Clear();
     }
   }
-  if (cached_has_bits & 0x0000003cu) {
-    ::memset(&is_service_available_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&startup_movie_variant_) -
-        reinterpret_cast<char*>(&is_service_available_)) + sizeof(startup_movie_variant_));
+  if (cached_has_bits & 0x000000fcu) {
+    ::memset(&startup_movie_variant_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&tdp_limit_min_) -
+        reinterpret_cast<char*>(&startup_movie_variant_)) + sizeof(tdp_limit_min_));
+  }
+  if (cached_has_bits & 0x00000300u) {
+    ::memset(&tdp_limit_max_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&is_cec_available_) -
+        reinterpret_cast<char*>(&tdp_limit_max_)) + sizeof(is_cec_available_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1058,6 +1090,38 @@ const char* CSteamOSManagerState::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool is_tdp_limit_available = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          _Internal::set_has_is_tdp_limit_available(&has_bits);
+          is_tdp_limit_available_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 tdp_limit_min = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          _Internal::set_has_tdp_limit_min(&has_bits);
+          tdp_limit_min_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 tdp_limit_max = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          _Internal::set_has_tdp_limit_max(&has_bits);
+          tdp_limit_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_cec_available = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          _Internal::set_has_is_cec_available(&has_bits);
+          is_cec_available_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -1089,7 +1153,7 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional bool is_service_available = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_service_available(), target);
   }
@@ -1105,20 +1169,20 @@ failure:
   }
 
   // optional bool is_mandatory_update_available = 3;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_mandatory_update_available(), target);
   }
 
   // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       4, this->_internal_startup_movie_variant(), target);
   }
 
   // optional bool is_status_led_control_available = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_is_status_led_control_available(), target);
   }
@@ -1129,6 +1193,30 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
         6, _Internal::factory_reset_state(this), target, stream);
+  }
+
+  // optional bool is_tdp_limit_available = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_is_tdp_limit_available(), target);
+  }
+
+  // optional int32 tdp_limit_min = 8;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_tdp_limit_min(), target);
+  }
+
+  // optional int32 tdp_limit_max = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(9, this->_internal_tdp_limit_max(), target);
+  }
+
+  // optional bool is_cec_available = 10;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_is_cec_available(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1148,7 +1236,7 @@ size_t CSteamOSManagerState::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x000000ffu) {
     // optional string os_version = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -1163,25 +1251,51 @@ size_t CSteamOSManagerState::ByteSizeLong() const {
           *factory_reset_state_);
     }
 
-    // optional bool is_service_available = 1;
+    // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
     if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 1;
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_startup_movie_variant());
     }
 
-    // optional bool is_mandatory_update_available = 3;
+    // optional bool is_service_available = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
-    // optional bool is_status_led_control_available = 5;
+    // optional bool is_mandatory_update_available = 3;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
-    // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
+    // optional bool is_status_led_control_available = 5;
     if (cached_has_bits & 0x00000020u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_tdp_limit_available = 7;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 tdp_limit_min = 8;
+    if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_startup_movie_variant());
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_tdp_limit_min());
+    }
+
+  }
+  if (cached_has_bits & 0x00000300u) {
+    // optional int32 tdp_limit_max = 9;
+    if (cached_has_bits & 0x00000100u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_tdp_limit_max());
+    }
+
+    // optional bool is_cec_available = 10;
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -1217,7 +1331,7 @@ void CSteamOSManagerState::MergeFrom(const CSteamOSManagerState& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_os_version(from._internal_os_version());
     }
@@ -1225,16 +1339,31 @@ void CSteamOSManagerState::MergeFrom(const CSteamOSManagerState& from) {
       _internal_mutable_factory_reset_state()->::CMsgFactoryResetState::MergeFrom(from._internal_factory_reset_state());
     }
     if (cached_has_bits & 0x00000004u) {
-      is_service_available_ = from.is_service_available_;
+      startup_movie_variant_ = from.startup_movie_variant_;
     }
     if (cached_has_bits & 0x00000008u) {
-      is_mandatory_update_available_ = from.is_mandatory_update_available_;
+      is_service_available_ = from.is_service_available_;
     }
     if (cached_has_bits & 0x00000010u) {
-      is_status_led_control_available_ = from.is_status_led_control_available_;
+      is_mandatory_update_available_ = from.is_mandatory_update_available_;
     }
     if (cached_has_bits & 0x00000020u) {
-      startup_movie_variant_ = from.startup_movie_variant_;
+      is_status_led_control_available_ = from.is_status_led_control_available_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      is_tdp_limit_available_ = from.is_tdp_limit_available_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      tdp_limit_min_ = from.tdp_limit_min_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000300u) {
+    if (cached_has_bits & 0x00000100u) {
+      tdp_limit_max_ = from.tdp_limit_max_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      is_cec_available_ = from.is_cec_available_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1264,8 +1393,8 @@ void CSteamOSManagerState::InternalSwap(CSteamOSManagerState* other) {
   swap(_has_bits_[0], other->_has_bits_[0]);
   os_version_.Swap(&other->os_version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, startup_movie_variant_)
-      + sizeof(CSteamOSManagerState::startup_movie_variant_)
+      PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, is_cec_available_)
+      + sizeof(CSteamOSManagerState::is_cec_available_)
       - PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, factory_reset_state_)>(
           reinterpret_cast<char*>(&factory_reset_state_),
           reinterpret_cast<char*>(&other->factory_reset_state_));

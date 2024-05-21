@@ -468,10 +468,14 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   enum : int {
     kOsVersionFieldNumber = 2,
     kFactoryResetStateFieldNumber = 6,
+    kStartupMovieVariantFieldNumber = 4,
     kIsServiceAvailableFieldNumber = 1,
     kIsMandatoryUpdateAvailableFieldNumber = 3,
     kIsStatusLedControlAvailableFieldNumber = 5,
-    kStartupMovieVariantFieldNumber = 4,
+    kIsTdpLimitAvailableFieldNumber = 7,
+    kTdpLimitMinFieldNumber = 8,
+    kTdpLimitMaxFieldNumber = 9,
+    kIsCecAvailableFieldNumber = 10,
   };
   // optional string os_version = 2;
   bool has_os_version() const;
@@ -510,6 +514,19 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   void unsafe_arena_set_allocated_factory_reset_state(
       ::CMsgFactoryResetState* factory_reset_state);
   ::CMsgFactoryResetState* unsafe_arena_release_factory_reset_state();
+
+  // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
+  bool has_startup_movie_variant() const;
+  private:
+  bool _internal_has_startup_movie_variant() const;
+  public:
+  void clear_startup_movie_variant();
+  ::EStartupMovieVariant startup_movie_variant() const;
+  void set_startup_movie_variant(::EStartupMovieVariant value);
+  private:
+  ::EStartupMovieVariant _internal_startup_movie_variant() const;
+  void _internal_set_startup_movie_variant(::EStartupMovieVariant value);
+  public:
 
   // optional bool is_service_available = 1;
   bool has_is_service_available() const;
@@ -550,17 +567,56 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   void _internal_set_is_status_led_control_available(bool value);
   public:
 
-  // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
-  bool has_startup_movie_variant() const;
+  // optional bool is_tdp_limit_available = 7;
+  bool has_is_tdp_limit_available() const;
   private:
-  bool _internal_has_startup_movie_variant() const;
+  bool _internal_has_is_tdp_limit_available() const;
   public:
-  void clear_startup_movie_variant();
-  ::EStartupMovieVariant startup_movie_variant() const;
-  void set_startup_movie_variant(::EStartupMovieVariant value);
+  void clear_is_tdp_limit_available();
+  bool is_tdp_limit_available() const;
+  void set_is_tdp_limit_available(bool value);
   private:
-  ::EStartupMovieVariant _internal_startup_movie_variant() const;
-  void _internal_set_startup_movie_variant(::EStartupMovieVariant value);
+  bool _internal_is_tdp_limit_available() const;
+  void _internal_set_is_tdp_limit_available(bool value);
+  public:
+
+  // optional int32 tdp_limit_min = 8;
+  bool has_tdp_limit_min() const;
+  private:
+  bool _internal_has_tdp_limit_min() const;
+  public:
+  void clear_tdp_limit_min();
+  ::PROTOBUF_NAMESPACE_ID::int32 tdp_limit_min() const;
+  void set_tdp_limit_min(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_tdp_limit_min() const;
+  void _internal_set_tdp_limit_min(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 tdp_limit_max = 9;
+  bool has_tdp_limit_max() const;
+  private:
+  bool _internal_has_tdp_limit_max() const;
+  public:
+  void clear_tdp_limit_max();
+  ::PROTOBUF_NAMESPACE_ID::int32 tdp_limit_max() const;
+  void set_tdp_limit_max(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_tdp_limit_max() const;
+  void _internal_set_tdp_limit_max(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool is_cec_available = 10;
+  bool has_is_cec_available() const;
+  private:
+  bool _internal_has_is_cec_available() const;
+  public:
+  void clear_is_cec_available();
+  bool is_cec_available() const;
+  void set_is_cec_available(bool value);
+  private:
+  bool _internal_is_cec_available() const;
+  void _internal_set_is_cec_available(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:CSteamOSManagerState)
@@ -574,10 +630,14 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr os_version_;
   ::CMsgFactoryResetState* factory_reset_state_;
+  int startup_movie_variant_;
   bool is_service_available_;
   bool is_mandatory_update_available_;
   bool is_status_led_control_available_;
-  int startup_movie_variant_;
+  bool is_tdp_limit_available_;
+  ::PROTOBUF_NAMESPACE_ID::int32 tdp_limit_min_;
+  ::PROTOBUF_NAMESPACE_ID::int32 tdp_limit_max_;
+  bool is_cec_available_;
   friend struct ::TableStruct_webuimessages_5fsteamos_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3737,7 +3797,7 @@ inline void CMsgFactoryResetState::set_rtime_estimated_completion(::PROTOBUF_NAM
 
 // optional bool is_service_available = 1;
 inline bool CSteamOSManagerState::_internal_has_is_service_available() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSteamOSManagerState::has_is_service_available() const {
@@ -3745,7 +3805,7 @@ inline bool CSteamOSManagerState::has_is_service_available() const {
 }
 inline void CSteamOSManagerState::clear_is_service_available() {
   is_service_available_ = false;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline bool CSteamOSManagerState::_internal_is_service_available() const {
   return is_service_available_;
@@ -3755,7 +3815,7 @@ inline bool CSteamOSManagerState::is_service_available() const {
   return _internal_is_service_available();
 }
 inline void CSteamOSManagerState::_internal_set_is_service_available(bool value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   is_service_available_ = value;
 }
 inline void CSteamOSManagerState::set_is_service_available(bool value) {
@@ -3838,7 +3898,7 @@ inline void CSteamOSManagerState::set_allocated_os_version(std::string* os_versi
 
 // optional bool is_mandatory_update_available = 3;
 inline bool CSteamOSManagerState::_internal_has_is_mandatory_update_available() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSteamOSManagerState::has_is_mandatory_update_available() const {
@@ -3846,7 +3906,7 @@ inline bool CSteamOSManagerState::has_is_mandatory_update_available() const {
 }
 inline void CSteamOSManagerState::clear_is_mandatory_update_available() {
   is_mandatory_update_available_ = false;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline bool CSteamOSManagerState::_internal_is_mandatory_update_available() const {
   return is_mandatory_update_available_;
@@ -3856,7 +3916,7 @@ inline bool CSteamOSManagerState::is_mandatory_update_available() const {
   return _internal_is_mandatory_update_available();
 }
 inline void CSteamOSManagerState::_internal_set_is_mandatory_update_available(bool value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   is_mandatory_update_available_ = value;
 }
 inline void CSteamOSManagerState::set_is_mandatory_update_available(bool value) {
@@ -3866,7 +3926,7 @@ inline void CSteamOSManagerState::set_is_mandatory_update_available(bool value) 
 
 // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
 inline bool CSteamOSManagerState::_internal_has_startup_movie_variant() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CSteamOSManagerState::has_startup_movie_variant() const {
@@ -3874,7 +3934,7 @@ inline bool CSteamOSManagerState::has_startup_movie_variant() const {
 }
 inline void CSteamOSManagerState::clear_startup_movie_variant() {
   startup_movie_variant_ = 0;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::EStartupMovieVariant CSteamOSManagerState::_internal_startup_movie_variant() const {
   return static_cast< ::EStartupMovieVariant >(startup_movie_variant_);
@@ -3885,7 +3945,7 @@ inline ::EStartupMovieVariant CSteamOSManagerState::startup_movie_variant() cons
 }
 inline void CSteamOSManagerState::_internal_set_startup_movie_variant(::EStartupMovieVariant value) {
   assert(::EStartupMovieVariant_IsValid(value));
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000004u;
   startup_movie_variant_ = value;
 }
 inline void CSteamOSManagerState::set_startup_movie_variant(::EStartupMovieVariant value) {
@@ -3895,7 +3955,7 @@ inline void CSteamOSManagerState::set_startup_movie_variant(::EStartupMovieVaria
 
 // optional bool is_status_led_control_available = 5;
 inline bool CSteamOSManagerState::_internal_has_is_status_led_control_available() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSteamOSManagerState::has_is_status_led_control_available() const {
@@ -3903,7 +3963,7 @@ inline bool CSteamOSManagerState::has_is_status_led_control_available() const {
 }
 inline void CSteamOSManagerState::clear_is_status_led_control_available() {
   is_status_led_control_available_ = false;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline bool CSteamOSManagerState::_internal_is_status_led_control_available() const {
   return is_status_led_control_available_;
@@ -3913,7 +3973,7 @@ inline bool CSteamOSManagerState::is_status_led_control_available() const {
   return _internal_is_status_led_control_available();
 }
 inline void CSteamOSManagerState::_internal_set_is_status_led_control_available(bool value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   is_status_led_control_available_ = value;
 }
 inline void CSteamOSManagerState::set_is_status_led_control_available(bool value) {
@@ -4002,6 +4062,118 @@ inline void CSteamOSManagerState::set_allocated_factory_reset_state(::CMsgFactor
   }
   factory_reset_state_ = factory_reset_state;
   // @@protoc_insertion_point(field_set_allocated:CSteamOSManagerState.factory_reset_state)
+}
+
+// optional bool is_tdp_limit_available = 7;
+inline bool CSteamOSManagerState::_internal_has_is_tdp_limit_available() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_is_tdp_limit_available() const {
+  return _internal_has_is_tdp_limit_available();
+}
+inline void CSteamOSManagerState::clear_is_tdp_limit_available() {
+  is_tdp_limit_available_ = false;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline bool CSteamOSManagerState::_internal_is_tdp_limit_available() const {
+  return is_tdp_limit_available_;
+}
+inline bool CSteamOSManagerState::is_tdp_limit_available() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.is_tdp_limit_available)
+  return _internal_is_tdp_limit_available();
+}
+inline void CSteamOSManagerState::_internal_set_is_tdp_limit_available(bool value) {
+  _has_bits_[0] |= 0x00000040u;
+  is_tdp_limit_available_ = value;
+}
+inline void CSteamOSManagerState::set_is_tdp_limit_available(bool value) {
+  _internal_set_is_tdp_limit_available(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_tdp_limit_available)
+}
+
+// optional int32 tdp_limit_min = 8;
+inline bool CSteamOSManagerState::_internal_has_tdp_limit_min() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_tdp_limit_min() const {
+  return _internal_has_tdp_limit_min();
+}
+inline void CSteamOSManagerState::clear_tdp_limit_min() {
+  tdp_limit_min_ = 0;
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CSteamOSManagerState::_internal_tdp_limit_min() const {
+  return tdp_limit_min_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CSteamOSManagerState::tdp_limit_min() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.tdp_limit_min)
+  return _internal_tdp_limit_min();
+}
+inline void CSteamOSManagerState::_internal_set_tdp_limit_min(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000080u;
+  tdp_limit_min_ = value;
+}
+inline void CSteamOSManagerState::set_tdp_limit_min(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_tdp_limit_min(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.tdp_limit_min)
+}
+
+// optional int32 tdp_limit_max = 9;
+inline bool CSteamOSManagerState::_internal_has_tdp_limit_max() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_tdp_limit_max() const {
+  return _internal_has_tdp_limit_max();
+}
+inline void CSteamOSManagerState::clear_tdp_limit_max() {
+  tdp_limit_max_ = 0;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CSteamOSManagerState::_internal_tdp_limit_max() const {
+  return tdp_limit_max_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CSteamOSManagerState::tdp_limit_max() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.tdp_limit_max)
+  return _internal_tdp_limit_max();
+}
+inline void CSteamOSManagerState::_internal_set_tdp_limit_max(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000100u;
+  tdp_limit_max_ = value;
+}
+inline void CSteamOSManagerState::set_tdp_limit_max(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_tdp_limit_max(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.tdp_limit_max)
+}
+
+// optional bool is_cec_available = 10;
+inline bool CSteamOSManagerState::_internal_has_is_cec_available() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_is_cec_available() const {
+  return _internal_has_is_cec_available();
+}
+inline void CSteamOSManagerState::clear_is_cec_available() {
+  is_cec_available_ = false;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline bool CSteamOSManagerState::_internal_is_cec_available() const {
+  return is_cec_available_;
+}
+inline bool CSteamOSManagerState::is_cec_available() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.is_cec_available)
+  return _internal_is_cec_available();
+}
+inline void CSteamOSManagerState::_internal_set_is_cec_available(bool value) {
+  _has_bits_[0] |= 0x00000200u;
+  is_cec_available_ = value;
+}
+inline void CSteamOSManagerState::set_is_cec_available(bool value) {
+  _internal_set_is_cec_available(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_cec_available)
 }
 
 // -------------------------------------------------------------------

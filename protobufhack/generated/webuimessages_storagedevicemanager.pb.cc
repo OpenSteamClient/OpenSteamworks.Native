@@ -79,7 +79,8 @@ constexpr CStorageDeviceManagerBlockDevice::CStorageDeviceManagerBlockDevice(
   , content_type_(0)
 
   , filesystem_type_(0)
-{}
+
+  , has_steam_library_(false){}
 struct CStorageDeviceManagerBlockDeviceDefaultTypeInternal {
   constexpr CStorageDeviceManagerBlockDeviceDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -166,7 +167,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStorageDeviceManager_Eject_Res
 constexpr CStorageDeviceManager_Adopt_Request::CStorageDeviceManager_Adopt_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : label_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , drive_id_(0u){}
+  , drive_id_(0u)
+  , validate_(false){}
 struct CStorageDeviceManager_Adopt_RequestDefaultTypeInternal {
   constexpr CStorageDeviceManager_Adopt_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -317,6 +319,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fstoragedevicem
   PROTOBUF_FIELD_OFFSET(::CStorageDeviceManagerBlockDevice, filesystem_type_),
   PROTOBUF_FIELD_OFFSET(::CStorageDeviceManagerBlockDevice, mount_paths_),
   PROTOBUF_FIELD_OFFSET(::CStorageDeviceManagerBlockDevice, is_unmounting_),
+  PROTOBUF_FIELD_OFFSET(::CStorageDeviceManagerBlockDevice, has_steam_library_),
   3,
   4,
   0,
@@ -330,6 +333,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fstoragedevicem
   11,
   ~0u,
   9,
+  12,
   PROTOBUF_FIELD_OFFSET(::CStorageDeviceManagerState, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CStorageDeviceManagerState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -383,8 +387,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fstoragedevicem
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CStorageDeviceManager_Adopt_Request, drive_id_),
   PROTOBUF_FIELD_OFFSET(::CStorageDeviceManager_Adopt_Request, label_),
+  PROTOBUF_FIELD_OFFSET(::CStorageDeviceManager_Adopt_Request, validate_),
   1,
   0,
+  2,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CStorageDeviceManager_Adopt_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -429,21 +435,21 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, -1, sizeof(::CStorageDeviceManager_IsServiceAvailable_Request)},
   { 5, 11, sizeof(::CStorageDeviceManager_IsServiceAvailable_Response)},
   { 12, 28, sizeof(::CStorageDeviceManagerDrive)},
-  { 39, 57, sizeof(::CStorageDeviceManagerBlockDevice)},
-  { 70, 81, sizeof(::CStorageDeviceManagerState)},
-  { 87, -1, sizeof(::CStorageDeviceManager_GetState_Request)},
-  { 92, 98, sizeof(::CStorageDeviceManager_GetState_Response)},
-  { 99, -1, sizeof(::CStorageDeviceManager_StateChanged_Notification)},
-  { 104, 110, sizeof(::CStorageDeviceManager_Eject_Request)},
-  { 111, -1, sizeof(::CStorageDeviceManager_Eject_Response)},
-  { 116, 123, sizeof(::CStorageDeviceManager_Adopt_Request)},
-  { 125, -1, sizeof(::CStorageDeviceManager_Adopt_Response)},
-  { 130, 136, sizeof(::CStorageDeviceManager_Format_Request)},
-  { 137, -1, sizeof(::CStorageDeviceManager_Format_Response)},
-  { 142, 148, sizeof(::CStorageDeviceManager_Unmount_Request)},
-  { 149, -1, sizeof(::CStorageDeviceManager_Unmount_Response)},
-  { 154, -1, sizeof(::CStorageDeviceManager_TrimAll_Request)},
-  { 159, -1, sizeof(::CStorageDeviceManager_TrimAll_Response)},
+  { 39, 58, sizeof(::CStorageDeviceManagerBlockDevice)},
+  { 72, 83, sizeof(::CStorageDeviceManagerState)},
+  { 89, -1, sizeof(::CStorageDeviceManager_GetState_Request)},
+  { 94, 100, sizeof(::CStorageDeviceManager_GetState_Response)},
+  { 101, -1, sizeof(::CStorageDeviceManager_StateChanged_Notification)},
+  { 106, 112, sizeof(::CStorageDeviceManager_Eject_Request)},
+  { 113, -1, sizeof(::CStorageDeviceManager_Eject_Response)},
+  { 118, 126, sizeof(::CStorageDeviceManager_Adopt_Request)},
+  { 129, -1, sizeof(::CStorageDeviceManager_Adopt_Response)},
+  { 134, 140, sizeof(::CStorageDeviceManager_Format_Request)},
+  { 141, -1, sizeof(::CStorageDeviceManager_Format_Response)},
+  { 146, 152, sizeof(::CStorageDeviceManager_Unmount_Request)},
+  { 153, -1, sizeof(::CStorageDeviceManager_Unmount_Response)},
+  { 158, -1, sizeof(::CStorageDeviceManager_TrimAll_Request)},
+  { 163, -1, sizeof(::CStorageDeviceManager_TrimAll_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -483,7 +489,7 @@ const char descriptor_table_protodef_webuimessages_5fstoragedevicemanager_2eprot
   "\022\026\n\016is_unformatted\030\010 \001(\010\022F\n\013adopt_stage\030"
   "\t \001(\0162\024.EStorageFormatStage:\033EStorageFor"
   "matStage_Invalid\022\026\n\016is_formattable\030\n \001(\010"
-  "\022\032\n\022is_media_available\030\013 \001(\010\"\257\003\n CStorag"
+  "\022\032\n\022is_media_available\030\013 \001(\010\"\312\003\n CStorag"
   "eDeviceManagerBlockDevice\022\r\n\002id\030\001 \001(\r:\0010"
   "\022\023\n\010drive_id\030\002 \001(\r:\0010\022\014\n\004path\030\003 \001(\t\022\025\n\rf"
   "riendly_path\030\004 \001(\t\022\r\n\005label\030\005 \001(\t\022\022\n\nsiz"
@@ -494,51 +500,52 @@ const char descriptor_table_protodef_webuimessages_5fstoragedevicemanager_2eprot
   "nvalid\022Z\n\017filesystem_type\030\013 \001(\0162\034.EStora"
   "geBlockFileSystemType:#EStorageBlockFile"
   "SystemType_Invalid\022\023\n\013mount_paths\030\014 \003(\t\022"
-  "\025\n\ris_unmounting\030\r \001(\010\"\357\001\n\032CStorageDevic"
-  "eManagerState\022+\n\006drives\030\001 \003(\0132\033.CStorage"
-  "DeviceManagerDrive\0226\n\013blocdevices\030\002 \003(\0132"
-  "!.CStorageDeviceManagerBlockDevice\022\034\n\024is"
-  "_unmount_supported\030\003 \001(\010\022\031\n\021is_trim_supp"
-  "orted\030\004 \001(\010\022\027\n\017is_trim_running\030\005 \001(\010\022\032\n\022"
-  "is_adopt_supported\030\006 \001(\010\"(\n&CStorageDevi"
-  "ceManager_GetState_Request\"U\n\'CStorageDe"
-  "viceManager_GetState_Response\022*\n\005state\030\001"
-  " \001(\0132\033.CStorageDeviceManagerState\"1\n/CSt"
-  "orageDeviceManager_StateChanged_Notifica"
-  "tion\"7\n#CStorageDeviceManager_Eject_Requ"
-  "est\022\020\n\010drive_id\030\001 \001(\r\"&\n$CStorageDeviceM"
-  "anager_Eject_Response\"F\n#CStorageDeviceM"
-  "anager_Adopt_Request\022\020\n\010drive_id\030\001 \001(\r\022\r"
-  "\n\005label\030\002 \001(\t\"&\n$CStorageDeviceManager_A"
-  "dopt_Response\"=\n$CStorageDeviceManager_F"
-  "ormat_Request\022\025\n\rblocdevice_id\030\001 \001(\r\"\'\n%"
-  "CStorageDeviceManager_Format_Response\">\n"
-  "%CStorageDeviceManager_Unmount_Request\022\025"
-  "\n\rblocdevice_id\030\001 \001(\r\"(\n&CStorageDeviceM"
-  "anager_Unmount_Response\"\'\n%CStorageDevic"
-  "eManager_TrimAll_Request\"(\n&CStorageDevi"
-  "ceManager_TrimAll_Response2\217\006\n\024StorageDe"
-  "viceManager\022{\n\022IsServiceAvailable\0221.CSto"
-  "rageDeviceManager_IsServiceAvailable_Req"
-  "uest\0322.CStorageDeviceManager_IsServiceAv"
-  "ailable_Response\022]\n\010GetState\022\'.CStorageD"
-  "eviceManager_GetState_Request\032(.CStorage"
-  "DeviceManager_GetState_Response\022X\n\022Notif"
-  "yStateChanged\0220.CStorageDeviceManager_St"
-  "ateChanged_Notification\032\020.WebUINoRespons"
-  "e\022T\n\005Adopt\022$.CStorageDeviceManager_Adopt"
-  "_Request\032%.CStorageDeviceManager_Adopt_R"
-  "esponse\022T\n\005Eject\022$.CStorageDeviceManager"
-  "_Eject_Request\032%.CStorageDeviceManager_E"
-  "ject_Response\022W\n\006Format\022%.CStorageDevice"
-  "Manager_Format_Request\032&.CStorageDeviceM"
-  "anager_Format_Response\022Z\n\007Unmount\022&.CSto"
-  "rageDeviceManager_Unmount_Request\032\'.CSto"
-  "rageDeviceManager_Unmount_Response\022Z\n\007Tr"
-  "imAll\022&.CStorageDeviceManager_TrimAll_Re"
-  "quest\032\'.CStorageDeviceManager_TrimAll_Re"
-  "sponse\032\004\200\227\"\001B\037H\001\200\001\001\252\002\027OpenSteamworks.Pro"
-  "tobuf"
+  "\025\n\ris_unmounting\030\r \001(\010\022\031\n\021has_steam_libr"
+  "ary\030\016 \001(\010\"\357\001\n\032CStorageDeviceManagerState"
+  "\022+\n\006drives\030\001 \003(\0132\033.CStorageDeviceManager"
+  "Drive\0226\n\013blocdevices\030\002 \003(\0132!.CStorageDev"
+  "iceManagerBlockDevice\022\034\n\024is_unmount_supp"
+  "orted\030\003 \001(\010\022\031\n\021is_trim_supported\030\004 \001(\010\022\027"
+  "\n\017is_trim_running\030\005 \001(\010\022\032\n\022is_adopt_supp"
+  "orted\030\006 \001(\010\"(\n&CStorageDeviceManager_Get"
+  "State_Request\"U\n\'CStorageDeviceManager_G"
+  "etState_Response\022*\n\005state\030\001 \001(\0132\033.CStora"
+  "geDeviceManagerState\"1\n/CStorageDeviceMa"
+  "nager_StateChanged_Notification\"7\n#CStor"
+  "ageDeviceManager_Eject_Request\022\020\n\010drive_"
+  "id\030\001 \001(\r\"&\n$CStorageDeviceManager_Eject_"
+  "Response\"X\n#CStorageDeviceManager_Adopt_"
+  "Request\022\020\n\010drive_id\030\001 \001(\r\022\r\n\005label\030\002 \001(\t"
+  "\022\020\n\010validate\030\003 \001(\010\"&\n$CStorageDeviceMana"
+  "ger_Adopt_Response\"=\n$CStorageDeviceMana"
+  "ger_Format_Request\022\025\n\rblocdevice_id\030\001 \001("
+  "\r\"\'\n%CStorageDeviceManager_Format_Respon"
+  "se\">\n%CStorageDeviceManager_Unmount_Requ"
+  "est\022\025\n\rblocdevice_id\030\001 \001(\r\"(\n&CStorageDe"
+  "viceManager_Unmount_Response\"\'\n%CStorage"
+  "DeviceManager_TrimAll_Request\"(\n&CStorag"
+  "eDeviceManager_TrimAll_Response2\217\006\n\024Stor"
+  "ageDeviceManager\022{\n\022IsServiceAvailable\0221"
+  ".CStorageDeviceManager_IsServiceAvailabl"
+  "e_Request\0322.CStorageDeviceManager_IsServ"
+  "iceAvailable_Response\022]\n\010GetState\022\'.CSto"
+  "rageDeviceManager_GetState_Request\032(.CSt"
+  "orageDeviceManager_GetState_Response\022X\n\022"
+  "NotifyStateChanged\0220.CStorageDeviceManag"
+  "er_StateChanged_Notification\032\020.WebUINoRe"
+  "sponse\022T\n\005Adopt\022$.CStorageDeviceManager_"
+  "Adopt_Request\032%.CStorageDeviceManager_Ad"
+  "opt_Response\022T\n\005Eject\022$.CStorageDeviceMa"
+  "nager_Eject_Request\032%.CStorageDeviceMana"
+  "ger_Eject_Response\022W\n\006Format\022%.CStorageD"
+  "eviceManager_Format_Request\032&.CStorageDe"
+  "viceManager_Format_Response\022Z\n\007Unmount\022&"
+  ".CStorageDeviceManager_Unmount_Request\032\'"
+  ".CStorageDeviceManager_Unmount_Response\022"
+  "Z\n\007TrimAll\022&.CStorageDeviceManager_TrimA"
+  "ll_Request\032\'.CStorageDeviceManager_TrimA"
+  "ll_Response\032\004\200\227\"\001B\037H\001\200\001\001\252\002\027OpenSteamwork"
+  "s.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fstoragedevicemanager_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -548,7 +555,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fstoragedevicemanager_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fstoragedevicemanager_2eproto = {
-  false, false, 2805, descriptor_table_protodef_webuimessages_5fstoragedevicemanager_2eproto, "webuimessages_storagedevicemanager.proto", 
+  false, false, 2850, descriptor_table_protodef_webuimessages_5fstoragedevicemanager_2eproto, "webuimessages_storagedevicemanager.proto", 
   &descriptor_table_webuimessages_5fstoragedevicemanager_2eproto_once, descriptor_table_webuimessages_5fstoragedevicemanager_2eproto_deps, 4, 18,
   schemas, file_default_instances, TableStruct_webuimessages_5fstoragedevicemanager_2eproto::offsets,
   file_level_metadata_webuimessages_5fstoragedevicemanager_2eproto, file_level_enum_descriptors_webuimessages_5fstoragedevicemanager_2eproto, file_level_service_descriptors_webuimessages_5fstoragedevicemanager_2eproto,
@@ -1517,6 +1524,9 @@ class CStorageDeviceManagerBlockDevice::_Internal {
   static void set_has_is_unmounting(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
+  static void set_has_has_steam_library(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
 };
 
 CStorageDeviceManagerBlockDevice::CStorageDeviceManagerBlockDevice(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -1547,8 +1557,8 @@ CStorageDeviceManagerBlockDevice::CStorageDeviceManagerBlockDevice(const CStorag
       GetArena());
   }
   ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&filesystem_type_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(filesystem_type_));
+    static_cast<size_t>(reinterpret_cast<char*>(&has_steam_library_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(has_steam_library_));
   // @@protoc_insertion_point(copy_constructor:CStorageDeviceManagerBlockDevice)
 }
 
@@ -1558,8 +1568,8 @@ friendly_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStri
 label_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&filesystem_type_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(filesystem_type_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&has_steam_library_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(has_steam_library_));
 }
 
 CStorageDeviceManagerBlockDevice::~CStorageDeviceManagerBlockDevice() {
@@ -1609,10 +1619,10 @@ void CStorageDeviceManagerBlockDevice::Clear() {
         reinterpret_cast<char*>(&is_read_only_) -
         reinterpret_cast<char*>(&id_)) + sizeof(is_read_only_));
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     ::memset(&is_root_device_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&filesystem_type_) -
-        reinterpret_cast<char*>(&is_root_device_)) + sizeof(filesystem_type_));
+        reinterpret_cast<char*>(&has_steam_library_) -
+        reinterpret_cast<char*>(&is_root_device_)) + sizeof(has_steam_library_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1755,6 +1765,14 @@ const char* CStorageDeviceManagerBlockDevice::_InternalParse(const char* ptr, ::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool has_steam_library = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          _Internal::set_has_has_steam_library(&has_bits);
+          has_steam_library_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -1881,6 +1899,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_is_unmounting(), target);
   }
 
+  // optional bool has_steam_library = 14;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_has_steam_library(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1960,7 +1984,7 @@ size_t CStorageDeviceManagerBlockDevice::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     // optional bool is_root_device = 9;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
@@ -1981,6 +2005,11 @@ size_t CStorageDeviceManagerBlockDevice::ByteSizeLong() const {
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_filesystem_type());
+    }
+
+    // optional bool has_steam_library = 14;
+    if (cached_has_bits & 0x00001000u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -2044,7 +2073,7 @@ void CStorageDeviceManagerBlockDevice::MergeFrom(const CStorageDeviceManagerBloc
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
       is_root_device_ = from.is_root_device_;
     }
@@ -2056,6 +2085,9 @@ void CStorageDeviceManagerBlockDevice::MergeFrom(const CStorageDeviceManagerBloc
     }
     if (cached_has_bits & 0x00000800u) {
       filesystem_type_ = from.filesystem_type_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      has_steam_library_ = from.has_steam_library_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -2088,8 +2120,8 @@ void CStorageDeviceManagerBlockDevice::InternalSwap(CStorageDeviceManagerBlockDe
   friendly_path_.Swap(&other->friendly_path_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   label_.Swap(&other->label_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CStorageDeviceManagerBlockDevice, filesystem_type_)
-      + sizeof(CStorageDeviceManagerBlockDevice::filesystem_type_)
+      PROTOBUF_FIELD_OFFSET(CStorageDeviceManagerBlockDevice, has_steam_library_)
+      + sizeof(CStorageDeviceManagerBlockDevice::has_steam_library_)
       - PROTOBUF_FIELD_OFFSET(CStorageDeviceManagerBlockDevice, id_)>(
           reinterpret_cast<char*>(&id_),
           reinterpret_cast<char*>(&other->id_));
@@ -3355,6 +3387,9 @@ class CStorageDeviceManager_Adopt_Request::_Internal {
   static void set_has_label(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_validate(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 CStorageDeviceManager_Adopt_Request::CStorageDeviceManager_Adopt_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -3372,13 +3407,18 @@ CStorageDeviceManager_Adopt_Request::CStorageDeviceManager_Adopt_Request(const C
     label_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_label(), 
       GetArena());
   }
-  drive_id_ = from.drive_id_;
+  ::memcpy(&drive_id_, &from.drive_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&validate_) -
+    reinterpret_cast<char*>(&drive_id_)) + sizeof(validate_));
   // @@protoc_insertion_point(copy_constructor:CStorageDeviceManager_Adopt_Request)
 }
 
 void CStorageDeviceManager_Adopt_Request::SharedCtor() {
 label_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-drive_id_ = 0u;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&drive_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&validate_) -
+    reinterpret_cast<char*>(&drive_id_)) + sizeof(validate_));
 }
 
 CStorageDeviceManager_Adopt_Request::~CStorageDeviceManager_Adopt_Request() {
@@ -3412,7 +3452,11 @@ void CStorageDeviceManager_Adopt_Request::Clear() {
   if (cached_has_bits & 0x00000001u) {
     label_.ClearNonDefaultToEmpty();
   }
-  drive_id_ = 0u;
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&drive_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&validate_) -
+        reinterpret_cast<char*>(&drive_id_)) + sizeof(validate_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3441,6 +3485,14 @@ const char* CStorageDeviceManager_Adopt_Request::_InternalParse(const char* ptr,
           #ifndef NDEBUG
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CStorageDeviceManager_Adopt_Request.label");
           #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool validate = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_validate(&has_bits);
+          validate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3490,6 +3542,12 @@ failure:
         2, this->_internal_label(), target);
   }
 
+  // optional bool validate = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_validate(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3507,7 +3565,7 @@ size_t CStorageDeviceManager_Adopt_Request::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     // optional string label = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -3520,6 +3578,11 @@ size_t CStorageDeviceManager_Adopt_Request::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_drive_id());
+    }
+
+    // optional bool validate = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -3555,12 +3618,15 @@ void CStorageDeviceManager_Adopt_Request::MergeFrom(const CStorageDeviceManager_
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_label(from._internal_label());
     }
     if (cached_has_bits & 0x00000002u) {
       drive_id_ = from.drive_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      validate_ = from.validate_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -3589,7 +3655,12 @@ void CStorageDeviceManager_Adopt_Request::InternalSwap(CStorageDeviceManager_Ado
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   label_.Swap(&other->label_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(drive_id_, other->drive_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CStorageDeviceManager_Adopt_Request, validate_)
+      + sizeof(CStorageDeviceManager_Adopt_Request::validate_)
+      - PROTOBUF_FIELD_OFFSET(CStorageDeviceManager_Adopt_Request, drive_id_)>(
+          reinterpret_cast<char*>(&drive_id_),
+          reinterpret_cast<char*>(&other->drive_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CStorageDeviceManager_Adopt_Request::GetMetadata() const {

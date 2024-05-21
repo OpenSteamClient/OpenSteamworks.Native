@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fclientserver_5fucm_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[26]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[27]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -95,6 +95,9 @@ extern CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesDefaultTypeInternal _
 class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse;
 struct CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponseDefaultTypeInternal;
 extern CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponseDefaultTypeInternal _CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_default_instance_;
+class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot;
+struct CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshotDefaultTypeInternal;
+extern CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshotDefaultTypeInternal _CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot_default_instance_;
 class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId;
 struct CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileIdDefaultTypeInternal;
 extern CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileIdDefaultTypeInternal _CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId_default_instance_;
@@ -148,6 +151,7 @@ template<> ::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse* Arena::Cr
 template<> ::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId* Arena::CreateMaybeMessage<::CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId>(Arena*);
 template<> ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates* Arena::CreateMaybeMessage<::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates>(Arena*);
 template<> ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse* Arena::CreateMaybeMessage<::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse>(Arena*);
+template<> ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* Arena::CreateMaybeMessage<::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot>(Arena*);
 template<> ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId* Arena::CreateMaybeMessage<::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId>(Arena*);
 template<> ::CMsgClientUCMPublishFile* Arena::CreateMaybeMessage<::CMsgClientUCMPublishFile>(Arena*);
 template<> ::CMsgClientUCMPublishFileResponse* Arena::CreateMaybeMessage<::CMsgClientUCMPublishFileResponse>(Arena*);
@@ -2367,6 +2371,8 @@ class CMsgClientUCMUpdatePublishedFile PROTOBUF_FINAL :
     kChangeDescriptionFieldNumber = 15,
     kUrlFieldNumber = 17,
     kMetadataFieldNumber = 20,
+    kGameBranchMinFieldNumber = 33,
+    kGameBranchMaxFieldNumber = 34,
     kPublishedFileIdFieldNumber = 2,
     kAppIdFieldNumber = 1,
     kVisibilityFieldNumber = 8,
@@ -2676,6 +2682,46 @@ class CMsgClientUCMUpdatePublishedFile PROTOBUF_FINAL :
   std::string* _internal_mutable_metadata();
   public:
 
+  // optional string game_branch_min = 33;
+  bool has_game_branch_min() const;
+  private:
+  bool _internal_has_game_branch_min() const;
+  public:
+  void clear_game_branch_min();
+  const std::string& game_branch_min() const;
+  void set_game_branch_min(const std::string& value);
+  void set_game_branch_min(std::string&& value);
+  void set_game_branch_min(const char* value);
+  void set_game_branch_min(const char* value, size_t size);
+  std::string* mutable_game_branch_min();
+  std::string* release_game_branch_min();
+  void set_allocated_game_branch_min(std::string* game_branch_min);
+  private:
+  const std::string& _internal_game_branch_min() const;
+  void _internal_set_game_branch_min(const std::string& value);
+  std::string* _internal_mutable_game_branch_min();
+  public:
+
+  // optional string game_branch_max = 34;
+  bool has_game_branch_max() const;
+  private:
+  bool _internal_has_game_branch_max() const;
+  public:
+  void clear_game_branch_max();
+  const std::string& game_branch_max() const;
+  void set_game_branch_max(const std::string& value);
+  void set_game_branch_max(std::string&& value);
+  void set_game_branch_max(const char* value);
+  void set_game_branch_max(const char* value, size_t size);
+  std::string* mutable_game_branch_max();
+  std::string* release_game_branch_max();
+  void set_allocated_game_branch_max(std::string* game_branch_max);
+  private:
+  const std::string& _internal_game_branch_max() const;
+  void _internal_set_game_branch_max(const std::string& value);
+  std::string* _internal_mutable_game_branch_max();
+  public:
+
   // optional fixed64 published_file_id = 2;
   bool has_published_file_id() const;
   private:
@@ -2933,6 +2979,8 @@ class CMsgClientUCMUpdatePublishedFile PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr change_description_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr url_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_branch_min_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_branch_max_;
   ::PROTOBUF_NAMESPACE_ID::uint64 published_file_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 visibility_;
@@ -3626,6 +3674,214 @@ class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot) */ {
+ public:
+  inline CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot() : CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot(nullptr) {}
+  virtual ~CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot();
+  explicit constexpr CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot(const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& from);
+  CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot&& from) noexcept
+    : CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& operator=(const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& operator=(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot*>(
+               &_CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& a, CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* New() const final {
+    return CreateMaybeMessage<CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot>(nullptr);
+  }
+
+  CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& from);
+  void MergeFrom(const CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot";
+  }
+  protected:
+  explicit CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientserver_5fucm_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGameBranchMinFieldNumber = 2,
+    kGameBranchMaxFieldNumber = 3,
+    kManifestidFieldNumber = 4,
+    kTimestampFieldNumber = 1,
+  };
+  // optional string game_branch_min = 2;
+  bool has_game_branch_min() const;
+  private:
+  bool _internal_has_game_branch_min() const;
+  public:
+  void clear_game_branch_min();
+  const std::string& game_branch_min() const;
+  void set_game_branch_min(const std::string& value);
+  void set_game_branch_min(std::string&& value);
+  void set_game_branch_min(const char* value);
+  void set_game_branch_min(const char* value, size_t size);
+  std::string* mutable_game_branch_min();
+  std::string* release_game_branch_min();
+  void set_allocated_game_branch_min(std::string* game_branch_min);
+  private:
+  const std::string& _internal_game_branch_min() const;
+  void _internal_set_game_branch_min(const std::string& value);
+  std::string* _internal_mutable_game_branch_min();
+  public:
+
+  // optional string game_branch_max = 3;
+  bool has_game_branch_max() const;
+  private:
+  bool _internal_has_game_branch_max() const;
+  public:
+  void clear_game_branch_max();
+  const std::string& game_branch_max() const;
+  void set_game_branch_max(const std::string& value);
+  void set_game_branch_max(std::string&& value);
+  void set_game_branch_max(const char* value);
+  void set_game_branch_max(const char* value, size_t size);
+  std::string* mutable_game_branch_max();
+  std::string* release_game_branch_max();
+  void set_allocated_game_branch_max(std::string* game_branch_max);
+  private:
+  const std::string& _internal_game_branch_max() const;
+  void _internal_set_game_branch_max(const std::string& value);
+  std::string* _internal_mutable_game_branch_max();
+  public:
+
+  // optional fixed64 manifestid = 4;
+  bool has_manifestid() const;
+  private:
+  bool _internal_has_manifestid() const;
+  public:
+  void clear_manifestid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 manifestid() const;
+  void set_manifestid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_manifestid() const;
+  void _internal_set_manifestid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint32 timestamp = 1;
+  bool has_timestamp() const;
+  private:
+  bool _internal_has_timestamp() const;
+  public:
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::uint32 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_branch_min_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_branch_max_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 manifestid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 timestamp_;
+  friend struct ::TableStruct_steammessages_5fclientserver_5fucm_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.PublishedFileId) */ {
  public:
@@ -3676,7 +3932,7 @@ class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFile
                &_CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId& a, CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId& b) {
     a.Swap(&b);
@@ -3746,6 +4002,7 @@ class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFile
   // accessors -------------------------------------------------------
 
   enum : int {
+    kAuthorSnapshotsFieldNumber = 8,
     kPublishedFileIdFieldNumber = 1,
     kRtime32SubscribedFieldNumber = 2,
     kAppidFieldNumber = 3,
@@ -3754,6 +4011,24 @@ class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFile
     kRtime32LastUpdatedFieldNumber = 6,
     kIsDepotContentFieldNumber = 7,
   };
+  // repeated .CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot author_snapshots = 8;
+  int author_snapshots_size() const;
+  private:
+  int _internal_author_snapshots_size() const;
+  public:
+  void clear_author_snapshots();
+  ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* mutable_author_snapshots(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot >*
+      mutable_author_snapshots();
+  private:
+  const ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& _internal_author_snapshots(int index) const;
+  ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* _internal_add_author_snapshots();
+  public:
+  const ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& author_snapshots(int index) const;
+  ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* add_author_snapshots();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot >&
+      author_snapshots() const;
+
   // optional fixed64 published_file_id = 1;
   bool has_published_file_id() const;
   private:
@@ -3854,6 +4129,7 @@ class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFile
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot > author_snapshots_;
   ::PROTOBUF_NAMESPACE_ID::uint64 published_file_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 rtime32_subscribed_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
@@ -3915,7 +4191,7 @@ class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse PROTOBUF_FINA
                &_CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse& a, CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse& b) {
     a.Swap(&b);
@@ -3982,6 +4258,7 @@ class CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse PROTOBUF_FINA
 
   // nested types ----------------------------------------------------
 
+  typedef CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot AuthorSnapshot;
   typedef CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId PublishedFileId;
 
   // accessors -------------------------------------------------------
@@ -4101,7 +4378,7 @@ class CMsgClientUCMPublishedFileUpdated PROTOBUF_FINAL :
                &_CMsgClientUCMPublishedFileUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CMsgClientUCMPublishedFileUpdated& a, CMsgClientUCMPublishedFileUpdated& b) {
     a.Swap(&b);
@@ -4340,7 +4617,7 @@ class CMsgClientWorkshopItemChangesRequest PROTOBUF_FINAL :
                &_CMsgClientWorkshopItemChangesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CMsgClientWorkshopItemChangesRequest& a, CMsgClientWorkshopItemChangesRequest& b) {
     a.Swap(&b);
@@ -4519,7 +4796,7 @@ class CMsgClientWorkshopItemChangesResponse_WorkshopItemInfo PROTOBUF_FINAL :
                &_CMsgClientWorkshopItemChangesResponse_WorkshopItemInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(CMsgClientWorkshopItemChangesResponse_WorkshopItemInfo& a, CMsgClientWorkshopItemChangesResponse_WorkshopItemInfo& b) {
     a.Swap(&b);
@@ -4698,7 +4975,7 @@ class CMsgClientWorkshopItemChangesResponse PROTOBUF_FINAL :
                &_CMsgClientWorkshopItemChangesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CMsgClientWorkshopItemChangesResponse& a, CMsgClientWorkshopItemChangesResponse& b) {
     a.Swap(&b);
@@ -4884,7 +5161,7 @@ class CMsgClientUCMSetUserPublishedFileAction PROTOBUF_FINAL :
                &_CMsgClientUCMSetUserPublishedFileAction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CMsgClientUCMSetUserPublishedFileAction& a, CMsgClientUCMSetUserPublishedFileAction& b) {
     a.Swap(&b);
@@ -5063,7 +5340,7 @@ class CMsgClientUCMSetUserPublishedFileActionResponse PROTOBUF_FINAL :
                &_CMsgClientUCMSetUserPublishedFileActionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CMsgClientUCMSetUserPublishedFileActionResponse& a, CMsgClientUCMSetUserPublishedFileActionResponse& b) {
     a.Swap(&b);
@@ -5212,7 +5489,7 @@ class CMsgClientUCMEnumeratePublishedFilesByUserAction PROTOBUF_FINAL :
                &_CMsgClientUCMEnumeratePublishedFilesByUserAction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CMsgClientUCMEnumeratePublishedFilesByUserAction& a, CMsgClientUCMEnumeratePublishedFilesByUserAction& b) {
     a.Swap(&b);
@@ -5391,7 +5668,7 @@ class CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId P
                &_CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId& a, CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_PublishedFileId& b) {
     a.Swap(&b);
@@ -5555,7 +5832,7 @@ class CMsgClientUCMEnumeratePublishedFilesByUserActionResponse PROTOBUF_FINAL :
                &_CMsgClientUCMEnumeratePublishedFilesByUserActionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CMsgClientUCMEnumeratePublishedFilesByUserActionResponse& a, CMsgClientUCMEnumeratePublishedFilesByUserActionResponse& b) {
     a.Swap(&b);
@@ -5741,7 +6018,7 @@ class CMsgClientScreenshotsChanged PROTOBUF_FINAL :
                &_CMsgClientScreenshotsChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CMsgClientScreenshotsChanged& a, CMsgClientScreenshotsChanged& b) {
     a.Swap(&b);
@@ -8107,7 +8384,7 @@ inline void CMsgClientUCMUpdatePublishedFile_AdditionalPreview::set_update_index
 
 // optional uint32 app_id = 1;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_app_id() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_app_id() const {
@@ -8115,7 +8392,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_app_id() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_app_id() {
   app_id_ = 0u;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientUCMUpdatePublishedFile::_internal_app_id() const {
   return app_id_;
@@ -8125,7 +8402,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientUCMUpdatePublishedFile::app_id(
   return _internal_app_id();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000400u;
   app_id_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8135,7 +8412,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_app_id(::PROTOBUF_NAMESPACE_ID
 
 // optional fixed64 published_file_id = 2;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_published_file_id() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_published_file_id() const {
@@ -8143,7 +8420,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_published_file_id() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_published_file_id() {
   published_file_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMUpdatePublishedFile::_internal_published_file_id() const {
   return published_file_id_;
@@ -8153,7 +8430,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMUpdatePublishedFile::publish
   return _internal_published_file_id();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_published_file_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000200u;
   published_file_id_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_published_file_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -8529,7 +8806,7 @@ CMsgClientUCMUpdatePublishedFile::mutable_tags() {
 
 // optional int32 visibility = 8;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_visibility() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_visibility() const {
@@ -8537,7 +8814,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_visibility() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_visibility() {
   visibility_ = 0;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientUCMUpdatePublishedFile::_internal_visibility() const {
   return visibility_;
@@ -8547,7 +8824,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientUCMUpdatePublishedFile::visibili
   return _internal_visibility();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_visibility(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000800u;
   visibility_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_visibility(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8557,7 +8834,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_visibility(::PROTOBUF_NAMESPAC
 
 // optional bool update_file = 9;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_file() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_file() const {
@@ -8565,7 +8842,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_file() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_file() {
   update_file_ = false;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_file() const {
   return update_file_;
@@ -8575,7 +8852,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_file() const {
   return _internal_update_file();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_file(bool value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00001000u;
   update_file_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_file(bool value) {
@@ -8585,7 +8862,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_update_file(bool value) {
 
 // optional bool update_preview_file = 10;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_preview_file() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_preview_file() const {
@@ -8593,7 +8870,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_preview_file() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_preview_file() {
   update_preview_file_ = false;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_preview_file() const {
   return update_preview_file_;
@@ -8603,7 +8880,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_preview_file() const {
   return _internal_update_preview_file();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_preview_file(bool value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00002000u;
   update_preview_file_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_preview_file(bool value) {
@@ -8613,7 +8890,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_update_preview_file(bool value
 
 // optional bool update_title = 11;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_title() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_title() const {
@@ -8621,7 +8898,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_title() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_title() {
   update_title_ = false;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_title() const {
   return update_title_;
@@ -8631,7 +8908,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_title() const {
   return _internal_update_title();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_title(bool value) {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00004000u;
   update_title_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_title(bool value) {
@@ -8641,7 +8918,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_update_title(bool value) {
 
 // optional bool update_description = 12;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_description() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_description() const {
@@ -8649,7 +8926,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_description() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_description() {
   update_description_ = false;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_description() const {
   return update_description_;
@@ -8659,7 +8936,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_description() const {
   return _internal_update_description();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_description(bool value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00008000u;
   update_description_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_description(bool value) {
@@ -8669,7 +8946,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_update_description(bool value)
 
 // optional bool update_tags = 13;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_tags() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_tags() const {
@@ -8677,7 +8954,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_tags() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_tags() {
   update_tags_ = false;
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_tags() const {
   return update_tags_;
@@ -8687,7 +8964,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_tags() const {
   return _internal_update_tags();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_tags(bool value) {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00010000u;
   update_tags_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_tags(bool value) {
@@ -8697,7 +8974,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_update_tags(bool value) {
 
 // optional bool update_visibility = 14;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_visibility() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_visibility() const {
@@ -8705,7 +8982,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_visibility() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_visibility() {
   update_visibility_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_visibility() const {
   return update_visibility_;
@@ -8715,7 +8992,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_visibility() const {
   return _internal_update_visibility();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_visibility(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00020000u;
   update_visibility_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_visibility(bool value) {
@@ -8798,7 +9075,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_allocated_change_description(s
 
 // optional bool update_url = 16;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_url() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_url() const {
@@ -8806,7 +9083,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_url() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_url() {
   update_url_ = false;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_url() const {
   return update_url_;
@@ -8816,7 +9093,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_url() const {
   return _internal_update_url();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_url(bool value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00040000u;
   update_url_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_url(bool value) {
@@ -8899,7 +9176,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_allocated_url(std::string* url
 
 // optional bool update_content_manifest = 18;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_content_manifest() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_content_manifest() const {
@@ -8907,7 +9184,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_content_manifest() cons
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_content_manifest() {
   update_content_manifest_ = false;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_content_manifest() const {
   return update_content_manifest_;
@@ -8917,7 +9194,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_content_manifest() const {
   return _internal_update_content_manifest();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_content_manifest(bool value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00080000u;
   update_content_manifest_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_content_manifest(bool value) {
@@ -8927,7 +9204,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_update_content_manifest(bool v
 
 // optional fixed64 content_manifest = 19;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_content_manifest() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_content_manifest() const {
@@ -8935,7 +9212,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_content_manifest() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_content_manifest() {
   content_manifest_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMUpdatePublishedFile::_internal_content_manifest() const {
   return content_manifest_;
@@ -8945,7 +9222,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMUpdatePublishedFile::content
   return _internal_content_manifest();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_content_manifest(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00100000u;
   content_manifest_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_content_manifest(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -9028,7 +9305,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_allocated_metadata(std::string
 
 // optional bool update_metadata = 21;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_update_metadata() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_update_metadata() const {
@@ -9036,7 +9313,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_update_metadata() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_update_metadata() {
   update_metadata_ = false;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_update_metadata() const {
   return update_metadata_;
@@ -9046,7 +9323,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::update_metadata() const {
   return _internal_update_metadata();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_update_metadata(bool value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00400000u;
   update_metadata_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_update_metadata(bool value) {
@@ -9056,7 +9333,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_update_metadata(bool value) {
 
 // optional int32 language = 22 [default = 0];
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_language() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_language() const {
@@ -9064,7 +9341,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_language() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_language() {
   language_ = 0;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientUCMUpdatePublishedFile::_internal_language() const {
   return language_;
@@ -9074,7 +9351,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientUCMUpdatePublishedFile::language
   return _internal_language();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_language(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00200000u;
   language_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_language(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -9283,7 +9560,7 @@ CMsgClientUCMUpdatePublishedFile::mutable_previews_to_remove() {
 
 // optional bool clear_in_progress = 27;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_clear_in_progress() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_clear_in_progress() const {
@@ -9291,7 +9568,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_clear_in_progress() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_clear_in_progress() {
   clear_in_progress_ = false;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_clear_in_progress() const {
   return clear_in_progress_;
@@ -9301,7 +9578,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::clear_in_progress() const {
   return _internal_clear_in_progress();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_clear_in_progress(bool value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00800000u;
   clear_in_progress_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_clear_in_progress(bool value) {
@@ -9311,7 +9588,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_clear_in_progress(bool value) 
 
 // optional bool remove_all_kvtags = 28;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_remove_all_kvtags() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_remove_all_kvtags() const {
@@ -9319,7 +9596,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_remove_all_kvtags() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_remove_all_kvtags() {
   remove_all_kvtags_ = false;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_remove_all_kvtags() const {
   return remove_all_kvtags_;
@@ -9329,7 +9606,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::remove_all_kvtags() const {
   return _internal_remove_all_kvtags();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_remove_all_kvtags(bool value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x01000000u;
   remove_all_kvtags_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_remove_all_kvtags(bool value) {
@@ -9433,7 +9710,7 @@ CMsgClientUCMUpdatePublishedFile::mutable_content_descriptors_to_remove() {
 
 // optional bool allow_admin_tags = 31 [default = false];
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_allow_admin_tags() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_allow_admin_tags() const {
@@ -9441,7 +9718,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_allow_admin_tags() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_allow_admin_tags() {
   allow_admin_tags_ = false;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_allow_admin_tags() const {
   return allow_admin_tags_;
@@ -9451,7 +9728,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::allow_admin_tags() const {
   return _internal_allow_admin_tags();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_allow_admin_tags(bool value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x02000000u;
   allow_admin_tags_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_allow_admin_tags(bool value) {
@@ -9461,7 +9738,7 @@ inline void CMsgClientUCMUpdatePublishedFile::set_allow_admin_tags(bool value) {
 
 // optional uint64 external_asset_id = 32;
 inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_external_asset_id() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgClientUCMUpdatePublishedFile::has_external_asset_id() const {
@@ -9469,7 +9746,7 @@ inline bool CMsgClientUCMUpdatePublishedFile::has_external_asset_id() const {
 }
 inline void CMsgClientUCMUpdatePublishedFile::clear_external_asset_id() {
   external_asset_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMUpdatePublishedFile::_internal_external_asset_id() const {
   return external_asset_id_;
@@ -9479,12 +9756,158 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMUpdatePublishedFile::externa
   return _internal_external_asset_id();
 }
 inline void CMsgClientUCMUpdatePublishedFile::_internal_set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x04000000u;
   external_asset_id_ = value;
 }
 inline void CMsgClientUCMUpdatePublishedFile::set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_external_asset_id(value);
   // @@protoc_insertion_point(field_set:CMsgClientUCMUpdatePublishedFile.external_asset_id)
+}
+
+// optional string game_branch_min = 33;
+inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_game_branch_min() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CMsgClientUCMUpdatePublishedFile::has_game_branch_min() const {
+  return _internal_has_game_branch_min();
+}
+inline void CMsgClientUCMUpdatePublishedFile::clear_game_branch_min() {
+  game_branch_min_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline const std::string& CMsgClientUCMUpdatePublishedFile::game_branch_min() const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMUpdatePublishedFile.game_branch_min)
+  return _internal_game_branch_min();
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_game_branch_min(const std::string& value) {
+  _internal_set_game_branch_min(value);
+  // @@protoc_insertion_point(field_set:CMsgClientUCMUpdatePublishedFile.game_branch_min)
+}
+inline std::string* CMsgClientUCMUpdatePublishedFile::mutable_game_branch_min() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientUCMUpdatePublishedFile.game_branch_min)
+  return _internal_mutable_game_branch_min();
+}
+inline const std::string& CMsgClientUCMUpdatePublishedFile::_internal_game_branch_min() const {
+  return game_branch_min_.Get();
+}
+inline void CMsgClientUCMUpdatePublishedFile::_internal_set_game_branch_min(const std::string& value) {
+  _has_bits_[0] |= 0x00000080u;
+  game_branch_min_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_game_branch_min(std::string&& value) {
+  _has_bits_[0] |= 0x00000080u;
+  game_branch_min_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientUCMUpdatePublishedFile.game_branch_min)
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_game_branch_min(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000080u;
+  game_branch_min_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientUCMUpdatePublishedFile.game_branch_min)
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_game_branch_min(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000080u;
+  game_branch_min_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientUCMUpdatePublishedFile.game_branch_min)
+}
+inline std::string* CMsgClientUCMUpdatePublishedFile::_internal_mutable_game_branch_min() {
+  _has_bits_[0] |= 0x00000080u;
+  return game_branch_min_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientUCMUpdatePublishedFile::release_game_branch_min() {
+  // @@protoc_insertion_point(field_release:CMsgClientUCMUpdatePublishedFile.game_branch_min)
+  if (!_internal_has_game_branch_min()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000080u;
+  return game_branch_min_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_allocated_game_branch_min(std::string* game_branch_min) {
+  if (game_branch_min != nullptr) {
+    _has_bits_[0] |= 0x00000080u;
+  } else {
+    _has_bits_[0] &= ~0x00000080u;
+  }
+  game_branch_min_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), game_branch_min,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientUCMUpdatePublishedFile.game_branch_min)
+}
+
+// optional string game_branch_max = 34;
+inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_game_branch_max() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CMsgClientUCMUpdatePublishedFile::has_game_branch_max() const {
+  return _internal_has_game_branch_max();
+}
+inline void CMsgClientUCMUpdatePublishedFile::clear_game_branch_max() {
+  game_branch_max_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline const std::string& CMsgClientUCMUpdatePublishedFile::game_branch_max() const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMUpdatePublishedFile.game_branch_max)
+  return _internal_game_branch_max();
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_game_branch_max(const std::string& value) {
+  _internal_set_game_branch_max(value);
+  // @@protoc_insertion_point(field_set:CMsgClientUCMUpdatePublishedFile.game_branch_max)
+}
+inline std::string* CMsgClientUCMUpdatePublishedFile::mutable_game_branch_max() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientUCMUpdatePublishedFile.game_branch_max)
+  return _internal_mutable_game_branch_max();
+}
+inline const std::string& CMsgClientUCMUpdatePublishedFile::_internal_game_branch_max() const {
+  return game_branch_max_.Get();
+}
+inline void CMsgClientUCMUpdatePublishedFile::_internal_set_game_branch_max(const std::string& value) {
+  _has_bits_[0] |= 0x00000100u;
+  game_branch_max_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_game_branch_max(std::string&& value) {
+  _has_bits_[0] |= 0x00000100u;
+  game_branch_max_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientUCMUpdatePublishedFile.game_branch_max)
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_game_branch_max(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000100u;
+  game_branch_max_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientUCMUpdatePublishedFile.game_branch_max)
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_game_branch_max(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000100u;
+  game_branch_max_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientUCMUpdatePublishedFile.game_branch_max)
+}
+inline std::string* CMsgClientUCMUpdatePublishedFile::_internal_mutable_game_branch_max() {
+  _has_bits_[0] |= 0x00000100u;
+  return game_branch_max_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientUCMUpdatePublishedFile::release_game_branch_max() {
+  // @@protoc_insertion_point(field_release:CMsgClientUCMUpdatePublishedFile.game_branch_max)
+  if (!_internal_has_game_branch_max()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000100u;
+  return game_branch_max_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_allocated_game_branch_max(std::string* game_branch_max) {
+  if (game_branch_max != nullptr) {
+    _has_bits_[0] |= 0x00000100u;
+  } else {
+    _has_bits_[0] &= ~0x00000100u;
+  }
+  game_branch_max_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), game_branch_max,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientUCMUpdatePublishedFile.game_branch_max)
 }
 
 // -------------------------------------------------------------------
@@ -9757,6 +10180,212 @@ inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates::set_desired_re
 
 // -------------------------------------------------------------------
 
+// CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot
+
+// optional uint32 timestamp = 1;
+inline bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_has_timestamp() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::has_timestamp() const {
+  return _internal_has_timestamp();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::clear_timestamp() {
+  timestamp_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_timestamp() const {
+  return timestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::timestamp() const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.timestamp)
+  return _internal_timestamp();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  timestamp_ = value;
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.timestamp)
+}
+
+// optional string game_branch_min = 2;
+inline bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_has_game_branch_min() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::has_game_branch_min() const {
+  return _internal_has_game_branch_min();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::clear_game_branch_min() {
+  game_branch_min_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::game_branch_min() const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min)
+  return _internal_game_branch_min();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_game_branch_min(const std::string& value) {
+  _internal_set_game_branch_min(value);
+  // @@protoc_insertion_point(field_set:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min)
+}
+inline std::string* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::mutable_game_branch_min() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min)
+  return _internal_mutable_game_branch_min();
+}
+inline const std::string& CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_game_branch_min() const {
+  return game_branch_min_.Get();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_set_game_branch_min(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  game_branch_min_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_game_branch_min(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  game_branch_min_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min)
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_game_branch_min(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  game_branch_min_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min)
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_game_branch_min(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  game_branch_min_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min)
+}
+inline std::string* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_mutable_game_branch_min() {
+  _has_bits_[0] |= 0x00000001u;
+  return game_branch_min_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::release_game_branch_min() {
+  // @@protoc_insertion_point(field_release:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min)
+  if (!_internal_has_game_branch_min()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return game_branch_min_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_allocated_game_branch_min(std::string* game_branch_min) {
+  if (game_branch_min != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  game_branch_min_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), game_branch_min,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_min)
+}
+
+// optional string game_branch_max = 3;
+inline bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_has_game_branch_max() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::has_game_branch_max() const {
+  return _internal_has_game_branch_max();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::clear_game_branch_max() {
+  game_branch_max_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::game_branch_max() const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max)
+  return _internal_game_branch_max();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_game_branch_max(const std::string& value) {
+  _internal_set_game_branch_max(value);
+  // @@protoc_insertion_point(field_set:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max)
+}
+inline std::string* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::mutable_game_branch_max() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max)
+  return _internal_mutable_game_branch_max();
+}
+inline const std::string& CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_game_branch_max() const {
+  return game_branch_max_.Get();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_set_game_branch_max(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  game_branch_max_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_game_branch_max(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  game_branch_max_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max)
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_game_branch_max(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  game_branch_max_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max)
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_game_branch_max(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  game_branch_max_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max)
+}
+inline std::string* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_mutable_game_branch_max() {
+  _has_bits_[0] |= 0x00000002u;
+  return game_branch_max_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::release_game_branch_max() {
+  // @@protoc_insertion_point(field_release:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max)
+  if (!_internal_has_game_branch_max()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return game_branch_max_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_allocated_game_branch_max(std::string* game_branch_max) {
+  if (game_branch_max != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  game_branch_max_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), game_branch_max,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.game_branch_max)
+}
+
+// optional fixed64 manifestid = 4;
+inline bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_has_manifestid() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::has_manifestid() const {
+  return _internal_has_manifestid();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::clear_manifestid() {
+  manifestid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_manifestid() const {
+  return manifestid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::manifestid() const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.manifestid)
+  return _internal_manifestid();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::_internal_set_manifestid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000004u;
+  manifestid_ = value;
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot::set_manifestid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_manifestid(value);
+  // @@protoc_insertion_point(field_set:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot.manifestid)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId
 
 // optional fixed64 published_file_id = 1;
@@ -9953,6 +10582,45 @@ inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_Publish
 inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::set_is_depot_content(bool value) {
   _internal_set_is_depot_content(value);
   // @@protoc_insertion_point(field_set:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.PublishedFileId.is_depot_content)
+}
+
+// repeated .CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.AuthorSnapshot author_snapshots = 8;
+inline int CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::_internal_author_snapshots_size() const {
+  return author_snapshots_.size();
+}
+inline int CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::author_snapshots_size() const {
+  return _internal_author_snapshots_size();
+}
+inline void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::clear_author_snapshots() {
+  author_snapshots_.Clear();
+}
+inline ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::mutable_author_snapshots(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.PublishedFileId.author_snapshots)
+  return author_snapshots_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot >*
+CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::mutable_author_snapshots() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.PublishedFileId.author_snapshots)
+  return &author_snapshots_;
+}
+inline const ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::_internal_author_snapshots(int index) const {
+  return author_snapshots_.Get(index);
+}
+inline const ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot& CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::author_snapshots(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.PublishedFileId.author_snapshots)
+  return _internal_author_snapshots(index);
+}
+inline ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::_internal_add_author_snapshots() {
+  return author_snapshots_.Add();
+}
+inline ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::add_author_snapshots() {
+  // @@protoc_insertion_point(field_add:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.PublishedFileId.author_snapshots)
+  return _internal_add_author_snapshots();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot >&
+CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId::author_snapshots() const {
+  // @@protoc_insertion_point(field_list:CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse.PublishedFileId.author_snapshots)
+  return author_snapshots_;
 }
 
 // -------------------------------------------------------------------
@@ -10903,6 +11571,8 @@ inline void CMsgClientUCMEnumeratePublishedFilesByUserActionResponse::set_total_
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

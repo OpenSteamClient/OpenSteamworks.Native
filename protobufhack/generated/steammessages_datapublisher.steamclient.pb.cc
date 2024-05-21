@@ -55,10 +55,12 @@ constexpr CDataPublisher_ClientUpdateAppJob_Notification::CDataPublisher_ClientU
   , total_bytes_downloaded_(PROTOBUF_ULONGLONG(0))
   , total_bytes_staged_(PROTOBUF_ULONGLONG(0))
   , total_bytes_restored_(PROTOBUF_ULONGLONG(0))
+  , total_bytes_patched_(PROTOBUF_ULONGLONG(0))
   , is_borrowed_(false)
   , is_free_weekend_(false)
+  , is_workshop_(false)
+  , is_shader_(false)
   , cell_id_(0u)
-  , total_bytes_patched_(PROTOBUF_ULONGLONG(0))
   , total_bytes_saved_(PROTOBUF_ULONGLONG(0)){}
 struct CDataPublisher_ClientUpdateAppJob_NotificationDefaultTypeInternal {
   constexpr CDataPublisher_ClientUpdateAppJob_NotificationDefaultTypeInternal()
@@ -246,6 +248,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fdatapublisher_
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, total_bytes_patched_),
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, total_bytes_saved_),
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, cell_id_),
+  PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, is_workshop_),
+  PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, is_shader_),
   2,
   ~0u,
   3,
@@ -262,11 +266,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fdatapublisher_
   12,
   13,
   14,
-  15,
   16,
+  17,
+  15,
+  21,
+  20,
   18,
   19,
-  17,
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_GetVRDeviceInfo_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_GetVRDeviceInfo_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -358,16 +364,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fdatapublisher_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 15, sizeof(::CDataPublisher_ClientContentCorruptionReport_Notification)},
-  { 25, 51, sizeof(::CDataPublisher_ClientUpdateAppJob_Notification)},
-  { 72, 78, sizeof(::CDataPublisher_GetVRDeviceInfo_Request)},
-  { 79, 90, sizeof(::CDataPublisher_GetVRDeviceInfo_Response_Device)},
-  { 96, -1, sizeof(::CDataPublisher_GetVRDeviceInfo_Response)},
-  { 102, 109, sizeof(::CDataPublisher_SetVRDeviceInfoAggregationReference_Request)},
-  { 111, 117, sizeof(::CDataPublisher_SetVRDeviceInfoAggregationReference_Response)},
-  { 118, 128, sizeof(::CDataPublisher_AddVRDeviceInfo_Request)},
-  { 133, 140, sizeof(::CDataPublisher_AddVRDeviceInfo_Response)},
-  { 142, 149, sizeof(::CValveHWSurvey_GetSurveySchedule_Request)},
-  { 151, 158, sizeof(::CValveHWSurvey_GetSurveySchedule_Response)},
+  { 25, 53, sizeof(::CDataPublisher_ClientUpdateAppJob_Notification)},
+  { 76, 82, sizeof(::CDataPublisher_GetVRDeviceInfo_Request)},
+  { 83, 94, sizeof(::CDataPublisher_GetVRDeviceInfo_Response_Device)},
+  { 100, -1, sizeof(::CDataPublisher_GetVRDeviceInfo_Response)},
+  { 106, 113, sizeof(::CDataPublisher_SetVRDeviceInfoAggregationReference_Request)},
+  { 115, 121, sizeof(::CDataPublisher_SetVRDeviceInfoAggregationReference_Response)},
+  { 122, 132, sizeof(::CDataPublisher_AddVRDeviceInfo_Request)},
+  { 137, 144, sizeof(::CDataPublisher_AddVRDeviceInfo_Response)},
+  { 146, 153, sizeof(::CValveHWSurvey_GetSurveySchedule_Request)},
+  { 155, 162, sizeof(::CValveHWSurvey_GetSurveySchedule_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -395,7 +401,7 @@ const char descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient
   "ctid\030\004 \001(\t\022\016\n\006cellid\030\005 \001(\r\022\023\n\013is_manifes"
   "t\030\006 \001(\010\022\023\n\013object_size\030\007 \001(\004\022\027\n\017corrupti"
   "on_type\030\010 \001(\r\022\022\n\nused_https\030\t \001(\010\022\031\n\021oc_"
-  "proxy_detected\030\n \001(\010\"\264\004\n.CDataPublisher_"
+  "proxy_detected\030\n \001(\010\"\334\004\n.CDataPublisher_"
   "ClientUpdateAppJob_Notification\022\016\n\006app_i"
   "d\030\001 \001(\r\022\021\n\tdepot_ids\030\002 \003(\r\022\021\n\tapp_state\030"
   "\003 \001(\r\022\025\n\rjob_app_error\030\004 \001(\r\022\025\n\rerror_de"
@@ -409,7 +415,8 @@ const char descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient
   "\n\024total_bytes_restored\030\020 \001(\004\022\023\n\013is_borro"
   "wed\030\021 \001(\010\022\027\n\017is_free_weekend\030\022 \001(\010\022\033\n\023to"
   "tal_bytes_patched\030\024 \001(\004\022\031\n\021total_bytes_s"
-  "aved\030\025 \001(\004\022\017\n\007cell_id\030\026 \001(\r\"=\n&CDataPubl"
+  "aved\030\025 \001(\004\022\017\n\007cell_id\030\026 \001(\r\022\023\n\013is_worksh"
+  "op\030\027 \001(\010\022\021\n\tis_shader\030\030 \001(\010\"=\n&CDataPubl"
   "isher_GetVRDeviceInfo_Request\022\023\n\013month_c"
   "ount\030\001 \001(\r\"\335\001\n\'CDataPublisher_GetVRDevic"
   "eInfo_Response\022\?\n\006device\030\001 \003(\0132/.CDataPu"
@@ -459,7 +466,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto = {
-  false, false, 2608, descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient_2eproto, "steammessages_datapublisher.steamclient.proto", 
+  false, false, 2648, descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient_2eproto, "steammessages_datapublisher.steamclient.proto", 
   &descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_once, descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_deps, 3, 11,
   schemas, file_default_instances, TableStruct_steammessages_5fdatapublisher_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fdatapublisher_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fdatapublisher_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fdatapublisher_2esteamclient_2eproto,
@@ -1031,19 +1038,25 @@ class CDataPublisher_ClientUpdateAppJob_Notification::_Internal {
     (*has_bits)[0] |= 16384u;
   }
   static void set_has_is_borrowed(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
-  }
-  static void set_has_is_free_weekend(HasBits* has_bits) {
     (*has_bits)[0] |= 65536u;
   }
+  static void set_has_is_free_weekend(HasBits* has_bits) {
+    (*has_bits)[0] |= 131072u;
+  }
   static void set_has_total_bytes_patched(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_total_bytes_saved(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
+    (*has_bits)[0] |= 2097152u;
   }
   static void set_has_cell_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 1048576u;
+  }
+  static void set_has_is_workshop(HasBits* has_bits) {
+    (*has_bits)[0] |= 262144u;
+  }
+  static void set_has_is_shader(HasBits* has_bits) {
+    (*has_bits)[0] |= 524288u;
   }
 };
 
@@ -1129,13 +1142,13 @@ void CDataPublisher_ClientUpdateAppJob_Notification::Clear() {
   }
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&files_validation_failed_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&is_borrowed_) -
-        reinterpret_cast<char*>(&files_validation_failed_)) + sizeof(is_borrowed_));
+        reinterpret_cast<char*>(&total_bytes_patched_) -
+        reinterpret_cast<char*>(&files_validation_failed_)) + sizeof(total_bytes_patched_));
   }
-  if (cached_has_bits & 0x000f0000u) {
-    ::memset(&is_free_weekend_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x003f0000u) {
+    ::memset(&is_borrowed_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&total_bytes_saved_) -
-        reinterpret_cast<char*>(&is_free_weekend_)) + sizeof(total_bytes_saved_));
+        reinterpret_cast<char*>(&is_borrowed_)) + sizeof(total_bytes_saved_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1330,6 +1343,22 @@ const char* CDataPublisher_ClientUpdateAppJob_Notification::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool is_workshop = 23;
+      case 23:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 184)) {
+          _Internal::set_has_is_workshop(&has_bits);
+          is_workshop_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_shader = 24;
+      case 24:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 192)) {
+          _Internal::set_has_is_shader(&has_bits);
+          is_shader_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -1465,33 +1494,45 @@ failure:
   }
 
   // optional bool is_borrowed = 17;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_is_borrowed(), target);
   }
 
   // optional bool is_free_weekend = 18;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18, this->_internal_is_free_weekend(), target);
   }
 
   // optional uint64 total_bytes_patched = 20;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(20, this->_internal_total_bytes_patched(), target);
   }
 
   // optional uint64 total_bytes_saved = 21;
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(21, this->_internal_total_bytes_saved(), target);
   }
 
   // optional uint32 cell_id = 22;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(22, this->_internal_cell_id(), target);
+  }
+
+  // optional bool is_workshop = 23;
+  if (cached_has_bits & 0x00040000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(23, this->_internal_is_workshop(), target);
+  }
+
+  // optional bool is_shader = 24;
+  if (cached_has_bits & 0x00080000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24, this->_internal_is_shader(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1626,34 +1667,44 @@ size_t CDataPublisher_ClientUpdateAppJob_Notification::ByteSizeLong() const {
           this->_internal_total_bytes_restored());
     }
 
-    // optional bool is_borrowed = 17;
-    if (cached_has_bits & 0x00008000u) {
-      total_size += 2 + 1;
-    }
-
-  }
-  if (cached_has_bits & 0x000f0000u) {
-    // optional bool is_free_weekend = 18;
-    if (cached_has_bits & 0x00010000u) {
-      total_size += 2 + 1;
-    }
-
-    // optional uint32 cell_id = 22;
-    if (cached_has_bits & 0x00020000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_cell_id());
-    }
-
     // optional uint64 total_bytes_patched = 20;
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00008000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_total_bytes_patched());
     }
 
-    // optional uint64 total_bytes_saved = 21;
+  }
+  if (cached_has_bits & 0x003f0000u) {
+    // optional bool is_borrowed = 17;
+    if (cached_has_bits & 0x00010000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool is_free_weekend = 18;
+    if (cached_has_bits & 0x00020000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool is_workshop = 23;
+    if (cached_has_bits & 0x00040000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool is_shader = 24;
     if (cached_has_bits & 0x00080000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional uint32 cell_id = 22;
+    if (cached_has_bits & 0x00100000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_cell_id());
+    }
+
+    // optional uint64 total_bytes_saved = 21;
+    if (cached_has_bits & 0x00200000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_total_bytes_saved());
@@ -1743,21 +1794,27 @@ void CDataPublisher_ClientUpdateAppJob_Notification::MergeFrom(const CDataPublis
       total_bytes_restored_ = from.total_bytes_restored_;
     }
     if (cached_has_bits & 0x00008000u) {
-      is_borrowed_ = from.is_borrowed_;
+      total_bytes_patched_ = from.total_bytes_patched_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x000f0000u) {
+  if (cached_has_bits & 0x003f0000u) {
     if (cached_has_bits & 0x00010000u) {
-      is_free_weekend_ = from.is_free_weekend_;
+      is_borrowed_ = from.is_borrowed_;
     }
     if (cached_has_bits & 0x00020000u) {
-      cell_id_ = from.cell_id_;
+      is_free_weekend_ = from.is_free_weekend_;
     }
     if (cached_has_bits & 0x00040000u) {
-      total_bytes_patched_ = from.total_bytes_patched_;
+      is_workshop_ = from.is_workshop_;
     }
     if (cached_has_bits & 0x00080000u) {
+      is_shader_ = from.is_shader_;
+    }
+    if (cached_has_bits & 0x00100000u) {
+      cell_id_ = from.cell_id_;
+    }
+    if (cached_has_bits & 0x00200000u) {
       total_bytes_saved_ = from.total_bytes_saved_;
     }
     _has_bits_[0] |= cached_has_bits;

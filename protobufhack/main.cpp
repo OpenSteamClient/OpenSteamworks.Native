@@ -3357,6 +3357,28 @@ EXPORT void CMsgJSExecuteCallback_Delete(CMsgJSExecuteCallback* ptr) {
     delete ptr;
 }
 
+// Begin CMsgJSExecutePromise
+EXPORT CMsgJSExecutePromise *CMsgJSExecutePromise_Construct() {
+    return new CMsgJSExecutePromise();
+}
+
+EXPORT CMsgJSExecutePromise *CMsgJSExecutePromise_Deserialize(void* buffer, int len) {
+    CMsgJSExecutePromise *msg = new CMsgJSExecutePromise();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgJSExecutePromise_DeserializeInto(CMsgJSExecutePromise *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgJSExecutePromise_Delete(CMsgJSExecutePromise* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgJSReleaseCallback
 EXPORT CMsgJSReleaseCallback *CMsgJSReleaseCallback_Construct() {
     return new CMsgJSReleaseCallback();
@@ -4146,6 +4168,28 @@ EXPORT bool CMsgSetUIMode_DeserializeInto(CMsgSetUIMode *target, void* buffer, i
 }
 
 EXPORT void CMsgSetUIMode_Delete(CMsgSetUIMode* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgSetSteamBetaName
+EXPORT CMsgSetSteamBetaName *CMsgSetSteamBetaName_Construct() {
+    return new CMsgSetSteamBetaName();
+}
+
+EXPORT CMsgSetSteamBetaName *CMsgSetSteamBetaName_Deserialize(void* buffer, int len) {
+    CMsgSetSteamBetaName *msg = new CMsgSetSteamBetaName();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgSetSteamBetaName_DeserializeInto(CMsgSetSteamBetaName *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgSetSteamBetaName_Delete(CMsgSetSteamBetaName* ptr) {
     delete ptr;
 }
 
@@ -13345,6 +13389,50 @@ EXPORT void CMsgSystemPerfUpdateSettings_Delete(CMsgSystemPerfUpdateSettings* pt
     delete ptr;
 }
 
+// Begin CMsgSystemPerfLegacySettingEntry
+EXPORT CMsgSystemPerfLegacySettingEntry *CMsgSystemPerfLegacySettingEntry_Construct() {
+    return new CMsgSystemPerfLegacySettingEntry();
+}
+
+EXPORT CMsgSystemPerfLegacySettingEntry *CMsgSystemPerfLegacySettingEntry_Deserialize(void* buffer, int len) {
+    CMsgSystemPerfLegacySettingEntry *msg = new CMsgSystemPerfLegacySettingEntry();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgSystemPerfLegacySettingEntry_DeserializeInto(CMsgSystemPerfLegacySettingEntry *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgSystemPerfLegacySettingEntry_Delete(CMsgSystemPerfLegacySettingEntry* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgSystemPerfLegacySettings
+EXPORT CMsgSystemPerfLegacySettings *CMsgSystemPerfLegacySettings_Construct() {
+    return new CMsgSystemPerfLegacySettings();
+}
+
+EXPORT CMsgSystemPerfLegacySettings *CMsgSystemPerfLegacySettings_Deserialize(void* buffer, int len) {
+    CMsgSystemPerfLegacySettings *msg = new CMsgSystemPerfLegacySettings();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgSystemPerfLegacySettings_DeserializeInto(CMsgSystemPerfLegacySettings *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgSystemPerfLegacySettings_Delete(CMsgSystemPerfLegacySettings* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgSystemDockUpdateState
 EXPORT CMsgSystemDockUpdateState *CMsgSystemDockUpdateState_Construct() {
     return new CMsgSystemDockUpdateState();
@@ -14068,6 +14156,28 @@ EXPORT bool CMsgWebUITransportInfo_DeserializeInto(CMsgWebUITransportInfo *targe
 }
 
 EXPORT void CMsgWebUITransportInfo_Delete(CMsgWebUITransportInfo* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgWebUITransportFailure
+EXPORT CMsgWebUITransportFailure *CMsgWebUITransportFailure_Construct() {
+    return new CMsgWebUITransportFailure();
+}
+
+EXPORT CMsgWebUITransportFailure *CMsgWebUITransportFailure_Deserialize(void* buffer, int len) {
+    CMsgWebUITransportFailure *msg = new CMsgWebUITransportFailure();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgWebUITransportFailure_DeserializeInto(CMsgWebUITransportFailure *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgWebUITransportFailure_Delete(CMsgWebUITransportFailure* ptr) {
     delete ptr;
 }
 
@@ -15476,6 +15586,28 @@ EXPORT bool CClientNotificationPlaytimeWarning_DeserializeInto(CClientNotificati
 }
 
 EXPORT void CClientNotificationPlaytimeWarning_Delete(CClientNotificationPlaytimeWarning* ptr) {
+    delete ptr;
+}
+
+// Begin CClientNotificationGRE
+EXPORT CClientNotificationGRE *CClientNotificationGRE_Construct() {
+    return new CClientNotificationGRE();
+}
+
+EXPORT CClientNotificationGRE *CClientNotificationGRE_Deserialize(void* buffer, int len) {
+    CClientNotificationGRE *msg = new CClientNotificationGRE();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientNotificationGRE_DeserializeInto(CClientNotificationGRE *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientNotificationGRE_Delete(CClientNotificationGRE* ptr) {
     delete ptr;
 }
 
@@ -22541,6 +22673,28 @@ EXPORT void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdates_Delete(CMsgClie
     delete ptr;
 }
 
+// Begin CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot
+EXPORT CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot *CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot_Construct() {
+    return new CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot();
+}
+
+EXPORT CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot *CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot_Deserialize(void* buffer, int len) {
+    CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot *msg = new CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot_DeserializeInto(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot_Delete(CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_AuthorSnapshot* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId
 EXPORT CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId *CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId_Construct() {
     return new CMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse_PublishedFileId();
@@ -23179,402 +23333,6 @@ EXPORT void CMsgClientEnableOrDisableDownloadsResponse_Delete(CMsgClientEnableOr
     delete ptr;
 }
 
-// Begin CMsgClientUFSUploadFileRequest
-EXPORT CMsgClientUFSUploadFileRequest *CMsgClientUFSUploadFileRequest_Construct() {
-    return new CMsgClientUFSUploadFileRequest();
-}
-
-EXPORT CMsgClientUFSUploadFileRequest *CMsgClientUFSUploadFileRequest_Deserialize(void* buffer, int len) {
-    CMsgClientUFSUploadFileRequest *msg = new CMsgClientUFSUploadFileRequest();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSUploadFileRequest_DeserializeInto(CMsgClientUFSUploadFileRequest *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSUploadFileRequest_Delete(CMsgClientUFSUploadFileRequest* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSUploadFileResponse
-EXPORT CMsgClientUFSUploadFileResponse *CMsgClientUFSUploadFileResponse_Construct() {
-    return new CMsgClientUFSUploadFileResponse();
-}
-
-EXPORT CMsgClientUFSUploadFileResponse *CMsgClientUFSUploadFileResponse_Deserialize(void* buffer, int len) {
-    CMsgClientUFSUploadFileResponse *msg = new CMsgClientUFSUploadFileResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSUploadFileResponse_DeserializeInto(CMsgClientUFSUploadFileResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSUploadFileResponse_Delete(CMsgClientUFSUploadFileResponse* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSUploadCommit_File
-EXPORT CMsgClientUFSUploadCommit_File *CMsgClientUFSUploadCommit_File_Construct() {
-    return new CMsgClientUFSUploadCommit_File();
-}
-
-EXPORT CMsgClientUFSUploadCommit_File *CMsgClientUFSUploadCommit_File_Deserialize(void* buffer, int len) {
-    CMsgClientUFSUploadCommit_File *msg = new CMsgClientUFSUploadCommit_File();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSUploadCommit_File_DeserializeInto(CMsgClientUFSUploadCommit_File *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSUploadCommit_File_Delete(CMsgClientUFSUploadCommit_File* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSUploadCommit
-EXPORT CMsgClientUFSUploadCommit *CMsgClientUFSUploadCommit_Construct() {
-    return new CMsgClientUFSUploadCommit();
-}
-
-EXPORT CMsgClientUFSUploadCommit *CMsgClientUFSUploadCommit_Deserialize(void* buffer, int len) {
-    CMsgClientUFSUploadCommit *msg = new CMsgClientUFSUploadCommit();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSUploadCommit_DeserializeInto(CMsgClientUFSUploadCommit *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSUploadCommit_Delete(CMsgClientUFSUploadCommit* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSUploadCommitResponse_File
-EXPORT CMsgClientUFSUploadCommitResponse_File *CMsgClientUFSUploadCommitResponse_File_Construct() {
-    return new CMsgClientUFSUploadCommitResponse_File();
-}
-
-EXPORT CMsgClientUFSUploadCommitResponse_File *CMsgClientUFSUploadCommitResponse_File_Deserialize(void* buffer, int len) {
-    CMsgClientUFSUploadCommitResponse_File *msg = new CMsgClientUFSUploadCommitResponse_File();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSUploadCommitResponse_File_DeserializeInto(CMsgClientUFSUploadCommitResponse_File *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSUploadCommitResponse_File_Delete(CMsgClientUFSUploadCommitResponse_File* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSUploadCommitResponse
-EXPORT CMsgClientUFSUploadCommitResponse *CMsgClientUFSUploadCommitResponse_Construct() {
-    return new CMsgClientUFSUploadCommitResponse();
-}
-
-EXPORT CMsgClientUFSUploadCommitResponse *CMsgClientUFSUploadCommitResponse_Deserialize(void* buffer, int len) {
-    CMsgClientUFSUploadCommitResponse *msg = new CMsgClientUFSUploadCommitResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSUploadCommitResponse_DeserializeInto(CMsgClientUFSUploadCommitResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSUploadCommitResponse_Delete(CMsgClientUFSUploadCommitResponse* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSFileChunk
-EXPORT CMsgClientUFSFileChunk *CMsgClientUFSFileChunk_Construct() {
-    return new CMsgClientUFSFileChunk();
-}
-
-EXPORT CMsgClientUFSFileChunk *CMsgClientUFSFileChunk_Deserialize(void* buffer, int len) {
-    CMsgClientUFSFileChunk *msg = new CMsgClientUFSFileChunk();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSFileChunk_DeserializeInto(CMsgClientUFSFileChunk *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSFileChunk_Delete(CMsgClientUFSFileChunk* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSTransferHeartbeat
-EXPORT CMsgClientUFSTransferHeartbeat *CMsgClientUFSTransferHeartbeat_Construct() {
-    return new CMsgClientUFSTransferHeartbeat();
-}
-
-EXPORT CMsgClientUFSTransferHeartbeat *CMsgClientUFSTransferHeartbeat_Deserialize(void* buffer, int len) {
-    CMsgClientUFSTransferHeartbeat *msg = new CMsgClientUFSTransferHeartbeat();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSTransferHeartbeat_DeserializeInto(CMsgClientUFSTransferHeartbeat *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSTransferHeartbeat_Delete(CMsgClientUFSTransferHeartbeat* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSUploadFileFinished
-EXPORT CMsgClientUFSUploadFileFinished *CMsgClientUFSUploadFileFinished_Construct() {
-    return new CMsgClientUFSUploadFileFinished();
-}
-
-EXPORT CMsgClientUFSUploadFileFinished *CMsgClientUFSUploadFileFinished_Deserialize(void* buffer, int len) {
-    CMsgClientUFSUploadFileFinished *msg = new CMsgClientUFSUploadFileFinished();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSUploadFileFinished_DeserializeInto(CMsgClientUFSUploadFileFinished *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSUploadFileFinished_Delete(CMsgClientUFSUploadFileFinished* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSDeleteFileRequest
-EXPORT CMsgClientUFSDeleteFileRequest *CMsgClientUFSDeleteFileRequest_Construct() {
-    return new CMsgClientUFSDeleteFileRequest();
-}
-
-EXPORT CMsgClientUFSDeleteFileRequest *CMsgClientUFSDeleteFileRequest_Deserialize(void* buffer, int len) {
-    CMsgClientUFSDeleteFileRequest *msg = new CMsgClientUFSDeleteFileRequest();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSDeleteFileRequest_DeserializeInto(CMsgClientUFSDeleteFileRequest *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSDeleteFileRequest_Delete(CMsgClientUFSDeleteFileRequest* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSDeleteFileResponse
-EXPORT CMsgClientUFSDeleteFileResponse *CMsgClientUFSDeleteFileResponse_Construct() {
-    return new CMsgClientUFSDeleteFileResponse();
-}
-
-EXPORT CMsgClientUFSDeleteFileResponse *CMsgClientUFSDeleteFileResponse_Deserialize(void* buffer, int len) {
-    CMsgClientUFSDeleteFileResponse *msg = new CMsgClientUFSDeleteFileResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSDeleteFileResponse_DeserializeInto(CMsgClientUFSDeleteFileResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSDeleteFileResponse_Delete(CMsgClientUFSDeleteFileResponse* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSGetFileListForApp
-EXPORT CMsgClientUFSGetFileListForApp *CMsgClientUFSGetFileListForApp_Construct() {
-    return new CMsgClientUFSGetFileListForApp();
-}
-
-EXPORT CMsgClientUFSGetFileListForApp *CMsgClientUFSGetFileListForApp_Deserialize(void* buffer, int len) {
-    CMsgClientUFSGetFileListForApp *msg = new CMsgClientUFSGetFileListForApp();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSGetFileListForApp_DeserializeInto(CMsgClientUFSGetFileListForApp *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSGetFileListForApp_Delete(CMsgClientUFSGetFileListForApp* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSGetFileListForAppResponse_File
-EXPORT CMsgClientUFSGetFileListForAppResponse_File *CMsgClientUFSGetFileListForAppResponse_File_Construct() {
-    return new CMsgClientUFSGetFileListForAppResponse_File();
-}
-
-EXPORT CMsgClientUFSGetFileListForAppResponse_File *CMsgClientUFSGetFileListForAppResponse_File_Deserialize(void* buffer, int len) {
-    CMsgClientUFSGetFileListForAppResponse_File *msg = new CMsgClientUFSGetFileListForAppResponse_File();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSGetFileListForAppResponse_File_DeserializeInto(CMsgClientUFSGetFileListForAppResponse_File *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSGetFileListForAppResponse_File_Delete(CMsgClientUFSGetFileListForAppResponse_File* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSGetFileListForAppResponse
-EXPORT CMsgClientUFSGetFileListForAppResponse *CMsgClientUFSGetFileListForAppResponse_Construct() {
-    return new CMsgClientUFSGetFileListForAppResponse();
-}
-
-EXPORT CMsgClientUFSGetFileListForAppResponse *CMsgClientUFSGetFileListForAppResponse_Deserialize(void* buffer, int len) {
-    CMsgClientUFSGetFileListForAppResponse *msg = new CMsgClientUFSGetFileListForAppResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSGetFileListForAppResponse_DeserializeInto(CMsgClientUFSGetFileListForAppResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSGetFileListForAppResponse_Delete(CMsgClientUFSGetFileListForAppResponse* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSDownloadRequest
-EXPORT CMsgClientUFSDownloadRequest *CMsgClientUFSDownloadRequest_Construct() {
-    return new CMsgClientUFSDownloadRequest();
-}
-
-EXPORT CMsgClientUFSDownloadRequest *CMsgClientUFSDownloadRequest_Deserialize(void* buffer, int len) {
-    CMsgClientUFSDownloadRequest *msg = new CMsgClientUFSDownloadRequest();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSDownloadRequest_DeserializeInto(CMsgClientUFSDownloadRequest *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSDownloadRequest_Delete(CMsgClientUFSDownloadRequest* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSDownloadResponse
-EXPORT CMsgClientUFSDownloadResponse *CMsgClientUFSDownloadResponse_Construct() {
-    return new CMsgClientUFSDownloadResponse();
-}
-
-EXPORT CMsgClientUFSDownloadResponse *CMsgClientUFSDownloadResponse_Deserialize(void* buffer, int len) {
-    CMsgClientUFSDownloadResponse *msg = new CMsgClientUFSDownloadResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSDownloadResponse_DeserializeInto(CMsgClientUFSDownloadResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSDownloadResponse_Delete(CMsgClientUFSDownloadResponse* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSLoginRequest
-EXPORT CMsgClientUFSLoginRequest *CMsgClientUFSLoginRequest_Construct() {
-    return new CMsgClientUFSLoginRequest();
-}
-
-EXPORT CMsgClientUFSLoginRequest *CMsgClientUFSLoginRequest_Deserialize(void* buffer, int len) {
-    CMsgClientUFSLoginRequest *msg = new CMsgClientUFSLoginRequest();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSLoginRequest_DeserializeInto(CMsgClientUFSLoginRequest *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSLoginRequest_Delete(CMsgClientUFSLoginRequest* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientUFSLoginResponse
-EXPORT CMsgClientUFSLoginResponse *CMsgClientUFSLoginResponse_Construct() {
-    return new CMsgClientUFSLoginResponse();
-}
-
-EXPORT CMsgClientUFSLoginResponse *CMsgClientUFSLoginResponse_Deserialize(void* buffer, int len) {
-    CMsgClientUFSLoginResponse *msg = new CMsgClientUFSLoginResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientUFSLoginResponse_DeserializeInto(CMsgClientUFSLoginResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientUFSLoginResponse_Delete(CMsgClientUFSLoginResponse* ptr) {
-    delete ptr;
-}
-
 // Begin CMsgClientUFSGetUGCDetails
 EXPORT CMsgClientUFSGetUGCDetails *CMsgClientUFSGetUGCDetails_Construct() {
     return new CMsgClientUFSGetUGCDetails();
@@ -23990,6 +23748,28 @@ EXPORT bool CMsgHotkey_DeserializeInto(CMsgHotkey *target, void* buffer, int len
 }
 
 EXPORT void CMsgHotkey_Delete(CMsgHotkey* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgSettingVariant
+EXPORT CMsgSettingVariant *CMsgSettingVariant_Construct() {
+    return new CMsgSettingVariant();
+}
+
+EXPORT CMsgSettingVariant *CMsgSettingVariant_Deserialize(void* buffer, int len) {
+    CMsgSettingVariant *msg = new CMsgSettingVariant();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgSettingVariant_DeserializeInto(CMsgSettingVariant *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgSettingVariant_Delete(CMsgSettingVariant* ptr) {
     delete ptr;
 }
 
@@ -28632,6 +28412,94 @@ EXPORT bool CFamilyGroups_GetPreferredLenders_Response_DeserializeInto(CFamilyGr
 }
 
 EXPORT void CFamilyGroups_GetPreferredLenders_Response_Delete(CFamilyGroups_GetPreferredLenders_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_GetDispersionForFamily_Request
+EXPORT CFamilyGroups_GetDispersionForFamily_Request *CFamilyGroups_GetDispersionForFamily_Request_Construct() {
+    return new CFamilyGroups_GetDispersionForFamily_Request();
+}
+
+EXPORT CFamilyGroups_GetDispersionForFamily_Request *CFamilyGroups_GetDispersionForFamily_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_GetDispersionForFamily_Request *msg = new CFamilyGroups_GetDispersionForFamily_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_GetDispersionForFamily_Request_DeserializeInto(CFamilyGroups_GetDispersionForFamily_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_GetDispersionForFamily_Request_Delete(CFamilyGroups_GetDispersionForFamily_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_FamilyDispersionGraph_Edge
+EXPORT CFamilyGroups_FamilyDispersionGraph_Edge *CFamilyGroups_FamilyDispersionGraph_Edge_Construct() {
+    return new CFamilyGroups_FamilyDispersionGraph_Edge();
+}
+
+EXPORT CFamilyGroups_FamilyDispersionGraph_Edge *CFamilyGroups_FamilyDispersionGraph_Edge_Deserialize(void* buffer, int len) {
+    CFamilyGroups_FamilyDispersionGraph_Edge *msg = new CFamilyGroups_FamilyDispersionGraph_Edge();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_FamilyDispersionGraph_Edge_DeserializeInto(CFamilyGroups_FamilyDispersionGraph_Edge *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_FamilyDispersionGraph_Edge_Delete(CFamilyGroups_FamilyDispersionGraph_Edge* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_FamilyDispersionGraph
+EXPORT CFamilyGroups_FamilyDispersionGraph *CFamilyGroups_FamilyDispersionGraph_Construct() {
+    return new CFamilyGroups_FamilyDispersionGraph();
+}
+
+EXPORT CFamilyGroups_FamilyDispersionGraph *CFamilyGroups_FamilyDispersionGraph_Deserialize(void* buffer, int len) {
+    CFamilyGroups_FamilyDispersionGraph *msg = new CFamilyGroups_FamilyDispersionGraph();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_FamilyDispersionGraph_DeserializeInto(CFamilyGroups_FamilyDispersionGraph *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_FamilyDispersionGraph_Delete(CFamilyGroups_FamilyDispersionGraph* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_GetDispersionForFamily_Response
+EXPORT CFamilyGroups_GetDispersionForFamily_Response *CFamilyGroups_GetDispersionForFamily_Response_Construct() {
+    return new CFamilyGroups_GetDispersionForFamily_Response();
+}
+
+EXPORT CFamilyGroups_GetDispersionForFamily_Response *CFamilyGroups_GetDispersionForFamily_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_GetDispersionForFamily_Response *msg = new CFamilyGroups_GetDispersionForFamily_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_GetDispersionForFamily_Response_DeserializeInto(CFamilyGroups_GetDispersionForFamily_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_GetDispersionForFamily_Response_Delete(CFamilyGroups_GetDispersionForFamily_Response* ptr) {
     delete ptr;
 }
 
@@ -37256,6 +37124,28 @@ EXPORT bool CPublishedFile_GetDetails_Request_DeserializeInto(CPublishedFile_Get
 }
 
 EXPORT void CPublishedFile_GetDetails_Request_Delete(CPublishedFile_GetDetails_Request* ptr) {
+    delete ptr;
+}
+
+// Begin PublishedFileAuthorSnapshot
+EXPORT PublishedFileAuthorSnapshot *PublishedFileAuthorSnapshot_Construct() {
+    return new PublishedFileAuthorSnapshot();
+}
+
+EXPORT PublishedFileAuthorSnapshot *PublishedFileAuthorSnapshot_Deserialize(void* buffer, int len) {
+    PublishedFileAuthorSnapshot *msg = new PublishedFileAuthorSnapshot();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool PublishedFileAuthorSnapshot_DeserializeInto(PublishedFileAuthorSnapshot *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void PublishedFileAuthorSnapshot_Delete(PublishedFileAuthorSnapshot* ptr) {
     delete ptr;
 }
 
@@ -48366,6 +48256,28 @@ EXPORT bool StoreGameRating_DeserializeInto(StoreGameRating *target, void* buffe
 }
 
 EXPORT void StoreGameRating_Delete(StoreGameRating* ptr) {
+    delete ptr;
+}
+
+// Begin StoreBrowseFilterFailure
+EXPORT StoreBrowseFilterFailure *StoreBrowseFilterFailure_Construct() {
+    return new StoreBrowseFilterFailure();
+}
+
+EXPORT StoreBrowseFilterFailure *StoreBrowseFilterFailure_Deserialize(void* buffer, int len) {
+    StoreBrowseFilterFailure *msg = new StoreBrowseFilterFailure();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool StoreBrowseFilterFailure_DeserializeInto(StoreBrowseFilterFailure *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void StoreBrowseFilterFailure_Delete(StoreBrowseFilterFailure* ptr) {
     delete ptr;
 }
 

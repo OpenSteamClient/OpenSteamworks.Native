@@ -927,6 +927,7 @@ class CClientNotificationDownloadCompleted PROTOBUF_FINAL :
 
   enum : int {
     kAppidFieldNumber = 1,
+    kDlcAppidFieldNumber = 2,
   };
   // optional uint32 appid = 1;
   bool has_appid() const;
@@ -941,6 +942,19 @@ class CClientNotificationDownloadCompleted PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 dlc_appid = 2;
+  bool has_dlc_appid() const;
+  private:
+  bool _internal_has_dlc_appid() const;
+  public:
+  void clear_dlc_appid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 dlc_appid() const;
+  void set_dlc_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_dlc_appid() const;
+  void _internal_set_dlc_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CClientNotificationDownloadCompleted)
  private:
   class _Internal;
@@ -951,6 +965,7 @@ class CClientNotificationDownloadCompleted PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 dlc_appid_;
   friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6911,6 +6926,34 @@ inline void CClientNotificationDownloadCompleted::_internal_set_appid(::PROTOBUF
 inline void CClientNotificationDownloadCompleted::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_appid(value);
   // @@protoc_insertion_point(field_set:CClientNotificationDownloadCompleted.appid)
+}
+
+// optional uint32 dlc_appid = 2;
+inline bool CClientNotificationDownloadCompleted::_internal_has_dlc_appid() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CClientNotificationDownloadCompleted::has_dlc_appid() const {
+  return _internal_has_dlc_appid();
+}
+inline void CClientNotificationDownloadCompleted::clear_dlc_appid() {
+  dlc_appid_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientNotificationDownloadCompleted::_internal_dlc_appid() const {
+  return dlc_appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientNotificationDownloadCompleted::dlc_appid() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationDownloadCompleted.dlc_appid)
+  return _internal_dlc_appid();
+}
+inline void CClientNotificationDownloadCompleted::_internal_set_dlc_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  dlc_appid_ = value;
+}
+inline void CClientNotificationDownloadCompleted::set_dlc_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_dlc_appid(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationDownloadCompleted.dlc_appid)
 }
 
 // -------------------------------------------------------------------

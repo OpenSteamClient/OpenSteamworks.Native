@@ -49,7 +49,7 @@ struct TableStruct_steammessages_5fclient_5fobjects_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[68]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[71]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -216,6 +216,12 @@ extern CMsgSystemPerfDiagnosticEntryDefaultTypeInternal _CMsgSystemPerfDiagnosti
 class CMsgSystemPerfDiagnosticInfo;
 struct CMsgSystemPerfDiagnosticInfoDefaultTypeInternal;
 extern CMsgSystemPerfDiagnosticInfoDefaultTypeInternal _CMsgSystemPerfDiagnosticInfo_default_instance_;
+class CMsgSystemPerfLegacySettingEntry;
+struct CMsgSystemPerfLegacySettingEntryDefaultTypeInternal;
+extern CMsgSystemPerfLegacySettingEntryDefaultTypeInternal _CMsgSystemPerfLegacySettingEntry_default_instance_;
+class CMsgSystemPerfLegacySettings;
+struct CMsgSystemPerfLegacySettingsDefaultTypeInternal;
+extern CMsgSystemPerfLegacySettingsDefaultTypeInternal _CMsgSystemPerfLegacySettings_default_instance_;
 class CMsgSystemPerfLimits;
 struct CMsgSystemPerfLimitsDefaultTypeInternal;
 extern CMsgSystemPerfLimitsDefaultTypeInternal _CMsgSystemPerfLimits_default_instance_;
@@ -255,6 +261,9 @@ extern CMsgSystemUpdateProgressDefaultTypeInternal _CMsgSystemUpdateProgress_def
 class CMsgSystemUpdateState;
 struct CMsgSystemUpdateStateDefaultTypeInternal;
 extern CMsgSystemUpdateStateDefaultTypeInternal _CMsgSystemUpdateState_default_instance_;
+class CMsgWebUITransportFailure;
+struct CMsgWebUITransportFailureDefaultTypeInternal;
+extern CMsgWebUITransportFailureDefaultTypeInternal _CMsgWebUITransportFailure_default_instance_;
 class CMsgWebUITransportInfo;
 struct CMsgWebUITransportInfoDefaultTypeInternal;
 extern CMsgWebUITransportInfoDefaultTypeInternal _CMsgWebUITransportInfo_default_instance_;
@@ -315,6 +324,8 @@ template<> ::CMsgSystemDockUpdateState* Arena::CreateMaybeMessage<::CMsgSystemDo
 template<> ::CMsgSystemManagerSettings* Arena::CreateMaybeMessage<::CMsgSystemManagerSettings>(Arena*);
 template<> ::CMsgSystemPerfDiagnosticEntry* Arena::CreateMaybeMessage<::CMsgSystemPerfDiagnosticEntry>(Arena*);
 template<> ::CMsgSystemPerfDiagnosticInfo* Arena::CreateMaybeMessage<::CMsgSystemPerfDiagnosticInfo>(Arena*);
+template<> ::CMsgSystemPerfLegacySettingEntry* Arena::CreateMaybeMessage<::CMsgSystemPerfLegacySettingEntry>(Arena*);
+template<> ::CMsgSystemPerfLegacySettings* Arena::CreateMaybeMessage<::CMsgSystemPerfLegacySettings>(Arena*);
 template<> ::CMsgSystemPerfLimits* Arena::CreateMaybeMessage<::CMsgSystemPerfLimits>(Arena*);
 template<> ::CMsgSystemPerfNetworkInterface* Arena::CreateMaybeMessage<::CMsgSystemPerfNetworkInterface>(Arena*);
 template<> ::CMsgSystemPerfSettings* Arena::CreateMaybeMessage<::CMsgSystemPerfSettings>(Arena*);
@@ -328,6 +339,7 @@ template<> ::CMsgSystemUpdateApplyResult* Arena::CreateMaybeMessage<::CMsgSystem
 template<> ::CMsgSystemUpdateCheckResult* Arena::CreateMaybeMessage<::CMsgSystemUpdateCheckResult>(Arena*);
 template<> ::CMsgSystemUpdateProgress* Arena::CreateMaybeMessage<::CMsgSystemUpdateProgress>(Arena*);
 template<> ::CMsgSystemUpdateState* Arena::CreateMaybeMessage<::CMsgSystemUpdateState>(Arena*);
+template<> ::CMsgWebUITransportFailure* Arena::CreateMaybeMessage<::CMsgWebUITransportFailure>(Arena*);
 template<> ::CMsgWebUITransportInfo* Arena::CreateMaybeMessage<::CMsgWebUITransportInfo>(Arena*);
 template<> ::SteamMessagesClientIClientForcedEnumDependencies* Arena::CreateMaybeMessage<::SteamMessagesClientIClientForcedEnumDependencies>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -8533,6 +8545,349 @@ class CMsgSystemPerfUpdateSettings PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMsgSystemPerfLegacySettingEntry PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSystemPerfLegacySettingEntry) */ {
+ public:
+  inline CMsgSystemPerfLegacySettingEntry() : CMsgSystemPerfLegacySettingEntry(nullptr) {}
+  virtual ~CMsgSystemPerfLegacySettingEntry();
+  explicit constexpr CMsgSystemPerfLegacySettingEntry(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSystemPerfLegacySettingEntry(const CMsgSystemPerfLegacySettingEntry& from);
+  CMsgSystemPerfLegacySettingEntry(CMsgSystemPerfLegacySettingEntry&& from) noexcept
+    : CMsgSystemPerfLegacySettingEntry() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSystemPerfLegacySettingEntry& operator=(const CMsgSystemPerfLegacySettingEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSystemPerfLegacySettingEntry& operator=(CMsgSystemPerfLegacySettingEntry&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgSystemPerfLegacySettingEntry& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSystemPerfLegacySettingEntry* internal_default_instance() {
+    return reinterpret_cast<const CMsgSystemPerfLegacySettingEntry*>(
+               &_CMsgSystemPerfLegacySettingEntry_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    33;
+
+  friend void swap(CMsgSystemPerfLegacySettingEntry& a, CMsgSystemPerfLegacySettingEntry& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSystemPerfLegacySettingEntry* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSystemPerfLegacySettingEntry* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgSystemPerfLegacySettingEntry* New() const final {
+    return CreateMaybeMessage<CMsgSystemPerfLegacySettingEntry>(nullptr);
+  }
+
+  CMsgSystemPerfLegacySettingEntry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgSystemPerfLegacySettingEntry>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgSystemPerfLegacySettingEntry& from);
+  void MergeFrom(const CMsgSystemPerfLegacySettingEntry& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSystemPerfLegacySettingEntry* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSystemPerfLegacySettingEntry";
+  }
+  protected:
+  explicit CMsgSystemPerfLegacySettingEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclient_5fobjects_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSettingsFieldNumber = 2,
+    kProfileGameIdFieldNumber = 1,
+  };
+  // optional .CMsgSystemPerfSettingsPerApp settings = 2;
+  bool has_settings() const;
+  private:
+  bool _internal_has_settings() const;
+  public:
+  void clear_settings();
+  const ::CMsgSystemPerfSettingsPerApp& settings() const;
+  ::CMsgSystemPerfSettingsPerApp* release_settings();
+  ::CMsgSystemPerfSettingsPerApp* mutable_settings();
+  void set_allocated_settings(::CMsgSystemPerfSettingsPerApp* settings);
+  private:
+  const ::CMsgSystemPerfSettingsPerApp& _internal_settings() const;
+  ::CMsgSystemPerfSettingsPerApp* _internal_mutable_settings();
+  public:
+  void unsafe_arena_set_allocated_settings(
+      ::CMsgSystemPerfSettingsPerApp* settings);
+  ::CMsgSystemPerfSettingsPerApp* unsafe_arena_release_settings();
+
+  // optional uint64 profile_game_id = 1;
+  bool has_profile_game_id() const;
+  private:
+  bool _internal_has_profile_game_id() const;
+  public:
+  void clear_profile_game_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 profile_game_id() const;
+  void set_profile_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_profile_game_id() const;
+  void _internal_set_profile_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSystemPerfLegacySettingEntry)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::CMsgSystemPerfSettingsPerApp* settings_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 profile_game_id_;
+  friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSystemPerfLegacySettings PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSystemPerfLegacySettings) */ {
+ public:
+  inline CMsgSystemPerfLegacySettings() : CMsgSystemPerfLegacySettings(nullptr) {}
+  virtual ~CMsgSystemPerfLegacySettings();
+  explicit constexpr CMsgSystemPerfLegacySettings(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSystemPerfLegacySettings(const CMsgSystemPerfLegacySettings& from);
+  CMsgSystemPerfLegacySettings(CMsgSystemPerfLegacySettings&& from) noexcept
+    : CMsgSystemPerfLegacySettings() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSystemPerfLegacySettings& operator=(const CMsgSystemPerfLegacySettings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSystemPerfLegacySettings& operator=(CMsgSystemPerfLegacySettings&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgSystemPerfLegacySettings& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSystemPerfLegacySettings* internal_default_instance() {
+    return reinterpret_cast<const CMsgSystemPerfLegacySettings*>(
+               &_CMsgSystemPerfLegacySettings_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    34;
+
+  friend void swap(CMsgSystemPerfLegacySettings& a, CMsgSystemPerfLegacySettings& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSystemPerfLegacySettings* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSystemPerfLegacySettings* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgSystemPerfLegacySettings* New() const final {
+    return CreateMaybeMessage<CMsgSystemPerfLegacySettings>(nullptr);
+  }
+
+  CMsgSystemPerfLegacySettings* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgSystemPerfLegacySettings>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgSystemPerfLegacySettings& from);
+  void MergeFrom(const CMsgSystemPerfLegacySettings& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSystemPerfLegacySettings* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSystemPerfLegacySettings";
+  }
+  protected:
+  explicit CMsgSystemPerfLegacySettings(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclient_5fobjects_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPerAppSettingsFieldNumber = 2,
+    kGlobalFieldNumber = 1,
+  };
+  // repeated .CMsgSystemPerfLegacySettingEntry per_app_settings = 2;
+  int per_app_settings_size() const;
+  private:
+  int _internal_per_app_settings_size() const;
+  public:
+  void clear_per_app_settings();
+  ::CMsgSystemPerfLegacySettingEntry* mutable_per_app_settings(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSystemPerfLegacySettingEntry >*
+      mutable_per_app_settings();
+  private:
+  const ::CMsgSystemPerfLegacySettingEntry& _internal_per_app_settings(int index) const;
+  ::CMsgSystemPerfLegacySettingEntry* _internal_add_per_app_settings();
+  public:
+  const ::CMsgSystemPerfLegacySettingEntry& per_app_settings(int index) const;
+  ::CMsgSystemPerfLegacySettingEntry* add_per_app_settings();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSystemPerfLegacySettingEntry >&
+      per_app_settings() const;
+
+  // optional .CMsgSystemPerfSettingsGlobal global = 1;
+  bool has_global() const;
+  private:
+  bool _internal_has_global() const;
+  public:
+  void clear_global();
+  const ::CMsgSystemPerfSettingsGlobal& global() const;
+  ::CMsgSystemPerfSettingsGlobal* release_global();
+  ::CMsgSystemPerfSettingsGlobal* mutable_global();
+  void set_allocated_global(::CMsgSystemPerfSettingsGlobal* global);
+  private:
+  const ::CMsgSystemPerfSettingsGlobal& _internal_global() const;
+  ::CMsgSystemPerfSettingsGlobal* _internal_mutable_global();
+  public:
+  void unsafe_arena_set_allocated_global(
+      ::CMsgSystemPerfSettingsGlobal* global);
+  ::CMsgSystemPerfSettingsGlobal* unsafe_arena_release_global();
+
+  // @@protoc_insertion_point(class_scope:CMsgSystemPerfLegacySettings)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSystemPerfLegacySettingEntry > per_app_settings_;
+  ::CMsgSystemPerfSettingsGlobal* global_;
+  friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgSystemDockUpdateState PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSystemDockUpdateState) */ {
  public:
@@ -8583,7 +8938,7 @@ class CMsgSystemDockUpdateState PROTOBUF_FINAL :
                &_CMsgSystemDockUpdateState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(CMsgSystemDockUpdateState& a, CMsgSystemDockUpdateState& b) {
     a.Swap(&b);
@@ -8836,7 +9191,7 @@ class CMsgSystemDockState PROTOBUF_FINAL :
                &_CMsgSystemDockState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(CMsgSystemDockState& a, CMsgSystemDockState& b) {
     a.Swap(&b);
@@ -8990,7 +9345,7 @@ class CMsgSystemDockUpdateFirmware PROTOBUF_FINAL :
                &_CMsgSystemDockUpdateFirmware_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(CMsgSystemDockUpdateFirmware& a, CMsgSystemDockUpdateFirmware& b) {
     a.Swap(&b);
@@ -9139,7 +9494,7 @@ class CMsgSystemAudioVolume_ChannelEntry PROTOBUF_FINAL :
                &_CMsgSystemAudioVolume_ChannelEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(CMsgSystemAudioVolume_ChannelEntry& a, CMsgSystemAudioVolume_ChannelEntry& b) {
     a.Swap(&b);
@@ -9303,7 +9658,7 @@ class CMsgSystemAudioVolume PROTOBUF_FINAL :
                &_CMsgSystemAudioVolume_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(CMsgSystemAudioVolume& a, CMsgSystemAudioVolume& b) {
     a.Swap(&b);
@@ -9474,7 +9829,7 @@ class CMsgSystemAudioManagerObject PROTOBUF_FINAL :
                &_CMsgSystemAudioManagerObject_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(CMsgSystemAudioManagerObject& a, CMsgSystemAudioManagerObject& b) {
     a.Swap(&b);
@@ -9638,7 +9993,7 @@ class CMsgSystemAudioManagerDevice PROTOBUF_FINAL :
                &_CMsgSystemAudioManagerDevice_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(CMsgSystemAudioManagerDevice& a, CMsgSystemAudioManagerDevice& b) {
     a.Swap(&b);
@@ -9880,7 +10235,7 @@ class CMsgSystemAudioManagerNode PROTOBUF_FINAL :
                &_CMsgSystemAudioManagerNode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(CMsgSystemAudioManagerNode& a, CMsgSystemAudioManagerNode& b) {
     a.Swap(&b);
@@ -10150,7 +10505,7 @@ class CMsgSystemAudioManagerPort PROTOBUF_FINAL :
                &_CMsgSystemAudioManagerPort_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    43;
 
   friend void swap(CMsgSystemAudioManagerPort& a, CMsgSystemAudioManagerPort& b) {
     a.Swap(&b);
@@ -10453,7 +10808,7 @@ class CMsgSystemAudioManagerLink PROTOBUF_FINAL :
                &_CMsgSystemAudioManagerLink_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    44;
 
   friend void swap(CMsgSystemAudioManagerLink& a, CMsgSystemAudioManagerLink& b) {
     a.Swap(&b);
@@ -10667,7 +11022,7 @@ class CMsgSystemAudioManagerStateHW PROTOBUF_FINAL :
                &_CMsgSystemAudioManagerStateHW_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(CMsgSystemAudioManagerStateHW& a, CMsgSystemAudioManagerStateHW& b) {
     a.Swap(&b);
@@ -10880,7 +11235,7 @@ class CMsgSystemAudioManagerState PROTOBUF_FINAL :
                &_CMsgSystemAudioManagerState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    46;
 
   friend void swap(CMsgSystemAudioManagerState& a, CMsgSystemAudioManagerState& b) {
     a.Swap(&b);
@@ -11064,7 +11419,7 @@ class CMsgSystemAudioManagerUpdateSomething PROTOBUF_FINAL :
                &_CMsgSystemAudioManagerUpdateSomething_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    47;
 
   friend void swap(CMsgSystemAudioManagerUpdateSomething& a, CMsgSystemAudioManagerUpdateSomething& b) {
     a.Swap(&b);
@@ -11213,7 +11568,7 @@ class CMsgSystemDisplayMode PROTOBUF_FINAL :
                &_CMsgSystemDisplayMode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    48;
 
   friend void swap(CMsgSystemDisplayMode& a, CMsgSystemDisplayMode& b) {
     a.Swap(&b);
@@ -11407,7 +11762,7 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
                &_CMsgSystemDisplay_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    49;
 
   friend void swap(CMsgSystemDisplay& a, CMsgSystemDisplay& b) {
     a.Swap(&b);
@@ -11839,7 +12194,7 @@ class CMsgSystemDisplayManagerState PROTOBUF_FINAL :
                &_CMsgSystemDisplayManagerState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    50;
 
   friend void swap(CMsgSystemDisplayManagerState& a, CMsgSystemDisplayManagerState& b) {
     a.Swap(&b);
@@ -12023,7 +12378,7 @@ class CMsgSystemDisplayManagerSetMode PROTOBUF_FINAL :
                &_CMsgSystemDisplayManagerSetMode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    51;
 
   friend void swap(CMsgSystemDisplayManagerSetMode& a, CMsgSystemDisplayManagerSetMode& b) {
     a.Swap(&b);
@@ -12187,7 +12542,7 @@ class CMsgSystemManagerSettings PROTOBUF_FINAL :
                &_CMsgSystemManagerSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    52;
 
   friend void swap(CMsgSystemManagerSettings& a, CMsgSystemManagerSettings& b) {
     a.Swap(&b);
@@ -12861,7 +13216,7 @@ class CMsgSelectOSBranchParams PROTOBUF_FINAL :
                &_CMsgSelectOSBranchParams_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    53;
 
   friend void swap(CMsgSelectOSBranchParams& a, CMsgSelectOSBranchParams& b) {
     a.Swap(&b);
@@ -13032,7 +13387,7 @@ class CMsgSystemUpdateProgress PROTOBUF_FINAL :
                &_CMsgSystemUpdateProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    54;
 
   friend void swap(CMsgSystemUpdateProgress& a, CMsgSystemUpdateProgress& b) {
     a.Swap(&b);
@@ -13211,7 +13566,7 @@ class CMsgSystemUpdateCheckResult PROTOBUF_FINAL :
                &_CMsgSystemUpdateCheckResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    55;
 
   friend void swap(CMsgSystemUpdateCheckResult& a, CMsgSystemUpdateCheckResult& b) {
     a.Swap(&b);
@@ -13464,7 +13819,7 @@ class CMsgSystemUpdateApplyParams PROTOBUF_FINAL :
                &_CMsgSystemUpdateApplyParams_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    56;
 
   friend void swap(CMsgSystemUpdateApplyParams& a, CMsgSystemUpdateApplyParams& b) {
     a.Swap(&b);
@@ -13616,7 +13971,7 @@ class CMsgSystemUpdateApplyResult PROTOBUF_FINAL :
                &_CMsgSystemUpdateApplyResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    57;
 
   friend void swap(CMsgSystemUpdateApplyResult& a, CMsgSystemUpdateApplyResult& b) {
     a.Swap(&b);
@@ -13810,7 +14165,7 @@ class CMsgSystemUpdateState PROTOBUF_FINAL :
                &_CMsgSystemUpdateState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    58;
 
   friend void swap(CMsgSystemUpdateState& a, CMsgSystemUpdateState& b) {
     a.Swap(&b);
@@ -14034,7 +14389,7 @@ class CMsgAchievementChange PROTOBUF_FINAL :
                &_CMsgAchievementChange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    59;
 
   friend void swap(CMsgAchievementChange& a, CMsgAchievementChange& b) {
     a.Swap(&b);
@@ -14183,7 +14538,7 @@ class CMsgCellList_Cell PROTOBUF_FINAL :
                &_CMsgCellList_Cell_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    60;
 
   friend void swap(CMsgCellList_Cell& a, CMsgCellList_Cell& b) {
     a.Swap(&b);
@@ -14354,7 +14709,7 @@ class CMsgCellList PROTOBUF_FINAL :
                &_CMsgCellList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    61;
 
   friend void swap(CMsgCellList& a, CMsgCellList& b) {
     a.Swap(&b);
@@ -14509,7 +14864,7 @@ class CMsgShortcutInfo PROTOBUF_FINAL :
                &_CMsgShortcutInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    62;
 
   friend void swap(CMsgShortcutInfo& a, CMsgShortcutInfo& b) {
     a.Swap(&b);
@@ -14995,7 +15350,7 @@ class CMsgShortcutAppIds PROTOBUF_FINAL :
                &_CMsgShortcutAppIds_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    63;
 
   friend void swap(CMsgShortcutAppIds& a, CMsgShortcutAppIds& b) {
     a.Swap(&b);
@@ -15152,7 +15507,7 @@ class CMsgMonitorInfo_MonitorInfo PROTOBUF_FINAL :
                &_CMsgMonitorInfo_MonitorInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    64;
 
   friend void swap(CMsgMonitorInfo_MonitorInfo& a, CMsgMonitorInfo_MonitorInfo& b) {
     a.Swap(&b);
@@ -15333,7 +15688,7 @@ class CMsgMonitorInfo PROTOBUF_FINAL :
                &_CMsgMonitorInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    65;
 
   friend void swap(CMsgMonitorInfo& a, CMsgMonitorInfo& b) {
     a.Swap(&b);
@@ -15511,7 +15866,7 @@ class CMsgGenerateSystemReportReply PROTOBUF_FINAL :
                &_CMsgGenerateSystemReportReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    66;
 
   friend void swap(CMsgGenerateSystemReportReply& a, CMsgGenerateSystemReportReply& b) {
     a.Swap(&b);
@@ -15667,7 +16022,7 @@ class CMsgWebUITransportInfo PROTOBUF_FINAL :
                &_CMsgWebUITransportInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    67;
 
   friend void swap(CMsgWebUITransportInfo& a, CMsgWebUITransportInfo& b) {
     a.Swap(&b);
@@ -15788,6 +16143,155 @@ class CMsgWebUITransportInfo PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMsgWebUITransportFailure PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgWebUITransportFailure) */ {
+ public:
+  inline CMsgWebUITransportFailure() : CMsgWebUITransportFailure(nullptr) {}
+  virtual ~CMsgWebUITransportFailure();
+  explicit constexpr CMsgWebUITransportFailure(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgWebUITransportFailure(const CMsgWebUITransportFailure& from);
+  CMsgWebUITransportFailure(CMsgWebUITransportFailure&& from) noexcept
+    : CMsgWebUITransportFailure() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgWebUITransportFailure& operator=(const CMsgWebUITransportFailure& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgWebUITransportFailure& operator=(CMsgWebUITransportFailure&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgWebUITransportFailure& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgWebUITransportFailure* internal_default_instance() {
+    return reinterpret_cast<const CMsgWebUITransportFailure*>(
+               &_CMsgWebUITransportFailure_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    68;
+
+  friend void swap(CMsgWebUITransportFailure& a, CMsgWebUITransportFailure& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgWebUITransportFailure* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgWebUITransportFailure* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgWebUITransportFailure* New() const final {
+    return CreateMaybeMessage<CMsgWebUITransportFailure>(nullptr);
+  }
+
+  CMsgWebUITransportFailure* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgWebUITransportFailure>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgWebUITransportFailure& from);
+  void MergeFrom(const CMsgWebUITransportFailure& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgWebUITransportFailure* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgWebUITransportFailure";
+  }
+  protected:
+  explicit CMsgWebUITransportFailure(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclient_5fobjects_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kConnectCountFieldNumber = 1,
+  };
+  // optional uint32 connect_count = 1;
+  bool has_connect_count() const;
+  private:
+  bool _internal_has_connect_count() const;
+  public:
+  void clear_connect_count();
+  ::PROTOBUF_NAMESPACE_ID::uint32 connect_count() const;
+  void set_connect_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_connect_count() const;
+  void _internal_set_connect_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgWebUITransportFailure)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 connect_count_;
+  friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgClientShaderHitCacheEntry PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientShaderHitCacheEntry) */ {
  public:
@@ -15838,7 +16342,7 @@ class CMsgClientShaderHitCacheEntry PROTOBUF_FINAL :
                &_CMsgClientShaderHitCacheEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    69;
 
   friend void swap(CMsgClientShaderHitCacheEntry& a, CMsgClientShaderHitCacheEntry& b) {
     a.Swap(&b);
@@ -16031,7 +16535,7 @@ class CMsgClientShaderHitCache PROTOBUF_FINAL :
                &_CMsgClientShaderHitCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    70;
 
   friend void swap(CMsgClientShaderHitCache& a, CMsgClientShaderHitCache& b) {
     a.Swap(&b);
@@ -24714,6 +25218,247 @@ inline CMsgSystemPerfUpdateSettings::UpdateCase CMsgSystemPerfUpdateSettings::up
 }
 // -------------------------------------------------------------------
 
+// CMsgSystemPerfLegacySettingEntry
+
+// optional uint64 profile_game_id = 1;
+inline bool CMsgSystemPerfLegacySettingEntry::_internal_has_profile_game_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSystemPerfLegacySettingEntry::has_profile_game_id() const {
+  return _internal_has_profile_game_id();
+}
+inline void CMsgSystemPerfLegacySettingEntry::clear_profile_game_id() {
+  profile_game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgSystemPerfLegacySettingEntry::_internal_profile_game_id() const {
+  return profile_game_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgSystemPerfLegacySettingEntry::profile_game_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSystemPerfLegacySettingEntry.profile_game_id)
+  return _internal_profile_game_id();
+}
+inline void CMsgSystemPerfLegacySettingEntry::_internal_set_profile_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  profile_game_id_ = value;
+}
+inline void CMsgSystemPerfLegacySettingEntry::set_profile_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_profile_game_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSystemPerfLegacySettingEntry.profile_game_id)
+}
+
+// optional .CMsgSystemPerfSettingsPerApp settings = 2;
+inline bool CMsgSystemPerfLegacySettingEntry::_internal_has_settings() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || settings_ != nullptr);
+  return value;
+}
+inline bool CMsgSystemPerfLegacySettingEntry::has_settings() const {
+  return _internal_has_settings();
+}
+inline void CMsgSystemPerfLegacySettingEntry::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgSystemPerfSettingsPerApp& CMsgSystemPerfLegacySettingEntry::_internal_settings() const {
+  const ::CMsgSystemPerfSettingsPerApp* p = settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSystemPerfSettingsPerApp&>(
+      ::_CMsgSystemPerfSettingsPerApp_default_instance_);
+}
+inline const ::CMsgSystemPerfSettingsPerApp& CMsgSystemPerfLegacySettingEntry::settings() const {
+  // @@protoc_insertion_point(field_get:CMsgSystemPerfLegacySettingEntry.settings)
+  return _internal_settings();
+}
+inline void CMsgSystemPerfLegacySettingEntry::unsafe_arena_set_allocated_settings(
+    ::CMsgSystemPerfSettingsPerApp* settings) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(settings_);
+  }
+  settings_ = settings;
+  if (settings) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSystemPerfLegacySettingEntry.settings)
+}
+inline ::CMsgSystemPerfSettingsPerApp* CMsgSystemPerfLegacySettingEntry::release_settings() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::CMsgSystemPerfSettingsPerApp* temp = settings_;
+  settings_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CMsgSystemPerfSettingsPerApp* CMsgSystemPerfLegacySettingEntry::unsafe_arena_release_settings() {
+  // @@protoc_insertion_point(field_release:CMsgSystemPerfLegacySettingEntry.settings)
+  _has_bits_[0] &= ~0x00000001u;
+  ::CMsgSystemPerfSettingsPerApp* temp = settings_;
+  settings_ = nullptr;
+  return temp;
+}
+inline ::CMsgSystemPerfSettingsPerApp* CMsgSystemPerfLegacySettingEntry::_internal_mutable_settings() {
+  _has_bits_[0] |= 0x00000001u;
+  if (settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSystemPerfSettingsPerApp>(GetArena());
+    settings_ = p;
+  }
+  return settings_;
+}
+inline ::CMsgSystemPerfSettingsPerApp* CMsgSystemPerfLegacySettingEntry::mutable_settings() {
+  // @@protoc_insertion_point(field_mutable:CMsgSystemPerfLegacySettingEntry.settings)
+  return _internal_mutable_settings();
+}
+inline void CMsgSystemPerfLegacySettingEntry::set_allocated_settings(::CMsgSystemPerfSettingsPerApp* settings) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete settings_;
+  }
+  if (settings) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(settings);
+    if (message_arena != submessage_arena) {
+      settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, settings, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  settings_ = settings;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSystemPerfLegacySettingEntry.settings)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSystemPerfLegacySettings
+
+// optional .CMsgSystemPerfSettingsGlobal global = 1;
+inline bool CMsgSystemPerfLegacySettings::_internal_has_global() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || global_ != nullptr);
+  return value;
+}
+inline bool CMsgSystemPerfLegacySettings::has_global() const {
+  return _internal_has_global();
+}
+inline void CMsgSystemPerfLegacySettings::clear_global() {
+  if (global_ != nullptr) global_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgSystemPerfSettingsGlobal& CMsgSystemPerfLegacySettings::_internal_global() const {
+  const ::CMsgSystemPerfSettingsGlobal* p = global_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSystemPerfSettingsGlobal&>(
+      ::_CMsgSystemPerfSettingsGlobal_default_instance_);
+}
+inline const ::CMsgSystemPerfSettingsGlobal& CMsgSystemPerfLegacySettings::global() const {
+  // @@protoc_insertion_point(field_get:CMsgSystemPerfLegacySettings.global)
+  return _internal_global();
+}
+inline void CMsgSystemPerfLegacySettings::unsafe_arena_set_allocated_global(
+    ::CMsgSystemPerfSettingsGlobal* global) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(global_);
+  }
+  global_ = global;
+  if (global) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSystemPerfLegacySettings.global)
+}
+inline ::CMsgSystemPerfSettingsGlobal* CMsgSystemPerfLegacySettings::release_global() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::CMsgSystemPerfSettingsGlobal* temp = global_;
+  global_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CMsgSystemPerfSettingsGlobal* CMsgSystemPerfLegacySettings::unsafe_arena_release_global() {
+  // @@protoc_insertion_point(field_release:CMsgSystemPerfLegacySettings.global)
+  _has_bits_[0] &= ~0x00000001u;
+  ::CMsgSystemPerfSettingsGlobal* temp = global_;
+  global_ = nullptr;
+  return temp;
+}
+inline ::CMsgSystemPerfSettingsGlobal* CMsgSystemPerfLegacySettings::_internal_mutable_global() {
+  _has_bits_[0] |= 0x00000001u;
+  if (global_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSystemPerfSettingsGlobal>(GetArena());
+    global_ = p;
+  }
+  return global_;
+}
+inline ::CMsgSystemPerfSettingsGlobal* CMsgSystemPerfLegacySettings::mutable_global() {
+  // @@protoc_insertion_point(field_mutable:CMsgSystemPerfLegacySettings.global)
+  return _internal_mutable_global();
+}
+inline void CMsgSystemPerfLegacySettings::set_allocated_global(::CMsgSystemPerfSettingsGlobal* global) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete global_;
+  }
+  if (global) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(global);
+    if (message_arena != submessage_arena) {
+      global = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, global, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  global_ = global;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSystemPerfLegacySettings.global)
+}
+
+// repeated .CMsgSystemPerfLegacySettingEntry per_app_settings = 2;
+inline int CMsgSystemPerfLegacySettings::_internal_per_app_settings_size() const {
+  return per_app_settings_.size();
+}
+inline int CMsgSystemPerfLegacySettings::per_app_settings_size() const {
+  return _internal_per_app_settings_size();
+}
+inline void CMsgSystemPerfLegacySettings::clear_per_app_settings() {
+  per_app_settings_.Clear();
+}
+inline ::CMsgSystemPerfLegacySettingEntry* CMsgSystemPerfLegacySettings::mutable_per_app_settings(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSystemPerfLegacySettings.per_app_settings)
+  return per_app_settings_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSystemPerfLegacySettingEntry >*
+CMsgSystemPerfLegacySettings::mutable_per_app_settings() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSystemPerfLegacySettings.per_app_settings)
+  return &per_app_settings_;
+}
+inline const ::CMsgSystemPerfLegacySettingEntry& CMsgSystemPerfLegacySettings::_internal_per_app_settings(int index) const {
+  return per_app_settings_.Get(index);
+}
+inline const ::CMsgSystemPerfLegacySettingEntry& CMsgSystemPerfLegacySettings::per_app_settings(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSystemPerfLegacySettings.per_app_settings)
+  return _internal_per_app_settings(index);
+}
+inline ::CMsgSystemPerfLegacySettingEntry* CMsgSystemPerfLegacySettings::_internal_add_per_app_settings() {
+  return per_app_settings_.Add();
+}
+inline ::CMsgSystemPerfLegacySettingEntry* CMsgSystemPerfLegacySettings::add_per_app_settings() {
+  // @@protoc_insertion_point(field_add:CMsgSystemPerfLegacySettings.per_app_settings)
+  return _internal_add_per_app_settings();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSystemPerfLegacySettingEntry >&
+CMsgSystemPerfLegacySettings::per_app_settings() const {
+  // @@protoc_insertion_point(field_list:CMsgSystemPerfLegacySettings.per_app_settings)
+  return per_app_settings_;
+}
+
+// -------------------------------------------------------------------
+
 // CMsgSystemDockUpdateState
 
 // optional .EUpdaterState state = 1 [default = EUpdaterState_Invalid];
@@ -31518,6 +32263,38 @@ inline void CMsgWebUITransportInfo::set_allocated_auth_key(std::string* auth_key
 
 // -------------------------------------------------------------------
 
+// CMsgWebUITransportFailure
+
+// optional uint32 connect_count = 1;
+inline bool CMsgWebUITransportFailure::_internal_has_connect_count() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgWebUITransportFailure::has_connect_count() const {
+  return _internal_has_connect_count();
+}
+inline void CMsgWebUITransportFailure::clear_connect_count() {
+  connect_count_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgWebUITransportFailure::_internal_connect_count() const {
+  return connect_count_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgWebUITransportFailure::connect_count() const {
+  // @@protoc_insertion_point(field_get:CMsgWebUITransportFailure.connect_count)
+  return _internal_connect_count();
+}
+inline void CMsgWebUITransportFailure::_internal_set_connect_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  connect_count_ = value;
+}
+inline void CMsgWebUITransportFailure::set_connect_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_connect_count(value);
+  // @@protoc_insertion_point(field_set:CMsgWebUITransportFailure.connect_count)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgClientShaderHitCacheEntry
 
 // optional bytes key_sha = 1;
@@ -31740,6 +32517,12 @@ CMsgClientShaderHitCache::entries() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

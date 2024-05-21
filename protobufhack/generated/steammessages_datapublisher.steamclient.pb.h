@@ -541,10 +541,12 @@ class CDataPublisher_ClientUpdateAppJob_Notification PROTOBUF_FINAL :
     kTotalBytesDownloadedFieldNumber = 14,
     kTotalBytesStagedFieldNumber = 15,
     kTotalBytesRestoredFieldNumber = 16,
+    kTotalBytesPatchedFieldNumber = 20,
     kIsBorrowedFieldNumber = 17,
     kIsFreeWeekendFieldNumber = 18,
+    kIsWorkshopFieldNumber = 23,
+    kIsShaderFieldNumber = 24,
     kCellIdFieldNumber = 22,
-    kTotalBytesPatchedFieldNumber = 20,
     kTotalBytesSavedFieldNumber = 21,
   };
   // repeated uint32 depot_ids = 2;
@@ -778,6 +780,19 @@ class CDataPublisher_ClientUpdateAppJob_Notification PROTOBUF_FINAL :
   void _internal_set_total_bytes_restored(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional uint64 total_bytes_patched = 20;
+  bool has_total_bytes_patched() const;
+  private:
+  bool _internal_has_total_bytes_patched() const;
+  public:
+  void clear_total_bytes_patched();
+  ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_patched() const;
+  void set_total_bytes_patched(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_total_bytes_patched() const;
+  void _internal_set_total_bytes_patched(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // optional bool is_borrowed = 17;
   bool has_is_borrowed() const;
   private:
@@ -804,6 +819,32 @@ class CDataPublisher_ClientUpdateAppJob_Notification PROTOBUF_FINAL :
   void _internal_set_is_free_weekend(bool value);
   public:
 
+  // optional bool is_workshop = 23;
+  bool has_is_workshop() const;
+  private:
+  bool _internal_has_is_workshop() const;
+  public:
+  void clear_is_workshop();
+  bool is_workshop() const;
+  void set_is_workshop(bool value);
+  private:
+  bool _internal_is_workshop() const;
+  void _internal_set_is_workshop(bool value);
+  public:
+
+  // optional bool is_shader = 24;
+  bool has_is_shader() const;
+  private:
+  bool _internal_has_is_shader() const;
+  public:
+  void clear_is_shader();
+  bool is_shader() const;
+  void set_is_shader(bool value);
+  private:
+  bool _internal_is_shader() const;
+  void _internal_set_is_shader(bool value);
+  public:
+
   // optional uint32 cell_id = 22;
   bool has_cell_id() const;
   private:
@@ -815,19 +856,6 @@ class CDataPublisher_ClientUpdateAppJob_Notification PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cell_id() const;
   void _internal_set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint64 total_bytes_patched = 20;
-  bool has_total_bytes_patched() const;
-  private:
-  bool _internal_has_total_bytes_patched() const;
-  public:
-  void clear_total_bytes_patched();
-  ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_patched() const;
-  void set_total_bytes_patched(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_total_bytes_patched() const;
-  void _internal_set_total_bytes_patched(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // optional uint64 total_bytes_saved = 21;
@@ -868,10 +896,12 @@ class CDataPublisher_ClientUpdateAppJob_Notification PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_downloaded_;
   ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_staged_;
   ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_restored_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_patched_;
   bool is_borrowed_;
   bool is_free_weekend_;
+  bool is_workshop_;
+  bool is_shader_;
   ::PROTOBUF_NAMESPACE_ID::uint32 cell_id_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_patched_;
   ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_saved_;
   friend struct ::TableStruct_steammessages_5fdatapublisher_2esteamclient_2eproto;
 };
@@ -3560,7 +3590,7 @@ inline void CDataPublisher_ClientUpdateAppJob_Notification::set_total_bytes_rest
 
 // optional bool is_borrowed = 17;
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_has_is_borrowed() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_is_borrowed() const {
@@ -3568,7 +3598,7 @@ inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_is_borrowed() co
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::clear_is_borrowed() {
   is_borrowed_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_is_borrowed() const {
   return is_borrowed_;
@@ -3578,7 +3608,7 @@ inline bool CDataPublisher_ClientUpdateAppJob_Notification::is_borrowed() const 
   return _internal_is_borrowed();
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_is_borrowed(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
   is_borrowed_ = value;
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::set_is_borrowed(bool value) {
@@ -3588,7 +3618,7 @@ inline void CDataPublisher_ClientUpdateAppJob_Notification::set_is_borrowed(bool
 
 // optional bool is_free_weekend = 18;
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_has_is_free_weekend() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_is_free_weekend() const {
@@ -3596,7 +3626,7 @@ inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_is_free_weekend(
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::clear_is_free_weekend() {
   is_free_weekend_ = false;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_is_free_weekend() const {
   return is_free_weekend_;
@@ -3606,7 +3636,7 @@ inline bool CDataPublisher_ClientUpdateAppJob_Notification::is_free_weekend() co
   return _internal_is_free_weekend();
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_is_free_weekend(bool value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
   is_free_weekend_ = value;
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::set_is_free_weekend(bool value) {
@@ -3616,7 +3646,7 @@ inline void CDataPublisher_ClientUpdateAppJob_Notification::set_is_free_weekend(
 
 // optional uint64 total_bytes_patched = 20;
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_has_total_bytes_patched() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_total_bytes_patched() const {
@@ -3624,7 +3654,7 @@ inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_total_bytes_patc
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::clear_total_bytes_patched() {
   total_bytes_patched_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CDataPublisher_ClientUpdateAppJob_Notification::_internal_total_bytes_patched() const {
   return total_bytes_patched_;
@@ -3634,7 +3664,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CDataPublisher_ClientUpdateAppJob_Notific
   return _internal_total_bytes_patched();
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_total_bytes_patched(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00008000u;
   total_bytes_patched_ = value;
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::set_total_bytes_patched(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -3644,7 +3674,7 @@ inline void CDataPublisher_ClientUpdateAppJob_Notification::set_total_bytes_patc
 
 // optional uint64 total_bytes_saved = 21;
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_has_total_bytes_saved() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_total_bytes_saved() const {
@@ -3652,7 +3682,7 @@ inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_total_bytes_save
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::clear_total_bytes_saved() {
   total_bytes_saved_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CDataPublisher_ClientUpdateAppJob_Notification::_internal_total_bytes_saved() const {
   return total_bytes_saved_;
@@ -3662,7 +3692,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CDataPublisher_ClientUpdateAppJob_Notific
   return _internal_total_bytes_saved();
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_total_bytes_saved(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00200000u;
   total_bytes_saved_ = value;
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::set_total_bytes_saved(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -3672,7 +3702,7 @@ inline void CDataPublisher_ClientUpdateAppJob_Notification::set_total_bytes_save
 
 // optional uint32 cell_id = 22;
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_has_cell_id() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_cell_id() const {
@@ -3680,7 +3710,7 @@ inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_cell_id() const 
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::clear_cell_id() {
   cell_id_ = 0u;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CDataPublisher_ClientUpdateAppJob_Notification::_internal_cell_id() const {
   return cell_id_;
@@ -3690,12 +3720,68 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CDataPublisher_ClientUpdateAppJob_Notific
   return _internal_cell_id();
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00100000u;
   cell_id_ = value;
 }
 inline void CDataPublisher_ClientUpdateAppJob_Notification::set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_cell_id(value);
   // @@protoc_insertion_point(field_set:CDataPublisher_ClientUpdateAppJob_Notification.cell_id)
+}
+
+// optional bool is_workshop = 23;
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_has_is_workshop() const {
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  return value;
+}
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_is_workshop() const {
+  return _internal_has_is_workshop();
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::clear_is_workshop() {
+  is_workshop_ = false;
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_is_workshop() const {
+  return is_workshop_;
+}
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::is_workshop() const {
+  // @@protoc_insertion_point(field_get:CDataPublisher_ClientUpdateAppJob_Notification.is_workshop)
+  return _internal_is_workshop();
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_is_workshop(bool value) {
+  _has_bits_[0] |= 0x00040000u;
+  is_workshop_ = value;
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::set_is_workshop(bool value) {
+  _internal_set_is_workshop(value);
+  // @@protoc_insertion_point(field_set:CDataPublisher_ClientUpdateAppJob_Notification.is_workshop)
+}
+
+// optional bool is_shader = 24;
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_has_is_shader() const {
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  return value;
+}
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_is_shader() const {
+  return _internal_has_is_shader();
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::clear_is_shader() {
+  is_shader_ = false;
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_is_shader() const {
+  return is_shader_;
+}
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::is_shader() const {
+  // @@protoc_insertion_point(field_get:CDataPublisher_ClientUpdateAppJob_Notification.is_shader)
+  return _internal_is_shader();
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_is_shader(bool value) {
+  _has_bits_[0] |= 0x00080000u;
+  is_shader_ = value;
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::set_is_shader(bool value) {
+  _internal_set_is_shader(value);
+  // @@protoc_insertion_point(field_set:CDataPublisher_ClientUpdateAppJob_Notification.is_shader)
 }
 
 // -------------------------------------------------------------------

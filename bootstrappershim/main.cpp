@@ -10,6 +10,7 @@
 #include <link.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "version.h"
 
 static int n = 0;
 
@@ -74,8 +75,8 @@ extern "C" unsigned int SteamBootstrapper_GetEUniverse() {
 }
 
 extern "C" long long int GetBootstrapperVersion() {
-    std::cout << "GetBootstrapperVersion: 0" << std::endl;
-    return 0;
+    std::cout << "GetBootstrapperVersion: " STR(STEAM_MANIFEST_VERSION) << std::endl;
+    return STEAM_MANIFEST_VERSION;
 }
 
 extern "C" const char* GetCurrentClientBeta() {

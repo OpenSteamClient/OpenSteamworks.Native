@@ -3,7 +3,6 @@
 // MacOS has DYLD_INSERT_LIBRARIES
 #include <string>
 #include <cstring>
-#include <iostream> 
 #include <vector>
 
 #include <dlfcn.h>
@@ -11,8 +10,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "version.h"
-
-static int n = 0;
 
 static char *install_dir = nullptr;
 static char *logging_dir = nullptr;
@@ -70,17 +67,14 @@ extern "C" bool StartCheckingForUpdates() {
 
 // First function called by steamclient
 extern "C" unsigned int SteamBootstrapper_GetEUniverse() {
-    std::cout << "SteamBootstrapper_GetEUniverse: 1" << std::endl;
     return 1;
 }
 
 extern "C" long long int GetBootstrapperVersion() {
-    std::cout << "GetBootstrapperVersion: " STR(STEAM_MANIFEST_VERSION) << std::endl;
     return STEAM_MANIFEST_VERSION;
 }
 
 extern "C" const char* GetCurrentClientBeta() {
-    std::cout << "GetCurrentClientBeta: opensteamclient" << std::endl;
     return "opensteamclient";
 }
 

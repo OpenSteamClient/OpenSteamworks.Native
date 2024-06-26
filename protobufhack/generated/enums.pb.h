@@ -431,6 +431,30 @@ inline bool EColorGamutLabelSet_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EColorGamutLabelSet>(
     EColorGamutLabelSet_descriptor(), name, value);
 }
+enum EWindowStackingOrder : int {
+  EWindowStackingOrder_Invalid = 0,
+  EWindowStackingOrder_Top = 1,
+  EWindowStackingOrder_Bottom = 2
+};
+bool EWindowStackingOrder_IsValid(int value);
+constexpr EWindowStackingOrder EWindowStackingOrder_MIN = EWindowStackingOrder_Invalid;
+constexpr EWindowStackingOrder EWindowStackingOrder_MAX = EWindowStackingOrder_Bottom;
+constexpr int EWindowStackingOrder_ARRAYSIZE = EWindowStackingOrder_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EWindowStackingOrder_descriptor();
+template<typename T>
+inline const std::string& EWindowStackingOrder_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EWindowStackingOrder>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EWindowStackingOrder_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EWindowStackingOrder_descriptor(), enum_t_value);
+}
+inline bool EWindowStackingOrder_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EWindowStackingOrder* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EWindowStackingOrder>(
+    EWindowStackingOrder_descriptor(), name, value);
+}
 enum EBluetoothDeviceType : int {
   BluetoothDeviceType_Invalid = 0,
   BluetoothDeviceType_Unknown = 1,
@@ -1143,8 +1167,10 @@ enum EOSBranch : int {
   EOSBranch_ReleaseCandidate = 2,
   EOSBranch_Beta = 3,
   EOSBranch_BetaCandidate = 4,
-  EOSBranch_Main = 5,
-  EOSBranch_Staging = 6
+  EOSBranch_Preview = 5,
+  EOSBranch_PreviewCandidate = 6,
+  EOSBranch_Main = 7,
+  EOSBranch_Staging = 8
 };
 bool EOSBranch_IsValid(int value);
 constexpr EOSBranch EOSBranch_MIN = EOSBranch_Unknown;
@@ -1336,6 +1362,36 @@ inline bool ENewSteamAnnouncementState_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ENewSteamAnnouncementState* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ENewSteamAnnouncementState>(
     ENewSteamAnnouncementState_descriptor(), name, value);
+}
+enum EForumType : int {
+  EForumType_Invalid = 0,
+  EForumType_General = 1,
+  EForumType_ReportedPosts = 2,
+  EForumType_Workshop = 3,
+  EForumType_PublishedFile = 4,
+  EForumType_Trading = 5,
+  EForumType_PlayTest = 6,
+  EForumType_Event = 7,
+  EForumType_Max = 8
+};
+bool EForumType_IsValid(int value);
+constexpr EForumType EForumType_MIN = EForumType_Invalid;
+constexpr EForumType EForumType_MAX = EForumType_Max;
+constexpr int EForumType_ARRAYSIZE = EForumType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EForumType_descriptor();
+template<typename T>
+inline const std::string& EForumType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EForumType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EForumType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EForumType_descriptor(), enum_t_value);
+}
+inline bool EForumType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EForumType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EForumType>(
+    EForumType_descriptor(), name, value);
 }
 enum ECommentThreadType : int {
   ECommentThreadTypeInvalid = 0,
@@ -1593,6 +1649,82 @@ inline bool EProtoAppType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EProtoAppType>(
     EProtoAppType_descriptor(), name, value);
 }
+enum EWindowsUpdateInstallationImpact : int {
+  EWindowsUpdateInstallationImpact_Unknown = -1,
+  EWindowsUpdateInstallationImpact_Normal = 0,
+  EWindowsUpdateInstallationImpact_Minor = 1,
+  EWindowsUpdateInstallationImpact_ExclusiveHandling = 2
+};
+bool EWindowsUpdateInstallationImpact_IsValid(int value);
+constexpr EWindowsUpdateInstallationImpact EWindowsUpdateInstallationImpact_MIN = EWindowsUpdateInstallationImpact_Unknown;
+constexpr EWindowsUpdateInstallationImpact EWindowsUpdateInstallationImpact_MAX = EWindowsUpdateInstallationImpact_ExclusiveHandling;
+constexpr int EWindowsUpdateInstallationImpact_ARRAYSIZE = EWindowsUpdateInstallationImpact_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EWindowsUpdateInstallationImpact_descriptor();
+template<typename T>
+inline const std::string& EWindowsUpdateInstallationImpact_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EWindowsUpdateInstallationImpact>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EWindowsUpdateInstallationImpact_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EWindowsUpdateInstallationImpact_descriptor(), enum_t_value);
+}
+inline bool EWindowsUpdateInstallationImpact_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EWindowsUpdateInstallationImpact* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EWindowsUpdateInstallationImpact>(
+    EWindowsUpdateInstallationImpact_descriptor(), name, value);
+}
+enum EWindowsUpdateRebootBehavior : int {
+  EWindowsUpdateRebootBehavior_Unknown = -1,
+  EWindowsUpdateRebootBehavior_NeverNeedsReboot = 0,
+  EWindowsUpdateRebootBehavior_AlwaysNeedsReboot = 1,
+  EWindowsUpdateRebootBehavior_MightNeedReboot = 2
+};
+bool EWindowsUpdateRebootBehavior_IsValid(int value);
+constexpr EWindowsUpdateRebootBehavior EWindowsUpdateRebootBehavior_MIN = EWindowsUpdateRebootBehavior_Unknown;
+constexpr EWindowsUpdateRebootBehavior EWindowsUpdateRebootBehavior_MAX = EWindowsUpdateRebootBehavior_MightNeedReboot;
+constexpr int EWindowsUpdateRebootBehavior_ARRAYSIZE = EWindowsUpdateRebootBehavior_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EWindowsUpdateRebootBehavior_descriptor();
+template<typename T>
+inline const std::string& EWindowsUpdateRebootBehavior_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EWindowsUpdateRebootBehavior>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EWindowsUpdateRebootBehavior_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EWindowsUpdateRebootBehavior_descriptor(), enum_t_value);
+}
+inline bool EWindowsUpdateRebootBehavior_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EWindowsUpdateRebootBehavior* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EWindowsUpdateRebootBehavior>(
+    EWindowsUpdateRebootBehavior_descriptor(), name, value);
+}
+enum EExternalSaleEventType : int {
+  EExternalSaleEventType_Unknown = 0,
+  EExternalSaleEventType_Publisher = 1,
+  EExternalSaleEventType_Showcase = 2,
+  EExternalSaleEventType_Region = 3,
+  EExternalSaleEventType_Theme = 4
+};
+bool EExternalSaleEventType_IsValid(int value);
+constexpr EExternalSaleEventType EExternalSaleEventType_MIN = EExternalSaleEventType_Unknown;
+constexpr EExternalSaleEventType EExternalSaleEventType_MAX = EExternalSaleEventType_Theme;
+constexpr int EExternalSaleEventType_ARRAYSIZE = EExternalSaleEventType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EExternalSaleEventType_descriptor();
+template<typename T>
+inline const std::string& EExternalSaleEventType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EExternalSaleEventType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EExternalSaleEventType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EExternalSaleEventType_descriptor(), enum_t_value);
+}
+inline bool EExternalSaleEventType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EExternalSaleEventType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EExternalSaleEventType>(
+    EExternalSaleEventType_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -1678,6 +1810,11 @@ template <> struct is_proto_enum< ::EColorGamutLabelSet> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EColorGamutLabelSet>() {
   return ::EColorGamutLabelSet_descriptor();
+}
+template <> struct is_proto_enum< ::EWindowStackingOrder> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EWindowStackingOrder>() {
+  return ::EWindowStackingOrder_descriptor();
 }
 template <> struct is_proto_enum< ::EBluetoothDeviceType> : ::std::true_type {};
 template <>
@@ -1849,6 +1986,11 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ENewSteamAnnouncementState>() {
   return ::ENewSteamAnnouncementState_descriptor();
 }
+template <> struct is_proto_enum< ::EForumType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EForumType>() {
+  return ::EForumType_descriptor();
+}
 template <> struct is_proto_enum< ::ECommentThreadType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ECommentThreadType>() {
@@ -1893,6 +2035,21 @@ template <> struct is_proto_enum< ::EProtoAppType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EProtoAppType>() {
   return ::EProtoAppType_descriptor();
+}
+template <> struct is_proto_enum< ::EWindowsUpdateInstallationImpact> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EWindowsUpdateInstallationImpact>() {
+  return ::EWindowsUpdateInstallationImpact_descriptor();
+}
+template <> struct is_proto_enum< ::EWindowsUpdateRebootBehavior> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EWindowsUpdateRebootBehavior>() {
+  return ::EWindowsUpdateRebootBehavior_descriptor();
+}
+template <> struct is_proto_enum< ::EExternalSaleEventType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EExternalSaleEventType>() {
+  return ::EExternalSaleEventType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

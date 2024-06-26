@@ -2280,18 +2280,19 @@ struct CMsgStartDownloadDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgStartDownloadDefaultTypeInternal _CMsgStartDownload_default_instance_;
-constexpr CMsgSetTopWindow::CMsgSetTopWindow(
+constexpr CMsgSetWindowStackingOrder::CMsgSetWindowStackingOrder(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : browser_handle_(0u){}
-struct CMsgSetTopWindowDefaultTypeInternal {
-  constexpr CMsgSetTopWindowDefaultTypeInternal()
+  : browser_handle_(0u)
+  , estackingorder_(0u){}
+struct CMsgSetWindowStackingOrderDefaultTypeInternal {
+  constexpr CMsgSetWindowStackingOrderDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgSetTopWindowDefaultTypeInternal() {}
+  ~CMsgSetWindowStackingOrderDefaultTypeInternal() {}
   union {
-    CMsgSetTopWindow _instance;
+    CMsgSetWindowStackingOrder _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSetTopWindowDefaultTypeInternal _CMsgSetTopWindow_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSetWindowStackingOrderDefaultTypeInternal _CMsgSetWindowStackingOrder_default_instance_;
 constexpr CMsgBrowserViewPostMessageToParentRequest::CMsgBrowserViewPostMessageToParentRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -4229,13 +4230,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   PROTOBUF_FIELD_OFFSET(::CMsgStartDownload, url_),
   1,
   0,
-  PROTOBUF_FIELD_OFFSET(::CMsgSetTopWindow, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSetTopWindow, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSetWindowStackingOrder, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSetWindowStackingOrder, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgSetTopWindow, browser_handle_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSetWindowStackingOrder, browser_handle_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSetWindowStackingOrder, estackingorder_),
   0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CMsgBrowserViewPostMessageToParentRequest, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgBrowserViewPostMessageToParentRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4482,17 +4485,17 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 1776, 1784, sizeof(::CMsgInspectElement)},
   { 1787, 1794, sizeof(::CMsgDisableF5)},
   { 1796, 1803, sizeof(::CMsgStartDownload)},
-  { 1805, 1811, sizeof(::CMsgSetTopWindow)},
-  { 1812, 1821, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
-  { 1825, 1832, sizeof(::CMsgBlockedRequest)},
-  { 1834, 1841, sizeof(::CMsgBrowserFocusChanged)},
-  { 1843, 1850, sizeof(::CMsgSetProtocolBlockList)},
-  { 1852, 1859, sizeof(::CMsgSetForceDeviceScaleFactors)},
-  { 1861, 1867, sizeof(::CMsgSetUIMode)},
-  { 1868, 1874, sizeof(::CMsgSetSteamBetaName)},
-  { 1875, 1881, sizeof(::CMsgPopupCreated)},
-  { 1882, 1889, sizeof(::CMsgSetVRKeyboardVisibility)},
-  { 1891, -1, sizeof(::CMsgRestartJSContext)},
+  { 1805, 1812, sizeof(::CMsgSetWindowStackingOrder)},
+  { 1814, 1823, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
+  { 1827, 1834, sizeof(::CMsgBlockedRequest)},
+  { 1836, 1843, sizeof(::CMsgBrowserFocusChanged)},
+  { 1845, 1852, sizeof(::CMsgSetProtocolBlockList)},
+  { 1854, 1861, sizeof(::CMsgSetForceDeviceScaleFactors)},
+  { 1863, 1869, sizeof(::CMsgSetUIMode)},
+  { 1870, 1876, sizeof(::CMsgSetSteamBetaName)},
+  { 1877, 1883, sizeof(::CMsgPopupCreated)},
+  { 1884, 1891, sizeof(::CMsgSetVRKeyboardVisibility)},
+  { 1893, -1, sizeof(::CMsgRestartJSContext)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -4656,7 +4659,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgInspectElement_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgDisableF5_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgStartDownload_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetTopWindow_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetWindowStackingOrder_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgBrowserViewPostMessageToParentRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgBlockedRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgBrowserFocusChanged_default_instance_),
@@ -5025,35 +5028,36 @@ const char descriptor_table_protodef_htmlmessages_2eproto[] PROTOBUF_SECTION_VAR
   "\003 \001(\r\"8\n\rCMsgDisableF5\022\026\n\016browser_handle"
   "\030\001 \001(\r\022\017\n\007disable\030\002 \001(\010\"8\n\021CMsgStartDown"
   "load\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001("
-  "\t\"*\n\020CMsgSetTopWindow\022\026\n\016browser_handle\030"
-  "\001 \001(\r\"z\n)CMsgBrowserViewPostMessageToPar"
-  "entRequest\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007me"
-  "ssage\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016requesting_"
-  "url\030\004 \001(\t\"9\n\022CMsgBlockedRequest\022\026\n\016brows"
-  "er_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"B\n\027CMsgBrow"
-  "serFocusChanged\022\026\n\016browser_handle\030\001 \001(\r\022"
-  "\017\n\007focused\030\002 \001(\010\"@\n\030CMsgSetProtocolBlock"
-  "List\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 \001"
-  "(\t\"J\n\036CMsgSetForceDeviceScaleFactors\022\021\n\t"
-  "dpi_scale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\" "
-  "\n\rCMsgSetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"/\n\024CMsg"
-  "SetSteamBetaName\022\027\n\017steam_beta_name\030\001 \001("
-  "\t\"*\n\020CMsgPopupCreated\022\026\n\016browser_handle\030"
-  "\001 \001(\r\"F\n\033CMsgSetVRKeyboardVisibility\022\026\n\016"
-  "browser_handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n"
-  "\024CMsgRestartJSContext*\245\001\n\025EJSRegisterMet"
-  "hodType\022!\n\035EJSRegisterMethodType_Invalid"
-  "\020\000\022\"\n\036EJSRegisterMethodType_Function\020\001\022\""
-  "\n\036EJSRegisterMethodType_Callback\020\002\022!\n\035EJ"
-  "SRegisterMethodType_Promise\020\003B\037H\001\200\001\000\252\002\027O"
-  "penSteamworks.Protobuf"
+  "\t\"L\n\032CMsgSetWindowStackingOrder\022\026\n\016brows"
+  "er_handle\030\001 \001(\r\022\026\n\016estackingorder\030\002 \001(\r\""
+  "z\n)CMsgBrowserViewPostMessageToParentReq"
+  "uest\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007message\030"
+  "\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016requesting_url\030\004 "
+  "\001(\t\"9\n\022CMsgBlockedRequest\022\026\n\016browser_han"
+  "dle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"B\n\027CMsgBrowserFoc"
+  "usChanged\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007foc"
+  "used\030\002 \001(\010\"@\n\030CMsgSetProtocolBlockList\022\026"
+  "\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 \001(\t\"J\n\036"
+  "CMsgSetForceDeviceScaleFactors\022\021\n\tdpi_sc"
+  "ale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\" \n\rCMsg"
+  "SetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"/\n\024CMsgSetSte"
+  "amBetaName\022\027\n\017steam_beta_name\030\001 \001(\t\"*\n\020C"
+  "MsgPopupCreated\022\026\n\016browser_handle\030\001 \001(\r\""
+  "F\n\033CMsgSetVRKeyboardVisibility\022\026\n\016browse"
+  "r_handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n\024CMsgR"
+  "estartJSContext*\245\001\n\025EJSRegisterMethodTyp"
+  "e\022!\n\035EJSRegisterMethodType_Invalid\020\000\022\"\n\036"
+  "EJSRegisterMethodType_Function\020\001\022\"\n\036EJSR"
+  "egisterMethodType_Callback\020\002\022!\n\035EJSRegis"
+  "terMethodType_Promise\020\003B\037H\001\200\001\000\252\002\027OpenSte"
+  "amworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_htmlmessages_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_htmlmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_htmlmessages_2eproto = {
-  false, false, 15062, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
+  false, false, 15096, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
   &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 171,
   schemas, file_default_instances, TableStruct_htmlmessages_2eproto::offsets,
   file_level_metadata_htmlmessages_2eproto, file_level_enum_descriptors_htmlmessages_2eproto, file_level_service_descriptors_htmlmessages_2eproto,
@@ -50202,64 +50206,77 @@ void CMsgStartDownload::InternalSwap(CMsgStartDownload* other) {
 
 // ===================================================================
 
-class CMsgSetTopWindow::_Internal {
+class CMsgSetWindowStackingOrder::_Internal {
  public:
-  using HasBits = decltype(std::declval<CMsgSetTopWindow>()._has_bits_);
+  using HasBits = decltype(std::declval<CMsgSetWindowStackingOrder>()._has_bits_);
   static void set_has_browser_handle(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_estackingorder(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
-CMsgSetTopWindow::CMsgSetTopWindow(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CMsgSetWindowStackingOrder::CMsgSetWindowStackingOrder(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgSetTopWindow)
+  // @@protoc_insertion_point(arena_constructor:CMsgSetWindowStackingOrder)
 }
-CMsgSetTopWindow::CMsgSetTopWindow(const CMsgSetTopWindow& from)
+CMsgSetWindowStackingOrder::CMsgSetWindowStackingOrder(const CMsgSetWindowStackingOrder& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  browser_handle_ = from.browser_handle_;
-  // @@protoc_insertion_point(copy_constructor:CMsgSetTopWindow)
+  ::memcpy(&browser_handle_, &from.browser_handle_,
+    static_cast<size_t>(reinterpret_cast<char*>(&estackingorder_) -
+    reinterpret_cast<char*>(&browser_handle_)) + sizeof(estackingorder_));
+  // @@protoc_insertion_point(copy_constructor:CMsgSetWindowStackingOrder)
 }
 
-void CMsgSetTopWindow::SharedCtor() {
-browser_handle_ = 0u;
+void CMsgSetWindowStackingOrder::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&browser_handle_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&estackingorder_) -
+    reinterpret_cast<char*>(&browser_handle_)) + sizeof(estackingorder_));
 }
 
-CMsgSetTopWindow::~CMsgSetTopWindow() {
-  // @@protoc_insertion_point(destructor:CMsgSetTopWindow)
+CMsgSetWindowStackingOrder::~CMsgSetWindowStackingOrder() {
+  // @@protoc_insertion_point(destructor:CMsgSetWindowStackingOrder)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CMsgSetTopWindow::SharedDtor() {
+void CMsgSetWindowStackingOrder::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
-void CMsgSetTopWindow::ArenaDtor(void* object) {
-  CMsgSetTopWindow* _this = reinterpret_cast< CMsgSetTopWindow* >(object);
+void CMsgSetWindowStackingOrder::ArenaDtor(void* object) {
+  CMsgSetWindowStackingOrder* _this = reinterpret_cast< CMsgSetWindowStackingOrder* >(object);
   (void)_this;
 }
-void CMsgSetTopWindow::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void CMsgSetWindowStackingOrder::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void CMsgSetTopWindow::SetCachedSize(int size) const {
+void CMsgSetWindowStackingOrder::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void CMsgSetTopWindow::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgSetTopWindow)
+void CMsgSetWindowStackingOrder::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSetWindowStackingOrder)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  browser_handle_ = 0u;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&browser_handle_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&estackingorder_) -
+        reinterpret_cast<char*>(&browser_handle_)) + sizeof(estackingorder_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CMsgSetTopWindow::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CMsgSetWindowStackingOrder::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -50272,6 +50289,14 @@ const char* CMsgSetTopWindow::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_browser_handle(&has_bits);
           browser_handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 estackingorder = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_estackingorder(&has_bits);
+          estackingorder_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -50298,9 +50323,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgSetTopWindow::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgSetWindowStackingOrder::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgSetTopWindow)
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSetWindowStackingOrder)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -50311,30 +50336,45 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_browser_handle(), target);
   }
 
+  // optional uint32 estackingorder = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_estackingorder(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgSetTopWindow)
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSetWindowStackingOrder)
   return target;
 }
 
-size_t CMsgSetTopWindow::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgSetTopWindow)
+size_t CMsgSetWindowStackingOrder::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSetWindowStackingOrder)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 browser_handle = 1;
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_browser_handle());
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 browser_handle = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_browser_handle());
+    }
 
+    // optional uint32 estackingorder = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_estackingorder());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -50344,59 +50384,71 @@ size_t CMsgSetTopWindow::ByteSizeLong() const {
   return total_size;
 }
 
-void CMsgSetTopWindow::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgSetTopWindow)
+void CMsgSetWindowStackingOrder::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgSetWindowStackingOrder)
   GOOGLE_DCHECK_NE(&from, this);
-  const CMsgSetTopWindow* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgSetTopWindow>(
+  const CMsgSetWindowStackingOrder* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgSetWindowStackingOrder>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgSetTopWindow)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgSetWindowStackingOrder)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgSetTopWindow)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgSetWindowStackingOrder)
     MergeFrom(*source);
   }
 }
 
-void CMsgSetTopWindow::MergeFrom(const CMsgSetTopWindow& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgSetTopWindow)
+void CMsgSetWindowStackingOrder::MergeFrom(const CMsgSetWindowStackingOrder& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgSetWindowStackingOrder)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_browser_handle()) {
-    _internal_set_browser_handle(from._internal_browser_handle());
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      browser_handle_ = from.browser_handle_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      estackingorder_ = from.estackingorder_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void CMsgSetTopWindow::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgSetTopWindow)
+void CMsgSetWindowStackingOrder::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgSetWindowStackingOrder)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CMsgSetTopWindow::CopyFrom(const CMsgSetTopWindow& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSetTopWindow)
+void CMsgSetWindowStackingOrder::CopyFrom(const CMsgSetWindowStackingOrder& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSetWindowStackingOrder)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CMsgSetTopWindow::IsInitialized() const {
+bool CMsgSetWindowStackingOrder::IsInitialized() const {
   return true;
 }
 
-void CMsgSetTopWindow::InternalSwap(CMsgSetTopWindow* other) {
+void CMsgSetWindowStackingOrder::InternalSwap(CMsgSetWindowStackingOrder* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(browser_handle_, other->browser_handle_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgSetWindowStackingOrder, estackingorder_)
+      + sizeof(CMsgSetWindowStackingOrder::estackingorder_)
+      - PROTOBUF_FIELD_OFFSET(CMsgSetWindowStackingOrder, browser_handle_)>(
+          reinterpret_cast<char*>(&browser_handle_),
+          reinterpret_cast<char*>(&other->browser_handle_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgSetTopWindow::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSetWindowStackingOrder::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -53248,8 +53300,8 @@ template<> PROTOBUF_NOINLINE ::CMsgDisableF5* Arena::CreateMaybeMessage< ::CMsgD
 template<> PROTOBUF_NOINLINE ::CMsgStartDownload* Arena::CreateMaybeMessage< ::CMsgStartDownload >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgStartDownload >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CMsgSetTopWindow* Arena::CreateMaybeMessage< ::CMsgSetTopWindow >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgSetTopWindow >(arena);
+template<> PROTOBUF_NOINLINE ::CMsgSetWindowStackingOrder* Arena::CreateMaybeMessage< ::CMsgSetWindowStackingOrder >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSetWindowStackingOrder >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgBrowserViewPostMessageToParentRequest* Arena::CreateMaybeMessage< ::CMsgBrowserViewPostMessageToParentRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgBrowserViewPostMessageToParentRequest >(arena);

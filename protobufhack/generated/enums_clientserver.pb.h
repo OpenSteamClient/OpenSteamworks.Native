@@ -1389,6 +1389,8 @@ enum EMsg : int {
   EMsgClientPICSProductInfoResponse = 8904,
   EMsgClientPICSAccessTokenRequest = 8905,
   EMsgClientPICSAccessTokenResponse = 8906,
+  EMsgClientPICSPrivateBetaRequest = 8907,
+  EMsgClientPICSPrivateBetaResponse = 8908,
   EMsgWorkerProcess = 9000,
   EMsgWorkerProcessPingRequest = 9000,
   EMsgWorkerProcessPingResponse = 9001,
@@ -1654,11 +1656,12 @@ enum ECodecUsageReason : int {
   ECodecUsageReasonUnknown = 0,
   ECodecUsageReasonRemotePlay = 1,
   ECodecUsageReasonBroadcasting = 2,
-  ECodecUsageReasonGameVideo = 3
+  ECodecUsageReasonGameVideo = 3,
+  ECodecUsageReasonGameRecording = 4
 };
 bool ECodecUsageReason_IsValid(int value);
 constexpr ECodecUsageReason ECodecUsageReason_MIN = ECodecUsageReasonUnknown;
-constexpr ECodecUsageReason ECodecUsageReason_MAX = ECodecUsageReasonGameVideo;
+constexpr ECodecUsageReason ECodecUsageReason_MAX = ECodecUsageReasonGameRecording;
 constexpr int ECodecUsageReason_ARRAYSIZE = ECodecUsageReason_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECodecUsageReason_descriptor();

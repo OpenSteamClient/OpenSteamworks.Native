@@ -16,20 +16,6 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
-constexpr CAppOverview_AppAssociation::CAppOverview_AppAssociation(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , type_(0)
-{}
-struct CAppOverview_AppAssociationDefaultTypeInternal {
-  constexpr CAppOverview_AppAssociationDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CAppOverview_AppAssociationDefaultTypeInternal() {}
-  union {
-    CAppOverview_AppAssociation _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAppOverview_AppAssociationDefaultTypeInternal _CAppOverview_AppAssociation_default_instance_;
 constexpr CAppOverview_PerClientData::CAppOverview_PerClientData(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : client_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -45,8 +31,6 @@ constexpr CAppOverview_PerClientData::CAppOverview_PerClientData(
   , is_available_on_current_platform_(false)
   , is_invalid_os_type_(false)
   , playtime_left_(0u)
-  , cloud_status_(0)
-
   , update_available_but_disabled_by_app_(false){}
 struct CAppOverview_PerClientDataDefaultTypeInternal {
   constexpr CAppOverview_PerClientDataDefaultTypeInternal()
@@ -60,7 +44,6 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAppOverview_PerClientDataDefau
 constexpr CAppOverview::CAppOverview(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : store_tag_()
-  , association_()
   , store_category_()
   , per_client_data_()
   , display_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -102,20 +85,14 @@ constexpr CAppOverview::CAppOverview(
   , review_percentage_with_bombs_(0u)
   , review_score_without_bombs_(0u)
   , review_percentage_without_bombs_(0u)
+  , vr_only_(false)
   , mastersub_appid_(0u)
   , shortcut_override_appid_(0u)
-  , steam_deccompat_category_(0)
-
-  , vr_only_(false)
-  , gamepad_preferred_(false)
   , rt_last_time_locally_played_(0u)
   , rt_purchased_time_(0u)
   , local_cache_version_(0u)
-  , ps4_controller_support_(0)
-
-  , ps5_controller_support_(0)
-
-  , number_of_copies_(0u){}
+  , number_of_copies_(0u)
+  , steam_hw_compat_category_packed_(0u){}
 struct CAppOverviewDefaultTypeInternal {
   constexpr CAppOverviewDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -166,20 +143,11 @@ struct CLibraryBootstrapDataDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CLibraryBootstrapDataDefaultTypeInternal _CLibraryBootstrapData_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fappoverview_2eproto[6];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fappoverview_2eproto[6];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fappoverview_2eproto[5];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fappoverview_2eproto[5];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fappoverview_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  PROTOBUF_FIELD_OFFSET(::CAppOverview_AppAssociation, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CAppOverview_AppAssociation, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CAppOverview_AppAssociation, type_),
-  PROTOBUF_FIELD_OFFSET(::CAppOverview_AppAssociation, name_),
-  1,
-  0,
   PROTOBUF_FIELD_OFFSET(::CAppOverview_PerClientData, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview_PerClientData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -197,7 +165,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2e
   PROTOBUF_FIELD_OFFSET(::CAppOverview_PerClientData, is_available_on_current_platform_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview_PerClientData, is_invalid_os_type_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview_PerClientData, playtime_left_),
-  PROTOBUF_FIELD_OFFSET(::CAppOverview_PerClientData, cloud_status_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview_PerClientData, update_available_but_disabled_by_app_),
   2,
   0,
@@ -212,7 +179,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2e
   10,
   11,
   12,
-  13,
   PROTOBUF_FIELD_OFFSET(::CAppOverview, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -230,7 +196,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2e
   PROTOBUF_FIELD_OFFSET(::CAppOverview, minutes_playtime_last_two_weeks_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, rt_last_time_played_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, store_tag_),
-  PROTOBUF_FIELD_OFFSET(::CAppOverview, association_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, store_category_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, rt_original_release_date_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, rt_steam_release_date_),
@@ -261,15 +226,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2e
   PROTOBUF_FIELD_OFFSET(::CAppOverview, mastersub_includedwith_logo_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, site_license_site_name_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, shortcut_override_appid_),
-  PROTOBUF_FIELD_OFFSET(::CAppOverview, steam_deccompat_category_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, rt_last_time_locally_played_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, rt_purchased_time_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, header_filename_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, local_cache_version_),
-  PROTOBUF_FIELD_OFFSET(::CAppOverview, ps4_controller_support_),
-  PROTOBUF_FIELD_OFFSET(::CAppOverview, ps5_controller_support_),
-  PROTOBUF_FIELD_OFFSET(::CAppOverview, gamepad_preferred_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview, number_of_copies_),
+  PROTOBUF_FIELD_OFFSET(::CAppOverview, steam_hw_compat_category_packed_),
   11,
   0,
   18,
@@ -281,7 +243,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2e
   15,
   16,
   17,
-  ~0u,
   ~0u,
   ~0u,
   22,
@@ -308,20 +269,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2e
   35,
   36,
   7,
-  40,
   37,
+  38,
   8,
   9,
-  38,
   39,
+  40,
+  41,
+  10,
   42,
   43,
-  10,
   44,
-  45,
-  46,
-  41,
-  47,
   PROTOBUF_FIELD_OFFSET(::CAppOverview_Change, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview_Change, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -354,16 +312,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2e
   PROTOBUF_FIELD_OFFSET(::CLibraryBootstrapData, app_data_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 7, sizeof(::CAppOverview_AppAssociation)},
-  { 9, 28, sizeof(::CAppOverview_PerClientData)},
-  { 42, 99, sizeof(::CAppOverview)},
-  { 151, 160, sizeof(::CAppOverview_Change)},
-  { 164, 172, sizeof(::CAppBootstrapData)},
-  { 175, -1, sizeof(::CLibraryBootstrapData)},
+  { 0, 18, sizeof(::CAppOverview_PerClientData)},
+  { 31, 84, sizeof(::CAppOverview)},
+  { 132, 141, sizeof(::CAppOverview_Change)},
+  { 145, 153, sizeof(::CAppBootstrapData)},
+  { 156, -1, sizeof(::CLibraryBootstrapData)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAppOverview_AppAssociation_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAppOverview_PerClientData_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAppOverview_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAppOverview_Change_default_instance_),
@@ -374,133 +330,117 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_steammessages_5fappoverview_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\037steammessages_appoverview.proto\032 googl"
   "e/protobuf/descriptor.proto\032\013enums.proto"
-  "\"k\n\033CAppOverview_AppAssociation\022>\n\004type\030"
-  "\001 \001(\0162\024.EAppAssociationType:\032EAppAssocia"
-  "tionTypeInvalid\022\014\n\004name\030\002 \001(\t\"\354\003\n\032CAppOv"
-  "erview_PerClientData\022\020\n\010clientid\030\001 \001(\004\022\023"
-  "\n\013client_name\030\002 \001(\t\022>\n\016display_status\030\003 "
-  "\001(\0162\017.EDisplayStatus:\025EDisplayStatusInva"
-  "lid\022\034\n\021status_percentage\030\004 \001(\r:\0010\022\023\n\013act"
-  "ive_beta\030\005 \001(\t\022\021\n\tinstalled\030\006 \001(\010\022\033\n\020byt"
-  "es_downloaded\030\007 \001(\004:\0010\022\026\n\013bytes_total\030\010 "
-  "\001(\004:\0010\022!\n\031streaming_to_local_client\030\t \001("
-  "\010\022(\n is_available_on_current_platform\030\n "
-  "\001(\010\022\032\n\022is_invalid_os_type\030\013 \001(\010\022\025\n\rplayt"
-  "ime_left\030\014 \001(\r\022>\n\014cloud_status\030\r \001(\0162\020.E"
-  "AppCloudStatus:\026EAppCloudStatusInvalid\022,"
-  "\n$update_available_but_disabled_by_app\030\016"
-  " \001(\010\"\233\016\n\014CAppOverview\022\r\n\005appid\030\001 \001(\r\022\024\n\014"
-  "display_name\030\002 \001(\t\022\034\n\024visible_in_game_li"
-  "st\030\004 \001(\010\022\025\n\rsubscribed_to\030\005 \001(\010\022\017\n\007sort_"
-  "as\030\006 \001(\t\0221\n\010app_type\030\007 \001(\0162\016.EProtoAppTy"
-  "pe:\017EAppTypeInvalid\022\021\n\tmru_index\030\r \001(\r\022\""
-  "\n\027rt_recent_activity_time\030\016 \001(\r:\0010\022#\n\030mi"
-  "nutes_playtime_forever\030\020 \001(\r:\0010\022*\n\037minut"
-  "es_playtime_last_two_weeks\030\021 \001(\r:\0010\022\036\n\023r"
-  "t_last_time_played\030\022 \001(\r:\0010\022\021\n\tstore_tag"
-  "\030\023 \003(\r\0221\n\013association\030\024 \003(\0132\034.CAppOvervi"
-  "ew_AppAssociation\022\026\n\016store_category\030\027 \003("
-  "\r\022#\n\030rt_original_release_date\030\031 \001(\r:\0010\022 "
-  "\n\025rt_steam_release_date\030\032 \001(\r:\0010\022\021\n\ticon"
-  "_hash\030\033 \001(\t\022\\\n\027xbox_controller_support\030\037"
-  " \001(\0162\033.EAppControllerSupportLevel:\036EAppC"
-  "ontrollerSupportLevelNone\022\024\n\014vr_supporte"
-  "d\030  \001(\010\022\030\n\020metacritic_score\030$ \001(\r\022\024\n\014siz"
-  "e_on_disk\030% \001(\004\022\027\n\017third_party_mod\030& \001(\010"
-  "\022\021\n\ticon_data\030\' \001(\t\022\030\n\020icon_data_format\030"
-  "( \001(\t\022\016\n\006gameid\030) \001(\t\022 \n\030library_capsule"
-  "_filename\030* \001(\t\0224\n\017per_client_data\030+ \003(\013"
-  "2\033.CAppOverview_PerClientData\022\037\n\027most_av"
-  "ailable_clientid\030, \001(\004\022\031\n\021selected_clien"
-  "tid\030- \001(\004\022\034\n\024rt_store_asset_mtime\030. \001(\r\022"
-  "\035\n\025rt_custom_image_mtime\030/ \001(\r\022\036\n\026option"
-  "al_parent_app_id\0300 \001(\r\022\030\n\020owner_account_"
-  "id\0301 \001(\r\022\037\n\027review_score_with_bombs\0305 \001("
-  "\r\022$\n\034review_percentage_with_bombs\0306 \001(\r\022"
-  "\"\n\032review_score_without_bombs\0307 \001(\r\022\'\n\037r"
-  "eview_percentage_without_bombs\0308 \001(\r\022\022\n\n"
-  "library_id\0309 \001(\t\022\017\n\007vr_only\030: \001(\010\022\027\n\017mas"
-  "tersub_appid\030; \001(\r\022#\n\033mastersub_included"
-  "with_logo\030< \001(\t\022\036\n\026site_license_site_nam"
-  "e\030> \001(\t\022\037\n\027shortcut_override_appid\030\? \001(\r"
-  "\022k\n\030steam_deccompat_category\030@ \001(\0162 .ESt"
-  "eamDeckCompatibilityCategory:\'ESteamDeck"
-  "CompatibilityCategory_Unknown\022#\n\033rt_last"
-  "_time_locally_played\030A \001(\r\022\031\n\021rt_purchas"
-  "ed_time\030B \001(\r\022\027\n\017header_filename\030C \001(\t\022\033"
-  "\n\023local_cache_version\030D \001(\r\022[\n\026ps4_contr"
-  "oller_support\030E \001(\0162\033.EAppControllerSupp"
-  "ortLevel:\036EAppControllerSupportLevelNone"
-  "\022[\n\026ps5_controller_support\030F \001(\0162\033.EAppC"
-  "ontrollerSupportLevel:\036EAppControllerSup"
-  "portLevelNone\022\031\n\021gamepad_preferred\030G \001(\010"
-  "\022\030\n\020number_of_copies\030H \001(\r\"\177\n\023CAppOvervi"
-  "ew_Change\022#\n\014app_overview\030\001 \003(\0132\r.CAppOv"
-  "erview\022\025\n\rremoved_appid\030\002 \003(\r\022\023\n\013full_up"
-  "date\030\003 \001(\010\022\027\n\017update_complete\030\004 \001(\010\"D\n\021C"
-  "AppBootstrapData\022\r\n\005appid\030\001 \001(\r\022\016\n\006hidde"
-  "n\030\002 \001(\010\022\020\n\010user_tag\030\003 \003(\t\"=\n\025CLibraryBoo"
-  "tstrapData\022$\n\010app_data\030\001 \003(\0132\022.CAppBoots"
-  "trapData*\376\t\n\016EDisplayStatus\022\031\n\025EDisplayS"
-  "tatusInvalid\020\000\022\033\n\027EDisplayStatusLaunchin"
-  "g\020\001\022\036\n\032EDisplayStatusUninstalling\020\002\022\034\n\030E"
-  "DisplayStatusInstalling\020\003\022\031\n\025EDisplaySta"
-  "tusRunning\020\004\022\034\n\030EDisplayStatusValidating"
-  "\020\005\022\032\n\026EDisplayStatusUpdating\020\006\022\035\n\031EDispl"
-  "ayStatusDownloading\020\007\022\037\n\033EDisplayStatusS"
-  "ynchronizing\020\010\022 \n\034EDisplayStatusReadyToI"
-  "nstall\020\t\022 \n\034EDisplayStatusReadyToPreload"
-  "\020\n\022\037\n\033EDisplayStatusReadyToLaunch\020\013\022\"\n\036E"
-  "DisplayStatusRegionRestricted\020\014\022\035\n\031EDisp"
-  "layStatusPresaleOnly\020\r\022!\n\035EDisplayStatus"
-  "InvalidPlatform\020\016\022!\n\035EDisplayStatusPrelo"
-  "adComplete\020\020\022 \n\034EDisplayStatusBorrowerLo"
-  "cked\020\021\022\036\n\032EDisplayStatusUpdatePaused\020\022\022\036"
-  "\n\032EDisplayStatusUpdateQueued\020\023\022 \n\034EDispl"
-  "ayStatusUpdateRequired\020\024\022 \n\034EDisplayStat"
-  "usUpdateDisabled\020\025\022 \n\034EDisplayStatusDown"
-  "loadPaused\020\026\022 \n\034EDisplayStatusDownloadQu"
-  "eued\020\027\022\"\n\036EDisplayStatusDownloadRequired"
-  "\020\030\022\"\n\036EDisplayStatusDownloadDisabled\020\031\022 "
-  "\n\034EDisplayStatusLicensePending\020\032\022 \n\034EDis"
-  "playStatusLicenseExpired\020\033\022\036\n\032EDisplaySt"
-  "atusAvailForFree\020\034\022\037\n\033EDisplayStatusAvai"
-  "lToBorrow\020\035\022 \n\034EDisplayStatusAvailGuestP"
-  "ass\020\036\022\032\n\026EDisplayStatusPurchase\020\037\022\035\n\031EDi"
-  "splayStatusUnavailable\020 \022\037\n\033EDisplayStat"
-  "usNotLaunchable\020!\022\034\n\030EDisplayStatusCloud"
-  "Error\020\"\022 \n\034EDisplayStatusCloudOutOfDate\020"
-  "#\022\035\n\031EDisplayStatusTerminating\020$\022\035\n\031EDis"
-  "playStatusOwnerLocked\020%\022 \n\034EDisplayStatu"
-  "sDownloadFailed\020&\022\036\n\032EDisplayStatusUpdat"
-  "eFailed\020\'*\341\002\n\017EAppCloudStatus\022\032\n\026EAppClo"
-  "udStatusInvalid\020\000\022\033\n\027EAppCloudStatusDisa"
-  "bled\020\001\022\032\n\026EAppCloudStatusUnknown\020\002\022\037\n\033EA"
-  "ppCloudStatusSynchronized\020\003\022\033\n\027EAppCloud"
-  "StatusChecking\020\004\022\034\n\030EAppCloudStatusOutOf"
-  "Sync\020\005\022\034\n\030EAppCloudStatusUploading\020\006\022\036\n\032"
-  "EAppCloudStatusDownloading\020\007\022\035\n\031EAppClou"
-  "dStatusSyncFailed\020\010\022\033\n\027EAppCloudStatusCo"
-  "nflict\020\t\022#\n\037EAppCloudStatusPendingElsewh"
-  "ere\020\n*\233\001\n\023EAppAssociationType\022\036\n\032EAppAss"
-  "ociationTypeInvalid\020\000\022 \n\034EAppAssociation"
-  "TypePublisher\020\001\022 \n\034EAppAssociationTypeDe"
-  "veloper\020\002\022 \n\034EAppAssociationTypeFranchis"
-  "e\020\003*\213\001\n\032EAppControllerSupportLevel\022\"\n\036EA"
-  "ppControllerSupportLevelNone\020\000\022%\n!EAppCo"
-  "ntrollerSupportLevelPartial\020\001\022\"\n\036EAppCon"
-  "trollerSupportLevelFull\020\002*\365\001\n#EAppGamepa"
-  "dGyroTrackpadSupportLevel\0227\n*EAppGamepad"
-  "GyroTrackpadSupportLevelUnknown\020\377\377\377\377\377\377\377\377"
-  "\377\001\0220\n,EAppGamepadGyroTrackpadSupportLeve"
-  "lNoGamepad\020\000\022.\n*EAppGamepadGyroTrackpadS"
-  "upportLevelGamepad\020\001\0223\n/EAppGamepadGyroT"
-  "rackpadSupportLevelSimultaneous\020\002*\227\001\n\016EA"
-  "ppHDRSupport\022\027\n\023EHDRSupport_Unknown\020\000\022\023\n"
-  "\017EHDRSupport_SDR\020\001\022\023\n\017EHDRSupport_HDR\020\002\022"
-  "\032\n\026EHDRSupport_HDR_Broken\020\003\022&\n\"EHDRSuppo"
-  "rt_HDR_RequiresUserAction\020\004B\037H\001\200\001\001\252\002\027Ope"
-  "nSteamworks.Protobuf"
+  "\"\257\003\n\032CAppOverview_PerClientData\022\023\n\010clien"
+  "tid\030\001 \001(\004:\0010\022\023\n\013client_name\030\002 \001(\t\022>\n\016dis"
+  "play_status\030\003 \001(\0162\017.EDisplayStatus:\025EDis"
+  "playStatusInvalid\022\034\n\021status_percentage\030\004"
+  " \001(\r:\0010\022\023\n\013active_beta\030\005 \001(\t\022\021\n\tinstalle"
+  "d\030\006 \001(\010\022\033\n\020bytes_downloaded\030\007 \001(\004:\0010\022\026\n\013"
+  "bytes_total\030\010 \001(\004:\0010\022!\n\031streaming_to_loc"
+  "al_client\030\t \001(\010\022(\n is_available_on_curre"
+  "nt_platform\030\n \001(\010\022\032\n\022is_invalid_os_type\030"
+  "\013 \001(\010\022\025\n\rplaytime_left\030\014 \001(\r\022,\n$update_a"
+  "vailable_but_disabled_by_app\030\016 \001(\010\"\325\013\n\014C"
+  "AppOverview\022\r\n\005appid\030\001 \001(\r\022\024\n\014display_na"
+  "me\030\002 \001(\t\022\034\n\024visible_in_game_list\030\004 \001(\010\022\025"
+  "\n\rsubscribed_to\030\005 \001(\010\022\017\n\007sort_as\030\006 \001(\t\0221"
+  "\n\010app_type\030\007 \001(\0162\016.EProtoAppType:\017EAppTy"
+  "peInvalid\022\021\n\tmru_index\030\r \001(\r\022\"\n\027rt_recen"
+  "t_activity_time\030\016 \001(\r:\0010\022#\n\030minutes_play"
+  "time_forever\030\020 \001(\r:\0010\022*\n\037minutes_playtim"
+  "e_last_two_weeks\030\021 \001(\r:\0010\022\036\n\023rt_last_tim"
+  "e_played\030\022 \001(\r:\0010\022\021\n\tstore_tag\030\023 \003(\r\022\026\n\016"
+  "store_category\030\027 \003(\r\022#\n\030rt_original_rele"
+  "ase_date\030\031 \001(\r:\0010\022 \n\025rt_steam_release_da"
+  "te\030\032 \001(\r:\0010\022\021\n\ticon_hash\030\033 \001(\t\022\\\n\027xbox_c"
+  "ontroller_support\030\037 \001(\0162\033.EAppController"
+  "SupportLevel:\036EAppControllerSupportLevel"
+  "None\022\024\n\014vr_supported\030  \001(\010\022\030\n\020metacritic"
+  "_score\030$ \001(\r\022\024\n\014size_on_disk\030% \001(\004\022\027\n\017th"
+  "ird_party_mod\030& \001(\010\022\021\n\ticon_data\030\' \001(\t\022\030"
+  "\n\020icon_data_format\030( \001(\t\022\016\n\006gameid\030) \001(\t"
+  "\022 \n\030library_capsule_filename\030* \001(\t\0224\n\017pe"
+  "r_client_data\030+ \003(\0132\033.CAppOverview_PerCl"
+  "ientData\022\"\n\027most_available_clientid\030, \001("
+  "\004:\0010\022\034\n\021selected_clientid\030- \001(\004:\0010\022\034\n\024rt"
+  "_store_asset_mtime\030. \001(\r\022\035\n\025rt_custom_im"
+  "age_mtime\030/ \001(\r\022\036\n\026optional_parent_app_i"
+  "d\0300 \001(\r\022\030\n\020owner_account_id\0301 \001(\r\022\037\n\027rev"
+  "iew_score_with_bombs\0305 \001(\r\022$\n\034review_per"
+  "centage_with_bombs\0306 \001(\r\022\"\n\032review_score"
+  "_without_bombs\0307 \001(\r\022\'\n\037review_percentag"
+  "e_without_bombs\0308 \001(\r\022\022\n\nlibrary_id\0309 \001("
+  "\t\022\017\n\007vr_only\030: \001(\010\022\027\n\017mastersub_appid\030; "
+  "\001(\r\022#\n\033mastersub_includedwith_logo\030< \001(\t"
+  "\022\036\n\026site_license_site_name\030> \001(\t\022\037\n\027shor"
+  "tcut_override_appid\030\? \001(\r\022#\n\033rt_last_tim"
+  "e_locally_played\030A \001(\r\022\031\n\021rt_purchased_t"
+  "ime\030B \001(\r\022\027\n\017header_filename\030C \001(\t\022\033\n\023lo"
+  "cal_cache_version\030D \001(\r\022\030\n\020number_of_cop"
+  "ies\030H \001(\r\022\'\n\037steam_hw_compat_category_pa"
+  "cked\030I \001(\r\"\177\n\023CAppOverview_Change\022#\n\014app"
+  "_overview\030\001 \003(\0132\r.CAppOverview\022\025\n\rremove"
+  "d_appid\030\002 \003(\r\022\023\n\013full_update\030\003 \001(\010\022\027\n\017up"
+  "date_complete\030\004 \001(\010\"D\n\021CAppBootstrapData"
+  "\022\r\n\005appid\030\001 \001(\r\022\016\n\006hidden\030\002 \001(\010\022\020\n\010user_"
+  "tag\030\003 \003(\t\"=\n\025CLibraryBootstrapData\022$\n\010ap"
+  "p_data\030\001 \003(\0132\022.CAppBootstrapData*\376\t\n\016EDi"
+  "splayStatus\022\031\n\025EDisplayStatusInvalid\020\000\022\033"
+  "\n\027EDisplayStatusLaunching\020\001\022\036\n\032EDisplayS"
+  "tatusUninstalling\020\002\022\034\n\030EDisplayStatusIns"
+  "talling\020\003\022\031\n\025EDisplayStatusRunning\020\004\022\034\n\030"
+  "EDisplayStatusValidating\020\005\022\032\n\026EDisplaySt"
+  "atusUpdating\020\006\022\035\n\031EDisplayStatusDownload"
+  "ing\020\007\022\037\n\033EDisplayStatusSynchronizing\020\010\022 "
+  "\n\034EDisplayStatusReadyToInstall\020\t\022 \n\034EDis"
+  "playStatusReadyToPreload\020\n\022\037\n\033EDisplaySt"
+  "atusReadyToLaunch\020\013\022\"\n\036EDisplayStatusReg"
+  "ionRestricted\020\014\022\035\n\031EDisplayStatusPresale"
+  "Only\020\r\022!\n\035EDisplayStatusInvalidPlatform\020"
+  "\016\022!\n\035EDisplayStatusPreloadComplete\020\020\022 \n\034"
+  "EDisplayStatusBorrowerLocked\020\021\022\036\n\032EDispl"
+  "ayStatusUpdatePaused\020\022\022\036\n\032EDisplayStatus"
+  "UpdateQueued\020\023\022 \n\034EDisplayStatusUpdateRe"
+  "quired\020\024\022 \n\034EDisplayStatusUpdateDisabled"
+  "\020\025\022 \n\034EDisplayStatusDownloadPaused\020\026\022 \n\034"
+  "EDisplayStatusDownloadQueued\020\027\022\"\n\036EDispl"
+  "ayStatusDownloadRequired\020\030\022\"\n\036EDisplaySt"
+  "atusDownloadDisabled\020\031\022 \n\034EDisplayStatus"
+  "LicensePending\020\032\022 \n\034EDisplayStatusLicens"
+  "eExpired\020\033\022\036\n\032EDisplayStatusAvailForFree"
+  "\020\034\022\037\n\033EDisplayStatusAvailToBorrow\020\035\022 \n\034E"
+  "DisplayStatusAvailGuestPass\020\036\022\032\n\026EDispla"
+  "yStatusPurchase\020\037\022\035\n\031EDisplayStatusUnava"
+  "ilable\020 \022\037\n\033EDisplayStatusNotLaunchable\020"
+  "!\022\034\n\030EDisplayStatusCloudError\020\"\022 \n\034EDisp"
+  "layStatusCloudOutOfDate\020#\022\035\n\031EDisplaySta"
+  "tusTerminating\020$\022\035\n\031EDisplayStatusOwnerL"
+  "ocked\020%\022 \n\034EDisplayStatusDownloadFailed\020"
+  "&\022\036\n\032EDisplayStatusUpdateFailed\020\'*\341\002\n\017EA"
+  "ppCloudStatus\022\032\n\026EAppCloudStatusInvalid\020"
+  "\000\022\033\n\027EAppCloudStatusDisabled\020\001\022\032\n\026EAppCl"
+  "oudStatusUnknown\020\002\022\037\n\033EAppCloudStatusSyn"
+  "chronized\020\003\022\033\n\027EAppCloudStatusChecking\020\004"
+  "\022\034\n\030EAppCloudStatusOutOfSync\020\005\022\034\n\030EAppCl"
+  "oudStatusUploading\020\006\022\036\n\032EAppCloudStatusD"
+  "ownloading\020\007\022\035\n\031EAppCloudStatusSyncFaile"
+  "d\020\010\022\033\n\027EAppCloudStatusConflict\020\t\022#\n\037EApp"
+  "CloudStatusPendingElsewhere\020\n*\213\001\n\032EAppCo"
+  "ntrollerSupportLevel\022\"\n\036EAppControllerSu"
+  "pportLevelNone\020\000\022%\n!EAppControllerSuppor"
+  "tLevelPartial\020\001\022\"\n\036EAppControllerSupport"
+  "LevelFull\020\002*\365\001\n#EAppGamepadGyroTrackpadS"
+  "upportLevel\0227\n*EAppGamepadGyroTrackpadSu"
+  "pportLevelUnknown\020\377\377\377\377\377\377\377\377\377\001\0220\n,EAppGame"
+  "padGyroTrackpadSupportLevelNoGamepad\020\000\022."
+  "\n*EAppGamepadGyroTrackpadSupportLevelGam"
+  "epad\020\001\0223\n/EAppGamepadGyroTrackpadSupport"
+  "LevelSimultaneous\020\002*\227\001\n\016EAppHDRSupport\022\027"
+  "\n\023EHDRSupport_Unknown\020\000\022\023\n\017EHDRSupport_S"
+  "DR\020\001\022\023\n\017EHDRSupport_HDR\020\002\022\032\n\026EHDRSupport"
+  "_HDR_Broken\020\003\022&\n\"EHDRSupport_HDR_Require"
+  "sUserAction\020\004B\037H\001\200\001\001\252\002\027OpenSteamworks.Pr"
+  "otobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fappoverview_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -508,8 +448,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fappoverview_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fappoverview_2eproto = {
-  false, false, 5140, descriptor_table_protodef_steammessages_5fappoverview_2eproto, "steammessages_appoverview.proto", 
-  &descriptor_table_steammessages_5fappoverview_2eproto_once, descriptor_table_steammessages_5fappoverview_2eproto_deps, 2, 6,
+  false, false, 4486, descriptor_table_protodef_steammessages_5fappoverview_2eproto, "steammessages_appoverview.proto", 
+  &descriptor_table_steammessages_5fappoverview_2eproto_once, descriptor_table_steammessages_5fappoverview_2eproto_deps, 2, 5,
   schemas, file_default_instances, TableStruct_steammessages_5fappoverview_2eproto::offsets,
   file_level_metadata_steammessages_5fappoverview_2eproto, file_level_enum_descriptors_steammessages_5fappoverview_2eproto, file_level_service_descriptors_steammessages_5fappoverview_2eproto,
 };
@@ -595,25 +535,9 @@ bool EAppCloudStatus_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAppAssociationType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fappoverview_2eproto);
-  return file_level_enum_descriptors_steammessages_5fappoverview_2eproto[2];
-}
-bool EAppAssociationType_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
-}
-
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAppControllerSupportLevel_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fappoverview_2eproto);
-  return file_level_enum_descriptors_steammessages_5fappoverview_2eproto[3];
+  return file_level_enum_descriptors_steammessages_5fappoverview_2eproto[2];
 }
 bool EAppControllerSupportLevel_IsValid(int value) {
   switch (value) {
@@ -628,7 +552,7 @@ bool EAppControllerSupportLevel_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAppGamepadGyroTrackpadSupportLevel_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fappoverview_2eproto);
-  return file_level_enum_descriptors_steammessages_5fappoverview_2eproto[4];
+  return file_level_enum_descriptors_steammessages_5fappoverview_2eproto[3];
 }
 bool EAppGamepadGyroTrackpadSupportLevel_IsValid(int value) {
   switch (value) {
@@ -644,7 +568,7 @@ bool EAppGamepadGyroTrackpadSupportLevel_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAppHDRSupport_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fappoverview_2eproto);
-  return file_level_enum_descriptors_steammessages_5fappoverview_2eproto[5];
+  return file_level_enum_descriptors_steammessages_5fappoverview_2eproto[4];
 }
 bool EAppHDRSupport_IsValid(int value) {
   switch (value) {
@@ -657,263 +581,6 @@ bool EAppHDRSupport_IsValid(int value) {
     default:
       return false;
   }
-}
-
-
-// ===================================================================
-
-class CAppOverview_AppAssociation::_Internal {
- public:
-  using HasBits = decltype(std::declval<CAppOverview_AppAssociation>()._has_bits_);
-  static void set_has_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-};
-
-CAppOverview_AppAssociation::CAppOverview_AppAssociation(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CAppOverview_AppAssociation)
-}
-CAppOverview_AppAssociation::CAppOverview_AppAssociation(const CAppOverview_AppAssociation& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_name()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArena());
-  }
-  type_ = from.type_;
-  // @@protoc_insertion_point(copy_constructor:CAppOverview_AppAssociation)
-}
-
-void CAppOverview_AppAssociation::SharedCtor() {
-name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-type_ = 0;
-}
-
-CAppOverview_AppAssociation::~CAppOverview_AppAssociation() {
-  // @@protoc_insertion_point(destructor:CAppOverview_AppAssociation)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CAppOverview_AppAssociation::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CAppOverview_AppAssociation::ArenaDtor(void* object) {
-  CAppOverview_AppAssociation* _this = reinterpret_cast< CAppOverview_AppAssociation* >(object);
-  (void)_this;
-}
-void CAppOverview_AppAssociation::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CAppOverview_AppAssociation::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CAppOverview_AppAssociation::Clear() {
-// @@protoc_insertion_point(message_clear_start:CAppOverview_AppAssociation)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    name_.ClearNonDefaultToEmpty();
-  }
-  type_ = 0;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CAppOverview_AppAssociation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional .EAppAssociationType type = 1 [default = EAppAssociationTypeInvalid];
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::EAppAssociationType_IsValid(val))) {
-            _internal_set_type(static_cast<::EAppAssociationType>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
-          }
-        } else goto handle_unusual;
-        continue;
-      // optional string name = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAppOverview_AppAssociation.name");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CAppOverview_AppAssociation::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CAppOverview_AppAssociation)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional .EAppAssociationType type = 1 [default = EAppAssociationTypeInvalid];
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_type(), target);
-  }
-
-  // optional string name = 2;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CAppOverview_AppAssociation.name");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_name(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CAppOverview_AppAssociation)
-  return target;
-}
-
-size_t CAppOverview_AppAssociation::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CAppOverview_AppAssociation)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional string name = 2;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_name());
-    }
-
-    // optional .EAppAssociationType type = 1 [default = EAppAssociationTypeInvalid];
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CAppOverview_AppAssociation::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CAppOverview_AppAssociation)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CAppOverview_AppAssociation* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CAppOverview_AppAssociation>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CAppOverview_AppAssociation)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CAppOverview_AppAssociation)
-    MergeFrom(*source);
-  }
-}
-
-void CAppOverview_AppAssociation::MergeFrom(const CAppOverview_AppAssociation& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CAppOverview_AppAssociation)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_name(from._internal_name());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      type_ = from.type_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CAppOverview_AppAssociation::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CAppOverview_AppAssociation)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CAppOverview_AppAssociation::CopyFrom(const CAppOverview_AppAssociation& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CAppOverview_AppAssociation)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CAppOverview_AppAssociation::IsInitialized() const {
-  return true;
-}
-
-void CAppOverview_AppAssociation::InternalSwap(CAppOverview_AppAssociation* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(type_, other->type_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CAppOverview_AppAssociation::GetMetadata() const {
-  return GetMetadataStatic();
 }
 
 
@@ -958,11 +625,8 @@ class CAppOverview_PerClientData::_Internal {
   static void set_has_playtime_left(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
-  static void set_has_cloud_status(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
-  }
   static void set_has_update_available_but_disabled_by_app(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 4096u;
   }
 };
 
@@ -1043,7 +707,7 @@ void CAppOverview_PerClientData::Clear() {
         reinterpret_cast<char*>(&installed_) -
         reinterpret_cast<char*>(&clientid_)) + sizeof(installed_));
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     ::memset(&streaming_to_local_client_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&update_available_but_disabled_by_app_) -
         reinterpret_cast<char*>(&streaming_to_local_client_)) + sizeof(update_available_but_disabled_by_app_));
@@ -1060,7 +724,7 @@ const char* CAppOverview_PerClientData::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 clientid = 1;
+      // optional uint64 clientid = 1 [default = 0];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_clientid(&has_bits);
@@ -1166,18 +830,6 @@ const char* CAppOverview_PerClientData::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EAppCloudStatus cloud_status = 13 [default = EAppCloudStatusInvalid];
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::EAppCloudStatus_IsValid(val))) {
-            _internal_set_cloud_status(static_cast<::EAppCloudStatus>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(13, val, mutable_unknown_fields());
-          }
-        } else goto handle_unusual;
-        continue;
       // optional bool update_available_but_disabled_by_app = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
@@ -1216,7 +868,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 clientid = 1;
+  // optional uint64 clientid = 1 [default = 0];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_clientid(), target);
@@ -1297,15 +949,8 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_playtime_left(), target);
   }
 
-  // optional .EAppCloudStatus cloud_status = 13 [default = EAppCloudStatusInvalid];
-  if (cached_has_bits & 0x00001000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      13, this->_internal_cloud_status(), target);
-  }
-
   // optional bool update_available_but_disabled_by_app = 14;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_update_available_but_disabled_by_app(), target);
   }
@@ -1342,7 +987,7 @@ size_t CAppOverview_PerClientData::ByteSizeLong() const {
           this->_internal_active_beta());
     }
 
-    // optional uint64 clientid = 1;
+    // optional uint64 clientid = 1 [default = 0];
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -1382,7 +1027,7 @@ size_t CAppOverview_PerClientData::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     // optional bool streaming_to_local_client = 9;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
@@ -1405,14 +1050,8 @@ size_t CAppOverview_PerClientData::ByteSizeLong() const {
           this->_internal_playtime_left());
     }
 
-    // optional .EAppCloudStatus cloud_status = 13 [default = EAppCloudStatusInvalid];
-    if (cached_has_bits & 0x00001000u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_cloud_status());
-    }
-
     // optional bool update_available_but_disabled_by_app = 14;
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += 1 + 1;
     }
 
@@ -1476,7 +1115,7 @@ void CAppOverview_PerClientData::MergeFrom(const CAppOverview_PerClientData& fro
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
       streaming_to_local_client_ = from.streaming_to_local_client_;
     }
@@ -1490,9 +1129,6 @@ void CAppOverview_PerClientData::MergeFrom(const CAppOverview_PerClientData& fro
       playtime_left_ = from.playtime_left_;
     }
     if (cached_has_bits & 0x00001000u) {
-      cloud_status_ = from.cloud_status_;
-    }
-    if (cached_has_bits & 0x00002000u) {
       update_available_but_disabled_by_app_ = from.update_available_but_disabled_by_app_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -1644,10 +1280,10 @@ class CAppOverview::_Internal {
     (*has_bits)[0] |= 128u;
   }
   static void set_has_vr_only(HasBits* has_bits) {
-    (*has_bits)[1] |= 256u;
+    (*has_bits)[1] |= 32u;
   }
   static void set_has_mastersub_appid(HasBits* has_bits) {
-    (*has_bits)[1] |= 32u;
+    (*has_bits)[1] |= 64u;
   }
   static void set_has_mastersub_includedwith_logo(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
@@ -1656,41 +1292,31 @@ class CAppOverview::_Internal {
     (*has_bits)[0] |= 512u;
   }
   static void set_has_shortcut_override_appid(HasBits* has_bits) {
-    (*has_bits)[1] |= 64u;
-  }
-  static void set_has_steam_deccompat_category(HasBits* has_bits) {
     (*has_bits)[1] |= 128u;
   }
   static void set_has_rt_last_time_locally_played(HasBits* has_bits) {
-    (*has_bits)[1] |= 1024u;
+    (*has_bits)[1] |= 256u;
   }
   static void set_has_rt_purchased_time(HasBits* has_bits) {
-    (*has_bits)[1] |= 2048u;
+    (*has_bits)[1] |= 512u;
   }
   static void set_has_header_filename(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
   static void set_has_local_cache_version(HasBits* has_bits) {
-    (*has_bits)[1] |= 4096u;
-  }
-  static void set_has_ps4_controller_support(HasBits* has_bits) {
-    (*has_bits)[1] |= 8192u;
-  }
-  static void set_has_ps5_controller_support(HasBits* has_bits) {
-    (*has_bits)[1] |= 16384u;
-  }
-  static void set_has_gamepad_preferred(HasBits* has_bits) {
-    (*has_bits)[1] |= 512u;
+    (*has_bits)[1] |= 1024u;
   }
   static void set_has_number_of_copies(HasBits* has_bits) {
-    (*has_bits)[1] |= 32768u;
+    (*has_bits)[1] |= 2048u;
+  }
+  static void set_has_steam_hw_compat_category_packed(HasBits* has_bits) {
+    (*has_bits)[1] |= 4096u;
   }
 };
 
 CAppOverview::CAppOverview(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   store_tag_(arena),
-  association_(arena),
   store_category_(arena),
   per_client_data_(arena) {
   SharedCtor();
@@ -1701,7 +1327,6 @@ CAppOverview::CAppOverview(const CAppOverview& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
       store_tag_(from.store_tag_),
-      association_(from.association_),
       store_category_(from.store_category_),
       per_client_data_(from.per_client_data_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1761,8 +1386,8 @@ CAppOverview::CAppOverview(const CAppOverview& from)
       GetArena());
   }
   ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&number_of_copies_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(number_of_copies_));
+    static_cast<size_t>(reinterpret_cast<char*>(&steam_hw_compat_category_packed_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(steam_hw_compat_category_packed_));
   // @@protoc_insertion_point(copy_constructor:CAppOverview)
 }
 
@@ -1780,8 +1405,8 @@ site_license_site_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::Get
 header_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&number_of_copies_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(number_of_copies_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&steam_hw_compat_category_packed_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(steam_hw_compat_category_packed_));
 }
 
 CAppOverview::~CAppOverview() {
@@ -1822,7 +1447,6 @@ void CAppOverview::Clear() {
   (void) cached_has_bits;
 
   store_tag_.Clear();
-  association_.Clear();
   store_category_.Clear();
   per_client_data_.Clear();
   cached_has_bits = _has_bits_[0];
@@ -1881,13 +1505,13 @@ void CAppOverview::Clear() {
   cached_has_bits = _has_bits_[1];
   if (cached_has_bits & 0x000000ffu) {
     ::memset(&owner_account_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&steam_deccompat_category_) -
-        reinterpret_cast<char*>(&owner_account_id_)) + sizeof(steam_deccompat_category_));
+        reinterpret_cast<char*>(&shortcut_override_appid_) -
+        reinterpret_cast<char*>(&owner_account_id_)) + sizeof(shortcut_override_appid_));
   }
-  if (cached_has_bits & 0x0000ff00u) {
-    ::memset(&vr_only_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&number_of_copies_) -
-        reinterpret_cast<char*>(&vr_only_)) + sizeof(number_of_copies_));
+  if (cached_has_bits & 0x00001f00u) {
+    ::memset(&rt_last_time_locally_played_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&steam_hw_compat_category_packed_) -
+        reinterpret_cast<char*>(&rt_last_time_locally_played_)) + sizeof(steam_hw_compat_category_packed_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -2011,18 +1635,6 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 154) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_store_tag(), ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated .CAppOverview_AppAssociation association = 20;
-      case 20:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 162)) {
-          ptr -= 2;
-          do {
-            ptr += 2;
-            ptr = ctx->ParseMessage(_internal_add_association(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<162>(ptr));
         } else goto handle_unusual;
         continue;
       // repeated uint32 store_category = 23;
@@ -2167,7 +1779,7 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<346>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint64 most_available_clientid = 44;
+      // optional uint64 most_available_clientid = 44 [default = 0];
       case 44:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_most_available_clientid(&_has_bits_);
@@ -2175,7 +1787,7 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 selected_clientid = 45;
+      // optional uint64 selected_clientid = 45 [default = 0];
       case 45:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
           _Internal::set_has_selected_clientid(&_has_bits_);
@@ -2304,18 +1916,6 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .ESteamDeckCompatibilityCategory steam_deccompat_category = 64 [default = ESteamDeckCompatibilityCategory_Unknown];
-      case 64:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 0)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::ESteamDeckCompatibilityCategory_IsValid(val))) {
-            _internal_set_steam_deccompat_category(static_cast<::ESteamDeckCompatibilityCategory>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(64, val, mutable_unknown_fields());
-          }
-        } else goto handle_unusual;
-        continue;
       // optional uint32 rt_last_time_locally_played = 65;
       case 65:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
@@ -2351,43 +1951,19 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EAppControllerSupportLevel ps4_controller_support = 69 [default = EAppControllerSupportLevelNone];
-      case 69:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::EAppControllerSupportLevel_IsValid(val))) {
-            _internal_set_ps4_controller_support(static_cast<::EAppControllerSupportLevel>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(69, val, mutable_unknown_fields());
-          }
-        } else goto handle_unusual;
-        continue;
-      // optional .EAppControllerSupportLevel ps5_controller_support = 70 [default = EAppControllerSupportLevelNone];
-      case 70:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::EAppControllerSupportLevel_IsValid(val))) {
-            _internal_set_ps5_controller_support(static_cast<::EAppControllerSupportLevel>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(70, val, mutable_unknown_fields());
-          }
-        } else goto handle_unusual;
-        continue;
-      // optional bool gamepad_preferred = 71;
-      case 71:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          _Internal::set_has_gamepad_preferred(&_has_bits_);
-          gamepad_preferred_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // optional uint32 number_of_copies = 72;
       case 72:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_number_of_copies(&_has_bits_);
           number_of_copies_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 steam_hw_compat_category_packed = 73;
+      case 73:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          _Internal::set_has_steam_hw_compat_category_packed(&_has_bits_);
+          steam_hw_compat_category_packed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2501,14 +2077,6 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(19, this->_internal_store_tag(i), target);
   }
 
-  // repeated .CAppOverview_AppAssociation association = 20;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_association_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(20, this->_internal_association(i), target, stream);
-  }
-
   // repeated uint32 store_category = 23;
   for (int i = 0, n = this->_internal_store_category_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -2616,13 +2184,13 @@ failure:
       InternalWriteMessage(43, this->_internal_per_client_data(i), target, stream);
   }
 
-  // optional uint64 most_available_clientid = 44;
+  // optional uint64 most_available_clientid = 44 [default = 0];
   if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(44, this->_internal_most_available_clientid(), target);
   }
 
-  // optional uint64 selected_clientid = 45;
+  // optional uint64 selected_clientid = 45 [default = 0];
   if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(45, this->_internal_selected_clientid(), target);
@@ -2690,13 +2258,13 @@ failure:
 
   cached_has_bits = _has_bits_[1];
   // optional bool vr_only = 58;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(58, this->_internal_vr_only(), target);
   }
 
   // optional uint32 mastersub_appid = 59;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(59, this->_internal_mastersub_appid(), target);
   }
@@ -2724,26 +2292,19 @@ failure:
 
   cached_has_bits = _has_bits_[1];
   // optional uint32 shortcut_override_appid = 63;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(63, this->_internal_shortcut_override_appid(), target);
   }
 
-  // optional .ESteamDeckCompatibilityCategory steam_deccompat_category = 64 [default = ESteamDeckCompatibilityCategory_Unknown];
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      64, this->_internal_steam_deccompat_category(), target);
-  }
-
   // optional uint32 rt_last_time_locally_played = 65;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(65, this->_internal_rt_last_time_locally_played(), target);
   }
 
   // optional uint32 rt_purchased_time = 66;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(66, this->_internal_rt_purchased_time(), target);
   }
@@ -2761,35 +2322,21 @@ failure:
 
   cached_has_bits = _has_bits_[1];
   // optional uint32 local_cache_version = 68;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(68, this->_internal_local_cache_version(), target);
   }
 
-  // optional .EAppControllerSupportLevel ps4_controller_support = 69 [default = EAppControllerSupportLevelNone];
-  if (cached_has_bits & 0x00002000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      69, this->_internal_ps4_controller_support(), target);
-  }
-
-  // optional .EAppControllerSupportLevel ps5_controller_support = 70 [default = EAppControllerSupportLevelNone];
-  if (cached_has_bits & 0x00004000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      70, this->_internal_ps5_controller_support(), target);
-  }
-
-  // optional bool gamepad_preferred = 71;
-  if (cached_has_bits & 0x00000200u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(71, this->_internal_gamepad_preferred(), target);
-  }
-
   // optional uint32 number_of_copies = 72;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(72, this->_internal_number_of_copies(), target);
+  }
+
+  // optional uint32 steam_hw_compat_category_packed = 73;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(73, this->_internal_steam_hw_compat_category_packed(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2815,13 +2362,6 @@ size_t CAppOverview::ByteSizeLong() const {
     total_size += 2 *
                   ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_store_tag_size());
     total_size += data_size;
-  }
-
-  // repeated .CAppOverview_AppAssociation association = 20;
-  total_size += 2UL * this->_internal_association_size();
-  for (const auto& msg : this->association_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // repeated uint32 store_category = 23;
@@ -3027,14 +2567,14 @@ size_t CAppOverview::ByteSizeLong() const {
           this->_internal_size_on_disk());
     }
 
-    // optional uint64 most_available_clientid = 44;
+    // optional uint64 most_available_clientid = 44 [default = 0];
     if (cached_has_bits & 0x08000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_most_available_clientid());
     }
 
-    // optional uint64 selected_clientid = 45;
+    // optional uint64 selected_clientid = 45 [default = 0];
     if (cached_has_bits & 0x10000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -3100,76 +2640,60 @@ size_t CAppOverview::ByteSizeLong() const {
           this->_internal_review_percentage_without_bombs());
     }
 
-    // optional uint32 mastersub_appid = 59;
+    // optional bool vr_only = 58;
     if (cached_has_bits & 0x00000020u) {
+      total_size += 2 + 1;
+    }
+
+    // optional uint32 mastersub_appid = 59;
+    if (cached_has_bits & 0x00000040u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_mastersub_appid());
     }
 
     // optional uint32 shortcut_override_appid = 63;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_shortcut_override_appid());
     }
 
-    // optional .ESteamDeckCompatibilityCategory steam_deccompat_category = 64 [default = ESteamDeckCompatibilityCategory_Unknown];
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_steam_deccompat_category());
-    }
-
   }
-  if (cached_has_bits & 0x0000ff00u) {
-    // optional bool vr_only = 58;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += 2 + 1;
-    }
-
-    // optional bool gamepad_preferred = 71;
-    if (cached_has_bits & 0x00000200u) {
-      total_size += 2 + 1;
-    }
-
+  if (cached_has_bits & 0x00001f00u) {
     // optional uint32 rt_last_time_locally_played = 65;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rt_last_time_locally_played());
     }
 
     // optional uint32 rt_purchased_time = 66;
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rt_purchased_time());
     }
 
     // optional uint32 local_cache_version = 68;
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_local_cache_version());
     }
 
-    // optional .EAppControllerSupportLevel ps4_controller_support = 69 [default = EAppControllerSupportLevelNone];
-    if (cached_has_bits & 0x00002000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_ps4_controller_support());
-    }
-
-    // optional .EAppControllerSupportLevel ps5_controller_support = 70 [default = EAppControllerSupportLevelNone];
-    if (cached_has_bits & 0x00004000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_ps5_controller_support());
-    }
-
     // optional uint32 number_of_copies = 72;
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_number_of_copies());
+    }
+
+    // optional uint32 steam_hw_compat_category_packed = 73;
+    if (cached_has_bits & 0x00001000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_steam_hw_compat_category_packed());
     }
 
   }
@@ -3205,7 +2729,6 @@ void CAppOverview::MergeFrom(const CAppOverview& from) {
   (void) cached_has_bits;
 
   store_tag_.MergeFrom(from.store_tag_);
-  association_.MergeFrom(from.association_);
   store_category_.MergeFrom(from.store_category_);
   per_client_data_.MergeFrom(from.per_client_data_);
   cached_has_bits = from._has_bits_[0];
@@ -3334,40 +2857,31 @@ void CAppOverview::MergeFrom(const CAppOverview& from) {
       review_percentage_without_bombs_ = from.review_percentage_without_bombs_;
     }
     if (cached_has_bits & 0x00000020u) {
-      mastersub_appid_ = from.mastersub_appid_;
+      vr_only_ = from.vr_only_;
     }
     if (cached_has_bits & 0x00000040u) {
-      shortcut_override_appid_ = from.shortcut_override_appid_;
+      mastersub_appid_ = from.mastersub_appid_;
     }
     if (cached_has_bits & 0x00000080u) {
-      steam_deccompat_category_ = from.steam_deccompat_category_;
+      shortcut_override_appid_ = from.shortcut_override_appid_;
     }
     _has_bits_[1] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x0000ff00u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
-      vr_only_ = from.vr_only_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      gamepad_preferred_ = from.gamepad_preferred_;
-    }
-    if (cached_has_bits & 0x00000400u) {
       rt_last_time_locally_played_ = from.rt_last_time_locally_played_;
     }
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000200u) {
       rt_purchased_time_ = from.rt_purchased_time_;
     }
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000400u) {
       local_cache_version_ = from.local_cache_version_;
     }
-    if (cached_has_bits & 0x00002000u) {
-      ps4_controller_support_ = from.ps4_controller_support_;
-    }
-    if (cached_has_bits & 0x00004000u) {
-      ps5_controller_support_ = from.ps5_controller_support_;
-    }
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00000800u) {
       number_of_copies_ = from.number_of_copies_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      steam_hw_compat_category_packed_ = from.steam_hw_compat_category_packed_;
     }
     _has_bits_[1] |= cached_has_bits;
   }
@@ -3397,7 +2911,6 @@ void CAppOverview::InternalSwap(CAppOverview* other) {
   swap(_has_bits_[0], other->_has_bits_[0]);
   swap(_has_bits_[1], other->_has_bits_[1]);
   store_tag_.InternalSwap(&other->store_tag_);
-  association_.InternalSwap(&other->association_);
   store_category_.InternalSwap(&other->store_category_);
   per_client_data_.InternalSwap(&other->per_client_data_);
   display_name_.Swap(&other->display_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
@@ -3412,8 +2925,8 @@ void CAppOverview::InternalSwap(CAppOverview* other) {
   site_license_site_name_.Swap(&other->site_license_site_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   header_filename_.Swap(&other->header_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CAppOverview, number_of_copies_)
-      + sizeof(CAppOverview::number_of_copies_)
+      PROTOBUF_FIELD_OFFSET(CAppOverview, steam_hw_compat_category_packed_)
+      + sizeof(CAppOverview::steam_hw_compat_category_packed_)
       - PROTOBUF_FIELD_OFFSET(CAppOverview, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));
@@ -4215,9 +3728,6 @@ void CLibraryBootstrapData::InternalSwap(CLibraryBootstrapData* other) {
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::CAppOverview_AppAssociation* Arena::CreateMaybeMessage< ::CAppOverview_AppAssociation >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CAppOverview_AppAssociation >(arena);
-}
 template<> PROTOBUF_NOINLINE ::CAppOverview_PerClientData* Arena::CreateMaybeMessage< ::CAppOverview_PerClientData >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CAppOverview_PerClientData >(arena);
 }

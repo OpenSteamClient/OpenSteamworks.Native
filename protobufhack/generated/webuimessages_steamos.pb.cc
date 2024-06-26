@@ -160,7 +160,9 @@ struct CSteamOSManager_ApplyMandatoryUpdate_ResponseDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CSteamOSManager_ApplyMandatoryUpdate_ResponseDefaultTypeInternal _CSteamOSManager_ApplyMandatoryUpdate_Response_default_instance_;
 constexpr CSteamOSManager_FactoryReset_Request::CSteamOSManager_FactoryReset_Request(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : reset_os_(false)
+  , reset_user_data_(false){}
 struct CSteamOSManager_FactoryReset_RequestDefaultTypeInternal {
   constexpr CSteamOSManager_FactoryReset_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -392,11 +394,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManager_FactoryReset_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManager_FactoryReset_Request, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManager_FactoryReset_Request, reset_os_),
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManager_FactoryReset_Request, reset_user_data_),
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CSteamOSManager_FactoryReset_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -480,17 +486,17 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 80, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
   { 85, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
   { 90, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
-  { 95, -1, sizeof(::CSteamOSManager_FactoryReset_Request)},
-  { 100, -1, sizeof(::CSteamOSManager_FactoryReset_Response)},
-  { 105, 113, sizeof(::CSteamOSSLSPlugin)},
-  { 116, 124, sizeof(::CSteamOSSLSState)},
-  { 127, -1, sizeof(::CSteamOSSLS_GetState_Request)},
-  { 132, 138, sizeof(::CSteamOSSLS_GetState_Response)},
-  { 139, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
-  { 144, 150, sizeof(::CSteamOSSLS_SetEnabled_Request)},
-  { 151, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
-  { 156, 163, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
-  { 165, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
+  { 95, 102, sizeof(::CSteamOSManager_FactoryReset_Request)},
+  { 104, -1, sizeof(::CSteamOSManager_FactoryReset_Response)},
+  { 109, 117, sizeof(::CSteamOSSLSPlugin)},
+  { 120, 128, sizeof(::CSteamOSSLSState)},
+  { 131, -1, sizeof(::CSteamOSSLS_GetState_Request)},
+  { 136, 142, sizeof(::CSteamOSSLS_GetState_Response)},
+  { 143, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
+  { 148, 154, sizeof(::CSteamOSSLS_SetEnabled_Request)},
+  { 155, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
+  { 160, 167, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
+  { 169, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -551,47 +557,48 @@ const char descriptor_table_protodef_webuimessages_5fsteamos_2eproto[] PROTOBUF_
   "teamOSManager_OptOutOfSideloadedClient_R"
   "esponse\".\n,CSteamOSManager_ApplyMandator"
   "yUpdate_Request\"/\n-CSteamOSManager_Apply"
-  "MandatoryUpdate_Response\"&\n$CSteamOSMana"
-  "ger_FactoryReset_Request\"\'\n%CSteamOSMana"
-  "ger_FactoryReset_Response\"m\n\021CSteamOSSLS"
-  "Plugin\022.\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLS"
-  "Helper_Invalid\022\024\n\014is_available\030\002 \001(\010\022\022\n\n"
-  "is_enabled\030\003 \001(\010\"a\n\020CSteamOSSLSState\022\024\n\014"
-  "is_available\030\001 \001(\010\022\022\n\nis_enabled\030\002 \001(\010\022#"
-  "\n\007plugins\030\003 \003(\0132\022.CSteamOSSLSPlugin\"\036\n\034C"
-  "SteamOSSLS_GetState_Request\"A\n\035CSteamOSS"
-  "LS_GetState_Response\022 \n\005state\030\001 \001(\0132\021.CS"
-  "teamOSSLSState\"\'\n%CSteamOSSLS_StateChang"
-  "ed_Notification\"1\n\036CSteamOSSLS_SetEnable"
-  "d_Request\022\017\n\007enabled\030\001 \001(\010\"!\n\037CSteamOSSL"
-  "S_SetEnabled_Response\"g\n$CSteamOSSLS_Set"
-  "PluginEnabled_Request\022.\n\005etype\030\001 \001(\0162\013.E"
-  "SLSHelper:\022ESLSHelper_Invalid\022\017\n\007enabled"
-  "\030\002 \001(\010\"\'\n%CSteamOSSLS_SetPluginEnabled_R"
-  "esponse2\227\004\n\016SteamOSManager\022Q\n\010GetState\022!"
-  ".CSteamOSManager_GetState_Request\032\".CSte"
-  "amOSManager_GetState_Response\022R\n\022NotifyS"
-  "tateChanged\022*.CSteamOSManager_StateChang"
-  "ed_Notification\032\020.WebUINoResponse\022\201\001\n\030Op"
-  "tOutOfSideloadedClient\0221.CSteamOSManager"
-  "_OptOutOfSideloadedClient_Request\0322.CSte"
-  "amOSManager_OptOutOfSideloadedClient_Res"
-  "ponse\022u\n\024ApplyMandatoryUpdate\022-.CSteamOS"
-  "Manager_ApplyMandatoryUpdate_Request\032..C"
-  "SteamOSManager_ApplyMandatoryUpdate_Resp"
-  "onse\022]\n\014FactoryReset\022%.CSteamOSManager_F"
-  "actoryReset_Request\032&.CSteamOSManager_Fa"
-  "ctoryReset_Response\032\004\200\227\"\0012\341\002\n\nSteamOSSLS"
-  "\022I\n\010GetState\022\035.CSteamOSSLS_GetState_Requ"
-  "est\032\036.CSteamOSSLS_GetState_Response\022N\n\022N"
-  "otifyStateChanged\022&.CSteamOSSLS_StateCha"
-  "nged_Notification\032\020.WebUINoResponse\022O\n\nS"
-  "etEnabled\022\037.CSteamOSSLS_SetEnabled_Reque"
-  "st\032 .CSteamOSSLS_SetEnabled_Response\022a\n\020"
-  "SetPluginEnabled\022%.CSteamOSSLS_SetPlugin"
-  "Enabled_Request\032&.CSteamOSSLS_SetPluginE"
-  "nabled_Response\032\004\200\227\"\001B\037H\001\200\001\001\252\002\027OpenSteam"
-  "works.Protobuf"
+  "MandatoryUpdate_Response\"Q\n$CSteamOSMana"
+  "ger_FactoryReset_Request\022\020\n\010reset_os\030\001 \001"
+  "(\010\022\027\n\017reset_user_data\030\002 \001(\010\"\'\n%CSteamOSM"
+  "anager_FactoryReset_Response\"m\n\021CSteamOS"
+  "SLSPlugin\022.\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022E"
+  "SLSHelper_Invalid\022\024\n\014is_available\030\002 \001(\010\022"
+  "\022\n\nis_enabled\030\003 \001(\010\"a\n\020CSteamOSSLSState\022"
+  "\024\n\014is_available\030\001 \001(\010\022\022\n\nis_enabled\030\002 \001("
+  "\010\022#\n\007plugins\030\003 \003(\0132\022.CSteamOSSLSPlugin\"\036"
+  "\n\034CSteamOSSLS_GetState_Request\"A\n\035CSteam"
+  "OSSLS_GetState_Response\022 \n\005state\030\001 \001(\0132\021"
+  ".CSteamOSSLSState\"\'\n%CSteamOSSLS_StateCh"
+  "anged_Notification\"1\n\036CSteamOSSLS_SetEna"
+  "bled_Request\022\017\n\007enabled\030\001 \001(\010\"!\n\037CSteamO"
+  "SSLS_SetEnabled_Response\"g\n$CSteamOSSLS_"
+  "SetPluginEnabled_Request\022.\n\005etype\030\001 \001(\0162"
+  "\013.ESLSHelper:\022ESLSHelper_Invalid\022\017\n\007enab"
+  "led\030\002 \001(\010\"\'\n%CSteamOSSLS_SetPluginEnable"
+  "d_Response2\227\004\n\016SteamOSManager\022Q\n\010GetStat"
+  "e\022!.CSteamOSManager_GetState_Request\032\".C"
+  "SteamOSManager_GetState_Response\022R\n\022Noti"
+  "fyStateChanged\022*.CSteamOSManager_StateCh"
+  "anged_Notification\032\020.WebUINoResponse\022\201\001\n"
+  "\030OptOutOfSideloadedClient\0221.CSteamOSMana"
+  "ger_OptOutOfSideloadedClient_Request\0322.C"
+  "SteamOSManager_OptOutOfSideloadedClient_"
+  "Response\022u\n\024ApplyMandatoryUpdate\022-.CStea"
+  "mOSManager_ApplyMandatoryUpdate_Request\032"
+  "..CSteamOSManager_ApplyMandatoryUpdate_R"
+  "esponse\022]\n\014FactoryReset\022%.CSteamOSManage"
+  "r_FactoryReset_Request\032&.CSteamOSManager"
+  "_FactoryReset_Response\032\004\200\227\"\0012\341\002\n\nSteamOS"
+  "SLS\022I\n\010GetState\022\035.CSteamOSSLS_GetState_R"
+  "equest\032\036.CSteamOSSLS_GetState_Response\022N"
+  "\n\022NotifyStateChanged\022&.CSteamOSSLS_State"
+  "Changed_Notification\032\020.WebUINoResponse\022O"
+  "\n\nSetEnabled\022\037.CSteamOSSLS_SetEnabled_Re"
+  "quest\032 .CSteamOSSLS_SetEnabled_Response\022"
+  "a\n\020SetPluginEnabled\022%.CSteamOSSLS_SetPlu"
+  "ginEnabled_Request\032&.CSteamOSSLS_SetPlug"
+  "inEnabled_Response\032\004\200\227\"\001B\037H\001\200\001\001\252\002\027OpenSt"
+  "eamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fsteamos_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -601,7 +608,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fsteamos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fsteamos_2eproto = {
-  false, false, 2894, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
+  false, false, 2937, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
   &descriptor_table_webuimessages_5fsteamos_2eproto_once, descriptor_table_webuimessages_5fsteamos_2eproto_deps, 4, 22,
   schemas, file_default_instances, TableStruct_webuimessages_5fsteamos_2eproto::offsets,
   file_level_metadata_webuimessages_5fsteamos_2eproto, file_level_enum_descriptors_webuimessages_5fsteamos_2eproto, file_level_service_descriptors_webuimessages_5fsteamos_2eproto,
@@ -3058,6 +3065,13 @@ void CSteamOSManager_ApplyMandatoryUpdate_Response::InternalSwap(CSteamOSManager
 
 class CSteamOSManager_FactoryReset_Request::_Internal {
  public:
+  using HasBits = decltype(std::declval<CSteamOSManager_FactoryReset_Request>()._has_bits_);
+  static void set_has_reset_os(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_reset_user_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
 CSteamOSManager_FactoryReset_Request::CSteamOSManager_FactoryReset_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -3067,12 +3081,20 @@ CSteamOSManager_FactoryReset_Request::CSteamOSManager_FactoryReset_Request(::PRO
   // @@protoc_insertion_point(arena_constructor:CSteamOSManager_FactoryReset_Request)
 }
 CSteamOSManager_FactoryReset_Request::CSteamOSManager_FactoryReset_Request(const CSteamOSManager_FactoryReset_Request& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&reset_os_, &from.reset_os_,
+    static_cast<size_t>(reinterpret_cast<char*>(&reset_user_data_) -
+    reinterpret_cast<char*>(&reset_os_)) + sizeof(reset_user_data_));
   // @@protoc_insertion_point(copy_constructor:CSteamOSManager_FactoryReset_Request)
 }
 
 void CSteamOSManager_FactoryReset_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&reset_os_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&reset_user_data_) -
+    reinterpret_cast<char*>(&reset_os_)) + sizeof(reset_user_data_));
 }
 
 CSteamOSManager_FactoryReset_Request::~CSteamOSManager_FactoryReset_Request() {
@@ -3101,15 +3123,39 @@ void CSteamOSManager_FactoryReset_Request::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  ::memset(&reset_os_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&reset_user_data_) -
+      reinterpret_cast<char*>(&reset_os_)) + sizeof(reset_user_data_));
+  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CSteamOSManager_FactoryReset_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
+    switch (tag >> 3) {
+      // optional bool reset_os = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_reset_os(&has_bits);
+          reset_os_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool reset_user_data = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_reset_user_data(&has_bits);
+          reset_user_data_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
           ctx->SetLastTag(tag);
           goto success;
@@ -3119,8 +3165,11 @@ const char* CSteamOSManager_FactoryReset_Request::_InternalParse(const char* ptr
             ptr, ctx);
         CHK_(ptr != nullptr);
         continue;
+      }
+    }  // switch
   }  // while
 success:
+  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -3133,6 +3182,19 @@ failure:
   // @@protoc_insertion_point(serialize_to_array_start:CSteamOSManager_FactoryReset_Request)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional bool reset_os = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_reset_os(), target);
+  }
+
+  // optional bool reset_user_data = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_reset_user_data(), target);
+  }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -3150,6 +3212,19 @@ size_t CSteamOSManager_FactoryReset_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional bool reset_os = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool reset_user_data = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -3181,6 +3256,16 @@ void CSteamOSManager_FactoryReset_Request::MergeFrom(const CSteamOSManager_Facto
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      reset_os_ = from.reset_os_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      reset_user_data_ = from.reset_user_data_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
 }
 
 void CSteamOSManager_FactoryReset_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -3204,6 +3289,13 @@ bool CSteamOSManager_FactoryReset_Request::IsInitialized() const {
 void CSteamOSManager_FactoryReset_Request::InternalSwap(CSteamOSManager_FactoryReset_Request* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CSteamOSManager_FactoryReset_Request, reset_user_data_)
+      + sizeof(CSteamOSManager_FactoryReset_Request::reset_user_data_)
+      - PROTOBUF_FIELD_OFFSET(CSteamOSManager_FactoryReset_Request, reset_os_)>(
+          reinterpret_cast<char*>(&reset_os_),
+          reinterpret_cast<char*>(&other->reset_os_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSteamOSManager_FactoryReset_Request::GetMetadata() const {

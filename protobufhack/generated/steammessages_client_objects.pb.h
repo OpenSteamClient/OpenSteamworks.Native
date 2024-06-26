@@ -6161,12 +6161,11 @@ class CMsgSystemPerfLimits PROTOBUF_FINAL :
     kNisSharpnessMaxFieldNumber = 18,
     kDisplayExternalRefreshManualHzMinFieldNumber = 19,
     kDisplayExternalRefreshManualHzMaxFieldNumber = 20,
-    kIsTearingSupportedFieldNumber = 22,
     kIsVrrSupportedFieldNumber = 23,
     kIsDynamicRefreshRateInSteamSupportedFieldNumber = 24,
     kIsSplitScalingAndFilteringSupportedFieldNumber = 25,
-    kDisplayRefreshManualHzOcMaxFieldNumber = 29,
     kIsHdrSupportedFieldNumber = 28,
+    kDisplayRefreshManualHzOcMaxFieldNumber = 29,
     kDisableRefreshRateManagementFieldNumber = 30,
   };
   // repeated .EGPUPerformanceLevel gpu_performance_levels_available = 10;
@@ -6498,19 +6497,6 @@ class CMsgSystemPerfLimits PROTOBUF_FINAL :
   void _internal_set_display_external_refresh_manual_hz_max(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional bool is_tearing_supported = 22;
-  bool has_is_tearing_supported() const;
-  private:
-  bool _internal_has_is_tearing_supported() const;
-  public:
-  void clear_is_tearing_supported();
-  bool is_tearing_supported() const;
-  void set_is_tearing_supported(bool value);
-  private:
-  bool _internal_is_tearing_supported() const;
-  void _internal_set_is_tearing_supported(bool value);
-  public:
-
   // optional bool is_vrr_supported = 23;
   bool has_is_vrr_supported() const;
   private:
@@ -6550,19 +6536,6 @@ class CMsgSystemPerfLimits PROTOBUF_FINAL :
   void _internal_set_is_split_scaling_and_filtering_supported(bool value);
   public:
 
-  // optional int32 display_refresh_manual_hz_oc_max = 29;
-  bool has_display_refresh_manual_hz_oc_max() const;
-  private:
-  bool _internal_has_display_refresh_manual_hz_oc_max() const;
-  public:
-  void clear_display_refresh_manual_hz_oc_max();
-  ::PROTOBUF_NAMESPACE_ID::int32 display_refresh_manual_hz_oc_max() const;
-  void set_display_refresh_manual_hz_oc_max(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_display_refresh_manual_hz_oc_max() const;
-  void _internal_set_display_refresh_manual_hz_oc_max(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // optional bool is_hdr_supported = 28;
   bool has_is_hdr_supported() const;
   private:
@@ -6574,6 +6547,19 @@ class CMsgSystemPerfLimits PROTOBUF_FINAL :
   private:
   bool _internal_is_hdr_supported() const;
   void _internal_set_is_hdr_supported(bool value);
+  public:
+
+  // optional int32 display_refresh_manual_hz_oc_max = 29;
+  bool has_display_refresh_manual_hz_oc_max() const;
+  private:
+  bool _internal_has_display_refresh_manual_hz_oc_max() const;
+  public:
+  void clear_display_refresh_manual_hz_oc_max();
+  ::PROTOBUF_NAMESPACE_ID::int32 display_refresh_manual_hz_oc_max() const;
+  void set_display_refresh_manual_hz_oc_max(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_display_refresh_manual_hz_oc_max() const;
+  void _internal_set_display_refresh_manual_hz_oc_max(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional bool disable_refresh_rate_management = 30;
@@ -6621,12 +6607,11 @@ class CMsgSystemPerfLimits PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 nis_sharpness_max_;
   ::PROTOBUF_NAMESPACE_ID::int32 display_external_refresh_manual_hz_min_;
   ::PROTOBUF_NAMESPACE_ID::int32 display_external_refresh_manual_hz_max_;
-  bool is_tearing_supported_;
   bool is_vrr_supported_;
   bool is_dynamic_refresh_rate_in_steam_supported_;
   bool is_split_scaling_and_filtering_supported_;
-  ::PROTOBUF_NAMESPACE_ID::int32 display_refresh_manual_hz_oc_max_;
   bool is_hdr_supported_;
+  ::PROTOBUF_NAMESPACE_ID::int32 display_refresh_manual_hz_oc_max_;
   bool disable_refresh_rate_management_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
 };
@@ -22664,37 +22649,9 @@ CMsgSystemPerfLimits::mutable_fps_limit_options_external() {
   return _internal_mutable_fps_limit_options_external();
 }
 
-// optional bool is_tearing_supported = 22;
-inline bool CMsgSystemPerfLimits::_internal_has_is_tearing_supported() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfLimits::has_is_tearing_supported() const {
-  return _internal_has_is_tearing_supported();
-}
-inline void CMsgSystemPerfLimits::clear_is_tearing_supported() {
-  is_tearing_supported_ = false;
-  _has_bits_[0] &= ~0x00040000u;
-}
-inline bool CMsgSystemPerfLimits::_internal_is_tearing_supported() const {
-  return is_tearing_supported_;
-}
-inline bool CMsgSystemPerfLimits::is_tearing_supported() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfLimits.is_tearing_supported)
-  return _internal_is_tearing_supported();
-}
-inline void CMsgSystemPerfLimits::_internal_set_is_tearing_supported(bool value) {
-  _has_bits_[0] |= 0x00040000u;
-  is_tearing_supported_ = value;
-}
-inline void CMsgSystemPerfLimits::set_is_tearing_supported(bool value) {
-  _internal_set_is_tearing_supported(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfLimits.is_tearing_supported)
-}
-
 // optional bool is_vrr_supported = 23;
 inline bool CMsgSystemPerfLimits::_internal_has_is_vrr_supported() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfLimits::has_is_vrr_supported() const {
@@ -22702,7 +22659,7 @@ inline bool CMsgSystemPerfLimits::has_is_vrr_supported() const {
 }
 inline void CMsgSystemPerfLimits::clear_is_vrr_supported() {
   is_vrr_supported_ = false;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline bool CMsgSystemPerfLimits::_internal_is_vrr_supported() const {
   return is_vrr_supported_;
@@ -22712,7 +22669,7 @@ inline bool CMsgSystemPerfLimits::is_vrr_supported() const {
   return _internal_is_vrr_supported();
 }
 inline void CMsgSystemPerfLimits::_internal_set_is_vrr_supported(bool value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00040000u;
   is_vrr_supported_ = value;
 }
 inline void CMsgSystemPerfLimits::set_is_vrr_supported(bool value) {
@@ -22722,7 +22679,7 @@ inline void CMsgSystemPerfLimits::set_is_vrr_supported(bool value) {
 
 // optional bool is_dynamic_refresh_rate_in_steam_supported = 24;
 inline bool CMsgSystemPerfLimits::_internal_has_is_dynamic_refresh_rate_in_steam_supported() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfLimits::has_is_dynamic_refresh_rate_in_steam_supported() const {
@@ -22730,7 +22687,7 @@ inline bool CMsgSystemPerfLimits::has_is_dynamic_refresh_rate_in_steam_supported
 }
 inline void CMsgSystemPerfLimits::clear_is_dynamic_refresh_rate_in_steam_supported() {
   is_dynamic_refresh_rate_in_steam_supported_ = false;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline bool CMsgSystemPerfLimits::_internal_is_dynamic_refresh_rate_in_steam_supported() const {
   return is_dynamic_refresh_rate_in_steam_supported_;
@@ -22740,7 +22697,7 @@ inline bool CMsgSystemPerfLimits::is_dynamic_refresh_rate_in_steam_supported() c
   return _internal_is_dynamic_refresh_rate_in_steam_supported();
 }
 inline void CMsgSystemPerfLimits::_internal_set_is_dynamic_refresh_rate_in_steam_supported(bool value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00080000u;
   is_dynamic_refresh_rate_in_steam_supported_ = value;
 }
 inline void CMsgSystemPerfLimits::set_is_dynamic_refresh_rate_in_steam_supported(bool value) {
@@ -22750,7 +22707,7 @@ inline void CMsgSystemPerfLimits::set_is_dynamic_refresh_rate_in_steam_supported
 
 // optional bool is_split_scaling_and_filtering_supported = 25;
 inline bool CMsgSystemPerfLimits::_internal_has_is_split_scaling_and_filtering_supported() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfLimits::has_is_split_scaling_and_filtering_supported() const {
@@ -22758,7 +22715,7 @@ inline bool CMsgSystemPerfLimits::has_is_split_scaling_and_filtering_supported()
 }
 inline void CMsgSystemPerfLimits::clear_is_split_scaling_and_filtering_supported() {
   is_split_scaling_and_filtering_supported_ = false;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline bool CMsgSystemPerfLimits::_internal_is_split_scaling_and_filtering_supported() const {
   return is_split_scaling_and_filtering_supported_;
@@ -22768,7 +22725,7 @@ inline bool CMsgSystemPerfLimits::is_split_scaling_and_filtering_supported() con
   return _internal_is_split_scaling_and_filtering_supported();
 }
 inline void CMsgSystemPerfLimits::_internal_set_is_split_scaling_and_filtering_supported(bool value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00100000u;
   is_split_scaling_and_filtering_supported_ = value;
 }
 inline void CMsgSystemPerfLimits::set_is_split_scaling_and_filtering_supported(bool value) {
@@ -22868,7 +22825,7 @@ CMsgSystemPerfLimits::mutable_split_scaling_scalers_available() {
 
 // optional bool is_hdr_supported = 28;
 inline bool CMsgSystemPerfLimits::_internal_has_is_hdr_supported() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfLimits::has_is_hdr_supported() const {
@@ -22876,7 +22833,7 @@ inline bool CMsgSystemPerfLimits::has_is_hdr_supported() const {
 }
 inline void CMsgSystemPerfLimits::clear_is_hdr_supported() {
   is_hdr_supported_ = false;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline bool CMsgSystemPerfLimits::_internal_is_hdr_supported() const {
   return is_hdr_supported_;
@@ -22886,7 +22843,7 @@ inline bool CMsgSystemPerfLimits::is_hdr_supported() const {
   return _internal_is_hdr_supported();
 }
 inline void CMsgSystemPerfLimits::_internal_set_is_hdr_supported(bool value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x00200000u;
   is_hdr_supported_ = value;
 }
 inline void CMsgSystemPerfLimits::set_is_hdr_supported(bool value) {
@@ -22924,7 +22881,7 @@ inline void CMsgSystemPerfLimits::set_display_refresh_manual_hz_oc_max(::PROTOBU
 
 // optional bool disable_refresh_rate_management = 30;
 inline bool CMsgSystemPerfLimits::_internal_has_disable_refresh_rate_management() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfLimits::has_disable_refresh_rate_management() const {
@@ -22932,7 +22889,7 @@ inline bool CMsgSystemPerfLimits::has_disable_refresh_rate_management() const {
 }
 inline void CMsgSystemPerfLimits::clear_disable_refresh_rate_management() {
   disable_refresh_rate_management_ = false;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline bool CMsgSystemPerfLimits::_internal_disable_refresh_rate_management() const {
   return disable_refresh_rate_management_;
@@ -22942,7 +22899,7 @@ inline bool CMsgSystemPerfLimits::disable_refresh_rate_management() const {
   return _internal_disable_refresh_rate_management();
 }
 inline void CMsgSystemPerfLimits::_internal_set_disable_refresh_rate_management(bool value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x00800000u;
   disable_refresh_rate_management_ = value;
 }
 inline void CMsgSystemPerfLimits::set_disable_refresh_rate_management(bool value) {

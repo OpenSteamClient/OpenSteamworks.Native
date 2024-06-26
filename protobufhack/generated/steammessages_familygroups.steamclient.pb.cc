@@ -134,7 +134,8 @@ constexpr FamilyGroupPendingInviteForUser::FamilyGroupPendingInviteForUser(
   : family_groupid_(PROTOBUF_ULONGLONG(0))
   , inviter_steamid_(PROTOBUF_ULONGLONG(0))
   , role_(0)
-{}
+
+  , awaiting_2fa_(false){}
 struct FamilyGroupPendingInviteForUserDefaultTypeInternal {
   constexpr FamilyGroupPendingInviteForUserDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -669,6 +670,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_GetSharedLibraryA
 constexpr CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : owner_steamids_()
+  , content_descriptors_()
   , name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , sort_as_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , capsule_filename_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -1001,9 +1003,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   PROTOBUF_FIELD_OFFSET(::FamilyGroupPendingInviteForUser, family_groupid_),
   PROTOBUF_FIELD_OFFSET(::FamilyGroupPendingInviteForUser, role_),
   PROTOBUF_FIELD_OFFSET(::FamilyGroupPendingInviteForUser, inviter_steamid_),
+  PROTOBUF_FIELD_OFFSET(::FamilyGroupPendingInviteForUser, awaiting_2fa_),
   0,
   2,
   1,
+  3,
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroupForUser_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroupForUser_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1384,6 +1388,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, rt_last_played_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, rt_playtime_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, app_type_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, content_descriptors_),
   4,
   ~0u,
   0,
@@ -1395,6 +1400,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   7,
   8,
   9,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1539,64 +1545,64 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 49, 55, sizeof(::FamilyGroupFormerMember)},
   { 56, 69, sizeof(::CFamilyGroups_GetFamilyGroup_Response)},
   { 77, 84, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Request)},
-  { 86, 94, sizeof(::FamilyGroupPendingInviteForUser)},
-  { 97, 111, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Response)},
-  { 120, 127, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Request)},
-  { 129, -1, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Response)},
-  { 134, 142, sizeof(::CFamilyGroups_InviteToFamilyGroup_Request)},
-  { 145, 152, sizeof(::CFamilyGroups_InviteToFamilyGroup_Response)},
-  { 154, 162, sizeof(::CFamilyGroups_ConfirmInviteToFamilyGroup_Request)},
-  { 165, -1, sizeof(::CFamilyGroups_ConfirmInviteToFamilyGroup_Response)},
-  { 170, 177, sizeof(::CFamilyGroups_ResendInvitationToFamilyGroup_Request)},
-  { 179, -1, sizeof(::CFamilyGroups_ResendInvitationToFamilyGroup_Response)},
-  { 184, 191, sizeof(::CFamilyGroups_JoinFamilyGroup_Request)},
-  { 193, 201, sizeof(::CFamilyGroups_JoinFamilyGroup_Response)},
-  { 204, 212, sizeof(::CFamilyGroups_ConfirmJoinFamilyGroup_Request)},
-  { 215, -1, sizeof(::CFamilyGroups_ConfirmJoinFamilyGroup_Response)},
-  { 220, 227, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Request)},
-  { 229, -1, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Response)},
-  { 234, 241, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Request)},
-  { 243, -1, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Response)},
-  { 248, 255, sizeof(::CFamilyGroups_GetUsersSharingDevice_Request)},
-  { 257, -1, sizeof(::CFamilyGroups_GetUsersSharingDevice_Response)},
-  { 263, 269, sizeof(::CFamilyGroups_DeleteFamilyGroup_Request)},
-  { 270, -1, sizeof(::CFamilyGroups_DeleteFamilyGroup_Response)},
-  { 275, 281, sizeof(::CFamilyGroups_UndeleteFamilyGroup_Request)},
-  { 282, -1, sizeof(::CFamilyGroups_UndeleteFamilyGroup_Response)},
-  { 287, 293, sizeof(::CFamilyGroups_GetPlaytimeSummary_Request)},
-  { 294, 304, sizeof(::CFamilyGroups_PlaytimeEntry)},
-  { 309, -1, sizeof(::CFamilyGroups_GetPlaytimeSummary_Response)},
-  { 316, 325, sizeof(::CFamilyGroups_RequestPurchase_Request)},
-  { 329, 336, sizeof(::CFamilyGroups_RequestPurchase_Response)},
-  { 338, 346, sizeof(::CFamilyGroups_GetPurchaseRequests_Request)},
-  { 349, 366, sizeof(::PurchaseRequest)},
-  { 378, -1, sizeof(::CFamilyGroups_GetPurchaseRequests_Response)},
-  { 384, 392, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Request)},
-  { 395, -1, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Response)},
-  { 400, 406, sizeof(::CFamilyGroups_GetChangeLog_Request)},
-  { 407, 417, sizeof(::CFamilyGroups_GetChangeLog_Response_Change)},
-  { 422, -1, sizeof(::CFamilyGroups_GetChangeLog_Response)},
-  { 428, 435, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Request)},
-  { 437, -1, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Response)},
-  { 442, 454, sizeof(::CFamilyGroups_GetSharedLibraryApps_Request)},
-  { 461, 477, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp)},
-  { 488, 495, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response)},
-  { 497, 505, sizeof(::CFamilyGroups_SetPreferredLender_Request)},
-  { 508, -1, sizeof(::CFamilyGroups_SetPreferredLender_Response)},
-  { 513, 519, sizeof(::CFamilyGroups_GetPreferredLenders_Request)},
-  { 520, 527, sizeof(::CFamilyGroups_GetPreferredLenders_Response_FamilyMember)},
-  { 529, -1, sizeof(::CFamilyGroups_GetPreferredLenders_Response)},
-  { 535, 542, sizeof(::CFamilyGroups_ForceAcceptInvite_Request)},
-  { 544, -1, sizeof(::CFamilyGroups_ForceAcceptInvite_Response)},
-  { 549, 556, sizeof(::CFamilyGroups_GetInviteCheckResults_Request)},
-  { 558, 566, sizeof(::CFamilyGroups_GetInviteCheckResults_Response)},
-  { 569, 576, sizeof(::CFamilyGroups_ClearCooldownSkip_Request)},
-  { 578, -1, sizeof(::CFamilyGroups_ClearCooldownSkip_Response)},
-  { 583, 590, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember)},
-  { 592, 599, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp)},
-  { 601, 608, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification)},
-  { 610, -1, sizeof(::CFamilyGroupsClient_InviteStatus_Notification)},
-  { 615, 621, sizeof(::CFamilyGroupsClient_GroupChanged_Notification)},
+  { 86, 95, sizeof(::FamilyGroupPendingInviteForUser)},
+  { 99, 113, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Response)},
+  { 122, 129, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Request)},
+  { 131, -1, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Response)},
+  { 136, 144, sizeof(::CFamilyGroups_InviteToFamilyGroup_Request)},
+  { 147, 154, sizeof(::CFamilyGroups_InviteToFamilyGroup_Response)},
+  { 156, 164, sizeof(::CFamilyGroups_ConfirmInviteToFamilyGroup_Request)},
+  { 167, -1, sizeof(::CFamilyGroups_ConfirmInviteToFamilyGroup_Response)},
+  { 172, 179, sizeof(::CFamilyGroups_ResendInvitationToFamilyGroup_Request)},
+  { 181, -1, sizeof(::CFamilyGroups_ResendInvitationToFamilyGroup_Response)},
+  { 186, 193, sizeof(::CFamilyGroups_JoinFamilyGroup_Request)},
+  { 195, 203, sizeof(::CFamilyGroups_JoinFamilyGroup_Response)},
+  { 206, 214, sizeof(::CFamilyGroups_ConfirmJoinFamilyGroup_Request)},
+  { 217, -1, sizeof(::CFamilyGroups_ConfirmJoinFamilyGroup_Response)},
+  { 222, 229, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Request)},
+  { 231, -1, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Response)},
+  { 236, 243, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Request)},
+  { 245, -1, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Response)},
+  { 250, 257, sizeof(::CFamilyGroups_GetUsersSharingDevice_Request)},
+  { 259, -1, sizeof(::CFamilyGroups_GetUsersSharingDevice_Response)},
+  { 265, 271, sizeof(::CFamilyGroups_DeleteFamilyGroup_Request)},
+  { 272, -1, sizeof(::CFamilyGroups_DeleteFamilyGroup_Response)},
+  { 277, 283, sizeof(::CFamilyGroups_UndeleteFamilyGroup_Request)},
+  { 284, -1, sizeof(::CFamilyGroups_UndeleteFamilyGroup_Response)},
+  { 289, 295, sizeof(::CFamilyGroups_GetPlaytimeSummary_Request)},
+  { 296, 306, sizeof(::CFamilyGroups_PlaytimeEntry)},
+  { 311, -1, sizeof(::CFamilyGroups_GetPlaytimeSummary_Response)},
+  { 318, 327, sizeof(::CFamilyGroups_RequestPurchase_Request)},
+  { 331, 338, sizeof(::CFamilyGroups_RequestPurchase_Response)},
+  { 340, 348, sizeof(::CFamilyGroups_GetPurchaseRequests_Request)},
+  { 351, 368, sizeof(::PurchaseRequest)},
+  { 380, -1, sizeof(::CFamilyGroups_GetPurchaseRequests_Response)},
+  { 386, 394, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Request)},
+  { 397, -1, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Response)},
+  { 402, 408, sizeof(::CFamilyGroups_GetChangeLog_Request)},
+  { 409, 419, sizeof(::CFamilyGroups_GetChangeLog_Response_Change)},
+  { 424, -1, sizeof(::CFamilyGroups_GetChangeLog_Response)},
+  { 430, 437, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Request)},
+  { 439, -1, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Response)},
+  { 444, 456, sizeof(::CFamilyGroups_GetSharedLibraryApps_Request)},
+  { 463, 480, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp)},
+  { 492, 499, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response)},
+  { 501, 509, sizeof(::CFamilyGroups_SetPreferredLender_Request)},
+  { 512, -1, sizeof(::CFamilyGroups_SetPreferredLender_Response)},
+  { 517, 523, sizeof(::CFamilyGroups_GetPreferredLenders_Request)},
+  { 524, 531, sizeof(::CFamilyGroups_GetPreferredLenders_Response_FamilyMember)},
+  { 533, -1, sizeof(::CFamilyGroups_GetPreferredLenders_Response)},
+  { 539, 546, sizeof(::CFamilyGroups_ForceAcceptInvite_Request)},
+  { 548, -1, sizeof(::CFamilyGroups_ForceAcceptInvite_Response)},
+  { 553, 560, sizeof(::CFamilyGroups_GetInviteCheckResults_Request)},
+  { 562, 570, sizeof(::CFamilyGroups_GetInviteCheckResults_Response)},
+  { 573, 580, sizeof(::CFamilyGroups_ClearCooldownSkip_Request)},
+  { 582, -1, sizeof(::CFamilyGroups_ClearCooldownSkip_Response)},
+  { 587, 594, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember)},
+  { 596, 603, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp)},
+  { 605, 612, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification)},
+  { 614, -1, sizeof(::CFamilyGroupsClient_InviteStatus_Notification)},
+  { 619, 625, sizeof(::CFamilyGroupsClient_GroupChanged_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1697,313 +1703,314 @@ const char descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_
   "\037\n\027slot_cooldown_overrides\030\010 \001(\r\"e\n+CFam"
   "ilyGroups_GetFamilyGroupForUser_Request\022"
   "\017\n\007steamid\030\001 \001(\004\022%\n\035include_family_group"
-  "_response\030\002 \001(\010\"\212\001\n\037FamilyGroupPendingIn"
+  "_response\030\002 \001(\010\"\240\001\n\037FamilyGroupPendingIn"
   "viteForUser\022\026\n\016family_groupid\030\001 \001(\004\0226\n\004r"
   "ole\030\002 \001(\0162\021.EFamilyGroupRole:\025EFamilyGro"
-  "upRole_None\022\027\n\017inviter_steamid\030\003 \001(\006\"\206\003\n"
-  ",CFamilyGroups_GetFamilyGroupForUser_Res"
-  "ponse\022\026\n\016family_groupid\030\001 \001(\004\022\"\n\032is_not_"
-  "member_of_any_group\030\002 \001(\010\022\032\n\022latest_time"
-  "_joined\030\003 \001(\r\022$\n\034latest_joined_family_gr"
-  "oupid\030\004 \001(\004\022\?\n\025pending_group_invites\030\005 \003"
-  "(\0132 .FamilyGroupPendingInviteForUser\022\014\n\004"
-  "role\030\006 \001(\r\022\"\n\032cooldown_seconds_remaining"
-  "\030\007 \001(\r\022<\n\014family_group\030\010 \001(\0132&.CFamilyGr"
-  "oups_GetFamilyGroup_Response\022\'\n\037can_unde"
-  "lete_last_joined_family\030\t \001(\010\"V\n.CFamily"
-  "Groups_ModifyFamilyGroupDetails_Request\022"
-  "\026\n\016family_groupid\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\"1\n"
-  "/CFamilyGroups_ModifyFamilyGroupDetails_"
-  "Response\"\236\001\n)CFamilyGroups_InviteToFamil"
-  "yGroup_Request\022\026\n\016family_groupid\030\001 \001(\004\022\030"
-  "\n\020receiver_steamid\030\002 \001(\006\022\?\n\rreceiver_rol"
-  "e\030\003 \001(\0162\021.EFamilyGroupRole:\025EFamilyGroup"
-  "Role_None\"\233\001\n*CFamilyGroups_InviteToFami"
-  "lyGroup_Response\022\021\n\tinvite_id\030\001 \001(\004\022Z\n\021t"
-  "wo_factor_method\030\002 \001(\0162\035.EFamilyGroupsTw"
-  "oFactorMethod: EFamilyGroupsTwoFactorMet"
-  "hodNone\"l\n0CFamilyGroups_ConfirmInviteTo"
-  "FamilyGroup_Request\022\026\n\016family_groupid\030\001 "
-  "\001(\004\022\021\n\tinvite_id\030\002 \001(\004\022\r\n\005nonce\030\003 \001(\004\"3\n"
-  "1CFamilyGroups_ConfirmInviteToFamilyGrou"
-  "p_Response\"^\n3CFamilyGroups_ResendInvita"
-  "tionToFamilyGroup_Request\022\026\n\016family_grou"
-  "pid\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\004\"6\n4CFamilyGro"
-  "ups_ResendInvitationToFamilyGroup_Respon"
-  "se\"N\n%CFamilyGroups_JoinFamilyGroup_Requ"
-  "est\022\026\n\016family_groupid\030\001 \001(\004\022\r\n\005nonce\030\002 \001"
-  "(\004\"\304\001\n&CFamilyGroups_JoinFamilyGroup_Res"
-  "ponse\022Z\n\021two_factor_method\030\002 \001(\0162\035.EFami"
-  "lyGroupsTwoFactorMethod: EFamilyGroupsTw"
-  "oFactorMethodNone\022\035\n\025cooldown_skip_grant"
-  "ed\030\003 \001(\010\022\037\n\027invite_already_accepted\030\004 \001("
-  "\010\"h\n,CFamilyGroups_ConfirmJoinFamilyGrou"
-  "p_Request\022\026\n\016family_groupid\030\001 \001(\004\022\021\n\tinv"
-  "ite_id\030\002 \001(\004\022\r\n\005nonce\030\003 \001(\004\"/\n-CFamilyGr"
-  "oups_ConfirmJoinFamilyGroup_Response\"`\n+"
-  "CFamilyGroups_RemoveFromFamilyGroup_Requ"
-  "est\022\026\n\016family_groupid\030\001 \001(\004\022\031\n\021steamid_t"
-  "o_remove\030\002 \001(\006\".\n,CFamilyGroups_RemoveFr"
-  "omFamilyGroup_Response\"b\n-CFamilyGroups_"
-  "CancelFamilyGroupInvite_Request\022\026\n\016famil"
-  "y_groupid\030\001 \001(\004\022\031\n\021steamid_to_cancel\030\002 \001"
-  "(\006\"0\n.CFamilyGroups_CancelFamilyGroupInv"
-  "ite_Response\"a\n+CFamilyGroups_GetUsersSh"
-  "aringDevice_Request\022\026\n\016family_groupid\030\001 "
-  "\001(\004\022\032\n\022client_instance_id\030\002 \001(\004\"=\n,CFami"
-  "lyGroups_GetUsersSharingDevice_Response\022"
-  "\r\n\005users\030\001 \003(\006\"A\n\'CFamilyGroups_DeleteFa"
-  "milyGroup_Request\022\026\n\016family_groupid\030\001 \001("
-  "\004\"*\n(CFamilyGroups_DeleteFamilyGroup_Res"
-  "ponse\"C\n)CFamilyGroups_UndeleteFamilyGro"
-  "up_Request\022\026\n\016family_groupid\030\001 \001(\004\",\n*CF"
-  "amilyGroups_UndeleteFamilyGroup_Response"
-  "\"B\n(CFamilyGroups_GetPlaytimeSummary_Req"
-  "uest\022\026\n\016family_groupid\030\001 \001(\006\"\202\001\n\033CFamily"
-  "Groups_PlaytimeEntry\022\017\n\007steamid\030\001 \001(\006\022\r\n"
-  "\005appid\030\002 \001(\r\022\024\n\014first_played\030\003 \001(\r\022\025\n\rla"
-  "test_played\030\004 \001(\r\022\026\n\016seconds_played\030\005 \001("
-  "\r\"\222\001\n)CFamilyGroups_GetPlaytimeSummary_R"
-  "esponse\022-\n\007entries\030\001 \003(\0132\034.CFamilyGroups"
-  "_PlaytimeEntry\0226\n\020entries_by_owner\030\002 \003(\013"
-  "2\034.CFamilyGroups_PlaytimeEntry\"\216\001\n%CFami"
-  "lyGroups_RequestPurchase_Request\022\026\n\016fami"
-  "ly_groupid\030\001 \001(\004\022\027\n\017gidshoppingcart\030\002 \001("
-  "\004\022\032\n\022store_country_code\030\003 \001(\t\022\030\n\020use_acc"
-  "ount_cart\030\004 \001(\010\"U\n&CFamilyGroups_Request"
-  "Purchase_Response\022\027\n\017gidshoppingcart\030\001 \001"
-  "(\004\022\022\n\nrequest_id\030\002 \001(\004\"|\n)CFamilyGroups_"
-  "GetPurchaseRequests_Request\022\026\n\016family_gr"
-  "oupid\030\001 \001(\004\022\023\n\013request_ids\030\003 \003(\004\022\"\n\032rt_i"
-  "nclude_completed_since\030\004 \001(\r\"\377\002\n\017Purchas"
-  "eRequest\022\031\n\021requester_steamid\030\001 \001(\006\022\027\n\017g"
-  "idshoppingcart\030\002 \001(\004\022\026\n\016time_requested\030\003"
-  " \001(\r\022\026\n\016time_responded\030\004 \001(\r\022\031\n\021responde"
-  "r_steamid\030\005 \001(\006\022M\n\017response_action\030\006 \001(\016"
-  "2\027.EPurchaseRequestAction:\033EPurchaseRequ"
-  "estAction_None\022\024\n\014is_completed\030\007 \001(\010\022\022\n\n"
-  "request_id\030\010 \001(\004\022\034\n\024requested_packageids"
-  "\030\t \003(\r\022\034\n\024purchased_packageids\030\n \003(\r\022\033\n\023"
-  "requested_bundleids\030\013 \003(\r\022\033\n\023purchased_b"
-  "undleids\030\014 \003(\r\"P\n*CFamilyGroups_GetPurch"
-  "aseRequests_Response\022\"\n\010requests\030\001 \003(\0132\020"
-  ".PurchaseRequest\"\244\001\n0CFamilyGroups_Respo"
-  "ndToRequestedPurchase_Request\022\026\n\016family_"
-  "groupid\030\001 \001(\004\022D\n\006action\030\003 \001(\0162\027.EPurchas"
-  "eRequestAction:\033EPurchaseRequestAction_N"
-  "one\022\022\n\nrequest_id\030\004 \001(\004\"3\n1CFamilyGroups"
-  "_RespondToRequestedPurchase_Response\"<\n\""
-  "CFamilyGroups_GetChangeLog_Request\022\026\n\016fa"
-  "mily_groupid\030\001 \001(\004\"\367\001\n#CFamilyGroups_Get"
-  "ChangeLog_Response\022<\n\007changes\030\001 \003(\0132+.CF"
-  "amilyGroups_GetChangeLog_Response.Change"
-  "\032\221\001\n\006Change\022\021\n\ttimestamp\030\001 \001(\006\022\025\n\ractor_"
-  "steamid\030\002 \001(\006\022;\n\004type\030\003 \001(\0162\032.EFamilyGro"
-  "upChangeLogType:\021InvalidChangeType\022\014\n\004bo"
-  "dy\030\004 \001(\t\022\022\n\nby_support\030\005 \001(\010\"b\n0CFamilyG"
-  "roups_SetFamilyCooldownOverrides_Request"
-  "\022\026\n\016family_groupid\030\001 \001(\004\022\026\n\016cooldown_cou"
-  "nt\030\002 \001(\r\"3\n1CFamilyGroups_SetFamilyCoold"
-  "ownOverrides_Response\"\303\001\n*CFamilyGroups_"
-  "GetSharedLibraryApps_Request\022\026\n\016family_g"
-  "roupid\030\001 \001(\006\022\023\n\013include_own\030\002 \001(\010\022\030\n\020inc"
-  "lude_excluded\030\003 \001(\010\022\020\n\010language\030\005 \001(\t\022\020\n"
-  "\010max_apps\030\006 \001(\r\022\031\n\021include_non_games\030\007 \001"
-  "(\010\022\017\n\007steamid\030\010 \001(\006\"\325\003\n+CFamilyGroups_Ge"
-  "tSharedLibraryApps_Response\022D\n\004apps\030\001 \003("
-  "\01326.CFamilyGroups_GetSharedLibraryApps_R"
-  "esponse.SharedApp\022\025\n\rowner_steamid\030\002 \001(\006"
-  "\032\310\002\n\tSharedApp\022\r\n\005appid\030\001 \001(\r\022\026\n\016owner_s"
-  "teamids\030\002 \003(\006\022\014\n\004name\030\006 \001(\t\022\017\n\007sort_as\030\007"
-  " \001(\t\022\030\n\020capsule_filename\030\010 \001(\t\022\025\n\rimg_ic"
-  "on_hash\030\t \001(\t\022M\n\016exclude_reason\030\n \001(\0162\034."
-  "ESharedLibraryExcludeReason:\027ESharedLibr"
-  "ary_Included\022\030\n\020rt_time_acquired\030\013 \001(\r\022\026"
-  "\n\016rt_last_played\030\014 \001(\r\022\023\n\013rt_playtime\030\r "
-  "\001(\r\022.\n\010app_type\030\016 \001(\0162\016.EProtoAppType:\014E"
-  "AppTypeGame\"i\n(CFamilyGroups_SetPreferre"
-  "dLender_Request\022\026\n\016family_groupid\030\001 \001(\004\022"
-  "\r\n\005appid\030\002 \001(\r\022\026\n\016lender_steamid\030\003 \001(\006\"+"
-  "\n)CFamilyGroups_SetPreferredLender_Respo"
-  "nse\"C\n)CFamilyGroups_GetPreferredLenders"
-  "_Request\022\026\n\016family_groupid\030\001 \001(\004\"\262\001\n*CFa"
-  "milyGroups_GetPreferredLenders_Response\022"
-  "I\n\007members\030\001 \003(\01328.CFamilyGroups_GetPref"
-  "erredLenders_Response.FamilyMember\0329\n\014Fa"
-  "milyMember\022\017\n\007steamid\030\001 \001(\006\022\030\n\020preferred"
-  "_appids\030\002 \003(\r\"R\n\'CFamilyGroups_ForceAcce"
-  "ptInvite_Request\022\026\n\016family_groupid\030\001 \001(\004"
-  "\022\017\n\007steamid\030\002 \001(\006\"*\n(CFamilyGroups_Force"
-  "AcceptInvite_Response\"V\n+CFamilyGroups_G"
-  "etInviteCheckResults_Request\022\026\n\016family_g"
-  "roupid\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\006\"z\n,CFamily"
-  "Groups_GetInviteCheckResults_Response\022\036\n"
-  "\026wallet_country_matches\030\001 \001(\010\022\020\n\010ip_matc"
-  "h\030\002 \001(\010\022\030\n\020join_restriction\030\003 \001(\r\"M\n\'CFa"
-  "milyGroups_ClearCooldownSkip_Request\022\017\n\007"
-  "steamid\030\001 \001(\006\022\021\n\tinvite_id\030\002 \001(\004\"*\n(CFam"
-  "ilyGroups_ClearCooldownSkip_Response\"\333\002\n"
-  "2CFamilyGroupsClient_NotifyRunningApps_N"
-  "otification\022\026\n\016family_groupid\030\001 \001(\004\022T\n\014r"
-  "unning_apps\030\002 \003(\0132>.CFamilyGroupsClient_"
-  "NotifyRunningApps_Notification.RunningAp"
-  "p\032>\n\rPlayingMember\022\026\n\016member_steamid\030\001 \001"
-  "(\006\022\025\n\rowner_steamid\030\002 \001(\006\032w\n\nRunningApp\022"
-  "\r\n\005appid\030\001 \001(\r\022Z\n\017playing_members\030\003 \003(\0132"
-  "A.CFamilyGroupsClient_NotifyRunningApps_"
-  "Notification.PlayingMember\"/\n-CFamilyGro"
-  "upsClient_InviteStatus_Notification\"G\n-C"
-  "FamilyGroupsClient_GroupChanged_Notifica"
-  "tion\022\026\n\016family_groupid\030\001 \001(\004*\177\n\020EFamilyG"
-  "roupRole\022\031\n\025EFamilyGroupRole_None\020\000\022\032\n\026E"
-  "FamilyGroupRole_Adult\020\001\022\032\n\026EFamilyGroupR"
-  "ole_Child\020\002\022\030\n\024EFamilyGroupRole_MAX\020\003*\223\001"
-  "\n\034EFamilyGroupsTwoFactorMethod\022$\n EFamil"
-  "yGroupsTwoFactorMethodNone\020\000\022&\n\"EFamilyG"
-  "roupsTwoFactorMethodMobile\020\001\022%\n!EFamilyG"
-  "roupsTwoFactorMethodEmail\020\002*\354\001\n\026EPurchas"
-  "eRequestAction\022\037\n\033EPurchaseRequestAction"
-  "_None\020\000\022\"\n\036EPurchaseRequestAction_Declin"
-  "e\020\001\022$\n EPurchaseRequestAction_Purchased\020"
-  "\002\022$\n EPurchaseRequestAction_Abandoned\020\003\022"
-  "!\n\035EPurchaseRequestAction_Cancel\020\004\022\036\n\032EP"
-  "urchaseRequestAction_MAX\020\005*\324\005\n\031EFamilyGr"
-  "oupChangeLogType\022\025\n\021InvalidChangeType\020\000\022"
-  "\026\n\022FamilyGroupCreated\020\001\022\027\n\023FamilyGroupMo"
-  "dified\020\002\022\026\n\022FamilyGroupDeleted\020\003\022\022\n\016Acco"
-  "untInvited\020\004\022\033\n\027InviteDeniedByGroupSize\020"
-  "\005\022\025\n\021JoinedFamilyGroup\020\006\022\036\n\032JoinDeniedBy"
-  "RegionMismatch\020\007\022 \n\034JoinDeniedByMissingI"
-  "pAddress\020\010\022\036\n\032JoinDeniedByFamilyCooldown"
-  "\020\t\022\034\n\030JoinDeniedByUserCooldown\020\n\022\032\n\026Join"
-  "DeniedByOtherGroup\020\013\022\022\n\016AccountRemoved\020\014"
-  "\022\022\n\016InviteCanceled\020\r\022\025\n\021PurchaseRequeste"
-  "d\020\016\022\033\n\027ParentalSettingsEnabled\020\017\022\034\n\030Pare"
-  "ntalSettingsDisabled\020\020\022\033\n\027ParentalSettin"
-  "gsChanged\020\021\022\"\n\036FamilyCooldownOverridesCh"
-  "anged\020\022\022\033\n\027PurchaseRequestCanceled\020\023\022\033\n\027"
-  "PurchaseRequestApproved\020\024\022\033\n\027PurchaseReq"
-  "uestDeclined\020\025\022\030\n\024CooldownSkipConsumed\020\026"
-  "\022\027\n\023FamilyGroupRestored\020\027\022\016\n\nJoinDenied\020"
-  "\030\022\036\n\032SupportForceAcceptedInvite\020\031*\342\n\n\033ES"
-  "haredLibraryExcludeReason\022\033\n\027ESharedLibr"
-  "ary_Included\020\000\022(\n$ESharedLibrary_AppExcl"
-  "uded_ByPartner\020\001\022\"\n\036ESharedLibrary_Licen"
-  "seExcluded\020\002\022\033\n\027ESharedLibrary_FreeGame\020"
-  "\003\022!\n\035ESharedLibrary_LicensePrivate\020\004\022+\n\'"
-  "ESharedLibrary_AppExcluded_WrongAppType\020"
-  "\006\022/\n+ESharedLibrary_AppExcluded_Nonrefun"
-  "dableDLC\020\007\022,\n(ESharedLibrary_AppExcluded"
-  "_UnreleasedApp\020\010\0220\n,ESharedLibrary_AppEx"
-  "cluded_ParentAppExcluded\020\t\022,\n(ESharedLib"
-  "rary_PackageExcluded_ByPartner\020\n\022*\n&ESha"
-  "redLibrary_PackageExcluded_Special\020\013\022&\n\""
-  "ESharedLibrary_PackageExcluded_Dev\020\014\022.\n*"
-  "ESharedLibrary_PackageExcluded_FreeWeeke"
-  "nd\020\r\022*\n&ESharedLibrary_PackageExcluded_I"
-  "nvalid\020\017\0223\n/ESharedLibrary_PackageExclud"
-  "ed_RecurringLicense\020\020\0223\n/ESharedLibrary_"
-  "PackageExcluded_WrongLicenseType\020\021\022,\n(ES"
-  "haredLibrary_PackageExcluded_MasterSub\020\022"
-  "\0222\n.ESharedLibrary_PackageExcluded_NoSha"
-  "reableApps\020\023\0223\n/ESharedLibrary_LicenseEx"
-  "cluded_PaymentMasterSub\020\024\0225\n1ESharedLibr"
-  "ary_LicenseExcluded_PaymentFamilyGroup\020\025"
-  "\022:\n6ESharedLibrary_LicenseExcluded_Payme"
-  "ntAuthorizedDevice\020\026\0223\n/ESharedLibrary_L"
-  "icenseExcluded_PaymentAutoGrant\020\027\022.\n*ESh"
-  "aredLibrary_LicenseExcluded_FlagPending\020"
-  "\030\0224\n0ESharedLibrary_LicenseExcluded_Flag"
-  "PendingRefund\020\031\022/\n+ESharedLibrary_Licens"
-  "eExcluded_FlagBorrowed\020\032\0220\n,ESharedLibra"
-  "ry_LicenseExcluded_FlagAutoGrant\020\033\0221\n-ES"
-  "haredLibrary_LicenseExcluded_FlagTimedTr"
-  "ial\020\034\022*\n&ESharedLibrary_LicenseExcluded_"
-  "FreeSub\020\035\022+\n\'ESharedLibrary_LicenseExclu"
-  "ded_Inactive\020\0362\264\027\n\014FamilyGroups\022h\n\021Creat"
-  "eFamilyGroup\022(.CFamilyGroups_CreateFamil"
-  "yGroup_Request\032).CFamilyGroups_CreateFam"
-  "ilyGroup_Response\022_\n\016GetFamilyGroup\022%.CF"
-  "amilyGroups_GetFamilyGroup_Request\032&.CFa"
-  "milyGroups_GetFamilyGroup_Response\022t\n\025Ge"
-  "tFamilyGroupForUser\022,.CFamilyGroups_GetF"
-  "amilyGroupForUser_Request\032-.CFamilyGroup"
-  "s_GetFamilyGroupForUser_Response\022}\n\030Modi"
-  "fyFamilyGroupDetails\022/.CFamilyGroups_Mod"
-  "ifyFamilyGroupDetails_Request\0320.CFamilyG"
-  "roups_ModifyFamilyGroupDetails_Response\022"
-  "n\n\023InviteToFamilyGroup\022*.CFamilyGroups_I"
-  "nviteToFamilyGroup_Request\032+.CFamilyGrou"
-  "ps_InviteToFamilyGroup_Response\022\203\001\n\032Conf"
-  "irmInviteToFamilyGroup\0221.CFamilyGroups_C"
-  "onfirmInviteToFamilyGroup_Request\0322.CFam"
-  "ilyGroups_ConfirmInviteToFamilyGroup_Res"
-  "ponse\022\214\001\n\035ResendInvitationToFamilyGroup\022"
-  "4.CFamilyGroups_ResendInvitationToFamily"
-  "Group_Request\0325.CFamilyGroups_ResendInvi"
-  "tationToFamilyGroup_Response\022b\n\017JoinFami"
-  "lyGroup\022&.CFamilyGroups_JoinFamilyGroup_"
-  "Request\032\'.CFamilyGroups_JoinFamilyGroup_"
-  "Response\022w\n\026ConfirmJoinFamilyGroup\022-.CFa"
-  "milyGroups_ConfirmJoinFamilyGroup_Reques"
-  "t\032..CFamilyGroups_ConfirmJoinFamilyGroup"
-  "_Response\022t\n\025RemoveFromFamilyGroup\022,.CFa"
-  "milyGroups_RemoveFromFamilyGroup_Request"
-  "\032-.CFamilyGroups_RemoveFromFamilyGroup_R"
-  "esponse\022z\n\027CancelFamilyGroupInvite\022..CFa"
-  "milyGroups_CancelFamilyGroupInvite_Reque"
-  "st\032/.CFamilyGroups_CancelFamilyGroupInvi"
-  "te_Response\022t\n\025GetUsersSharingDevice\022,.C"
-  "FamilyGroups_GetUsersSharingDevice_Reque"
-  "st\032-.CFamilyGroups_GetUsersSharingDevice"
-  "_Response\022h\n\021DeleteFamilyGroup\022(.CFamily"
-  "Groups_DeleteFamilyGroup_Request\032).CFami"
-  "lyGroups_DeleteFamilyGroup_Response\022n\n\023U"
-  "ndeleteFamilyGroup\022*.CFamilyGroups_Undel"
-  "eteFamilyGroup_Request\032+.CFamilyGroups_U"
-  "ndeleteFamilyGroup_Response\022k\n\022GetPlayti"
-  "meSummary\022).CFamilyGroups_GetPlaytimeSum"
-  "mary_Request\032*.CFamilyGroups_GetPlaytime"
-  "Summary_Response\022b\n\017RequestPurchase\022&.CF"
-  "amilyGroups_RequestPurchase_Request\032\'.CF"
-  "amilyGroups_RequestPurchase_Response\022n\n\023"
-  "GetPurchaseRequests\022*.CFamilyGroups_GetP"
-  "urchaseRequests_Request\032+.CFamilyGroups_"
-  "GetPurchaseRequests_Response\022\203\001\n\032Respond"
-  "ToRequestedPurchase\0221.CFamilyGroups_Resp"
-  "ondToRequestedPurchase_Request\0322.CFamily"
-  "Groups_RespondToRequestedPurchase_Respon"
-  "se\022Y\n\014GetChangeLog\022#.CFamilyGroups_GetCh"
-  "angeLog_Request\032$.CFamilyGroups_GetChang"
-  "eLog_Response\022\203\001\n\032SetFamilyCooldownOverr"
-  "ides\0221.CFamilyGroups_SetFamilyCooldownOv"
-  "errides_Request\0322.CFamilyGroups_SetFamil"
-  "yCooldownOverrides_Response\022q\n\024GetShared"
-  "LibraryApps\022+.CFamilyGroups_GetSharedLib"
-  "raryApps_Request\032,.CFamilyGroups_GetShar"
-  "edLibraryApps_Response\022k\n\022SetPreferredLe"
-  "nder\022).CFamilyGroups_SetPreferredLender_"
-  "Request\032*.CFamilyGroups_SetPreferredLend"
-  "er_Response\022n\n\023GetPreferredLenders\022*.CFa"
-  "milyGroups_GetPreferredLenders_Request\032+"
-  ".CFamilyGroups_GetPreferredLenders_Respo"
-  "nse\022h\n\021ForceAcceptInvite\022(.CFamilyGroups"
-  "_ForceAcceptInvite_Request\032).CFamilyGrou"
-  "ps_ForceAcceptInvite_Response\022t\n\025GetInvi"
-  "teCheckResults\022,.CFamilyGroups_GetInvite"
-  "CheckResults_Request\032-.CFamilyGroups_Get"
-  "InviteCheckResults_Response\022h\n\021ClearCool"
-  "downSkip\022(.CFamilyGroups_ClearCooldownSk"
-  "ip_Request\032).CFamilyGroups_ClearCooldown"
-  "Skip_Response2\227\002\n\022FamilyGroupsClient\022U\n\021"
-  "NotifyRunningApps\0223.CFamilyGroupsClient_"
-  "NotifyRunningApps_Notification\032\013.NoRespo"
-  "nse\022Q\n\022NotifyInviteStatus\022..CFamilyGroup"
-  "sClient_InviteStatus_Notification\032\013.NoRe"
-  "sponse\022Q\n\022NotifyGroupChanged\022..CFamilyGr"
-  "oupsClient_GroupChanged_Notification\032\013.N"
-  "oResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Pr"
-  "otobuf"
+  "upRole_None\022\027\n\017inviter_steamid\030\003 \001(\006\022\024\n\014"
+  "awaiting_2fa\030\004 \001(\010\"\206\003\n,CFamilyGroups_Get"
+  "FamilyGroupForUser_Response\022\026\n\016family_gr"
+  "oupid\030\001 \001(\004\022\"\n\032is_not_member_of_any_grou"
+  "p\030\002 \001(\010\022\032\n\022latest_time_joined\030\003 \001(\r\022$\n\034l"
+  "atest_joined_family_groupid\030\004 \001(\004\022\?\n\025pen"
+  "ding_group_invites\030\005 \003(\0132 .FamilyGroupPe"
+  "ndingInviteForUser\022\014\n\004role\030\006 \001(\r\022\"\n\032cool"
+  "down_seconds_remaining\030\007 \001(\r\022<\n\014family_g"
+  "roup\030\010 \001(\0132&.CFamilyGroups_GetFamilyGrou"
+  "p_Response\022\'\n\037can_undelete_last_joined_f"
+  "amily\030\t \001(\010\"V\n.CFamilyGroups_ModifyFamil"
+  "yGroupDetails_Request\022\026\n\016family_groupid\030"
+  "\001 \001(\004\022\014\n\004name\030\002 \001(\t\"1\n/CFamilyGroups_Mod"
+  "ifyFamilyGroupDetails_Response\"\236\001\n)CFami"
+  "lyGroups_InviteToFamilyGroup_Request\022\026\n\016"
+  "family_groupid\030\001 \001(\004\022\030\n\020receiver_steamid"
+  "\030\002 \001(\006\022\?\n\rreceiver_role\030\003 \001(\0162\021.EFamilyG"
+  "roupRole:\025EFamilyGroupRole_None\"\233\001\n*CFam"
+  "ilyGroups_InviteToFamilyGroup_Response\022\021"
+  "\n\tinvite_id\030\001 \001(\004\022Z\n\021two_factor_method\030\002"
+  " \001(\0162\035.EFamilyGroupsTwoFactorMethod: EFa"
+  "milyGroupsTwoFactorMethodNone\"l\n0CFamily"
+  "Groups_ConfirmInviteToFamilyGroup_Reques"
+  "t\022\026\n\016family_groupid\030\001 \001(\004\022\021\n\tinvite_id\030\002"
+  " \001(\004\022\r\n\005nonce\030\003 \001(\004\"3\n1CFamilyGroups_Con"
+  "firmInviteToFamilyGroup_Response\"^\n3CFam"
+  "ilyGroups_ResendInvitationToFamilyGroup_"
+  "Request\022\026\n\016family_groupid\030\001 \001(\004\022\017\n\007steam"
+  "id\030\002 \001(\004\"6\n4CFamilyGroups_ResendInvitati"
+  "onToFamilyGroup_Response\"N\n%CFamilyGroup"
+  "s_JoinFamilyGroup_Request\022\026\n\016family_grou"
+  "pid\030\001 \001(\004\022\r\n\005nonce\030\002 \001(\004\"\304\001\n&CFamilyGrou"
+  "ps_JoinFamilyGroup_Response\022Z\n\021two_facto"
+  "r_method\030\002 \001(\0162\035.EFamilyGroupsTwoFactorM"
+  "ethod: EFamilyGroupsTwoFactorMethodNone\022"
+  "\035\n\025cooldown_skip_granted\030\003 \001(\010\022\037\n\027invite"
+  "_already_accepted\030\004 \001(\010\"h\n,CFamilyGroups"
+  "_ConfirmJoinFamilyGroup_Request\022\026\n\016famil"
+  "y_groupid\030\001 \001(\004\022\021\n\tinvite_id\030\002 \001(\004\022\r\n\005no"
+  "nce\030\003 \001(\004\"/\n-CFamilyGroups_ConfirmJoinFa"
+  "milyGroup_Response\"`\n+CFamilyGroups_Remo"
+  "veFromFamilyGroup_Request\022\026\n\016family_grou"
+  "pid\030\001 \001(\004\022\031\n\021steamid_to_remove\030\002 \001(\006\".\n,"
+  "CFamilyGroups_RemoveFromFamilyGroup_Resp"
+  "onse\"b\n-CFamilyGroups_CancelFamilyGroupI"
+  "nvite_Request\022\026\n\016family_groupid\030\001 \001(\004\022\031\n"
+  "\021steamid_to_cancel\030\002 \001(\006\"0\n.CFamilyGroup"
+  "s_CancelFamilyGroupInvite_Response\"a\n+CF"
+  "amilyGroups_GetUsersSharingDevice_Reques"
+  "t\022\026\n\016family_groupid\030\001 \001(\004\022\032\n\022client_inst"
+  "ance_id\030\002 \001(\004\"=\n,CFamilyGroups_GetUsersS"
+  "haringDevice_Response\022\r\n\005users\030\001 \003(\006\"A\n\'"
+  "CFamilyGroups_DeleteFamilyGroup_Request\022"
+  "\026\n\016family_groupid\030\001 \001(\004\"*\n(CFamilyGroups"
+  "_DeleteFamilyGroup_Response\"C\n)CFamilyGr"
+  "oups_UndeleteFamilyGroup_Request\022\026\n\016fami"
+  "ly_groupid\030\001 \001(\004\",\n*CFamilyGroups_Undele"
+  "teFamilyGroup_Response\"B\n(CFamilyGroups_"
+  "GetPlaytimeSummary_Request\022\026\n\016family_gro"
+  "upid\030\001 \001(\006\"\202\001\n\033CFamilyGroups_PlaytimeEnt"
+  "ry\022\017\n\007steamid\030\001 \001(\006\022\r\n\005appid\030\002 \001(\r\022\024\n\014fi"
+  "rst_played\030\003 \001(\r\022\025\n\rlatest_played\030\004 \001(\r\022"
+  "\026\n\016seconds_played\030\005 \001(\r\"\222\001\n)CFamilyGroup"
+  "s_GetPlaytimeSummary_Response\022-\n\007entries"
+  "\030\001 \003(\0132\034.CFamilyGroups_PlaytimeEntry\0226\n\020"
+  "entries_by_owner\030\002 \003(\0132\034.CFamilyGroups_P"
+  "laytimeEntry\"\216\001\n%CFamilyGroups_RequestPu"
+  "rchase_Request\022\026\n\016family_groupid\030\001 \001(\004\022\027"
+  "\n\017gidshoppingcart\030\002 \001(\004\022\032\n\022store_country"
+  "_code\030\003 \001(\t\022\030\n\020use_account_cart\030\004 \001(\010\"U\n"
+  "&CFamilyGroups_RequestPurchase_Response\022"
+  "\027\n\017gidshoppingcart\030\001 \001(\004\022\022\n\nrequest_id\030\002"
+  " \001(\004\"|\n)CFamilyGroups_GetPurchaseRequest"
+  "s_Request\022\026\n\016family_groupid\030\001 \001(\004\022\023\n\013req"
+  "uest_ids\030\003 \003(\004\022\"\n\032rt_include_completed_s"
+  "ince\030\004 \001(\r\"\377\002\n\017PurchaseRequest\022\031\n\021reques"
+  "ter_steamid\030\001 \001(\006\022\027\n\017gidshoppingcart\030\002 \001"
+  "(\004\022\026\n\016time_requested\030\003 \001(\r\022\026\n\016time_respo"
+  "nded\030\004 \001(\r\022\031\n\021responder_steamid\030\005 \001(\006\022M\n"
+  "\017response_action\030\006 \001(\0162\027.EPurchaseReques"
+  "tAction:\033EPurchaseRequestAction_None\022\024\n\014"
+  "is_completed\030\007 \001(\010\022\022\n\nrequest_id\030\010 \001(\004\022\034"
+  "\n\024requested_packageids\030\t \003(\r\022\034\n\024purchase"
+  "d_packageids\030\n \003(\r\022\033\n\023requested_bundleid"
+  "s\030\013 \003(\r\022\033\n\023purchased_bundleids\030\014 \003(\r\"P\n*"
+  "CFamilyGroups_GetPurchaseRequests_Respon"
+  "se\022\"\n\010requests\030\001 \003(\0132\020.PurchaseRequest\"\244"
+  "\001\n0CFamilyGroups_RespondToRequestedPurch"
+  "ase_Request\022\026\n\016family_groupid\030\001 \001(\004\022D\n\006a"
+  "ction\030\003 \001(\0162\027.EPurchaseRequestAction:\033EP"
+  "urchaseRequestAction_None\022\022\n\nrequest_id\030"
+  "\004 \001(\004\"3\n1CFamilyGroups_RespondToRequeste"
+  "dPurchase_Response\"<\n\"CFamilyGroups_GetC"
+  "hangeLog_Request\022\026\n\016family_groupid\030\001 \001(\004"
+  "\"\367\001\n#CFamilyGroups_GetChangeLog_Response"
+  "\022<\n\007changes\030\001 \003(\0132+.CFamilyGroups_GetCha"
+  "ngeLog_Response.Change\032\221\001\n\006Change\022\021\n\ttim"
+  "estamp\030\001 \001(\006\022\025\n\ractor_steamid\030\002 \001(\006\022;\n\004t"
+  "ype\030\003 \001(\0162\032.EFamilyGroupChangeLogType:\021I"
+  "nvalidChangeType\022\014\n\004body\030\004 \001(\t\022\022\n\nby_sup"
+  "port\030\005 \001(\010\"b\n0CFamilyGroups_SetFamilyCoo"
+  "ldownOverrides_Request\022\026\n\016family_groupid"
+  "\030\001 \001(\004\022\026\n\016cooldown_count\030\002 \001(\r\"3\n1CFamil"
+  "yGroups_SetFamilyCooldownOverrides_Respo"
+  "nse\"\303\001\n*CFamilyGroups_GetSharedLibraryAp"
+  "ps_Request\022\026\n\016family_groupid\030\001 \001(\006\022\023\n\013in"
+  "clude_own\030\002 \001(\010\022\030\n\020include_excluded\030\003 \001("
+  "\010\022\020\n\010language\030\005 \001(\t\022\020\n\010max_apps\030\006 \001(\r\022\031\n"
+  "\021include_non_games\030\007 \001(\010\022\017\n\007steamid\030\010 \001("
+  "\006\"\362\003\n+CFamilyGroups_GetSharedLibraryApps"
+  "_Response\022D\n\004apps\030\001 \003(\01326.CFamilyGroups_"
+  "GetSharedLibraryApps_Response.SharedApp\022"
+  "\025\n\rowner_steamid\030\002 \001(\006\032\345\002\n\tSharedApp\022\r\n\005"
+  "appid\030\001 \001(\r\022\026\n\016owner_steamids\030\002 \003(\006\022\014\n\004n"
+  "ame\030\006 \001(\t\022\017\n\007sort_as\030\007 \001(\t\022\030\n\020capsule_fi"
+  "lename\030\010 \001(\t\022\025\n\rimg_icon_hash\030\t \001(\t\022M\n\016e"
+  "xclude_reason\030\n \001(\0162\034.ESharedLibraryExcl"
+  "udeReason:\027ESharedLibrary_Included\022\030\n\020rt"
+  "_time_acquired\030\013 \001(\r\022\026\n\016rt_last_played\030\014"
+  " \001(\r\022\023\n\013rt_playtime\030\r \001(\r\022.\n\010app_type\030\016 "
+  "\001(\0162\016.EProtoAppType:\014EAppTypeGame\022\033\n\023con"
+  "tent_descriptors\030\017 \003(\r\"i\n(CFamilyGroups_"
+  "SetPreferredLender_Request\022\026\n\016family_gro"
+  "upid\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r\022\026\n\016lender_stea"
+  "mid\030\003 \001(\006\"+\n)CFamilyGroups_SetPreferredL"
+  "ender_Response\"C\n)CFamilyGroups_GetPrefe"
+  "rredLenders_Request\022\026\n\016family_groupid\030\001 "
+  "\001(\004\"\262\001\n*CFamilyGroups_GetPreferredLender"
+  "s_Response\022I\n\007members\030\001 \003(\01328.CFamilyGro"
+  "ups_GetPreferredLenders_Response.FamilyM"
+  "ember\0329\n\014FamilyMember\022\017\n\007steamid\030\001 \001(\006\022\030"
+  "\n\020preferred_appids\030\002 \003(\r\"R\n\'CFamilyGroup"
+  "s_ForceAcceptInvite_Request\022\026\n\016family_gr"
+  "oupid\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\006\"*\n(CFamilyG"
+  "roups_ForceAcceptInvite_Response\"V\n+CFam"
+  "ilyGroups_GetInviteCheckResults_Request\022"
+  "\026\n\016family_groupid\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\006"
+  "\"z\n,CFamilyGroups_GetInviteCheckResults_"
+  "Response\022\036\n\026wallet_country_matches\030\001 \001(\010"
+  "\022\020\n\010ip_match\030\002 \001(\010\022\030\n\020join_restriction\030\003"
+  " \001(\r\"M\n\'CFamilyGroups_ClearCooldownSkip_"
+  "Request\022\017\n\007steamid\030\001 \001(\006\022\021\n\tinvite_id\030\002 "
+  "\001(\004\"*\n(CFamilyGroups_ClearCooldownSkip_R"
+  "esponse\"\333\002\n2CFamilyGroupsClient_NotifyRu"
+  "nningApps_Notification\022\026\n\016family_groupid"
+  "\030\001 \001(\004\022T\n\014running_apps\030\002 \003(\0132>.CFamilyGr"
+  "oupsClient_NotifyRunningApps_Notificatio"
+  "n.RunningApp\032>\n\rPlayingMember\022\026\n\016member_"
+  "steamid\030\001 \001(\006\022\025\n\rowner_steamid\030\002 \001(\006\032w\n\n"
+  "RunningApp\022\r\n\005appid\030\001 \001(\r\022Z\n\017playing_mem"
+  "bers\030\003 \003(\0132A.CFamilyGroupsClient_NotifyR"
+  "unningApps_Notification.PlayingMember\"/\n"
+  "-CFamilyGroupsClient_InviteStatus_Notifi"
+  "cation\"G\n-CFamilyGroupsClient_GroupChang"
+  "ed_Notification\022\026\n\016family_groupid\030\001 \001(\004*"
+  "\177\n\020EFamilyGroupRole\022\031\n\025EFamilyGroupRole_"
+  "None\020\000\022\032\n\026EFamilyGroupRole_Adult\020\001\022\032\n\026EF"
+  "amilyGroupRole_Child\020\002\022\030\n\024EFamilyGroupRo"
+  "le_MAX\020\003*\223\001\n\034EFamilyGroupsTwoFactorMetho"
+  "d\022$\n EFamilyGroupsTwoFactorMethodNone\020\000\022"
+  "&\n\"EFamilyGroupsTwoFactorMethodMobile\020\001\022"
+  "%\n!EFamilyGroupsTwoFactorMethodEmail\020\002*\354"
+  "\001\n\026EPurchaseRequestAction\022\037\n\033EPurchaseRe"
+  "questAction_None\020\000\022\"\n\036EPurchaseRequestAc"
+  "tion_Decline\020\001\022$\n EPurchaseRequestAction"
+  "_Purchased\020\002\022$\n EPurchaseRequestAction_A"
+  "bandoned\020\003\022!\n\035EPurchaseRequestAction_Can"
+  "cel\020\004\022\036\n\032EPurchaseRequestAction_MAX\020\005*\324\005"
+  "\n\031EFamilyGroupChangeLogType\022\025\n\021InvalidCh"
+  "angeType\020\000\022\026\n\022FamilyGroupCreated\020\001\022\027\n\023Fa"
+  "milyGroupModified\020\002\022\026\n\022FamilyGroupDelete"
+  "d\020\003\022\022\n\016AccountInvited\020\004\022\033\n\027InviteDeniedB"
+  "yGroupSize\020\005\022\025\n\021JoinedFamilyGroup\020\006\022\036\n\032J"
+  "oinDeniedByRegionMismatch\020\007\022 \n\034JoinDenie"
+  "dByMissingIpAddress\020\010\022\036\n\032JoinDeniedByFam"
+  "ilyCooldown\020\t\022\034\n\030JoinDeniedByUserCooldow"
+  "n\020\n\022\032\n\026JoinDeniedByOtherGroup\020\013\022\022\n\016Accou"
+  "ntRemoved\020\014\022\022\n\016InviteCanceled\020\r\022\025\n\021Purch"
+  "aseRequested\020\016\022\033\n\027ParentalSettingsEnable"
+  "d\020\017\022\034\n\030ParentalSettingsDisabled\020\020\022\033\n\027Par"
+  "entalSettingsChanged\020\021\022\"\n\036FamilyCooldown"
+  "OverridesChanged\020\022\022\033\n\027PurchaseRequestCan"
+  "celed\020\023\022\033\n\027PurchaseRequestApproved\020\024\022\033\n\027"
+  "PurchaseRequestDeclined\020\025\022\030\n\024CooldownSki"
+  "pConsumed\020\026\022\027\n\023FamilyGroupRestored\020\027\022\016\n\n"
+  "JoinDenied\020\030\022\036\n\032SupportForceAcceptedInvi"
+  "te\020\031*\342\n\n\033ESharedLibraryExcludeReason\022\033\n\027"
+  "ESharedLibrary_Included\020\000\022(\n$ESharedLibr"
+  "ary_AppExcluded_ByPartner\020\001\022\"\n\036ESharedLi"
+  "brary_LicenseExcluded\020\002\022\033\n\027ESharedLibrar"
+  "y_FreeGame\020\003\022!\n\035ESharedLibrary_LicensePr"
+  "ivate\020\004\022+\n\'ESharedLibrary_AppExcluded_Wr"
+  "ongAppType\020\006\022/\n+ESharedLibrary_AppExclud"
+  "ed_NonrefundableDLC\020\007\022,\n(ESharedLibrary_"
+  "AppExcluded_UnreleasedApp\020\010\0220\n,ESharedLi"
+  "brary_AppExcluded_ParentAppExcluded\020\t\022,\n"
+  "(ESharedLibrary_PackageExcluded_ByPartne"
+  "r\020\n\022*\n&ESharedLibrary_PackageExcluded_Sp"
+  "ecial\020\013\022&\n\"ESharedLibrary_PackageExclude"
+  "d_Dev\020\014\022.\n*ESharedLibrary_PackageExclude"
+  "d_FreeWeekend\020\r\022*\n&ESharedLibrary_Packag"
+  "eExcluded_Invalid\020\017\0223\n/ESharedLibrary_Pa"
+  "ckageExcluded_RecurringLicense\020\020\0223\n/ESha"
+  "redLibrary_PackageExcluded_WrongLicenseT"
+  "ype\020\021\022,\n(ESharedLibrary_PackageExcluded_"
+  "MasterSub\020\022\0222\n.ESharedLibrary_PackageExc"
+  "luded_NoShareableApps\020\023\0223\n/ESharedLibrar"
+  "y_LicenseExcluded_PaymentMasterSub\020\024\0225\n1"
+  "ESharedLibrary_LicenseExcluded_PaymentFa"
+  "milyGroup\020\025\022:\n6ESharedLibrary_LicenseExc"
+  "luded_PaymentAuthorizedDevice\020\026\0223\n/EShar"
+  "edLibrary_LicenseExcluded_PaymentAutoGra"
+  "nt\020\027\022.\n*ESharedLibrary_LicenseExcluded_F"
+  "lagPending\020\030\0224\n0ESharedLibrary_LicenseEx"
+  "cluded_FlagPendingRefund\020\031\022/\n+ESharedLib"
+  "rary_LicenseExcluded_FlagBorrowed\020\032\0220\n,E"
+  "SharedLibrary_LicenseExcluded_FlagAutoGr"
+  "ant\020\033\0221\n-ESharedLibrary_LicenseExcluded_"
+  "FlagTimedTrial\020\034\022*\n&ESharedLibrary_Licen"
+  "seExcluded_FreeSub\020\035\022+\n\'ESharedLibrary_L"
+  "icenseExcluded_Inactive\020\0362\264\027\n\014FamilyGrou"
+  "ps\022h\n\021CreateFamilyGroup\022(.CFamilyGroups_"
+  "CreateFamilyGroup_Request\032).CFamilyGroup"
+  "s_CreateFamilyGroup_Response\022_\n\016GetFamil"
+  "yGroup\022%.CFamilyGroups_GetFamilyGroup_Re"
+  "quest\032&.CFamilyGroups_GetFamilyGroup_Res"
+  "ponse\022t\n\025GetFamilyGroupForUser\022,.CFamily"
+  "Groups_GetFamilyGroupForUser_Request\032-.C"
+  "FamilyGroups_GetFamilyGroupForUser_Respo"
+  "nse\022}\n\030ModifyFamilyGroupDetails\022/.CFamil"
+  "yGroups_ModifyFamilyGroupDetails_Request"
+  "\0320.CFamilyGroups_ModifyFamilyGroupDetail"
+  "s_Response\022n\n\023InviteToFamilyGroup\022*.CFam"
+  "ilyGroups_InviteToFamilyGroup_Request\032+."
+  "CFamilyGroups_InviteToFamilyGroup_Respon"
+  "se\022\203\001\n\032ConfirmInviteToFamilyGroup\0221.CFam"
+  "ilyGroups_ConfirmInviteToFamilyGroup_Req"
+  "uest\0322.CFamilyGroups_ConfirmInviteToFami"
+  "lyGroup_Response\022\214\001\n\035ResendInvitationToF"
+  "amilyGroup\0224.CFamilyGroups_ResendInvitat"
+  "ionToFamilyGroup_Request\0325.CFamilyGroups"
+  "_ResendInvitationToFamilyGroup_Response\022"
+  "b\n\017JoinFamilyGroup\022&.CFamilyGroups_JoinF"
+  "amilyGroup_Request\032\'.CFamilyGroups_JoinF"
+  "amilyGroup_Response\022w\n\026ConfirmJoinFamily"
+  "Group\022-.CFamilyGroups_ConfirmJoinFamilyG"
+  "roup_Request\032..CFamilyGroups_ConfirmJoin"
+  "FamilyGroup_Response\022t\n\025RemoveFromFamily"
+  "Group\022,.CFamilyGroups_RemoveFromFamilyGr"
+  "oup_Request\032-.CFamilyGroups_RemoveFromFa"
+  "milyGroup_Response\022z\n\027CancelFamilyGroupI"
+  "nvite\022..CFamilyGroups_CancelFamilyGroupI"
+  "nvite_Request\032/.CFamilyGroups_CancelFami"
+  "lyGroupInvite_Response\022t\n\025GetUsersSharin"
+  "gDevice\022,.CFamilyGroups_GetUsersSharingD"
+  "evice_Request\032-.CFamilyGroups_GetUsersSh"
+  "aringDevice_Response\022h\n\021DeleteFamilyGrou"
+  "p\022(.CFamilyGroups_DeleteFamilyGroup_Requ"
+  "est\032).CFamilyGroups_DeleteFamilyGroup_Re"
+  "sponse\022n\n\023UndeleteFamilyGroup\022*.CFamilyG"
+  "roups_UndeleteFamilyGroup_Request\032+.CFam"
+  "ilyGroups_UndeleteFamilyGroup_Response\022k"
+  "\n\022GetPlaytimeSummary\022).CFamilyGroups_Get"
+  "PlaytimeSummary_Request\032*.CFamilyGroups_"
+  "GetPlaytimeSummary_Response\022b\n\017RequestPu"
+  "rchase\022&.CFamilyGroups_RequestPurchase_R"
+  "equest\032\'.CFamilyGroups_RequestPurchase_R"
+  "esponse\022n\n\023GetPurchaseRequests\022*.CFamily"
+  "Groups_GetPurchaseRequests_Request\032+.CFa"
+  "milyGroups_GetPurchaseRequests_Response\022"
+  "\203\001\n\032RespondToRequestedPurchase\0221.CFamily"
+  "Groups_RespondToRequestedPurchase_Reques"
+  "t\0322.CFamilyGroups_RespondToRequestedPurc"
+  "hase_Response\022Y\n\014GetChangeLog\022#.CFamilyG"
+  "roups_GetChangeLog_Request\032$.CFamilyGrou"
+  "ps_GetChangeLog_Response\022\203\001\n\032SetFamilyCo"
+  "oldownOverrides\0221.CFamilyGroups_SetFamil"
+  "yCooldownOverrides_Request\0322.CFamilyGrou"
+  "ps_SetFamilyCooldownOverrides_Response\022q"
+  "\n\024GetSharedLibraryApps\022+.CFamilyGroups_G"
+  "etSharedLibraryApps_Request\032,.CFamilyGro"
+  "ups_GetSharedLibraryApps_Response\022k\n\022Set"
+  "PreferredLender\022).CFamilyGroups_SetPrefe"
+  "rredLender_Request\032*.CFamilyGroups_SetPr"
+  "eferredLender_Response\022n\n\023GetPreferredLe"
+  "nders\022*.CFamilyGroups_GetPreferredLender"
+  "s_Request\032+.CFamilyGroups_GetPreferredLe"
+  "nders_Response\022h\n\021ForceAcceptInvite\022(.CF"
+  "amilyGroups_ForceAcceptInvite_Request\032)."
+  "CFamilyGroups_ForceAcceptInvite_Response"
+  "\022t\n\025GetInviteCheckResults\022,.CFamilyGroup"
+  "s_GetInviteCheckResults_Request\032-.CFamil"
+  "yGroups_GetInviteCheckResults_Response\022h"
+  "\n\021ClearCooldownSkip\022(.CFamilyGroups_Clea"
+  "rCooldownSkip_Request\032).CFamilyGroups_Cl"
+  "earCooldownSkip_Response2\227\002\n\022FamilyGroup"
+  "sClient\022U\n\021NotifyRunningApps\0223.CFamilyGr"
+  "oupsClient_NotifyRunningApps_Notificatio"
+  "n\032\013.NoResponse\022Q\n\022NotifyInviteStatus\022..C"
+  "FamilyGroupsClient_InviteStatus_Notifica"
+  "tion\032\013.NoResponse\022Q\n\022NotifyGroupChanged\022"
+  "..CFamilyGroupsClient_GroupChanged_Notif"
+  "ication\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSt"
+  "eamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -2013,7 +2020,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto = {
-  false, false, 13366, descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_2eproto, "steammessages_familygroups.steamclient.proto", 
+  false, false, 13417, descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_2eproto, "steammessages_familygroups.steamclient.proto", 
   &descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_once, descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps, 4, 66,
   schemas, file_default_instances, TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5ffamilygroups_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto,
@@ -4380,6 +4387,9 @@ class FamilyGroupPendingInviteForUser::_Internal {
   static void set_has_inviter_steamid(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_awaiting_2fa(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
 };
 
 FamilyGroupPendingInviteForUser::FamilyGroupPendingInviteForUser(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -4393,16 +4403,16 @@ FamilyGroupPendingInviteForUser::FamilyGroupPendingInviteForUser(const FamilyGro
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&family_groupid_, &from.family_groupid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&role_) -
-    reinterpret_cast<char*>(&family_groupid_)) + sizeof(role_));
+    static_cast<size_t>(reinterpret_cast<char*>(&awaiting_2fa_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(awaiting_2fa_));
   // @@protoc_insertion_point(copy_constructor:FamilyGroupPendingInviteForUser)
 }
 
 void FamilyGroupPendingInviteForUser::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&family_groupid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&role_) -
-    reinterpret_cast<char*>(&family_groupid_)) + sizeof(role_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&awaiting_2fa_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(awaiting_2fa_));
 }
 
 FamilyGroupPendingInviteForUser::~FamilyGroupPendingInviteForUser() {
@@ -4432,10 +4442,10 @@ void FamilyGroupPendingInviteForUser::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&family_groupid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&role_) -
-        reinterpret_cast<char*>(&family_groupid_)) + sizeof(role_));
+        reinterpret_cast<char*>(&awaiting_2fa_) -
+        reinterpret_cast<char*>(&family_groupid_)) + sizeof(awaiting_2fa_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -4475,6 +4485,14 @@ const char* FamilyGroupPendingInviteForUser::_InternalParse(const char* ptr, ::P
           _Internal::set_has_inviter_steamid(&has_bits);
           inviter_steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional bool awaiting_2fa = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_awaiting_2fa(&has_bits);
+          awaiting_2fa_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -4526,6 +4544,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_inviter_steamid(), target);
   }
 
+  // optional bool awaiting_2fa = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_awaiting_2fa(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4543,7 +4567,7 @@ size_t FamilyGroupPendingInviteForUser::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     // optional uint64 family_groupid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -4560,6 +4584,11 @@ size_t FamilyGroupPendingInviteForUser::ByteSizeLong() const {
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_role());
+    }
+
+    // optional bool awaiting_2fa = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -4595,7 +4624,7 @@ void FamilyGroupPendingInviteForUser::MergeFrom(const FamilyGroupPendingInviteFo
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       family_groupid_ = from.family_groupid_;
     }
@@ -4604,6 +4633,9 @@ void FamilyGroupPendingInviteForUser::MergeFrom(const FamilyGroupPendingInviteFo
     }
     if (cached_has_bits & 0x00000004u) {
       role_ = from.role_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      awaiting_2fa_ = from.awaiting_2fa_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -4632,8 +4664,8 @@ void FamilyGroupPendingInviteForUser::InternalSwap(FamilyGroupPendingInviteForUs
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(FamilyGroupPendingInviteForUser, role_)
-      + sizeof(FamilyGroupPendingInviteForUser::role_)
+      PROTOBUF_FIELD_OFFSET(FamilyGroupPendingInviteForUser, awaiting_2fa_)
+      + sizeof(FamilyGroupPendingInviteForUser::awaiting_2fa_)
       - PROTOBUF_FIELD_OFFSET(FamilyGroupPendingInviteForUser, family_groupid_)>(
           reinterpret_cast<char*>(&family_groupid_),
           reinterpret_cast<char*>(&other->family_groupid_));
@@ -14170,7 +14202,8 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_Internal {
 
 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  owner_steamids_(arena) {
+  owner_steamids_(arena),
+  content_descriptors_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp)
@@ -14178,7 +14211,8 @@ CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::CFamilyGroups_GetSharedLi
 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp(const CFamilyGroups_GetSharedLibraryApps_Response_SharedApp& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
-      owner_steamids_(from.owner_steamids_) {
+      owner_steamids_(from.owner_steamids_),
+      content_descriptors_(from.content_descriptors_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_name()) {
@@ -14249,6 +14283,7 @@ void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::Clear() {
   (void) cached_has_bits;
 
   owner_steamids_.Clear();
+  content_descriptors_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -14400,6 +14435,21 @@ const char* CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_InternalPars
           }
         } else goto handle_unusual;
         continue;
+      // repeated uint32 content_descriptors = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_content_descriptors(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<120>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_content_descriptors(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -14514,6 +14564,12 @@ failure:
       14, this->_internal_app_type(), target);
   }
 
+  // repeated uint32 content_descriptors = 15;
+  for (int i = 0, n = this->_internal_content_descriptors_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(15, this->_internal_content_descriptors(i), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -14536,6 +14592,15 @@ size_t CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::ByteSizeLong() con
     size_t data_size = 8UL * count;
     total_size += 1 *
                   ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_owner_steamids_size());
+    total_size += data_size;
+  }
+
+  // repeated uint32 content_descriptors = 15;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->content_descriptors_);
+    total_size += 1 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_content_descriptors_size());
     total_size += data_size;
   }
 
@@ -14644,6 +14709,7 @@ void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::MergeFrom(const CFam
   (void) cached_has_bits;
 
   owner_steamids_.MergeFrom(from.owner_steamids_);
+  content_descriptors_.MergeFrom(from.content_descriptors_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -14706,6 +14772,7 @@ void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::InternalSwap(CFamily
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   owner_steamids_.InternalSwap(&other->owner_steamids_);
+  content_descriptors_.InternalSwap(&other->content_descriptors_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   sort_as_.Swap(&other->sort_as_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   capsule_filename_.Swap(&other->capsule_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());

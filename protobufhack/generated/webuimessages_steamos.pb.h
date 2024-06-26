@@ -2044,6 +2044,36 @@ class CSteamOSManager_FactoryReset_Request PROTOBUF_FINAL :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kResetOsFieldNumber = 1,
+    kResetUserDataFieldNumber = 2,
+  };
+  // optional bool reset_os = 1;
+  bool has_reset_os() const;
+  private:
+  bool _internal_has_reset_os() const;
+  public:
+  void clear_reset_os();
+  bool reset_os() const;
+  void set_reset_os(bool value);
+  private:
+  bool _internal_reset_os() const;
+  void _internal_set_reset_os(bool value);
+  public:
+
+  // optional bool reset_user_data = 2;
+  bool has_reset_user_data() const;
+  private:
+  bool _internal_has_reset_user_data() const;
+  public:
+  void clear_reset_user_data();
+  bool reset_user_data() const;
+  void set_reset_user_data(bool value);
+  private:
+  bool _internal_reset_user_data() const;
+  void _internal_set_reset_user_data(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSteamOSManager_FactoryReset_Request)
  private:
   class _Internal;
@@ -2051,7 +2081,10 @@ class CSteamOSManager_FactoryReset_Request PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  bool reset_os_;
+  bool reset_user_data_;
   friend struct ::TableStruct_webuimessages_5fsteamos_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4484,6 +4517,62 @@ inline void CSteamOSManager_IsTelemetryHelperAvailable_Response::set_available(b
 // -------------------------------------------------------------------
 
 // CSteamOSManager_FactoryReset_Request
+
+// optional bool reset_os = 1;
+inline bool CSteamOSManager_FactoryReset_Request::_internal_has_reset_os() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CSteamOSManager_FactoryReset_Request::has_reset_os() const {
+  return _internal_has_reset_os();
+}
+inline void CSteamOSManager_FactoryReset_Request::clear_reset_os() {
+  reset_os_ = false;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline bool CSteamOSManager_FactoryReset_Request::_internal_reset_os() const {
+  return reset_os_;
+}
+inline bool CSteamOSManager_FactoryReset_Request::reset_os() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManager_FactoryReset_Request.reset_os)
+  return _internal_reset_os();
+}
+inline void CSteamOSManager_FactoryReset_Request::_internal_set_reset_os(bool value) {
+  _has_bits_[0] |= 0x00000001u;
+  reset_os_ = value;
+}
+inline void CSteamOSManager_FactoryReset_Request::set_reset_os(bool value) {
+  _internal_set_reset_os(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManager_FactoryReset_Request.reset_os)
+}
+
+// optional bool reset_user_data = 2;
+inline bool CSteamOSManager_FactoryReset_Request::_internal_has_reset_user_data() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CSteamOSManager_FactoryReset_Request::has_reset_user_data() const {
+  return _internal_has_reset_user_data();
+}
+inline void CSteamOSManager_FactoryReset_Request::clear_reset_user_data() {
+  reset_user_data_ = false;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline bool CSteamOSManager_FactoryReset_Request::_internal_reset_user_data() const {
+  return reset_user_data_;
+}
+inline bool CSteamOSManager_FactoryReset_Request::reset_user_data() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManager_FactoryReset_Request.reset_user_data)
+  return _internal_reset_user_data();
+}
+inline void CSteamOSManager_FactoryReset_Request::_internal_set_reset_user_data(bool value) {
+  _has_bits_[0] |= 0x00000002u;
+  reset_user_data_ = value;
+}
+inline void CSteamOSManager_FactoryReset_Request::set_reset_user_data(bool value) {
+  _internal_set_reset_user_data(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManager_FactoryReset_Request.reset_user_data)
+}
 
 // -------------------------------------------------------------------
 

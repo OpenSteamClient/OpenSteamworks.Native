@@ -357,6 +357,39 @@ struct CClientMetrics_ClipShare_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientMetrics_ClipShare_NotificationDefaultTypeInternal _CClientMetrics_ClipShare_Notification_default_instance_;
+constexpr CClientMetrics_ClipRange_Notification_RelativeRangeEdge::CClientMetrics_ClipRange_Notification_RelativeRangeEdge(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : delta_ms_(0)
+  , original_range_method_(1)
+
+  , latest_range_method_(1)
+{}
+struct CClientMetrics_ClipRange_Notification_RelativeRangeEdgeDefaultTypeInternal {
+  constexpr CClientMetrics_ClipRange_Notification_RelativeRangeEdgeDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CClientMetrics_ClipRange_Notification_RelativeRangeEdgeDefaultTypeInternal() {}
+  union {
+    CClientMetrics_ClipRange_Notification_RelativeRangeEdge _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientMetrics_ClipRange_Notification_RelativeRangeEdgeDefaultTypeInternal _CClientMetrics_ClipRange_Notification_RelativeRangeEdge_default_instance_;
+constexpr CClientMetrics_ClipRange_Notification::CClientMetrics_ClipRange_Notification(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : start_(nullptr)
+  , end_(nullptr)
+  , gameid_(PROTOBUF_ULONGLONG(0))
+  , seconds_(0)
+  , original_range_method_(1)
+{}
+struct CClientMetrics_ClipRange_NotificationDefaultTypeInternal {
+  constexpr CClientMetrics_ClipRange_NotificationDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CClientMetrics_ClipRange_NotificationDefaultTypeInternal() {}
+  union {
+    CClientMetrics_ClipRange_Notification _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientMetrics_ClipRange_NotificationDefaultTypeInternal _CClientMetrics_ClipRange_Notification_default_instance_;
 constexpr CClientMetrics_EndGameRecording_Notification::CClientMetrics_EndGameRecording_Notification(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : recording_type_(0)
@@ -373,8 +406,8 @@ struct CClientMetrics_EndGameRecording_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientMetrics_EndGameRecording_NotificationDefaultTypeInternal _CClientMetrics_EndGameRecording_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientmetrics_2esteamclient_2eproto[22];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto[3];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientmetrics_2esteamclient_2eproto[24];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto[4];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto[1];
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -697,6 +730,32 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientmetrics_
   2,
   0,
   1,
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge, original_range_method_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge, latest_range_method_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge, delta_ms_),
+  1,
+  2,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification, original_range_method_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification, start_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification, end_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification, seconds_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_ClipRange_Notification, gameid_),
+  4,
+  0,
+  1,
+  3,
+  2,
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_EndGameRecording_Notification, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_EndGameRecording_Notification, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -733,7 +792,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 270, 277, sizeof(::CClientMetrics_ContentDownloadResponse_Counts_Notification)},
   { 279, 294, sizeof(::CClientMetrics_ReportClientArgs_Notification)},
   { 304, 314, sizeof(::CClientMetrics_ClipShare_Notification)},
-  { 319, 328, sizeof(::CClientMetrics_EndGameRecording_Notification)},
+  { 319, 327, sizeof(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge)},
+  { 330, 340, sizeof(::CClientMetrics_ClipRange_Notification)},
+  { 345, 354, sizeof(::CClientMetrics_EndGameRecording_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -758,6 +819,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientMetrics_ContentDownloadResponse_Counts_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientMetrics_ReportClientArgs_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientMetrics_ClipShare_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientMetrics_ClipRange_Notification_RelativeRangeEdge_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientMetrics_ClipRange_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CClientMetrics_EndGameRecording_Notification_default_instance_),
 };
 
@@ -865,53 +928,73 @@ const char descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient
   " \001(\r:\0012\022>\n\014share_method\030\002 \001(\0162\021.EClipSha"
   "reMethod:\025EClipShareMethod_Chat\022\017\n\007secon"
   "ds\030\003 \001(\002\022\r\n\005bytes\030\004 \001(\004\022\016\n\006gameid\030\005 \001(\006\""
-  "\247\001\n,CClientMetrics_EndGameRecording_Noti"
-  "fication\022G\n\016recording_type\030\001 \001(\0162\023.EGame"
-  "RecordingType:\032EGameRecordingType_Unknow"
-  "n\022\017\n\007seconds\030\002 \001(\002\022\r\n\005bytes\030\003 \001(\004\022\016\n\006gam"
-  "eid\030\004 \001(\006*m\n\022ESteamPipeWorkType\022$\n EStea"
-  "mPipeClientWorkType_Invalid\020\000\0221\n-ESteamP"
-  "ipeClientWorkType_StageFromChunkStores\020\001"
-  "*\263\001\n\027ESteamPipeOperationType\022#\n\037ESteamPi"
-  "peOperationType_Invalid\020\000\022&\n\"ESteamPipeO"
-  "perationType_DecryptCPU\020\001\022$\n ESteamPipeO"
-  "perationType_DiskRead\020\002\022%\n!ESteamPipeOpe"
-  "rationType_DiskWrite\020\003*\312\001\n\020EClipShareMet"
-  "hod\022\031\n\025EClipShareMethod_Chat\020\001\022\036\n\032EClipS"
-  "hareMethod_Clipboard\020\002\022\031\n\025EClipShareMeth"
-  "od_File\020\003\022\035\n\031EClipShareMethod_SendClip\020\004"
-  "\022 \n\034EClipShareMethod_SaveToMedia\020\005\022\037\n\033EC"
-  "lipShareMethod_CreateLink\020\0062\201\t\n\rClientMe"
-  "trics\022\\\n\035ClientAppInterfaceStatsReport\022."
-  ".CClientMetrics_AppInterfaceStats_Notifi"
-  "cation\032\013.NoResponse\022Z\n\034ClientIPv6Connect"
-  "ivityReport\022-.CClientMetrics_IPv6Connect"
-  "ivity_Notification\032\013.NoResponse\022X\n\030Steam"
-  "PipeWorkStatsReport\022/.CClientMetrics_Ste"
-  "amPipeWorkStats_Notification\032\013.NoRespons"
-  "e\022N\n\020ReportReactUsage\022-.CClientMetrics_R"
-  "eportReactUsage_Notification\032\013.NoRespons"
-  "e\022P\n\021ReportClientError\022..CClientMetrics_"
-  "ReportClientError_Notification\032\013.NoRespo"
-  "nse\022R\n\025ClientBootstrapReport\022,.CClientMe"
-  "trics_ClientBootstrap_Notification\032\013.NoR"
-  "esponse\022T\n\031ClientDownloadRatesReport\022*.C"
-  "ClientMetrics_DownloadRates_Notification"
-  "\032\013.NoResponse\022\\\n\035ClientContentValidation"
-  "Report\022..CClientMetrics_ContentValidatio"
-  "n_Notification\032\013.NoResponse\022V\n\027ClientClo"
-  "udAppSyncStats\022..CClientMetrics_CloudApp"
-  "SyncStats_Notification\032\013.NoResponse\022l\n C"
-  "lientDownloadResponseCodeCounts\022;.CClien"
-  "tMetrics_ContentDownloadResponse_Counts_"
-  "Notification\032\013.NoResponse\022N\n\020ReportClien"
-  "tArgs\022-.CClientMetrics_ReportClientArgs_"
-  "Notification\032\013.NoResponse\022F\n\017ReportClipS"
-  "hare\022&.CClientMetrics_ClipShare_Notifica"
-  "tion\032\013.NoResponse\022T\n\026ReportEndGameRecord"
-  "ing\022-.CClientMetrics_EndGameRecording_No"
-  "tification\032\013.NoResponseB\035\200\001\001\252\002\027OpenSteam"
-  "works.Protobuf"
+  "\375\003\n%CClientMetrics_ClipRange_Notificatio"
+  "n\022S\n\025original_range_method\030\001 \001(\0162\021.EClip"
+  "RangeMethod:!EClipRangeMethod_CreateClip"
+  "Button\022G\n\005start\030\002 \001(\01328.CClientMetrics_C"
+  "lipRange_Notification.RelativeRangeEdge\022"
+  "E\n\003end\030\003 \001(\01328.CClientMetrics_ClipRange_"
+  "Notification.RelativeRangeEdge\022\017\n\007second"
+  "s\030\004 \001(\002\022\016\n\006gameid\030\005 \001(\006\032\315\001\n\021RelativeRang"
+  "eEdge\022S\n\025original_range_method\030\001 \001(\0162\021.E"
+  "ClipRangeMethod:!EClipRangeMethod_Create"
+  "ClipButton\022Q\n\023latest_range_method\030\002 \001(\0162"
+  "\021.EClipRangeMethod:!EClipRangeMethod_Cre"
+  "ateClipButton\022\020\n\010delta_ms\030\003 \001(\005\"\247\001\n,CCli"
+  "entMetrics_EndGameRecording_Notification"
+  "\022G\n\016recording_type\030\001 \001(\0162\023.EGameRecordin"
+  "gType:\032EGameRecordingType_Unknown\022\017\n\007sec"
+  "onds\030\002 \001(\002\022\r\n\005bytes\030\003 \001(\004\022\016\n\006gameid\030\004 \001("
+  "\006*m\n\022ESteamPipeWorkType\022$\n ESteamPipeCli"
+  "entWorkType_Invalid\020\000\0221\n-ESteamPipeClien"
+  "tWorkType_StageFromChunkStores\020\001*\263\001\n\027ESt"
+  "eamPipeOperationType\022#\n\037ESteamPipeOperat"
+  "ionType_Invalid\020\000\022&\n\"ESteamPipeOperation"
+  "Type_DecryptCPU\020\001\022$\n ESteamPipeOperation"
+  "Type_DiskRead\020\002\022%\n!ESteamPipeOperationTy"
+  "pe_DiskWrite\020\003*\312\001\n\020EClipShareMethod\022\031\n\025E"
+  "ClipShareMethod_Chat\020\001\022\036\n\032EClipShareMeth"
+  "od_Clipboard\020\002\022\031\n\025EClipShareMethod_File\020"
+  "\003\022\035\n\031EClipShareMethod_SendClip\020\004\022 \n\034ECli"
+  "pShareMethod_SaveToMedia\020\005\022\037\n\033EClipShare"
+  "Method_CreateLink\020\006*\335\001\n\020EClipRangeMethod"
+  "\022%\n!EClipRangeMethod_CreateClipButton\020\001\022"
+  "\036\n\032EClipRangeMethod_Highlight\020\002\022$\n EClip"
+  "RangeMethod_BeginEndButtons\020\003\022 \n\034EClipRa"
+  "ngeMethod_ContextMenu\020\004\022\031\n\025EClipRangeMet"
+  "hod_Drag\020\005\022\037\n\033EClipRangeMethod_EntireCli"
+  "p\020\0062\311\t\n\rClientMetrics\022\\\n\035ClientAppInterf"
+  "aceStatsReport\022..CClientMetrics_AppInter"
+  "faceStats_Notification\032\013.NoResponse\022Z\n\034C"
+  "lientIPv6ConnectivityReport\022-.CClientMet"
+  "rics_IPv6Connectivity_Notification\032\013.NoR"
+  "esponse\022X\n\030SteamPipeWorkStatsReport\022/.CC"
+  "lientMetrics_SteamPipeWorkStats_Notifica"
+  "tion\032\013.NoResponse\022N\n\020ReportReactUsage\022-."
+  "CClientMetrics_ReportReactUsage_Notifica"
+  "tion\032\013.NoResponse\022P\n\021ReportClientError\022."
+  ".CClientMetrics_ReportClientError_Notifi"
+  "cation\032\013.NoResponse\022R\n\025ClientBootstrapRe"
+  "port\022,.CClientMetrics_ClientBootstrap_No"
+  "tification\032\013.NoResponse\022T\n\031ClientDownloa"
+  "dRatesReport\022*.CClientMetrics_DownloadRa"
+  "tes_Notification\032\013.NoResponse\022\\\n\035ClientC"
+  "ontentValidationReport\022..CClientMetrics_"
+  "ContentValidation_Notification\032\013.NoRespo"
+  "nse\022V\n\027ClientCloudAppSyncStats\022..CClient"
+  "Metrics_CloudAppSyncStats_Notification\032\013"
+  ".NoResponse\022l\n ClientDownloadResponseCod"
+  "eCounts\022;.CClientMetrics_ContentDownload"
+  "Response_Counts_Notification\032\013.NoRespons"
+  "e\022N\n\020ReportClientArgs\022-.CClientMetrics_R"
+  "eportClientArgs_Notification\032\013.NoRespons"
+  "e\022F\n\017ReportClipShare\022&.CClientMetrics_Cl"
+  "ipShare_Notification\032\013.NoResponse\022F\n\017Rep"
+  "ortClipRange\022&.CClientMetrics_ClipRange_"
+  "Notification\032\013.NoResponse\022T\n\026ReportEndGa"
+  "meRecording\022-.CClientMetrics_EndGameReco"
+  "rding_Notification\032\013.NoResponseB\035\200\001\001\252\002\027O"
+  "penSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_clientmetrics_2eproto,
@@ -922,8 +1005,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto = {
-  false, false, 5974, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
-  &descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once, descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps, 5, 22,
+  false, false, 6782, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
+  &descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once, descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps, 5, 24,
   schemas, file_default_instances, TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto,
 };
@@ -970,6 +1053,24 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EClipShareMethod_descriptor() {
   return file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto[2];
 }
 bool EClipShareMethod_IsValid(int value) {
+  switch (value) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EClipRangeMethod_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto);
+  return file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto[3];
+}
+bool EClipRangeMethod_IsValid(int value) {
   switch (value) {
     case 1:
     case 2:
@@ -8195,6 +8296,653 @@ void CClientMetrics_ClipShare_Notification::InternalSwap(CClientMetrics_ClipShar
 
 // ===================================================================
 
+class CClientMetrics_ClipRange_Notification_RelativeRangeEdge::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CClientMetrics_ClipRange_Notification_RelativeRangeEdge>()._has_bits_);
+  static void set_has_original_range_method(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_latest_range_method(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_delta_ms(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CClientMetrics_ClipRange_Notification_RelativeRangeEdge::CClientMetrics_ClipRange_Notification_RelativeRangeEdge(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+}
+CClientMetrics_ClipRange_Notification_RelativeRangeEdge::CClientMetrics_ClipRange_Notification_RelativeRangeEdge(const CClientMetrics_ClipRange_Notification_RelativeRangeEdge& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&delta_ms_, &from.delta_ms_,
+    static_cast<size_t>(reinterpret_cast<char*>(&latest_range_method_) -
+    reinterpret_cast<char*>(&delta_ms_)) + sizeof(latest_range_method_));
+  // @@protoc_insertion_point(copy_constructor:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::SharedCtor() {
+delta_ms_ = 0;
+original_range_method_ = 1;
+latest_range_method_ = 1;
+}
+
+CClientMetrics_ClipRange_Notification_RelativeRangeEdge::~CClientMetrics_ClipRange_Notification_RelativeRangeEdge() {
+  // @@protoc_insertion_point(destructor:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::ArenaDtor(void* object) {
+  CClientMetrics_ClipRange_Notification_RelativeRangeEdge* _this = reinterpret_cast< CClientMetrics_ClipRange_Notification_RelativeRangeEdge* >(object);
+  (void)_this;
+}
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::Clear() {
+// @@protoc_insertion_point(message_clear_start:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    delta_ms_ = 0;
+    original_range_method_ = 1;
+    latest_range_method_ = 1;
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CClientMetrics_ClipRange_Notification_RelativeRangeEdge::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional .EClipRangeMethod original_range_method = 1 [default = EClipRangeMethod_CreateClipButton];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EClipRangeMethod_IsValid(val))) {
+            _internal_set_original_range_method(static_cast<::EClipRangeMethod>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EClipRangeMethod latest_range_method = 2 [default = EClipRangeMethod_CreateClipButton];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EClipRangeMethod_IsValid(val))) {
+            _internal_set_latest_range_method(static_cast<::EClipRangeMethod>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(2, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional int32 delta_ms = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_delta_ms(&has_bits);
+          delta_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CClientMetrics_ClipRange_Notification_RelativeRangeEdge::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .EClipRangeMethod original_range_method = 1 [default = EClipRangeMethod_CreateClipButton];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_original_range_method(), target);
+  }
+
+  // optional .EClipRangeMethod latest_range_method = 2 [default = EClipRangeMethod_CreateClipButton];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_latest_range_method(), target);
+  }
+
+  // optional int32 delta_ms = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_delta_ms(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  return target;
+}
+
+size_t CClientMetrics_ClipRange_Notification_RelativeRangeEdge::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional int32 delta_ms = 3;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_delta_ms());
+    }
+
+    // optional .EClipRangeMethod original_range_method = 1 [default = EClipRangeMethod_CreateClipButton];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_original_range_method());
+    }
+
+    // optional .EClipRangeMethod latest_range_method = 2 [default = EClipRangeMethod_CreateClipButton];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_latest_range_method());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CClientMetrics_ClipRange_Notification_RelativeRangeEdge* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CClientMetrics_ClipRange_Notification_RelativeRangeEdge>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+    MergeFrom(*source);
+  }
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::MergeFrom(const CClientMetrics_ClipRange_Notification_RelativeRangeEdge& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      delta_ms_ = from.delta_ms_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      original_range_method_ = from.original_range_method_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      latest_range_method_ = from.latest_range_method_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::CopyFrom(const CClientMetrics_ClipRange_Notification_RelativeRangeEdge& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CClientMetrics_ClipRange_Notification.RelativeRangeEdge)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CClientMetrics_ClipRange_Notification_RelativeRangeEdge::IsInitialized() const {
+  return true;
+}
+
+void CClientMetrics_ClipRange_Notification_RelativeRangeEdge::InternalSwap(CClientMetrics_ClipRange_Notification_RelativeRangeEdge* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(delta_ms_, other->delta_ms_);
+  swap(original_range_method_, other->original_range_method_);
+  swap(latest_range_method_, other->latest_range_method_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CClientMetrics_ClipRange_Notification_RelativeRangeEdge::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CClientMetrics_ClipRange_Notification::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CClientMetrics_ClipRange_Notification>()._has_bits_);
+  static void set_has_original_range_method(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static const ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge& start(const CClientMetrics_ClipRange_Notification* msg);
+  static void set_has_start(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static const ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge& end(const CClientMetrics_ClipRange_Notification* msg);
+  static void set_has_end(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_seconds(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_gameid(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+const ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge&
+CClientMetrics_ClipRange_Notification::_Internal::start(const CClientMetrics_ClipRange_Notification* msg) {
+  return *msg->start_;
+}
+const ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge&
+CClientMetrics_ClipRange_Notification::_Internal::end(const CClientMetrics_ClipRange_Notification* msg) {
+  return *msg->end_;
+}
+CClientMetrics_ClipRange_Notification::CClientMetrics_ClipRange_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CClientMetrics_ClipRange_Notification)
+}
+CClientMetrics_ClipRange_Notification::CClientMetrics_ClipRange_Notification(const CClientMetrics_ClipRange_Notification& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_start()) {
+    start_ = new ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge(*from.start_);
+  } else {
+    start_ = nullptr;
+  }
+  if (from._internal_has_end()) {
+    end_ = new ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge(*from.end_);
+  } else {
+    end_ = nullptr;
+  }
+  ::memcpy(&gameid_, &from.gameid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&original_range_method_) -
+    reinterpret_cast<char*>(&gameid_)) + sizeof(original_range_method_));
+  // @@protoc_insertion_point(copy_constructor:CClientMetrics_ClipRange_Notification)
+}
+
+void CClientMetrics_ClipRange_Notification::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&start_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&seconds_) -
+    reinterpret_cast<char*>(&start_)) + sizeof(seconds_));
+original_range_method_ = 1;
+}
+
+CClientMetrics_ClipRange_Notification::~CClientMetrics_ClipRange_Notification() {
+  // @@protoc_insertion_point(destructor:CClientMetrics_ClipRange_Notification)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CClientMetrics_ClipRange_Notification::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete start_;
+  if (this != internal_default_instance()) delete end_;
+}
+
+void CClientMetrics_ClipRange_Notification::ArenaDtor(void* object) {
+  CClientMetrics_ClipRange_Notification* _this = reinterpret_cast< CClientMetrics_ClipRange_Notification* >(object);
+  (void)_this;
+}
+void CClientMetrics_ClipRange_Notification::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CClientMetrics_ClipRange_Notification::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CClientMetrics_ClipRange_Notification::Clear() {
+// @@protoc_insertion_point(message_clear_start:CClientMetrics_ClipRange_Notification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(start_ != nullptr);
+      start_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(end_ != nullptr);
+      end_->Clear();
+    }
+  }
+  if (cached_has_bits & 0x0000001cu) {
+    ::memset(&gameid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&seconds_) -
+        reinterpret_cast<char*>(&gameid_)) + sizeof(seconds_));
+    original_range_method_ = 1;
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CClientMetrics_ClipRange_Notification::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional .EClipRangeMethod original_range_method = 1 [default = EClipRangeMethod_CreateClipButton];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EClipRangeMethod_IsValid(val))) {
+            _internal_set_original_range_method(static_cast<::EClipRangeMethod>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .CClientMetrics_ClipRange_Notification.RelativeRangeEdge start = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_start(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .CClientMetrics_ClipRange_Notification.RelativeRangeEdge end = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_end(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional float seconds = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
+          _Internal::set_has_seconds(&has_bits);
+          seconds_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // optional fixed64 gameid = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          _Internal::set_has_gameid(&has_bits);
+          gameid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CClientMetrics_ClipRange_Notification::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CClientMetrics_ClipRange_Notification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .EClipRangeMethod original_range_method = 1 [default = EClipRangeMethod_CreateClipButton];
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_original_range_method(), target);
+  }
+
+  // optional .CClientMetrics_ClipRange_Notification.RelativeRangeEdge start = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::start(this), target, stream);
+  }
+
+  // optional .CClientMetrics_ClipRange_Notification.RelativeRangeEdge end = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::end(this), target, stream);
+  }
+
+  // optional float seconds = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_seconds(), target);
+  }
+
+  // optional fixed64 gameid = 5;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(5, this->_internal_gameid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CClientMetrics_ClipRange_Notification)
+  return target;
+}
+
+size_t CClientMetrics_ClipRange_Notification::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CClientMetrics_ClipRange_Notification)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional .CClientMetrics_ClipRange_Notification.RelativeRangeEdge start = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *start_);
+    }
+
+    // optional .CClientMetrics_ClipRange_Notification.RelativeRangeEdge end = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *end_);
+    }
+
+    // optional fixed64 gameid = 5;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 8;
+    }
+
+    // optional float seconds = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 4;
+    }
+
+    // optional .EClipRangeMethod original_range_method = 1 [default = EClipRangeMethod_CreateClipButton];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_original_range_method());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CClientMetrics_ClipRange_Notification::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CClientMetrics_ClipRange_Notification)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CClientMetrics_ClipRange_Notification* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CClientMetrics_ClipRange_Notification>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CClientMetrics_ClipRange_Notification)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CClientMetrics_ClipRange_Notification)
+    MergeFrom(*source);
+  }
+}
+
+void CClientMetrics_ClipRange_Notification::MergeFrom(const CClientMetrics_ClipRange_Notification& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CClientMetrics_ClipRange_Notification)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_start()->::CClientMetrics_ClipRange_Notification_RelativeRangeEdge::MergeFrom(from._internal_start());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_mutable_end()->::CClientMetrics_ClipRange_Notification_RelativeRangeEdge::MergeFrom(from._internal_end());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      gameid_ = from.gameid_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      seconds_ = from.seconds_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      original_range_method_ = from.original_range_method_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CClientMetrics_ClipRange_Notification::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CClientMetrics_ClipRange_Notification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CClientMetrics_ClipRange_Notification::CopyFrom(const CClientMetrics_ClipRange_Notification& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CClientMetrics_ClipRange_Notification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CClientMetrics_ClipRange_Notification::IsInitialized() const {
+  return true;
+}
+
+void CClientMetrics_ClipRange_Notification::InternalSwap(CClientMetrics_ClipRange_Notification* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CClientMetrics_ClipRange_Notification, seconds_)
+      + sizeof(CClientMetrics_ClipRange_Notification::seconds_)
+      - PROTOBUF_FIELD_OFFSET(CClientMetrics_ClipRange_Notification, start_)>(
+          reinterpret_cast<char*>(&start_),
+          reinterpret_cast<char*>(&other->start_));
+  swap(original_range_method_, other->original_range_method_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CClientMetrics_ClipRange_Notification::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CClientMetrics_EndGameRecording_Notification::_Internal {
  public:
   using HasBits = decltype(std::declval<CClientMetrics_EndGameRecording_Notification>()._has_bits_);
@@ -8605,6 +9353,14 @@ void ClientMetrics::ReportClipShare(::PROTOBUF_NAMESPACE_ID::RpcController* cont
   done->Run();
 }
 
+void ClientMetrics::ReportClipRange(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CClientMetrics_ClipRange_Notification*,
+                         ::NoResponse*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method ReportClipRange() not implemented.");
+  done->Run();
+}
+
 void ClientMetrics::ReportEndGameRecording(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CClientMetrics_EndGameRecording_Notification*,
                          ::NoResponse*,
@@ -8717,6 +9473,14 @@ void ClientMetrics::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* 
              done);
       break;
     case 12:
+      ReportClipRange(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CClientMetrics_ClipRange_Notification*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::NoResponse*>(
+                 response),
+             done);
+      break;
+    case 13:
       ReportEndGameRecording(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CClientMetrics_EndGameRecording_Notification*>(
                  request),
@@ -8759,6 +9523,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& ClientMetrics::GetRequestPrototype(
     case 11:
       return ::CClientMetrics_ClipShare_Notification::default_instance();
     case 12:
+      return ::CClientMetrics_ClipRange_Notification::default_instance();
+    case 13:
       return ::CClientMetrics_EndGameRecording_Notification::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -8796,6 +9562,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& ClientMetrics::GetResponsePrototype(
     case 11:
       return ::NoResponse::default_instance();
     case 12:
+      return ::NoResponse::default_instance();
+    case 13:
       return ::NoResponse::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -8899,11 +9667,18 @@ void ClientMetrics_Stub::ReportClipShare(::PROTOBUF_NAMESPACE_ID::RpcController*
   channel_->CallMethod(descriptor()->method(11),
                        controller, request, response, done);
 }
+void ClientMetrics_Stub::ReportClipRange(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CClientMetrics_ClipRange_Notification* request,
+                              ::NoResponse* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(12),
+                       controller, request, response, done);
+}
 void ClientMetrics_Stub::ReportEndGameRecording(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CClientMetrics_EndGameRecording_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(12),
+  channel_->CallMethod(descriptor()->method(13),
                        controller, request, response, done);
 }
 
@@ -8971,6 +9746,12 @@ template<> PROTOBUF_NOINLINE ::CClientMetrics_ReportClientArgs_Notification* Are
 }
 template<> PROTOBUF_NOINLINE ::CClientMetrics_ClipShare_Notification* Arena::CreateMaybeMessage< ::CClientMetrics_ClipShare_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CClientMetrics_ClipShare_Notification >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge* Arena::CreateMaybeMessage< ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CClientMetrics_ClipRange_Notification_RelativeRangeEdge >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CClientMetrics_ClipRange_Notification* Arena::CreateMaybeMessage< ::CClientMetrics_ClipRange_Notification >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CClientMetrics_ClipRange_Notification >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CClientMetrics_EndGameRecording_Notification* Arena::CreateMaybeMessage< ::CClientMetrics_EndGameRecording_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CClientMetrics_EndGameRecording_Notification >(arena);

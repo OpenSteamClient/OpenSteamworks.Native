@@ -23860,6 +23860,7 @@ class CChatRoom_IncomingChatMessage_Notification PROTOBUF_FINAL :
     kMessageFieldNumber = 4,
     kMessageNoBbcodeFieldNumber = 9,
     kChatNameFieldNumber = 10,
+    kNotificationKeyFieldNumber = 11,
     kMentionsFieldNumber = 6,
     kServerMessageFieldNumber = 8,
     kChatGroupIdFieldNumber = 1,
@@ -23926,6 +23927,26 @@ class CChatRoom_IncomingChatMessage_Notification PROTOBUF_FINAL :
   const std::string& _internal_chat_name() const;
   void _internal_set_chat_name(const std::string& value);
   std::string* _internal_mutable_chat_name();
+  public:
+
+  // optional string notification_key = 11;
+  bool has_notification_key() const;
+  private:
+  bool _internal_has_notification_key() const;
+  public:
+  void clear_notification_key();
+  const std::string& notification_key() const;
+  void set_notification_key(const std::string& value);
+  void set_notification_key(std::string&& value);
+  void set_notification_key(const char* value);
+  void set_notification_key(const char* value, size_t size);
+  std::string* mutable_notification_key();
+  std::string* release_notification_key();
+  void set_allocated_notification_key(std::string* notification_key);
+  private:
+  const std::string& _internal_notification_key() const;
+  void _internal_set_notification_key(const std::string& value);
+  std::string* _internal_mutable_notification_key();
   public:
 
   // optional .CChatMentions mentions = 6;
@@ -24041,6 +24062,7 @@ class CChatRoom_IncomingChatMessage_Notification PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_no_bbcode_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr chat_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr notification_key_;
   ::CChatMentions* mentions_;
   ::ServerMessage* server_message_;
   ::PROTOBUF_NAMESPACE_ID::uint64 chat_group_id_;
@@ -42544,7 +42566,7 @@ CChatMentions::mutable_mention_accountids() {
 
 // optional uint64 chat_group_id = 1;
 inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_chat_group_id() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CChatRoom_IncomingChatMessage_Notification::has_chat_group_id() const {
@@ -42552,7 +42574,7 @@ inline bool CChatRoom_IncomingChatMessage_Notification::has_chat_group_id() cons
 }
 inline void CChatRoom_IncomingChatMessage_Notification::clear_chat_group_id() {
   chat_group_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CChatRoom_IncomingChatMessage_Notification::_internal_chat_group_id() const {
   return chat_group_id_;
@@ -42562,7 +42584,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CChatRoom_IncomingChatMessage_Notificatio
   return _internal_chat_group_id();
 }
 inline void CChatRoom_IncomingChatMessage_Notification::_internal_set_chat_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   chat_group_id_ = value;
 }
 inline void CChatRoom_IncomingChatMessage_Notification::set_chat_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -42572,7 +42594,7 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_chat_group_id(::PROT
 
 // optional uint64 chat_id = 2;
 inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_chat_id() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CChatRoom_IncomingChatMessage_Notification::has_chat_id() const {
@@ -42580,7 +42602,7 @@ inline bool CChatRoom_IncomingChatMessage_Notification::has_chat_id() const {
 }
 inline void CChatRoom_IncomingChatMessage_Notification::clear_chat_id() {
   chat_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CChatRoom_IncomingChatMessage_Notification::_internal_chat_id() const {
   return chat_id_;
@@ -42590,7 +42612,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CChatRoom_IncomingChatMessage_Notificatio
   return _internal_chat_id();
 }
 inline void CChatRoom_IncomingChatMessage_Notification::_internal_set_chat_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   chat_id_ = value;
 }
 inline void CChatRoom_IncomingChatMessage_Notification::set_chat_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -42600,7 +42622,7 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_chat_id(::PROTOBUF_N
 
 // optional fixed64 steamid_sender = 3;
 inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_steamid_sender() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CChatRoom_IncomingChatMessage_Notification::has_steamid_sender() const {
@@ -42608,7 +42630,7 @@ inline bool CChatRoom_IncomingChatMessage_Notification::has_steamid_sender() con
 }
 inline void CChatRoom_IncomingChatMessage_Notification::clear_steamid_sender() {
   steamid_sender_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CChatRoom_IncomingChatMessage_Notification::_internal_steamid_sender() const {
   return steamid_sender_;
@@ -42618,7 +42640,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CChatRoom_IncomingChatMessage_Notificatio
   return _internal_steamid_sender();
 }
 inline void CChatRoom_IncomingChatMessage_Notification::_internal_set_steamid_sender(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
   steamid_sender_ = value;
 }
 inline void CChatRoom_IncomingChatMessage_Notification::set_steamid_sender(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -42701,7 +42723,7 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_allocated_message(st
 
 // optional uint32 timestamp = 5;
 inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_timestamp() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CChatRoom_IncomingChatMessage_Notification::has_timestamp() const {
@@ -42709,7 +42731,7 @@ inline bool CChatRoom_IncomingChatMessage_Notification::has_timestamp() const {
 }
 inline void CChatRoom_IncomingChatMessage_Notification::clear_timestamp() {
   timestamp_ = 0u;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CChatRoom_IncomingChatMessage_Notification::_internal_timestamp() const {
   return timestamp_;
@@ -42719,7 +42741,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CChatRoom_IncomingChatMessage_Notificatio
   return _internal_timestamp();
 }
 inline void CChatRoom_IncomingChatMessage_Notification::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
   timestamp_ = value;
 }
 inline void CChatRoom_IncomingChatMessage_Notification::set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -42729,7 +42751,7 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_timestamp(::PROTOBUF
 
 // optional .CChatMentions mentions = 6;
 inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_mentions() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   PROTOBUF_ASSUME(!value || mentions_ != nullptr);
   return value;
 }
@@ -42738,7 +42760,7 @@ inline bool CChatRoom_IncomingChatMessage_Notification::has_mentions() const {
 }
 inline void CChatRoom_IncomingChatMessage_Notification::clear_mentions() {
   if (mentions_ != nullptr) mentions_->Clear();
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline const ::CChatMentions& CChatRoom_IncomingChatMessage_Notification::_internal_mentions() const {
   const ::CChatMentions* p = mentions_;
@@ -42756,14 +42778,14 @@ inline void CChatRoom_IncomingChatMessage_Notification::unsafe_arena_set_allocat
   }
   mentions_ = mentions;
   if (mentions) {
-    _has_bits_[0] |= 0x00000008u;
+    _has_bits_[0] |= 0x00000010u;
   } else {
-    _has_bits_[0] &= ~0x00000008u;
+    _has_bits_[0] &= ~0x00000010u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CChatRoom_IncomingChatMessage_Notification.mentions)
 }
 inline ::CChatMentions* CChatRoom_IncomingChatMessage_Notification::release_mentions() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
   ::CChatMentions* temp = mentions_;
   mentions_ = nullptr;
   if (GetArena() != nullptr) {
@@ -42773,13 +42795,13 @@ inline ::CChatMentions* CChatRoom_IncomingChatMessage_Notification::release_ment
 }
 inline ::CChatMentions* CChatRoom_IncomingChatMessage_Notification::unsafe_arena_release_mentions() {
   // @@protoc_insertion_point(field_release:CChatRoom_IncomingChatMessage_Notification.mentions)
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
   ::CChatMentions* temp = mentions_;
   mentions_ = nullptr;
   return temp;
 }
 inline ::CChatMentions* CChatRoom_IncomingChatMessage_Notification::_internal_mutable_mentions() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   if (mentions_ == nullptr) {
     auto* p = CreateMaybeMessage<::CChatMentions>(GetArena());
     mentions_ = p;
@@ -42802,9 +42824,9 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_allocated_mentions(:
       mentions = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, mentions, submessage_arena);
     }
-    _has_bits_[0] |= 0x00000008u;
+    _has_bits_[0] |= 0x00000010u;
   } else {
-    _has_bits_[0] &= ~0x00000008u;
+    _has_bits_[0] &= ~0x00000010u;
   }
   mentions_ = mentions;
   // @@protoc_insertion_point(field_set_allocated:CChatRoom_IncomingChatMessage_Notification.mentions)
@@ -42812,7 +42834,7 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_allocated_mentions(:
 
 // optional uint32 ordinal = 7;
 inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_ordinal() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CChatRoom_IncomingChatMessage_Notification::has_ordinal() const {
@@ -42820,7 +42842,7 @@ inline bool CChatRoom_IncomingChatMessage_Notification::has_ordinal() const {
 }
 inline void CChatRoom_IncomingChatMessage_Notification::clear_ordinal() {
   ordinal_ = 0u;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CChatRoom_IncomingChatMessage_Notification::_internal_ordinal() const {
   return ordinal_;
@@ -42830,7 +42852,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CChatRoom_IncomingChatMessage_Notificatio
   return _internal_ordinal();
 }
 inline void CChatRoom_IncomingChatMessage_Notification::_internal_set_ordinal(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
   ordinal_ = value;
 }
 inline void CChatRoom_IncomingChatMessage_Notification::set_ordinal(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -42840,7 +42862,7 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_ordinal(::PROTOBUF_N
 
 // optional .ServerMessage server_message = 8;
 inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_server_message() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   PROTOBUF_ASSUME(!value || server_message_ != nullptr);
   return value;
 }
@@ -42849,7 +42871,7 @@ inline bool CChatRoom_IncomingChatMessage_Notification::has_server_message() con
 }
 inline void CChatRoom_IncomingChatMessage_Notification::clear_server_message() {
   if (server_message_ != nullptr) server_message_->Clear();
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline const ::ServerMessage& CChatRoom_IncomingChatMessage_Notification::_internal_server_message() const {
   const ::ServerMessage* p = server_message_;
@@ -42867,14 +42889,14 @@ inline void CChatRoom_IncomingChatMessage_Notification::unsafe_arena_set_allocat
   }
   server_message_ = server_message;
   if (server_message) {
-    _has_bits_[0] |= 0x00000010u;
+    _has_bits_[0] |= 0x00000020u;
   } else {
-    _has_bits_[0] &= ~0x00000010u;
+    _has_bits_[0] &= ~0x00000020u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CChatRoom_IncomingChatMessage_Notification.server_message)
 }
 inline ::ServerMessage* CChatRoom_IncomingChatMessage_Notification::release_server_message() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
   ::ServerMessage* temp = server_message_;
   server_message_ = nullptr;
   if (GetArena() != nullptr) {
@@ -42884,13 +42906,13 @@ inline ::ServerMessage* CChatRoom_IncomingChatMessage_Notification::release_serv
 }
 inline ::ServerMessage* CChatRoom_IncomingChatMessage_Notification::unsafe_arena_release_server_message() {
   // @@protoc_insertion_point(field_release:CChatRoom_IncomingChatMessage_Notification.server_message)
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
   ::ServerMessage* temp = server_message_;
   server_message_ = nullptr;
   return temp;
 }
 inline ::ServerMessage* CChatRoom_IncomingChatMessage_Notification::_internal_mutable_server_message() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   if (server_message_ == nullptr) {
     auto* p = CreateMaybeMessage<::ServerMessage>(GetArena());
     server_message_ = p;
@@ -42913,9 +42935,9 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_allocated_server_mes
       server_message = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, server_message, submessage_arena);
     }
-    _has_bits_[0] |= 0x00000010u;
+    _has_bits_[0] |= 0x00000020u;
   } else {
-    _has_bits_[0] &= ~0x00000010u;
+    _has_bits_[0] &= ~0x00000020u;
   }
   server_message_ = server_message;
   // @@protoc_insertion_point(field_set_allocated:CChatRoom_IncomingChatMessage_Notification.server_message)
@@ -43065,6 +43087,79 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_allocated_chat_name(
   chat_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), chat_name,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CChatRoom_IncomingChatMessage_Notification.chat_name)
+}
+
+// optional string notification_key = 11;
+inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_notification_key() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CChatRoom_IncomingChatMessage_Notification::has_notification_key() const {
+  return _internal_has_notification_key();
+}
+inline void CChatRoom_IncomingChatMessage_Notification::clear_notification_key() {
+  notification_key_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline const std::string& CChatRoom_IncomingChatMessage_Notification::notification_key() const {
+  // @@protoc_insertion_point(field_get:CChatRoom_IncomingChatMessage_Notification.notification_key)
+  return _internal_notification_key();
+}
+inline void CChatRoom_IncomingChatMessage_Notification::set_notification_key(const std::string& value) {
+  _internal_set_notification_key(value);
+  // @@protoc_insertion_point(field_set:CChatRoom_IncomingChatMessage_Notification.notification_key)
+}
+inline std::string* CChatRoom_IncomingChatMessage_Notification::mutable_notification_key() {
+  // @@protoc_insertion_point(field_mutable:CChatRoom_IncomingChatMessage_Notification.notification_key)
+  return _internal_mutable_notification_key();
+}
+inline const std::string& CChatRoom_IncomingChatMessage_Notification::_internal_notification_key() const {
+  return notification_key_.Get();
+}
+inline void CChatRoom_IncomingChatMessage_Notification::_internal_set_notification_key(const std::string& value) {
+  _has_bits_[0] |= 0x00000008u;
+  notification_key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CChatRoom_IncomingChatMessage_Notification::set_notification_key(std::string&& value) {
+  _has_bits_[0] |= 0x00000008u;
+  notification_key_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CChatRoom_IncomingChatMessage_Notification.notification_key)
+}
+inline void CChatRoom_IncomingChatMessage_Notification::set_notification_key(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000008u;
+  notification_key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CChatRoom_IncomingChatMessage_Notification.notification_key)
+}
+inline void CChatRoom_IncomingChatMessage_Notification::set_notification_key(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000008u;
+  notification_key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CChatRoom_IncomingChatMessage_Notification.notification_key)
+}
+inline std::string* CChatRoom_IncomingChatMessage_Notification::_internal_mutable_notification_key() {
+  _has_bits_[0] |= 0x00000008u;
+  return notification_key_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CChatRoom_IncomingChatMessage_Notification::release_notification_key() {
+  // @@protoc_insertion_point(field_release:CChatRoom_IncomingChatMessage_Notification.notification_key)
+  if (!_internal_has_notification_key()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000008u;
+  return notification_key_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CChatRoom_IncomingChatMessage_Notification::set_allocated_notification_key(std::string* notification_key) {
+  if (notification_key != nullptr) {
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  notification_key_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), notification_key,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CChatRoom_IncomingChatMessage_Notification.notification_key)
 }
 
 // -------------------------------------------------------------------

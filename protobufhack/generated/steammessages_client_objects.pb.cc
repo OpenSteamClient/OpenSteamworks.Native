@@ -452,12 +452,11 @@ constexpr CMsgSystemPerfLimits::CMsgSystemPerfLimits(
   , nis_sharpness_max_(0)
   , display_external_refresh_manual_hz_min_(0)
   , display_external_refresh_manual_hz_max_(0)
-  , is_tearing_supported_(false)
   , is_vrr_supported_(false)
   , is_dynamic_refresh_rate_in_steam_supported_(false)
   , is_split_scaling_and_filtering_supported_(false)
-  , display_refresh_manual_hz_oc_max_(0)
   , is_hdr_supported_(false)
+  , display_refresh_manual_hz_oc_max_(0)
   , disable_refresh_rate_management_(false){}
 struct CMsgSystemPerfLimitsDefaultTypeInternal {
   constexpr CMsgSystemPerfLimitsDefaultTypeInternal()
@@ -1622,7 +1621,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLimits, display_external_refresh_manual_hz_min_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLimits, display_external_refresh_manual_hz_max_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLimits, fps_limit_options_external_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLimits, is_tearing_supported_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLimits, is_vrr_supported_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLimits, is_dynamic_refresh_rate_in_steam_supported_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfLimits, is_split_scaling_and_filtering_supported_),
@@ -1655,12 +1653,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   18,
   19,
   20,
+  ~0u,
+  ~0u,
   21,
-  ~0u,
-  ~0u,
-  23,
   22,
-  24,
+  23,
   PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfSettingsGlobal, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSystemPerfSettingsGlobal, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2400,51 +2397,51 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 327, 334, sizeof(::CMsgSystemPerfDiagnosticEntry)},
   { 336, 347, sizeof(::CMsgSystemPerfNetworkInterface)},
   { 353, 361, sizeof(::CMsgSystemPerfDiagnosticInfo)},
-  { 364, 399, sizeof(::CMsgSystemPerfLimits)},
-  { 429, 452, sizeof(::CMsgSystemPerfSettingsGlobal)},
-  { 470, 500, sizeof(::CMsgSystemPerfSettingsPerApp)},
-  { 525, 532, sizeof(::CMsgSystemPerfSettings)},
-  { 534, 560, sizeof(::CMsgSystemPerfSettingsV1)},
-  { 581, 590, sizeof(::CMsgSystemPerfState)},
-  { 594, 604, sizeof(::CMsgSystemPerfUpdateSettings)},
-  { 608, 615, sizeof(::CMsgSystemPerfLegacySettingEntry)},
-  { 617, 624, sizeof(::CMsgSystemPerfLegacySettings)},
-  { 626, 638, sizeof(::CMsgSystemDockUpdateState)},
-  { 645, 651, sizeof(::CMsgSystemDockState)},
-  { 652, 658, sizeof(::CMsgSystemDockUpdateFirmware)},
-  { 659, 666, sizeof(::CMsgSystemAudioVolume_ChannelEntry)},
-  { 668, 675, sizeof(::CMsgSystemAudioVolume)},
-  { 677, 684, sizeof(::CMsgSystemAudioManagerObject)},
-  { 686, 696, sizeof(::CMsgSystemAudioManagerDevice)},
-  { 701, 713, sizeof(::CMsgSystemAudioManagerNode)},
-  { 720, 735, sizeof(::CMsgSystemAudioManagerPort)},
-  { 745, 755, sizeof(::CMsgSystemAudioManagerLink)},
-  { 760, -1, sizeof(::CMsgSystemAudioManagerStateHW)},
-  { 769, 777, sizeof(::CMsgSystemAudioManagerState)},
-  { 780, 786, sizeof(::CMsgSystemAudioManagerUpdateSomething)},
-  { 787, 796, sizeof(::CMsgSystemDisplayMode)},
-  { 800, 823, sizeof(::CMsgSystemDisplay)},
-  { 841, 849, sizeof(::CMsgSystemDisplayManagerState)},
-  { 852, 859, sizeof(::CMsgSystemDisplayManagerSetMode)},
-  { 861, 902, sizeof(::CMsgSystemManagerSettings)},
-  { 938, 945, sizeof(::CMsgSelectOSBranchParams)},
-  { 947, 955, sizeof(::CMsgSystemUpdateProgress)},
-  { 958, 970, sizeof(::CMsgSystemUpdateCheckResult)},
-  { 977, -1, sizeof(::CMsgSystemUpdateApplyParams)},
-  { 983, 992, sizeof(::CMsgSystemUpdateApplyResult)},
-  { 996, 1006, sizeof(::CMsgSystemUpdateState)},
-  { 1011, 1017, sizeof(::CMsgAchievementChange)},
-  { 1018, 1025, sizeof(::CMsgCellList_Cell)},
-  { 1027, -1, sizeof(::CMsgCellList)},
-  { 1033, 1057, sizeof(::CMsgShortcutInfo)},
-  { 1076, -1, sizeof(::CMsgShortcutAppIds)},
-  { 1082, 1089, sizeof(::CMsgMonitorInfo_MonitorInfo)},
-  { 1091, 1098, sizeof(::CMsgMonitorInfo)},
-  { 1100, 1106, sizeof(::CMsgGenerateSystemReportReply)},
-  { 1107, 1114, sizeof(::CMsgWebUITransportInfo)},
-  { 1116, 1122, sizeof(::CMsgWebUITransportFailure)},
-  { 1123, 1131, sizeof(::CMsgClientShaderHitCacheEntry)},
-  { 1134, -1, sizeof(::CMsgClientShaderHitCache)},
+  { 364, 398, sizeof(::CMsgSystemPerfLimits)},
+  { 427, 450, sizeof(::CMsgSystemPerfSettingsGlobal)},
+  { 468, 498, sizeof(::CMsgSystemPerfSettingsPerApp)},
+  { 523, 530, sizeof(::CMsgSystemPerfSettings)},
+  { 532, 558, sizeof(::CMsgSystemPerfSettingsV1)},
+  { 579, 588, sizeof(::CMsgSystemPerfState)},
+  { 592, 602, sizeof(::CMsgSystemPerfUpdateSettings)},
+  { 606, 613, sizeof(::CMsgSystemPerfLegacySettingEntry)},
+  { 615, 622, sizeof(::CMsgSystemPerfLegacySettings)},
+  { 624, 636, sizeof(::CMsgSystemDockUpdateState)},
+  { 643, 649, sizeof(::CMsgSystemDockState)},
+  { 650, 656, sizeof(::CMsgSystemDockUpdateFirmware)},
+  { 657, 664, sizeof(::CMsgSystemAudioVolume_ChannelEntry)},
+  { 666, 673, sizeof(::CMsgSystemAudioVolume)},
+  { 675, 682, sizeof(::CMsgSystemAudioManagerObject)},
+  { 684, 694, sizeof(::CMsgSystemAudioManagerDevice)},
+  { 699, 711, sizeof(::CMsgSystemAudioManagerNode)},
+  { 718, 733, sizeof(::CMsgSystemAudioManagerPort)},
+  { 743, 753, sizeof(::CMsgSystemAudioManagerLink)},
+  { 758, -1, sizeof(::CMsgSystemAudioManagerStateHW)},
+  { 767, 775, sizeof(::CMsgSystemAudioManagerState)},
+  { 778, 784, sizeof(::CMsgSystemAudioManagerUpdateSomething)},
+  { 785, 794, sizeof(::CMsgSystemDisplayMode)},
+  { 798, 821, sizeof(::CMsgSystemDisplay)},
+  { 839, 847, sizeof(::CMsgSystemDisplayManagerState)},
+  { 850, 857, sizeof(::CMsgSystemDisplayManagerSetMode)},
+  { 859, 900, sizeof(::CMsgSystemManagerSettings)},
+  { 936, 943, sizeof(::CMsgSelectOSBranchParams)},
+  { 945, 953, sizeof(::CMsgSystemUpdateProgress)},
+  { 956, 968, sizeof(::CMsgSystemUpdateCheckResult)},
+  { 975, -1, sizeof(::CMsgSystemUpdateApplyParams)},
+  { 981, 990, sizeof(::CMsgSystemUpdateApplyResult)},
+  { 994, 1004, sizeof(::CMsgSystemUpdateState)},
+  { 1009, 1015, sizeof(::CMsgAchievementChange)},
+  { 1016, 1023, sizeof(::CMsgCellList_Cell)},
+  { 1025, -1, sizeof(::CMsgCellList)},
+  { 1031, 1055, sizeof(::CMsgShortcutInfo)},
+  { 1074, -1, sizeof(::CMsgShortcutAppIds)},
+  { 1080, 1087, sizeof(::CMsgMonitorInfo_MonitorInfo)},
+  { 1089, 1096, sizeof(::CMsgMonitorInfo)},
+  { 1098, 1104, sizeof(::CMsgGenerateSystemReportReply)},
+  { 1105, 1112, sizeof(::CMsgWebUITransportInfo)},
+  { 1114, 1120, sizeof(::CMsgWebUITransportFailure)},
+  { 1121, 1129, sizeof(::CMsgClientShaderHitCacheEntry)},
+  { 1132, -1, sizeof(::CMsgClientShaderHitCache)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2627,7 +2624,7 @@ const char descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto[] 
   "entries\030\001 \003(\0132\036.CMsgSystemPerfDiagnostic"
   "Entry\0223\n\ninterfaces\030\002 \003(\0132\037.CMsgSystemPe"
   "rfNetworkInterface\022\026\n\016battery_temp_c\030\003 \001"
-  "(\002\"\223\t\n\024CMsgSystemPerfLimits\022#\n\033cpu_gover"
+  "(\002\"\365\010\n\024CMsgSystemPerfLimits\022#\n\033cpu_gover"
   "nor_manual_min_mhz\030\001 \001(\005\022#\n\033cpu_governor"
   "_manual_max_mhz\030\002 \001(\005\022\031\n\021fsr_sharpness_m"
   "in\030\003 \001(\005\022\031\n\021fsr_sharpness_max\030\004 \001(\005\022&\n\036g"
@@ -2646,311 +2643,310 @@ const char descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto[] 
   "s_max\030\022 \001(\005\022.\n&display_external_refresh_"
   "manual_hz_min\030\023 \001(\005\022.\n&display_external_"
   "refresh_manual_hz_max\030\024 \001(\005\022\"\n\032fps_limit"
-  "_options_external\030\025 \003(\005\022\034\n\024is_tearing_su"
-  "pported\030\026 \001(\010\022\030\n\020is_vrr_supported\030\027 \001(\010\022"
-  "2\n*is_dynamic_refresh_rate_in_steam_supp"
-  "orted\030\030 \001(\010\0220\n(is_split_scaling_and_filt"
-  "ering_supported\030\031 \001(\010\022=\n\037split_scaling_f"
-  "ilters_available\030\032 \003(\0162\024.ESplitScalingFi"
-  "lter\022=\n\037split_scaling_scalers_available\030"
-  "\033 \003(\0162\024.ESplitScalingScaler\022\030\n\020is_hdr_su"
-  "pported\030\034 \001(\010\022(\n display_refresh_manual_"
-  "hz_oc_max\030\035 \001(\005\022\'\n\037disable_refresh_rate_"
-  "management\030\036 \001(\010\"\302\007\n\034CMsgSystemPerfSetti"
-  "ngsGlobal\022\036\n\026diagnostic_update_rate\030\001 \001("
-  "\002\022Y\n\032system_trace_service_state\030\002 \001(\0162\024."
-  "ESystemServiceState:\037ESystemServiceState"
-  "_Unavailable\022_\n graphics_profiling_servi"
-  "ce_state\030\003 \001(\0162\024.ESystemServiceState:\037ES"
-  "ystemServiceState_Unavailable\022Y\n\032perf_ov"
-  "erlay_service_state\030\004 \001(\0162\024.ESystemServi"
-  "ceState:\037ESystemServiceState_Unavailable"
-  "\022X\n\022perf_overlay_level\030\005 \001(\0162\032.EGraphics"
-  "PerfOverlayLevel: EGraphicsPerfOverlayLe"
-  "vel_Hidden\022/\n\'is_show_perf_overlay_over_"
-  "steam_enabled\030\006 \001(\010\022$\n\034is_advanced_setti"
-  "ngs_enabled\030\007 \001(\010\022.\n&allow_external_disp"
-  "lay_refresh_control\030\010 \001(\010\022\026\n\016is_hdr_enab"
-  "led\030\t \001(\010\022V\n\033hdr_on_sdr_tonemap_operator"
-  "\030\014 \001(\0162\024.EHDRToneMapOperator:\033EHDRToneMa"
-  "pOperator_Invalid\022$\n\034is_hdr_debug_heatma"
-  "p_enabled\030\r \001(\010\022+\n\035force_hdr_wide_gammut"
-  "_for_sdr\030\017 \001(\010:\004true\022\036\n\026allow_experiment"
-  "al_hdr\030\020 \001(\010\022\035\n\025sdr_to_hdr_brightness\030\026 "
-  "\001(\002\022\037\n\027debug_force_hdr_support\030\022 \001(\010\022#\n\033"
-  "force_hdr_10pq_output_debug\030\023 \001(\010\022\035\n\025is_"
-  "display_oc_enabled\030\024 \001(\010\022#\n\033is_color_man"
-  "agement_enabled\030\025 \001(\010\"\337\007\n\034CMsgSystemPerf"
-  "SettingsPerApp\022\"\n\032gpu_performance_manual"
-  "_mhz\030\001 \001(\005\022\021\n\tfps_limit\030\002 \001(\005\022&\n\036is_vari"
-  "able_resolution_enabled\030\003 \001(\010\022\'\n\037is_dyna"
-  "mic_refresh_rate_enabled\030\004 \001(\010\022\021\n\ttdp_li"
-  "mit\030\005 \001(\005\0229\n\014cpu_governor\030\006 \001(\0162\r.ECPUGo"
-  "vernor:\024ECPUGovernor_Invalid\022\037\n\027cpu_gove"
-  "rnor_manual_mhz\030\007 \001(\005\022\026\n\016scaling_filter\030"
-  "\010 \001(\005\022\025\n\rfsr_sharpness\030\t \001(\005\022\034\n\024is_fps_l"
-  "imit_enabled\030\n \001(\010\022\034\n\024is_tdp_limit_enabl"
-  "ed\030\013 \001(\010\022#\n\033is_low_latency_mode_enabled\030"
-  "\014 \001(\010\022!\n\031display_refresh_manual_hz\030\r \001(\005"
-  "\022$\n\034is_game_perf_profile_enabled\030\016 \001(\010\022R"
-  "\n\025gpu_performance_level\030\017 \001(\0162\025.EGPUPerf"
-  "ormanceLevel:\034EGPUPerformanceLevel_Inval"
-  "id\022\025\n\rnis_sharpness\030\020 \001(\005\022*\n\"display_ext"
-  "ernal_refresh_manual_hz\030\021 \001(\005\022\032\n\022fps_lim"
-  "it_external\030\022 \001(\005\022\032\n\022is_tearing_enabled\030"
-  "\023 \001(\010\022\026\n\016is_vrr_enabled\030\024 \001(\010\022\"\n\032is_comp"
-  "osite_debug_enabled\030\025 \001(\010\022\027\n\017force_compo"
-  "site\030\026 \001(\010\022)\n!use_dynamic_refresh_rate_i"
-  "n_steam\030\027 \001(\010\022O\n\024split_scaling_filter\030\030 "
-  "\001(\0162\024.ESplitScalingFilter:\033ESplitScaling"
-  "Filter_Invalid\022O\n\024split_scaling_scaler\030\031"
-  " \001(\0162\024.ESplitScalingScaler:\033ESplitScalin"
-  "gScaler_Invalid\"w\n\026CMsgSystemPerfSetting"
-  "s\022-\n\006global\030\001 \001(\0132\035.CMsgSystemPerfSettin"
-  "gsGlobal\022.\n\007per_app\030\002 \001(\0132\035.CMsgSystemPe"
-  "rfSettingsPerApp\"\200\010\n\030CMsgSystemPerfSetti"
-  "ngsV1\022\036\n\026diagnostic_update_rate\030\001 \001(\002\022Y\n"
-  "\032system_trace_service_state\030\002 \001(\0162\024.ESys"
-  "temServiceState:\037ESystemServiceState_Una"
-  "vailable\022_\n graphics_profiling_service_s"
-  "tate\030\003 \001(\0162\024.ESystemServiceState:\037ESyste"
-  "mServiceState_Unavailable\022Y\n\032perf_overla"
-  "y_service_state\030\004 \001(\0162\024.ESystemServiceSt"
-  "ate:\037ESystemServiceState_Unavailable\022X\n\022"
-  "perf_overlay_level\030\005 \001(\0162\032.EGraphicsPerf"
-  "OverlayLevel: EGraphicsPerfOverlayLevel_"
-  "Hidden\022R\n\025gpu_performance_level\030\006 \001(\0162\025."
-  "EGPUPerformanceLevel:\034EGPUPerformanceLev"
-  "el_Invalid\022\"\n\032gpu_performance_manual_mhz"
-  "\030\007 \001(\005\022\021\n\tfps_limit\030\010 \001(\005\022&\n\036is_variable"
-  "_resolution_enabled\030\t \001(\010\022\'\n\037is_dynamic_"
-  "refresh_rate_enabled\030\n \001(\010\022\021\n\ttdp_limit\030"
-  "\013 \001(\005\0229\n\014cpu_governor\030\014 \001(\0162\r.ECPUGovern"
-  "or:\024ECPUGovernor_Invalid\022\037\n\027cpu_governor"
-  "_manual_mhz\030\r \001(\005\022\026\n\016scaling_filter\030\016 \001("
-  "\005\022\025\n\rfsr_sharpness\030\017 \001(\005\022\034\n\024is_fps_limit"
-  "_enabled\030\020 \001(\010\022\034\n\024is_tdp_limit_enabled\030\021"
-  " \001(\010\022/\n\'is_show_perf_overlay_over_steam_"
-  "enabled\030\022 \001(\010\022#\n\033is_low_latency_mode_ena"
-  "bled\030\023 \001(\010\022!\n\031display_refresh_manual_hz\030"
-  "\024 \001(\005\022$\n\034is_game_perf_profile_enabled\030\025 "
-  "\001(\010\"\240\001\n\023CMsgSystemPerfState\022%\n\006limits\030\001 "
-  "\001(\0132\025.CMsgSystemPerfLimits\022)\n\010settings\030\002"
-  " \001(\0132\027.CMsgSystemPerfSettings\022\027\n\017current"
-  "_game_id\030\003 \001(\004\022\036\n\026active_profile_game_id"
-  "\030\004 \001(\004\"\244\001\n\034CMsgSystemPerfUpdateSettings\022"
-  "\016\n\006gameid\030\001 \001(\004\022\033\n\023skip_storage_update\030\004"
-  " \001(\010\022\032\n\020reset_to_default\030\002 \001(\010H\000\0221\n\016sett"
-  "ings_delta\030\003 \001(\0132\027.CMsgSystemPerfSetting"
-  "sH\000B\010\n\006update\"l\n CMsgSystemPerfLegacySet"
-  "tingEntry\022\027\n\017profile_game_id\030\001 \001(\004\022/\n\010se"
-  "ttings\030\002 \001(\0132\035.CMsgSystemPerfSettingsPer"
-  "App\"\212\001\n\034CMsgSystemPerfLegacySettings\022-\n\006"
-  "global\030\001 \001(\0132\035.CMsgSystemPerfSettingsGlo"
-  "bal\022;\n\020per_app_settings\030\002 \003(\0132!.CMsgSyst"
-  "emPerfLegacySettingEntry\"\370\001\n\031CMsgSystemD"
-  "ockUpdateState\0224\n\005state\030\001 \001(\0162\016.EUpdater"
-  "State:\025EUpdaterState_Invalid\022\032\n\022rtime_la"
-  "st_checked\030\002 \001(\007\022\027\n\017version_current\030\003 \001("
-  "\t\022\031\n\021version_available\030\004 \001(\t\022\026\n\016stage_pr"
-  "ogress\030\005 \001(\002\022\"\n\032rtime_estimated_completi"
-  "on\030\006 \001(\007\022\031\n\021old_fw_workaround\030\007 \001(\005\"G\n\023C"
-  "MsgSystemDockState\0220\n\014update_state\030\001 \001(\013"
-  "2\032.CMsgSystemDockUpdateState\"0\n\034CMsgSyst"
-  "emDockUpdateFirmware\022\020\n\010checonly\030\001 \001(\010\"\303"
-  "\001\n\025CMsgSystemAudioVolume\0224\n\007entries\030\001 \003("
-  "\0132#.CMsgSystemAudioVolume.ChannelEntry\022\020"
-  "\n\010is_muted\030\002 \001(\010\032b\n\014ChannelEntry\022B\n\010echa"
-  "nnel\030\001 \001(\0162\024.ESystemAudioChannel:\032System"
-  "AudioChannel_Invalid\022\016\n\006volume\030\002 \001(\002\"E\n\034"
-  "CMsgSystemAudioManagerObject\022\n\n\002id\030\001 \001(\r"
-  "\022\031\n\021rtime_last_update\030\002 \001(\007\"\211\001\n\034CMsgSyst"
-  "emAudioManagerDevice\022+\n\004base\030\001 \001(\0132\035.CMs"
-  "gSystemAudioManagerObject\022\014\n\004name\030\002 \001(\t\022"
-  "\014\n\004nick\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\013\n\003ap"
-  "i\030\005 \001(\t\"\377\001\n\032CMsgSystemAudioManagerNode\022+"
-  "\n\004base\030\001 \001(\0132\035.CMsgSystemAudioManagerObj"
-  "ect\022\021\n\tdevice_id\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\014\n\004"
-  "nick\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022H\n\nedire"
-  "ction\030\006 \001(\0162\026.ESystemAudioDirection:\034Sys"
-  "temAudioDirection_Invalid\022&\n\006volume\030\007 \001("
-  "\0132\026.CMsgSystemAudioVolume\"\336\002\n\032CMsgSystem"
-  "AudioManagerPort\022+\n\004base\030\001 \001(\0132\035.CMsgSys"
-  "temAudioManagerObject\022\017\n\007node_id\030\003 \001(\r\022\014"
-  "\n\004name\030\004 \001(\t\022\r\n\005alias\030\005 \001(\t\022A\n\005etype\030\006 \001"
-  "(\0162\025.ESystemAudioPortType:\033SystemAudioPo"
-  "rtType_Invalid\022P\n\nedirection\030\007 \001(\0162\032.ESy"
-  "stemAudioPortDirection: SystemAudioPortD"
-  "irection_Invalid\022\023\n\013is_physical\030\010 \001(\010\022\023\n"
-  "\013is_terminal\030\t \001(\010\022\022\n\nis_control\030\n \001(\010\022\022"
-  "\n\nis_monitor\030\013 \001(\010\"\247\001\n\032CMsgSystemAudioMa"
-  "nagerLink\022+\n\004base\030\001 \001(\0132\035.CMsgSystemAudi"
-  "oManagerObject\022\026\n\016output_node_id\030\002 \001(\r\022\026"
-  "\n\016output_port_id\030\003 \001(\r\022\025\n\rinput_node_id\030"
-  "\004 \001(\r\022\025\n\rinput_port_id\030\005 \001(\r\"\323\001\n\035CMsgSys"
-  "temAudioManagerStateHW\022.\n\007devices\030\001 \003(\0132"
-  "\035.CMsgSystemAudioManagerDevice\022*\n\005nodes\030"
-  "\002 \003(\0132\033.CMsgSystemAudioManagerNode\022*\n\005po"
-  "rts\030\003 \003(\0132\033.CMsgSystemAudioManagerPort\022*"
-  "\n\005links\030\004 \003(\0132\033.CMsgSystemAudioManagerLi"
-  "nk\"p\n\033CMsgSystemAudioManagerState\022\024\n\014rti"
-  "me_filter\030\001 \001(\007\022\017\n\007counter\030\002 \001(\005\022*\n\002hw\030\003"
-  " \001(\0132\036.CMsgSystemAudioManagerStateHW\"8\n%"
-  "CMsgSystemAudioManagerUpdateSomething\022\017\n"
-  "\007counter\030\001 \001(\005\"V\n\025CMsgSystemDisplayMode\022"
-  "\n\n\002id\030\001 \001(\005\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001"
-  "(\005\022\022\n\nrefresh_hz\030\004 \001(\005\"\264\003\n\021CMsgSystemDis"
-  "play\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013descri"
-  "ption\030\003 \001(\t\022\022\n\nis_primary\030\004 \001(\010\022\022\n\nis_en"
-  "abled\030\005 \001(\010\022\023\n\013is_internal\030\006 \001(\010\022\031\n\021has_"
-  "mode_override\030\007 \001(\010\022\020\n\010width_mm\030\010 \001(\005\022\021\n"
-  "\theight_mm\030\t \001(\005\022\027\n\017current_mode_id\030\n \001("
-  "\005\022%\n\005modes\030\013 \003(\0132\026.CMsgSystemDisplayMode"
-  "\022\030\n\020refresh_rate_min\030\014 \001(\005\022\030\n\020refresh_ra"
-  "te_max\030\r \001(\005\022\026\n\016is_vrr_capable\030\016 \001(\010\022\026\n\016"
-  "is_vrr_enabled\030\017 \001(\010\022\026\n\016is_hdr_capable\030\020"
-  " \001(\010\022\026\n\016is_hdr_enabled\030\021 \001(\010\022\037\n\027supporte"
-  "d_refresh_rates\030\022 \003(\005\"\321\001\n\035CMsgSystemDisp"
-  "layManagerState\022$\n\010displays\030\001 \003(\0132\022.CMsg"
-  "SystemDisplay\022#\n\033is_mode_switching_suppo"
-  "rted\030\002 \001(\010\022e\n\022compatibility_mode\030\003 \001(\0162 "
-  ".ESystemDisplayCompatibilityMode:\'ESyste"
-  "mDisplayCompatibilityMode_Invalid\"F\n\037CMs"
-  "gSystemDisplayManagerSetMode\022\022\n\ndisplay_"
-  "id\030\001 \001(\005\022\017\n\007mode_id\030\002 \001(\005\"\234\013\n\031CMsgSystem"
-  "ManagerSettings\022*\n\"idle_backlight_dim_ba"
-  "ttery_seconds\030\001 \001(\002\022%\n\035idle_backlight_di"
-  "m_ac_seconds\030\002 \001(\002\022$\n\034idle_suspend_batte"
-  "ry_seconds\030\003 \001(\002\022\037\n\027idle_suspend_ac_seco"
-  "nds\030\004 \001(\002\022\036\n\026idle_suspend_supressed\030\005 \001("
-  "\010\022(\n is_adaptive_brightness_available\030\006 "
-  "\001(\010\022+\n#display_adaptive_brightness_enabl"
-  "ed\030\007 \001(\010\022!\n\031display_nightmode_enabled\030\n "
-  "\001(\010\022&\n\036display_nightmode_tintstrength\030\013 "
-  "\001(\002\022 \n\030display_nightmode_maxhue\030\014 \001(\002\022 \n"
-  "\030display_nightmode_maxsat\030\r \001(\002\022\037\n\027displ"
-  "ay_nightmode_uiexp\030\016 \001(\002\022\037\n\027display_nigh"
-  "tmode_blend\030\017 \001(\002\022\037\n\027display_nightmode_r"
-  "eset\030\020 \001(\010\022*\n\"display_nightmode_schedule"
-  "_enabled\030\021 \001(\010\022,\n$display_nightmode_sche"
-  "dule_starttime\030\022 \001(\002\022*\n\"display_nightmod"
-  "e_schedule_endtime\030\023 \001(\002\022#\n\033display_diag"
-  "nostics_enabled\030\024 \001(\010\022\027\n\017als_lux_primary"
-  "\030\025 \001(\002\022\026\n\016als_lux_median\030\026 \001(\002\022\035\n\025displa"
-  "y_backlight_raw\030\027 \001(\002\022&\n\036display_brightn"
-  "ess_adaptivemin\030\030 \001(\002\022&\n\036display_brightn"
-  "ess_adaptivemax\030\031 \001(\002\022!\n\031is_wifi_powersa"
-  "ve_enabled\030\032 \001(\010\022 \n\030is_fan_control_avail"
-  "able\030\033 \001(\010\022N\n\020fan_control_mode\030\034 \001(\0162\026.E"
-  "SystemFanControlMode:\034SystemFanControlMo"
-  "de_Invalid\022\'\n\037is_display_brightness_avai"
-  "lable\030\035 \001(\010\022,\n$is_display_colormanagemen"
-  "t_available\030\037 \001(\010\022\032\n\022display_colorgamut\030"
-  "  \001(\002\022\031\n\021als_lux_alternate\030! \001(\002\022&\n\036is_d"
-  "isplay_colortemp_available\030\" \001(\010\022\031\n\021disp"
-  "lay_colortemp\030# \001(\002\022!\n\031display_colortemp"
-  "_default\030$ \001(\002\022!\n\031display_colortemp_enab"
-  "led\030% \001(\010\022U\n\033display_colorgamut_labelset"
-  "\030& \001(\0162\024.EColorGamutLabelSet:\032ColorGamut"
-  "LabelSet_Default\022.\n&display_brightness_o"
-  "verdrive_hdr_split\030\' \001(\002\"`\n\030CMsgSelectOS"
-  "BranchParams\022-\n\006branch\030\001 \001(\0162\n.EOSBranch"
-  ":\021EOSBranch_Unknown\022\025\n\rcustom_branch\030\002 \001"
-  "(\t\"p\n\030CMsgSystemUpdateProgress\022\026\n\016stage_"
-  "progress\030\001 \001(\002\022\030\n\020stage_size_bytes\030\002 \001(\003"
-  "\022\"\n\032rtime_estimated_completion\030\003 \001(\007\"\325\001\n"
-  "\033CMsgSystemUpdateCheckResult\0221\n\004type\030\001 \001"
-  "(\0162\r.EUpdaterType:\024EUpdaterType_Invalid\022"
-  "\022\n\007eresult\030\002 \001(\r:\0012\022\025\n\rrtime_checked\030\003 \001"
-  "(\007\022\021\n\tavailable\030\004 \001(\010\022\017\n\007version\030\005 \001(\t\022\024"
-  "\n\014auto_message\030\006 \001(\t\022\036\n\026system_restart_p"
-  "ending\030\007 \001(\010\"A\n\033CMsgSystemUpdateApplyPar"
-  "ams\022\"\n\013apply_types\030\001 \003(\0162\r.EUpdaterType\""
-  "\264\001\n\033CMsgSystemUpdateApplyResult\0221\n\004type\030"
-  "\001 \001(\0162\r.EUpdaterType:\024EUpdaterType_Inval"
-  "id\022\022\n\007eresult\030\002 \001(\r:\0012\022&\n\027requires_clien"
-  "t_restart\030\003 \001(\010:\005false\022&\n\027requires_syste"
-  "m_restart\030\004 \001(\010:\005false\"\215\002\n\025CMsgSystemUpd"
-  "ateState\0224\n\005state\030\001 \001(\0162\016.EUpdaterState:"
-  "\025EUpdaterState_Invalid\022+\n\010progress\030\002 \001(\013"
-  "2\031.CMsgSystemUpdateProgress\0228\n\022update_ch"
-  "ecresults\030\003 \003(\0132\034.CMsgSystemUpdateCheckR"
-  "esult\022:\n\024update_apply_results\030\004 \003(\0132\034.CM"
-  "sgSystemUpdateApplyResult\022\033\n\023supports_os"
-  "_updates\030\005 \001(\010\"&\n\025CMsgAchievementChange\022"
-  "\r\n\005appid\030\001 \001(\r\"\\\n\014CMsgCellList\022!\n\005cells\030"
-  "\001 \003(\0132\022.CMsgCellList.Cell\032)\n\004Cell\022\017\n\007cel"
-  "l_id\030\001 \001(\r\022\020\n\010loc_name\030\002 \001(\t\"\214\003\n\020CMsgSho"
-  "rtcutInfo\022\r\n\005appid\030\001 \001(\r\022\013\n\003exe\030\002 \001(\t\022\021\n"
-  "\tstart_dir\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\014\n\004path\030\005"
-  " \001(\t\022\014\n\004args\030\006 \001(\t\022\020\n\010app_name\030\007 \001(\t\022\026\n\016"
-  "override_appid\030\010 \001(\r\022\023\n\013flatpaappid\030\t \001("
-  "\t\022\014\n\004tags\030\n \003(\t\022\021\n\tis_remote\030\013 \001(\010\022\021\n\tis"
-  "_hidden\030\014 \001(\010\022\024\n\014is_temporary\030\r \001(\010\022\021\n\ti"
-  "s_openvr\030\016 \001(\010\022\034\n\024allow_desktop_config\030\017"
-  " \001(\010\022\025\n\rallow_overlay\030\020 \001(\010\022\033\n\023rt_last_p"
-  "layed_time\030\021 \001(\r\022\032\n\022is_devkit_shortcut\030\022"
-  " \001(\010\022\025\n\rdevkit_gameid\030\023 \001(\t\"$\n\022CMsgShort"
-  "cutAppIds\022\016\n\006appids\030\001 \003(\r\"\252\001\n\017CMsgMonito"
-  "rInfo\022\035\n\025selected_display_name\030\001 \002(\t\022.\n\010"
-  "monitors\030\002 \003(\0132\034.CMsgMonitorInfo.Monitor"
-  "Info\032H\n\013MonitorInfo\022\033\n\023monitor_device_na"
-  "me\030\001 \002(\t\022\034\n\024monitor_display_name\030\002 \002(\t\"2"
-  "\n\035CMsgGenerateSystemReportReply\022\021\n\trepor"
-  "t_id\030\001 \001(\t\"8\n\026CMsgWebUITransportInfo\022\014\n\004"
-  "port\030\001 \001(\r\022\020\n\010auth_key\030\002 \001(\t\"2\n\031CMsgWebU"
-  "ITransportFailure\022\025\n\rconnect_count\030\001 \001(\r"
-  "\"^\n\035CMsgClientShaderHitCacheEntry\022\017\n\007key"
-  "_sha\030\001 \001(\014\022\020\n\010code_sha\030\002 \001(\014\022\032\n\022time_las"
-  "t_reported\030\003 \001(\004\"K\n\030CMsgClientShaderHitC"
-  "ache\022/\n\007entries\030\001 \003(\0132\036.CMsgClientShader"
-  "HitCacheEntry*\214\002\n\034ECloudPendingRemoteOpe"
-  "ration\022$\n ECloudPendingRemoteOperationNo"
-  "ne\020\000\0220\n,ECloudPendingRemoteOperationAppS"
-  "essionActive\020\001\0220\n,ECloudPendingRemoteOpe"
-  "rationUploadInProgress\020\002\022-\n)ECloudPendin"
-  "gRemoteOperationUploadPending\020\003\0223\n/EClou"
-  "dPendingRemoteOperationAppSessionSuspend"
-  "ed\020\004*\202\014\n\030ESteamDeckKeyboardLayout\022#\n\037ESt"
-  "eamDeckKeyboardLayout_QWERTY\020\000\022&\n\"ESteam"
-  "DeckKeyboardLayout_Bulgarian\020\001\022/\n+ESteam"
-  "DeckKeyboardLayout_Chinese_Simplified\020\002\022"
-  "0\n,ESteamDeckKeyboardLayout_Chinese_Trad"
-  "itional\020\003\022\"\n\036ESteamDeckKeyboardLayout_Cz"
-  "ech\020\004\022#\n\037ESteamDeckKeyboardLayout_Danish"
-  "\020\005\022$\n ESteamDeckKeyboardLayout_Finnish\020\006"
-  "\022#\n\037ESteamDeckKeyboardLayout_French\020\007\022#\n"
-  "\037ESteamDeckKeyboardLayout_German\020\010\022\"\n\036ES"
-  "teamDeckKeyboardLayout_Greek\020\t\022&\n\"ESteam"
-  "DeckKeyboardLayout_Hungarian\020\n\022$\n ESteam"
-  "DeckKeyboardLayout_Italian\020\013\022%\n!ESteamDe"
-  "ckKeyboardLayout_Japanese\020\014\022#\n\037ESteamDec"
-  "kKeyboardLayout_Korean\020\r\022&\n\"ESteamDeckKe"
-  "yboardLayout_Norwegian\020\016\022#\n\037ESteamDeckKe"
-  "yboardLayout_Polish\020\017\022\'\n#ESteamDeckKeybo"
-  "ardLayout_Portuguese\020\020\022%\n!ESteamDeckKeyb"
-  "oardLayout_Romanian\020\021\022$\n ESteamDeckKeybo"
-  "ardLayout_Russian\020\022\022$\n ESteamDeckKeyboar"
-  "dLayout_Spanish\020\023\022$\n ESteamDeckKeyboardL"
-  "ayout_Swedish\020\024\022!\n\035ESteamDeckKeyboardLay"
-  "out_Thai\020\025\022&\n\"ESteamDeckKeyboardLayout_T"
-  "urkish_F\020\026\022&\n\"ESteamDeckKeyboardLayout_T"
-  "urkish_Q\020\027\022&\n\"ESteamDeckKeyboardLayout_U"
-  "krainian\020\030\022\'\n#ESteamDeckKeyboardLayout_V"
-  "ietnamese\020\031\0221\n-ESteamDeckKeyboardLayout_"
-  "QWERTY_International\020\032\022#\n\037ESteamDeckKeyb"
-  "oardLayout_Dvorak\020\033\022$\n ESteamDeckKeyboar"
-  "dLayout_Colemak\020\034\022;\n7ESteamDeckKeyboardL"
-  "ayout_Bulgarian_Phonetic_Traditional\020\035\022/"
-  "\n+ESteamDeckKeyboardLayout_Bulgarian_Pho"
-  "netic\020\036\0229\n5ESteamDeckKeyboardLayout_Chin"
-  "ese_Traditional_Bopomofo\020\037\0228\n4ESteamDeck"
-  "KeyboardLayout_Chinese_Traditional_Cangj"
-  "ie\020 \022*\n&ESteamDeckKeyboardLayout_Japanes"
-  "e_Kana\020!\0226\n2ESteamDeckKeyboardLayout_Chi"
-  "nese_Traditional_Quick\020\"\022\'\n#ESteamDeckKe"
-  "yboardLayout_Indonesian\020#B\037H\001\200\001\000\252\002\027OpenS"
-  "teamworks.Protobuf"
+  "_options_external\030\025 \003(\005\022\030\n\020is_vrr_suppor"
+  "ted\030\027 \001(\010\0222\n*is_dynamic_refresh_rate_in_"
+  "steam_supported\030\030 \001(\010\0220\n(is_split_scalin"
+  "g_and_filtering_supported\030\031 \001(\010\022=\n\037split"
+  "_scaling_filters_available\030\032 \003(\0162\024.ESpli"
+  "tScalingFilter\022=\n\037split_scaling_scalers_"
+  "available\030\033 \003(\0162\024.ESplitScalingScaler\022\030\n"
+  "\020is_hdr_supported\030\034 \001(\010\022(\n display_refre"
+  "sh_manual_hz_oc_max\030\035 \001(\005\022\'\n\037disable_ref"
+  "resh_rate_management\030\036 \001(\010\"\302\007\n\034CMsgSyste"
+  "mPerfSettingsGlobal\022\036\n\026diagnostic_update"
+  "_rate\030\001 \001(\002\022Y\n\032system_trace_service_stat"
+  "e\030\002 \001(\0162\024.ESystemServiceState:\037ESystemSe"
+  "rviceState_Unavailable\022_\n graphics_profi"
+  "ling_service_state\030\003 \001(\0162\024.ESystemServic"
+  "eState:\037ESystemServiceState_Unavailable\022"
+  "Y\n\032perf_overlay_service_state\030\004 \001(\0162\024.ES"
+  "ystemServiceState:\037ESystemServiceState_U"
+  "navailable\022X\n\022perf_overlay_level\030\005 \001(\0162\032"
+  ".EGraphicsPerfOverlayLevel: EGraphicsPer"
+  "fOverlayLevel_Hidden\022/\n\'is_show_perf_ove"
+  "rlay_over_steam_enabled\030\006 \001(\010\022$\n\034is_adva"
+  "nced_settings_enabled\030\007 \001(\010\022.\n&allow_ext"
+  "ernal_display_refresh_control\030\010 \001(\010\022\026\n\016i"
+  "s_hdr_enabled\030\t \001(\010\022V\n\033hdr_on_sdr_tonema"
+  "p_operator\030\014 \001(\0162\024.EHDRToneMapOperator:\033"
+  "EHDRToneMapOperator_Invalid\022$\n\034is_hdr_de"
+  "bug_heatmap_enabled\030\r \001(\010\022+\n\035force_hdr_w"
+  "ide_gammut_for_sdr\030\017 \001(\010:\004true\022\036\n\026allow_"
+  "experimental_hdr\030\020 \001(\010\022\035\n\025sdr_to_hdr_bri"
+  "ghtness\030\026 \001(\002\022\037\n\027debug_force_hdr_support"
+  "\030\022 \001(\010\022#\n\033force_hdr_10pq_output_debug\030\023 "
+  "\001(\010\022\035\n\025is_display_oc_enabled\030\024 \001(\010\022#\n\033is"
+  "_color_management_enabled\030\025 \001(\010\"\337\007\n\034CMsg"
+  "SystemPerfSettingsPerApp\022\"\n\032gpu_performa"
+  "nce_manual_mhz\030\001 \001(\005\022\021\n\tfps_limit\030\002 \001(\005\022"
+  "&\n\036is_variable_resolution_enabled\030\003 \001(\010\022"
+  "\'\n\037is_dynamic_refresh_rate_enabled\030\004 \001(\010"
+  "\022\021\n\ttdp_limit\030\005 \001(\005\0229\n\014cpu_governor\030\006 \001("
+  "\0162\r.ECPUGovernor:\024ECPUGovernor_Invalid\022\037"
+  "\n\027cpu_governor_manual_mhz\030\007 \001(\005\022\026\n\016scali"
+  "ng_filter\030\010 \001(\005\022\025\n\rfsr_sharpness\030\t \001(\005\022\034"
+  "\n\024is_fps_limit_enabled\030\n \001(\010\022\034\n\024is_tdp_l"
+  "imit_enabled\030\013 \001(\010\022#\n\033is_low_latency_mod"
+  "e_enabled\030\014 \001(\010\022!\n\031display_refresh_manua"
+  "l_hz\030\r \001(\005\022$\n\034is_game_perf_profile_enabl"
+  "ed\030\016 \001(\010\022R\n\025gpu_performance_level\030\017 \001(\0162"
+  "\025.EGPUPerformanceLevel:\034EGPUPerformanceL"
+  "evel_Invalid\022\025\n\rnis_sharpness\030\020 \001(\005\022*\n\"d"
+  "isplay_external_refresh_manual_hz\030\021 \001(\005\022"
+  "\032\n\022fps_limit_external\030\022 \001(\005\022\032\n\022is_tearin"
+  "g_enabled\030\023 \001(\010\022\026\n\016is_vrr_enabled\030\024 \001(\010\022"
+  "\"\n\032is_composite_debug_enabled\030\025 \001(\010\022\027\n\017f"
+  "orce_composite\030\026 \001(\010\022)\n!use_dynamic_refr"
+  "esh_rate_in_steam\030\027 \001(\010\022O\n\024split_scaling"
+  "_filter\030\030 \001(\0162\024.ESplitScalingFilter:\033ESp"
+  "litScalingFilter_Invalid\022O\n\024split_scalin"
+  "g_scaler\030\031 \001(\0162\024.ESplitScalingScaler:\033ES"
+  "plitScalingScaler_Invalid\"w\n\026CMsgSystemP"
+  "erfSettings\022-\n\006global\030\001 \001(\0132\035.CMsgSystem"
+  "PerfSettingsGlobal\022.\n\007per_app\030\002 \001(\0132\035.CM"
+  "sgSystemPerfSettingsPerApp\"\200\010\n\030CMsgSyste"
+  "mPerfSettingsV1\022\036\n\026diagnostic_update_rat"
+  "e\030\001 \001(\002\022Y\n\032system_trace_service_state\030\002 "
+  "\001(\0162\024.ESystemServiceState:\037ESystemServic"
+  "eState_Unavailable\022_\n graphics_profiling"
+  "_service_state\030\003 \001(\0162\024.ESystemServiceSta"
+  "te:\037ESystemServiceState_Unavailable\022Y\n\032p"
+  "erf_overlay_service_state\030\004 \001(\0162\024.ESyste"
+  "mServiceState:\037ESystemServiceState_Unava"
+  "ilable\022X\n\022perf_overlay_level\030\005 \001(\0162\032.EGr"
+  "aphicsPerfOverlayLevel: EGraphicsPerfOve"
+  "rlayLevel_Hidden\022R\n\025gpu_performance_leve"
+  "l\030\006 \001(\0162\025.EGPUPerformanceLevel:\034EGPUPerf"
+  "ormanceLevel_Invalid\022\"\n\032gpu_performance_"
+  "manual_mhz\030\007 \001(\005\022\021\n\tfps_limit\030\010 \001(\005\022&\n\036i"
+  "s_variable_resolution_enabled\030\t \001(\010\022\'\n\037i"
+  "s_dynamic_refresh_rate_enabled\030\n \001(\010\022\021\n\t"
+  "tdp_limit\030\013 \001(\005\0229\n\014cpu_governor\030\014 \001(\0162\r."
+  "ECPUGovernor:\024ECPUGovernor_Invalid\022\037\n\027cp"
+  "u_governor_manual_mhz\030\r \001(\005\022\026\n\016scaling_f"
+  "ilter\030\016 \001(\005\022\025\n\rfsr_sharpness\030\017 \001(\005\022\034\n\024is"
+  "_fps_limit_enabled\030\020 \001(\010\022\034\n\024is_tdp_limit"
+  "_enabled\030\021 \001(\010\022/\n\'is_show_perf_overlay_o"
+  "ver_steam_enabled\030\022 \001(\010\022#\n\033is_low_latenc"
+  "y_mode_enabled\030\023 \001(\010\022!\n\031display_refresh_"
+  "manual_hz\030\024 \001(\005\022$\n\034is_game_perf_profile_"
+  "enabled\030\025 \001(\010\"\240\001\n\023CMsgSystemPerfState\022%\n"
+  "\006limits\030\001 \001(\0132\025.CMsgSystemPerfLimits\022)\n\010"
+  "settings\030\002 \001(\0132\027.CMsgSystemPerfSettings\022"
+  "\027\n\017current_game_id\030\003 \001(\004\022\036\n\026active_profi"
+  "le_game_id\030\004 \001(\004\"\244\001\n\034CMsgSystemPerfUpdat"
+  "eSettings\022\016\n\006gameid\030\001 \001(\004\022\033\n\023skip_storag"
+  "e_update\030\004 \001(\010\022\032\n\020reset_to_default\030\002 \001(\010"
+  "H\000\0221\n\016settings_delta\030\003 \001(\0132\027.CMsgSystemP"
+  "erfSettingsH\000B\010\n\006update\"l\n CMsgSystemPer"
+  "fLegacySettingEntry\022\027\n\017profile_game_id\030\001"
+  " \001(\004\022/\n\010settings\030\002 \001(\0132\035.CMsgSystemPerfS"
+  "ettingsPerApp\"\212\001\n\034CMsgSystemPerfLegacySe"
+  "ttings\022-\n\006global\030\001 \001(\0132\035.CMsgSystemPerfS"
+  "ettingsGlobal\022;\n\020per_app_settings\030\002 \003(\0132"
+  "!.CMsgSystemPerfLegacySettingEntry\"\370\001\n\031C"
+  "MsgSystemDockUpdateState\0224\n\005state\030\001 \001(\0162"
+  "\016.EUpdaterState:\025EUpdaterState_Invalid\022\032"
+  "\n\022rtime_last_checked\030\002 \001(\007\022\027\n\017version_cu"
+  "rrent\030\003 \001(\t\022\031\n\021version_available\030\004 \001(\t\022\026"
+  "\n\016stage_progress\030\005 \001(\002\022\"\n\032rtime_estimate"
+  "d_completion\030\006 \001(\007\022\031\n\021old_fw_workaround\030"
+  "\007 \001(\005\"G\n\023CMsgSystemDockState\0220\n\014update_s"
+  "tate\030\001 \001(\0132\032.CMsgSystemDockUpdateState\"0"
+  "\n\034CMsgSystemDockUpdateFirmware\022\020\n\010checon"
+  "ly\030\001 \001(\010\"\303\001\n\025CMsgSystemAudioVolume\0224\n\007en"
+  "tries\030\001 \003(\0132#.CMsgSystemAudioVolume.Chan"
+  "nelEntry\022\020\n\010is_muted\030\002 \001(\010\032b\n\014ChannelEnt"
+  "ry\022B\n\010echannel\030\001 \001(\0162\024.ESystemAudioChann"
+  "el:\032SystemAudioChannel_Invalid\022\016\n\006volume"
+  "\030\002 \001(\002\"E\n\034CMsgSystemAudioManagerObject\022\n"
+  "\n\002id\030\001 \001(\r\022\031\n\021rtime_last_update\030\002 \001(\007\"\211\001"
+  "\n\034CMsgSystemAudioManagerDevice\022+\n\004base\030\001"
+  " \001(\0132\035.CMsgSystemAudioManagerObject\022\014\n\004n"
+  "ame\030\002 \001(\t\022\014\n\004nick\030\003 \001(\t\022\023\n\013description\030\004"
+  " \001(\t\022\013\n\003api\030\005 \001(\t\"\377\001\n\032CMsgSystemAudioMan"
+  "agerNode\022+\n\004base\030\001 \001(\0132\035.CMsgSystemAudio"
+  "ManagerObject\022\021\n\tdevice_id\030\002 \001(\r\022\014\n\004name"
+  "\030\003 \001(\t\022\014\n\004nick\030\004 \001(\t\022\023\n\013description\030\005 \001("
+  "\t\022H\n\nedirection\030\006 \001(\0162\026.ESystemAudioDire"
+  "ction:\034SystemAudioDirection_Invalid\022&\n\006v"
+  "olume\030\007 \001(\0132\026.CMsgSystemAudioVolume\"\336\002\n\032"
+  "CMsgSystemAudioManagerPort\022+\n\004base\030\001 \001(\013"
+  "2\035.CMsgSystemAudioManagerObject\022\017\n\007node_"
+  "id\030\003 \001(\r\022\014\n\004name\030\004 \001(\t\022\r\n\005alias\030\005 \001(\t\022A\n"
+  "\005etype\030\006 \001(\0162\025.ESystemAudioPortType:\033Sys"
+  "temAudioPortType_Invalid\022P\n\nedirection\030\007"
+  " \001(\0162\032.ESystemAudioPortDirection: System"
+  "AudioPortDirection_Invalid\022\023\n\013is_physica"
+  "l\030\010 \001(\010\022\023\n\013is_terminal\030\t \001(\010\022\022\n\nis_contr"
+  "ol\030\n \001(\010\022\022\n\nis_monitor\030\013 \001(\010\"\247\001\n\032CMsgSys"
+  "temAudioManagerLink\022+\n\004base\030\001 \001(\0132\035.CMsg"
+  "SystemAudioManagerObject\022\026\n\016output_node_"
+  "id\030\002 \001(\r\022\026\n\016output_port_id\030\003 \001(\r\022\025\n\rinpu"
+  "t_node_id\030\004 \001(\r\022\025\n\rinput_port_id\030\005 \001(\r\"\323"
+  "\001\n\035CMsgSystemAudioManagerStateHW\022.\n\007devi"
+  "ces\030\001 \003(\0132\035.CMsgSystemAudioManagerDevice"
+  "\022*\n\005nodes\030\002 \003(\0132\033.CMsgSystemAudioManager"
+  "Node\022*\n\005ports\030\003 \003(\0132\033.CMsgSystemAudioMan"
+  "agerPort\022*\n\005links\030\004 \003(\0132\033.CMsgSystemAudi"
+  "oManagerLink\"p\n\033CMsgSystemAudioManagerSt"
+  "ate\022\024\n\014rtime_filter\030\001 \001(\007\022\017\n\007counter\030\002 \001"
+  "(\005\022*\n\002hw\030\003 \001(\0132\036.CMsgSystemAudioManagerS"
+  "tateHW\"8\n%CMsgSystemAudioManagerUpdateSo"
+  "mething\022\017\n\007counter\030\001 \001(\005\"V\n\025CMsgSystemDi"
+  "splayMode\022\n\n\002id\030\001 \001(\005\022\r\n\005width\030\002 \001(\005\022\016\n\006"
+  "height\030\003 \001(\005\022\022\n\nrefresh_hz\030\004 \001(\005\"\264\003\n\021CMs"
+  "gSystemDisplay\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t"
+  "\022\023\n\013description\030\003 \001(\t\022\022\n\nis_primary\030\004 \001("
+  "\010\022\022\n\nis_enabled\030\005 \001(\010\022\023\n\013is_internal\030\006 \001"
+  "(\010\022\031\n\021has_mode_override\030\007 \001(\010\022\020\n\010width_m"
+  "m\030\010 \001(\005\022\021\n\theight_mm\030\t \001(\005\022\027\n\017current_mo"
+  "de_id\030\n \001(\005\022%\n\005modes\030\013 \003(\0132\026.CMsgSystemD"
+  "isplayMode\022\030\n\020refresh_rate_min\030\014 \001(\005\022\030\n\020"
+  "refresh_rate_max\030\r \001(\005\022\026\n\016is_vrr_capable"
+  "\030\016 \001(\010\022\026\n\016is_vrr_enabled\030\017 \001(\010\022\026\n\016is_hdr"
+  "_capable\030\020 \001(\010\022\026\n\016is_hdr_enabled\030\021 \001(\010\022\037"
+  "\n\027supported_refresh_rates\030\022 \003(\005\"\321\001\n\035CMsg"
+  "SystemDisplayManagerState\022$\n\010displays\030\001 "
+  "\003(\0132\022.CMsgSystemDisplay\022#\n\033is_mode_switc"
+  "hing_supported\030\002 \001(\010\022e\n\022compatibility_mo"
+  "de\030\003 \001(\0162 .ESystemDisplayCompatibilityMo"
+  "de:\'ESystemDisplayCompatibilityMode_Inva"
+  "lid\"F\n\037CMsgSystemDisplayManagerSetMode\022\022"
+  "\n\ndisplay_id\030\001 \001(\005\022\017\n\007mode_id\030\002 \001(\005\"\234\013\n\031"
+  "CMsgSystemManagerSettings\022*\n\"idle_backli"
+  "ght_dim_battery_seconds\030\001 \001(\002\022%\n\035idle_ba"
+  "cklight_dim_ac_seconds\030\002 \001(\002\022$\n\034idle_sus"
+  "pend_battery_seconds\030\003 \001(\002\022\037\n\027idle_suspe"
+  "nd_ac_seconds\030\004 \001(\002\022\036\n\026idle_suspend_supr"
+  "essed\030\005 \001(\010\022(\n is_adaptive_brightness_av"
+  "ailable\030\006 \001(\010\022+\n#display_adaptive_bright"
+  "ness_enabled\030\007 \001(\010\022!\n\031display_nightmode_"
+  "enabled\030\n \001(\010\022&\n\036display_nightmode_tints"
+  "trength\030\013 \001(\002\022 \n\030display_nightmode_maxhu"
+  "e\030\014 \001(\002\022 \n\030display_nightmode_maxsat\030\r \001("
+  "\002\022\037\n\027display_nightmode_uiexp\030\016 \001(\002\022\037\n\027di"
+  "splay_nightmode_blend\030\017 \001(\002\022\037\n\027display_n"
+  "ightmode_reset\030\020 \001(\010\022*\n\"display_nightmod"
+  "e_schedule_enabled\030\021 \001(\010\022,\n$display_nigh"
+  "tmode_schedule_starttime\030\022 \001(\002\022*\n\"displa"
+  "y_nightmode_schedule_endtime\030\023 \001(\002\022#\n\033di"
+  "splay_diagnostics_enabled\030\024 \001(\010\022\027\n\017als_l"
+  "ux_primary\030\025 \001(\002\022\026\n\016als_lux_median\030\026 \001(\002"
+  "\022\035\n\025display_backlight_raw\030\027 \001(\002\022&\n\036displ"
+  "ay_brightness_adaptivemin\030\030 \001(\002\022&\n\036displ"
+  "ay_brightness_adaptivemax\030\031 \001(\002\022!\n\031is_wi"
+  "fi_powersave_enabled\030\032 \001(\010\022 \n\030is_fan_con"
+  "trol_available\030\033 \001(\010\022N\n\020fan_control_mode"
+  "\030\034 \001(\0162\026.ESystemFanControlMode:\034SystemFa"
+  "nControlMode_Invalid\022\'\n\037is_display_brigh"
+  "tness_available\030\035 \001(\010\022,\n$is_display_colo"
+  "rmanagement_available\030\037 \001(\010\022\032\n\022display_c"
+  "olorgamut\030  \001(\002\022\031\n\021als_lux_alternate\030! \001"
+  "(\002\022&\n\036is_display_colortemp_available\030\" \001"
+  "(\010\022\031\n\021display_colortemp\030# \001(\002\022!\n\031display"
+  "_colortemp_default\030$ \001(\002\022!\n\031display_colo"
+  "rtemp_enabled\030% \001(\010\022U\n\033display_colorgamu"
+  "t_labelset\030& \001(\0162\024.EColorGamutLabelSet:\032"
+  "ColorGamutLabelSet_Default\022.\n&display_br"
+  "ightness_overdrive_hdr_split\030\' \001(\002\"`\n\030CM"
+  "sgSelectOSBranchParams\022-\n\006branch\030\001 \001(\0162\n"
+  ".EOSBranch:\021EOSBranch_Unknown\022\025\n\rcustom_"
+  "branch\030\002 \001(\t\"p\n\030CMsgSystemUpdateProgress"
+  "\022\026\n\016stage_progress\030\001 \001(\002\022\030\n\020stage_size_b"
+  "ytes\030\002 \001(\003\022\"\n\032rtime_estimated_completion"
+  "\030\003 \001(\007\"\325\001\n\033CMsgSystemUpdateCheckResult\0221"
+  "\n\004type\030\001 \001(\0162\r.EUpdaterType:\024EUpdaterTyp"
+  "e_Invalid\022\022\n\007eresult\030\002 \001(\r:\0012\022\025\n\rrtime_c"
+  "hecked\030\003 \001(\007\022\021\n\tavailable\030\004 \001(\010\022\017\n\007versi"
+  "on\030\005 \001(\t\022\024\n\014auto_message\030\006 \001(\t\022\036\n\026system"
+  "_restart_pending\030\007 \001(\010\"A\n\033CMsgSystemUpda"
+  "teApplyParams\022\"\n\013apply_types\030\001 \003(\0162\r.EUp"
+  "daterType\"\264\001\n\033CMsgSystemUpdateApplyResul"
+  "t\0221\n\004type\030\001 \001(\0162\r.EUpdaterType:\024EUpdater"
+  "Type_Invalid\022\022\n\007eresult\030\002 \001(\r:\0012\022&\n\027requ"
+  "ires_client_restart\030\003 \001(\010:\005false\022&\n\027requ"
+  "ires_system_restart\030\004 \001(\010:\005false\"\215\002\n\025CMs"
+  "gSystemUpdateState\0224\n\005state\030\001 \001(\0162\016.EUpd"
+  "aterState:\025EUpdaterState_Invalid\022+\n\010prog"
+  "ress\030\002 \001(\0132\031.CMsgSystemUpdateProgress\0228\n"
+  "\022update_checresults\030\003 \003(\0132\034.CMsgSystemUp"
+  "dateCheckResult\022:\n\024update_apply_results\030"
+  "\004 \003(\0132\034.CMsgSystemUpdateApplyResult\022\033\n\023s"
+  "upports_os_updates\030\005 \001(\010\"&\n\025CMsgAchievem"
+  "entChange\022\r\n\005appid\030\001 \001(\r\"\\\n\014CMsgCellList"
+  "\022!\n\005cells\030\001 \003(\0132\022.CMsgCellList.Cell\032)\n\004C"
+  "ell\022\017\n\007cell_id\030\001 \001(\r\022\020\n\010loc_name\030\002 \001(\t\"\214"
+  "\003\n\020CMsgShortcutInfo\022\r\n\005appid\030\001 \001(\r\022\013\n\003ex"
+  "e\030\002 \001(\t\022\021\n\tstart_dir\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t"
+  "\022\014\n\004path\030\005 \001(\t\022\014\n\004args\030\006 \001(\t\022\020\n\010app_name"
+  "\030\007 \001(\t\022\026\n\016override_appid\030\010 \001(\r\022\023\n\013flatpa"
+  "appid\030\t \001(\t\022\014\n\004tags\030\n \003(\t\022\021\n\tis_remote\030\013"
+  " \001(\010\022\021\n\tis_hidden\030\014 \001(\010\022\024\n\014is_temporary\030"
+  "\r \001(\010\022\021\n\tis_openvr\030\016 \001(\010\022\034\n\024allow_deskto"
+  "p_config\030\017 \001(\010\022\025\n\rallow_overlay\030\020 \001(\010\022\033\n"
+  "\023rt_last_played_time\030\021 \001(\r\022\032\n\022is_devkit_"
+  "shortcut\030\022 \001(\010\022\025\n\rdevkit_gameid\030\023 \001(\t\"$\n"
+  "\022CMsgShortcutAppIds\022\016\n\006appids\030\001 \003(\r\"\252\001\n\017"
+  "CMsgMonitorInfo\022\035\n\025selected_display_name"
+  "\030\001 \002(\t\022.\n\010monitors\030\002 \003(\0132\034.CMsgMonitorIn"
+  "fo.MonitorInfo\032H\n\013MonitorInfo\022\033\n\023monitor"
+  "_device_name\030\001 \002(\t\022\034\n\024monitor_display_na"
+  "me\030\002 \002(\t\"2\n\035CMsgGenerateSystemReportRepl"
+  "y\022\021\n\treport_id\030\001 \001(\t\"8\n\026CMsgWebUITranspo"
+  "rtInfo\022\014\n\004port\030\001 \001(\r\022\020\n\010auth_key\030\002 \001(\t\"2"
+  "\n\031CMsgWebUITransportFailure\022\025\n\rconnect_c"
+  "ount\030\001 \001(\r\"^\n\035CMsgClientShaderHitCacheEn"
+  "try\022\017\n\007key_sha\030\001 \001(\014\022\020\n\010code_sha\030\002 \001(\014\022\032"
+  "\n\022time_last_reported\030\003 \001(\004\"K\n\030CMsgClient"
+  "ShaderHitCache\022/\n\007entries\030\001 \003(\0132\036.CMsgCl"
+  "ientShaderHitCacheEntry*\214\002\n\034ECloudPendin"
+  "gRemoteOperation\022$\n ECloudPendingRemoteO"
+  "perationNone\020\000\0220\n,ECloudPendingRemoteOpe"
+  "rationAppSessionActive\020\001\0220\n,ECloudPendin"
+  "gRemoteOperationUploadInProgress\020\002\022-\n)EC"
+  "loudPendingRemoteOperationUploadPending\020"
+  "\003\0223\n/ECloudPendingRemoteOperationAppSess"
+  "ionSuspended\020\004*\202\014\n\030ESteamDeckKeyboardLay"
+  "out\022#\n\037ESteamDeckKeyboardLayout_QWERTY\020\000"
+  "\022&\n\"ESteamDeckKeyboardLayout_Bulgarian\020\001"
+  "\022/\n+ESteamDeckKeyboardLayout_Chinese_Sim"
+  "plified\020\002\0220\n,ESteamDeckKeyboardLayout_Ch"
+  "inese_Traditional\020\003\022\"\n\036ESteamDeckKeyboar"
+  "dLayout_Czech\020\004\022#\n\037ESteamDeckKeyboardLay"
+  "out_Danish\020\005\022$\n ESteamDeckKeyboardLayout"
+  "_Finnish\020\006\022#\n\037ESteamDeckKeyboardLayout_F"
+  "rench\020\007\022#\n\037ESteamDeckKeyboardLayout_Germ"
+  "an\020\010\022\"\n\036ESteamDeckKeyboardLayout_Greek\020\t"
+  "\022&\n\"ESteamDeckKeyboardLayout_Hungarian\020\n"
+  "\022$\n ESteamDeckKeyboardLayout_Italian\020\013\022%"
+  "\n!ESteamDeckKeyboardLayout_Japanese\020\014\022#\n"
+  "\037ESteamDeckKeyboardLayout_Korean\020\r\022&\n\"ES"
+  "teamDeckKeyboardLayout_Norwegian\020\016\022#\n\037ES"
+  "teamDeckKeyboardLayout_Polish\020\017\022\'\n#EStea"
+  "mDeckKeyboardLayout_Portuguese\020\020\022%\n!ESte"
+  "amDeckKeyboardLayout_Romanian\020\021\022$\n EStea"
+  "mDeckKeyboardLayout_Russian\020\022\022$\n ESteamD"
+  "eckKeyboardLayout_Spanish\020\023\022$\n ESteamDec"
+  "kKeyboardLayout_Swedish\020\024\022!\n\035ESteamDeckK"
+  "eyboardLayout_Thai\020\025\022&\n\"ESteamDeckKeyboa"
+  "rdLayout_Turkish_F\020\026\022&\n\"ESteamDeckKeyboa"
+  "rdLayout_Turkish_Q\020\027\022&\n\"ESteamDeckKeyboa"
+  "rdLayout_Ukrainian\020\030\022\'\n#ESteamDeckKeyboa"
+  "rdLayout_Vietnamese\020\031\0221\n-ESteamDeckKeybo"
+  "ardLayout_QWERTY_International\020\032\022#\n\037ESte"
+  "amDeckKeyboardLayout_Dvorak\020\033\022$\n ESteamD"
+  "eckKeyboardLayout_Colemak\020\034\022;\n7ESteamDec"
+  "kKeyboardLayout_Bulgarian_Phonetic_Tradi"
+  "tional\020\035\022/\n+ESteamDeckKeyboardLayout_Bul"
+  "garian_Phonetic\020\036\0229\n5ESteamDeckKeyboardL"
+  "ayout_Chinese_Traditional_Bopomofo\020\037\0228\n4"
+  "ESteamDeckKeyboardLayout_Chinese_Traditi"
+  "onal_Cangjie\020 \022*\n&ESteamDeckKeyboardLayo"
+  "ut_Japanese_Kana\020!\0226\n2ESteamDeckKeyboard"
+  "Layout_Chinese_Traditional_Quick\020\"\022\'\n#ES"
+  "teamDeckKeyboardLayout_Indonesian\020#B\037H\001\200"
+  "\001\000\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -2958,7 +2954,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclient_5fobjects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclient_5fobjects_2eproto = {
-  false, false, 17138, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
+  false, false, 17108, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
   &descriptor_table_steammessages_5fclient_5fobjects_2eproto_once, descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps, 2, 71,
   schemas, file_default_instances, TableStruct_steammessages_5fclient_5fobjects_2eproto::offsets,
   file_level_metadata_steammessages_5fclient_5fobjects_2eproto, file_level_enum_descriptors_steammessages_5fclient_5fobjects_2eproto, file_level_service_descriptors_steammessages_5fclient_5fobjects_2eproto,
@@ -11905,26 +11901,23 @@ class CMsgSystemPerfLimits::_Internal {
   static void set_has_display_external_refresh_manual_hz_max(HasBits* has_bits) {
     (*has_bits)[0] |= 131072u;
   }
-  static void set_has_is_tearing_supported(HasBits* has_bits) {
+  static void set_has_is_vrr_supported(HasBits* has_bits) {
     (*has_bits)[0] |= 262144u;
   }
-  static void set_has_is_vrr_supported(HasBits* has_bits) {
+  static void set_has_is_dynamic_refresh_rate_in_steam_supported(HasBits* has_bits) {
     (*has_bits)[0] |= 524288u;
   }
-  static void set_has_is_dynamic_refresh_rate_in_steam_supported(HasBits* has_bits) {
+  static void set_has_is_split_scaling_and_filtering_supported(HasBits* has_bits) {
     (*has_bits)[0] |= 1048576u;
   }
-  static void set_has_is_split_scaling_and_filtering_supported(HasBits* has_bits) {
-    (*has_bits)[0] |= 2097152u;
-  }
   static void set_has_is_hdr_supported(HasBits* has_bits) {
-    (*has_bits)[0] |= 8388608u;
+    (*has_bits)[0] |= 2097152u;
   }
   static void set_has_display_refresh_manual_hz_oc_max(HasBits* has_bits) {
     (*has_bits)[0] |= 4194304u;
   }
   static void set_has_disable_refresh_rate_management(HasBits* has_bits) {
-    (*has_bits)[0] |= 16777216u;
+    (*has_bits)[0] |= 8388608u;
   }
 };
 
@@ -12005,10 +11998,9 @@ void CMsgSystemPerfLimits::Clear() {
   }
   if (cached_has_bits & 0x00ff0000u) {
     ::memset(&display_external_refresh_manual_hz_min_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&is_hdr_supported_) -
-        reinterpret_cast<char*>(&display_external_refresh_manual_hz_min_)) + sizeof(is_hdr_supported_));
+        reinterpret_cast<char*>(&disable_refresh_rate_management_) -
+        reinterpret_cast<char*>(&display_external_refresh_manual_hz_min_)) + sizeof(disable_refresh_rate_management_));
   }
-  disable_refresh_rate_management_ = false;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -12212,14 +12204,6 @@ const char* CMsgSystemPerfLimits::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<168>(ptr));
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_fps_limit_options_external(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool is_tearing_supported = 22;
-      case 22:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 176)) {
-          _Internal::set_has_is_tearing_supported(&has_bits);
-          is_tearing_supported_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -12468,26 +12452,20 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(21, this->_internal_fps_limit_options_external(i), target);
   }
 
-  // optional bool is_tearing_supported = 22;
-  if (cached_has_bits & 0x00040000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22, this->_internal_is_tearing_supported(), target);
-  }
-
   // optional bool is_vrr_supported = 23;
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(23, this->_internal_is_vrr_supported(), target);
   }
 
   // optional bool is_dynamic_refresh_rate_in_steam_supported = 24;
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24, this->_internal_is_dynamic_refresh_rate_in_steam_supported(), target);
   }
 
   // optional bool is_split_scaling_and_filtering_supported = 25;
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(25, this->_internal_is_split_scaling_and_filtering_supported(), target);
   }
@@ -12507,7 +12485,7 @@ failure:
   }
 
   // optional bool is_hdr_supported = 28;
-  if (cached_has_bits & 0x00800000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(28, this->_internal_is_hdr_supported(), target);
   }
@@ -12519,7 +12497,7 @@ failure:
   }
 
   // optional bool disable_refresh_rate_management = 30;
-  if (cached_has_bits & 0x01000000u) {
+  if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(30, this->_internal_disable_refresh_rate_management(), target);
   }
@@ -12712,22 +12690,22 @@ size_t CMsgSystemPerfLimits::ByteSizeLong() const {
           this->_internal_display_external_refresh_manual_hz_max());
     }
 
-    // optional bool is_tearing_supported = 22;
+    // optional bool is_vrr_supported = 23;
     if (cached_has_bits & 0x00040000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool is_vrr_supported = 23;
+    // optional bool is_dynamic_refresh_rate_in_steam_supported = 24;
     if (cached_has_bits & 0x00080000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool is_dynamic_refresh_rate_in_steam_supported = 24;
+    // optional bool is_split_scaling_and_filtering_supported = 25;
     if (cached_has_bits & 0x00100000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool is_split_scaling_and_filtering_supported = 25;
+    // optional bool is_hdr_supported = 28;
     if (cached_has_bits & 0x00200000u) {
       total_size += 2 + 1;
     }
@@ -12739,17 +12717,12 @@ size_t CMsgSystemPerfLimits::ByteSizeLong() const {
           this->_internal_display_refresh_manual_hz_oc_max());
     }
 
-    // optional bool is_hdr_supported = 28;
+    // optional bool disable_refresh_rate_management = 30;
     if (cached_has_bits & 0x00800000u) {
       total_size += 2 + 1;
     }
 
   }
-  // optional bool disable_refresh_rate_management = 30;
-  if (cached_has_bits & 0x01000000u) {
-    total_size += 2 + 1;
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -12849,27 +12822,24 @@ void CMsgSystemPerfLimits::MergeFrom(const CMsgSystemPerfLimits& from) {
       display_external_refresh_manual_hz_max_ = from.display_external_refresh_manual_hz_max_;
     }
     if (cached_has_bits & 0x00040000u) {
-      is_tearing_supported_ = from.is_tearing_supported_;
-    }
-    if (cached_has_bits & 0x00080000u) {
       is_vrr_supported_ = from.is_vrr_supported_;
     }
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00080000u) {
       is_dynamic_refresh_rate_in_steam_supported_ = from.is_dynamic_refresh_rate_in_steam_supported_;
     }
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00100000u) {
       is_split_scaling_and_filtering_supported_ = from.is_split_scaling_and_filtering_supported_;
+    }
+    if (cached_has_bits & 0x00200000u) {
+      is_hdr_supported_ = from.is_hdr_supported_;
     }
     if (cached_has_bits & 0x00400000u) {
       display_refresh_manual_hz_oc_max_ = from.display_refresh_manual_hz_oc_max_;
     }
     if (cached_has_bits & 0x00800000u) {
-      is_hdr_supported_ = from.is_hdr_supported_;
+      disable_refresh_rate_management_ = from.disable_refresh_rate_management_;
     }
     _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0x01000000u) {
-    _internal_set_disable_refresh_rate_management(from._internal_disable_refresh_rate_management());
   }
 }
 

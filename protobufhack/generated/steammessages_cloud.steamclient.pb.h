@@ -7619,6 +7619,7 @@ class CCloud_ClientFileDownload_Request PROTOBUF_FINAL :
     kFilenameFieldNumber = 2,
     kAppidFieldNumber = 1,
     kRealmFieldNumber = 3,
+    kForceProxyFieldNumber = 4,
   };
   // optional string filename = 2;
   bool has_filename() const;
@@ -7666,6 +7667,19 @@ class CCloud_ClientFileDownload_Request PROTOBUF_FINAL :
   void _internal_set_realm(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional bool force_proxy = 4;
+  bool has_force_proxy() const;
+  private:
+  bool _internal_has_force_proxy() const;
+  public:
+  void clear_force_proxy();
+  bool force_proxy() const;
+  void set_force_proxy(bool value);
+  private:
+  bool _internal_force_proxy() const;
+  void _internal_set_force_proxy(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CCloud_ClientFileDownload_Request)
  private:
   class _Internal;
@@ -7678,6 +7692,7 @@ class CCloud_ClientFileDownload_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filename_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 realm_;
+  bool force_proxy_;
   friend struct ::TableStruct_steammessages_5fcloud_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -18009,6 +18024,34 @@ inline void CCloud_ClientFileDownload_Request::_internal_set_realm(::PROTOBUF_NA
 inline void CCloud_ClientFileDownload_Request::set_realm(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_realm(value);
   // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Request.realm)
+}
+
+// optional bool force_proxy = 4;
+inline bool CCloud_ClientFileDownload_Request::_internal_has_force_proxy() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CCloud_ClientFileDownload_Request::has_force_proxy() const {
+  return _internal_has_force_proxy();
+}
+inline void CCloud_ClientFileDownload_Request::clear_force_proxy() {
+  force_proxy_ = false;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline bool CCloud_ClientFileDownload_Request::_internal_force_proxy() const {
+  return force_proxy_;
+}
+inline bool CCloud_ClientFileDownload_Request::force_proxy() const {
+  // @@protoc_insertion_point(field_get:CCloud_ClientFileDownload_Request.force_proxy)
+  return _internal_force_proxy();
+}
+inline void CCloud_ClientFileDownload_Request::_internal_set_force_proxy(bool value) {
+  _has_bits_[0] |= 0x00000008u;
+  force_proxy_ = value;
+}
+inline void CCloud_ClientFileDownload_Request::set_force_proxy(bool value) {
+  _internal_set_force_proxy(value);
+  // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Request.force_proxy)
 }
 
 // -------------------------------------------------------------------

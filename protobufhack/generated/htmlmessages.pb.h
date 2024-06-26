@@ -467,9 +467,6 @@ extern CMsgSetSteamBetaNameDefaultTypeInternal _CMsgSetSteamBetaName_default_ins
 class CMsgSetTargetFrameRate;
 struct CMsgSetTargetFrameRateDefaultTypeInternal;
 extern CMsgSetTargetFrameRateDefaultTypeInternal _CMsgSetTargetFrameRate_default_instance_;
-class CMsgSetTopWindow;
-struct CMsgSetTopWindowDefaultTypeInternal;
-extern CMsgSetTopWindowDefaultTypeInternal _CMsgSetTopWindow_default_instance_;
 class CMsgSetTouchGesturesToCancel;
 struct CMsgSetTouchGesturesToCancelDefaultTypeInternal;
 extern CMsgSetTouchGesturesToCancelDefaultTypeInternal _CMsgSetTouchGesturesToCancel_default_instance_;
@@ -485,6 +482,9 @@ extern CMsgSetVerticalScrollDefaultTypeInternal _CMsgSetVerticalScroll_default_i
 class CMsgSetWindowPosition;
 struct CMsgSetWindowPositionDefaultTypeInternal;
 extern CMsgSetWindowPositionDefaultTypeInternal _CMsgSetWindowPosition_default_instance_;
+class CMsgSetWindowStackingOrder;
+struct CMsgSetWindowStackingOrderDefaultTypeInternal;
+extern CMsgSetWindowStackingOrderDefaultTypeInternal _CMsgSetWindowStackingOrder_default_instance_;
 class CMsgSetWindowVisibility;
 struct CMsgSetWindowVisibilityDefaultTypeInternal;
 extern CMsgSetWindowVisibilityDefaultTypeInternal _CMsgSetWindowVisibility_default_instance_;
@@ -707,12 +707,12 @@ template<> ::CMsgSetProtocolBlockList* Arena::CreateMaybeMessage<::CMsgSetProtoc
 template<> ::CMsgSetSharedPaintBuffers* Arena::CreateMaybeMessage<::CMsgSetSharedPaintBuffers>(Arena*);
 template<> ::CMsgSetSteamBetaName* Arena::CreateMaybeMessage<::CMsgSetSteamBetaName>(Arena*);
 template<> ::CMsgSetTargetFrameRate* Arena::CreateMaybeMessage<::CMsgSetTargetFrameRate>(Arena*);
-template<> ::CMsgSetTopWindow* Arena::CreateMaybeMessage<::CMsgSetTopWindow>(Arena*);
 template<> ::CMsgSetTouchGesturesToCancel* Arena::CreateMaybeMessage<::CMsgSetTouchGesturesToCancel>(Arena*);
 template<> ::CMsgSetUIMode* Arena::CreateMaybeMessage<::CMsgSetUIMode>(Arena*);
 template<> ::CMsgSetVRKeyboardVisibility* Arena::CreateMaybeMessage<::CMsgSetVRKeyboardVisibility>(Arena*);
 template<> ::CMsgSetVerticalScroll* Arena::CreateMaybeMessage<::CMsgSetVerticalScroll>(Arena*);
 template<> ::CMsgSetWindowPosition* Arena::CreateMaybeMessage<::CMsgSetWindowPosition>(Arena*);
+template<> ::CMsgSetWindowStackingOrder* Arena::CreateMaybeMessage<::CMsgSetWindowStackingOrder>(Arena*);
 template<> ::CMsgSetWindowVisibility* Arena::CreateMaybeMessage<::CMsgSetWindowVisibility>(Arena*);
 template<> ::CMsgSetZoomLevel* Arena::CreateMaybeMessage<::CMsgSetZoomLevel>(Arena*);
 template<> ::CMsgShowBrowserContextMenu* Arena::CreateMaybeMessage<::CMsgShowBrowserContextMenu>(Arena*);
@@ -30600,24 +30600,24 @@ class CMsgStartDownload PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CMsgSetTopWindow PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSetTopWindow) */ {
+class CMsgSetWindowStackingOrder PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSetWindowStackingOrder) */ {
  public:
-  inline CMsgSetTopWindow() : CMsgSetTopWindow(nullptr) {}
-  virtual ~CMsgSetTopWindow();
-  explicit constexpr CMsgSetTopWindow(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSetWindowStackingOrder() : CMsgSetWindowStackingOrder(nullptr) {}
+  virtual ~CMsgSetWindowStackingOrder();
+  explicit constexpr CMsgSetWindowStackingOrder(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSetTopWindow(const CMsgSetTopWindow& from);
-  CMsgSetTopWindow(CMsgSetTopWindow&& from) noexcept
-    : CMsgSetTopWindow() {
+  CMsgSetWindowStackingOrder(const CMsgSetWindowStackingOrder& from);
+  CMsgSetWindowStackingOrder(CMsgSetWindowStackingOrder&& from) noexcept
+    : CMsgSetWindowStackingOrder() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSetTopWindow& operator=(const CMsgSetTopWindow& from) {
+  inline CMsgSetWindowStackingOrder& operator=(const CMsgSetWindowStackingOrder& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSetTopWindow& operator=(CMsgSetTopWindow&& from) noexcept {
+  inline CMsgSetWindowStackingOrder& operator=(CMsgSetWindowStackingOrder&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -30642,20 +30642,20 @@ class CMsgSetTopWindow PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const CMsgSetTopWindow& default_instance() {
+  static const CMsgSetWindowStackingOrder& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSetTopWindow* internal_default_instance() {
-    return reinterpret_cast<const CMsgSetTopWindow*>(
-               &_CMsgSetTopWindow_default_instance_);
+  static inline const CMsgSetWindowStackingOrder* internal_default_instance() {
+    return reinterpret_cast<const CMsgSetWindowStackingOrder*>(
+               &_CMsgSetWindowStackingOrder_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     160;
 
-  friend void swap(CMsgSetTopWindow& a, CMsgSetTopWindow& b) {
+  friend void swap(CMsgSetWindowStackingOrder& a, CMsgSetWindowStackingOrder& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSetTopWindow* other) {
+  inline void Swap(CMsgSetWindowStackingOrder* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -30663,7 +30663,7 @@ class CMsgSetTopWindow PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSetTopWindow* other) {
+  void UnsafeArenaSwap(CMsgSetWindowStackingOrder* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -30671,17 +30671,17 @@ class CMsgSetTopWindow PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline CMsgSetTopWindow* New() const final {
-    return CreateMaybeMessage<CMsgSetTopWindow>(nullptr);
+  inline CMsgSetWindowStackingOrder* New() const final {
+    return CreateMaybeMessage<CMsgSetWindowStackingOrder>(nullptr);
   }
 
-  CMsgSetTopWindow* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CMsgSetTopWindow>(arena);
+  CMsgSetWindowStackingOrder* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgSetWindowStackingOrder>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CMsgSetTopWindow& from);
-  void MergeFrom(const CMsgSetTopWindow& from);
+  void CopyFrom(const CMsgSetWindowStackingOrder& from);
+  void MergeFrom(const CMsgSetWindowStackingOrder& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -30695,13 +30695,13 @@ class CMsgSetTopWindow PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSetTopWindow* other);
+  void InternalSwap(CMsgSetWindowStackingOrder* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSetTopWindow";
+    return "CMsgSetWindowStackingOrder";
   }
   protected:
-  explicit CMsgSetTopWindow(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit CMsgSetWindowStackingOrder(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -30721,6 +30721,7 @@ class CMsgSetTopWindow PROTOBUF_FINAL :
 
   enum : int {
     kBrowserHandleFieldNumber = 1,
+    kEstackingorderFieldNumber = 2,
   };
   // optional uint32 browser_handle = 1;
   bool has_browser_handle() const;
@@ -30735,7 +30736,20 @@ class CMsgSetTopWindow PROTOBUF_FINAL :
   void _internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgSetTopWindow)
+  // optional uint32 estackingorder = 2;
+  bool has_estackingorder() const;
+  private:
+  bool _internal_has_estackingorder() const;
+  public:
+  void clear_estackingorder();
+  ::PROTOBUF_NAMESPACE_ID::uint32 estackingorder() const;
+  void set_estackingorder(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_estackingorder() const;
+  void _internal_set_estackingorder(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSetWindowStackingOrder)
  private:
   class _Internal;
 
@@ -30745,6 +30759,7 @@ class CMsgSetTopWindow PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 estackingorder_;
   friend struct ::TableStruct_htmlmessages_2eproto;
 };
 // -------------------------------------------------------------------
@@ -52124,34 +52139,62 @@ inline void CMsgStartDownload::set_allocated_url(std::string* url) {
 
 // -------------------------------------------------------------------
 
-// CMsgSetTopWindow
+// CMsgSetWindowStackingOrder
 
 // optional uint32 browser_handle = 1;
-inline bool CMsgSetTopWindow::_internal_has_browser_handle() const {
+inline bool CMsgSetWindowStackingOrder::_internal_has_browser_handle() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgSetTopWindow::has_browser_handle() const {
+inline bool CMsgSetWindowStackingOrder::has_browser_handle() const {
   return _internal_has_browser_handle();
 }
-inline void CMsgSetTopWindow::clear_browser_handle() {
+inline void CMsgSetWindowStackingOrder::clear_browser_handle() {
   browser_handle_ = 0u;
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetTopWindow::_internal_browser_handle() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetWindowStackingOrder::_internal_browser_handle() const {
   return browser_handle_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetTopWindow::browser_handle() const {
-  // @@protoc_insertion_point(field_get:CMsgSetTopWindow.browser_handle)
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetWindowStackingOrder::browser_handle() const {
+  // @@protoc_insertion_point(field_get:CMsgSetWindowStackingOrder.browser_handle)
   return _internal_browser_handle();
 }
-inline void CMsgSetTopWindow::_internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void CMsgSetWindowStackingOrder::_internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _has_bits_[0] |= 0x00000001u;
   browser_handle_ = value;
 }
-inline void CMsgSetTopWindow::set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void CMsgSetWindowStackingOrder::set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_browser_handle(value);
-  // @@protoc_insertion_point(field_set:CMsgSetTopWindow.browser_handle)
+  // @@protoc_insertion_point(field_set:CMsgSetWindowStackingOrder.browser_handle)
+}
+
+// optional uint32 estackingorder = 2;
+inline bool CMsgSetWindowStackingOrder::_internal_has_estackingorder() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSetWindowStackingOrder::has_estackingorder() const {
+  return _internal_has_estackingorder();
+}
+inline void CMsgSetWindowStackingOrder::clear_estackingorder() {
+  estackingorder_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetWindowStackingOrder::_internal_estackingorder() const {
+  return estackingorder_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetWindowStackingOrder::estackingorder() const {
+  // @@protoc_insertion_point(field_get:CMsgSetWindowStackingOrder.estackingorder)
+  return _internal_estackingorder();
+}
+inline void CMsgSetWindowStackingOrder::_internal_set_estackingorder(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  estackingorder_ = value;
+}
+inline void CMsgSetWindowStackingOrder::set_estackingorder(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_estackingorder(value);
+  // @@protoc_insertion_point(field_set:CMsgSetWindowStackingOrder.estackingorder)
 }
 
 // -------------------------------------------------------------------

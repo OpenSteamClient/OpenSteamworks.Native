@@ -252,6 +252,31 @@ struct CTransportValidation_NotifyCount_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CTransportValidation_NotifyCount_NotificationDefaultTypeInternal _CTransportValidation_NotifyCount_Notification_default_instance_;
+constexpr CTransportValidation_RequestInvalidBool_Request::CTransportValidation_RequestInvalidBool_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CTransportValidation_RequestInvalidBool_RequestDefaultTypeInternal {
+  constexpr CTransportValidation_RequestInvalidBool_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CTransportValidation_RequestInvalidBool_RequestDefaultTypeInternal() {}
+  union {
+    CTransportValidation_RequestInvalidBool_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CTransportValidation_RequestInvalidBool_RequestDefaultTypeInternal _CTransportValidation_RequestInvalidBool_Request_default_instance_;
+constexpr CTransportValidation_RequestInvalidBool_Response::CTransportValidation_RequestInvalidBool_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : before_(0)
+  , output_(false)
+  , after_(0){}
+struct CTransportValidation_RequestInvalidBool_ResponseDefaultTypeInternal {
+  constexpr CTransportValidation_RequestInvalidBool_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CTransportValidation_RequestInvalidBool_ResponseDefaultTypeInternal() {}
+  union {
+    CTransportValidation_RequestInvalidBool_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CTransportValidation_RequestInvalidBool_ResponseDefaultTypeInternal _CTransportValidation_RequestInvalidBool_Response_default_instance_;
 constexpr CTransportValidationClient_AddNumbers_Request::CTransportValidationClient_AddNumbers_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : numbers_(){}
@@ -276,7 +301,7 @@ struct CTransportValidationClient_AddNumbers_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CTransportValidationClient_AddNumbers_ResponseDefaultTypeInternal _CTransportValidationClient_AddNumbers_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5ftransportvalidation_2eproto[22];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5ftransportvalidation_2eproto[24];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_webuimessages_5ftransportvalidation_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_webuimessages_5ftransportvalidation_2eproto[2];
 
@@ -412,6 +437,22 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5ftransportvalid
   PROTOBUF_FIELD_OFFSET(::CTransportValidation_NotifyCount_Notification, num_),
   0,
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CTransportValidation_RequestInvalidBool_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CTransportValidation_RequestInvalidBool_Response, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CTransportValidation_RequestInvalidBool_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CTransportValidation_RequestInvalidBool_Response, before_),
+  PROTOBUF_FIELD_OFFSET(::CTransportValidation_RequestInvalidBool_Response, output_),
+  PROTOBUF_FIELD_OFFSET(::CTransportValidation_RequestInvalidBool_Response, after_),
+  0,
+  1,
+  2,
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CTransportValidationClient_AddNumbers_Request, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -446,8 +487,10 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 109, 116, sizeof(::CTransportValidation_ThreadedCount_Request)},
   { 118, -1, sizeof(::CTransportValidation_ThreadedCount_Response)},
   { 123, 129, sizeof(::CTransportValidation_NotifyCount_Notification)},
-  { 130, -1, sizeof(::CTransportValidationClient_AddNumbers_Request)},
-  { 136, 142, sizeof(::CTransportValidationClient_AddNumbers_Response)},
+  { 130, -1, sizeof(::CTransportValidation_RequestInvalidBool_Request)},
+  { 135, 143, sizeof(::CTransportValidation_RequestInvalidBool_Response)},
+  { 146, -1, sizeof(::CTransportValidationClient_AddNumbers_Request)},
+  { 152, 158, sizeof(::CTransportValidationClient_AddNumbers_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -471,6 +514,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportValidation_ThreadedCount_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportValidation_ThreadedCount_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportValidation_NotifyCount_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportValidation_RequestInvalidBool_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportValidation_RequestInvalidBool_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportValidationClient_AddNumbers_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTransportValidationClient_AddNumbers_Response_default_instance_),
 };
@@ -511,44 +556,51 @@ const char descriptor_table_protodef_webuimessages_5ftransportvalidation_2eproto
   "\030\001 \001(\005\022\017\n\007end_num\030\002 \001(\005\"-\n+CTransportVal"
   "idation_ThreadedCount_Response\"<\n-CTrans"
   "portValidation_NotifyCount_Notification\022"
-  "\013\n\003num\030\001 \001(\005\"@\n-CTransportValidationClie"
-  "nt_AddNumbers_Request\022\017\n\007numbers\030\001 \003(\005\"E"
-  "\n.CTransportValidationClient_AddNumbers_"
-  "Response\022\023\n\013accumulated\030\001 \001(\0052\226\t\n\023Transp"
-  "ortValidation\022m\n\016AppendToString\022,.CTrans"
-  "portValidation_AppendToString_Request\032-."
-  "CTransportValidation_AppendToString_Resp"
-  "onse\022a\n\nAddNumbers\022(.CTransportValidatio"
-  "n_AddNumbers_Request\032).CTransportValidat"
-  "ion_AddNumbers_Response\022g\n\020AddNumbersSta"
-  "tic\022(.CTransportValidation_AddNumbers_Re"
-  "quest\032).CTransportValidation_AddNumbers_"
-  "Response\022M\n\nNotifyText\022-.CTransportValid"
-  "ation_NotifyText_Notification\032\020.WebUINoR"
-  "esponse\022Q\n\014NotifyNumber\022/.CTransportVali"
-  "dation_NotifyNumber_Notification\032\020.WebUI"
-  "NoResponse\022|\n\023GetLastNotifyNumber\0221.CTra"
-  "nsportValidation_GetLastNotifyNumber_Req"
-  "uest\0322.CTransportValidation_GetLastNotif"
-  "yNumber_Response\022a\n\024NotifySyntheticEvent"
-  "\0227.CTransportValidation_NotifySyntheticE"
-  "vent_Notification\032\020.WebUINoResponse\022\205\001\n\026"
-  "TriggerSyntheticEvents\0224.CTransportValid"
-  "ation_TriggerSyntheticEvents_Request\0325.C"
-  "TransportValidation_TriggerSyntheticEven"
-  "ts_Response\022v\n\021CountOrderedBytes\022/.CTran"
-  "sportValidation_CountOrderedBytes_Reques"
-  "t\0320.CTransportValidation_CountOrderedByt"
-  "es_Response\022j\n\rThreadedCount\022+.CTranspor"
-  "tValidation_ThreadedCount_Request\032,.CTra"
-  "nsportValidation_ThreadedCount_Response\022"
-  "O\n\013NotifyCount\022..CTransportValidation_No"
-  "tifyCount_Notification\032\020.WebUINoResponse"
-  "\032\004\200\227\"\0012\220\001\n\031TransportValidationClient\022m\n\n"
-  "AddNumbers\022..CTransportValidationClient_"
-  "AddNumbers_Request\032/.CTransportValidatio"
-  "nClient_AddNumbers_Response\032\004\200\227\"\002B\037H\001\200\001\001"
-  "\252\002\027OpenSteamworks.Protobuf"
+  "\013\n\003num\030\001 \001(\005\"1\n/CTransportValidation_Req"
+  "uestInvalidBool_Request\"a\n0CTransportVal"
+  "idation_RequestInvalidBool_Response\022\016\n\006b"
+  "efore\030\001 \001(\005\022\016\n\006output\030\002 \001(\010\022\r\n\005after\030\003 \001"
+  "(\005\"@\n-CTransportValidationClient_AddNumb"
+  "ers_Request\022\017\n\007numbers\030\001 \003(\005\"E\n.CTranspo"
+  "rtValidationClient_AddNumbers_Response\022\023"
+  "\n\013accumulated\030\001 \001(\0052\221\n\n\023TransportValidat"
+  "ion\022m\n\016AppendToString\022,.CTransportValida"
+  "tion_AppendToString_Request\032-.CTransport"
+  "Validation_AppendToString_Response\022a\n\nAd"
+  "dNumbers\022(.CTransportValidation_AddNumbe"
+  "rs_Request\032).CTransportValidation_AddNum"
+  "bers_Response\022g\n\020AddNumbersStatic\022(.CTra"
+  "nsportValidation_AddNumbers_Request\032).CT"
+  "ransportValidation_AddNumbers_Response\022M"
+  "\n\nNotifyText\022-.CTransportValidation_Noti"
+  "fyText_Notification\032\020.WebUINoResponse\022Q\n"
+  "\014NotifyNumber\022/.CTransportValidation_Not"
+  "ifyNumber_Notification\032\020.WebUINoResponse"
+  "\022|\n\023GetLastNotifyNumber\0221.CTransportVali"
+  "dation_GetLastNotifyNumber_Request\0322.CTr"
+  "ansportValidation_GetLastNotifyNumber_Re"
+  "sponse\022a\n\024NotifySyntheticEvent\0227.CTransp"
+  "ortValidation_NotifySyntheticEvent_Notif"
+  "ication\032\020.WebUINoResponse\022\205\001\n\026TriggerSyn"
+  "theticEvents\0224.CTransportValidation_Trig"
+  "gerSyntheticEvents_Request\0325.CTransportV"
+  "alidation_TriggerSyntheticEvents_Respons"
+  "e\022v\n\021CountOrderedBytes\022/.CTransportValid"
+  "ation_CountOrderedBytes_Request\0320.CTrans"
+  "portValidation_CountOrderedBytes_Respons"
+  "e\022j\n\rThreadedCount\022+.CTransportValidatio"
+  "n_ThreadedCount_Request\032,.CTransportVali"
+  "dation_ThreadedCount_Response\022O\n\013NotifyC"
+  "ount\022..CTransportValidation_NotifyCount_"
+  "Notification\032\020.WebUINoResponse\022y\n\022Reques"
+  "tInvalidBool\0220.CTransportValidation_Requ"
+  "estInvalidBool_Request\0321.CTransportValid"
+  "ation_RequestInvalidBool_Response\032\004\200\227\"\0012"
+  "\220\001\n\031TransportValidationClient\022m\n\nAddNumb"
+  "ers\022..CTransportValidationClient_AddNumb"
+  "ers_Request\032/.CTransportValidationClient"
+  "_AddNumbers_Response\032\004\200\227\"\002B\037H\001\200\001\001\252\002\027Open"
+  "Steamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5ftransportvalidation_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -557,8 +609,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5ftransportvalidation_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5ftransportvalidation_2eproto = {
-  false, false, 2906, descriptor_table_protodef_webuimessages_5ftransportvalidation_2eproto, "webuimessages_transportvalidation.proto", 
-  &descriptor_table_webuimessages_5ftransportvalidation_2eproto_once, descriptor_table_webuimessages_5ftransportvalidation_2eproto_deps, 3, 22,
+  false, false, 3179, descriptor_table_protodef_webuimessages_5ftransportvalidation_2eproto, "webuimessages_transportvalidation.proto", 
+  &descriptor_table_webuimessages_5ftransportvalidation_2eproto_once, descriptor_table_webuimessages_5ftransportvalidation_2eproto_deps, 3, 24,
   schemas, file_default_instances, TableStruct_webuimessages_5ftransportvalidation_2eproto::offsets,
   file_level_metadata_webuimessages_5ftransportvalidation_2eproto, file_level_enum_descriptors_webuimessages_5ftransportvalidation_2eproto, file_level_service_descriptors_webuimessages_5ftransportvalidation_2eproto,
 };
@@ -4455,6 +4507,437 @@ void CTransportValidation_NotifyCount_Notification::InternalSwap(CTransportValid
 
 // ===================================================================
 
+class CTransportValidation_RequestInvalidBool_Request::_Internal {
+ public:
+};
+
+CTransportValidation_RequestInvalidBool_Request::CTransportValidation_RequestInvalidBool_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CTransportValidation_RequestInvalidBool_Request)
+}
+CTransportValidation_RequestInvalidBool_Request::CTransportValidation_RequestInvalidBool_Request(const CTransportValidation_RequestInvalidBool_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CTransportValidation_RequestInvalidBool_Request)
+}
+
+void CTransportValidation_RequestInvalidBool_Request::SharedCtor() {
+}
+
+CTransportValidation_RequestInvalidBool_Request::~CTransportValidation_RequestInvalidBool_Request() {
+  // @@protoc_insertion_point(destructor:CTransportValidation_RequestInvalidBool_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CTransportValidation_RequestInvalidBool_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CTransportValidation_RequestInvalidBool_Request::ArenaDtor(void* object) {
+  CTransportValidation_RequestInvalidBool_Request* _this = reinterpret_cast< CTransportValidation_RequestInvalidBool_Request* >(object);
+  (void)_this;
+}
+void CTransportValidation_RequestInvalidBool_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CTransportValidation_RequestInvalidBool_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CTransportValidation_RequestInvalidBool_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CTransportValidation_RequestInvalidBool_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CTransportValidation_RequestInvalidBool_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CTransportValidation_RequestInvalidBool_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CTransportValidation_RequestInvalidBool_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CTransportValidation_RequestInvalidBool_Request)
+  return target;
+}
+
+size_t CTransportValidation_RequestInvalidBool_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CTransportValidation_RequestInvalidBool_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CTransportValidation_RequestInvalidBool_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CTransportValidation_RequestInvalidBool_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CTransportValidation_RequestInvalidBool_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CTransportValidation_RequestInvalidBool_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CTransportValidation_RequestInvalidBool_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CTransportValidation_RequestInvalidBool_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CTransportValidation_RequestInvalidBool_Request::MergeFrom(const CTransportValidation_RequestInvalidBool_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CTransportValidation_RequestInvalidBool_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CTransportValidation_RequestInvalidBool_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CTransportValidation_RequestInvalidBool_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CTransportValidation_RequestInvalidBool_Request::CopyFrom(const CTransportValidation_RequestInvalidBool_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CTransportValidation_RequestInvalidBool_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CTransportValidation_RequestInvalidBool_Request::IsInitialized() const {
+  return true;
+}
+
+void CTransportValidation_RequestInvalidBool_Request::InternalSwap(CTransportValidation_RequestInvalidBool_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CTransportValidation_RequestInvalidBool_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CTransportValidation_RequestInvalidBool_Response::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CTransportValidation_RequestInvalidBool_Response>()._has_bits_);
+  static void set_has_before(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_output(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_after(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CTransportValidation_RequestInvalidBool_Response::CTransportValidation_RequestInvalidBool_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CTransportValidation_RequestInvalidBool_Response)
+}
+CTransportValidation_RequestInvalidBool_Response::CTransportValidation_RequestInvalidBool_Response(const CTransportValidation_RequestInvalidBool_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&before_, &from.before_,
+    static_cast<size_t>(reinterpret_cast<char*>(&after_) -
+    reinterpret_cast<char*>(&before_)) + sizeof(after_));
+  // @@protoc_insertion_point(copy_constructor:CTransportValidation_RequestInvalidBool_Response)
+}
+
+void CTransportValidation_RequestInvalidBool_Response::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&before_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&after_) -
+    reinterpret_cast<char*>(&before_)) + sizeof(after_));
+}
+
+CTransportValidation_RequestInvalidBool_Response::~CTransportValidation_RequestInvalidBool_Response() {
+  // @@protoc_insertion_point(destructor:CTransportValidation_RequestInvalidBool_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CTransportValidation_RequestInvalidBool_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CTransportValidation_RequestInvalidBool_Response::ArenaDtor(void* object) {
+  CTransportValidation_RequestInvalidBool_Response* _this = reinterpret_cast< CTransportValidation_RequestInvalidBool_Response* >(object);
+  (void)_this;
+}
+void CTransportValidation_RequestInvalidBool_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CTransportValidation_RequestInvalidBool_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CTransportValidation_RequestInvalidBool_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CTransportValidation_RequestInvalidBool_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&before_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&after_) -
+        reinterpret_cast<char*>(&before_)) + sizeof(after_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CTransportValidation_RequestInvalidBool_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional int32 before = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_before(&has_bits);
+          before_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool output = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_output(&has_bits);
+          output_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 after = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_after(&has_bits);
+          after_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CTransportValidation_RequestInvalidBool_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CTransportValidation_RequestInvalidBool_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional int32 before = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_before(), target);
+  }
+
+  // optional bool output = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_output(), target);
+  }
+
+  // optional int32 after = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_after(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CTransportValidation_RequestInvalidBool_Response)
+  return target;
+}
+
+size_t CTransportValidation_RequestInvalidBool_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CTransportValidation_RequestInvalidBool_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional int32 before = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_before());
+    }
+
+    // optional bool output = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 after = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_after());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CTransportValidation_RequestInvalidBool_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CTransportValidation_RequestInvalidBool_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CTransportValidation_RequestInvalidBool_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CTransportValidation_RequestInvalidBool_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CTransportValidation_RequestInvalidBool_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CTransportValidation_RequestInvalidBool_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CTransportValidation_RequestInvalidBool_Response::MergeFrom(const CTransportValidation_RequestInvalidBool_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CTransportValidation_RequestInvalidBool_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      before_ = from.before_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      output_ = from.output_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      after_ = from.after_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CTransportValidation_RequestInvalidBool_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CTransportValidation_RequestInvalidBool_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CTransportValidation_RequestInvalidBool_Response::CopyFrom(const CTransportValidation_RequestInvalidBool_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CTransportValidation_RequestInvalidBool_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CTransportValidation_RequestInvalidBool_Response::IsInitialized() const {
+  return true;
+}
+
+void CTransportValidation_RequestInvalidBool_Response::InternalSwap(CTransportValidation_RequestInvalidBool_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CTransportValidation_RequestInvalidBool_Response, after_)
+      + sizeof(CTransportValidation_RequestInvalidBool_Response::after_)
+      - PROTOBUF_FIELD_OFFSET(CTransportValidation_RequestInvalidBool_Response, before_)>(
+          reinterpret_cast<char*>(&before_),
+          reinterpret_cast<char*>(&other->before_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CTransportValidation_RequestInvalidBool_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CTransportValidationClient_AddNumbers_Request::_Internal {
  public:
 };
@@ -4952,6 +5435,14 @@ void TransportValidation::NotifyCount(::PROTOBUF_NAMESPACE_ID::RpcController* co
   done->Run();
 }
 
+void TransportValidation::RequestInvalidBool(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CTransportValidation_RequestInvalidBool_Request*,
+                         ::CTransportValidation_RequestInvalidBool_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method RequestInvalidBool() not implemented.");
+  done->Run();
+}
+
 void TransportValidation::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -5047,6 +5538,14 @@ void TransportValidation::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescri
                  response),
              done);
       break;
+    case 11:
+      RequestInvalidBool(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CTransportValidation_RequestInvalidBool_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CTransportValidation_RequestInvalidBool_Response*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -5079,6 +5578,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& TransportValidation::GetRequestPrototype
       return ::CTransportValidation_ThreadedCount_Request::default_instance();
     case 10:
       return ::CTransportValidation_NotifyCount_Notification::default_instance();
+    case 11:
+      return ::CTransportValidation_RequestInvalidBool_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -5112,6 +5613,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& TransportValidation::GetResponsePrototyp
       return ::CTransportValidation_ThreadedCount_Response::default_instance();
     case 10:
       return ::WebUINoResponse::default_instance();
+    case 11:
+      return ::CTransportValidation_RequestInvalidBool_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -5205,6 +5708,13 @@ void TransportValidation_Stub::NotifyCount(::PROTOBUF_NAMESPACE_ID::RpcControlle
                               ::WebUINoResponse* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(10),
+                       controller, request, response, done);
+}
+void TransportValidation_Stub::RequestInvalidBool(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CTransportValidation_RequestInvalidBool_Request* request,
+                              ::CTransportValidation_RequestInvalidBool_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(11),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -5355,6 +5865,12 @@ template<> PROTOBUF_NOINLINE ::CTransportValidation_ThreadedCount_Response* Aren
 }
 template<> PROTOBUF_NOINLINE ::CTransportValidation_NotifyCount_Notification* Arena::CreateMaybeMessage< ::CTransportValidation_NotifyCount_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CTransportValidation_NotifyCount_Notification >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CTransportValidation_RequestInvalidBool_Request* Arena::CreateMaybeMessage< ::CTransportValidation_RequestInvalidBool_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CTransportValidation_RequestInvalidBool_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CTransportValidation_RequestInvalidBool_Response* Arena::CreateMaybeMessage< ::CTransportValidation_RequestInvalidBool_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CTransportValidation_RequestInvalidBool_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CTransportValidationClient_AddNumbers_Request* Arena::CreateMaybeMessage< ::CTransportValidationClient_AddNumbers_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CTransportValidationClient_AddNumbers_Request >(arena);

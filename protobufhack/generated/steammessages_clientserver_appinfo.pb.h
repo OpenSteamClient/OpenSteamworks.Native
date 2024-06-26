@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fclientserver_5fappinfo_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[20]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -92,6 +92,12 @@ extern CMsgClientPICSChangesSinceResponse_AppChangeDefaultTypeInternal _CMsgClie
 class CMsgClientPICSChangesSinceResponse_PackageChange;
 struct CMsgClientPICSChangesSinceResponse_PackageChangeDefaultTypeInternal;
 extern CMsgClientPICSChangesSinceResponse_PackageChangeDefaultTypeInternal _CMsgClientPICSChangesSinceResponse_PackageChange_default_instance_;
+class CMsgClientPICSPrivateBetaRequest;
+struct CMsgClientPICSPrivateBetaRequestDefaultTypeInternal;
+extern CMsgClientPICSPrivateBetaRequestDefaultTypeInternal _CMsgClientPICSPrivateBetaRequest_default_instance_;
+class CMsgClientPICSPrivateBetaResponse;
+struct CMsgClientPICSPrivateBetaResponseDefaultTypeInternal;
+extern CMsgClientPICSPrivateBetaResponseDefaultTypeInternal _CMsgClientPICSPrivateBetaResponse_default_instance_;
 class CMsgClientPICSProductInfoRequest;
 struct CMsgClientPICSProductInfoRequestDefaultTypeInternal;
 extern CMsgClientPICSProductInfoRequestDefaultTypeInternal _CMsgClientPICSProductInfoRequest_default_instance_;
@@ -123,6 +129,8 @@ template<> ::CMsgClientPICSChangesSinceRequest* Arena::CreateMaybeMessage<::CMsg
 template<> ::CMsgClientPICSChangesSinceResponse* Arena::CreateMaybeMessage<::CMsgClientPICSChangesSinceResponse>(Arena*);
 template<> ::CMsgClientPICSChangesSinceResponse_AppChange* Arena::CreateMaybeMessage<::CMsgClientPICSChangesSinceResponse_AppChange>(Arena*);
 template<> ::CMsgClientPICSChangesSinceResponse_PackageChange* Arena::CreateMaybeMessage<::CMsgClientPICSChangesSinceResponse_PackageChange>(Arena*);
+template<> ::CMsgClientPICSPrivateBetaRequest* Arena::CreateMaybeMessage<::CMsgClientPICSPrivateBetaRequest>(Arena*);
+template<> ::CMsgClientPICSPrivateBetaResponse* Arena::CreateMaybeMessage<::CMsgClientPICSPrivateBetaResponse>(Arena*);
 template<> ::CMsgClientPICSProductInfoRequest* Arena::CreateMaybeMessage<::CMsgClientPICSProductInfoRequest>(Arena*);
 template<> ::CMsgClientPICSProductInfoRequest_AppInfo* Arena::CreateMaybeMessage<::CMsgClientPICSProductInfoRequest_AppInfo>(Arena*);
 template<> ::CMsgClientPICSProductInfoRequest_PackageInfo* Arena::CreateMaybeMessage<::CMsgClientPICSProductInfoRequest_PackageInfo>(Arena*);
@@ -3772,6 +3780,385 @@ class CMsgClientPICSAccessTokenResponse PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_steammessages_5fclientserver_5fappinfo_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CMsgClientPICSPrivateBetaRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientPICSPrivateBetaRequest) */ {
+ public:
+  inline CMsgClientPICSPrivateBetaRequest() : CMsgClientPICSPrivateBetaRequest(nullptr) {}
+  virtual ~CMsgClientPICSPrivateBetaRequest();
+  explicit constexpr CMsgClientPICSPrivateBetaRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientPICSPrivateBetaRequest(const CMsgClientPICSPrivateBetaRequest& from);
+  CMsgClientPICSPrivateBetaRequest(CMsgClientPICSPrivateBetaRequest&& from) noexcept
+    : CMsgClientPICSPrivateBetaRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientPICSPrivateBetaRequest& operator=(const CMsgClientPICSPrivateBetaRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientPICSPrivateBetaRequest& operator=(CMsgClientPICSPrivateBetaRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgClientPICSPrivateBetaRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientPICSPrivateBetaRequest* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientPICSPrivateBetaRequest*>(
+               &_CMsgClientPICSPrivateBetaRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(CMsgClientPICSPrivateBetaRequest& a, CMsgClientPICSPrivateBetaRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientPICSPrivateBetaRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientPICSPrivateBetaRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgClientPICSPrivateBetaRequest* New() const final {
+    return CreateMaybeMessage<CMsgClientPICSPrivateBetaRequest>(nullptr);
+  }
+
+  CMsgClientPICSPrivateBetaRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgClientPICSPrivateBetaRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgClientPICSPrivateBetaRequest& from);
+  void MergeFrom(const CMsgClientPICSPrivateBetaRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientPICSPrivateBetaRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientPICSPrivateBetaRequest";
+  }
+  protected:
+  explicit CMsgClientPICSPrivateBetaRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientserver_5fappinfo_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBetaNameFieldNumber = 3,
+    kPasswordHashFieldNumber = 4,
+    kAccessTokenFieldNumber = 2,
+    kAppidFieldNumber = 1,
+  };
+  // optional string beta_name = 3;
+  bool has_beta_name() const;
+  private:
+  bool _internal_has_beta_name() const;
+  public:
+  void clear_beta_name();
+  const std::string& beta_name() const;
+  void set_beta_name(const std::string& value);
+  void set_beta_name(std::string&& value);
+  void set_beta_name(const char* value);
+  void set_beta_name(const char* value, size_t size);
+  std::string* mutable_beta_name();
+  std::string* release_beta_name();
+  void set_allocated_beta_name(std::string* beta_name);
+  private:
+  const std::string& _internal_beta_name() const;
+  void _internal_set_beta_name(const std::string& value);
+  std::string* _internal_mutable_beta_name();
+  public:
+
+  // optional bytes password_hash = 4;
+  bool has_password_hash() const;
+  private:
+  bool _internal_has_password_hash() const;
+  public:
+  void clear_password_hash();
+  const std::string& password_hash() const;
+  void set_password_hash(const std::string& value);
+  void set_password_hash(std::string&& value);
+  void set_password_hash(const char* value);
+  void set_password_hash(const void* value, size_t size);
+  std::string* mutable_password_hash();
+  std::string* release_password_hash();
+  void set_allocated_password_hash(std::string* password_hash);
+  private:
+  const std::string& _internal_password_hash() const;
+  void _internal_set_password_hash(const std::string& value);
+  std::string* _internal_mutable_password_hash();
+  public:
+
+  // optional uint64 access_token = 2;
+  bool has_access_token() const;
+  private:
+  bool _internal_has_access_token() const;
+  public:
+  void clear_access_token();
+  ::PROTOBUF_NAMESPACE_ID::uint64 access_token() const;
+  void set_access_token(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_access_token() const;
+  void _internal_set_access_token(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint32 appid = 1;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
+  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
+  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientPICSPrivateBetaRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr beta_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr password_hash_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 access_token_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  friend struct ::TableStruct_steammessages_5fclientserver_5fappinfo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientPICSPrivateBetaResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientPICSPrivateBetaResponse) */ {
+ public:
+  inline CMsgClientPICSPrivateBetaResponse() : CMsgClientPICSPrivateBetaResponse(nullptr) {}
+  virtual ~CMsgClientPICSPrivateBetaResponse();
+  explicit constexpr CMsgClientPICSPrivateBetaResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientPICSPrivateBetaResponse(const CMsgClientPICSPrivateBetaResponse& from);
+  CMsgClientPICSPrivateBetaResponse(CMsgClientPICSPrivateBetaResponse&& from) noexcept
+    : CMsgClientPICSPrivateBetaResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientPICSPrivateBetaResponse& operator=(const CMsgClientPICSPrivateBetaResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientPICSPrivateBetaResponse& operator=(CMsgClientPICSPrivateBetaResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgClientPICSPrivateBetaResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientPICSPrivateBetaResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientPICSPrivateBetaResponse*>(
+               &_CMsgClientPICSPrivateBetaResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(CMsgClientPICSPrivateBetaResponse& a, CMsgClientPICSPrivateBetaResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientPICSPrivateBetaResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientPICSPrivateBetaResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgClientPICSPrivateBetaResponse* New() const final {
+    return CreateMaybeMessage<CMsgClientPICSPrivateBetaResponse>(nullptr);
+  }
+
+  CMsgClientPICSPrivateBetaResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgClientPICSPrivateBetaResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgClientPICSPrivateBetaResponse& from);
+  void MergeFrom(const CMsgClientPICSPrivateBetaResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientPICSPrivateBetaResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientPICSPrivateBetaResponse";
+  }
+  protected:
+  explicit CMsgClientPICSPrivateBetaResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientserver_5fappinfo_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDepotSectionFieldNumber = 2,
+    kEresultFieldNumber = 1,
+  };
+  // optional bytes depot_section = 2;
+  bool has_depot_section() const;
+  private:
+  bool _internal_has_depot_section() const;
+  public:
+  void clear_depot_section();
+  const std::string& depot_section() const;
+  void set_depot_section(const std::string& value);
+  void set_depot_section(std::string&& value);
+  void set_depot_section(const char* value);
+  void set_depot_section(const void* value, size_t size);
+  std::string* mutable_depot_section();
+  std::string* release_depot_section();
+  void set_allocated_depot_section(std::string* depot_section);
+  private:
+  const std::string& _internal_depot_section() const;
+  void _internal_set_depot_section(const std::string& value);
+  std::string* _internal_mutable_depot_section();
+  public:
+
+  // optional int32 eresult = 1 [default = 2];
+  bool has_eresult() const;
+  private:
+  bool _internal_has_eresult() const;
+  public:
+  void clear_eresult();
+  ::PROTOBUF_NAMESPACE_ID::int32 eresult() const;
+  void set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_eresult() const;
+  void _internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientPICSPrivateBetaResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr depot_section_;
+  ::PROTOBUF_NAMESPACE_ID::int32 eresult_;
+  friend struct ::TableStruct_steammessages_5fclientserver_5fappinfo_2eproto;
+};
 // ===================================================================
 
 
@@ -6315,9 +6702,324 @@ CMsgClientPICSAccessTokenResponse::mutable_app_denied_tokens() {
   return _internal_mutable_app_denied_tokens();
 }
 
+// -------------------------------------------------------------------
+
+// CMsgClientPICSPrivateBetaRequest
+
+// optional uint32 appid = 1;
+inline bool CMsgClientPICSPrivateBetaRequest::_internal_has_appid() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgClientPICSPrivateBetaRequest::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CMsgClientPICSPrivateBetaRequest::clear_appid() {
+  appid_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPICSPrivateBetaRequest::_internal_appid() const {
+  return appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPICSPrivateBetaRequest::appid() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPICSPrivateBetaRequest.appid)
+  return _internal_appid();
+}
+inline void CMsgClientPICSPrivateBetaRequest::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  appid_ = value;
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPICSPrivateBetaRequest.appid)
+}
+
+// optional uint64 access_token = 2;
+inline bool CMsgClientPICSPrivateBetaRequest::_internal_has_access_token() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientPICSPrivateBetaRequest::has_access_token() const {
+  return _internal_has_access_token();
+}
+inline void CMsgClientPICSPrivateBetaRequest::clear_access_token() {
+  access_token_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPICSPrivateBetaRequest::_internal_access_token() const {
+  return access_token_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPICSPrivateBetaRequest::access_token() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPICSPrivateBetaRequest.access_token)
+  return _internal_access_token();
+}
+inline void CMsgClientPICSPrivateBetaRequest::_internal_set_access_token(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000004u;
+  access_token_ = value;
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_access_token(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_access_token(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPICSPrivateBetaRequest.access_token)
+}
+
+// optional string beta_name = 3;
+inline bool CMsgClientPICSPrivateBetaRequest::_internal_has_beta_name() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientPICSPrivateBetaRequest::has_beta_name() const {
+  return _internal_has_beta_name();
+}
+inline void CMsgClientPICSPrivateBetaRequest::clear_beta_name() {
+  beta_name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgClientPICSPrivateBetaRequest::beta_name() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPICSPrivateBetaRequest.beta_name)
+  return _internal_beta_name();
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_beta_name(const std::string& value) {
+  _internal_set_beta_name(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPICSPrivateBetaRequest.beta_name)
+}
+inline std::string* CMsgClientPICSPrivateBetaRequest::mutable_beta_name() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientPICSPrivateBetaRequest.beta_name)
+  return _internal_mutable_beta_name();
+}
+inline const std::string& CMsgClientPICSPrivateBetaRequest::_internal_beta_name() const {
+  return beta_name_.Get();
+}
+inline void CMsgClientPICSPrivateBetaRequest::_internal_set_beta_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  beta_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_beta_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  beta_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientPICSPrivateBetaRequest.beta_name)
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_beta_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  beta_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientPICSPrivateBetaRequest.beta_name)
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_beta_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  beta_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientPICSPrivateBetaRequest.beta_name)
+}
+inline std::string* CMsgClientPICSPrivateBetaRequest::_internal_mutable_beta_name() {
+  _has_bits_[0] |= 0x00000001u;
+  return beta_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientPICSPrivateBetaRequest::release_beta_name() {
+  // @@protoc_insertion_point(field_release:CMsgClientPICSPrivateBetaRequest.beta_name)
+  if (!_internal_has_beta_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return beta_name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_allocated_beta_name(std::string* beta_name) {
+  if (beta_name != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  beta_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), beta_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientPICSPrivateBetaRequest.beta_name)
+}
+
+// optional bytes password_hash = 4;
+inline bool CMsgClientPICSPrivateBetaRequest::_internal_has_password_hash() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientPICSPrivateBetaRequest::has_password_hash() const {
+  return _internal_has_password_hash();
+}
+inline void CMsgClientPICSPrivateBetaRequest::clear_password_hash() {
+  password_hash_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CMsgClientPICSPrivateBetaRequest::password_hash() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPICSPrivateBetaRequest.password_hash)
+  return _internal_password_hash();
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_password_hash(const std::string& value) {
+  _internal_set_password_hash(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPICSPrivateBetaRequest.password_hash)
+}
+inline std::string* CMsgClientPICSPrivateBetaRequest::mutable_password_hash() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientPICSPrivateBetaRequest.password_hash)
+  return _internal_mutable_password_hash();
+}
+inline const std::string& CMsgClientPICSPrivateBetaRequest::_internal_password_hash() const {
+  return password_hash_.Get();
+}
+inline void CMsgClientPICSPrivateBetaRequest::_internal_set_password_hash(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  password_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_password_hash(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  password_hash_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientPICSPrivateBetaRequest.password_hash)
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_password_hash(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  password_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientPICSPrivateBetaRequest.password_hash)
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_password_hash(const void* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  password_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientPICSPrivateBetaRequest.password_hash)
+}
+inline std::string* CMsgClientPICSPrivateBetaRequest::_internal_mutable_password_hash() {
+  _has_bits_[0] |= 0x00000002u;
+  return password_hash_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientPICSPrivateBetaRequest::release_password_hash() {
+  // @@protoc_insertion_point(field_release:CMsgClientPICSPrivateBetaRequest.password_hash)
+  if (!_internal_has_password_hash()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return password_hash_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientPICSPrivateBetaRequest::set_allocated_password_hash(std::string* password_hash) {
+  if (password_hash != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  password_hash_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), password_hash,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientPICSPrivateBetaRequest.password_hash)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientPICSPrivateBetaResponse
+
+// optional int32 eresult = 1 [default = 2];
+inline bool CMsgClientPICSPrivateBetaResponse::_internal_has_eresult() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientPICSPrivateBetaResponse::has_eresult() const {
+  return _internal_has_eresult();
+}
+inline void CMsgClientPICSPrivateBetaResponse::clear_eresult() {
+  eresult_ = 2;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientPICSPrivateBetaResponse::_internal_eresult() const {
+  return eresult_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientPICSPrivateBetaResponse::eresult() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPICSPrivateBetaResponse.eresult)
+  return _internal_eresult();
+}
+inline void CMsgClientPICSPrivateBetaResponse::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  eresult_ = value;
+}
+inline void CMsgClientPICSPrivateBetaResponse::set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_eresult(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPICSPrivateBetaResponse.eresult)
+}
+
+// optional bytes depot_section = 2;
+inline bool CMsgClientPICSPrivateBetaResponse::_internal_has_depot_section() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientPICSPrivateBetaResponse::has_depot_section() const {
+  return _internal_has_depot_section();
+}
+inline void CMsgClientPICSPrivateBetaResponse::clear_depot_section() {
+  depot_section_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgClientPICSPrivateBetaResponse::depot_section() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPICSPrivateBetaResponse.depot_section)
+  return _internal_depot_section();
+}
+inline void CMsgClientPICSPrivateBetaResponse::set_depot_section(const std::string& value) {
+  _internal_set_depot_section(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPICSPrivateBetaResponse.depot_section)
+}
+inline std::string* CMsgClientPICSPrivateBetaResponse::mutable_depot_section() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientPICSPrivateBetaResponse.depot_section)
+  return _internal_mutable_depot_section();
+}
+inline const std::string& CMsgClientPICSPrivateBetaResponse::_internal_depot_section() const {
+  return depot_section_.Get();
+}
+inline void CMsgClientPICSPrivateBetaResponse::_internal_set_depot_section(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  depot_section_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientPICSPrivateBetaResponse::set_depot_section(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  depot_section_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientPICSPrivateBetaResponse.depot_section)
+}
+inline void CMsgClientPICSPrivateBetaResponse::set_depot_section(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  depot_section_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientPICSPrivateBetaResponse.depot_section)
+}
+inline void CMsgClientPICSPrivateBetaResponse::set_depot_section(const void* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  depot_section_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientPICSPrivateBetaResponse.depot_section)
+}
+inline std::string* CMsgClientPICSPrivateBetaResponse::_internal_mutable_depot_section() {
+  _has_bits_[0] |= 0x00000001u;
+  return depot_section_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientPICSPrivateBetaResponse::release_depot_section() {
+  // @@protoc_insertion_point(field_release:CMsgClientPICSPrivateBetaResponse.depot_section)
+  if (!_internal_has_depot_section()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return depot_section_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientPICSPrivateBetaResponse::set_allocated_depot_section(std::string* depot_section) {
+  if (depot_section != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  depot_section_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), depot_section,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientPICSPrivateBetaResponse.depot_section)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

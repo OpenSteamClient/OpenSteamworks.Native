@@ -2076,6 +2076,7 @@ class FamilyGroupPendingInviteForUser PROTOBUF_FINAL :
     kFamilyGroupidFieldNumber = 1,
     kInviterSteamidFieldNumber = 3,
     kRoleFieldNumber = 2,
+    kAwaiting2FaFieldNumber = 4,
   };
   // optional uint64 family_groupid = 1;
   bool has_family_groupid() const;
@@ -2116,6 +2117,19 @@ class FamilyGroupPendingInviteForUser PROTOBUF_FINAL :
   void _internal_set_role(::EFamilyGroupRole value);
   public:
 
+  // optional bool awaiting_2fa = 4;
+  bool has_awaiting_2fa() const;
+  private:
+  bool _internal_has_awaiting_2fa() const;
+  public:
+  void clear_awaiting_2fa();
+  bool awaiting_2fa() const;
+  void set_awaiting_2fa(bool value);
+  private:
+  bool _internal_awaiting_2fa() const;
+  void _internal_set_awaiting_2fa(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:FamilyGroupPendingInviteForUser)
  private:
   class _Internal;
@@ -2128,6 +2142,7 @@ class FamilyGroupPendingInviteForUser PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 family_groupid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 inviter_steamid_;
   int role_;
+  bool awaiting_2fa_;
   friend struct ::TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -8864,6 +8879,7 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp PROTOBUF_FINAL :
 
   enum : int {
     kOwnerSteamidsFieldNumber = 2,
+    kContentDescriptorsFieldNumber = 15,
     kNameFieldNumber = 6,
     kSortAsFieldNumber = 7,
     kCapsuleFilenameFieldNumber = 8,
@@ -8896,6 +8912,28 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp PROTOBUF_FINAL :
       owner_steamids() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
       mutable_owner_steamids();
+
+  // repeated uint32 content_descriptors = 15;
+  int content_descriptors_size() const;
+  private:
+  int _internal_content_descriptors_size() const;
+  public:
+  void clear_content_descriptors();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_content_descriptors(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_content_descriptors() const;
+  void _internal_add_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_content_descriptors();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 content_descriptors(int index) const;
+  void set_content_descriptors(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      content_descriptors() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_content_descriptors();
 
   // optional string name = 6;
   bool has_name() const;
@@ -9065,6 +9103,7 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > owner_steamids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > content_descriptors_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sort_as_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr capsule_filename_;
@@ -13029,6 +13068,34 @@ inline void FamilyGroupPendingInviteForUser::set_inviter_steamid(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:FamilyGroupPendingInviteForUser.inviter_steamid)
 }
 
+// optional bool awaiting_2fa = 4;
+inline bool FamilyGroupPendingInviteForUser::_internal_has_awaiting_2fa() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool FamilyGroupPendingInviteForUser::has_awaiting_2fa() const {
+  return _internal_has_awaiting_2fa();
+}
+inline void FamilyGroupPendingInviteForUser::clear_awaiting_2fa() {
+  awaiting_2fa_ = false;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline bool FamilyGroupPendingInviteForUser::_internal_awaiting_2fa() const {
+  return awaiting_2fa_;
+}
+inline bool FamilyGroupPendingInviteForUser::awaiting_2fa() const {
+  // @@protoc_insertion_point(field_get:FamilyGroupPendingInviteForUser.awaiting_2fa)
+  return _internal_awaiting_2fa();
+}
+inline void FamilyGroupPendingInviteForUser::_internal_set_awaiting_2fa(bool value) {
+  _has_bits_[0] |= 0x00000008u;
+  awaiting_2fa_ = value;
+}
+inline void FamilyGroupPendingInviteForUser::set_awaiting_2fa(bool value) {
+  _internal_set_awaiting_2fa(value);
+  // @@protoc_insertion_point(field_set:FamilyGroupPendingInviteForUser.awaiting_2fa)
+}
+
 // -------------------------------------------------------------------
 
 // CFamilyGroups_GetFamilyGroupForUser_Response
@@ -16542,6 +16609,53 @@ inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_set
 inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_app_type(::EProtoAppType value) {
   _internal_set_app_type(value);
   // @@protoc_insertion_point(field_set:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.app_type)
+}
+
+// repeated uint32 content_descriptors = 15;
+inline int CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_content_descriptors_size() const {
+  return content_descriptors_.size();
+}
+inline int CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::content_descriptors_size() const {
+  return _internal_content_descriptors_size();
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::clear_content_descriptors() {
+  content_descriptors_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_content_descriptors(int index) const {
+  return content_descriptors_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::content_descriptors(int index) const {
+  // @@protoc_insertion_point(field_get:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.content_descriptors)
+  return _internal_content_descriptors(index);
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::set_content_descriptors(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  content_descriptors_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.content_descriptors)
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_add_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  content_descriptors_.Add(value);
+}
+inline void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::add_content_descriptors(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_content_descriptors(value);
+  // @@protoc_insertion_point(field_add:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.content_descriptors)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_content_descriptors() const {
+  return content_descriptors_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::content_descriptors() const {
+  // @@protoc_insertion_point(field_list:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.content_descriptors)
+  return _internal_content_descriptors();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_internal_mutable_content_descriptors() {
+  return &content_descriptors_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::mutable_content_descriptors() {
+  // @@protoc_insertion_point(field_mutable_list:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp.content_descriptors)
+  return _internal_mutable_content_descriptors();
 }
 
 // -------------------------------------------------------------------

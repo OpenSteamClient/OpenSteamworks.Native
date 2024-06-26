@@ -75,7 +75,7 @@ constexpr CMsgClientSettings::CMsgClientSettings(
   , min_scale_factor_(0)
   , max_scale_factor_(0)
   , auto_scale_factor_(0)
-  , setting_validation_float_(0)
+  , system_bluetooth_enabled_(false)
   , small_mode_(false)
   , skip_steamvr_install_dialog_(false)
   , always_show_user_chooser_(false)
@@ -172,6 +172,8 @@ constexpr CMsgClientSettings::CMsgClientSettings(
   , g_background_br_(0)
   , g_background_mode_(0)
 
+  , g_background_audio_(0)
+
   , g_background_a_m_(false)
   , g_background_a_s_(false)
   , show_timestamps_in_console_(false)
@@ -190,21 +192,22 @@ constexpr CMsgClientSettings::CMsgClientSettings(
   , gamescope_use_game_refresh_rate_in_steam_(false)
   , gamescope_disable_mura_correction_(false)
   , gamescope_include_steamui_in_screenshots_(false)
+  , gamescope_allow_tearing_(false)
   , steamos_tdp_limit_enabled_(false)
   , steamos_cec_enabled_(false)
-  , steamos_cec_wake_on_resume_(false)
   , steamos_status_led_brightness_(0)
   , steamos_tdp_limit_(0)
   , steamos_magnifier_scale_(0)
+  , steamos_cec_wake_on_resume_(false)
   , steamos_wifi_debug_(false)
   , steamos_wifi_force_wpa_supplicant_(false)
   , setting_validation_bool_(false)
-  , system_bluetooth_enabled_(false)
   , setting_validation_enum_(0)
 
   , setting_validation_int32_(0)
+  , setting_validation_uint64_(PROTOBUF_ULONGLONG(0))
   , setting_validation_uint32_(0u)
-  , setting_validation_uint64_(PROTOBUF_ULONGLONG(0)){}
+  , setting_validation_float_(0){}
 struct CMsgClientSettingsDefaultTypeInternal {
   constexpr CMsgClientSettingsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -215,7 +218,7 @@ struct CMsgClientSettingsDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientSettingsDefaultTypeInternal _CMsgClientSettings_default_instance_;
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientsettings_2eproto[3];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fclientsettings_2eproto[4];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fclientsettings_2eproto[5];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fclientsettings_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientsettings_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -376,6 +379,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientsettings
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, g_background_br_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, g_background_a_s_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, g_background_mode_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, g_background_audio_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, show_timestamps_in_console_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, force_oobe_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, override_browser_composer_mode_),
@@ -391,6 +395,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientsettings
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, gamescope_use_game_refresh_rate_in_steam_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, gamescope_disable_mura_correction_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, gamescope_include_steamui_in_screenshots_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, gamescope_allow_tearing_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, steamos_status_led_brightness_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, steamos_tdp_limit_enabled_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, steamos_tdp_limit_),
@@ -525,11 +530,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientsettings
   119,
   14,
   15,
-  122,
-  120,
   123,
-  121,
+  120,
   124,
+  121,
+  122,
   125,
   126,
   127,
@@ -538,33 +543,35 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientsettings
   130,
   131,
   132,
-  134,
-  135,
   133,
+  135,
   136,
+  134,
   137,
   138,
-  142,
   139,
-  143,
   140,
+  143,
   141,
-  145,
-  146,
   144,
+  142,
+  146,
   147,
+  148,
+  145,
   149,
   150,
   151,
+  153,
   152,
-  28,
+  154,
   10,
-  148,
+  28,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 11, sizeof(::CMsgHotkey)},
   { 17, -1, sizeof(::CMsgSettingVariant)},
-  { 30, 188, sizeof(::CMsgClientSettings)},
+  { 30, 190, sizeof(::CMsgClientSettings)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -584,7 +591,7 @@ const char descriptor_table_protodef_steammessages_5fclientsettings_2eproto[] PR
   "\014value_uint32\030\003 \001(\rH\000\022\026\n\014value_uint64\030\005 "
   "\001(\003H\000\022\025\n\013value_float\030\006 \001(\002H\000\022\026\n\014value_st"
   "ring\030\007 \001(\tH\000\022#\n\014value_hotkey\030\010 \001(\0132\013.CMs"
-  "gHotkeyH\000B\007\n\005value\"\266Q\n\022CMsgClientSetting"
+  "gHotkeyH\000B\007\n\005value\"\277R\n\022CMsgClientSetting"
   "s\022N\n\025no_save_personal_info\030\001 \001(\010B/\200\246\035\001\212\246"
   "\035\'Software\\Valve\\Steam\\NoSavePersonalInf"
   "o\022P\n\026oobe_test_mode_enabled\030\002 \001(\010B0\200\246\035\001\212"
@@ -782,106 +789,111 @@ const char descriptor_table_protodef_steammessages_5fclientsettings_2eproto[] PR
   "ckground_a_m\030\241\216\001 \001(\010B\004\200\246\035\005\022\037\n\017g_backgrou"
   "nd_br\030\242\216\001 \001(\005B\004\200\246\035\005\022 \n\020g_background_a_s\030"
   "\243\216\001 \001(\010B\004\200\246\035\005\022:\n\021g_background_mode\030\244\216\001 \001"
-  "(\0162\010.EGRMode:\rEGRMode_NeverB\004\200\246\035\005\022O\n\032sho"
-  "w_timestamps_in_console\030\240\234\001 \001(\010B)\200\246\035\003\212\246\035"
-  "!Developer\\ShowTimestampsInConsole\022N\n\nfo"
-  "rce_oobe\030\241\234\001 \001(\010B8\200\246\035\004\212\246\0350HKEY_CURRENT_U"
-  "SER\\Software\\Valve\\Steam\\ForceOOBE\022.\n\036ov"
-  "erride_browser_composer_mode\030\242\234\001 \001(\005B\004\200\246"
-  "\035\005\022,\n\034cef_remote_debugging_enabled\030\243\234\001 \001"
-  "(\010B\004\200\246\035\005\022\?\n\021force_decperf_tab\030\244\234\001 \001(\010B\"\200"
-  "\246\035\001\212\246\035\032Developer/ForceDeckPerfTab\022L\n\033for"
-  "ce_fake_mandatory_update\030\245\234\001 \001(\010B%\200\246\035\001\212\246"
-  "\035\035Developer/FakeMandatoryUpdate\022@\n\022hdr_c"
-  "ompat_testing\030\246\234\001 \001(\010B\"\200\246\035\001\212\246\035\032Developer"
-  "/HDRCompatTesting\022v\n\033gamescope_hdr_visua"
-  "lization\030\211\244\001 \001(\0162\022.EHDRVisualization:\026EH"
-  "DRVisualization_NoneB#\200\246\035\003\212\246\035\033Gamescope/"
-  "HDRVisualization2\022V\n\036gamescope_app_targe"
-  "t_framerate\030\212\244\001 \001(\005B,\200\246\035\003\212\246\035\034Gamescope/A"
-  "ppTargetFrameRate\240\246\035\000\320\246\035\002\022\210\001\n%gamescope_"
-  "enable_app_target_framerate\030\213\244\001 \001(\010BW\200\246\035"
-  "\004\212\246\035KHKEY_CURRENT_USER\\Software\\Valve\\St"
-  "eam\\GamescopeEnableAppTargetRefreshRate2"
-  "\230\246\035\001\022S\n\034gamescope_disable_framelimit\030\214\244\001"
-  " \001(\010B+\200\246\035\003\212\246\035\033Gamescope/DisableFrameLimi"
-  "t\230\246\035\000\320\246\035\002\022O\n\036gamescope_display_refresh_r"
-  "ate\030\215\244\001 \001(\005B%\200\246\035\003\212\246\035\025Gamescope/RefreshRa"
-  "te\240\246\035\000\320\246\035\002\022c\n(gamescope_use_game_refresh"
-  "_rate_in_steam\030\216\244\001 \001(\010B/\200\246\035\003\212\246\035#Develope"
-  "r/DynamicRefreshRateInSteam\230\246\035\001\022Y\n!games"
-  "cope_disable_mura_correction\030\217\244\001 \001(\010B,\200\246"
-  "\035\003\212\246\035 Gamescope/MuraCorrectionDisabled\230\246"
-  "\035\000\022e\n(gamescope_include_steamui_in_scree"
-  "nshots\030\220\244\001 \001(\010B1\200\246\035\003\212\246\035%Gamescope/Includ"
-  "eSteamUIInScreenshots\230\246\035\001\022P\n\035steamos_sta"
-  "tus_led_brightness\030\360\253\001 \001(\005B\'\200\246\035\003\212\246\035\033Stea"
-  "mOS/StatusLEDBrightness\240\246\035d\022L\n\031steamos_t"
-  "dp_limit_enabled\030\361\253\001 \001(\010B\'\200\246\035\001\212\246\035\027SteamO"
-  "S/TDPLimitEnabled\230\246\035\000\320\246\035\001\022=\n\021steamos_tdp"
-  "_limit\030\362\253\001 \001(\005B \200\246\035\001\212\246\035\020SteamOS/TDPLimit"
-  "\240\246\035\000\320\246\035\001\022=\n\023steamos_cec_enabled\030\363\253\001 \001(\010B"
-  "\036\200\246\035\001\212\246\035\022SteamOS/CECEnabled\230\246\035\001\022F\n\032steam"
-  "os_cec_wake_on_resume\030\364\253\001 \001(\010B \200\246\035\001\212\246\035\024S"
-  "teamOS/WakeOnResume\230\246\035\001\022;\n\022steamos_wifi_"
-  "debug\030\365\253\001 \001(\010B\035\200\246\035\001\212\246\035\021SteamOS/WifiDebug"
-  "\230\246\035\000\022W\n!steamos_wifi_force_wpa_supplican"
-  "t\030\366\253\001 \001(\010B*\200\246\035\001\212\246\035\036SteamOS/WifiForceWPAS"
-  "upplicant\230\246\035\000\022F\n\027steamos_magnifier_scale"
-  "\030\367\253\001 \001(\005B#\200\246\035\003\212\246\035\026SteamOS/MagnifierScale"
-  "\240\246\035\226\001\022F\n\027setting_validation_bool\030\331\263\001 \001(\010"
-  "B#\200\246\035\001\212\246\035\033SettingValidation/DummyBool\022r\n"
-  "\027setting_validation_enum\030\332\263\001 \001(\0162\022.EHDRV"
-  "isualization:\026EHDRVisualization_NoneB#\200\246"
-  "\035\001\212\246\035\033SettingValidation/DummyEnum\022H\n\030set"
-  "ting_validation_int32\030\333\263\001 \001(\005B$\200\246\035\001\212\246\035\034S"
-  "ettingValidation/DummyInt32\022J\n\031setting_v"
-  "alidation_uint32\030\334\263\001 \001(\rB%\200\246\035\001\212\246\035\035Settin"
-  "gValidation/DummyUInt32\022J\n\031setting_valid"
-  "ation_uint64\030\335\263\001 \001(\004B%\200\246\035\001\212\246\035\035SettingVal"
-  "idation/DummyUInt64\022H\n\030setting_validatio"
-  "n_float\030\336\263\001 \001(\002B$\200\246\035\001\212\246\035\034SettingValidati"
-  "on/DummyFloat\022J\n\031setting_validation_stri"
-  "ng\030\337\263\001 \001(\tB%\200\246\035\001\212\246\035\035SettingValidation/Du"
-  "mmyString\022H\n\030system_bluetooth_enabled\030\300\273"
-  "\001 \001(\010B$\200\246\035\001\212\246\035\030System/Bluetooth/Enabled\230"
-  "\246\035\000*\211\002\n\023EClientSettingStore\022\037\n\033EClientSe"
-  "ttingStore_Invalid\020\000\022+\n\'EClientSettingSt"
-  "ore_ConfigStore_Install\020\001\022/\n+EClientSett"
-  "ingStore_ConfigStore_UserRoaming\020\002\022-\n)EC"
-  "lientSettingStore_ConfigStore_UserLocal\020"
-  "\003\022 \n\034EClientSettingStore_Registry\020\004\022\"\n\036E"
-  "ClientSettingStore_CustomFunc\020\005*\255\001\n\031EOve"
-  "rlayToggleBarLocation\022$\n EOverlayToggleB"
-  "arLocation_Bottom\020\000\022\"\n\036EOverlayToggleBar"
-  "Location_Left\020\001\022#\n\037EOverlayToggleBarLoca"
-  "tion_Right\020\002\022!\n\035EOverlayToggleBarLocatio"
-  "n_Top\020\003*\177\n\023ESettingProfileMode\022\034\n\030ESetti"
-  "ngProfileMode_None\020\000\022\037\n\033ESettingProfileM"
-  "ode_PerGame\020\001\022)\n%ESettingProfileMode_Per"
-  "GamePerDisplay\020\002*D\n\007EGRMode\022\021\n\rEGRMode_N"
-  "ever\020\000\022\022\n\016EGRMode_Always\020\001\022\022\n\016EGRMode_Ma"
-  "nual\020\002:i\n\rsetting_store\022\035.google.protobu"
-  "f.FieldOptions\030\340\324\003 \001(\0162\024.EClientSettingS"
-  "tore:\033EClientSettingStore_Invalid:5\n\014set"
-  "ting_name\022\035.google.protobuf.FieldOptions"
-  "\030\341\324\003 \001(\t::\n\021setting_pre_login\022\035.google.p"
-  "rotobuf.FieldOptions\030\342\324\003 \001(\010:=\n\024setting_"
-  "default_bool\022\035.google.protobuf.FieldOpti"
-  "ons\030\343\324\003 \001(\010:<\n\023setting_default_int\022\035.goo"
-  "gle.protobuf.FieldOptions\030\344\324\003 \001(\005:=\n\024set"
-  "ting_default_uint\022\035.google.protobuf.Fiel"
-  "dOptions\030\345\324\003 \001(\r:>\n\025setting_default_floa"
-  "t\022\035.google.protobuf.FieldOptions\030\346\324\003 \001(\002"
-  ":\?\n\026setting_default_string\022\035.google.prot"
-  "obuf.FieldOptions\030\347\324\003 \001(\t:9\n\020setting_rea"
-  "donly\022\035.google.protobuf.FieldOptions\030\350\324\003"
-  " \001(\010:<\n\023setting_description\022\035.google.pro"
-  "tobuf.FieldOptions\030\351\324\003 \001(\t:m\n\024setting_pr"
-  "ofile_mode\022\035.google.protobuf.FieldOption"
-  "s\030\352\324\003 \001(\0162\024.ESettingProfileMode:\030ESettin"
-  "gProfileMode_NoneB\037H\001\200\001\001\252\002\027OpenSteamwork"
-  "s.Protobuf"
+  "(\0162\010.EGRMode:\rEGRMode_NeverB\004\200\246\035\005\022<\n\022g_b"
+  "ackground_audio\030\245\216\001 \001(\0162\t.EGRAudio:\rEGRA"
+  "udio_GameB\004\200\246\035\005\022O\n\032show_timestamps_in_co"
+  "nsole\030\240\234\001 \001(\010B)\200\246\035\003\212\246\035!Developer\\ShowTim"
+  "estampsInConsole\022N\n\nforce_oobe\030\241\234\001 \001(\010B8"
+  "\200\246\035\004\212\246\0350HKEY_CURRENT_USER\\Software\\Valve"
+  "\\Steam\\ForceOOBE\022.\n\036override_browser_com"
+  "poser_mode\030\242\234\001 \001(\005B\004\200\246\035\005\022,\n\034cef_remote_d"
+  "ebugging_enabled\030\243\234\001 \001(\010B\004\200\246\035\005\022\?\n\021force_"
+  "decperf_tab\030\244\234\001 \001(\010B\"\200\246\035\001\212\246\035\032Developer/F"
+  "orceDeckPerfTab\022L\n\033force_fake_mandatory_"
+  "update\030\245\234\001 \001(\010B%\200\246\035\001\212\246\035\035Developer/FakeMa"
+  "ndatoryUpdate\022@\n\022hdr_compat_testing\030\246\234\001 "
+  "\001(\010B\"\200\246\035\001\212\246\035\032Developer/HDRCompatTesting\022"
+  "v\n\033gamescope_hdr_visualization\030\211\244\001 \001(\0162\022"
+  ".EHDRVisualization:\026EHDRVisualization_No"
+  "neB#\200\246\035\003\212\246\035\033Gamescope/HDRVisualization2\022"
+  "V\n\036gamescope_app_target_framerate\030\212\244\001 \001("
+  "\005B,\200\246\035\003\212\246\035\034Gamescope/AppTargetFrameRate\240"
+  "\246\035\000\320\246\035\002\022\210\001\n%gamescope_enable_app_target_"
+  "framerate\030\213\244\001 \001(\010BW\200\246\035\004\212\246\035KHKEY_CURRENT_"
+  "USER\\Software\\Valve\\Steam\\GamescopeEnabl"
+  "eAppTargetRefreshRate2\230\246\035\001\022S\n\034gamescope_"
+  "disable_framelimit\030\214\244\001 \001(\010B+\200\246\035\003\212\246\035\033Game"
+  "scope/DisableFrameLimit\230\246\035\000\320\246\035\002\022O\n\036games"
+  "cope_display_refresh_rate\030\215\244\001 \001(\005B%\200\246\035\003\212"
+  "\246\035\025Gamescope/RefreshRate\240\246\035\000\320\246\035\002\022c\n(game"
+  "scope_use_game_refresh_rate_in_steam\030\216\244\001"
+  " \001(\010B/\200\246\035\003\212\246\035#Developer/DynamicRefreshRa"
+  "teInSteam\230\246\035\001\022Y\n!gamescope_disable_mura_"
+  "correction\030\217\244\001 \001(\010B,\200\246\035\003\212\246\035 Gamescope/Mu"
+  "raCorrectionDisabled\230\246\035\000\022e\n(gamescope_in"
+  "clude_steamui_in_screenshots\030\220\244\001 \001(\010B1\200\246"
+  "\035\003\212\246\035%Gamescope/IncludeSteamUIInScreensh"
+  "ots\230\246\035\001\022I\n\027gamescope_allow_tearing\030\221\244\001 \001"
+  "(\010B&\200\246\035\003\212\246\035\026Gamescope/AllowTearing\230\246\035\000\320\246"
+  "\035\001\022P\n\035steamos_status_led_brightness\030\360\253\001 "
+  "\001(\005B\'\200\246\035\003\212\246\035\033SteamOS/StatusLEDBrightness"
+  "\240\246\035d\022L\n\031steamos_tdp_limit_enabled\030\361\253\001 \001("
+  "\010B\'\200\246\035\001\212\246\035\027SteamOS/TDPLimitEnabled\230\246\035\000\320\246"
+  "\035\001\022=\n\021steamos_tdp_limit\030\362\253\001 \001(\005B \200\246\035\001\212\246\035"
+  "\020SteamOS/TDPLimit\240\246\035\000\320\246\035\001\022=\n\023steamos_cec"
+  "_enabled\030\363\253\001 \001(\010B\036\200\246\035\001\212\246\035\022SteamOS/CECEna"
+  "bled\230\246\035\001\022F\n\032steamos_cec_wake_on_resume\030\364"
+  "\253\001 \001(\010B \200\246\035\001\212\246\035\024SteamOS/WakeOnResume\230\246\035\001"
+  "\022;\n\022steamos_wifi_debug\030\365\253\001 \001(\010B\035\200\246\035\001\212\246\035\021"
+  "SteamOS/WifiDebug\230\246\035\000\022W\n!steamos_wifi_fo"
+  "rce_wpa_supplicant\030\366\253\001 \001(\010B*\200\246\035\001\212\246\035\036Stea"
+  "mOS/WifiForceWPASupplicant\230\246\035\000\022F\n\027steamo"
+  "s_magnifier_scale\030\367\253\001 \001(\005B#\200\246\035\003\212\246\035\026Steam"
+  "OS/MagnifierScale\240\246\035\226\001\022F\n\027setting_valida"
+  "tion_bool\030\331\263\001 \001(\010B#\200\246\035\001\212\246\035\033SettingValida"
+  "tion/DummyBool\022r\n\027setting_validation_enu"
+  "m\030\332\263\001 \001(\0162\022.EHDRVisualization:\026EHDRVisua"
+  "lization_NoneB#\200\246\035\001\212\246\035\033SettingValidation"
+  "/DummyEnum\022H\n\030setting_validation_int32\030\333"
+  "\263\001 \001(\005B$\200\246\035\001\212\246\035\034SettingValidation/DummyI"
+  "nt32\022J\n\031setting_validation_uint32\030\334\263\001 \001("
+  "\rB%\200\246\035\001\212\246\035\035SettingValidation/DummyUInt32"
+  "\022J\n\031setting_validation_uint64\030\335\263\001 \001(\004B%\200"
+  "\246\035\001\212\246\035\035SettingValidation/DummyUInt64\022H\n\030"
+  "setting_validation_float\030\336\263\001 \001(\002B$\200\246\035\001\212\246"
+  "\035\034SettingValidation/DummyFloat\022J\n\031settin"
+  "g_validation_string\030\337\263\001 \001(\tB%\200\246\035\001\212\246\035\035Set"
+  "tingValidation/DummyString\022H\n\030system_blu"
+  "etooth_enabled\030\300\273\001 \001(\010B$\200\246\035\001\212\246\035\030System/B"
+  "luetooth/Enabled\230\246\035\000*\211\002\n\023EClientSettingS"
+  "tore\022\037\n\033EClientSettingStore_Invalid\020\000\022+\n"
+  "\'EClientSettingStore_ConfigStore_Install"
+  "\020\001\022/\n+EClientSettingStore_ConfigStore_Us"
+  "erRoaming\020\002\022-\n)EClientSettingStore_Confi"
+  "gStore_UserLocal\020\003\022 \n\034EClientSettingStor"
+  "e_Registry\020\004\022\"\n\036EClientSettingStore_Cust"
+  "omFunc\020\005*\255\001\n\031EOverlayToggleBarLocation\022$"
+  "\n EOverlayToggleBarLocation_Bottom\020\000\022\"\n\036"
+  "EOverlayToggleBarLocation_Left\020\001\022#\n\037EOve"
+  "rlayToggleBarLocation_Right\020\002\022!\n\035EOverla"
+  "yToggleBarLocation_Top\020\003*\177\n\023ESettingProf"
+  "ileMode\022\034\n\030ESettingProfileMode_None\020\000\022\037\n"
+  "\033ESettingProfileMode_PerGame\020\001\022)\n%ESetti"
+  "ngProfileMode_PerGamePerDisplay\020\002*D\n\007EGR"
+  "Mode\022\021\n\rEGRMode_Never\020\000\022\022\n\016EGRMode_Alway"
+  "s\020\001\022\022\n\016EGRMode_Manual\020\002*G\n\010EGRAudio\022\021\n\rE"
+  "GRAudio_Game\020\000\022\023\n\017EGRAudio_System\020\001\022\023\n\017E"
+  "GRAudio_Select\020\002:i\n\rsetting_store\022\035.goog"
+  "le.protobuf.FieldOptions\030\340\324\003 \001(\0162\024.EClie"
+  "ntSettingStore:\033EClientSettingStore_Inva"
+  "lid:5\n\014setting_name\022\035.google.protobuf.Fi"
+  "eldOptions\030\341\324\003 \001(\t::\n\021setting_pre_login\022"
+  "\035.google.protobuf.FieldOptions\030\342\324\003 \001(\010:="
+  "\n\024setting_default_bool\022\035.google.protobuf"
+  ".FieldOptions\030\343\324\003 \001(\010:<\n\023setting_default"
+  "_int\022\035.google.protobuf.FieldOptions\030\344\324\003 "
+  "\001(\005:=\n\024setting_default_uint\022\035.google.pro"
+  "tobuf.FieldOptions\030\345\324\003 \001(\r:>\n\025setting_de"
+  "fault_float\022\035.google.protobuf.FieldOptio"
+  "ns\030\346\324\003 \001(\002:\?\n\026setting_default_string\022\035.g"
+  "oogle.protobuf.FieldOptions\030\347\324\003 \001(\t:9\n\020s"
+  "etting_readonly\022\035.google.protobuf.FieldO"
+  "ptions\030\350\324\003 \001(\010:<\n\023setting_description\022\035."
+  "google.protobuf.FieldOptions\030\351\324\003 \001(\t:m\n\024"
+  "setting_profile_mode\022\035.google.protobuf.F"
+  "ieldOptions\030\352\324\003 \001(\0162\024.ESettingProfileMod"
+  "e:\030ESettingProfileMode_NoneB\037H\001\200\001\001\252\002\027Ope"
+  "nSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientsettings_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -889,7 +901,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientsettings_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientsettings_2eproto = {
-  false, false, 12290, descriptor_table_protodef_steammessages_5fclientsettings_2eproto, "steammessages_clientsettings.proto", 
+  false, false, 12500, descriptor_table_protodef_steammessages_5fclientsettings_2eproto, "steammessages_clientsettings.proto", 
   &descriptor_table_steammessages_5fclientsettings_2eproto_once, descriptor_table_steammessages_5fclientsettings_2eproto_deps, 2, 3,
   schemas, file_default_instances, TableStruct_steammessages_5fclientsettings_2eproto::offsets,
   file_level_metadata_steammessages_5fclientsettings_2eproto, file_level_enum_descriptors_steammessages_5fclientsettings_2eproto, file_level_service_descriptors_steammessages_5fclientsettings_2eproto,
@@ -956,6 +968,21 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGRMode_descriptor() {
   return file_level_enum_descriptors_steammessages_5fclientsettings_2eproto[3];
 }
 bool EGRMode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGRAudio_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fclientsettings_2eproto);
+  return file_level_enum_descriptors_steammessages_5fclientsettings_2eproto[4];
+}
+bool EGRAudio_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -2143,109 +2170,115 @@ class CMsgClientSettings::_Internal {
     (*has_bits)[0] |= 32768u;
   }
   static void set_has_g_background_a_m(HasBits* has_bits) {
-    (*has_bits)[3] |= 67108864u;
+    (*has_bits)[3] |= 134217728u;
   }
   static void set_has_g_background_br(HasBits* has_bits) {
     (*has_bits)[3] |= 16777216u;
   }
   static void set_has_g_background_a_s(HasBits* has_bits) {
-    (*has_bits)[3] |= 134217728u;
+    (*has_bits)[3] |= 268435456u;
   }
   static void set_has_g_background_mode(HasBits* has_bits) {
     (*has_bits)[3] |= 33554432u;
   }
-  static void set_has_show_timestamps_in_console(HasBits* has_bits) {
-    (*has_bits)[3] |= 268435456u;
+  static void set_has_g_background_audio(HasBits* has_bits) {
+    (*has_bits)[3] |= 67108864u;
   }
-  static void set_has_force_oobe(HasBits* has_bits) {
+  static void set_has_show_timestamps_in_console(HasBits* has_bits) {
     (*has_bits)[3] |= 536870912u;
   }
-  static void set_has_override_browser_composer_mode(HasBits* has_bits) {
+  static void set_has_force_oobe(HasBits* has_bits) {
     (*has_bits)[3] |= 1073741824u;
   }
-  static void set_has_cef_remote_debugging_enabled(HasBits* has_bits) {
+  static void set_has_override_browser_composer_mode(HasBits* has_bits) {
     (*has_bits)[3] |= 2147483648u;
   }
-  static void set_has_force_decperf_tab(HasBits* has_bits) {
+  static void set_has_cef_remote_debugging_enabled(HasBits* has_bits) {
     (*has_bits)[4] |= 1u;
   }
-  static void set_has_force_fake_mandatory_update(HasBits* has_bits) {
+  static void set_has_force_decperf_tab(HasBits* has_bits) {
     (*has_bits)[4] |= 2u;
   }
-  static void set_has_hdr_compat_testing(HasBits* has_bits) {
+  static void set_has_force_fake_mandatory_update(HasBits* has_bits) {
     (*has_bits)[4] |= 4u;
   }
-  static void set_has_gamescope_hdr_visualization(HasBits* has_bits) {
+  static void set_has_hdr_compat_testing(HasBits* has_bits) {
     (*has_bits)[4] |= 8u;
   }
-  static void set_has_gamescope_app_target_framerate(HasBits* has_bits) {
+  static void set_has_gamescope_hdr_visualization(HasBits* has_bits) {
     (*has_bits)[4] |= 16u;
   }
-  static void set_has_gamescope_enable_app_target_framerate(HasBits* has_bits) {
-    (*has_bits)[4] |= 64u;
-  }
-  static void set_has_gamescope_disable_framelimit(HasBits* has_bits) {
-    (*has_bits)[4] |= 128u;
-  }
-  static void set_has_gamescope_display_refresh_rate(HasBits* has_bits) {
+  static void set_has_gamescope_app_target_framerate(HasBits* has_bits) {
     (*has_bits)[4] |= 32u;
   }
-  static void set_has_gamescope_use_game_refresh_rate_in_steam(HasBits* has_bits) {
+  static void set_has_gamescope_enable_app_target_framerate(HasBits* has_bits) {
+    (*has_bits)[4] |= 128u;
+  }
+  static void set_has_gamescope_disable_framelimit(HasBits* has_bits) {
     (*has_bits)[4] |= 256u;
   }
-  static void set_has_gamescope_disable_mura_correction(HasBits* has_bits) {
+  static void set_has_gamescope_display_refresh_rate(HasBits* has_bits) {
+    (*has_bits)[4] |= 64u;
+  }
+  static void set_has_gamescope_use_game_refresh_rate_in_steam(HasBits* has_bits) {
     (*has_bits)[4] |= 512u;
   }
-  static void set_has_gamescope_include_steamui_in_screenshots(HasBits* has_bits) {
+  static void set_has_gamescope_disable_mura_correction(HasBits* has_bits) {
     (*has_bits)[4] |= 1024u;
   }
-  static void set_has_steamos_status_led_brightness(HasBits* has_bits) {
-    (*has_bits)[4] |= 16384u;
-  }
-  static void set_has_steamos_tdp_limit_enabled(HasBits* has_bits) {
+  static void set_has_gamescope_include_steamui_in_screenshots(HasBits* has_bits) {
     (*has_bits)[4] |= 2048u;
   }
-  static void set_has_steamos_tdp_limit(HasBits* has_bits) {
-    (*has_bits)[4] |= 32768u;
-  }
-  static void set_has_steamos_cec_enabled(HasBits* has_bits) {
+  static void set_has_gamescope_allow_tearing(HasBits* has_bits) {
     (*has_bits)[4] |= 4096u;
   }
-  static void set_has_steamos_cec_wake_on_resume(HasBits* has_bits) {
+  static void set_has_steamos_status_led_brightness(HasBits* has_bits) {
+    (*has_bits)[4] |= 32768u;
+  }
+  static void set_has_steamos_tdp_limit_enabled(HasBits* has_bits) {
     (*has_bits)[4] |= 8192u;
   }
-  static void set_has_steamos_wifi_debug(HasBits* has_bits) {
-    (*has_bits)[4] |= 131072u;
-  }
-  static void set_has_steamos_wifi_force_wpa_supplicant(HasBits* has_bits) {
-    (*has_bits)[4] |= 262144u;
-  }
-  static void set_has_steamos_magnifier_scale(HasBits* has_bits) {
+  static void set_has_steamos_tdp_limit(HasBits* has_bits) {
     (*has_bits)[4] |= 65536u;
   }
-  static void set_has_setting_validation_bool(HasBits* has_bits) {
+  static void set_has_steamos_cec_enabled(HasBits* has_bits) {
+    (*has_bits)[4] |= 16384u;
+  }
+  static void set_has_steamos_cec_wake_on_resume(HasBits* has_bits) {
+    (*has_bits)[4] |= 262144u;
+  }
+  static void set_has_steamos_wifi_debug(HasBits* has_bits) {
     (*has_bits)[4] |= 524288u;
   }
-  static void set_has_setting_validation_enum(HasBits* has_bits) {
+  static void set_has_steamos_wifi_force_wpa_supplicant(HasBits* has_bits) {
+    (*has_bits)[4] |= 1048576u;
+  }
+  static void set_has_steamos_magnifier_scale(HasBits* has_bits) {
+    (*has_bits)[4] |= 131072u;
+  }
+  static void set_has_setting_validation_bool(HasBits* has_bits) {
     (*has_bits)[4] |= 2097152u;
   }
-  static void set_has_setting_validation_int32(HasBits* has_bits) {
+  static void set_has_setting_validation_enum(HasBits* has_bits) {
     (*has_bits)[4] |= 4194304u;
   }
-  static void set_has_setting_validation_uint32(HasBits* has_bits) {
+  static void set_has_setting_validation_int32(HasBits* has_bits) {
     (*has_bits)[4] |= 8388608u;
+  }
+  static void set_has_setting_validation_uint32(HasBits* has_bits) {
+    (*has_bits)[4] |= 33554432u;
   }
   static void set_has_setting_validation_uint64(HasBits* has_bits) {
     (*has_bits)[4] |= 16777216u;
   }
   static void set_has_setting_validation_float(HasBits* has_bits) {
-    (*has_bits)[0] |= 268435456u;
+    (*has_bits)[4] |= 67108864u;
   }
   static void set_has_setting_validation_string(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
   static void set_has_system_bluetooth_enabled(HasBits* has_bits) {
-    (*has_bits)[4] |= 1048576u;
+    (*has_bits)[0] |= 268435456u;
   }
 };
 
@@ -2360,8 +2393,8 @@ CMsgClientSettings::CMsgClientSettings(const CMsgClientSettings& from)
     g_background_tg_ = nullptr;
   }
   ::memcpy(&no_save_personal_info_, &from.no_save_personal_info_,
-    static_cast<size_t>(reinterpret_cast<char*>(&setting_validation_uint64_) -
-    reinterpret_cast<char*>(&no_save_personal_info_)) + sizeof(setting_validation_uint64_));
+    static_cast<size_t>(reinterpret_cast<char*>(&setting_validation_float_) -
+    reinterpret_cast<char*>(&no_save_personal_info_)) + sizeof(setting_validation_float_));
   // @@protoc_insertion_point(copy_constructor:CMsgClientSettings)
 }
 
@@ -2379,8 +2412,8 @@ g_background_max_keep_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetE
 setting_validation_string_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&overlay_key_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&setting_validation_uint64_) -
-    reinterpret_cast<char*>(&overlay_key_)) + sizeof(setting_validation_uint64_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&setting_validation_float_) -
+    reinterpret_cast<char*>(&overlay_key_)) + sizeof(setting_validation_float_));
 }
 
 CMsgClientSettings::~CMsgClientSettings() {
@@ -2553,26 +2586,30 @@ void CMsgClientSettings::Clear() {
   }
   if (cached_has_bits & 0xff000000u) {
     ::memset(&g_background_br_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&cef_remote_debugging_enabled_) -
-        reinterpret_cast<char*>(&g_background_br_)) + sizeof(cef_remote_debugging_enabled_));
+        reinterpret_cast<char*>(&override_browser_composer_mode_) -
+        reinterpret_cast<char*>(&g_background_br_)) + sizeof(override_browser_composer_mode_));
   }
   cached_has_bits = _has_bits_[4];
   if (cached_has_bits & 0x000000ffu) {
-    ::memset(&force_decperf_tab_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&gamescope_disable_framelimit_) -
-        reinterpret_cast<char*>(&force_decperf_tab_)) + sizeof(gamescope_disable_framelimit_));
+    ::memset(&cef_remote_debugging_enabled_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&gamescope_enable_app_target_framerate_) -
+        reinterpret_cast<char*>(&cef_remote_debugging_enabled_)) + sizeof(gamescope_enable_app_target_framerate_));
   }
   if (cached_has_bits & 0x0000ff00u) {
-    ::memset(&gamescope_use_game_refresh_rate_in_steam_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&steamos_tdp_limit_) -
-        reinterpret_cast<char*>(&gamescope_use_game_refresh_rate_in_steam_)) + sizeof(steamos_tdp_limit_));
+    ::memset(&gamescope_disable_framelimit_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&steamos_status_led_brightness_) -
+        reinterpret_cast<char*>(&gamescope_disable_framelimit_)) + sizeof(steamos_status_led_brightness_));
   }
   if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&steamos_magnifier_scale_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&setting_validation_uint32_) -
-        reinterpret_cast<char*>(&steamos_magnifier_scale_)) + sizeof(setting_validation_uint32_));
+    ::memset(&steamos_tdp_limit_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&setting_validation_int32_) -
+        reinterpret_cast<char*>(&steamos_tdp_limit_)) + sizeof(setting_validation_int32_));
   }
-  setting_validation_uint64_ = PROTOBUF_ULONGLONG(0);
+  if (cached_has_bits & 0x07000000u) {
+    ::memset(&setting_validation_uint64_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&setting_validation_float_) -
+        reinterpret_cast<char*>(&setting_validation_uint64_)) + sizeof(setting_validation_float_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3597,6 +3634,18 @@ const char* CMsgClientSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           }
         } else goto handle_unusual;
         continue;
+      // optional .EGRAudio g_background_audio = 18213 [default = EGRAudio_Game, (.setting_store) = EClientSettingStore_CustomFunc];
+      case 18213:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EGRAudio_IsValid(val))) {
+            _internal_set_g_background_audio(static_cast<::EGRAudio>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(18213, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
       // optional bool show_timestamps_in_console = 20000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer\\ShowTimestampsInConsole"];
       case 20000:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 0)) {
@@ -3718,6 +3767,14 @@ const char* CMsgClientSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
           _Internal::set_has_gamescope_include_steamui_in_screenshots(&_has_bits_);
           gamescope_include_steamui_in_screenshots_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool gamescope_allow_tearing = 21009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/AllowTearing", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGame];
+      case 21009:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
+          _Internal::set_has_gamescope_allow_tearing(&_has_bits_);
+          gamescope_allow_tearing_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4671,7 +4728,7 @@ failure:
 
   cached_has_bits = _has_bits_[3];
   // optional bool g_background_a_m = 18209 [(.setting_store) = EClientSettingStore_CustomFunc];
-  if (cached_has_bits & 0x04000000u) {
+  if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18209, this->_internal_g_background_a_m(), target);
   }
@@ -4683,7 +4740,7 @@ failure:
   }
 
   // optional bool g_background_a_s = 18211 [(.setting_store) = EClientSettingStore_CustomFunc];
-  if (cached_has_bits & 0x08000000u) {
+  if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18211, this->_internal_g_background_a_s(), target);
   }
@@ -4695,167 +4752,180 @@ failure:
       18212, this->_internal_g_background_mode(), target);
   }
 
+  // optional .EGRAudio g_background_audio = 18213 [default = EGRAudio_Game, (.setting_store) = EClientSettingStore_CustomFunc];
+  if (cached_has_bits & 0x04000000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      18213, this->_internal_g_background_audio(), target);
+  }
+
   // optional bool show_timestamps_in_console = 20000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer\\ShowTimestampsInConsole"];
-  if (cached_has_bits & 0x10000000u) {
+  if (cached_has_bits & 0x20000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20000, this->_internal_show_timestamps_in_console(), target);
   }
 
   // optional bool force_oobe = 20001 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBE"];
-  if (cached_has_bits & 0x20000000u) {
+  if (cached_has_bits & 0x40000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20001, this->_internal_force_oobe(), target);
   }
 
   // optional int32 override_browser_composer_mode = 20002 [(.setting_store) = EClientSettingStore_CustomFunc];
-  if (cached_has_bits & 0x40000000u) {
+  if (cached_has_bits & 0x80000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(20002, this->_internal_override_browser_composer_mode(), target);
   }
 
+  cached_has_bits = _has_bits_[4];
   // optional bool cef_remote_debugging_enabled = 20003 [(.setting_store) = EClientSettingStore_CustomFunc];
-  if (cached_has_bits & 0x80000000u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20003, this->_internal_cef_remote_debugging_enabled(), target);
   }
 
-  cached_has_bits = _has_bits_[4];
   // optional bool force_decperf_tab = 20004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/ForceDeckPerfTab"];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20004, this->_internal_force_decperf_tab(), target);
   }
 
   // optional bool force_fake_mandatory_update = 20005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/FakeMandatoryUpdate"];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20005, this->_internal_force_fake_mandatory_update(), target);
   }
 
   // optional bool hdr_compat_testing = 20006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/HDRCompatTesting"];
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20006, this->_internal_hdr_compat_testing(), target);
   }
 
   // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       21001, this->_internal_gamescope_hdr_visualization(), target);
   }
 
   // optional int32 gamescope_app_target_framerate = 21002 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/AppTargetFrameRate", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(21002, this->_internal_gamescope_app_target_framerate(), target);
   }
 
   // optional bool gamescope_enable_app_target_framerate = 21003 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\GamescopeEnableAppTargetRefreshRate2", (.setting_default_bool) = true];
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21003, this->_internal_gamescope_enable_app_target_framerate(), target);
   }
 
   // optional bool gamescope_disable_framelimit = 21004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/DisableFrameLimit", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21004, this->_internal_gamescope_disable_framelimit(), target);
   }
 
   // optional int32 gamescope_display_refresh_rate = 21005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/RefreshRate", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(21005, this->_internal_gamescope_display_refresh_rate(), target);
   }
 
   // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21006, this->_internal_gamescope_use_game_refresh_rate_in_steam(), target);
   }
 
   // optional bool gamescope_disable_mura_correction = 21007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/MuraCorrectionDisabled", (.setting_default_bool) = false];
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21007, this->_internal_gamescope_disable_mura_correction(), target);
   }
 
   // optional bool gamescope_include_steamui_in_screenshots = 21008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/IncludeSteamUIInScreenshots", (.setting_default_bool) = true];
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21008, this->_internal_gamescope_include_steamui_in_screenshots(), target);
   }
 
+  // optional bool gamescope_allow_tearing = 21009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/AllowTearing", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGame];
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21009, this->_internal_gamescope_allow_tearing(), target);
+  }
+
   // optional int32 steamos_status_led_brightness = 22000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/StatusLEDBrightness", (.setting_default_int) = 100];
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(22000, this->_internal_steamos_status_led_brightness(), target);
   }
 
   // optional bool steamos_tdp_limit_enabled = 22001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/TDPLimitEnabled", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGame];
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22001, this->_internal_steamos_tdp_limit_enabled(), target);
   }
 
   // optional int32 steamos_tdp_limit = 22002 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/TDPLimit", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGame];
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(22002, this->_internal_steamos_tdp_limit(), target);
   }
 
   // optional bool steamos_cec_enabled = 22003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/CECEnabled", (.setting_default_bool) = true];
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22003, this->_internal_steamos_cec_enabled(), target);
   }
 
   // optional bool steamos_cec_wake_on_resume = 22004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WakeOnResume", (.setting_default_bool) = true];
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22004, this->_internal_steamos_cec_wake_on_resume(), target);
   }
 
   // optional bool steamos_wifi_debug = 22005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WifiDebug", (.setting_default_bool) = false];
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22005, this->_internal_steamos_wifi_debug(), target);
   }
 
   // optional bool steamos_wifi_force_wpa_supplicant = 22006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WifiForceWPASupplicant", (.setting_default_bool) = false];
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22006, this->_internal_steamos_wifi_force_wpa_supplicant(), target);
   }
 
   // optional int32 steamos_magnifier_scale = 22007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/MagnifierScale", (.setting_default_int) = 150];
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(22007, this->_internal_steamos_magnifier_scale(), target);
   }
 
   // optional bool setting_validation_bool = 23001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyBool"];
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(23001, this->_internal_setting_validation_bool(), target);
   }
 
   // optional .EHDRVisualization setting_validation_enum = 23002 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyEnum"];
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       23002, this->_internal_setting_validation_enum(), target);
   }
 
   // optional int32 setting_validation_int32 = 23003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyInt32"];
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(23003, this->_internal_setting_validation_int32(), target);
   }
 
   // optional uint32 setting_validation_uint32 = 23004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyUInt32"];
-  if (cached_has_bits & 0x00800000u) {
+  if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(23004, this->_internal_setting_validation_uint32(), target);
   }
@@ -4866,13 +4936,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(23005, this->_internal_setting_validation_uint64(), target);
   }
 
-  cached_has_bits = _has_bits_[0];
   // optional float setting_validation_float = 23006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyFloat"];
-  if (cached_has_bits & 0x10000000u) {
+  if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(23006, this->_internal_setting_validation_float(), target);
   }
 
+  cached_has_bits = _has_bits_[0];
   // optional string setting_validation_string = 23007 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyString"];
   if (cached_has_bits & 0x00000400u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -4883,9 +4953,8 @@ failure:
         23007, this->_internal_setting_validation_string(), target);
   }
 
-  cached_has_bits = _has_bits_[4];
   // optional bool system_bluetooth_enabled = 24000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "System/Bluetooth/Enabled", (.setting_default_bool) = false];
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24000, this->_internal_system_bluetooth_enabled(), target);
   }
@@ -5086,9 +5155,9 @@ size_t CMsgClientSettings::ByteSizeLong() const {
       total_size += 1 + 4;
     }
 
-    // optional float setting_validation_float = 23006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyFloat"];
+    // optional bool system_bluetooth_enabled = 24000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "System/Bluetooth/Enabled", (.setting_default_bool) = false];
     if (cached_has_bits & 0x10000000u) {
-      total_size += 3 + 4;
+      total_size += 3 + 1;
     }
 
     // optional bool small_mode = 16 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Software\\Valve\\Steam\\SmallMode"];
@@ -5634,189 +5703,202 @@ size_t CMsgClientSettings::ByteSizeLong() const {
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_g_background_mode());
     }
 
-    // optional bool g_background_a_m = 18209 [(.setting_store) = EClientSettingStore_CustomFunc];
+    // optional .EGRAudio g_background_audio = 18213 [default = EGRAudio_Game, (.setting_store) = EClientSettingStore_CustomFunc];
     if (cached_has_bits & 0x04000000u) {
-      total_size += 3 + 1;
+      total_size += 3 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_g_background_audio());
     }
 
-    // optional bool g_background_a_s = 18211 [(.setting_store) = EClientSettingStore_CustomFunc];
+    // optional bool g_background_a_m = 18209 [(.setting_store) = EClientSettingStore_CustomFunc];
     if (cached_has_bits & 0x08000000u) {
       total_size += 3 + 1;
     }
 
-    // optional bool show_timestamps_in_console = 20000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer\\ShowTimestampsInConsole"];
+    // optional bool g_background_a_s = 18211 [(.setting_store) = EClientSettingStore_CustomFunc];
     if (cached_has_bits & 0x10000000u) {
       total_size += 3 + 1;
     }
 
-    // optional bool force_oobe = 20001 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBE"];
+    // optional bool show_timestamps_in_console = 20000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer\\ShowTimestampsInConsole"];
     if (cached_has_bits & 0x20000000u) {
       total_size += 3 + 1;
     }
 
-    // optional int32 override_browser_composer_mode = 20002 [(.setting_store) = EClientSettingStore_CustomFunc];
+    // optional bool force_oobe = 20001 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBE"];
     if (cached_has_bits & 0x40000000u) {
+      total_size += 3 + 1;
+    }
+
+    // optional int32 override_browser_composer_mode = 20002 [(.setting_store) = EClientSettingStore_CustomFunc];
+    if (cached_has_bits & 0x80000000u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_override_browser_composer_mode());
     }
 
-    // optional bool cef_remote_debugging_enabled = 20003 [(.setting_store) = EClientSettingStore_CustomFunc];
-    if (cached_has_bits & 0x80000000u) {
-      total_size += 3 + 1;
-    }
-
   }
   cached_has_bits = _has_bits_[4];
   if (cached_has_bits & 0x000000ffu) {
-    // optional bool force_decperf_tab = 20004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/ForceDeckPerfTab"];
+    // optional bool cef_remote_debugging_enabled = 20003 [(.setting_store) = EClientSettingStore_CustomFunc];
     if (cached_has_bits & 0x00000001u) {
       total_size += 3 + 1;
     }
 
-    // optional bool force_fake_mandatory_update = 20005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/FakeMandatoryUpdate"];
+    // optional bool force_decperf_tab = 20004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/ForceDeckPerfTab"];
     if (cached_has_bits & 0x00000002u) {
       total_size += 3 + 1;
     }
 
-    // optional bool hdr_compat_testing = 20006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/HDRCompatTesting"];
+    // optional bool force_fake_mandatory_update = 20005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/FakeMandatoryUpdate"];
     if (cached_has_bits & 0x00000004u) {
       total_size += 3 + 1;
     }
 
-    // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
+    // optional bool hdr_compat_testing = 20006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/HDRCompatTesting"];
     if (cached_has_bits & 0x00000008u) {
+      total_size += 3 + 1;
+    }
+
+    // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
+    if (cached_has_bits & 0x00000010u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_gamescope_hdr_visualization());
     }
 
     // optional int32 gamescope_app_target_framerate = 21002 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/AppTargetFrameRate", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_gamescope_app_target_framerate());
     }
 
     // optional int32 gamescope_display_refresh_rate = 21005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/RefreshRate", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_gamescope_display_refresh_rate());
     }
 
     // optional bool gamescope_enable_app_target_framerate = 21003 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\GamescopeEnableAppTargetRefreshRate2", (.setting_default_bool) = true];
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 3 + 1;
-    }
-
-    // optional bool gamescope_disable_framelimit = 21004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/DisableFrameLimit", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
     if (cached_has_bits & 0x00000080u) {
       total_size += 3 + 1;
     }
 
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
+    // optional bool gamescope_disable_framelimit = 21004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/DisableFrameLimit", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
     if (cached_has_bits & 0x00000100u) {
       total_size += 3 + 1;
     }
 
-    // optional bool gamescope_disable_mura_correction = 21007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/MuraCorrectionDisabled", (.setting_default_bool) = false];
+    // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
     if (cached_has_bits & 0x00000200u) {
       total_size += 3 + 1;
     }
 
-    // optional bool gamescope_include_steamui_in_screenshots = 21008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/IncludeSteamUIInScreenshots", (.setting_default_bool) = true];
+    // optional bool gamescope_disable_mura_correction = 21007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/MuraCorrectionDisabled", (.setting_default_bool) = false];
     if (cached_has_bits & 0x00000400u) {
       total_size += 3 + 1;
     }
 
-    // optional bool steamos_tdp_limit_enabled = 22001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/TDPLimitEnabled", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGame];
+    // optional bool gamescope_include_steamui_in_screenshots = 21008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/IncludeSteamUIInScreenshots", (.setting_default_bool) = true];
     if (cached_has_bits & 0x00000800u) {
       total_size += 3 + 1;
     }
 
-    // optional bool steamos_cec_enabled = 22003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/CECEnabled", (.setting_default_bool) = true];
+    // optional bool gamescope_allow_tearing = 21009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/AllowTearing", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGame];
     if (cached_has_bits & 0x00001000u) {
       total_size += 3 + 1;
     }
 
-    // optional bool steamos_cec_wake_on_resume = 22004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WakeOnResume", (.setting_default_bool) = true];
+    // optional bool steamos_tdp_limit_enabled = 22001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/TDPLimitEnabled", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGame];
     if (cached_has_bits & 0x00002000u) {
       total_size += 3 + 1;
     }
 
-    // optional int32 steamos_status_led_brightness = 22000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/StatusLEDBrightness", (.setting_default_int) = 100];
+    // optional bool steamos_cec_enabled = 22003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/CECEnabled", (.setting_default_bool) = true];
     if (cached_has_bits & 0x00004000u) {
+      total_size += 3 + 1;
+    }
+
+    // optional int32 steamos_status_led_brightness = 22000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/StatusLEDBrightness", (.setting_default_int) = 100];
+    if (cached_has_bits & 0x00008000u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_steamos_status_led_brightness());
     }
 
+  }
+  if (cached_has_bits & 0x00ff0000u) {
     // optional int32 steamos_tdp_limit = 22002 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/TDPLimit", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGame];
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00010000u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_steamos_tdp_limit());
     }
 
-  }
-  if (cached_has_bits & 0x00ff0000u) {
     // optional int32 steamos_magnifier_scale = 22007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/MagnifierScale", (.setting_default_int) = 150];
-    if (cached_has_bits & 0x00010000u) {
+    if (cached_has_bits & 0x00020000u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_steamos_magnifier_scale());
     }
 
-    // optional bool steamos_wifi_debug = 22005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WifiDebug", (.setting_default_bool) = false];
-    if (cached_has_bits & 0x00020000u) {
-      total_size += 3 + 1;
-    }
-
-    // optional bool steamos_wifi_force_wpa_supplicant = 22006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WifiForceWPASupplicant", (.setting_default_bool) = false];
+    // optional bool steamos_cec_wake_on_resume = 22004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WakeOnResume", (.setting_default_bool) = true];
     if (cached_has_bits & 0x00040000u) {
       total_size += 3 + 1;
     }
 
-    // optional bool setting_validation_bool = 23001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyBool"];
+    // optional bool steamos_wifi_debug = 22005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WifiDebug", (.setting_default_bool) = false];
     if (cached_has_bits & 0x00080000u) {
       total_size += 3 + 1;
     }
 
-    // optional bool system_bluetooth_enabled = 24000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "System/Bluetooth/Enabled", (.setting_default_bool) = false];
+    // optional bool steamos_wifi_force_wpa_supplicant = 22006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WifiForceWPASupplicant", (.setting_default_bool) = false];
     if (cached_has_bits & 0x00100000u) {
       total_size += 3 + 1;
     }
 
-    // optional .EHDRVisualization setting_validation_enum = 23002 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyEnum"];
+    // optional bool setting_validation_bool = 23001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyBool"];
     if (cached_has_bits & 0x00200000u) {
+      total_size += 3 + 1;
+    }
+
+    // optional .EHDRVisualization setting_validation_enum = 23002 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyEnum"];
+    if (cached_has_bits & 0x00400000u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_setting_validation_enum());
     }
 
     // optional int32 setting_validation_int32 = 23003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyInt32"];
-    if (cached_has_bits & 0x00400000u) {
+    if (cached_has_bits & 0x00800000u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_setting_validation_int32());
     }
 
+  }
+  if (cached_has_bits & 0x07000000u) {
+    // optional uint64 setting_validation_uint64 = 23005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyUInt64"];
+    if (cached_has_bits & 0x01000000u) {
+      total_size += 3 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_setting_validation_uint64());
+    }
+
     // optional uint32 setting_validation_uint32 = 23004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyUInt32"];
-    if (cached_has_bits & 0x00800000u) {
+    if (cached_has_bits & 0x02000000u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_setting_validation_uint32());
     }
 
-  }
-  // optional uint64 setting_validation_uint64 = 23005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyUInt64"];
-  if (cached_has_bits & 0x01000000u) {
-    total_size += 3 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_setting_validation_uint64());
-  }
+    // optional float setting_validation_float = 23006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyFloat"];
+    if (cached_has_bits & 0x04000000u) {
+      total_size += 3 + 4;
+    }
 
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -5942,7 +6024,7 @@ void CMsgClientSettings::MergeFrom(const CMsgClientSettings& from) {
       auto_scale_factor_ = from.auto_scale_factor_;
     }
     if (cached_has_bits & 0x10000000u) {
-      setting_validation_float_ = from.setting_validation_float_;
+      system_bluetooth_enabled_ = from.system_bluetooth_enabled_;
     }
     if (cached_has_bits & 0x20000000u) {
       small_mode_ = from.small_mode_;
@@ -6263,109 +6345,118 @@ void CMsgClientSettings::MergeFrom(const CMsgClientSettings& from) {
       g_background_mode_ = from.g_background_mode_;
     }
     if (cached_has_bits & 0x04000000u) {
-      g_background_a_m_ = from.g_background_a_m_;
+      g_background_audio_ = from.g_background_audio_;
     }
     if (cached_has_bits & 0x08000000u) {
-      g_background_a_s_ = from.g_background_a_s_;
+      g_background_a_m_ = from.g_background_a_m_;
     }
     if (cached_has_bits & 0x10000000u) {
-      show_timestamps_in_console_ = from.show_timestamps_in_console_;
+      g_background_a_s_ = from.g_background_a_s_;
     }
     if (cached_has_bits & 0x20000000u) {
-      force_oobe_ = from.force_oobe_;
+      show_timestamps_in_console_ = from.show_timestamps_in_console_;
     }
     if (cached_has_bits & 0x40000000u) {
-      override_browser_composer_mode_ = from.override_browser_composer_mode_;
+      force_oobe_ = from.force_oobe_;
     }
     if (cached_has_bits & 0x80000000u) {
-      cef_remote_debugging_enabled_ = from.cef_remote_debugging_enabled_;
+      override_browser_composer_mode_ = from.override_browser_composer_mode_;
     }
     _has_bits_[3] |= cached_has_bits;
   }
   cached_has_bits = from._has_bits_[4];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      force_decperf_tab_ = from.force_decperf_tab_;
+      cef_remote_debugging_enabled_ = from.cef_remote_debugging_enabled_;
     }
     if (cached_has_bits & 0x00000002u) {
-      force_fake_mandatory_update_ = from.force_fake_mandatory_update_;
+      force_decperf_tab_ = from.force_decperf_tab_;
     }
     if (cached_has_bits & 0x00000004u) {
-      hdr_compat_testing_ = from.hdr_compat_testing_;
+      force_fake_mandatory_update_ = from.force_fake_mandatory_update_;
     }
     if (cached_has_bits & 0x00000008u) {
-      gamescope_hdr_visualization_ = from.gamescope_hdr_visualization_;
+      hdr_compat_testing_ = from.hdr_compat_testing_;
     }
     if (cached_has_bits & 0x00000010u) {
-      gamescope_app_target_framerate_ = from.gamescope_app_target_framerate_;
+      gamescope_hdr_visualization_ = from.gamescope_hdr_visualization_;
     }
     if (cached_has_bits & 0x00000020u) {
-      gamescope_display_refresh_rate_ = from.gamescope_display_refresh_rate_;
+      gamescope_app_target_framerate_ = from.gamescope_app_target_framerate_;
     }
     if (cached_has_bits & 0x00000040u) {
-      gamescope_enable_app_target_framerate_ = from.gamescope_enable_app_target_framerate_;
+      gamescope_display_refresh_rate_ = from.gamescope_display_refresh_rate_;
     }
     if (cached_has_bits & 0x00000080u) {
-      gamescope_disable_framelimit_ = from.gamescope_disable_framelimit_;
+      gamescope_enable_app_target_framerate_ = from.gamescope_enable_app_target_framerate_;
     }
     _has_bits_[4] |= cached_has_bits;
   }
   if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
-      gamescope_use_game_refresh_rate_in_steam_ = from.gamescope_use_game_refresh_rate_in_steam_;
+      gamescope_disable_framelimit_ = from.gamescope_disable_framelimit_;
     }
     if (cached_has_bits & 0x00000200u) {
-      gamescope_disable_mura_correction_ = from.gamescope_disable_mura_correction_;
+      gamescope_use_game_refresh_rate_in_steam_ = from.gamescope_use_game_refresh_rate_in_steam_;
     }
     if (cached_has_bits & 0x00000400u) {
-      gamescope_include_steamui_in_screenshots_ = from.gamescope_include_steamui_in_screenshots_;
+      gamescope_disable_mura_correction_ = from.gamescope_disable_mura_correction_;
     }
     if (cached_has_bits & 0x00000800u) {
-      steamos_tdp_limit_enabled_ = from.steamos_tdp_limit_enabled_;
+      gamescope_include_steamui_in_screenshots_ = from.gamescope_include_steamui_in_screenshots_;
     }
     if (cached_has_bits & 0x00001000u) {
-      steamos_cec_enabled_ = from.steamos_cec_enabled_;
+      gamescope_allow_tearing_ = from.gamescope_allow_tearing_;
     }
     if (cached_has_bits & 0x00002000u) {
-      steamos_cec_wake_on_resume_ = from.steamos_cec_wake_on_resume_;
+      steamos_tdp_limit_enabled_ = from.steamos_tdp_limit_enabled_;
     }
     if (cached_has_bits & 0x00004000u) {
-      steamos_status_led_brightness_ = from.steamos_status_led_brightness_;
+      steamos_cec_enabled_ = from.steamos_cec_enabled_;
     }
     if (cached_has_bits & 0x00008000u) {
-      steamos_tdp_limit_ = from.steamos_tdp_limit_;
+      steamos_status_led_brightness_ = from.steamos_status_led_brightness_;
     }
     _has_bits_[4] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      steamos_magnifier_scale_ = from.steamos_magnifier_scale_;
+      steamos_tdp_limit_ = from.steamos_tdp_limit_;
     }
     if (cached_has_bits & 0x00020000u) {
-      steamos_wifi_debug_ = from.steamos_wifi_debug_;
+      steamos_magnifier_scale_ = from.steamos_magnifier_scale_;
     }
     if (cached_has_bits & 0x00040000u) {
-      steamos_wifi_force_wpa_supplicant_ = from.steamos_wifi_force_wpa_supplicant_;
+      steamos_cec_wake_on_resume_ = from.steamos_cec_wake_on_resume_;
     }
     if (cached_has_bits & 0x00080000u) {
-      setting_validation_bool_ = from.setting_validation_bool_;
+      steamos_wifi_debug_ = from.steamos_wifi_debug_;
     }
     if (cached_has_bits & 0x00100000u) {
-      system_bluetooth_enabled_ = from.system_bluetooth_enabled_;
+      steamos_wifi_force_wpa_supplicant_ = from.steamos_wifi_force_wpa_supplicant_;
     }
     if (cached_has_bits & 0x00200000u) {
-      setting_validation_enum_ = from.setting_validation_enum_;
+      setting_validation_bool_ = from.setting_validation_bool_;
     }
     if (cached_has_bits & 0x00400000u) {
-      setting_validation_int32_ = from.setting_validation_int32_;
+      setting_validation_enum_ = from.setting_validation_enum_;
     }
     if (cached_has_bits & 0x00800000u) {
-      setting_validation_uint32_ = from.setting_validation_uint32_;
+      setting_validation_int32_ = from.setting_validation_int32_;
     }
     _has_bits_[4] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x01000000u) {
-    _internal_set_setting_validation_uint64(from._internal_setting_validation_uint64());
+  if (cached_has_bits & 0x07000000u) {
+    if (cached_has_bits & 0x01000000u) {
+      setting_validation_uint64_ = from.setting_validation_uint64_;
+    }
+    if (cached_has_bits & 0x02000000u) {
+      setting_validation_uint32_ = from.setting_validation_uint32_;
+    }
+    if (cached_has_bits & 0x04000000u) {
+      setting_validation_float_ = from.setting_validation_float_;
+    }
+    _has_bits_[4] |= cached_has_bits;
   }
 }
 
@@ -6407,8 +6498,8 @@ void CMsgClientSettings::InternalSwap(CMsgClientSettings* other) {
   g_background_max_keep_.Swap(&other->g_background_max_keep_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   setting_validation_string_.Swap(&other->setting_validation_string_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientSettings, setting_validation_uint64_)
-      + sizeof(CMsgClientSettings::setting_validation_uint64_)
+      PROTOBUF_FIELD_OFFSET(CMsgClientSettings, setting_validation_float_)
+      + sizeof(CMsgClientSettings::setting_validation_float_)
       - PROTOBUF_FIELD_OFFSET(CMsgClientSettings, overlay_key_)>(
           reinterpret_cast<char*>(&overlay_key_),
           reinterpret_cast<char*>(&other->overlay_key_));

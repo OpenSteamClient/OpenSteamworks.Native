@@ -35,8 +35,10 @@
 #include "generated/steammessages_clientserver_uds.pb.h"
 #include "generated/steammessages_clientserver_ufs.pb.h"
 #include "generated/steammessages_clientserver_userstats.pb.h"
+#include "generated/steammessages_clientserver_video.pb.h"
 #include "generated/steammessages_clientsettings.pb.h"
 #include "generated/steammessages_cloud.steamclient.pb.h"
+#include "generated/steammessages_community.steamclient.pb.h"
 #include "generated/steammessages_contentsystem.steamclient.pb.h"
 #include "generated/steammessages_credentials.steamclient.pb.h"
 #include "generated/steammessages_datapublisher.steamclient.pb.h"
@@ -48,6 +50,8 @@
 #include "generated/steammessages_gamenetworking.steamclient.pb.h"
 #include "generated/steammessages_gamenetworkingui.pb.h"
 #include "generated/steammessages_gamenotifications.steamclient.pb.h"
+#include "generated/steammessages_gamerecording.steamclient.pb.h"
+#include "generated/steammessages_gamerecording_objects.pb.h"
 #include "generated/steammessages_gameservers.steamclient.pb.h"
 #include "generated/steammessages_hiddevices.pb.h"
 #include "generated/steammessages_inventory.steamclient.pb.h"
@@ -92,6 +96,8 @@
 #include "generated/webuimessages_base.pb.h"
 #include "generated/webuimessages_bluetooth.pb.h"
 #include "generated/webuimessages_gamenotes.pb.h"
+#include "generated/webuimessages_gamerecording.pb.h"
+#include "generated/webuimessages_gamerecordingfiles.pb.h"
 #include "generated/webuimessages_gamescope.pb.h"
 #include "generated/webuimessages_sharedjscontext.pb.h"
 #include "generated/webuimessages_steamengine.pb.h"
@@ -4021,13 +4027,13 @@ EXPORT void CMsgStartDownload_Delete(CMsgStartDownload* ptr) {
     delete ptr;
 }
 
-// Begin CMsgSetTopWindow
-EXPORT CMsgSetTopWindow *CMsgSetTopWindow_Construct() {
-    return new CMsgSetTopWindow();
+// Begin CMsgSetWindowStackingOrder
+EXPORT CMsgSetWindowStackingOrder *CMsgSetWindowStackingOrder_Construct() {
+    return new CMsgSetWindowStackingOrder();
 }
 
-EXPORT CMsgSetTopWindow *CMsgSetTopWindow_Deserialize(void* buffer, int len) {
-    CMsgSetTopWindow *msg = new CMsgSetTopWindow();
+EXPORT CMsgSetWindowStackingOrder *CMsgSetWindowStackingOrder_Deserialize(void* buffer, int len) {
+    CMsgSetWindowStackingOrder *msg = new CMsgSetWindowStackingOrder();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -4035,11 +4041,11 @@ EXPORT CMsgSetTopWindow *CMsgSetTopWindow_Deserialize(void* buffer, int len) {
     return msg;
 }
 
-EXPORT bool CMsgSetTopWindow_DeserializeInto(CMsgSetTopWindow *target, void* buffer, int len) {
+EXPORT bool CMsgSetWindowStackingOrder_DeserializeInto(CMsgSetWindowStackingOrder *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CMsgSetTopWindow_Delete(CMsgSetTopWindow* ptr) {
+EXPORT void CMsgSetWindowStackingOrder_Delete(CMsgSetWindowStackingOrder* ptr) {
     delete ptr;
 }
 
@@ -5954,28 +5960,6 @@ EXPORT bool CAccountHardware_GetSteamDeckComponents_Response_DeserializeInto(CAc
 }
 
 EXPORT void CAccountHardware_GetSteamDeckComponents_Response_Delete(CAccountHardware_GetSteamDeckComponents_Response* ptr) {
-    delete ptr;
-}
-
-// Begin CAppOverview_AppAssociation
-EXPORT CAppOverview_AppAssociation *CAppOverview_AppAssociation_Construct() {
-    return new CAppOverview_AppAssociation();
-}
-
-EXPORT CAppOverview_AppAssociation *CAppOverview_AppAssociation_Deserialize(void* buffer, int len) {
-    CAppOverview_AppAssociation *msg = new CAppOverview_AppAssociation();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CAppOverview_AppAssociation_DeserializeInto(CAppOverview_AppAssociation *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CAppOverview_AppAssociation_Delete(CAppOverview_AppAssociation* ptr) {
     delete ptr;
 }
 
@@ -14823,6 +14807,50 @@ EXPORT void CClientMetrics_ClipShare_Notification_Delete(CClientMetrics_ClipShar
     delete ptr;
 }
 
+// Begin CClientMetrics_ClipRange_Notification_RelativeRangeEdge
+EXPORT CClientMetrics_ClipRange_Notification_RelativeRangeEdge *CClientMetrics_ClipRange_Notification_RelativeRangeEdge_Construct() {
+    return new CClientMetrics_ClipRange_Notification_RelativeRangeEdge();
+}
+
+EXPORT CClientMetrics_ClipRange_Notification_RelativeRangeEdge *CClientMetrics_ClipRange_Notification_RelativeRangeEdge_Deserialize(void* buffer, int len) {
+    CClientMetrics_ClipRange_Notification_RelativeRangeEdge *msg = new CClientMetrics_ClipRange_Notification_RelativeRangeEdge();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientMetrics_ClipRange_Notification_RelativeRangeEdge_DeserializeInto(CClientMetrics_ClipRange_Notification_RelativeRangeEdge *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientMetrics_ClipRange_Notification_RelativeRangeEdge_Delete(CClientMetrics_ClipRange_Notification_RelativeRangeEdge* ptr) {
+    delete ptr;
+}
+
+// Begin CClientMetrics_ClipRange_Notification
+EXPORT CClientMetrics_ClipRange_Notification *CClientMetrics_ClipRange_Notification_Construct() {
+    return new CClientMetrics_ClipRange_Notification();
+}
+
+EXPORT CClientMetrics_ClipRange_Notification *CClientMetrics_ClipRange_Notification_Deserialize(void* buffer, int len) {
+    CClientMetrics_ClipRange_Notification *msg = new CClientMetrics_ClipRange_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientMetrics_ClipRange_Notification_DeserializeInto(CClientMetrics_ClipRange_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientMetrics_ClipRange_Notification_Delete(CClientMetrics_ClipRange_Notification* ptr) {
+    delete ptr;
+}
+
 // Begin CClientMetrics_EndGameRecording_Notification
 EXPORT CClientMetrics_EndGameRecording_Notification *CClientMetrics_EndGameRecording_Notification_Construct() {
     return new CClientMetrics_EndGameRecording_Notification();
@@ -15659,28 +15687,6 @@ EXPORT void CClientNotificationGameRecordingError_Delete(CClientNotificationGame
     delete ptr;
 }
 
-// Begin CClientNotificationClipDownloaded
-EXPORT CClientNotificationClipDownloaded *CClientNotificationClipDownloaded_Construct() {
-    return new CClientNotificationClipDownloaded();
-}
-
-EXPORT CClientNotificationClipDownloaded *CClientNotificationClipDownloaded_Deserialize(void* buffer, int len) {
-    CClientNotificationClipDownloaded *msg = new CClientNotificationClipDownloaded();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CClientNotificationClipDownloaded_DeserializeInto(CClientNotificationClipDownloaded *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CClientNotificationClipDownloaded_Delete(CClientNotificationClipDownloaded* ptr) {
-    delete ptr;
-}
-
 // Begin CClientNotificationGameRecordingStart
 EXPORT CClientNotificationGameRecordingStart *CClientNotificationGameRecordingStart_Construct() {
     return new CClientNotificationGameRecordingStart();
@@ -15722,6 +15728,28 @@ EXPORT bool CClientNotificationGameRecordingStop_DeserializeInto(CClientNotifica
 }
 
 EXPORT void CClientNotificationGameRecordingStop_Delete(CClientNotificationGameRecordingStop* ptr) {
+    delete ptr;
+}
+
+// Begin CClientNotificationGameRecordingUserMarkerAdded
+EXPORT CClientNotificationGameRecordingUserMarkerAdded *CClientNotificationGameRecordingUserMarkerAdded_Construct() {
+    return new CClientNotificationGameRecordingUserMarkerAdded();
+}
+
+EXPORT CClientNotificationGameRecordingUserMarkerAdded *CClientNotificationGameRecordingUserMarkerAdded_Deserialize(void* buffer, int len) {
+    CClientNotificationGameRecordingUserMarkerAdded *msg = new CClientNotificationGameRecordingUserMarkerAdded();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientNotificationGameRecordingUserMarkerAdded_DeserializeInto(CClientNotificationGameRecordingUserMarkerAdded *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientNotificationGameRecordingUserMarkerAdded_Delete(CClientNotificationGameRecordingUserMarkerAdded* ptr) {
     delete ptr;
 }
 
@@ -20059,6 +20087,50 @@ EXPORT void CMsgClientPICSAccessTokenResponse_Delete(CMsgClientPICSAccessTokenRe
     delete ptr;
 }
 
+// Begin CMsgClientPICSPrivateBetaRequest
+EXPORT CMsgClientPICSPrivateBetaRequest *CMsgClientPICSPrivateBetaRequest_Construct() {
+    return new CMsgClientPICSPrivateBetaRequest();
+}
+
+EXPORT CMsgClientPICSPrivateBetaRequest *CMsgClientPICSPrivateBetaRequest_Deserialize(void* buffer, int len) {
+    CMsgClientPICSPrivateBetaRequest *msg = new CMsgClientPICSPrivateBetaRequest();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgClientPICSPrivateBetaRequest_DeserializeInto(CMsgClientPICSPrivateBetaRequest *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgClientPICSPrivateBetaRequest_Delete(CMsgClientPICSPrivateBetaRequest* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgClientPICSPrivateBetaResponse
+EXPORT CMsgClientPICSPrivateBetaResponse *CMsgClientPICSPrivateBetaResponse_Construct() {
+    return new CMsgClientPICSPrivateBetaResponse();
+}
+
+EXPORT CMsgClientPICSPrivateBetaResponse *CMsgClientPICSPrivateBetaResponse_Deserialize(void* buffer, int len) {
+    CMsgClientPICSPrivateBetaResponse *msg = new CMsgClientPICSPrivateBetaResponse();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgClientPICSPrivateBetaResponse_DeserializeInto(CMsgClientPICSPrivateBetaResponse *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgClientPICSPrivateBetaResponse_Delete(CMsgClientPICSPrivateBetaResponse* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgClientFriendMsg
 EXPORT CMsgClientFriendMsg *CMsgClientFriendMsg_Construct() {
     return new CMsgClientFriendMsg();
@@ -23887,6 +23959,138 @@ EXPORT void CMsgClientStoreUserStats_Delete(CMsgClientStoreUserStats* ptr) {
     delete ptr;
 }
 
+// Begin CMsgVideoGameRecordingRepresentation
+EXPORT CMsgVideoGameRecordingRepresentation *CMsgVideoGameRecordingRepresentation_Construct() {
+    return new CMsgVideoGameRecordingRepresentation();
+}
+
+EXPORT CMsgVideoGameRecordingRepresentation *CMsgVideoGameRecordingRepresentation_Deserialize(void* buffer, int len) {
+    CMsgVideoGameRecordingRepresentation *msg = new CMsgVideoGameRecordingRepresentation();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgVideoGameRecordingRepresentation_DeserializeInto(CMsgVideoGameRecordingRepresentation *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgVideoGameRecordingRepresentation_Delete(CMsgVideoGameRecordingRepresentation* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgVideoGameRecordingComponent
+EXPORT CMsgVideoGameRecordingComponent *CMsgVideoGameRecordingComponent_Construct() {
+    return new CMsgVideoGameRecordingComponent();
+}
+
+EXPORT CMsgVideoGameRecordingComponent *CMsgVideoGameRecordingComponent_Deserialize(void* buffer, int len) {
+    CMsgVideoGameRecordingComponent *msg = new CMsgVideoGameRecordingComponent();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgVideoGameRecordingComponent_DeserializeInto(CMsgVideoGameRecordingComponent *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgVideoGameRecordingComponent_Delete(CMsgVideoGameRecordingComponent* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgVideoGameRecordingDef
+EXPORT CMsgVideoGameRecordingDef *CMsgVideoGameRecordingDef_Construct() {
+    return new CMsgVideoGameRecordingDef();
+}
+
+EXPORT CMsgVideoGameRecordingDef *CMsgVideoGameRecordingDef_Deserialize(void* buffer, int len) {
+    CMsgVideoGameRecordingDef *msg = new CMsgVideoGameRecordingDef();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgVideoGameRecordingDef_DeserializeInto(CMsgVideoGameRecordingDef *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgVideoGameRecordingDef_Delete(CMsgVideoGameRecordingDef* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_GameRecordingSegmentInfo
+EXPORT CVideo_GameRecordingSegmentInfo *CVideo_GameRecordingSegmentInfo_Construct() {
+    return new CVideo_GameRecordingSegmentInfo();
+}
+
+EXPORT CVideo_GameRecordingSegmentInfo *CVideo_GameRecordingSegmentInfo_Deserialize(void* buffer, int len) {
+    CVideo_GameRecordingSegmentInfo *msg = new CVideo_GameRecordingSegmentInfo();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_GameRecordingSegmentInfo_DeserializeInto(CVideo_GameRecordingSegmentInfo *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_GameRecordingSegmentInfo_Delete(CVideo_GameRecordingSegmentInfo* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders
+EXPORT CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders *CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders_Construct() {
+    return new CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders();
+}
+
+EXPORT CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders *CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders_Deserialize(void* buffer, int len) {
+    CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders *msg = new CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders_DeserializeInto(CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders_Delete(CVideo_GameRecordingSegmentUploadInfo_HTTPHeaders* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_GameRecordingSegmentUploadInfo
+EXPORT CVideo_GameRecordingSegmentUploadInfo *CVideo_GameRecordingSegmentUploadInfo_Construct() {
+    return new CVideo_GameRecordingSegmentUploadInfo();
+}
+
+EXPORT CVideo_GameRecordingSegmentUploadInfo *CVideo_GameRecordingSegmentUploadInfo_Deserialize(void* buffer, int len) {
+    CVideo_GameRecordingSegmentUploadInfo *msg = new CVideo_GameRecordingSegmentUploadInfo();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_GameRecordingSegmentUploadInfo_DeserializeInto(CVideo_GameRecordingSegmentUploadInfo *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_GameRecordingSegmentUploadInfo_Delete(CVideo_GameRecordingSegmentUploadInfo* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgHotkey
 EXPORT CMsgHotkey *CMsgHotkey_Construct() {
     return new CMsgHotkey();
@@ -25248,6 +25452,1062 @@ EXPORT bool CCloud_ClientLogUploadRequest_Notification_DeserializeInto(CCloud_Cl
 }
 
 EXPORT void CCloud_ClientLogUploadRequest_Notification_Delete(CCloud_ClientLogUploadRequest_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetApps_Request
+EXPORT CCommunity_GetApps_Request *CCommunity_GetApps_Request_Construct() {
+    return new CCommunity_GetApps_Request();
+}
+
+EXPORT CCommunity_GetApps_Request *CCommunity_GetApps_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetApps_Request *msg = new CCommunity_GetApps_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetApps_Request_DeserializeInto(CCommunity_GetApps_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetApps_Request_Delete(CCommunity_GetApps_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetApps_Response
+EXPORT CCommunity_GetApps_Response *CCommunity_GetApps_Response_Construct() {
+    return new CCommunity_GetApps_Response();
+}
+
+EXPORT CCommunity_GetApps_Response *CCommunity_GetApps_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetApps_Response *msg = new CCommunity_GetApps_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetApps_Response_DeserializeInto(CCommunity_GetApps_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetApps_Response_Delete(CCommunity_GetApps_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetAppRichPresenceLocalization_Request
+EXPORT CCommunity_GetAppRichPresenceLocalization_Request *CCommunity_GetAppRichPresenceLocalization_Request_Construct() {
+    return new CCommunity_GetAppRichPresenceLocalization_Request();
+}
+
+EXPORT CCommunity_GetAppRichPresenceLocalization_Request *CCommunity_GetAppRichPresenceLocalization_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetAppRichPresenceLocalization_Request *msg = new CCommunity_GetAppRichPresenceLocalization_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetAppRichPresenceLocalization_Request_DeserializeInto(CCommunity_GetAppRichPresenceLocalization_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetAppRichPresenceLocalization_Request_Delete(CCommunity_GetAppRichPresenceLocalization_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetAppRichPresenceLocalization_Response_Token
+EXPORT CCommunity_GetAppRichPresenceLocalization_Response_Token *CCommunity_GetAppRichPresenceLocalization_Response_Token_Construct() {
+    return new CCommunity_GetAppRichPresenceLocalization_Response_Token();
+}
+
+EXPORT CCommunity_GetAppRichPresenceLocalization_Response_Token *CCommunity_GetAppRichPresenceLocalization_Response_Token_Deserialize(void* buffer, int len) {
+    CCommunity_GetAppRichPresenceLocalization_Response_Token *msg = new CCommunity_GetAppRichPresenceLocalization_Response_Token();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetAppRichPresenceLocalization_Response_Token_DeserializeInto(CCommunity_GetAppRichPresenceLocalization_Response_Token *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetAppRichPresenceLocalization_Response_Token_Delete(CCommunity_GetAppRichPresenceLocalization_Response_Token* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetAppRichPresenceLocalization_Response_TokenList
+EXPORT CCommunity_GetAppRichPresenceLocalization_Response_TokenList *CCommunity_GetAppRichPresenceLocalization_Response_TokenList_Construct() {
+    return new CCommunity_GetAppRichPresenceLocalization_Response_TokenList();
+}
+
+EXPORT CCommunity_GetAppRichPresenceLocalization_Response_TokenList *CCommunity_GetAppRichPresenceLocalization_Response_TokenList_Deserialize(void* buffer, int len) {
+    CCommunity_GetAppRichPresenceLocalization_Response_TokenList *msg = new CCommunity_GetAppRichPresenceLocalization_Response_TokenList();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetAppRichPresenceLocalization_Response_TokenList_DeserializeInto(CCommunity_GetAppRichPresenceLocalization_Response_TokenList *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetAppRichPresenceLocalization_Response_TokenList_Delete(CCommunity_GetAppRichPresenceLocalization_Response_TokenList* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetAppRichPresenceLocalization_Response
+EXPORT CCommunity_GetAppRichPresenceLocalization_Response *CCommunity_GetAppRichPresenceLocalization_Response_Construct() {
+    return new CCommunity_GetAppRichPresenceLocalization_Response();
+}
+
+EXPORT CCommunity_GetAppRichPresenceLocalization_Response *CCommunity_GetAppRichPresenceLocalization_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetAppRichPresenceLocalization_Response *msg = new CCommunity_GetAppRichPresenceLocalization_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetAppRichPresenceLocalization_Response_DeserializeInto(CCommunity_GetAppRichPresenceLocalization_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetAppRichPresenceLocalization_Response_Delete(CCommunity_GetAppRichPresenceLocalization_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetCommentThread_Request
+EXPORT CCommunity_GetCommentThread_Request *CCommunity_GetCommentThread_Request_Construct() {
+    return new CCommunity_GetCommentThread_Request();
+}
+
+EXPORT CCommunity_GetCommentThread_Request *CCommunity_GetCommentThread_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetCommentThread_Request *msg = new CCommunity_GetCommentThread_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetCommentThread_Request_DeserializeInto(CCommunity_GetCommentThread_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetCommentThread_Request_Delete(CCommunity_GetCommentThread_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_Comment_Reaction
+EXPORT CCommunity_Comment_Reaction *CCommunity_Comment_Reaction_Construct() {
+    return new CCommunity_Comment_Reaction();
+}
+
+EXPORT CCommunity_Comment_Reaction *CCommunity_Comment_Reaction_Deserialize(void* buffer, int len) {
+    CCommunity_Comment_Reaction *msg = new CCommunity_Comment_Reaction();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_Comment_Reaction_DeserializeInto(CCommunity_Comment_Reaction *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_Comment_Reaction_Delete(CCommunity_Comment_Reaction* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_Comment
+EXPORT CCommunity_Comment *CCommunity_Comment_Construct() {
+    return new CCommunity_Comment();
+}
+
+EXPORT CCommunity_Comment *CCommunity_Comment_Deserialize(void* buffer, int len) {
+    CCommunity_Comment *msg = new CCommunity_Comment();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_Comment_DeserializeInto(CCommunity_Comment *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_Comment_Delete(CCommunity_Comment* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetCommentThread_Response
+EXPORT CCommunity_GetCommentThread_Response *CCommunity_GetCommentThread_Response_Construct() {
+    return new CCommunity_GetCommentThread_Response();
+}
+
+EXPORT CCommunity_GetCommentThread_Response *CCommunity_GetCommentThread_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetCommentThread_Response *msg = new CCommunity_GetCommentThread_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetCommentThread_Response_DeserializeInto(CCommunity_GetCommentThread_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetCommentThread_Response_Delete(CCommunity_GetCommentThread_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_PostCommentToThread_Request
+EXPORT CCommunity_PostCommentToThread_Request *CCommunity_PostCommentToThread_Request_Construct() {
+    return new CCommunity_PostCommentToThread_Request();
+}
+
+EXPORT CCommunity_PostCommentToThread_Request *CCommunity_PostCommentToThread_Request_Deserialize(void* buffer, int len) {
+    CCommunity_PostCommentToThread_Request *msg = new CCommunity_PostCommentToThread_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_PostCommentToThread_Request_DeserializeInto(CCommunity_PostCommentToThread_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_PostCommentToThread_Request_Delete(CCommunity_PostCommentToThread_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_PostCommentToThread_Response
+EXPORT CCommunity_PostCommentToThread_Response *CCommunity_PostCommentToThread_Response_Construct() {
+    return new CCommunity_PostCommentToThread_Response();
+}
+
+EXPORT CCommunity_PostCommentToThread_Response *CCommunity_PostCommentToThread_Response_Deserialize(void* buffer, int len) {
+    CCommunity_PostCommentToThread_Response *msg = new CCommunity_PostCommentToThread_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_PostCommentToThread_Response_DeserializeInto(CCommunity_PostCommentToThread_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_PostCommentToThread_Response_Delete(CCommunity_PostCommentToThread_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_DeleteCommentFromThread_Request
+EXPORT CCommunity_DeleteCommentFromThread_Request *CCommunity_DeleteCommentFromThread_Request_Construct() {
+    return new CCommunity_DeleteCommentFromThread_Request();
+}
+
+EXPORT CCommunity_DeleteCommentFromThread_Request *CCommunity_DeleteCommentFromThread_Request_Deserialize(void* buffer, int len) {
+    CCommunity_DeleteCommentFromThread_Request *msg = new CCommunity_DeleteCommentFromThread_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_DeleteCommentFromThread_Request_DeserializeInto(CCommunity_DeleteCommentFromThread_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_DeleteCommentFromThread_Request_Delete(CCommunity_DeleteCommentFromThread_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_DeleteCommentFromThread_Response
+EXPORT CCommunity_DeleteCommentFromThread_Response *CCommunity_DeleteCommentFromThread_Response_Construct() {
+    return new CCommunity_DeleteCommentFromThread_Response();
+}
+
+EXPORT CCommunity_DeleteCommentFromThread_Response *CCommunity_DeleteCommentFromThread_Response_Deserialize(void* buffer, int len) {
+    CCommunity_DeleteCommentFromThread_Response *msg = new CCommunity_DeleteCommentFromThread_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_DeleteCommentFromThread_Response_DeserializeInto(CCommunity_DeleteCommentFromThread_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_DeleteCommentFromThread_Response_Delete(CCommunity_DeleteCommentFromThread_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_RateCommentThread_Request
+EXPORT CCommunity_RateCommentThread_Request *CCommunity_RateCommentThread_Request_Construct() {
+    return new CCommunity_RateCommentThread_Request();
+}
+
+EXPORT CCommunity_RateCommentThread_Request *CCommunity_RateCommentThread_Request_Deserialize(void* buffer, int len) {
+    CCommunity_RateCommentThread_Request *msg = new CCommunity_RateCommentThread_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_RateCommentThread_Request_DeserializeInto(CCommunity_RateCommentThread_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_RateCommentThread_Request_Delete(CCommunity_RateCommentThread_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_RateCommentThread_Response
+EXPORT CCommunity_RateCommentThread_Response *CCommunity_RateCommentThread_Response_Construct() {
+    return new CCommunity_RateCommentThread_Response();
+}
+
+EXPORT CCommunity_RateCommentThread_Response *CCommunity_RateCommentThread_Response_Deserialize(void* buffer, int len) {
+    CCommunity_RateCommentThread_Response *msg = new CCommunity_RateCommentThread_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_RateCommentThread_Response_DeserializeInto(CCommunity_RateCommentThread_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_RateCommentThread_Response_Delete(CCommunity_RateCommentThread_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetCommentThreadRatings_Request
+EXPORT CCommunity_GetCommentThreadRatings_Request *CCommunity_GetCommentThreadRatings_Request_Construct() {
+    return new CCommunity_GetCommentThreadRatings_Request();
+}
+
+EXPORT CCommunity_GetCommentThreadRatings_Request *CCommunity_GetCommentThreadRatings_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetCommentThreadRatings_Request *msg = new CCommunity_GetCommentThreadRatings_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetCommentThreadRatings_Request_DeserializeInto(CCommunity_GetCommentThreadRatings_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetCommentThreadRatings_Request_Delete(CCommunity_GetCommentThreadRatings_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetCommentThreadRatings_Response
+EXPORT CCommunity_GetCommentThreadRatings_Response *CCommunity_GetCommentThreadRatings_Response_Construct() {
+    return new CCommunity_GetCommentThreadRatings_Response();
+}
+
+EXPORT CCommunity_GetCommentThreadRatings_Response *CCommunity_GetCommentThreadRatings_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetCommentThreadRatings_Response *msg = new CCommunity_GetCommentThreadRatings_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetCommentThreadRatings_Response_DeserializeInto(CCommunity_GetCommentThreadRatings_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetCommentThreadRatings_Response_Delete(CCommunity_GetCommentThreadRatings_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_RateClanAnnouncement_Request
+EXPORT CCommunity_RateClanAnnouncement_Request *CCommunity_RateClanAnnouncement_Request_Construct() {
+    return new CCommunity_RateClanAnnouncement_Request();
+}
+
+EXPORT CCommunity_RateClanAnnouncement_Request *CCommunity_RateClanAnnouncement_Request_Deserialize(void* buffer, int len) {
+    CCommunity_RateClanAnnouncement_Request *msg = new CCommunity_RateClanAnnouncement_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_RateClanAnnouncement_Request_DeserializeInto(CCommunity_RateClanAnnouncement_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_RateClanAnnouncement_Request_Delete(CCommunity_RateClanAnnouncement_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_RateClanAnnouncement_Response
+EXPORT CCommunity_RateClanAnnouncement_Response *CCommunity_RateClanAnnouncement_Response_Construct() {
+    return new CCommunity_RateClanAnnouncement_Response();
+}
+
+EXPORT CCommunity_RateClanAnnouncement_Response *CCommunity_RateClanAnnouncement_Response_Deserialize(void* buffer, int len) {
+    CCommunity_RateClanAnnouncement_Response *msg = new CCommunity_RateClanAnnouncement_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_RateClanAnnouncement_Response_DeserializeInto(CCommunity_RateClanAnnouncement_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_RateClanAnnouncement_Response_Delete(CCommunity_RateClanAnnouncement_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetClanAnnouncementVoteForUser_Request
+EXPORT CCommunity_GetClanAnnouncementVoteForUser_Request *CCommunity_GetClanAnnouncementVoteForUser_Request_Construct() {
+    return new CCommunity_GetClanAnnouncementVoteForUser_Request();
+}
+
+EXPORT CCommunity_GetClanAnnouncementVoteForUser_Request *CCommunity_GetClanAnnouncementVoteForUser_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetClanAnnouncementVoteForUser_Request *msg = new CCommunity_GetClanAnnouncementVoteForUser_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetClanAnnouncementVoteForUser_Request_DeserializeInto(CCommunity_GetClanAnnouncementVoteForUser_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetClanAnnouncementVoteForUser_Request_Delete(CCommunity_GetClanAnnouncementVoteForUser_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetClanAnnouncementVoteForUser_Response
+EXPORT CCommunity_GetClanAnnouncementVoteForUser_Response *CCommunity_GetClanAnnouncementVoteForUser_Response_Construct() {
+    return new CCommunity_GetClanAnnouncementVoteForUser_Response();
+}
+
+EXPORT CCommunity_GetClanAnnouncementVoteForUser_Response *CCommunity_GetClanAnnouncementVoteForUser_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetClanAnnouncementVoteForUser_Response *msg = new CCommunity_GetClanAnnouncementVoteForUser_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetClanAnnouncementVoteForUser_Response_DeserializeInto(CCommunity_GetClanAnnouncementVoteForUser_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetClanAnnouncementVoteForUser_Response_Delete(CCommunity_GetClanAnnouncementVoteForUser_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetAvatarHistory_Request
+EXPORT CCommunity_GetAvatarHistory_Request *CCommunity_GetAvatarHistory_Request_Construct() {
+    return new CCommunity_GetAvatarHistory_Request();
+}
+
+EXPORT CCommunity_GetAvatarHistory_Request *CCommunity_GetAvatarHistory_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetAvatarHistory_Request *msg = new CCommunity_GetAvatarHistory_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetAvatarHistory_Request_DeserializeInto(CCommunity_GetAvatarHistory_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetAvatarHistory_Request_Delete(CCommunity_GetAvatarHistory_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetAvatarHistory_Response_AvatarData
+EXPORT CCommunity_GetAvatarHistory_Response_AvatarData *CCommunity_GetAvatarHistory_Response_AvatarData_Construct() {
+    return new CCommunity_GetAvatarHistory_Response_AvatarData();
+}
+
+EXPORT CCommunity_GetAvatarHistory_Response_AvatarData *CCommunity_GetAvatarHistory_Response_AvatarData_Deserialize(void* buffer, int len) {
+    CCommunity_GetAvatarHistory_Response_AvatarData *msg = new CCommunity_GetAvatarHistory_Response_AvatarData();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetAvatarHistory_Response_AvatarData_DeserializeInto(CCommunity_GetAvatarHistory_Response_AvatarData *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetAvatarHistory_Response_AvatarData_Delete(CCommunity_GetAvatarHistory_Response_AvatarData* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetAvatarHistory_Response
+EXPORT CCommunity_GetAvatarHistory_Response *CCommunity_GetAvatarHistory_Response_Construct() {
+    return new CCommunity_GetAvatarHistory_Response();
+}
+
+EXPORT CCommunity_GetAvatarHistory_Response *CCommunity_GetAvatarHistory_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetAvatarHistory_Response *msg = new CCommunity_GetAvatarHistory_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetAvatarHistory_Response_DeserializeInto(CCommunity_GetAvatarHistory_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetAvatarHistory_Response_Delete(CCommunity_GetAvatarHistory_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CAppPriority
+EXPORT CAppPriority *CAppPriority_Construct() {
+    return new CAppPriority();
+}
+
+EXPORT CAppPriority *CAppPriority_Deserialize(void* buffer, int len) {
+    CAppPriority *msg = new CAppPriority();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CAppPriority_DeserializeInto(CAppPriority *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CAppPriority_Delete(CAppPriority* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetUserPartnerEventNews_Request
+EXPORT CCommunity_GetUserPartnerEventNews_Request *CCommunity_GetUserPartnerEventNews_Request_Construct() {
+    return new CCommunity_GetUserPartnerEventNews_Request();
+}
+
+EXPORT CCommunity_GetUserPartnerEventNews_Request *CCommunity_GetUserPartnerEventNews_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetUserPartnerEventNews_Request *msg = new CCommunity_GetUserPartnerEventNews_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetUserPartnerEventNews_Request_DeserializeInto(CCommunity_GetUserPartnerEventNews_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetUserPartnerEventNews_Request_Delete(CCommunity_GetUserPartnerEventNews_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetUserPartnerEventNews_Response
+EXPORT CCommunity_GetUserPartnerEventNews_Response *CCommunity_GetUserPartnerEventNews_Response_Construct() {
+    return new CCommunity_GetUserPartnerEventNews_Response();
+}
+
+EXPORT CCommunity_GetUserPartnerEventNews_Response *CCommunity_GetUserPartnerEventNews_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetUserPartnerEventNews_Response *msg = new CCommunity_GetUserPartnerEventNews_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetUserPartnerEventNews_Response_DeserializeInto(CCommunity_GetUserPartnerEventNews_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetUserPartnerEventNews_Response_Delete(CCommunity_GetUserPartnerEventNews_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetBestEventsForUser_Request
+EXPORT CCommunity_GetBestEventsForUser_Request *CCommunity_GetBestEventsForUser_Request_Construct() {
+    return new CCommunity_GetBestEventsForUser_Request();
+}
+
+EXPORT CCommunity_GetBestEventsForUser_Request *CCommunity_GetBestEventsForUser_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetBestEventsForUser_Request *msg = new CCommunity_GetBestEventsForUser_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetBestEventsForUser_Request_DeserializeInto(CCommunity_GetBestEventsForUser_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetBestEventsForUser_Request_Delete(CCommunity_GetBestEventsForUser_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_PartnerEventResult
+EXPORT CCommunity_PartnerEventResult *CCommunity_PartnerEventResult_Construct() {
+    return new CCommunity_PartnerEventResult();
+}
+
+EXPORT CCommunity_PartnerEventResult *CCommunity_PartnerEventResult_Deserialize(void* buffer, int len) {
+    CCommunity_PartnerEventResult *msg = new CCommunity_PartnerEventResult();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_PartnerEventResult_DeserializeInto(CCommunity_PartnerEventResult *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_PartnerEventResult_Delete(CCommunity_PartnerEventResult* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetBestEventsForUser_Response
+EXPORT CCommunity_GetBestEventsForUser_Response *CCommunity_GetBestEventsForUser_Response_Construct() {
+    return new CCommunity_GetBestEventsForUser_Response();
+}
+
+EXPORT CCommunity_GetBestEventsForUser_Response *CCommunity_GetBestEventsForUser_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetBestEventsForUser_Response *msg = new CCommunity_GetBestEventsForUser_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetBestEventsForUser_Response_DeserializeInto(CCommunity_GetBestEventsForUser_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetBestEventsForUser_Response_Delete(CCommunity_GetBestEventsForUser_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking
+EXPORT CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking *CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking_Construct() {
+    return new CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking();
+}
+
+EXPORT CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking *CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking_Deserialize(void* buffer, int len) {
+    CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking *msg = new CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking_DeserializeInto(CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking_Delete(CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_MarkPartnerEventsForUser_Request
+EXPORT CCommunity_MarkPartnerEventsForUser_Request *CCommunity_MarkPartnerEventsForUser_Request_Construct() {
+    return new CCommunity_MarkPartnerEventsForUser_Request();
+}
+
+EXPORT CCommunity_MarkPartnerEventsForUser_Request *CCommunity_MarkPartnerEventsForUser_Request_Deserialize(void* buffer, int len) {
+    CCommunity_MarkPartnerEventsForUser_Request *msg = new CCommunity_MarkPartnerEventsForUser_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_MarkPartnerEventsForUser_Request_DeserializeInto(CCommunity_MarkPartnerEventsForUser_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_MarkPartnerEventsForUser_Request_Delete(CCommunity_MarkPartnerEventsForUser_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_MarkPartnerEventsForUser_Response
+EXPORT CCommunity_MarkPartnerEventsForUser_Response *CCommunity_MarkPartnerEventsForUser_Response_Construct() {
+    return new CCommunity_MarkPartnerEventsForUser_Response();
+}
+
+EXPORT CCommunity_MarkPartnerEventsForUser_Response *CCommunity_MarkPartnerEventsForUser_Response_Deserialize(void* buffer, int len) {
+    CCommunity_MarkPartnerEventsForUser_Response *msg = new CCommunity_MarkPartnerEventsForUser_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_MarkPartnerEventsForUser_Response_DeserializeInto(CCommunity_MarkPartnerEventsForUser_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_MarkPartnerEventsForUser_Response_Delete(CCommunity_MarkPartnerEventsForUser_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetUserPartnerEventViewStatus_Request
+EXPORT CCommunity_GetUserPartnerEventViewStatus_Request *CCommunity_GetUserPartnerEventViewStatus_Request_Construct() {
+    return new CCommunity_GetUserPartnerEventViewStatus_Request();
+}
+
+EXPORT CCommunity_GetUserPartnerEventViewStatus_Request *CCommunity_GetUserPartnerEventViewStatus_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetUserPartnerEventViewStatus_Request *msg = new CCommunity_GetUserPartnerEventViewStatus_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetUserPartnerEventViewStatus_Request_DeserializeInto(CCommunity_GetUserPartnerEventViewStatus_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetUserPartnerEventViewStatus_Request_Delete(CCommunity_GetUserPartnerEventViewStatus_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent
+EXPORT CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent *CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent_Construct() {
+    return new CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent();
+}
+
+EXPORT CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent *CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent_Deserialize(void* buffer, int len) {
+    CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent *msg = new CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent_DeserializeInto(CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent_Delete(CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetUserPartnerEventViewStatus_Response
+EXPORT CCommunity_GetUserPartnerEventViewStatus_Response *CCommunity_GetUserPartnerEventViewStatus_Response_Construct() {
+    return new CCommunity_GetUserPartnerEventViewStatus_Response();
+}
+
+EXPORT CCommunity_GetUserPartnerEventViewStatus_Response *CCommunity_GetUserPartnerEventViewStatus_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetUserPartnerEventViewStatus_Response *msg = new CCommunity_GetUserPartnerEventViewStatus_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetUserPartnerEventViewStatus_Response_DeserializeInto(CCommunity_GetUserPartnerEventViewStatus_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetUserPartnerEventViewStatus_Response_Delete(CCommunity_GetUserPartnerEventViewStatus_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_PartnerEventsShowMoreForApp_Request
+EXPORT CCommunity_PartnerEventsShowMoreForApp_Request *CCommunity_PartnerEventsShowMoreForApp_Request_Construct() {
+    return new CCommunity_PartnerEventsShowMoreForApp_Request();
+}
+
+EXPORT CCommunity_PartnerEventsShowMoreForApp_Request *CCommunity_PartnerEventsShowMoreForApp_Request_Deserialize(void* buffer, int len) {
+    CCommunity_PartnerEventsShowMoreForApp_Request *msg = new CCommunity_PartnerEventsShowMoreForApp_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_PartnerEventsShowMoreForApp_Request_DeserializeInto(CCommunity_PartnerEventsShowMoreForApp_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_PartnerEventsShowMoreForApp_Request_Delete(CCommunity_PartnerEventsShowMoreForApp_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_PartnerEventsShowMoreForApp_Response
+EXPORT CCommunity_PartnerEventsShowMoreForApp_Response *CCommunity_PartnerEventsShowMoreForApp_Response_Construct() {
+    return new CCommunity_PartnerEventsShowMoreForApp_Response();
+}
+
+EXPORT CCommunity_PartnerEventsShowMoreForApp_Response *CCommunity_PartnerEventsShowMoreForApp_Response_Deserialize(void* buffer, int len) {
+    CCommunity_PartnerEventsShowMoreForApp_Response *msg = new CCommunity_PartnerEventsShowMoreForApp_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_PartnerEventsShowMoreForApp_Response_DeserializeInto(CCommunity_PartnerEventsShowMoreForApp_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_PartnerEventsShowMoreForApp_Response_Delete(CCommunity_PartnerEventsShowMoreForApp_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_PartnerEventsShowLessForApp_Request
+EXPORT CCommunity_PartnerEventsShowLessForApp_Request *CCommunity_PartnerEventsShowLessForApp_Request_Construct() {
+    return new CCommunity_PartnerEventsShowLessForApp_Request();
+}
+
+EXPORT CCommunity_PartnerEventsShowLessForApp_Request *CCommunity_PartnerEventsShowLessForApp_Request_Deserialize(void* buffer, int len) {
+    CCommunity_PartnerEventsShowLessForApp_Request *msg = new CCommunity_PartnerEventsShowLessForApp_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_PartnerEventsShowLessForApp_Request_DeserializeInto(CCommunity_PartnerEventsShowLessForApp_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_PartnerEventsShowLessForApp_Request_Delete(CCommunity_PartnerEventsShowLessForApp_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_PartnerEventsShowLessForApp_Response
+EXPORT CCommunity_PartnerEventsShowLessForApp_Response *CCommunity_PartnerEventsShowLessForApp_Response_Construct() {
+    return new CCommunity_PartnerEventsShowLessForApp_Response();
+}
+
+EXPORT CCommunity_PartnerEventsShowLessForApp_Response *CCommunity_PartnerEventsShowLessForApp_Response_Deserialize(void* buffer, int len) {
+    CCommunity_PartnerEventsShowLessForApp_Response *msg = new CCommunity_PartnerEventsShowLessForApp_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_PartnerEventsShowLessForApp_Response_DeserializeInto(CCommunity_PartnerEventsShowLessForApp_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_PartnerEventsShowLessForApp_Response_Delete(CCommunity_PartnerEventsShowLessForApp_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_ClearUserPartnerEventsAppPriorities_Request
+EXPORT CCommunity_ClearUserPartnerEventsAppPriorities_Request *CCommunity_ClearUserPartnerEventsAppPriorities_Request_Construct() {
+    return new CCommunity_ClearUserPartnerEventsAppPriorities_Request();
+}
+
+EXPORT CCommunity_ClearUserPartnerEventsAppPriorities_Request *CCommunity_ClearUserPartnerEventsAppPriorities_Request_Deserialize(void* buffer, int len) {
+    CCommunity_ClearUserPartnerEventsAppPriorities_Request *msg = new CCommunity_ClearUserPartnerEventsAppPriorities_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_ClearUserPartnerEventsAppPriorities_Request_DeserializeInto(CCommunity_ClearUserPartnerEventsAppPriorities_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_ClearUserPartnerEventsAppPriorities_Request_Delete(CCommunity_ClearUserPartnerEventsAppPriorities_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_ClearUserPartnerEventsAppPriorities_Response
+EXPORT CCommunity_ClearUserPartnerEventsAppPriorities_Response *CCommunity_ClearUserPartnerEventsAppPriorities_Response_Construct() {
+    return new CCommunity_ClearUserPartnerEventsAppPriorities_Response();
+}
+
+EXPORT CCommunity_ClearUserPartnerEventsAppPriorities_Response *CCommunity_ClearUserPartnerEventsAppPriorities_Response_Deserialize(void* buffer, int len) {
+    CCommunity_ClearUserPartnerEventsAppPriorities_Response *msg = new CCommunity_ClearUserPartnerEventsAppPriorities_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_ClearUserPartnerEventsAppPriorities_Response_DeserializeInto(CCommunity_ClearUserPartnerEventsAppPriorities_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_ClearUserPartnerEventsAppPriorities_Response_Delete(CCommunity_ClearUserPartnerEventsAppPriorities_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetUserPartnerEventsAppPriorities_Request
+EXPORT CCommunity_GetUserPartnerEventsAppPriorities_Request *CCommunity_GetUserPartnerEventsAppPriorities_Request_Construct() {
+    return new CCommunity_GetUserPartnerEventsAppPriorities_Request();
+}
+
+EXPORT CCommunity_GetUserPartnerEventsAppPriorities_Request *CCommunity_GetUserPartnerEventsAppPriorities_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetUserPartnerEventsAppPriorities_Request *msg = new CCommunity_GetUserPartnerEventsAppPriorities_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetUserPartnerEventsAppPriorities_Request_DeserializeInto(CCommunity_GetUserPartnerEventsAppPriorities_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetUserPartnerEventsAppPriorities_Request_Delete(CCommunity_GetUserPartnerEventsAppPriorities_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_PartnerEventsAppPriority
+EXPORT CCommunity_PartnerEventsAppPriority *CCommunity_PartnerEventsAppPriority_Construct() {
+    return new CCommunity_PartnerEventsAppPriority();
+}
+
+EXPORT CCommunity_PartnerEventsAppPriority *CCommunity_PartnerEventsAppPriority_Deserialize(void* buffer, int len) {
+    CCommunity_PartnerEventsAppPriority *msg = new CCommunity_PartnerEventsAppPriority();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_PartnerEventsAppPriority_DeserializeInto(CCommunity_PartnerEventsAppPriority *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_PartnerEventsAppPriority_Delete(CCommunity_PartnerEventsAppPriority* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetUserPartnerEventsAppPriorities_Response
+EXPORT CCommunity_GetUserPartnerEventsAppPriorities_Response *CCommunity_GetUserPartnerEventsAppPriorities_Response_Construct() {
+    return new CCommunity_GetUserPartnerEventsAppPriorities_Response();
+}
+
+EXPORT CCommunity_GetUserPartnerEventsAppPriorities_Response *CCommunity_GetUserPartnerEventsAppPriorities_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetUserPartnerEventsAppPriorities_Response *msg = new CCommunity_GetUserPartnerEventsAppPriorities_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetUserPartnerEventsAppPriorities_Response_DeserializeInto(CCommunity_GetUserPartnerEventsAppPriorities_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetUserPartnerEventsAppPriorities_Response_Delete(CCommunity_GetUserPartnerEventsAppPriorities_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_ClearSinglePartnerEventsAppPriority_Request
+EXPORT CCommunity_ClearSinglePartnerEventsAppPriority_Request *CCommunity_ClearSinglePartnerEventsAppPriority_Request_Construct() {
+    return new CCommunity_ClearSinglePartnerEventsAppPriority_Request();
+}
+
+EXPORT CCommunity_ClearSinglePartnerEventsAppPriority_Request *CCommunity_ClearSinglePartnerEventsAppPriority_Request_Deserialize(void* buffer, int len) {
+    CCommunity_ClearSinglePartnerEventsAppPriority_Request *msg = new CCommunity_ClearSinglePartnerEventsAppPriority_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_ClearSinglePartnerEventsAppPriority_Request_DeserializeInto(CCommunity_ClearSinglePartnerEventsAppPriority_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_ClearSinglePartnerEventsAppPriority_Request_Delete(CCommunity_ClearSinglePartnerEventsAppPriority_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_ClearSinglePartnerEventsAppPriority_Response
+EXPORT CCommunity_ClearSinglePartnerEventsAppPriority_Response *CCommunity_ClearSinglePartnerEventsAppPriority_Response_Construct() {
+    return new CCommunity_ClearSinglePartnerEventsAppPriority_Response();
+}
+
+EXPORT CCommunity_ClearSinglePartnerEventsAppPriority_Response *CCommunity_ClearSinglePartnerEventsAppPriority_Response_Deserialize(void* buffer, int len) {
+    CCommunity_ClearSinglePartnerEventsAppPriority_Response *msg = new CCommunity_ClearSinglePartnerEventsAppPriority_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_ClearSinglePartnerEventsAppPriority_Response_DeserializeInto(CCommunity_ClearSinglePartnerEventsAppPriority_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_ClearSinglePartnerEventsAppPriority_Response_Delete(CCommunity_ClearSinglePartnerEventsAppPriority_Response* ptr) {
     delete ptr;
 }
 
@@ -29824,6 +31084,402 @@ EXPORT bool CGameNotifications_OnUserStatusChanged_Notification_DeserializeInto(
 }
 
 EXPORT void CGameNotifications_OnUserStatusChanged_Notification_Delete(CGameNotifications_OnUserStatusChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CVideoManagerClipID
+EXPORT CVideoManagerClipID *CVideoManagerClipID_Construct() {
+    return new CVideoManagerClipID();
+}
+
+EXPORT CVideoManagerClipID *CVideoManagerClipID_Deserialize(void* buffer, int len) {
+    CVideoManagerClipID *msg = new CVideoManagerClipID();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideoManagerClipID_DeserializeInto(CVideoManagerClipID *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideoManagerClipID_Delete(CVideoManagerClipID* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingClip
+EXPORT CGameRecordingClip *CGameRecordingClip_Construct() {
+    return new CGameRecordingClip();
+}
+
+EXPORT CGameRecordingClip *CGameRecordingClip_Deserialize(void* buffer, int len) {
+    CGameRecordingClip *msg = new CGameRecordingClip();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingClip_DeserializeInto(CGameRecordingClip *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingClip_Delete(CGameRecordingClip* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_CreateShareClip_Request
+EXPORT CGameRecording_CreateShareClip_Request *CGameRecording_CreateShareClip_Request_Construct() {
+    return new CGameRecording_CreateShareClip_Request();
+}
+
+EXPORT CGameRecording_CreateShareClip_Request *CGameRecording_CreateShareClip_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_CreateShareClip_Request *msg = new CGameRecording_CreateShareClip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_CreateShareClip_Request_DeserializeInto(CGameRecording_CreateShareClip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_CreateShareClip_Request_Delete(CGameRecording_CreateShareClip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_CreateShareClip_Response
+EXPORT CGameRecording_CreateShareClip_Response *CGameRecording_CreateShareClip_Response_Construct() {
+    return new CGameRecording_CreateShareClip_Response();
+}
+
+EXPORT CGameRecording_CreateShareClip_Response *CGameRecording_CreateShareClip_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_CreateShareClip_Response *msg = new CGameRecording_CreateShareClip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_CreateShareClip_Response_DeserializeInto(CGameRecording_CreateShareClip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_CreateShareClip_Response_Delete(CGameRecording_CreateShareClip_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_DeleteSharedClip_Request
+EXPORT CGameRecording_DeleteSharedClip_Request *CGameRecording_DeleteSharedClip_Request_Construct() {
+    return new CGameRecording_DeleteSharedClip_Request();
+}
+
+EXPORT CGameRecording_DeleteSharedClip_Request *CGameRecording_DeleteSharedClip_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_DeleteSharedClip_Request *msg = new CGameRecording_DeleteSharedClip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_DeleteSharedClip_Request_DeserializeInto(CGameRecording_DeleteSharedClip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_DeleteSharedClip_Request_Delete(CGameRecording_DeleteSharedClip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_DeleteSharedClip_Response
+EXPORT CGameRecording_DeleteSharedClip_Response *CGameRecording_DeleteSharedClip_Response_Construct() {
+    return new CGameRecording_DeleteSharedClip_Response();
+}
+
+EXPORT CGameRecording_DeleteSharedClip_Response *CGameRecording_DeleteSharedClip_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_DeleteSharedClip_Response *msg = new CGameRecording_DeleteSharedClip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_DeleteSharedClip_Response_DeserializeInto(CGameRecording_DeleteSharedClip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_DeleteSharedClip_Response_Delete(CGameRecording_DeleteSharedClip_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetSingleSharedClip_Request
+EXPORT CGameRecording_GetSingleSharedClip_Request *CGameRecording_GetSingleSharedClip_Request_Construct() {
+    return new CGameRecording_GetSingleSharedClip_Request();
+}
+
+EXPORT CGameRecording_GetSingleSharedClip_Request *CGameRecording_GetSingleSharedClip_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetSingleSharedClip_Request *msg = new CGameRecording_GetSingleSharedClip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetSingleSharedClip_Request_DeserializeInto(CGameRecording_GetSingleSharedClip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetSingleSharedClip_Request_Delete(CGameRecording_GetSingleSharedClip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetSingleSharedClip_Response
+EXPORT CGameRecording_GetSingleSharedClip_Response *CGameRecording_GetSingleSharedClip_Response_Construct() {
+    return new CGameRecording_GetSingleSharedClip_Response();
+}
+
+EXPORT CGameRecording_GetSingleSharedClip_Response *CGameRecording_GetSingleSharedClip_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetSingleSharedClip_Response *msg = new CGameRecording_GetSingleSharedClip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetSingleSharedClip_Response_DeserializeInto(CGameRecording_GetSingleSharedClip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetSingleSharedClip_Response_Delete(CGameRecording_GetSingleSharedClip_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_BeginGameRecordingSegmentsUpload_Request
+EXPORT CVideo_BeginGameRecordingSegmentsUpload_Request *CVideo_BeginGameRecordingSegmentsUpload_Request_Construct() {
+    return new CVideo_BeginGameRecordingSegmentsUpload_Request();
+}
+
+EXPORT CVideo_BeginGameRecordingSegmentsUpload_Request *CVideo_BeginGameRecordingSegmentsUpload_Request_Deserialize(void* buffer, int len) {
+    CVideo_BeginGameRecordingSegmentsUpload_Request *msg = new CVideo_BeginGameRecordingSegmentsUpload_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_BeginGameRecordingSegmentsUpload_Request_DeserializeInto(CVideo_BeginGameRecordingSegmentsUpload_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_BeginGameRecordingSegmentsUpload_Request_Delete(CVideo_BeginGameRecordingSegmentsUpload_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_BeginGameRecordingSegmentsUpload_Response
+EXPORT CVideo_BeginGameRecordingSegmentsUpload_Response *CVideo_BeginGameRecordingSegmentsUpload_Response_Construct() {
+    return new CVideo_BeginGameRecordingSegmentsUpload_Response();
+}
+
+EXPORT CVideo_BeginGameRecordingSegmentsUpload_Response *CVideo_BeginGameRecordingSegmentsUpload_Response_Deserialize(void* buffer, int len) {
+    CVideo_BeginGameRecordingSegmentsUpload_Response *msg = new CVideo_BeginGameRecordingSegmentsUpload_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_BeginGameRecordingSegmentsUpload_Response_DeserializeInto(CVideo_BeginGameRecordingSegmentsUpload_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_BeginGameRecordingSegmentsUpload_Response_Delete(CVideo_BeginGameRecordingSegmentsUpload_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_CommitGameRecordingSegmentsUpload_Request
+EXPORT CVideo_CommitGameRecordingSegmentsUpload_Request *CVideo_CommitGameRecordingSegmentsUpload_Request_Construct() {
+    return new CVideo_CommitGameRecordingSegmentsUpload_Request();
+}
+
+EXPORT CVideo_CommitGameRecordingSegmentsUpload_Request *CVideo_CommitGameRecordingSegmentsUpload_Request_Deserialize(void* buffer, int len) {
+    CVideo_CommitGameRecordingSegmentsUpload_Request *msg = new CVideo_CommitGameRecordingSegmentsUpload_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_CommitGameRecordingSegmentsUpload_Request_DeserializeInto(CVideo_CommitGameRecordingSegmentsUpload_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_CommitGameRecordingSegmentsUpload_Request_Delete(CVideo_CommitGameRecordingSegmentsUpload_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_CommitGameRecordingSegmentsUpload_Response
+EXPORT CVideo_CommitGameRecordingSegmentsUpload_Response *CVideo_CommitGameRecordingSegmentsUpload_Response_Construct() {
+    return new CVideo_CommitGameRecordingSegmentsUpload_Response();
+}
+
+EXPORT CVideo_CommitGameRecordingSegmentsUpload_Response *CVideo_CommitGameRecordingSegmentsUpload_Response_Deserialize(void* buffer, int len) {
+    CVideo_CommitGameRecordingSegmentsUpload_Response *msg = new CVideo_CommitGameRecordingSegmentsUpload_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_CommitGameRecordingSegmentsUpload_Response_DeserializeInto(CVideo_CommitGameRecordingSegmentsUpload_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_CommitGameRecordingSegmentsUpload_Response_Delete(CVideo_CommitGameRecordingSegmentsUpload_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request
+EXPORT CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request *CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request_Construct() {
+    return new CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request();
+}
+
+EXPORT CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request *CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request_Deserialize(void* buffer, int len) {
+    CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request *msg = new CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request_DeserializeInto(CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request_Delete(CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response
+EXPORT CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response *CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response_Construct() {
+    return new CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response();
+}
+
+EXPORT CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response *CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response_Deserialize(void* buffer, int len) {
+    CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response *msg = new CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response_DeserializeInto(CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response_Delete(CVideo_GameRecordingGetNextBatchOfSegmentsToUpload_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_GameRecordingCommitSegmentUploads_Request
+EXPORT CVideo_GameRecordingCommitSegmentUploads_Request *CVideo_GameRecordingCommitSegmentUploads_Request_Construct() {
+    return new CVideo_GameRecordingCommitSegmentUploads_Request();
+}
+
+EXPORT CVideo_GameRecordingCommitSegmentUploads_Request *CVideo_GameRecordingCommitSegmentUploads_Request_Deserialize(void* buffer, int len) {
+    CVideo_GameRecordingCommitSegmentUploads_Request *msg = new CVideo_GameRecordingCommitSegmentUploads_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_GameRecordingCommitSegmentUploads_Request_DeserializeInto(CVideo_GameRecordingCommitSegmentUploads_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_GameRecordingCommitSegmentUploads_Request_Delete(CVideo_GameRecordingCommitSegmentUploads_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CVideo_GameRecordingCommitSegmentUploads_Response
+EXPORT CVideo_GameRecordingCommitSegmentUploads_Response *CVideo_GameRecordingCommitSegmentUploads_Response_Construct() {
+    return new CVideo_GameRecordingCommitSegmentUploads_Response();
+}
+
+EXPORT CVideo_GameRecordingCommitSegmentUploads_Response *CVideo_GameRecordingCommitSegmentUploads_Response_Deserialize(void* buffer, int len) {
+    CVideo_GameRecordingCommitSegmentUploads_Response *msg = new CVideo_GameRecordingCommitSegmentUploads_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CVideo_GameRecordingCommitSegmentUploads_Response_DeserializeInto(CVideo_GameRecordingCommitSegmentUploads_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CVideo_GameRecordingCommitSegmentUploads_Response_Delete(CVideo_GameRecordingCommitSegmentUploads_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_AudioSessionsChanged_Notification_Session
+EXPORT CGameRecording_AudioSessionsChanged_Notification_Session *CGameRecording_AudioSessionsChanged_Notification_Session_Construct() {
+    return new CGameRecording_AudioSessionsChanged_Notification_Session();
+}
+
+EXPORT CGameRecording_AudioSessionsChanged_Notification_Session *CGameRecording_AudioSessionsChanged_Notification_Session_Deserialize(void* buffer, int len) {
+    CGameRecording_AudioSessionsChanged_Notification_Session *msg = new CGameRecording_AudioSessionsChanged_Notification_Session();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_AudioSessionsChanged_Notification_Session_DeserializeInto(CGameRecording_AudioSessionsChanged_Notification_Session *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_AudioSessionsChanged_Notification_Session_Delete(CGameRecording_AudioSessionsChanged_Notification_Session* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_AudioSessionsChanged_Notification
+EXPORT CGameRecording_AudioSessionsChanged_Notification *CGameRecording_AudioSessionsChanged_Notification_Construct() {
+    return new CGameRecording_AudioSessionsChanged_Notification();
+}
+
+EXPORT CGameRecording_AudioSessionsChanged_Notification *CGameRecording_AudioSessionsChanged_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_AudioSessionsChanged_Notification *msg = new CGameRecording_AudioSessionsChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_AudioSessionsChanged_Notification_DeserializeInto(CGameRecording_AudioSessionsChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_AudioSessionsChanged_Notification_Delete(CGameRecording_AudioSessionsChanged_Notification* ptr) {
     delete ptr;
 }
 
@@ -52355,6 +54011,1744 @@ EXPORT void CGameNotes_UploadImage_Response_Delete(CGameNotes_UploadImage_Respon
     delete ptr;
 }
 
+// Begin CGameRecording_GetActiveTimelineApps_Request
+EXPORT CGameRecording_GetActiveTimelineApps_Request *CGameRecording_GetActiveTimelineApps_Request_Construct() {
+    return new CGameRecording_GetActiveTimelineApps_Request();
+}
+
+EXPORT CGameRecording_GetActiveTimelineApps_Request *CGameRecording_GetActiveTimelineApps_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetActiveTimelineApps_Request *msg = new CGameRecording_GetActiveTimelineApps_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetActiveTimelineApps_Request_DeserializeInto(CGameRecording_GetActiveTimelineApps_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetActiveTimelineApps_Request_Delete(CGameRecording_GetActiveTimelineApps_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetActiveTimelineApps_Response_App
+EXPORT CGameRecording_GetActiveTimelineApps_Response_App *CGameRecording_GetActiveTimelineApps_Response_App_Construct() {
+    return new CGameRecording_GetActiveTimelineApps_Response_App();
+}
+
+EXPORT CGameRecording_GetActiveTimelineApps_Response_App *CGameRecording_GetActiveTimelineApps_Response_App_Deserialize(void* buffer, int len) {
+    CGameRecording_GetActiveTimelineApps_Response_App *msg = new CGameRecording_GetActiveTimelineApps_Response_App();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetActiveTimelineApps_Response_App_DeserializeInto(CGameRecording_GetActiveTimelineApps_Response_App *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetActiveTimelineApps_Response_App_Delete(CGameRecording_GetActiveTimelineApps_Response_App* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetActiveTimelineApps_Response
+EXPORT CGameRecording_GetActiveTimelineApps_Response *CGameRecording_GetActiveTimelineApps_Response_Construct() {
+    return new CGameRecording_GetActiveTimelineApps_Response();
+}
+
+EXPORT CGameRecording_GetActiveTimelineApps_Response *CGameRecording_GetActiveTimelineApps_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetActiveTimelineApps_Response *msg = new CGameRecording_GetActiveTimelineApps_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetActiveTimelineApps_Response_DeserializeInto(CGameRecording_GetActiveTimelineApps_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetActiveTimelineApps_Response_Delete(CGameRecording_GetActiveTimelineApps_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetTimelinesForApp_Request
+EXPORT CGameRecording_GetTimelinesForApp_Request *CGameRecording_GetTimelinesForApp_Request_Construct() {
+    return new CGameRecording_GetTimelinesForApp_Request();
+}
+
+EXPORT CGameRecording_GetTimelinesForApp_Request *CGameRecording_GetTimelinesForApp_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetTimelinesForApp_Request *msg = new CGameRecording_GetTimelinesForApp_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetTimelinesForApp_Request_DeserializeInto(CGameRecording_GetTimelinesForApp_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetTimelinesForApp_Request_Delete(CGameRecording_GetTimelinesForApp_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetTimelinesForApp_Response
+EXPORT CGameRecording_GetTimelinesForApp_Response *CGameRecording_GetTimelinesForApp_Response_Construct() {
+    return new CGameRecording_GetTimelinesForApp_Response();
+}
+
+EXPORT CGameRecording_GetTimelinesForApp_Response *CGameRecording_GetTimelinesForApp_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetTimelinesForApp_Response *msg = new CGameRecording_GetTimelinesForApp_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetTimelinesForApp_Response_DeserializeInto(CGameRecording_GetTimelinesForApp_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetTimelinesForApp_Response_Delete(CGameRecording_GetTimelinesForApp_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetTimelinesForClip_Request
+EXPORT CGameRecording_GetTimelinesForClip_Request *CGameRecording_GetTimelinesForClip_Request_Construct() {
+    return new CGameRecording_GetTimelinesForClip_Request();
+}
+
+EXPORT CGameRecording_GetTimelinesForClip_Request *CGameRecording_GetTimelinesForClip_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetTimelinesForClip_Request *msg = new CGameRecording_GetTimelinesForClip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetTimelinesForClip_Request_DeserializeInto(CGameRecording_GetTimelinesForClip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetTimelinesForClip_Request_Delete(CGameRecording_GetTimelinesForClip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetTimelinesForClip_Response
+EXPORT CGameRecording_GetTimelinesForClip_Response *CGameRecording_GetTimelinesForClip_Response_Construct() {
+    return new CGameRecording_GetTimelinesForClip_Response();
+}
+
+EXPORT CGameRecording_GetTimelinesForClip_Response *CGameRecording_GetTimelinesForClip_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetTimelinesForClip_Response *msg = new CGameRecording_GetTimelinesForClip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetTimelinesForClip_Response_DeserializeInto(CGameRecording_GetTimelinesForClip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetTimelinesForClip_Response_Delete(CGameRecording_GetTimelinesForClip_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetEnoughDiskSpace_Request
+EXPORT CGameRecording_GetEnoughDiskSpace_Request *CGameRecording_GetEnoughDiskSpace_Request_Construct() {
+    return new CGameRecording_GetEnoughDiskSpace_Request();
+}
+
+EXPORT CGameRecording_GetEnoughDiskSpace_Request *CGameRecording_GetEnoughDiskSpace_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetEnoughDiskSpace_Request *msg = new CGameRecording_GetEnoughDiskSpace_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetEnoughDiskSpace_Request_DeserializeInto(CGameRecording_GetEnoughDiskSpace_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetEnoughDiskSpace_Request_Delete(CGameRecording_GetEnoughDiskSpace_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetEnoughDiskSpace_Response
+EXPORT CGameRecording_GetEnoughDiskSpace_Response *CGameRecording_GetEnoughDiskSpace_Response_Construct() {
+    return new CGameRecording_GetEnoughDiskSpace_Response();
+}
+
+EXPORT CGameRecording_GetEnoughDiskSpace_Response *CGameRecording_GetEnoughDiskSpace_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetEnoughDiskSpace_Response *msg = new CGameRecording_GetEnoughDiskSpace_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetEnoughDiskSpace_Response_DeserializeInto(CGameRecording_GetEnoughDiskSpace_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetEnoughDiskSpace_Response_Delete(CGameRecording_GetEnoughDiskSpace_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetAvailableDiskSpace_Request
+EXPORT CGameRecording_GetAvailableDiskSpace_Request *CGameRecording_GetAvailableDiskSpace_Request_Construct() {
+    return new CGameRecording_GetAvailableDiskSpace_Request();
+}
+
+EXPORT CGameRecording_GetAvailableDiskSpace_Request *CGameRecording_GetAvailableDiskSpace_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetAvailableDiskSpace_Request *msg = new CGameRecording_GetAvailableDiskSpace_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetAvailableDiskSpace_Request_DeserializeInto(CGameRecording_GetAvailableDiskSpace_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetAvailableDiskSpace_Request_Delete(CGameRecording_GetAvailableDiskSpace_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetAvailableDiskSpace_Response
+EXPORT CGameRecording_GetAvailableDiskSpace_Response *CGameRecording_GetAvailableDiskSpace_Response_Construct() {
+    return new CGameRecording_GetAvailableDiskSpace_Response();
+}
+
+EXPORT CGameRecording_GetAvailableDiskSpace_Response *CGameRecording_GetAvailableDiskSpace_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetAvailableDiskSpace_Response *msg = new CGameRecording_GetAvailableDiskSpace_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetAvailableDiskSpace_Response_DeserializeInto(CGameRecording_GetAvailableDiskSpace_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetAvailableDiskSpace_Response_Delete(CGameRecording_GetAvailableDiskSpace_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_TimelineChanged_Notification
+EXPORT CGameRecording_TimelineChanged_Notification *CGameRecording_TimelineChanged_Notification_Construct() {
+    return new CGameRecording_TimelineChanged_Notification();
+}
+
+EXPORT CGameRecording_TimelineChanged_Notification *CGameRecording_TimelineChanged_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_TimelineChanged_Notification *msg = new CGameRecording_TimelineChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_TimelineChanged_Notification_DeserializeInto(CGameRecording_TimelineChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_TimelineChanged_Notification_Delete(CGameRecording_TimelineChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_RecordingSessionChanged_Notification
+EXPORT CGameRecording_RecordingSessionChanged_Notification *CGameRecording_RecordingSessionChanged_Notification_Construct() {
+    return new CGameRecording_RecordingSessionChanged_Notification();
+}
+
+EXPORT CGameRecording_RecordingSessionChanged_Notification *CGameRecording_RecordingSessionChanged_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_RecordingSessionChanged_Notification *msg = new CGameRecording_RecordingSessionChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_RecordingSessionChanged_Notification_DeserializeInto(CGameRecording_RecordingSessionChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_RecordingSessionChanged_Notification_Delete(CGameRecording_RecordingSessionChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CTimelineEntry
+EXPORT CTimelineEntry *CTimelineEntry_Construct() {
+    return new CTimelineEntry();
+}
+
+EXPORT CTimelineEntry *CTimelineEntry_Deserialize(void* buffer, int len) {
+    CTimelineEntry *msg = new CTimelineEntry();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CTimelineEntry_DeserializeInto(CTimelineEntry *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CTimelineEntry_Delete(CTimelineEntry* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_TimelineEntryChanged_Notification
+EXPORT CGameRecording_TimelineEntryChanged_Notification *CGameRecording_TimelineEntryChanged_Notification_Construct() {
+    return new CGameRecording_TimelineEntryChanged_Notification();
+}
+
+EXPORT CGameRecording_TimelineEntryChanged_Notification *CGameRecording_TimelineEntryChanged_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_TimelineEntryChanged_Notification *msg = new CGameRecording_TimelineEntryChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_TimelineEntryChanged_Notification_DeserializeInto(CGameRecording_TimelineEntryChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_TimelineEntryChanged_Notification_Delete(CGameRecording_TimelineEntryChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_LowDiskSpace_Notification
+EXPORT CGameRecording_LowDiskSpace_Notification *CGameRecording_LowDiskSpace_Notification_Construct() {
+    return new CGameRecording_LowDiskSpace_Notification();
+}
+
+EXPORT CGameRecording_LowDiskSpace_Notification *CGameRecording_LowDiskSpace_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_LowDiskSpace_Notification *msg = new CGameRecording_LowDiskSpace_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_LowDiskSpace_Notification_DeserializeInto(CGameRecording_LowDiskSpace_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_LowDiskSpace_Notification_Delete(CGameRecording_LowDiskSpace_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_PostGameHighlightsChanged_Notification
+EXPORT CGameRecording_PostGameHighlightsChanged_Notification *CGameRecording_PostGameHighlightsChanged_Notification_Construct() {
+    return new CGameRecording_PostGameHighlightsChanged_Notification();
+}
+
+EXPORT CGameRecording_PostGameHighlightsChanged_Notification *CGameRecording_PostGameHighlightsChanged_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_PostGameHighlightsChanged_Notification *msg = new CGameRecording_PostGameHighlightsChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_PostGameHighlightsChanged_Notification_DeserializeInto(CGameRecording_PostGameHighlightsChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_PostGameHighlightsChanged_Notification_Delete(CGameRecording_PostGameHighlightsChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ClipSummary
+EXPORT CGameRecording_ClipSummary *CGameRecording_ClipSummary_Construct() {
+    return new CGameRecording_ClipSummary();
+}
+
+EXPORT CGameRecording_ClipSummary *CGameRecording_ClipSummary_Deserialize(void* buffer, int len) {
+    CGameRecording_ClipSummary *msg = new CGameRecording_ClipSummary();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ClipSummary_DeserializeInto(CGameRecording_ClipSummary *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ClipSummary_Delete(CGameRecording_ClipSummary* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_SaveClip_Request_Position
+EXPORT CGameRecording_SaveClip_Request_Position *CGameRecording_SaveClip_Request_Position_Construct() {
+    return new CGameRecording_SaveClip_Request_Position();
+}
+
+EXPORT CGameRecording_SaveClip_Request_Position *CGameRecording_SaveClip_Request_Position_Deserialize(void* buffer, int len) {
+    CGameRecording_SaveClip_Request_Position *msg = new CGameRecording_SaveClip_Request_Position();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_SaveClip_Request_Position_DeserializeInto(CGameRecording_SaveClip_Request_Position *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_SaveClip_Request_Position_Delete(CGameRecording_SaveClip_Request_Position* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_SaveClip_Request
+EXPORT CGameRecording_SaveClip_Request *CGameRecording_SaveClip_Request_Construct() {
+    return new CGameRecording_SaveClip_Request();
+}
+
+EXPORT CGameRecording_SaveClip_Request *CGameRecording_SaveClip_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_SaveClip_Request *msg = new CGameRecording_SaveClip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_SaveClip_Request_DeserializeInto(CGameRecording_SaveClip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_SaveClip_Request_Delete(CGameRecording_SaveClip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_SaveClip_Response
+EXPORT CGameRecording_SaveClip_Response *CGameRecording_SaveClip_Response_Construct() {
+    return new CGameRecording_SaveClip_Response();
+}
+
+EXPORT CGameRecording_SaveClip_Response *CGameRecording_SaveClip_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_SaveClip_Response *msg = new CGameRecording_SaveClip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_SaveClip_Response_DeserializeInto(CGameRecording_SaveClip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_SaveClip_Response_Delete(CGameRecording_SaveClip_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_DeleteClip_Request
+EXPORT CGameRecording_DeleteClip_Request *CGameRecording_DeleteClip_Request_Construct() {
+    return new CGameRecording_DeleteClip_Request();
+}
+
+EXPORT CGameRecording_DeleteClip_Request *CGameRecording_DeleteClip_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_DeleteClip_Request *msg = new CGameRecording_DeleteClip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_DeleteClip_Request_DeserializeInto(CGameRecording_DeleteClip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_DeleteClip_Request_Delete(CGameRecording_DeleteClip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_DeleteClip_Response
+EXPORT CGameRecording_DeleteClip_Response *CGameRecording_DeleteClip_Response_Construct() {
+    return new CGameRecording_DeleteClip_Response();
+}
+
+EXPORT CGameRecording_DeleteClip_Response *CGameRecording_DeleteClip_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_DeleteClip_Response *msg = new CGameRecording_DeleteClip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_DeleteClip_Response_DeserializeInto(CGameRecording_DeleteClip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_DeleteClip_Response_Delete(CGameRecording_DeleteClip_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ExportClip_Settings
+EXPORT CGameRecording_ExportClip_Settings *CGameRecording_ExportClip_Settings_Construct() {
+    return new CGameRecording_ExportClip_Settings();
+}
+
+EXPORT CGameRecording_ExportClip_Settings *CGameRecording_ExportClip_Settings_Deserialize(void* buffer, int len) {
+    CGameRecording_ExportClip_Settings *msg = new CGameRecording_ExportClip_Settings();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ExportClip_Settings_DeserializeInto(CGameRecording_ExportClip_Settings *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ExportClip_Settings_Delete(CGameRecording_ExportClip_Settings* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ExportClip_Request
+EXPORT CGameRecording_ExportClip_Request *CGameRecording_ExportClip_Request_Construct() {
+    return new CGameRecording_ExportClip_Request();
+}
+
+EXPORT CGameRecording_ExportClip_Request *CGameRecording_ExportClip_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_ExportClip_Request *msg = new CGameRecording_ExportClip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ExportClip_Request_DeserializeInto(CGameRecording_ExportClip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ExportClip_Request_Delete(CGameRecording_ExportClip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ExportClip_Response
+EXPORT CGameRecording_ExportClip_Response *CGameRecording_ExportClip_Response_Construct() {
+    return new CGameRecording_ExportClip_Response();
+}
+
+EXPORT CGameRecording_ExportClip_Response *CGameRecording_ExportClip_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_ExportClip_Response *msg = new CGameRecording_ExportClip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ExportClip_Response_DeserializeInto(CGameRecording_ExportClip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ExportClip_Response_Delete(CGameRecording_ExportClip_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UploadClipToSteam_Request
+EXPORT CGameRecording_UploadClipToSteam_Request *CGameRecording_UploadClipToSteam_Request_Construct() {
+    return new CGameRecording_UploadClipToSteam_Request();
+}
+
+EXPORT CGameRecording_UploadClipToSteam_Request *CGameRecording_UploadClipToSteam_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_UploadClipToSteam_Request *msg = new CGameRecording_UploadClipToSteam_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UploadClipToSteam_Request_DeserializeInto(CGameRecording_UploadClipToSteam_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UploadClipToSteam_Request_Delete(CGameRecording_UploadClipToSteam_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UploadClipToSteam_Response
+EXPORT CGameRecording_UploadClipToSteam_Response *CGameRecording_UploadClipToSteam_Response_Construct() {
+    return new CGameRecording_UploadClipToSteam_Response();
+}
+
+EXPORT CGameRecording_UploadClipToSteam_Response *CGameRecording_UploadClipToSteam_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_UploadClipToSteam_Response *msg = new CGameRecording_UploadClipToSteam_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UploadClipToSteam_Response_DeserializeInto(CGameRecording_UploadClipToSteam_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UploadClipToSteam_Response_Delete(CGameRecording_UploadClipToSteam_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ZipClip_Request
+EXPORT CGameRecording_ZipClip_Request *CGameRecording_ZipClip_Request_Construct() {
+    return new CGameRecording_ZipClip_Request();
+}
+
+EXPORT CGameRecording_ZipClip_Request *CGameRecording_ZipClip_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_ZipClip_Request *msg = new CGameRecording_ZipClip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ZipClip_Request_DeserializeInto(CGameRecording_ZipClip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ZipClip_Request_Delete(CGameRecording_ZipClip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ZipClip_Response
+EXPORT CGameRecording_ZipClip_Response *CGameRecording_ZipClip_Response_Construct() {
+    return new CGameRecording_ZipClip_Response();
+}
+
+EXPORT CGameRecording_ZipClip_Response *CGameRecording_ZipClip_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_ZipClip_Response *msg = new CGameRecording_ZipClip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ZipClip_Response_DeserializeInto(CGameRecording_ZipClip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ZipClip_Response_Delete(CGameRecording_ZipClip_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetClips_Request
+EXPORT CGameRecording_GetClips_Request *CGameRecording_GetClips_Request_Construct() {
+    return new CGameRecording_GetClips_Request();
+}
+
+EXPORT CGameRecording_GetClips_Request *CGameRecording_GetClips_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetClips_Request *msg = new CGameRecording_GetClips_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetClips_Request_DeserializeInto(CGameRecording_GetClips_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetClips_Request_Delete(CGameRecording_GetClips_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetClips_Response
+EXPORT CGameRecording_GetClips_Response *CGameRecording_GetClips_Response_Construct() {
+    return new CGameRecording_GetClips_Response();
+}
+
+EXPORT CGameRecording_GetClips_Response *CGameRecording_GetClips_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetClips_Response *msg = new CGameRecording_GetClips_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetClips_Response_DeserializeInto(CGameRecording_GetClips_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetClips_Response_Delete(CGameRecording_GetClips_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetAndTrimPostGameHighlights_Request
+EXPORT CGameRecording_GetAndTrimPostGameHighlights_Request *CGameRecording_GetAndTrimPostGameHighlights_Request_Construct() {
+    return new CGameRecording_GetAndTrimPostGameHighlights_Request();
+}
+
+EXPORT CGameRecording_GetAndTrimPostGameHighlights_Request *CGameRecording_GetAndTrimPostGameHighlights_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetAndTrimPostGameHighlights_Request *msg = new CGameRecording_GetAndTrimPostGameHighlights_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetAndTrimPostGameHighlights_Request_DeserializeInto(CGameRecording_GetAndTrimPostGameHighlights_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetAndTrimPostGameHighlights_Request_Delete(CGameRecording_GetAndTrimPostGameHighlights_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetAndTrimPostGameHighlights_Response
+EXPORT CGameRecording_GetAndTrimPostGameHighlights_Response *CGameRecording_GetAndTrimPostGameHighlights_Response_Construct() {
+    return new CGameRecording_GetAndTrimPostGameHighlights_Response();
+}
+
+EXPORT CGameRecording_GetAndTrimPostGameHighlights_Response *CGameRecording_GetAndTrimPostGameHighlights_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetAndTrimPostGameHighlights_Response *msg = new CGameRecording_GetAndTrimPostGameHighlights_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetAndTrimPostGameHighlights_Response_DeserializeInto(CGameRecording_GetAndTrimPostGameHighlights_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetAndTrimPostGameHighlights_Response_Delete(CGameRecording_GetAndTrimPostGameHighlights_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UserAddTimelineEntry_Request
+EXPORT CGameRecording_UserAddTimelineEntry_Request *CGameRecording_UserAddTimelineEntry_Request_Construct() {
+    return new CGameRecording_UserAddTimelineEntry_Request();
+}
+
+EXPORT CGameRecording_UserAddTimelineEntry_Request *CGameRecording_UserAddTimelineEntry_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_UserAddTimelineEntry_Request *msg = new CGameRecording_UserAddTimelineEntry_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UserAddTimelineEntry_Request_DeserializeInto(CGameRecording_UserAddTimelineEntry_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UserAddTimelineEntry_Request_Delete(CGameRecording_UserAddTimelineEntry_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UserAddTimelineEntry_Response
+EXPORT CGameRecording_UserAddTimelineEntry_Response *CGameRecording_UserAddTimelineEntry_Response_Construct() {
+    return new CGameRecording_UserAddTimelineEntry_Response();
+}
+
+EXPORT CGameRecording_UserAddTimelineEntry_Response *CGameRecording_UserAddTimelineEntry_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_UserAddTimelineEntry_Response *msg = new CGameRecording_UserAddTimelineEntry_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UserAddTimelineEntry_Response_DeserializeInto(CGameRecording_UserAddTimelineEntry_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UserAddTimelineEntry_Response_Delete(CGameRecording_UserAddTimelineEntry_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UserUpdateTimelineEntry_Request
+EXPORT CGameRecording_UserUpdateTimelineEntry_Request *CGameRecording_UserUpdateTimelineEntry_Request_Construct() {
+    return new CGameRecording_UserUpdateTimelineEntry_Request();
+}
+
+EXPORT CGameRecording_UserUpdateTimelineEntry_Request *CGameRecording_UserUpdateTimelineEntry_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_UserUpdateTimelineEntry_Request *msg = new CGameRecording_UserUpdateTimelineEntry_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UserUpdateTimelineEntry_Request_DeserializeInto(CGameRecording_UserUpdateTimelineEntry_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UserUpdateTimelineEntry_Request_Delete(CGameRecording_UserUpdateTimelineEntry_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UserUpdateTimelineEntry_Response
+EXPORT CGameRecording_UserUpdateTimelineEntry_Response *CGameRecording_UserUpdateTimelineEntry_Response_Construct() {
+    return new CGameRecording_UserUpdateTimelineEntry_Response();
+}
+
+EXPORT CGameRecording_UserUpdateTimelineEntry_Response *CGameRecording_UserUpdateTimelineEntry_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_UserUpdateTimelineEntry_Response *msg = new CGameRecording_UserUpdateTimelineEntry_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UserUpdateTimelineEntry_Response_DeserializeInto(CGameRecording_UserUpdateTimelineEntry_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UserUpdateTimelineEntry_Response_Delete(CGameRecording_UserUpdateTimelineEntry_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UserRemoveTimelineEntry_Request
+EXPORT CGameRecording_UserRemoveTimelineEntry_Request *CGameRecording_UserRemoveTimelineEntry_Request_Construct() {
+    return new CGameRecording_UserRemoveTimelineEntry_Request();
+}
+
+EXPORT CGameRecording_UserRemoveTimelineEntry_Request *CGameRecording_UserRemoveTimelineEntry_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_UserRemoveTimelineEntry_Request *msg = new CGameRecording_UserRemoveTimelineEntry_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UserRemoveTimelineEntry_Request_DeserializeInto(CGameRecording_UserRemoveTimelineEntry_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UserRemoveTimelineEntry_Request_Delete(CGameRecording_UserRemoveTimelineEntry_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UserRemoveTimelineEntry_Response
+EXPORT CGameRecording_UserRemoveTimelineEntry_Response *CGameRecording_UserRemoveTimelineEntry_Response_Construct() {
+    return new CGameRecording_UserRemoveTimelineEntry_Response();
+}
+
+EXPORT CGameRecording_UserRemoveTimelineEntry_Response *CGameRecording_UserRemoveTimelineEntry_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_UserRemoveTimelineEntry_Response *msg = new CGameRecording_UserRemoveTimelineEntry_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UserRemoveTimelineEntry_Response_DeserializeInto(CGameRecording_UserRemoveTimelineEntry_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UserRemoveTimelineEntry_Response_Delete(CGameRecording_UserRemoveTimelineEntry_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ManuallyDeleteRecordingsForApps_Request
+EXPORT CGameRecording_ManuallyDeleteRecordingsForApps_Request *CGameRecording_ManuallyDeleteRecordingsForApps_Request_Construct() {
+    return new CGameRecording_ManuallyDeleteRecordingsForApps_Request();
+}
+
+EXPORT CGameRecording_ManuallyDeleteRecordingsForApps_Request *CGameRecording_ManuallyDeleteRecordingsForApps_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_ManuallyDeleteRecordingsForApps_Request *msg = new CGameRecording_ManuallyDeleteRecordingsForApps_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ManuallyDeleteRecordingsForApps_Request_DeserializeInto(CGameRecording_ManuallyDeleteRecordingsForApps_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ManuallyDeleteRecordingsForApps_Request_Delete(CGameRecording_ManuallyDeleteRecordingsForApps_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ManuallyDeleteRecordingsForApps_Response
+EXPORT CGameRecording_ManuallyDeleteRecordingsForApps_Response *CGameRecording_ManuallyDeleteRecordingsForApps_Response_Construct() {
+    return new CGameRecording_ManuallyDeleteRecordingsForApps_Response();
+}
+
+EXPORT CGameRecording_ManuallyDeleteRecordingsForApps_Response *CGameRecording_ManuallyDeleteRecordingsForApps_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_ManuallyDeleteRecordingsForApps_Response *msg = new CGameRecording_ManuallyDeleteRecordingsForApps_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ManuallyDeleteRecordingsForApps_Response_DeserializeInto(CGameRecording_ManuallyDeleteRecordingsForApps_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ManuallyDeleteRecordingsForApps_Response_Delete(CGameRecording_ManuallyDeleteRecordingsForApps_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetTotalDiskSpaceUsage_Request
+EXPORT CGameRecording_GetTotalDiskSpaceUsage_Request *CGameRecording_GetTotalDiskSpaceUsage_Request_Construct() {
+    return new CGameRecording_GetTotalDiskSpaceUsage_Request();
+}
+
+EXPORT CGameRecording_GetTotalDiskSpaceUsage_Request *CGameRecording_GetTotalDiskSpaceUsage_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetTotalDiskSpaceUsage_Request *msg = new CGameRecording_GetTotalDiskSpaceUsage_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetTotalDiskSpaceUsage_Request_DeserializeInto(CGameRecording_GetTotalDiskSpaceUsage_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetTotalDiskSpaceUsage_Request_Delete(CGameRecording_GetTotalDiskSpaceUsage_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetTotalDiskSpaceUsage_Response
+EXPORT CGameRecording_GetTotalDiskSpaceUsage_Response *CGameRecording_GetTotalDiskSpaceUsage_Response_Construct() {
+    return new CGameRecording_GetTotalDiskSpaceUsage_Response();
+}
+
+EXPORT CGameRecording_GetTotalDiskSpaceUsage_Response *CGameRecording_GetTotalDiskSpaceUsage_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetTotalDiskSpaceUsage_Response *msg = new CGameRecording_GetTotalDiskSpaceUsage_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetTotalDiskSpaceUsage_Response_DeserializeInto(CGameRecording_GetTotalDiskSpaceUsage_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetTotalDiskSpaceUsage_Response_Delete(CGameRecording_GetTotalDiskSpaceUsage_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetThumbnails_Request
+EXPORT CGameRecording_GetThumbnails_Request *CGameRecording_GetThumbnails_Request_Construct() {
+    return new CGameRecording_GetThumbnails_Request();
+}
+
+EXPORT CGameRecording_GetThumbnails_Request *CGameRecording_GetThumbnails_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetThumbnails_Request *msg = new CGameRecording_GetThumbnails_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetThumbnails_Request_DeserializeInto(CGameRecording_GetThumbnails_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetThumbnails_Request_Delete(CGameRecording_GetThumbnails_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetThumbnails_Response_Thumbnail
+EXPORT CGameRecording_GetThumbnails_Response_Thumbnail *CGameRecording_GetThumbnails_Response_Thumbnail_Construct() {
+    return new CGameRecording_GetThumbnails_Response_Thumbnail();
+}
+
+EXPORT CGameRecording_GetThumbnails_Response_Thumbnail *CGameRecording_GetThumbnails_Response_Thumbnail_Deserialize(void* buffer, int len) {
+    CGameRecording_GetThumbnails_Response_Thumbnail *msg = new CGameRecording_GetThumbnails_Response_Thumbnail();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetThumbnails_Response_Thumbnail_DeserializeInto(CGameRecording_GetThumbnails_Response_Thumbnail *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetThumbnails_Response_Thumbnail_Delete(CGameRecording_GetThumbnails_Response_Thumbnail* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetThumbnails_Response
+EXPORT CGameRecording_GetThumbnails_Response *CGameRecording_GetThumbnails_Response_Construct() {
+    return new CGameRecording_GetThumbnails_Response();
+}
+
+EXPORT CGameRecording_GetThumbnails_Response *CGameRecording_GetThumbnails_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetThumbnails_Response *msg = new CGameRecording_GetThumbnails_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetThumbnails_Response_DeserializeInto(CGameRecording_GetThumbnails_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetThumbnails_Response_Delete(CGameRecording_GetThumbnails_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_StartRecording_Request
+EXPORT CGameRecording_StartRecording_Request *CGameRecording_StartRecording_Request_Construct() {
+    return new CGameRecording_StartRecording_Request();
+}
+
+EXPORT CGameRecording_StartRecording_Request *CGameRecording_StartRecording_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_StartRecording_Request *msg = new CGameRecording_StartRecording_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_StartRecording_Request_DeserializeInto(CGameRecording_StartRecording_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_StartRecording_Request_Delete(CGameRecording_StartRecording_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_StartRecording_Response
+EXPORT CGameRecording_StartRecording_Response *CGameRecording_StartRecording_Response_Construct() {
+    return new CGameRecording_StartRecording_Response();
+}
+
+EXPORT CGameRecording_StartRecording_Response *CGameRecording_StartRecording_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_StartRecording_Response *msg = new CGameRecording_StartRecording_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_StartRecording_Response_DeserializeInto(CGameRecording_StartRecording_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_StartRecording_Response_Delete(CGameRecording_StartRecording_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_StopRecording_Request
+EXPORT CGameRecording_StopRecording_Request *CGameRecording_StopRecording_Request_Construct() {
+    return new CGameRecording_StopRecording_Request();
+}
+
+EXPORT CGameRecording_StopRecording_Request *CGameRecording_StopRecording_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_StopRecording_Request *msg = new CGameRecording_StopRecording_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_StopRecording_Request_DeserializeInto(CGameRecording_StopRecording_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_StopRecording_Request_Delete(CGameRecording_StopRecording_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_StopRecording_Response
+EXPORT CGameRecording_StopRecording_Response *CGameRecording_StopRecording_Response_Construct() {
+    return new CGameRecording_StopRecording_Response();
+}
+
+EXPORT CGameRecording_StopRecording_Response *CGameRecording_StopRecording_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_StopRecording_Response *msg = new CGameRecording_StopRecording_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_StopRecording_Response_DeserializeInto(CGameRecording_StopRecording_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_StopRecording_Response_Delete(CGameRecording_StopRecording_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetRecordingSize_Request
+EXPORT CGameRecording_GetRecordingSize_Request *CGameRecording_GetRecordingSize_Request_Construct() {
+    return new CGameRecording_GetRecordingSize_Request();
+}
+
+EXPORT CGameRecording_GetRecordingSize_Request *CGameRecording_GetRecordingSize_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetRecordingSize_Request *msg = new CGameRecording_GetRecordingSize_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetRecordingSize_Request_DeserializeInto(CGameRecording_GetRecordingSize_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetRecordingSize_Request_Delete(CGameRecording_GetRecordingSize_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetRecordingSize_Response
+EXPORT CGameRecording_GetRecordingSize_Response *CGameRecording_GetRecordingSize_Response_Construct() {
+    return new CGameRecording_GetRecordingSize_Response();
+}
+
+EXPORT CGameRecording_GetRecordingSize_Response *CGameRecording_GetRecordingSize_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetRecordingSize_Response *msg = new CGameRecording_GetRecordingSize_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetRecordingSize_Response_DeserializeInto(CGameRecording_GetRecordingSize_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetRecordingSize_Response_Delete(CGameRecording_GetRecordingSize_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_CleanupBackgroundRecordings_Request
+EXPORT CGameRecording_CleanupBackgroundRecordings_Request *CGameRecording_CleanupBackgroundRecordings_Request_Construct() {
+    return new CGameRecording_CleanupBackgroundRecordings_Request();
+}
+
+EXPORT CGameRecording_CleanupBackgroundRecordings_Request *CGameRecording_CleanupBackgroundRecordings_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_CleanupBackgroundRecordings_Request *msg = new CGameRecording_CleanupBackgroundRecordings_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_CleanupBackgroundRecordings_Request_DeserializeInto(CGameRecording_CleanupBackgroundRecordings_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_CleanupBackgroundRecordings_Request_Delete(CGameRecording_CleanupBackgroundRecordings_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_CleanupBackgroundRecordings_Response
+EXPORT CGameRecording_CleanupBackgroundRecordings_Response *CGameRecording_CleanupBackgroundRecordings_Response_Construct() {
+    return new CGameRecording_CleanupBackgroundRecordings_Response();
+}
+
+EXPORT CGameRecording_CleanupBackgroundRecordings_Response *CGameRecording_CleanupBackgroundRecordings_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_CleanupBackgroundRecordings_Response *msg = new CGameRecording_CleanupBackgroundRecordings_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_CleanupBackgroundRecordings_Response_DeserializeInto(CGameRecording_CleanupBackgroundRecordings_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_CleanupBackgroundRecordings_Response_Delete(CGameRecording_CleanupBackgroundRecordings_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetPlatformCapabilities_Request
+EXPORT CGameRecording_GetPlatformCapabilities_Request *CGameRecording_GetPlatformCapabilities_Request_Construct() {
+    return new CGameRecording_GetPlatformCapabilities_Request();
+}
+
+EXPORT CGameRecording_GetPlatformCapabilities_Request *CGameRecording_GetPlatformCapabilities_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_GetPlatformCapabilities_Request *msg = new CGameRecording_GetPlatformCapabilities_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetPlatformCapabilities_Request_DeserializeInto(CGameRecording_GetPlatformCapabilities_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetPlatformCapabilities_Request_Delete(CGameRecording_GetPlatformCapabilities_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_GetPlatformCapabilities_Response
+EXPORT CGameRecording_GetPlatformCapabilities_Response *CGameRecording_GetPlatformCapabilities_Response_Construct() {
+    return new CGameRecording_GetPlatformCapabilities_Response();
+}
+
+EXPORT CGameRecording_GetPlatformCapabilities_Response *CGameRecording_GetPlatformCapabilities_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_GetPlatformCapabilities_Response *msg = new CGameRecording_GetPlatformCapabilities_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_GetPlatformCapabilities_Response_DeserializeInto(CGameRecording_GetPlatformCapabilities_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_GetPlatformCapabilities_Response_Delete(CGameRecording_GetPlatformCapabilities_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ClipCreated_Notification
+EXPORT CGameRecording_ClipCreated_Notification *CGameRecording_ClipCreated_Notification_Construct() {
+    return new CGameRecording_ClipCreated_Notification();
+}
+
+EXPORT CGameRecording_ClipCreated_Notification *CGameRecording_ClipCreated_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_ClipCreated_Notification *msg = new CGameRecording_ClipCreated_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ClipCreated_Notification_DeserializeInto(CGameRecording_ClipCreated_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ClipCreated_Notification_Delete(CGameRecording_ClipCreated_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ClipDeleted_Notification
+EXPORT CGameRecording_ClipDeleted_Notification *CGameRecording_ClipDeleted_Notification_Construct() {
+    return new CGameRecording_ClipDeleted_Notification();
+}
+
+EXPORT CGameRecording_ClipDeleted_Notification *CGameRecording_ClipDeleted_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_ClipDeleted_Notification *msg = new CGameRecording_ClipDeleted_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ClipDeleted_Notification_DeserializeInto(CGameRecording_ClipDeleted_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ClipDeleted_Notification_Delete(CGameRecording_ClipDeleted_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_ExportProgress_Notification
+EXPORT CGameRecording_ExportProgress_Notification *CGameRecording_ExportProgress_Notification_Construct() {
+    return new CGameRecording_ExportProgress_Notification();
+}
+
+EXPORT CGameRecording_ExportProgress_Notification *CGameRecording_ExportProgress_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_ExportProgress_Notification *msg = new CGameRecording_ExportProgress_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_ExportProgress_Notification_DeserializeInto(CGameRecording_ExportProgress_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_ExportProgress_Notification_Delete(CGameRecording_ExportProgress_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_UploadProgress_Notification
+EXPORT CGameRecording_UploadProgress_Notification *CGameRecording_UploadProgress_Notification_Construct() {
+    return new CGameRecording_UploadProgress_Notification();
+}
+
+EXPORT CGameRecording_UploadProgress_Notification *CGameRecording_UploadProgress_Notification_Deserialize(void* buffer, int len) {
+    CGameRecording_UploadProgress_Notification *msg = new CGameRecording_UploadProgress_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_UploadProgress_Notification_DeserializeInto(CGameRecording_UploadProgress_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_UploadProgress_Notification_Delete(CGameRecording_UploadProgress_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_SwitchBackgroundRecordingGame_Request
+EXPORT CGameRecording_SwitchBackgroundRecordingGame_Request *CGameRecording_SwitchBackgroundRecordingGame_Request_Construct() {
+    return new CGameRecording_SwitchBackgroundRecordingGame_Request();
+}
+
+EXPORT CGameRecording_SwitchBackgroundRecordingGame_Request *CGameRecording_SwitchBackgroundRecordingGame_Request_Deserialize(void* buffer, int len) {
+    CGameRecording_SwitchBackgroundRecordingGame_Request *msg = new CGameRecording_SwitchBackgroundRecordingGame_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_SwitchBackgroundRecordingGame_Request_DeserializeInto(CGameRecording_SwitchBackgroundRecordingGame_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_SwitchBackgroundRecordingGame_Request_Delete(CGameRecording_SwitchBackgroundRecordingGame_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecording_SwitchBackgroundRecordingGame_Response
+EXPORT CGameRecording_SwitchBackgroundRecordingGame_Response *CGameRecording_SwitchBackgroundRecordingGame_Response_Construct() {
+    return new CGameRecording_SwitchBackgroundRecordingGame_Response();
+}
+
+EXPORT CGameRecording_SwitchBackgroundRecordingGame_Response *CGameRecording_SwitchBackgroundRecordingGame_Response_Deserialize(void* buffer, int len) {
+    CGameRecording_SwitchBackgroundRecordingGame_Response *msg = new CGameRecording_SwitchBackgroundRecordingGame_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecording_SwitchBackgroundRecordingGame_Response_DeserializeInto(CGameRecording_SwitchBackgroundRecordingGame_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecording_SwitchBackgroundRecordingGame_Response_Delete(CGameRecording_SwitchBackgroundRecordingGame_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_AddTimelineHighlightMarker_Request
+EXPORT CGameRecordingDebug_AddTimelineHighlightMarker_Request *CGameRecordingDebug_AddTimelineHighlightMarker_Request_Construct() {
+    return new CGameRecordingDebug_AddTimelineHighlightMarker_Request();
+}
+
+EXPORT CGameRecordingDebug_AddTimelineHighlightMarker_Request *CGameRecordingDebug_AddTimelineHighlightMarker_Request_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_AddTimelineHighlightMarker_Request *msg = new CGameRecordingDebug_AddTimelineHighlightMarker_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_AddTimelineHighlightMarker_Request_DeserializeInto(CGameRecordingDebug_AddTimelineHighlightMarker_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_AddTimelineHighlightMarker_Request_Delete(CGameRecordingDebug_AddTimelineHighlightMarker_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_AddTimelineHighlightMarker_Response
+EXPORT CGameRecordingDebug_AddTimelineHighlightMarker_Response *CGameRecordingDebug_AddTimelineHighlightMarker_Response_Construct() {
+    return new CGameRecordingDebug_AddTimelineHighlightMarker_Response();
+}
+
+EXPORT CGameRecordingDebug_AddTimelineHighlightMarker_Response *CGameRecordingDebug_AddTimelineHighlightMarker_Response_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_AddTimelineHighlightMarker_Response *msg = new CGameRecordingDebug_AddTimelineHighlightMarker_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_AddTimelineHighlightMarker_Response_DeserializeInto(CGameRecordingDebug_AddTimelineHighlightMarker_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_AddTimelineHighlightMarker_Response_Delete(CGameRecordingDebug_AddTimelineHighlightMarker_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_AddTimelineTimestamp_Request
+EXPORT CGameRecordingDebug_AddTimelineTimestamp_Request *CGameRecordingDebug_AddTimelineTimestamp_Request_Construct() {
+    return new CGameRecordingDebug_AddTimelineTimestamp_Request();
+}
+
+EXPORT CGameRecordingDebug_AddTimelineTimestamp_Request *CGameRecordingDebug_AddTimelineTimestamp_Request_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_AddTimelineTimestamp_Request *msg = new CGameRecordingDebug_AddTimelineTimestamp_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_AddTimelineTimestamp_Request_DeserializeInto(CGameRecordingDebug_AddTimelineTimestamp_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_AddTimelineTimestamp_Request_Delete(CGameRecordingDebug_AddTimelineTimestamp_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_AddTimelineTimestamp_Response
+EXPORT CGameRecordingDebug_AddTimelineTimestamp_Response *CGameRecordingDebug_AddTimelineTimestamp_Response_Construct() {
+    return new CGameRecordingDebug_AddTimelineTimestamp_Response();
+}
+
+EXPORT CGameRecordingDebug_AddTimelineTimestamp_Response *CGameRecordingDebug_AddTimelineTimestamp_Response_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_AddTimelineTimestamp_Response *msg = new CGameRecordingDebug_AddTimelineTimestamp_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_AddTimelineTimestamp_Response_DeserializeInto(CGameRecordingDebug_AddTimelineTimestamp_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_AddTimelineTimestamp_Response_Delete(CGameRecordingDebug_AddTimelineTimestamp_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_AddTimelineRangeStart_Request
+EXPORT CGameRecordingDebug_AddTimelineRangeStart_Request *CGameRecordingDebug_AddTimelineRangeStart_Request_Construct() {
+    return new CGameRecordingDebug_AddTimelineRangeStart_Request();
+}
+
+EXPORT CGameRecordingDebug_AddTimelineRangeStart_Request *CGameRecordingDebug_AddTimelineRangeStart_Request_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_AddTimelineRangeStart_Request *msg = new CGameRecordingDebug_AddTimelineRangeStart_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_AddTimelineRangeStart_Request_DeserializeInto(CGameRecordingDebug_AddTimelineRangeStart_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_AddTimelineRangeStart_Request_Delete(CGameRecordingDebug_AddTimelineRangeStart_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_AddTimelineRangeStart_Response
+EXPORT CGameRecordingDebug_AddTimelineRangeStart_Response *CGameRecordingDebug_AddTimelineRangeStart_Response_Construct() {
+    return new CGameRecordingDebug_AddTimelineRangeStart_Response();
+}
+
+EXPORT CGameRecordingDebug_AddTimelineRangeStart_Response *CGameRecordingDebug_AddTimelineRangeStart_Response_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_AddTimelineRangeStart_Response *msg = new CGameRecordingDebug_AddTimelineRangeStart_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_AddTimelineRangeStart_Response_DeserializeInto(CGameRecordingDebug_AddTimelineRangeStart_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_AddTimelineRangeStart_Response_Delete(CGameRecordingDebug_AddTimelineRangeStart_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_AddTimelineRangeEnd_Request
+EXPORT CGameRecordingDebug_AddTimelineRangeEnd_Request *CGameRecordingDebug_AddTimelineRangeEnd_Request_Construct() {
+    return new CGameRecordingDebug_AddTimelineRangeEnd_Request();
+}
+
+EXPORT CGameRecordingDebug_AddTimelineRangeEnd_Request *CGameRecordingDebug_AddTimelineRangeEnd_Request_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_AddTimelineRangeEnd_Request *msg = new CGameRecordingDebug_AddTimelineRangeEnd_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_AddTimelineRangeEnd_Request_DeserializeInto(CGameRecordingDebug_AddTimelineRangeEnd_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_AddTimelineRangeEnd_Request_Delete(CGameRecordingDebug_AddTimelineRangeEnd_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_AddTimelineRangeEnd_Response
+EXPORT CGameRecordingDebug_AddTimelineRangeEnd_Response *CGameRecordingDebug_AddTimelineRangeEnd_Response_Construct() {
+    return new CGameRecordingDebug_AddTimelineRangeEnd_Response();
+}
+
+EXPORT CGameRecordingDebug_AddTimelineRangeEnd_Response *CGameRecordingDebug_AddTimelineRangeEnd_Response_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_AddTimelineRangeEnd_Response *msg = new CGameRecordingDebug_AddTimelineRangeEnd_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_AddTimelineRangeEnd_Response_DeserializeInto(CGameRecordingDebug_AddTimelineRangeEnd_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_AddTimelineRangeEnd_Response_Delete(CGameRecordingDebug_AddTimelineRangeEnd_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_SetTimelineGameMode_Request
+EXPORT CGameRecordingDebug_SetTimelineGameMode_Request *CGameRecordingDebug_SetTimelineGameMode_Request_Construct() {
+    return new CGameRecordingDebug_SetTimelineGameMode_Request();
+}
+
+EXPORT CGameRecordingDebug_SetTimelineGameMode_Request *CGameRecordingDebug_SetTimelineGameMode_Request_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_SetTimelineGameMode_Request *msg = new CGameRecordingDebug_SetTimelineGameMode_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_SetTimelineGameMode_Request_DeserializeInto(CGameRecordingDebug_SetTimelineGameMode_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_SetTimelineGameMode_Request_Delete(CGameRecordingDebug_SetTimelineGameMode_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingDebug_SetTimelineGameMode_Response
+EXPORT CGameRecordingDebug_SetTimelineGameMode_Response *CGameRecordingDebug_SetTimelineGameMode_Response_Construct() {
+    return new CGameRecordingDebug_SetTimelineGameMode_Response();
+}
+
+EXPORT CGameRecordingDebug_SetTimelineGameMode_Response *CGameRecordingDebug_SetTimelineGameMode_Response_Deserialize(void* buffer, int len) {
+    CGameRecordingDebug_SetTimelineGameMode_Response *msg = new CGameRecordingDebug_SetTimelineGameMode_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingDebug_SetTimelineGameMode_Response_DeserializeInto(CGameRecordingDebug_SetTimelineGameMode_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingDebug_SetTimelineGameMode_Response_Delete(CGameRecordingDebug_SetTimelineGameMode_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingFile
+EXPORT CGameRecordingFile *CGameRecordingFile_Construct() {
+    return new CGameRecordingFile();
+}
+
+EXPORT CGameRecordingFile *CGameRecordingFile_Deserialize(void* buffer, int len) {
+    CGameRecordingFile *msg = new CGameRecordingFile();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingFile_DeserializeInto(CGameRecordingFile *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingFile_Delete(CGameRecordingFile* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingClipFile
+EXPORT CGameRecordingClipFile *CGameRecordingClipFile_Construct() {
+    return new CGameRecordingClipFile();
+}
+
+EXPORT CGameRecordingClipFile *CGameRecordingClipFile_Deserialize(void* buffer, int len) {
+    CGameRecordingClipFile *msg = new CGameRecordingClipFile();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingClipFile_DeserializeInto(CGameRecordingClipFile *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingClipFile_Delete(CGameRecordingClipFile* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingTimelineMetadata_Recording
+EXPORT CGameRecordingTimelineMetadata_Recording *CGameRecordingTimelineMetadata_Recording_Construct() {
+    return new CGameRecordingTimelineMetadata_Recording();
+}
+
+EXPORT CGameRecordingTimelineMetadata_Recording *CGameRecordingTimelineMetadata_Recording_Deserialize(void* buffer, int len) {
+    CGameRecordingTimelineMetadata_Recording *msg = new CGameRecordingTimelineMetadata_Recording();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingTimelineMetadata_Recording_DeserializeInto(CGameRecordingTimelineMetadata_Recording *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingTimelineMetadata_Recording_Delete(CGameRecordingTimelineMetadata_Recording* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingTimelineMetadata
+EXPORT CGameRecordingTimelineMetadata *CGameRecordingTimelineMetadata_Construct() {
+    return new CGameRecordingTimelineMetadata();
+}
+
+EXPORT CGameRecordingTimelineMetadata *CGameRecordingTimelineMetadata_Deserialize(void* buffer, int len) {
+    CGameRecordingTimelineMetadata *msg = new CGameRecordingTimelineMetadata();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingTimelineMetadata_DeserializeInto(CGameRecordingTimelineMetadata *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingTimelineMetadata_Delete(CGameRecordingTimelineMetadata* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingPostGameSummary
+EXPORT CGameRecordingPostGameSummary *CGameRecordingPostGameSummary_Construct() {
+    return new CGameRecordingPostGameSummary();
+}
+
+EXPORT CGameRecordingPostGameSummary *CGameRecordingPostGameSummary_Deserialize(void* buffer, int len) {
+    CGameRecordingPostGameSummary *msg = new CGameRecordingPostGameSummary();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingPostGameSummary_DeserializeInto(CGameRecordingPostGameSummary *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingPostGameSummary_Delete(CGameRecordingPostGameSummary* ptr) {
+    delete ptr;
+}
+
+// Begin CGameRecordingTimelineEvent
+EXPORT CGameRecordingTimelineEvent *CGameRecordingTimelineEvent_Construct() {
+    return new CGameRecordingTimelineEvent();
+}
+
+EXPORT CGameRecordingTimelineEvent *CGameRecordingTimelineEvent_Deserialize(void* buffer, int len) {
+    CGameRecordingTimelineEvent *msg = new CGameRecordingTimelineEvent();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGameRecordingTimelineEvent_DeserializeInto(CGameRecordingTimelineEvent *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGameRecordingTimelineEvent_Delete(CGameRecordingTimelineEvent* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgDisplayInfo
 EXPORT CMsgDisplayInfo *CMsgDisplayInfo_Construct() {
     return new CMsgDisplayInfo();
@@ -54442,6 +57836,50 @@ EXPORT bool CTransportValidation_NotifyCount_Notification_DeserializeInto(CTrans
 }
 
 EXPORT void CTransportValidation_NotifyCount_Notification_Delete(CTransportValidation_NotifyCount_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CTransportValidation_RequestInvalidBool_Request
+EXPORT CTransportValidation_RequestInvalidBool_Request *CTransportValidation_RequestInvalidBool_Request_Construct() {
+    return new CTransportValidation_RequestInvalidBool_Request();
+}
+
+EXPORT CTransportValidation_RequestInvalidBool_Request *CTransportValidation_RequestInvalidBool_Request_Deserialize(void* buffer, int len) {
+    CTransportValidation_RequestInvalidBool_Request *msg = new CTransportValidation_RequestInvalidBool_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CTransportValidation_RequestInvalidBool_Request_DeserializeInto(CTransportValidation_RequestInvalidBool_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CTransportValidation_RequestInvalidBool_Request_Delete(CTransportValidation_RequestInvalidBool_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CTransportValidation_RequestInvalidBool_Response
+EXPORT CTransportValidation_RequestInvalidBool_Response *CTransportValidation_RequestInvalidBool_Response_Construct() {
+    return new CTransportValidation_RequestInvalidBool_Response();
+}
+
+EXPORT CTransportValidation_RequestInvalidBool_Response *CTransportValidation_RequestInvalidBool_Response_Deserialize(void* buffer, int len) {
+    CTransportValidation_RequestInvalidBool_Response *msg = new CTransportValidation_RequestInvalidBool_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CTransportValidation_RequestInvalidBool_Response_DeserializeInto(CTransportValidation_RequestInvalidBool_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CTransportValidation_RequestInvalidBool_Response_Delete(CTransportValidation_RequestInvalidBool_Response* ptr) {
     delete ptr;
 }
 

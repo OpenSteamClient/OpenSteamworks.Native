@@ -4197,9 +4197,30 @@ class CRemoteClient_MarkTaskComplete_Request PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kContentIdFieldNumber = 3,
     kRemoteClientIdFieldNumber = 1,
     kTasidFieldNumber = 2,
   };
+  // optional string content_id = 3;
+  bool has_content_id() const;
+  private:
+  bool _internal_has_content_id() const;
+  public:
+  void clear_content_id();
+  const std::string& content_id() const;
+  void set_content_id(const std::string& value);
+  void set_content_id(std::string&& value);
+  void set_content_id(const char* value);
+  void set_content_id(const char* value, size_t size);
+  std::string* mutable_content_id();
+  std::string* release_content_id();
+  void set_allocated_content_id(std::string* content_id);
+  private:
+  const std::string& _internal_content_id() const;
+  void _internal_set_content_id(const std::string& value);
+  std::string* _internal_mutable_content_id();
+  public:
+
   // optional fixed64 remote_client_id = 1;
   bool has_remote_client_id() const;
   private:
@@ -4235,6 +4256,7 @@ class CRemoteClient_MarkTaskComplete_Request PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr content_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 remote_client_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 tasid_;
   friend struct ::TableStruct_steammessages_5fremoteclient_5fservice_5fmessages_2eproto;
@@ -11028,7 +11050,7 @@ CRemoteClient_TaskList_Notification::tasklist() const {
 
 // optional fixed64 remote_client_id = 1;
 inline bool CRemoteClient_MarkTaskComplete_Request::_internal_has_remote_client_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CRemoteClient_MarkTaskComplete_Request::has_remote_client_id() const {
@@ -11036,7 +11058,7 @@ inline bool CRemoteClient_MarkTaskComplete_Request::has_remote_client_id() const
 }
 inline void CRemoteClient_MarkTaskComplete_Request::clear_remote_client_id() {
   remote_client_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CRemoteClient_MarkTaskComplete_Request::_internal_remote_client_id() const {
   return remote_client_id_;
@@ -11046,7 +11068,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CRemoteClient_MarkTaskComplete_Request::r
   return _internal_remote_client_id();
 }
 inline void CRemoteClient_MarkTaskComplete_Request::_internal_set_remote_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   remote_client_id_ = value;
 }
 inline void CRemoteClient_MarkTaskComplete_Request::set_remote_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -11056,7 +11078,7 @@ inline void CRemoteClient_MarkTaskComplete_Request::set_remote_client_id(::PROTO
 
 // optional fixed64 tasid = 2;
 inline bool CRemoteClient_MarkTaskComplete_Request::_internal_has_tasid() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CRemoteClient_MarkTaskComplete_Request::has_tasid() const {
@@ -11064,7 +11086,7 @@ inline bool CRemoteClient_MarkTaskComplete_Request::has_tasid() const {
 }
 inline void CRemoteClient_MarkTaskComplete_Request::clear_tasid() {
   tasid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CRemoteClient_MarkTaskComplete_Request::_internal_tasid() const {
   return tasid_;
@@ -11074,12 +11096,85 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CRemoteClient_MarkTaskComplete_Request::t
   return _internal_tasid();
 }
 inline void CRemoteClient_MarkTaskComplete_Request::_internal_set_tasid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   tasid_ = value;
 }
 inline void CRemoteClient_MarkTaskComplete_Request::set_tasid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_tasid(value);
   // @@protoc_insertion_point(field_set:CRemoteClient_MarkTaskComplete_Request.tasid)
+}
+
+// optional string content_id = 3;
+inline bool CRemoteClient_MarkTaskComplete_Request::_internal_has_content_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CRemoteClient_MarkTaskComplete_Request::has_content_id() const {
+  return _internal_has_content_id();
+}
+inline void CRemoteClient_MarkTaskComplete_Request::clear_content_id() {
+  content_id_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CRemoteClient_MarkTaskComplete_Request::content_id() const {
+  // @@protoc_insertion_point(field_get:CRemoteClient_MarkTaskComplete_Request.content_id)
+  return _internal_content_id();
+}
+inline void CRemoteClient_MarkTaskComplete_Request::set_content_id(const std::string& value) {
+  _internal_set_content_id(value);
+  // @@protoc_insertion_point(field_set:CRemoteClient_MarkTaskComplete_Request.content_id)
+}
+inline std::string* CRemoteClient_MarkTaskComplete_Request::mutable_content_id() {
+  // @@protoc_insertion_point(field_mutable:CRemoteClient_MarkTaskComplete_Request.content_id)
+  return _internal_mutable_content_id();
+}
+inline const std::string& CRemoteClient_MarkTaskComplete_Request::_internal_content_id() const {
+  return content_id_.Get();
+}
+inline void CRemoteClient_MarkTaskComplete_Request::_internal_set_content_id(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  content_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CRemoteClient_MarkTaskComplete_Request::set_content_id(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  content_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CRemoteClient_MarkTaskComplete_Request.content_id)
+}
+inline void CRemoteClient_MarkTaskComplete_Request::set_content_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  content_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CRemoteClient_MarkTaskComplete_Request.content_id)
+}
+inline void CRemoteClient_MarkTaskComplete_Request::set_content_id(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  content_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CRemoteClient_MarkTaskComplete_Request.content_id)
+}
+inline std::string* CRemoteClient_MarkTaskComplete_Request::_internal_mutable_content_id() {
+  _has_bits_[0] |= 0x00000001u;
+  return content_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CRemoteClient_MarkTaskComplete_Request::release_content_id() {
+  // @@protoc_insertion_point(field_release:CRemoteClient_MarkTaskComplete_Request.content_id)
+  if (!_internal_has_content_id()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return content_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CRemoteClient_MarkTaskComplete_Request::set_allocated_content_id(std::string* content_id) {
+  if (content_id != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  content_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), content_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CRemoteClient_MarkTaskComplete_Request.content_id)
 }
 
 // -------------------------------------------------------------------

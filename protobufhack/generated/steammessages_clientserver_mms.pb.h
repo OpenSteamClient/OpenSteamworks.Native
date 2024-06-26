@@ -519,6 +519,7 @@ class CMsgClientMMSCreateLobby PROTOBUF_FINAL :
   enum : int {
     kMetadataFieldNumber = 7,
     kPersonaNameOwnerFieldNumber = 8,
+    kNetworpingLocationFieldNumber = 10,
     kPublicIpFieldNumber = 9,
     kAppIdFieldNumber = 1,
     kMaxMembersFieldNumber = 2,
@@ -565,6 +566,26 @@ class CMsgClientMMSCreateLobby PROTOBUF_FINAL :
   const std::string& _internal_persona_name_owner() const;
   void _internal_set_persona_name_owner(const std::string& value);
   std::string* _internal_mutable_persona_name_owner();
+  public:
+
+  // optional string networping_location = 10;
+  bool has_networping_location() const;
+  private:
+  bool _internal_has_networping_location() const;
+  public:
+  void clear_networping_location();
+  const std::string& networping_location() const;
+  void set_networping_location(const std::string& value);
+  void set_networping_location(std::string&& value);
+  void set_networping_location(const char* value);
+  void set_networping_location(const char* value, size_t size);
+  std::string* mutable_networping_location();
+  std::string* release_networping_location();
+  void set_allocated_networping_location(std::string* networping_location);
+  private:
+  const std::string& _internal_networping_location() const;
+  void _internal_set_networping_location(const std::string& value);
+  std::string* _internal_mutable_networping_location();
   public:
 
   // optional .CMsgIPAddress public_ip = 9;
@@ -674,6 +695,7 @@ class CMsgClientMMSCreateLobby PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr persona_name_owner_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr networping_location_;
   ::CMsgIPAddress* public_ip_;
   ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 max_members_;
@@ -985,8 +1007,10 @@ class CMsgClientMMSJoinLobby PROTOBUF_FINAL :
 
   enum : int {
     kPersonaNameFieldNumber = 3,
+    kNetworpingLocationFieldNumber = 4,
     kSteamIdLobbyFieldNumber = 2,
     kAppIdFieldNumber = 1,
+    kCellIdFieldNumber = 5,
   };
   // optional string persona_name = 3;
   bool has_persona_name() const;
@@ -1006,6 +1030,26 @@ class CMsgClientMMSJoinLobby PROTOBUF_FINAL :
   const std::string& _internal_persona_name() const;
   void _internal_set_persona_name(const std::string& value);
   std::string* _internal_mutable_persona_name();
+  public:
+
+  // optional string networping_location = 4;
+  bool has_networping_location() const;
+  private:
+  bool _internal_has_networping_location() const;
+  public:
+  void clear_networping_location();
+  const std::string& networping_location() const;
+  void set_networping_location(const std::string& value);
+  void set_networping_location(std::string&& value);
+  void set_networping_location(const char* value);
+  void set_networping_location(const char* value, size_t size);
+  std::string* mutable_networping_location();
+  std::string* release_networping_location();
+  void set_allocated_networping_location(std::string* networping_location);
+  private:
+  const std::string& _internal_networping_location() const;
+  void _internal_set_networping_location(const std::string& value);
+  std::string* _internal_mutable_networping_location();
   public:
 
   // optional fixed64 steam_id_lobby = 2;
@@ -1034,6 +1078,19 @@ class CMsgClientMMSJoinLobby PROTOBUF_FINAL :
   void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 cell_id = 5;
+  bool has_cell_id() const;
+  private:
+  bool _internal_has_cell_id() const;
+  public:
+  void clear_cell_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 cell_id() const;
+  void set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cell_id() const;
+  void _internal_set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientMMSJoinLobby)
  private:
   class _Internal;
@@ -1044,8 +1101,10 @@ class CMsgClientMMSJoinLobby PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr persona_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr networping_location_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steam_id_lobby_;
   ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cell_id_;
   friend struct ::TableStruct_steammessages_5fclientserver_5fmms_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2200,6 +2259,7 @@ class CMsgClientMMSGetLobbyList PROTOBUF_FINAL :
 
   enum : int {
     kFiltersFieldNumber = 6,
+    kNetworpingLocationFieldNumber = 8,
     kPublicIpFieldNumber = 7,
     kAppIdFieldNumber = 1,
     kNumLobbiesRequestedFieldNumber = 3,
@@ -2223,6 +2283,26 @@ class CMsgClientMMSGetLobbyList PROTOBUF_FINAL :
   ::CMsgClientMMSGetLobbyList_Filter* add_filters();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientMMSGetLobbyList_Filter >&
       filters() const;
+
+  // optional string networping_location = 8;
+  bool has_networping_location() const;
+  private:
+  bool _internal_has_networping_location() const;
+  public:
+  void clear_networping_location();
+  const std::string& networping_location() const;
+  void set_networping_location(const std::string& value);
+  void set_networping_location(std::string&& value);
+  void set_networping_location(const char* value);
+  void set_networping_location(const char* value, size_t size);
+  std::string* mutable_networping_location();
+  std::string* release_networping_location();
+  void set_allocated_networping_location(std::string* networping_location);
+  private:
+  const std::string& _internal_networping_location() const;
+  void _internal_set_networping_location(const std::string& value);
+  std::string* _internal_mutable_networping_location();
+  public:
 
   // optional .CMsgIPAddress public_ip = 7;
   bool has_public_ip() const;
@@ -2304,6 +2384,7 @@ class CMsgClientMMSGetLobbyList PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientMMSGetLobbyList_Filter > filters_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr networping_location_;
   ::CMsgIPAddress* public_ip_;
   ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 num_lobbies_requested_;
@@ -2881,6 +2962,7 @@ class CMsgClientMMSSetLobbyData PROTOBUF_FINAL :
 
   enum : int {
     kMetadataFieldNumber = 7,
+    kNetworpingLocationFieldNumber = 8,
     kSteamIdLobbyFieldNumber = 2,
     kAppIdFieldNumber = 1,
     kMaxMembersFieldNumber = 4,
@@ -2906,6 +2988,26 @@ class CMsgClientMMSSetLobbyData PROTOBUF_FINAL :
   const std::string& _internal_metadata() const;
   void _internal_set_metadata(const std::string& value);
   std::string* _internal_mutable_metadata();
+  public:
+
+  // optional string networping_location = 8;
+  bool has_networping_location() const;
+  private:
+  bool _internal_has_networping_location() const;
+  public:
+  void clear_networping_location();
+  const std::string& networping_location() const;
+  void set_networping_location(const std::string& value);
+  void set_networping_location(std::string&& value);
+  void set_networping_location(const char* value);
+  void set_networping_location(const char* value, size_t size);
+  std::string* mutable_networping_location();
+  std::string* release_networping_location();
+  void set_allocated_networping_location(std::string* networping_location);
+  private:
+  const std::string& _internal_networping_location() const;
+  void _internal_set_networping_location(const std::string& value);
+  std::string* _internal_mutable_networping_location();
   public:
 
   // optional fixed64 steam_id_lobby = 2;
@@ -2996,6 +3098,7 @@ class CMsgClientMMSSetLobbyData PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr networping_location_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steam_id_lobby_;
   ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 max_members_;
@@ -3471,6 +3574,7 @@ class CMsgClientMMSLobbyData_Member PROTOBUF_FINAL :
   enum : int {
     kPersonaNameFieldNumber = 2,
     kMetadataFieldNumber = 3,
+    kPingDataFieldNumber = 4,
     kSteamIdFieldNumber = 1,
   };
   // optional string persona_name = 2;
@@ -3513,6 +3617,26 @@ class CMsgClientMMSLobbyData_Member PROTOBUF_FINAL :
   std::string* _internal_mutable_metadata();
   public:
 
+  // optional string ping_data = 4;
+  bool has_ping_data() const;
+  private:
+  bool _internal_has_ping_data() const;
+  public:
+  void clear_ping_data();
+  const std::string& ping_data() const;
+  void set_ping_data(const std::string& value);
+  void set_ping_data(std::string&& value);
+  void set_ping_data(const char* value);
+  void set_ping_data(const char* value, size_t size);
+  std::string* mutable_ping_data();
+  std::string* release_ping_data();
+  void set_allocated_ping_data(std::string* ping_data);
+  private:
+  const std::string& _internal_ping_data() const;
+  void _internal_set_ping_data(const std::string& value);
+  std::string* _internal_mutable_ping_data();
+  public:
+
   // optional fixed64 steam_id = 1;
   bool has_steam_id() const;
   private:
@@ -3537,6 +3661,7 @@ class CMsgClientMMSLobbyData_Member PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr persona_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ping_data_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steam_id_;
   friend struct ::TableStruct_steammessages_5fclientserver_5fmms_2eproto;
 };
@@ -4914,6 +5039,7 @@ class CMsgClientMMSSetLobbyGameServer PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNetworpingLocationFieldNumber = 7,
     kGameServerIpFieldNumber = 6,
     kSteamIdLobbyFieldNumber = 2,
     kAppIdFieldNumber = 1,
@@ -4921,6 +5047,26 @@ class CMsgClientMMSSetLobbyGameServer PROTOBUF_FINAL :
     kGameServerSteamIdFieldNumber = 5,
     kGameServerPortFieldNumber = 4,
   };
+  // optional string networping_location = 7;
+  bool has_networping_location() const;
+  private:
+  bool _internal_has_networping_location() const;
+  public:
+  void clear_networping_location();
+  const std::string& networping_location() const;
+  void set_networping_location(const std::string& value);
+  void set_networping_location(std::string&& value);
+  void set_networping_location(const char* value);
+  void set_networping_location(const char* value, size_t size);
+  std::string* mutable_networping_location();
+  std::string* release_networping_location();
+  void set_allocated_networping_location(std::string* networping_location);
+  private:
+  const std::string& _internal_networping_location() const;
+  void _internal_set_networping_location(const std::string& value);
+  std::string* _internal_mutable_networping_location();
+  public:
+
   // optional .CMsgIPAddress game_server_ip = 6;
   bool has_game_server_ip() const;
   private:
@@ -5013,6 +5159,7 @@ class CMsgClientMMSSetLobbyGameServer PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr networping_location_;
   ::CMsgIPAddress* game_server_ip_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steam_id_lobby_;
   ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
@@ -6333,7 +6480,7 @@ inline void CMsgClientMMSSetRatelimitPolicyOnClient::set_milliseconds_per_data_u
 
 // optional uint32 app_id = 1;
 inline bool CMsgClientMMSCreateLobby::_internal_has_app_id() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgClientMMSCreateLobby::has_app_id() const {
@@ -6341,7 +6488,7 @@ inline bool CMsgClientMMSCreateLobby::has_app_id() const {
 }
 inline void CMsgClientMMSCreateLobby::clear_app_id() {
   app_id_ = 0u;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSCreateLobby::_internal_app_id() const {
   return app_id_;
@@ -6351,7 +6498,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSCreateLobby::app_id() const 
   return _internal_app_id();
 }
 inline void CMsgClientMMSCreateLobby::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   app_id_ = value;
 }
 inline void CMsgClientMMSCreateLobby::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -6361,7 +6508,7 @@ inline void CMsgClientMMSCreateLobby::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32
 
 // optional int32 max_members = 2;
 inline bool CMsgClientMMSCreateLobby::_internal_has_max_members() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgClientMMSCreateLobby::has_max_members() const {
@@ -6369,7 +6516,7 @@ inline bool CMsgClientMMSCreateLobby::has_max_members() const {
 }
 inline void CMsgClientMMSCreateLobby::clear_max_members() {
   max_members_ = 0;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSCreateLobby::_internal_max_members() const {
   return max_members_;
@@ -6379,7 +6526,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSCreateLobby::max_members() co
   return _internal_max_members();
 }
 inline void CMsgClientMMSCreateLobby::_internal_set_max_members(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   max_members_ = value;
 }
 inline void CMsgClientMMSCreateLobby::set_max_members(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -6389,7 +6536,7 @@ inline void CMsgClientMMSCreateLobby::set_max_members(::PROTOBUF_NAMESPACE_ID::i
 
 // optional int32 lobby_type = 3;
 inline bool CMsgClientMMSCreateLobby::_internal_has_lobby_type() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgClientMMSCreateLobby::has_lobby_type() const {
@@ -6397,7 +6544,7 @@ inline bool CMsgClientMMSCreateLobby::has_lobby_type() const {
 }
 inline void CMsgClientMMSCreateLobby::clear_lobby_type() {
   lobby_type_ = 0;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSCreateLobby::_internal_lobby_type() const {
   return lobby_type_;
@@ -6407,7 +6554,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSCreateLobby::lobby_type() con
   return _internal_lobby_type();
 }
 inline void CMsgClientMMSCreateLobby::_internal_set_lobby_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   lobby_type_ = value;
 }
 inline void CMsgClientMMSCreateLobby::set_lobby_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -6417,7 +6564,7 @@ inline void CMsgClientMMSCreateLobby::set_lobby_type(::PROTOBUF_NAMESPACE_ID::in
 
 // optional int32 lobby_flags = 4;
 inline bool CMsgClientMMSCreateLobby::_internal_has_lobby_flags() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgClientMMSCreateLobby::has_lobby_flags() const {
@@ -6425,7 +6572,7 @@ inline bool CMsgClientMMSCreateLobby::has_lobby_flags() const {
 }
 inline void CMsgClientMMSCreateLobby::clear_lobby_flags() {
   lobby_flags_ = 0;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSCreateLobby::_internal_lobby_flags() const {
   return lobby_flags_;
@@ -6435,7 +6582,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSCreateLobby::lobby_flags() co
   return _internal_lobby_flags();
 }
 inline void CMsgClientMMSCreateLobby::_internal_set_lobby_flags(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   lobby_flags_ = value;
 }
 inline void CMsgClientMMSCreateLobby::set_lobby_flags(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -6445,7 +6592,7 @@ inline void CMsgClientMMSCreateLobby::set_lobby_flags(::PROTOBUF_NAMESPACE_ID::i
 
 // optional uint32 cell_id = 5;
 inline bool CMsgClientMMSCreateLobby::_internal_has_cell_id() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgClientMMSCreateLobby::has_cell_id() const {
@@ -6453,7 +6600,7 @@ inline bool CMsgClientMMSCreateLobby::has_cell_id() const {
 }
 inline void CMsgClientMMSCreateLobby::clear_cell_id() {
   cell_id_ = 0u;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSCreateLobby::_internal_cell_id() const {
   return cell_id_;
@@ -6463,7 +6610,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSCreateLobby::cell_id() const
   return _internal_cell_id();
 }
 inline void CMsgClientMMSCreateLobby::_internal_set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
   cell_id_ = value;
 }
 inline void CMsgClientMMSCreateLobby::set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -6473,7 +6620,7 @@ inline void CMsgClientMMSCreateLobby::set_cell_id(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional uint32 deprecated_public_ip = 6;
 inline bool CMsgClientMMSCreateLobby::_internal_has_deprecated_public_ip() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgClientMMSCreateLobby::has_deprecated_public_ip() const {
@@ -6481,7 +6628,7 @@ inline bool CMsgClientMMSCreateLobby::has_deprecated_public_ip() const {
 }
 inline void CMsgClientMMSCreateLobby::clear_deprecated_public_ip() {
   deprecated_public_ip_ = 0u;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSCreateLobby::_internal_deprecated_public_ip() const {
   return deprecated_public_ip_;
@@ -6491,7 +6638,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSCreateLobby::deprecated_publ
   return _internal_deprecated_public_ip();
 }
 inline void CMsgClientMMSCreateLobby::_internal_set_deprecated_public_ip(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
   deprecated_public_ip_ = value;
 }
 inline void CMsgClientMMSCreateLobby::set_deprecated_public_ip(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -6647,7 +6794,7 @@ inline void CMsgClientMMSCreateLobby::set_allocated_persona_name_owner(std::stri
 
 // optional .CMsgIPAddress public_ip = 9;
 inline bool CMsgClientMMSCreateLobby::_internal_has_public_ip() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   PROTOBUF_ASSUME(!value || public_ip_ != nullptr);
   return value;
 }
@@ -6670,14 +6817,14 @@ inline void CMsgClientMMSCreateLobby::unsafe_arena_set_allocated_public_ip(
   }
   public_ip_ = public_ip;
   if (public_ip) {
-    _has_bits_[0] |= 0x00000004u;
+    _has_bits_[0] |= 0x00000008u;
   } else {
-    _has_bits_[0] &= ~0x00000004u;
+    _has_bits_[0] &= ~0x00000008u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgClientMMSCreateLobby.public_ip)
 }
 inline ::CMsgIPAddress* CMsgClientMMSCreateLobby::release_public_ip() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
   ::CMsgIPAddress* temp = public_ip_;
   public_ip_ = nullptr;
   if (GetArena() != nullptr) {
@@ -6687,13 +6834,13 @@ inline ::CMsgIPAddress* CMsgClientMMSCreateLobby::release_public_ip() {
 }
 inline ::CMsgIPAddress* CMsgClientMMSCreateLobby::unsafe_arena_release_public_ip() {
   // @@protoc_insertion_point(field_release:CMsgClientMMSCreateLobby.public_ip)
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
   ::CMsgIPAddress* temp = public_ip_;
   public_ip_ = nullptr;
   return temp;
 }
 inline ::CMsgIPAddress* CMsgClientMMSCreateLobby::_internal_mutable_public_ip() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   if (public_ip_ == nullptr) {
     auto* p = CreateMaybeMessage<::CMsgIPAddress>(GetArena());
     public_ip_ = p;
@@ -6716,12 +6863,85 @@ inline void CMsgClientMMSCreateLobby::set_allocated_public_ip(::CMsgIPAddress* p
       public_ip = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, public_ip, submessage_arena);
     }
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  public_ip_ = public_ip;
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSCreateLobby.public_ip)
+}
+
+// optional string networping_location = 10;
+inline bool CMsgClientMMSCreateLobby::_internal_has_networping_location() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSCreateLobby::has_networping_location() const {
+  return _internal_has_networping_location();
+}
+inline void CMsgClientMMSCreateLobby::clear_networping_location() {
+  networping_location_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& CMsgClientMMSCreateLobby::networping_location() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSCreateLobby.networping_location)
+  return _internal_networping_location();
+}
+inline void CMsgClientMMSCreateLobby::set_networping_location(const std::string& value) {
+  _internal_set_networping_location(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSCreateLobby.networping_location)
+}
+inline std::string* CMsgClientMMSCreateLobby::mutable_networping_location() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientMMSCreateLobby.networping_location)
+  return _internal_mutable_networping_location();
+}
+inline const std::string& CMsgClientMMSCreateLobby::_internal_networping_location() const {
+  return networping_location_.Get();
+}
+inline void CMsgClientMMSCreateLobby::_internal_set_networping_location(const std::string& value) {
+  _has_bits_[0] |= 0x00000004u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientMMSCreateLobby::set_networping_location(std::string&& value) {
+  _has_bits_[0] |= 0x00000004u;
+  networping_location_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientMMSCreateLobby.networping_location)
+}
+inline void CMsgClientMMSCreateLobby::set_networping_location(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000004u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientMMSCreateLobby.networping_location)
+}
+inline void CMsgClientMMSCreateLobby::set_networping_location(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000004u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientMMSCreateLobby.networping_location)
+}
+inline std::string* CMsgClientMMSCreateLobby::_internal_mutable_networping_location() {
+  _has_bits_[0] |= 0x00000004u;
+  return networping_location_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientMMSCreateLobby::release_networping_location() {
+  // @@protoc_insertion_point(field_release:CMsgClientMMSCreateLobby.networping_location)
+  if (!_internal_has_networping_location()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000004u;
+  return networping_location_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientMMSCreateLobby::set_allocated_networping_location(std::string* networping_location) {
+  if (networping_location != nullptr) {
     _has_bits_[0] |= 0x00000004u;
   } else {
     _has_bits_[0] &= ~0x00000004u;
   }
-  public_ip_ = public_ip;
-  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSCreateLobby.public_ip)
+  networping_location_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), networping_location,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSCreateLobby.networping_location)
 }
 
 // -------------------------------------------------------------------
@@ -6818,7 +7038,7 @@ inline void CMsgClientMMSCreateLobbyResponse::set_eresult(::PROTOBUF_NAMESPACE_I
 
 // optional uint32 app_id = 1;
 inline bool CMsgClientMMSJoinLobby::_internal_has_app_id() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientMMSJoinLobby::has_app_id() const {
@@ -6826,7 +7046,7 @@ inline bool CMsgClientMMSJoinLobby::has_app_id() const {
 }
 inline void CMsgClientMMSJoinLobby::clear_app_id() {
   app_id_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSJoinLobby::_internal_app_id() const {
   return app_id_;
@@ -6836,7 +7056,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSJoinLobby::app_id() const {
   return _internal_app_id();
 }
 inline void CMsgClientMMSJoinLobby::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   app_id_ = value;
 }
 inline void CMsgClientMMSJoinLobby::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -6846,7 +7066,7 @@ inline void CMsgClientMMSJoinLobby::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 v
 
 // optional fixed64 steam_id_lobby = 2;
 inline bool CMsgClientMMSJoinLobby::_internal_has_steam_id_lobby() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientMMSJoinLobby::has_steam_id_lobby() const {
@@ -6854,7 +7074,7 @@ inline bool CMsgClientMMSJoinLobby::has_steam_id_lobby() const {
 }
 inline void CMsgClientMMSJoinLobby::clear_steam_id_lobby() {
   steam_id_lobby_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSJoinLobby::_internal_steam_id_lobby() const {
   return steam_id_lobby_;
@@ -6864,7 +7084,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSJoinLobby::steam_id_lobby() 
   return _internal_steam_id_lobby();
 }
 inline void CMsgClientMMSJoinLobby::_internal_set_steam_id_lobby(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   steam_id_lobby_ = value;
 }
 inline void CMsgClientMMSJoinLobby::set_steam_id_lobby(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -6943,6 +7163,107 @@ inline void CMsgClientMMSJoinLobby::set_allocated_persona_name(std::string* pers
   persona_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), persona_name,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSJoinLobby.persona_name)
+}
+
+// optional string networping_location = 4;
+inline bool CMsgClientMMSJoinLobby::_internal_has_networping_location() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSJoinLobby::has_networping_location() const {
+  return _internal_has_networping_location();
+}
+inline void CMsgClientMMSJoinLobby::clear_networping_location() {
+  networping_location_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CMsgClientMMSJoinLobby::networping_location() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSJoinLobby.networping_location)
+  return _internal_networping_location();
+}
+inline void CMsgClientMMSJoinLobby::set_networping_location(const std::string& value) {
+  _internal_set_networping_location(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSJoinLobby.networping_location)
+}
+inline std::string* CMsgClientMMSJoinLobby::mutable_networping_location() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientMMSJoinLobby.networping_location)
+  return _internal_mutable_networping_location();
+}
+inline const std::string& CMsgClientMMSJoinLobby::_internal_networping_location() const {
+  return networping_location_.Get();
+}
+inline void CMsgClientMMSJoinLobby::_internal_set_networping_location(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientMMSJoinLobby::set_networping_location(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  networping_location_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientMMSJoinLobby.networping_location)
+}
+inline void CMsgClientMMSJoinLobby::set_networping_location(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientMMSJoinLobby.networping_location)
+}
+inline void CMsgClientMMSJoinLobby::set_networping_location(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientMMSJoinLobby.networping_location)
+}
+inline std::string* CMsgClientMMSJoinLobby::_internal_mutable_networping_location() {
+  _has_bits_[0] |= 0x00000002u;
+  return networping_location_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientMMSJoinLobby::release_networping_location() {
+  // @@protoc_insertion_point(field_release:CMsgClientMMSJoinLobby.networping_location)
+  if (!_internal_has_networping_location()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return networping_location_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientMMSJoinLobby::set_allocated_networping_location(std::string* networping_location) {
+  if (networping_location != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  networping_location_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), networping_location,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSJoinLobby.networping_location)
+}
+
+// optional uint32 cell_id = 5;
+inline bool CMsgClientMMSJoinLobby::_internal_has_cell_id() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSJoinLobby::has_cell_id() const {
+  return _internal_has_cell_id();
+}
+inline void CMsgClientMMSJoinLobby::clear_cell_id() {
+  cell_id_ = 0u;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSJoinLobby::_internal_cell_id() const {
+  return cell_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSJoinLobby::cell_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSJoinLobby.cell_id)
+  return _internal_cell_id();
+}
+inline void CMsgClientMMSJoinLobby::_internal_set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  cell_id_ = value;
+}
+inline void CMsgClientMMSJoinLobby::set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_cell_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSJoinLobby.cell_id)
 }
 
 // -------------------------------------------------------------------
@@ -7795,7 +8116,7 @@ inline void CMsgClientMMSGetLobbyList_Filter::set_filter_type(::PROTOBUF_NAMESPA
 
 // optional uint32 app_id = 1;
 inline bool CMsgClientMMSGetLobbyList::_internal_has_app_id() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientMMSGetLobbyList::has_app_id() const {
@@ -7803,7 +8124,7 @@ inline bool CMsgClientMMSGetLobbyList::has_app_id() const {
 }
 inline void CMsgClientMMSGetLobbyList::clear_app_id() {
   app_id_ = 0u;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSGetLobbyList::_internal_app_id() const {
   return app_id_;
@@ -7813,7 +8134,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSGetLobbyList::app_id() const
   return _internal_app_id();
 }
 inline void CMsgClientMMSGetLobbyList::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   app_id_ = value;
 }
 inline void CMsgClientMMSGetLobbyList::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7823,7 +8144,7 @@ inline void CMsgClientMMSGetLobbyList::set_app_id(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional int32 num_lobbies_requested = 3;
 inline bool CMsgClientMMSGetLobbyList::_internal_has_num_lobbies_requested() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientMMSGetLobbyList::has_num_lobbies_requested() const {
@@ -7831,7 +8152,7 @@ inline bool CMsgClientMMSGetLobbyList::has_num_lobbies_requested() const {
 }
 inline void CMsgClientMMSGetLobbyList::clear_num_lobbies_requested() {
   num_lobbies_requested_ = 0;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSGetLobbyList::_internal_num_lobbies_requested() const {
   return num_lobbies_requested_;
@@ -7841,7 +8162,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSGetLobbyList::num_lobbies_req
   return _internal_num_lobbies_requested();
 }
 inline void CMsgClientMMSGetLobbyList::_internal_set_num_lobbies_requested(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   num_lobbies_requested_ = value;
 }
 inline void CMsgClientMMSGetLobbyList::set_num_lobbies_requested(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -7851,7 +8172,7 @@ inline void CMsgClientMMSGetLobbyList::set_num_lobbies_requested(::PROTOBUF_NAME
 
 // optional uint32 cell_id = 4;
 inline bool CMsgClientMMSGetLobbyList::_internal_has_cell_id() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgClientMMSGetLobbyList::has_cell_id() const {
@@ -7859,7 +8180,7 @@ inline bool CMsgClientMMSGetLobbyList::has_cell_id() const {
 }
 inline void CMsgClientMMSGetLobbyList::clear_cell_id() {
   cell_id_ = 0u;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSGetLobbyList::_internal_cell_id() const {
   return cell_id_;
@@ -7869,7 +8190,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSGetLobbyList::cell_id() cons
   return _internal_cell_id();
 }
 inline void CMsgClientMMSGetLobbyList::_internal_set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   cell_id_ = value;
 }
 inline void CMsgClientMMSGetLobbyList::set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7879,7 +8200,7 @@ inline void CMsgClientMMSGetLobbyList::set_cell_id(::PROTOBUF_NAMESPACE_ID::uint
 
 // optional uint32 deprecated_public_ip = 5;
 inline bool CMsgClientMMSGetLobbyList::_internal_has_deprecated_public_ip() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgClientMMSGetLobbyList::has_deprecated_public_ip() const {
@@ -7887,7 +8208,7 @@ inline bool CMsgClientMMSGetLobbyList::has_deprecated_public_ip() const {
 }
 inline void CMsgClientMMSGetLobbyList::clear_deprecated_public_ip() {
   deprecated_public_ip_ = 0u;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSGetLobbyList::_internal_deprecated_public_ip() const {
   return deprecated_public_ip_;
@@ -7897,7 +8218,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSGetLobbyList::deprecated_pub
   return _internal_deprecated_public_ip();
 }
 inline void CMsgClientMMSGetLobbyList::_internal_set_deprecated_public_ip(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   deprecated_public_ip_ = value;
 }
 inline void CMsgClientMMSGetLobbyList::set_deprecated_public_ip(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7946,7 +8267,7 @@ CMsgClientMMSGetLobbyList::filters() const {
 
 // optional .CMsgIPAddress public_ip = 7;
 inline bool CMsgClientMMSGetLobbyList::_internal_has_public_ip() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || public_ip_ != nullptr);
   return value;
 }
@@ -7969,14 +8290,14 @@ inline void CMsgClientMMSGetLobbyList::unsafe_arena_set_allocated_public_ip(
   }
   public_ip_ = public_ip;
   if (public_ip) {
-    _has_bits_[0] |= 0x00000001u;
+    _has_bits_[0] |= 0x00000002u;
   } else {
-    _has_bits_[0] &= ~0x00000001u;
+    _has_bits_[0] &= ~0x00000002u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgClientMMSGetLobbyList.public_ip)
 }
 inline ::CMsgIPAddress* CMsgClientMMSGetLobbyList::release_public_ip() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
   ::CMsgIPAddress* temp = public_ip_;
   public_ip_ = nullptr;
   if (GetArena() != nullptr) {
@@ -7986,13 +8307,13 @@ inline ::CMsgIPAddress* CMsgClientMMSGetLobbyList::release_public_ip() {
 }
 inline ::CMsgIPAddress* CMsgClientMMSGetLobbyList::unsafe_arena_release_public_ip() {
   // @@protoc_insertion_point(field_release:CMsgClientMMSGetLobbyList.public_ip)
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
   ::CMsgIPAddress* temp = public_ip_;
   public_ip_ = nullptr;
   return temp;
 }
 inline ::CMsgIPAddress* CMsgClientMMSGetLobbyList::_internal_mutable_public_ip() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   if (public_ip_ == nullptr) {
     auto* p = CreateMaybeMessage<::CMsgIPAddress>(GetArena());
     public_ip_ = p;
@@ -8015,12 +8336,85 @@ inline void CMsgClientMMSGetLobbyList::set_allocated_public_ip(::CMsgIPAddress* 
       public_ip = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, public_ip, submessage_arena);
     }
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  public_ip_ = public_ip;
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSGetLobbyList.public_ip)
+}
+
+// optional string networping_location = 8;
+inline bool CMsgClientMMSGetLobbyList::_internal_has_networping_location() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSGetLobbyList::has_networping_location() const {
+  return _internal_has_networping_location();
+}
+inline void CMsgClientMMSGetLobbyList::clear_networping_location() {
+  networping_location_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgClientMMSGetLobbyList::networping_location() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSGetLobbyList.networping_location)
+  return _internal_networping_location();
+}
+inline void CMsgClientMMSGetLobbyList::set_networping_location(const std::string& value) {
+  _internal_set_networping_location(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSGetLobbyList.networping_location)
+}
+inline std::string* CMsgClientMMSGetLobbyList::mutable_networping_location() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientMMSGetLobbyList.networping_location)
+  return _internal_mutable_networping_location();
+}
+inline const std::string& CMsgClientMMSGetLobbyList::_internal_networping_location() const {
+  return networping_location_.Get();
+}
+inline void CMsgClientMMSGetLobbyList::_internal_set_networping_location(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientMMSGetLobbyList::set_networping_location(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  networping_location_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientMMSGetLobbyList.networping_location)
+}
+inline void CMsgClientMMSGetLobbyList::set_networping_location(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientMMSGetLobbyList.networping_location)
+}
+inline void CMsgClientMMSGetLobbyList::set_networping_location(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientMMSGetLobbyList.networping_location)
+}
+inline std::string* CMsgClientMMSGetLobbyList::_internal_mutable_networping_location() {
+  _has_bits_[0] |= 0x00000001u;
+  return networping_location_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientMMSGetLobbyList::release_networping_location() {
+  // @@protoc_insertion_point(field_release:CMsgClientMMSGetLobbyList.networping_location)
+  if (!_internal_has_networping_location()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return networping_location_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientMMSGetLobbyList::set_allocated_networping_location(std::string* networping_location) {
+  if (networping_location != nullptr) {
     _has_bits_[0] |= 0x00000001u;
   } else {
     _has_bits_[0] &= ~0x00000001u;
   }
-  public_ip_ = public_ip;
-  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSGetLobbyList.public_ip)
+  networping_location_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), networping_location,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSGetLobbyList.networping_location)
 }
 
 // -------------------------------------------------------------------
@@ -8401,7 +8795,7 @@ CMsgClientMMSGetLobbyListResponse::lobbies() const {
 
 // optional uint32 app_id = 1;
 inline bool CMsgClientMMSSetLobbyData::_internal_has_app_id() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyData::has_app_id() const {
@@ -8409,7 +8803,7 @@ inline bool CMsgClientMMSSetLobbyData::has_app_id() const {
 }
 inline void CMsgClientMMSSetLobbyData::clear_app_id() {
   app_id_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSSetLobbyData::_internal_app_id() const {
   return app_id_;
@@ -8419,7 +8813,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSSetLobbyData::app_id() const
   return _internal_app_id();
 }
 inline void CMsgClientMMSSetLobbyData::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   app_id_ = value;
 }
 inline void CMsgClientMMSSetLobbyData::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8429,7 +8823,7 @@ inline void CMsgClientMMSSetLobbyData::set_app_id(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional fixed64 steam_id_lobby = 2;
 inline bool CMsgClientMMSSetLobbyData::_internal_has_steam_id_lobby() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyData::has_steam_id_lobby() const {
@@ -8437,7 +8831,7 @@ inline bool CMsgClientMMSSetLobbyData::has_steam_id_lobby() const {
 }
 inline void CMsgClientMMSSetLobbyData::clear_steam_id_lobby() {
   steam_id_lobby_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSSetLobbyData::_internal_steam_id_lobby() const {
   return steam_id_lobby_;
@@ -8447,7 +8841,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSSetLobbyData::steam_id_lobby
   return _internal_steam_id_lobby();
 }
 inline void CMsgClientMMSSetLobbyData::_internal_set_steam_id_lobby(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   steam_id_lobby_ = value;
 }
 inline void CMsgClientMMSSetLobbyData::set_steam_id_lobby(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -8457,7 +8851,7 @@ inline void CMsgClientMMSSetLobbyData::set_steam_id_lobby(::PROTOBUF_NAMESPACE_I
 
 // optional fixed64 steam_id_member = 3;
 inline bool CMsgClientMMSSetLobbyData::_internal_has_steam_id_member() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyData::has_steam_id_member() const {
@@ -8465,7 +8859,7 @@ inline bool CMsgClientMMSSetLobbyData::has_steam_id_member() const {
 }
 inline void CMsgClientMMSSetLobbyData::clear_steam_id_member() {
   steam_id_member_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSSetLobbyData::_internal_steam_id_member() const {
   return steam_id_member_;
@@ -8475,7 +8869,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSSetLobbyData::steam_id_membe
   return _internal_steam_id_member();
 }
 inline void CMsgClientMMSSetLobbyData::_internal_set_steam_id_member(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   steam_id_member_ = value;
 }
 inline void CMsgClientMMSSetLobbyData::set_steam_id_member(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -8485,7 +8879,7 @@ inline void CMsgClientMMSSetLobbyData::set_steam_id_member(::PROTOBUF_NAMESPACE_
 
 // optional int32 max_members = 4;
 inline bool CMsgClientMMSSetLobbyData::_internal_has_max_members() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyData::has_max_members() const {
@@ -8493,7 +8887,7 @@ inline bool CMsgClientMMSSetLobbyData::has_max_members() const {
 }
 inline void CMsgClientMMSSetLobbyData::clear_max_members() {
   max_members_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSSetLobbyData::_internal_max_members() const {
   return max_members_;
@@ -8503,7 +8897,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSSetLobbyData::max_members() c
   return _internal_max_members();
 }
 inline void CMsgClientMMSSetLobbyData::_internal_set_max_members(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   max_members_ = value;
 }
 inline void CMsgClientMMSSetLobbyData::set_max_members(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8513,7 +8907,7 @@ inline void CMsgClientMMSSetLobbyData::set_max_members(::PROTOBUF_NAMESPACE_ID::
 
 // optional int32 lobby_type = 5;
 inline bool CMsgClientMMSSetLobbyData::_internal_has_lobby_type() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyData::has_lobby_type() const {
@@ -8521,7 +8915,7 @@ inline bool CMsgClientMMSSetLobbyData::has_lobby_type() const {
 }
 inline void CMsgClientMMSSetLobbyData::clear_lobby_type() {
   lobby_type_ = 0;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSSetLobbyData::_internal_lobby_type() const {
   return lobby_type_;
@@ -8531,7 +8925,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSSetLobbyData::lobby_type() co
   return _internal_lobby_type();
 }
 inline void CMsgClientMMSSetLobbyData::_internal_set_lobby_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   lobby_type_ = value;
 }
 inline void CMsgClientMMSSetLobbyData::set_lobby_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8541,7 +8935,7 @@ inline void CMsgClientMMSSetLobbyData::set_lobby_type(::PROTOBUF_NAMESPACE_ID::i
 
 // optional int32 lobby_flags = 6;
 inline bool CMsgClientMMSSetLobbyData::_internal_has_lobby_flags() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyData::has_lobby_flags() const {
@@ -8549,7 +8943,7 @@ inline bool CMsgClientMMSSetLobbyData::has_lobby_flags() const {
 }
 inline void CMsgClientMMSSetLobbyData::clear_lobby_flags() {
   lobby_flags_ = 0;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSSetLobbyData::_internal_lobby_flags() const {
   return lobby_flags_;
@@ -8559,7 +8953,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSSetLobbyData::lobby_flags() c
   return _internal_lobby_flags();
 }
 inline void CMsgClientMMSSetLobbyData::_internal_set_lobby_flags(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   lobby_flags_ = value;
 }
 inline void CMsgClientMMSSetLobbyData::set_lobby_flags(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8638,6 +9032,79 @@ inline void CMsgClientMMSSetLobbyData::set_allocated_metadata(std::string* metad
   metadata_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), metadata,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSSetLobbyData.metadata)
+}
+
+// optional string networping_location = 8;
+inline bool CMsgClientMMSSetLobbyData::_internal_has_networping_location() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSSetLobbyData::has_networping_location() const {
+  return _internal_has_networping_location();
+}
+inline void CMsgClientMMSSetLobbyData::clear_networping_location() {
+  networping_location_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CMsgClientMMSSetLobbyData::networping_location() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSSetLobbyData.networping_location)
+  return _internal_networping_location();
+}
+inline void CMsgClientMMSSetLobbyData::set_networping_location(const std::string& value) {
+  _internal_set_networping_location(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSSetLobbyData.networping_location)
+}
+inline std::string* CMsgClientMMSSetLobbyData::mutable_networping_location() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientMMSSetLobbyData.networping_location)
+  return _internal_mutable_networping_location();
+}
+inline const std::string& CMsgClientMMSSetLobbyData::_internal_networping_location() const {
+  return networping_location_.Get();
+}
+inline void CMsgClientMMSSetLobbyData::_internal_set_networping_location(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientMMSSetLobbyData::set_networping_location(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  networping_location_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientMMSSetLobbyData.networping_location)
+}
+inline void CMsgClientMMSSetLobbyData::set_networping_location(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientMMSSetLobbyData.networping_location)
+}
+inline void CMsgClientMMSSetLobbyData::set_networping_location(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientMMSSetLobbyData.networping_location)
+}
+inline std::string* CMsgClientMMSSetLobbyData::_internal_mutable_networping_location() {
+  _has_bits_[0] |= 0x00000002u;
+  return networping_location_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientMMSSetLobbyData::release_networping_location() {
+  // @@protoc_insertion_point(field_release:CMsgClientMMSSetLobbyData.networping_location)
+  if (!_internal_has_networping_location()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return networping_location_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientMMSSetLobbyData::set_allocated_networping_location(std::string* networping_location) {
+  if (networping_location != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  networping_location_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), networping_location,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSSetLobbyData.networping_location)
 }
 
 // -------------------------------------------------------------------
@@ -8794,7 +9261,7 @@ inline void CMsgClientMMSGetLobbyData::set_steam_id_lobby(::PROTOBUF_NAMESPACE_I
 
 // optional fixed64 steam_id = 1;
 inline bool CMsgClientMMSLobbyData_Member::_internal_has_steam_id() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientMMSLobbyData_Member::has_steam_id() const {
@@ -8802,7 +9269,7 @@ inline bool CMsgClientMMSLobbyData_Member::has_steam_id() const {
 }
 inline void CMsgClientMMSLobbyData_Member::clear_steam_id() {
   steam_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSLobbyData_Member::_internal_steam_id() const {
   return steam_id_;
@@ -8812,7 +9279,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSLobbyData_Member::steam_id()
   return _internal_steam_id();
 }
 inline void CMsgClientMMSLobbyData_Member::_internal_set_steam_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   steam_id_ = value;
 }
 inline void CMsgClientMMSLobbyData_Member::set_steam_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -8964,6 +9431,79 @@ inline void CMsgClientMMSLobbyData_Member::set_allocated_metadata(std::string* m
   metadata_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), metadata,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSLobbyData.Member.metadata)
+}
+
+// optional string ping_data = 4;
+inline bool CMsgClientMMSLobbyData_Member::_internal_has_ping_data() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSLobbyData_Member::has_ping_data() const {
+  return _internal_has_ping_data();
+}
+inline void CMsgClientMMSLobbyData_Member::clear_ping_data() {
+  ping_data_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& CMsgClientMMSLobbyData_Member::ping_data() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSLobbyData.Member.ping_data)
+  return _internal_ping_data();
+}
+inline void CMsgClientMMSLobbyData_Member::set_ping_data(const std::string& value) {
+  _internal_set_ping_data(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSLobbyData.Member.ping_data)
+}
+inline std::string* CMsgClientMMSLobbyData_Member::mutable_ping_data() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientMMSLobbyData.Member.ping_data)
+  return _internal_mutable_ping_data();
+}
+inline const std::string& CMsgClientMMSLobbyData_Member::_internal_ping_data() const {
+  return ping_data_.Get();
+}
+inline void CMsgClientMMSLobbyData_Member::_internal_set_ping_data(const std::string& value) {
+  _has_bits_[0] |= 0x00000004u;
+  ping_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientMMSLobbyData_Member::set_ping_data(std::string&& value) {
+  _has_bits_[0] |= 0x00000004u;
+  ping_data_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientMMSLobbyData.Member.ping_data)
+}
+inline void CMsgClientMMSLobbyData_Member::set_ping_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000004u;
+  ping_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientMMSLobbyData.Member.ping_data)
+}
+inline void CMsgClientMMSLobbyData_Member::set_ping_data(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000004u;
+  ping_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientMMSLobbyData.Member.ping_data)
+}
+inline std::string* CMsgClientMMSLobbyData_Member::_internal_mutable_ping_data() {
+  _has_bits_[0] |= 0x00000004u;
+  return ping_data_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientMMSLobbyData_Member::release_ping_data() {
+  // @@protoc_insertion_point(field_release:CMsgClientMMSLobbyData.Member.ping_data)
+  if (!_internal_has_ping_data()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000004u;
+  return ping_data_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientMMSLobbyData_Member::set_allocated_ping_data(std::string* ping_data) {
+  if (ping_data != nullptr) {
+    _has_bits_[0] |= 0x00000004u;
+  } else {
+    _has_bits_[0] &= ~0x00000004u;
+  }
+  ping_data_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ping_data,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSLobbyData.Member.ping_data)
 }
 
 // -------------------------------------------------------------------
@@ -9926,7 +10466,7 @@ inline void CMsgClientMMSSetLobbyLinked::set_steam_id_lobby2(::PROTOBUF_NAMESPAC
 
 // optional uint32 app_id = 1;
 inline bool CMsgClientMMSSetLobbyGameServer::_internal_has_app_id() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyGameServer::has_app_id() const {
@@ -9934,7 +10474,7 @@ inline bool CMsgClientMMSSetLobbyGameServer::has_app_id() const {
 }
 inline void CMsgClientMMSSetLobbyGameServer::clear_app_id() {
   app_id_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSSetLobbyGameServer::_internal_app_id() const {
   return app_id_;
@@ -9944,7 +10484,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSSetLobbyGameServer::app_id()
   return _internal_app_id();
 }
 inline void CMsgClientMMSSetLobbyGameServer::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   app_id_ = value;
 }
 inline void CMsgClientMMSSetLobbyGameServer::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -9954,7 +10494,7 @@ inline void CMsgClientMMSSetLobbyGameServer::set_app_id(::PROTOBUF_NAMESPACE_ID:
 
 // optional fixed64 steam_id_lobby = 2;
 inline bool CMsgClientMMSSetLobbyGameServer::_internal_has_steam_id_lobby() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyGameServer::has_steam_id_lobby() const {
@@ -9962,7 +10502,7 @@ inline bool CMsgClientMMSSetLobbyGameServer::has_steam_id_lobby() const {
 }
 inline void CMsgClientMMSSetLobbyGameServer::clear_steam_id_lobby() {
   steam_id_lobby_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSSetLobbyGameServer::_internal_steam_id_lobby() const {
   return steam_id_lobby_;
@@ -9972,7 +10512,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSSetLobbyGameServer::steam_id
   return _internal_steam_id_lobby();
 }
 inline void CMsgClientMMSSetLobbyGameServer::_internal_set_steam_id_lobby(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   steam_id_lobby_ = value;
 }
 inline void CMsgClientMMSSetLobbyGameServer::set_steam_id_lobby(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -9982,7 +10522,7 @@ inline void CMsgClientMMSSetLobbyGameServer::set_steam_id_lobby(::PROTOBUF_NAMES
 
 // optional uint32 deprecated_game_server_ip = 3;
 inline bool CMsgClientMMSSetLobbyGameServer::_internal_has_deprecated_game_server_ip() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyGameServer::has_deprecated_game_server_ip() const {
@@ -9990,7 +10530,7 @@ inline bool CMsgClientMMSSetLobbyGameServer::has_deprecated_game_server_ip() con
 }
 inline void CMsgClientMMSSetLobbyGameServer::clear_deprecated_game_server_ip() {
   deprecated_game_server_ip_ = 0u;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSSetLobbyGameServer::_internal_deprecated_game_server_ip() const {
   return deprecated_game_server_ip_;
@@ -10000,7 +10540,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSSetLobbyGameServer::deprecat
   return _internal_deprecated_game_server_ip();
 }
 inline void CMsgClientMMSSetLobbyGameServer::_internal_set_deprecated_game_server_ip(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   deprecated_game_server_ip_ = value;
 }
 inline void CMsgClientMMSSetLobbyGameServer::set_deprecated_game_server_ip(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -10010,7 +10550,7 @@ inline void CMsgClientMMSSetLobbyGameServer::set_deprecated_game_server_ip(::PRO
 
 // optional uint32 game_server_port = 4;
 inline bool CMsgClientMMSSetLobbyGameServer::_internal_has_game_server_port() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyGameServer::has_game_server_port() const {
@@ -10018,7 +10558,7 @@ inline bool CMsgClientMMSSetLobbyGameServer::has_game_server_port() const {
 }
 inline void CMsgClientMMSSetLobbyGameServer::clear_game_server_port() {
   game_server_port_ = 0u;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSSetLobbyGameServer::_internal_game_server_port() const {
   return game_server_port_;
@@ -10028,7 +10568,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientMMSSetLobbyGameServer::game_ser
   return _internal_game_server_port();
 }
 inline void CMsgClientMMSSetLobbyGameServer::_internal_set_game_server_port(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   game_server_port_ = value;
 }
 inline void CMsgClientMMSSetLobbyGameServer::set_game_server_port(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -10038,7 +10578,7 @@ inline void CMsgClientMMSSetLobbyGameServer::set_game_server_port(::PROTOBUF_NAM
 
 // optional fixed64 game_server_steam_id = 5;
 inline bool CMsgClientMMSSetLobbyGameServer::_internal_has_game_server_steam_id() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgClientMMSSetLobbyGameServer::has_game_server_steam_id() const {
@@ -10046,7 +10586,7 @@ inline bool CMsgClientMMSSetLobbyGameServer::has_game_server_steam_id() const {
 }
 inline void CMsgClientMMSSetLobbyGameServer::clear_game_server_steam_id() {
   game_server_steam_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSSetLobbyGameServer::_internal_game_server_steam_id() const {
   return game_server_steam_id_;
@@ -10056,7 +10596,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientMMSSetLobbyGameServer::game_ser
   return _internal_game_server_steam_id();
 }
 inline void CMsgClientMMSSetLobbyGameServer::_internal_set_game_server_steam_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   game_server_steam_id_ = value;
 }
 inline void CMsgClientMMSSetLobbyGameServer::set_game_server_steam_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -10066,7 +10606,7 @@ inline void CMsgClientMMSSetLobbyGameServer::set_game_server_steam_id(::PROTOBUF
 
 // optional .CMsgIPAddress game_server_ip = 6;
 inline bool CMsgClientMMSSetLobbyGameServer::_internal_has_game_server_ip() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || game_server_ip_ != nullptr);
   return value;
 }
@@ -10089,14 +10629,14 @@ inline void CMsgClientMMSSetLobbyGameServer::unsafe_arena_set_allocated_game_ser
   }
   game_server_ip_ = game_server_ip;
   if (game_server_ip) {
-    _has_bits_[0] |= 0x00000001u;
+    _has_bits_[0] |= 0x00000002u;
   } else {
-    _has_bits_[0] &= ~0x00000001u;
+    _has_bits_[0] &= ~0x00000002u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgClientMMSSetLobbyGameServer.game_server_ip)
 }
 inline ::CMsgIPAddress* CMsgClientMMSSetLobbyGameServer::release_game_server_ip() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
   ::CMsgIPAddress* temp = game_server_ip_;
   game_server_ip_ = nullptr;
   if (GetArena() != nullptr) {
@@ -10106,13 +10646,13 @@ inline ::CMsgIPAddress* CMsgClientMMSSetLobbyGameServer::release_game_server_ip(
 }
 inline ::CMsgIPAddress* CMsgClientMMSSetLobbyGameServer::unsafe_arena_release_game_server_ip() {
   // @@protoc_insertion_point(field_release:CMsgClientMMSSetLobbyGameServer.game_server_ip)
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
   ::CMsgIPAddress* temp = game_server_ip_;
   game_server_ip_ = nullptr;
   return temp;
 }
 inline ::CMsgIPAddress* CMsgClientMMSSetLobbyGameServer::_internal_mutable_game_server_ip() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   if (game_server_ip_ == nullptr) {
     auto* p = CreateMaybeMessage<::CMsgIPAddress>(GetArena());
     game_server_ip_ = p;
@@ -10135,12 +10675,85 @@ inline void CMsgClientMMSSetLobbyGameServer::set_allocated_game_server_ip(::CMsg
       game_server_ip = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, game_server_ip, submessage_arena);
     }
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  game_server_ip_ = game_server_ip;
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSSetLobbyGameServer.game_server_ip)
+}
+
+// optional string networping_location = 7;
+inline bool CMsgClientMMSSetLobbyGameServer::_internal_has_networping_location() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSSetLobbyGameServer::has_networping_location() const {
+  return _internal_has_networping_location();
+}
+inline void CMsgClientMMSSetLobbyGameServer::clear_networping_location() {
+  networping_location_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgClientMMSSetLobbyGameServer::networping_location() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSSetLobbyGameServer.networping_location)
+  return _internal_networping_location();
+}
+inline void CMsgClientMMSSetLobbyGameServer::set_networping_location(const std::string& value) {
+  _internal_set_networping_location(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSSetLobbyGameServer.networping_location)
+}
+inline std::string* CMsgClientMMSSetLobbyGameServer::mutable_networping_location() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientMMSSetLobbyGameServer.networping_location)
+  return _internal_mutable_networping_location();
+}
+inline const std::string& CMsgClientMMSSetLobbyGameServer::_internal_networping_location() const {
+  return networping_location_.Get();
+}
+inline void CMsgClientMMSSetLobbyGameServer::_internal_set_networping_location(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientMMSSetLobbyGameServer::set_networping_location(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  networping_location_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientMMSSetLobbyGameServer.networping_location)
+}
+inline void CMsgClientMMSSetLobbyGameServer::set_networping_location(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientMMSSetLobbyGameServer.networping_location)
+}
+inline void CMsgClientMMSSetLobbyGameServer::set_networping_location(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  networping_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientMMSSetLobbyGameServer.networping_location)
+}
+inline std::string* CMsgClientMMSSetLobbyGameServer::_internal_mutable_networping_location() {
+  _has_bits_[0] |= 0x00000001u;
+  return networping_location_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientMMSSetLobbyGameServer::release_networping_location() {
+  // @@protoc_insertion_point(field_release:CMsgClientMMSSetLobbyGameServer.networping_location)
+  if (!_internal_has_networping_location()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return networping_location_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientMMSSetLobbyGameServer::set_allocated_networping_location(std::string* networping_location) {
+  if (networping_location != nullptr) {
     _has_bits_[0] |= 0x00000001u;
   } else {
     _has_bits_[0] &= ~0x00000001u;
   }
-  game_server_ip_ = game_server_ip;
-  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSSetLobbyGameServer.game_server_ip)
+  networping_location_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), networping_location,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientMMSSetLobbyGameServer.networping_location)
 }
 
 // -------------------------------------------------------------------

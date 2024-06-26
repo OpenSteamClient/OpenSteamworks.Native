@@ -315,7 +315,8 @@ struct CRemoteClient_TaskList_NotificationDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_TaskList_NotificationDefaultTypeInternal _CRemoteClient_TaskList_Notification_default_instance_;
 constexpr CRemoteClient_MarkTaskComplete_Request::CRemoteClient_MarkTaskComplete_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : remote_client_id_(PROTOBUF_ULONGLONG(0))
+  : content_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , remote_client_id_(PROTOBUF_ULONGLONG(0))
   , tasid_(PROTOBUF_ULONGLONG(0)){}
 struct CRemoteClient_MarkTaskComplete_RequestDefaultTypeInternal {
   constexpr CRemoteClient_MarkTaskComplete_RequestDefaultTypeInternal()
@@ -895,8 +896,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteclient_5
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Request, remote_client_id_),
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Request, tasid_),
-  0,
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Request, content_id_),
   1,
+  2,
+  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1192,34 +1195,34 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 177, 184, sizeof(::CRemoteClient_AddClientTasRequest)},
   { 186, -1, sizeof(::CRemoteClient_AddClientTasResponse)},
   { 191, 198, sizeof(::CRemoteClient_TaskList_Notification)},
-  { 200, 207, sizeof(::CRemoteClient_MarkTaskComplete_Request)},
-  { 209, -1, sizeof(::CRemoteClient_MarkTaskComplete_Response)},
-  { 214, 222, sizeof(::CRemoteClient_RemotePacket_Notification)},
-  { 225, 232, sizeof(::CRemoteClient_ReplyPacket_Notification)},
-  { 234, 240, sizeof(::CRemoteClient_GetReplies_Request)},
-  { 241, -1, sizeof(::CRemoteClient_GetReplies_Response)},
-  { 247, 254, sizeof(::CRemoteClient_AllocateRelayServer_Request)},
-  { 256, 262, sizeof(::CRemoteClient_AllocateRelayServer_Response)},
-  { 263, 269, sizeof(::CRemoteClient_AllocateSDR_Request)},
-  { 270, -1, sizeof(::CRemoteClient_AllocateSDR_Response)},
-  { 275, 283, sizeof(::CRemoteClient_SteamBroadcast_Notification)},
-  { 286, 296, sizeof(::CRemoteClient_SteamToSteam_Notification)},
-  { 301, 312, sizeof(::CRemotePlay_SessionStarted_Request)},
-  { 318, 324, sizeof(::CRemotePlay_SessionStarted_Response)},
-  { 325, 334, sizeof(::CRemotePlay_SessionStopped_Notification)},
-  { 338, 349, sizeof(::CRemotePlayTogether_Notification_Player)},
-  { 355, 362, sizeof(::CRemotePlayTogether_Notification_ControllerSlot_obsolete)},
-  { 364, 372, sizeof(::CRemotePlayTogether_Notification_ControllerSlot)},
-  { 375, 388, sizeof(::CRemotePlayTogether_Notification_GroupUpdated)},
-  { 396, 404, sizeof(::CRemotePlayTogether_Notification)},
-  { 406, 413, sizeof(::CRemoteClient_CreateRemotePlayTogetherInvitation_Request)},
-  { 415, 421, sizeof(::CRemoteClient_CreateRemotePlayTogetherInvitation_Response)},
-  { 422, 428, sizeof(::CRemoteClient_DeleteRemotePlayTogetherInvitation_Request)},
-  { 429, -1, sizeof(::CRemoteClient_DeleteRemotePlayTogetherInvitation_Response)},
-  { 434, 440, sizeof(::CRemoteClient_LookupRemotePlayTogetherInvitation_Request)},
-  { 441, 447, sizeof(::CRemoteClient_LookupRemotePlayTogetherInvitation_Response)},
-  { 448, -1, sizeof(::CCMRemoteClient_ClientMessage)},
-  { 461, 473, sizeof(::CCMRemoteClient_ServerMessage)},
+  { 200, 208, sizeof(::CRemoteClient_MarkTaskComplete_Request)},
+  { 211, -1, sizeof(::CRemoteClient_MarkTaskComplete_Response)},
+  { 216, 224, sizeof(::CRemoteClient_RemotePacket_Notification)},
+  { 227, 234, sizeof(::CRemoteClient_ReplyPacket_Notification)},
+  { 236, 242, sizeof(::CRemoteClient_GetReplies_Request)},
+  { 243, -1, sizeof(::CRemoteClient_GetReplies_Response)},
+  { 249, 256, sizeof(::CRemoteClient_AllocateRelayServer_Request)},
+  { 258, 264, sizeof(::CRemoteClient_AllocateRelayServer_Response)},
+  { 265, 271, sizeof(::CRemoteClient_AllocateSDR_Request)},
+  { 272, -1, sizeof(::CRemoteClient_AllocateSDR_Response)},
+  { 277, 285, sizeof(::CRemoteClient_SteamBroadcast_Notification)},
+  { 288, 298, sizeof(::CRemoteClient_SteamToSteam_Notification)},
+  { 303, 314, sizeof(::CRemotePlay_SessionStarted_Request)},
+  { 320, 326, sizeof(::CRemotePlay_SessionStarted_Response)},
+  { 327, 336, sizeof(::CRemotePlay_SessionStopped_Notification)},
+  { 340, 351, sizeof(::CRemotePlayTogether_Notification_Player)},
+  { 357, 364, sizeof(::CRemotePlayTogether_Notification_ControllerSlot_obsolete)},
+  { 366, 374, sizeof(::CRemotePlayTogether_Notification_ControllerSlot)},
+  { 377, 390, sizeof(::CRemotePlayTogether_Notification_GroupUpdated)},
+  { 398, 406, sizeof(::CRemotePlayTogether_Notification)},
+  { 408, 415, sizeof(::CRemoteClient_CreateRemotePlayTogetherInvitation_Request)},
+  { 417, 423, sizeof(::CRemoteClient_CreateRemotePlayTogetherInvitation_Response)},
+  { 424, 430, sizeof(::CRemoteClient_DeleteRemotePlayTogetherInvitation_Request)},
+  { 431, -1, sizeof(::CRemoteClient_DeleteRemotePlayTogetherInvitation_Response)},
+  { 436, 442, sizeof(::CRemoteClient_LookupRemotePlayTogetherInvitation_Request)},
+  { 443, 449, sizeof(::CRemoteClient_LookupRemotePlayTogetherInvitation_Response)},
+  { 450, -1, sizeof(::CCMRemoteClient_ClientMessage)},
+  { 463, 475, sizeof(::CCMRemoteClient_ServerMessage)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1327,106 +1330,106 @@ const char descriptor_table_protodef_steammessages_5fremoteclient_5fservice_5fme
   "k\"$\n\"CRemoteClient_AddClientTasResponse\""
   "f\n#CRemoteClient_TaskList_Notification\022\030"
   "\n\020remote_client_id\030\001 \001(\006\022%\n\010tasklist\030\002 \003"
-  "(\0132\023.CRemoteClient_Task\"Q\n&CRemoteClient"
+  "(\0132\023.CRemoteClient_Task\"e\n&CRemoteClient"
   "_MarkTaskComplete_Request\022\030\n\020remote_clie"
-  "nt_id\030\001 \001(\006\022\r\n\005tasid\030\002 \001(\006\")\n\'CRemoteCli"
-  "ent_MarkTaskComplete_Response\"_\n\'CRemote"
-  "Client_RemotePacket_Notification\022\022\n\nsess"
-  "ion_id\030\001 \001(\006\022\017\n\007steamid\030\002 \001(\006\022\017\n\007payload"
-  "\030\004 \001(\014\"M\n&CRemoteClient_ReplyPacket_Noti"
-  "fication\022\022\n\nsession_id\030\001 \001(\006\022\017\n\007payload\030"
-  "\002 \001(\014\"6\n CRemoteClient_GetReplies_Reques"
-  "t\022\022\n\nsession_id\030\001 \001(\006\"4\n!CRemoteClient_G"
-  "etReplies_Response\022\017\n\007payload\030\001 \003(\014\"P\n)C"
-  "RemoteClient_AllocateRelayServer_Request"
-  "\022\016\n\006cellid\030\001 \001(\r\022\023\n\013credentials\030\002 \001(\t\"B\n"
-  "*CRemoteClient_AllocateRelayServer_Respo"
-  "nse\022\024\n\014relay_server\030\001 \001(\t\"2\n!CRemoteClie"
-  "nt_AllocateSDR_Request\022\r\n\005appid\030\001 \001(\r\"$\n"
-  "\"CRemoteClient_AllocateSDR_Response\"_\n)C"
-  "RemoteClient_SteamBroadcast_Notification"
-  "\022\017\n\007steamid\030\001 \001(\006\022\020\n\010clientid\030\002 \001(\006\022\017\n\007p"
-  "ayload\030\003 \001(\014\"\223\001\n\'CRemoteClient_SteamToSt"
-  "eam_Notification\022\017\n\007steamid\030\001 \001(\006\022\024\n\014src"
-  "_clientid\030\002 \001(\006\022\024\n\014dst_clientid\030\003 \001(\006\022\020\n"
-  "\010secretid\030\004 \001(\r\022\031\n\021encrypted_payload\030\005 \001"
-  "(\014\"\270\001\n\"CRemotePlay_SessionStarted_Reques"
-  "t\022\027\n\017host_account_id\030\001 \001(\r\022\031\n\021client_acc"
-  "ount_id\030\002 \001(\r\022\r\n\005appid\030\003 \001(\r\022\032\n\022device_f"
-  "orm_factor\030\004 \001(\005\022\034\n\024remote_play_together"
-  "\030\005 \001(\010\022\025\n\rguest_session\030\006 \001(\010\"8\n#CRemote"
-  "Play_SessionStarted_Response\022\021\n\trecord_i"
-  "d\030\001 \001(\006\"u\n\'CRemotePlay_SessionStopped_No"
-  "tification\022\021\n\trecord_id\030\001 \001(\006\022\021\n\tused_x2"
-  "64\030\002 \001(\010\022\021\n\tused_h264\030\003 \001(\010\022\021\n\tused_hevc"
-  "\030\004 \001(\010\"\267\006\n CRemotePlayTogether_Notificat"
-  "ion\022\017\n\007steamid\030\001 \001(\006\022G\n\rgroup_updated\030\002 "
-  "\001(\0132..CRemotePlayTogether_Notification.G"
-  "roupUpdatedH\000\032\214\001\n\006Player\022\017\n\007steamid\030\001 \001("
-  "\006\022\017\n\007guestid\030\002 \001(\r\022\023\n\013avatar_hash\030\003 \001(\014\022"
-  "\030\n\020keyboard_enabled\030\004 \001(\010\022\025\n\rmouse_enabl"
-  "ed\030\005 \001(\010\022\032\n\022controller_enabled\030\006 \001(\010\032:\n\027"
-  "ControllerSlot_obsolete\022\016\n\006slotid\030\001 \001(\r\022"
-  "\017\n\007steamid\030\002 \001(\006\032s\n\016ControllerSlot\022\016\n\006sl"
-  "otid\030\001 \001(\r\0228\n\006player\030\002 \001(\0132(.CRemotePlay"
-  "Together_Notification.Player\022\027\n\017controll"
-  "er_type\030\003 \001(\005\032\355\002\n\014GroupUpdated\022\024\n\014host_s"
-  "teamid\030\001 \001(\006\022\025\n\rhost_clientid\030\002 \001(\006\022\030\n\020p"
-  "layers_obsolete\030\003 \003(\006\022\023\n\013host_gameid\030\004 \001"
-  "(\006\022\\\n\031controller_slots_obsolete\030\005 \003(\01329."
-  "CRemotePlayTogether_Notification.Control"
-  "lerSlot_obsolete\022\027\n\017has_new_players\030\006 \001("
-  "\010\022>\n\014player_slots\030\007 \003(\0132(.CRemotePlayTog"
-  "ether_Notification.Player\022J\n\020controller_"
-  "slots\030\010 \003(\01320.CRemotePlayTogether_Notifi"
-  "cation.ControllerSlotB\t\n\007Message\"d\n8CRem"
-  "oteClient_CreateRemotePlayTogetherInvita"
-  "tion_Request\022\r\n\005appid\030\001 \001(\r\022\031\n\021launch_pa"
-  "rameters\030\002 \001(\t\"T\n9CRemoteClient_CreateRe"
-  "motePlayTogetherInvitation_Response\022\027\n\017i"
-  "nvitation_code\030\001 \001(\t\"S\n8CRemoteClient_De"
-  "leteRemotePlayTogetherInvitation_Request"
-  "\022\027\n\017invitation_code\030\001 \001(\t\";\n9CRemoteClie"
-  "nt_DeleteRemotePlayTogetherInvitation_Re"
-  "sponse\"S\n8CRemoteClient_LookupRemotePlay"
-  "TogetherInvitation_Request\022\027\n\017invitation"
-  "_code\030\001 \001(\t\"S\n9CRemoteClient_LookupRemot"
-  "ePlayTogetherInvitation_Response\022\026\n\016invi"
-  "tation_url\030\001 \001(\t\"\272\004\n\035CCMRemoteClient_Cli"
-  "entMessage\022F\n\026create_session_request\030\001 \001"
-  "(\0132$.CRemoteClient_CreateSession_Request"
-  "H\000\022D\n\025start_pairing_request\030\002 \001(\0132#.CRem"
-  "oteClient_StartPairing_RequestH\000\022I\n\030set_"
-  "pairing_info_request\030\003 \001(\0132%.CRemoteClie"
-  "nt_SetPairingInfo_RequestH\000\022F\n\026cancel_pa"
-  "iring_request\030\004 \001(\0132$.CRemoteClient_Canc"
-  "elPairing_RequestH\000\022R\n\026register_status_u"
-  "pdate\030\005 \001(\01320.CRemoteClient_RegisterStat"
-  "usUpdate_NotificationH\000\022V\n\030unregister_st"
-  "atus_update\030\006 \001(\01322.CRemoteClient_Unregi"
-  "sterStatusUpdate_NotificationH\000\022A\n\rremot"
-  "e_packet\030\007 \001(\0132(.CRemoteClient_RemotePac"
-  "ket_NotificationH\000B\t\n\007Message\"\237\003\n\035CCMRem"
-  "oteClient_ServerMessage\022\016\n\006result\030\001 \001(\005\022"
-  "H\n\027create_session_response\030\002 \001(\0132%.CRemo"
-  "teClient_CreateSession_ResponseH\000\022F\n\026sta"
-  "rt_pairing_response\030\003 \001(\0132$.CRemoteClien"
-  "t_StartPairing_ResponseH\000\022K\n\031set_pairing"
-  "_info_response\030\004 \001(\0132&.CRemoteClient_Set"
-  "PairingInfo_ResponseH\000\022H\n\027cancel_pairing"
-  "_response\030\005 \001(\0132%.CRemoteClient_CancelPa"
-  "iring_ResponseH\000\022:\n\014reply_packet\030\006 \001(\0132\""
-  ".CRemoteClient_GetReplies_ResponseH\000B\t\n\007"
-  "Message*1\n\023ECLientTaskListType\022\032\n\026EClien"
-  "tTasDownloadClip\020\001B\032\252\002\027OpenSteamworks.Pr"
-  "otobuf"
+  "nt_id\030\001 \001(\006\022\r\n\005tasid\030\002 \001(\006\022\022\n\ncontent_id"
+  "\030\003 \001(\t\")\n\'CRemoteClient_MarkTaskComplete"
+  "_Response\"_\n\'CRemoteClient_RemotePacket_"
+  "Notification\022\022\n\nsession_id\030\001 \001(\006\022\017\n\007stea"
+  "mid\030\002 \001(\006\022\017\n\007payload\030\004 \001(\014\"M\n&CRemoteCli"
+  "ent_ReplyPacket_Notification\022\022\n\nsession_"
+  "id\030\001 \001(\006\022\017\n\007payload\030\002 \001(\014\"6\n CRemoteClie"
+  "nt_GetReplies_Request\022\022\n\nsession_id\030\001 \001("
+  "\006\"4\n!CRemoteClient_GetReplies_Response\022\017"
+  "\n\007payload\030\001 \003(\014\"P\n)CRemoteClient_Allocat"
+  "eRelayServer_Request\022\016\n\006cellid\030\001 \001(\r\022\023\n\013"
+  "credentials\030\002 \001(\t\"B\n*CRemoteClient_Alloc"
+  "ateRelayServer_Response\022\024\n\014relay_server\030"
+  "\001 \001(\t\"2\n!CRemoteClient_AllocateSDR_Reque"
+  "st\022\r\n\005appid\030\001 \001(\r\"$\n\"CRemoteClient_Alloc"
+  "ateSDR_Response\"_\n)CRemoteClient_SteamBr"
+  "oadcast_Notification\022\017\n\007steamid\030\001 \001(\006\022\020\n"
+  "\010clientid\030\002 \001(\006\022\017\n\007payload\030\003 \001(\014\"\223\001\n\'CRe"
+  "moteClient_SteamToSteam_Notification\022\017\n\007"
+  "steamid\030\001 \001(\006\022\024\n\014src_clientid\030\002 \001(\006\022\024\n\014d"
+  "st_clientid\030\003 \001(\006\022\020\n\010secretid\030\004 \001(\r\022\031\n\021e"
+  "ncrypted_payload\030\005 \001(\014\"\270\001\n\"CRemotePlay_S"
+  "essionStarted_Request\022\027\n\017host_account_id"
+  "\030\001 \001(\r\022\031\n\021client_account_id\030\002 \001(\r\022\r\n\005app"
+  "id\030\003 \001(\r\022\032\n\022device_form_factor\030\004 \001(\005\022\034\n\024"
+  "remote_play_together\030\005 \001(\010\022\025\n\rguest_sess"
+  "ion\030\006 \001(\010\"8\n#CRemotePlay_SessionStarted_"
+  "Response\022\021\n\trecord_id\030\001 \001(\006\"u\n\'CRemotePl"
+  "ay_SessionStopped_Notification\022\021\n\trecord"
+  "_id\030\001 \001(\006\022\021\n\tused_x264\030\002 \001(\010\022\021\n\tused_h26"
+  "4\030\003 \001(\010\022\021\n\tused_hevc\030\004 \001(\010\"\267\006\n CRemotePl"
+  "ayTogether_Notification\022\017\n\007steamid\030\001 \001(\006"
+  "\022G\n\rgroup_updated\030\002 \001(\0132..CRemotePlayTog"
+  "ether_Notification.GroupUpdatedH\000\032\214\001\n\006Pl"
+  "ayer\022\017\n\007steamid\030\001 \001(\006\022\017\n\007guestid\030\002 \001(\r\022\023"
+  "\n\013avatar_hash\030\003 \001(\014\022\030\n\020keyboard_enabled\030"
+  "\004 \001(\010\022\025\n\rmouse_enabled\030\005 \001(\010\022\032\n\022controll"
+  "er_enabled\030\006 \001(\010\032:\n\027ControllerSlot_obsol"
+  "ete\022\016\n\006slotid\030\001 \001(\r\022\017\n\007steamid\030\002 \001(\006\032s\n\016"
+  "ControllerSlot\022\016\n\006slotid\030\001 \001(\r\0228\n\006player"
+  "\030\002 \001(\0132(.CRemotePlayTogether_Notificatio"
+  "n.Player\022\027\n\017controller_type\030\003 \001(\005\032\355\002\n\014Gr"
+  "oupUpdated\022\024\n\014host_steamid\030\001 \001(\006\022\025\n\rhost"
+  "_clientid\030\002 \001(\006\022\030\n\020players_obsolete\030\003 \003("
+  "\006\022\023\n\013host_gameid\030\004 \001(\006\022\\\n\031controller_slo"
+  "ts_obsolete\030\005 \003(\01329.CRemotePlayTogether_"
+  "Notification.ControllerSlot_obsolete\022\027\n\017"
+  "has_new_players\030\006 \001(\010\022>\n\014player_slots\030\007 "
+  "\003(\0132(.CRemotePlayTogether_Notification.P"
+  "layer\022J\n\020controller_slots\030\010 \003(\01320.CRemot"
+  "ePlayTogether_Notification.ControllerSlo"
+  "tB\t\n\007Message\"d\n8CRemoteClient_CreateRemo"
+  "tePlayTogetherInvitation_Request\022\r\n\005appi"
+  "d\030\001 \001(\r\022\031\n\021launch_parameters\030\002 \001(\t\"T\n9CR"
+  "emoteClient_CreateRemotePlayTogetherInvi"
+  "tation_Response\022\027\n\017invitation_code\030\001 \001(\t"
+  "\"S\n8CRemoteClient_DeleteRemotePlayTogeth"
+  "erInvitation_Request\022\027\n\017invitation_code\030"
+  "\001 \001(\t\";\n9CRemoteClient_DeleteRemotePlayT"
+  "ogetherInvitation_Response\"S\n8CRemoteCli"
+  "ent_LookupRemotePlayTogetherInvitation_R"
+  "equest\022\027\n\017invitation_code\030\001 \001(\t\"S\n9CRemo"
+  "teClient_LookupRemotePlayTogetherInvitat"
+  "ion_Response\022\026\n\016invitation_url\030\001 \001(\t\"\272\004\n"
+  "\035CCMRemoteClient_ClientMessage\022F\n\026create"
+  "_session_request\030\001 \001(\0132$.CRemoteClient_C"
+  "reateSession_RequestH\000\022D\n\025start_pairing_"
+  "request\030\002 \001(\0132#.CRemoteClient_StartPairi"
+  "ng_RequestH\000\022I\n\030set_pairing_info_request"
+  "\030\003 \001(\0132%.CRemoteClient_SetPairingInfo_Re"
+  "questH\000\022F\n\026cancel_pairing_request\030\004 \001(\0132"
+  "$.CRemoteClient_CancelPairing_RequestH\000\022"
+  "R\n\026register_status_update\030\005 \001(\01320.CRemot"
+  "eClient_RegisterStatusUpdate_Notificatio"
+  "nH\000\022V\n\030unregister_status_update\030\006 \001(\01322."
+  "CRemoteClient_UnregisterStatusUpdate_Not"
+  "ificationH\000\022A\n\rremote_packet\030\007 \001(\0132(.CRe"
+  "moteClient_RemotePacket_NotificationH\000B\t"
+  "\n\007Message\"\237\003\n\035CCMRemoteClient_ServerMess"
+  "age\022\016\n\006result\030\001 \001(\005\022H\n\027create_session_re"
+  "sponse\030\002 \001(\0132%.CRemoteClient_CreateSessi"
+  "on_ResponseH\000\022F\n\026start_pairing_response\030"
+  "\003 \001(\0132$.CRemoteClient_StartPairing_Respo"
+  "nseH\000\022K\n\031set_pairing_info_response\030\004 \001(\013"
+  "2&.CRemoteClient_SetPairingInfo_Response"
+  "H\000\022H\n\027cancel_pairing_response\030\005 \001(\0132%.CR"
+  "emoteClient_CancelPairing_ResponseH\000\022:\n\014"
+  "reply_packet\030\006 \001(\0132\".CRemoteClient_GetRe"
+  "plies_ResponseH\000B\t\n\007Message*1\n\023ECLientTa"
+  "skListType\022\032\n\026EClientTasDownloadClip\020\001B\032"
+  "\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto = {
-  false, false, 5686, descriptor_table_protodef_steammessages_5fremoteclient_5fservice_5fmessages_2eproto, "steammessages_remoteclient_service_messages.proto", 
+  false, false, 5706, descriptor_table_protodef_steammessages_5fremoteclient_5fservice_5fmessages_2eproto, "steammessages_remoteclient_service_messages.proto", 
   &descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_once, descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_deps, 1, 51,
   schemas, file_default_instances, TableStruct_steammessages_5fremoteclient_5fservice_5fmessages_2eproto::offsets,
   file_level_metadata_steammessages_5fremoteclient_5fservice_5fmessages_2eproto, file_level_enum_descriptors_steammessages_5fremoteclient_5fservice_5fmessages_2eproto, file_level_service_descriptors_steammessages_5fremoteclient_5fservice_5fmessages_2eproto,
@@ -6901,10 +6904,13 @@ class CRemoteClient_MarkTaskComplete_Request::_Internal {
  public:
   using HasBits = decltype(std::declval<CRemoteClient_MarkTaskComplete_Request>()._has_bits_);
   static void set_has_remote_client_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_tasid(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_content_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -6918,6 +6924,11 @@ CRemoteClient_MarkTaskComplete_Request::CRemoteClient_MarkTaskComplete_Request(c
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  content_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_content_id()) {
+    content_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_content_id(), 
+      GetArena());
+  }
   ::memcpy(&remote_client_id_, &from.remote_client_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&tasid_) -
     reinterpret_cast<char*>(&remote_client_id_)) + sizeof(tasid_));
@@ -6925,6 +6936,7 @@ CRemoteClient_MarkTaskComplete_Request::CRemoteClient_MarkTaskComplete_Request(c
 }
 
 void CRemoteClient_MarkTaskComplete_Request::SharedCtor() {
+content_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&remote_client_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&tasid_) -
@@ -6939,6 +6951,7 @@ CRemoteClient_MarkTaskComplete_Request::~CRemoteClient_MarkTaskComplete_Request(
 
 void CRemoteClient_MarkTaskComplete_Request::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  content_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void CRemoteClient_MarkTaskComplete_Request::ArenaDtor(void* object) {
@@ -6958,7 +6971,10 @@ void CRemoteClient_MarkTaskComplete_Request::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000001u) {
+    content_id_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x00000006u) {
     ::memset(&remote_client_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&tasid_) -
         reinterpret_cast<char*>(&remote_client_id_)) + sizeof(tasid_));
@@ -6989,6 +7005,17 @@ const char* CRemoteClient_MarkTaskComplete_Request::_InternalParse(const char* p
           _Internal::set_has_tasid(&has_bits);
           tasid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional string content_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_content_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CRemoteClient_MarkTaskComplete_Request.content_id");
+          #endif  // !NDEBUG
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -7022,15 +7049,25 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional fixed64 remote_client_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_remote_client_id(), target);
   }
 
   // optional fixed64 tasid = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_tasid(), target);
+  }
+
+  // optional string content_id = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_content_id().data(), static_cast<int>(this->_internal_content_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CRemoteClient_MarkTaskComplete_Request.content_id");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_content_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7050,14 +7087,21 @@ size_t CRemoteClient_MarkTaskComplete_Request::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 remote_client_id = 1;
+  if (cached_has_bits & 0x00000007u) {
+    // optional string content_id = 3;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_content_id());
+    }
+
+    // optional fixed64 remote_client_id = 1;
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
     // optional fixed64 tasid = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
@@ -7094,11 +7138,14 @@ void CRemoteClient_MarkTaskComplete_Request::MergeFrom(const CRemoteClient_MarkT
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      remote_client_id_ = from.remote_client_id_;
+      _internal_set_content_id(from._internal_content_id());
     }
     if (cached_has_bits & 0x00000002u) {
+      remote_client_id_ = from.remote_client_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
       tasid_ = from.tasid_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -7127,6 +7174,7 @@ void CRemoteClient_MarkTaskComplete_Request::InternalSwap(CRemoteClient_MarkTask
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
+  content_id_.Swap(&other->content_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CRemoteClient_MarkTaskComplete_Request, tasid_)
       + sizeof(CRemoteClient_MarkTaskComplete_Request::tasid_)

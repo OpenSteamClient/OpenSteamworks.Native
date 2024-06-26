@@ -91,6 +91,7 @@ constexpr CInventory_AddItem_Request::CInventory_AddItem_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : itemdefid_()
   , itempropsjson_()
+  , itemquantity_()
   , steamid_(PROTOBUF_ULONGLONG(0))
   , appid_(0u)
   , notify_(false)
@@ -412,12 +413,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5finventory_2est
   PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, appid_),
   PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, itemdefid_),
   PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, itempropsjson_),
+  PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, itemquantity_),
   PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, steamid_),
   PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, notify_),
   PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, requestid_),
   PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, trade_restriction_),
   PROTOBUF_FIELD_OFFSET(::CInventory_AddItem_Request, is_purchase_),
   1,
+  ~0u,
   ~0u,
   ~0u,
   0,
@@ -617,24 +620,24 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 26, 36, sizeof(::CInventory_ExchangeItem_Request)},
   { 41, 48, sizeof(::CInventory_GetEligiblePromoItemDefIDs_Request)},
   { 50, -1, sizeof(::CInventory_GetEligiblePromoItemDefIDs_Response)},
-  { 56, 69, sizeof(::CInventory_AddItem_Request)},
-  { 77, 89, sizeof(::CInventory_ModifyItems_Request_ItemPropertyUpdate)},
-  { 96, 105, sizeof(::CInventory_ModifyItems_Request)},
-  { 109, 116, sizeof(::CInventory_ConsumePlaytime_Request)},
-  { 118, 129, sizeof(::CInventory_ConsumeItem_Request)},
-  { 135, 143, sizeof(::CInventory_DevSetNextDrop_Request)},
-  { 146, 155, sizeof(::CInventory_SplitItemStacRequest)},
-  { 159, 169, sizeof(::CInventory_CombineItemStacks_Request)},
-  { 174, 180, sizeof(::CInventory_GetItemDefMeta_Request)},
-  { 181, 188, sizeof(::CInventory_GetItemDefMeta_Response)},
-  { 190, -1, sizeof(::CInventory_GetUserPurchaseInfo_Request)},
-  { 195, 201, sizeof(::CInventory_GetUserPurchaseInfo_Response)},
-  { 202, 209, sizeof(::CInventory_PurchaseInit_Request_LineItem)},
-  { 211, 219, sizeof(::CInventory_PurchaseInit_Request)},
-  { 222, 229, sizeof(::CInventory_PurchaseInit_Response)},
-  { 231, 239, sizeof(::CInventory_PurchaseFinalize_Request)},
-  { 242, 250, sizeof(::CInventory_InspectItem_Request)},
-  { 253, 260, sizeof(::CInventoryClient_NewItems_Notification)},
+  { 56, 70, sizeof(::CInventory_AddItem_Request)},
+  { 79, 91, sizeof(::CInventory_ModifyItems_Request_ItemPropertyUpdate)},
+  { 98, 107, sizeof(::CInventory_ModifyItems_Request)},
+  { 111, 118, sizeof(::CInventory_ConsumePlaytime_Request)},
+  { 120, 131, sizeof(::CInventory_ConsumeItem_Request)},
+  { 137, 145, sizeof(::CInventory_DevSetNextDrop_Request)},
+  { 148, 157, sizeof(::CInventory_SplitItemStacRequest)},
+  { 161, 171, sizeof(::CInventory_CombineItemStacks_Request)},
+  { 176, 182, sizeof(::CInventory_GetItemDefMeta_Request)},
+  { 183, 190, sizeof(::CInventory_GetItemDefMeta_Response)},
+  { 192, -1, sizeof(::CInventory_GetUserPurchaseInfo_Request)},
+  { 197, 203, sizeof(::CInventory_GetUserPurchaseInfo_Response)},
+  { 204, 211, sizeof(::CInventory_PurchaseInit_Request_LineItem)},
+  { 213, 221, sizeof(::CInventory_PurchaseInit_Request)},
+  { 224, 231, sizeof(::CInventory_PurchaseInit_Response)},
+  { 233, 241, sizeof(::CInventory_PurchaseFinalize_Request)},
+  { 244, 252, sizeof(::CInventory_InspectItem_Request)},
+  { 255, 262, sizeof(::CInventoryClient_NewItems_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -680,89 +683,89 @@ const char descriptor_table_protodef_steammessages_5finventory_2esteamclient_2ep
   "iblePromoItemDefIDs_Request\022\r\n\005appid\030\001 \001"
   "(\r\022\017\n\007steamid\030\002 \001(\004\"D\n.CInventory_GetEli"
   "giblePromoItemDefIDs_Response\022\022\n\nitemdef"
-  "ids\030\001 \003(\004\"\300\001\n\032CInventory_AddItem_Request"
+  "ids\030\001 \003(\004\"\326\001\n\032CInventory_AddItem_Request"
   "\022\r\n\005appid\030\001 \001(\r\022\021\n\titemdefid\030\002 \003(\004\022\025\n\rit"
-  "empropsjson\030\003 \003(\t\022\017\n\007steamid\030\004 \001(\004\022\016\n\006no"
-  "tify\030\005 \001(\010\022\021\n\trequestid\030\006 \001(\004\022\031\n\021trade_r"
-  "estriction\030\007 \001(\010\022\032\n\013is_purchase\030\010 \001(\010:\005f"
-  "alse\"\345\002\n\036CInventory_ModifyItems_Request\022"
-  "\r\n\005appid\030\001 \001(\r\022\017\n\007steamid\030\002 \001(\004\022C\n\007updat"
-  "es\030\003 \003(\01322.CInventory_ModifyItems_Reques"
-  "t.ItemPropertyUpdate\022\021\n\ttimestamp\030\004 \001(\r\032"
-  "\312\001\n\022ItemPropertyUpdate\022\016\n\006itemid\030\001 \001(\004\022\027"
-  "\n\017remove_property\030\002 \001(\010\022\025\n\rproperty_name"
-  "\030\003 \001(\t\022\033\n\023property_value_bool\030\004 \001(\010\022\032\n\022p"
-  "roperty_value_int\030\005 \001(\003\022\035\n\025property_valu"
-  "e_string\030\006 \001(\t\022\034\n\024property_value_float\030\007"
-  " \001(\002\"F\n\"CInventory_ConsumePlaytime_Reque"
-  "st\022\r\n\005appid\030\001 \001(\r\022\021\n\titemdefid\030\002 \001(\004\"\210\001\n"
-  "\036CInventory_ConsumeItem_Request\022\r\n\005appid"
-  "\030\001 \001(\r\022\016\n\006itemid\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\r"
-  "\022\021\n\ttimestamp\030\004 \001(\t\022\017\n\007steamid\030\005 \001(\004\022\021\n\t"
-  "requestid\030\006 \001(\004\"W\n!CInventory_DevSetNext"
-  "Drop_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\titemdefid"
-  "\030\002 \001(\004\022\020\n\010droptime\030\003 \001(\t\"c\n\037CInventory_S"
-  "plitItemStacRequest\022\r\n\005appid\030\001 \001(\r\022\016\n\006it"
-  "emid\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\r\022\017\n\007steamid\030"
-  "\005 \001(\004\"\200\001\n$CInventory_CombineItemStacks_R"
-  "equest\022\r\n\005appid\030\001 \001(\r\022\022\n\nfromitemid\030\002 \001("
-  "\004\022\022\n\ndestitemid\030\003 \001(\004\022\020\n\010quantity\030\004 \001(\r\022"
-  "\017\n\007steamid\030\007 \001(\006\"2\n!CInventory_GetItemDe"
-  "fMeta_Request\022\r\n\005appid\030\001 \001(\r\"F\n\"CInvento"
-  "ry_GetItemDefMeta_Response\022\020\n\010modified\030\001"
-  " \001(\r\022\016\n\006digest\030\002 \001(\t\"(\n&CInventory_GetUs"
-  "erPurchaseInfo_Request\"<\n\'CInventory_Get"
-  "UserPurchaseInfo_Response\022\021\n\tecurrency\030\001"
-  " \001(\005\"\262\001\n\037CInventory_PurchaseInit_Request"
-  "\022\r\n\005appid\030\001 \001(\r\022\020\n\010language\030\002 \001(\005\022=\n\nlin"
-  "e_items\030\003 \003(\0132).CInventory_PurchaseInit_"
-  "Request.LineItem\032/\n\010LineItem\022\021\n\titemdefi"
-  "d\030\001 \001(\004\022\020\n\010quantity\030\002 \001(\r\"D\n CInventory_"
-  "PurchaseInit_Response\022\017\n\007orderid\030\001 \001(\004\022\017"
-  "\n\007transid\030\002 \001(\004\"W\n#CInventory_PurchaseFi"
-  "nalize_Request\022\r\n\005appid\030\001 \001(\r\022\020\n\010languag"
-  "e\030\002 \001(\005\022\017\n\007orderid\030\003 \001(\004\"Q\n\036CInventory_I"
-  "nspectItem_Request\022\021\n\titemdefid\030\001 \001(\004\022\016\n"
-  "\006itemid\030\002 \001(\006\022\014\n\004tags\030\003 \001(\t\"i\n&CInventor"
-  "yClient_NewItems_Notification\022\r\n\005appid\030\001"
-  " \001(\r\0220\n\022inventory_response\030\002 \001(\0132\024.CInve"
-  "ntory_Response2\231\n\n\tInventory\022F\n\014GetInven"
-  "tory\022 .CInventory_GetInventory_Request\032\024"
-  ".CInventory_Response\022F\n\014ExchangeItem\022 .C"
-  "Inventory_ExchangeItem_Request\032\024.CInvent"
-  "ory_Response\022}\n\032GetEligiblePromoItemDefI"
-  "Ds\022..CInventory_GetEligiblePromoItemDefI"
-  "Ds_Request\032/.CInventory_GetEligiblePromo"
-  "ItemDefIDs_Response\022A\n\014AddPromoItem\022\033.CI"
-  "nventory_AddItem_Request\032\024.CInventory_Re"
-  "sponse\022H\n\017SafeModifyItems\022\037.CInventory_M"
-  "odifyItems_Request\032\024.CInventory_Response"
-  "\022L\n\017ConsumePlaytime\022#.CInventory_Consume"
-  "Playtime_Request\032\024.CInventory_Response\022D"
-  "\n\013ConsumeItem\022\037.CInventory_ConsumeItem_R"
-  "equest\032\024.CInventory_Response\022D\n\017DevGener"
-  "ateItem\022\033.CInventory_AddItem_Request\032\024.C"
-  "Inventory_Response\022J\n\016DevSetNextDrop\022\".C"
-  "Inventory_DevSetNextDrop_Request\032\024.CInve"
-  "ntory_Response\022H\n\016SplitItemStack\022 .CInve"
-  "ntory_SplitItemStacRequest\032\024.CInventory_"
-  "Response\022P\n\021CombineItemStacks\022%.CInvento"
-  "ry_CombineItemStacks_Request\032\024.CInventor"
-  "y_Response\022Y\n\016GetItemDefMeta\022\".CInventor"
-  "y_GetItemDefMeta_Request\032#.CInventory_Ge"
-  "tItemDefMeta_Response\022h\n\023GetUserPurchase"
-  "Info\022\'.CInventory_GetUserPurchaseInfo_Re"
-  "quest\032(.CInventory_GetUserPurchaseInfo_R"
-  "esponse\022S\n\014PurchaseInit\022 .CInventory_Pur"
-  "chaseInit_Request\032!.CInventory_PurchaseI"
-  "nit_Response\022N\n\020PurchaseFinalize\022$.CInve"
-  "ntory_PurchaseFinalize_Request\032\024.CInvent"
-  "ory_Response\022D\n\013InspectItem\022\037.CInventory"
-  "_InspectItem_Request\032\024.CInventory_Respon"
-  "se2_\n\017InventoryClient\022F\n\016NotifyNewItems\022"
-  "\'.CInventoryClient_NewItems_Notification"
-  "\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamwork"
-  "s.Protobuf"
+  "empropsjson\030\003 \003(\t\022\024\n\014itemquantity\030\t \003(\r\022"
+  "\017\n\007steamid\030\004 \001(\004\022\016\n\006notify\030\005 \001(\010\022\021\n\trequ"
+  "estid\030\006 \001(\004\022\031\n\021trade_restriction\030\007 \001(\010\022\032"
+  "\n\013is_purchase\030\010 \001(\010:\005false\"\345\002\n\036CInventor"
+  "y_ModifyItems_Request\022\r\n\005appid\030\001 \001(\r\022\017\n\007"
+  "steamid\030\002 \001(\004\022C\n\007updates\030\003 \003(\01322.CInvent"
+  "ory_ModifyItems_Request.ItemPropertyUpda"
+  "te\022\021\n\ttimestamp\030\004 \001(\r\032\312\001\n\022ItemPropertyUp"
+  "date\022\016\n\006itemid\030\001 \001(\004\022\027\n\017remove_property\030"
+  "\002 \001(\010\022\025\n\rproperty_name\030\003 \001(\t\022\033\n\023property"
+  "_value_bool\030\004 \001(\010\022\032\n\022property_value_int\030"
+  "\005 \001(\003\022\035\n\025property_value_string\030\006 \001(\t\022\034\n\024"
+  "property_value_float\030\007 \001(\002\"F\n\"CInventory"
+  "_ConsumePlaytime_Request\022\r\n\005appid\030\001 \001(\r\022"
+  "\021\n\titemdefid\030\002 \001(\004\"\210\001\n\036CInventory_Consum"
+  "eItem_Request\022\r\n\005appid\030\001 \001(\r\022\016\n\006itemid\030\002"
+  " \001(\004\022\020\n\010quantity\030\003 \001(\r\022\021\n\ttimestamp\030\004 \001("
+  "\t\022\017\n\007steamid\030\005 \001(\004\022\021\n\trequestid\030\006 \001(\004\"W\n"
+  "!CInventory_DevSetNextDrop_Request\022\r\n\005ap"
+  "pid\030\001 \001(\r\022\021\n\titemdefid\030\002 \001(\004\022\020\n\010droptime"
+  "\030\003 \001(\t\"c\n\037CInventory_SplitItemStacReques"
+  "t\022\r\n\005appid\030\001 \001(\r\022\016\n\006itemid\030\002 \001(\004\022\020\n\010quan"
+  "tity\030\003 \001(\r\022\017\n\007steamid\030\005 \001(\004\"\200\001\n$CInvento"
+  "ry_CombineItemStacks_Request\022\r\n\005appid\030\001 "
+  "\001(\r\022\022\n\nfromitemid\030\002 \001(\004\022\022\n\ndestitemid\030\003 "
+  "\001(\004\022\020\n\010quantity\030\004 \001(\r\022\017\n\007steamid\030\007 \001(\006\"2"
+  "\n!CInventory_GetItemDefMeta_Request\022\r\n\005a"
+  "ppid\030\001 \001(\r\"F\n\"CInventory_GetItemDefMeta_"
+  "Response\022\020\n\010modified\030\001 \001(\r\022\016\n\006digest\030\002 \001"
+  "(\t\"(\n&CInventory_GetUserPurchaseInfo_Req"
+  "uest\"<\n\'CInventory_GetUserPurchaseInfo_R"
+  "esponse\022\021\n\tecurrency\030\001 \001(\005\"\262\001\n\037CInventor"
+  "y_PurchaseInit_Request\022\r\n\005appid\030\001 \001(\r\022\020\n"
+  "\010language\030\002 \001(\005\022=\n\nline_items\030\003 \003(\0132).CI"
+  "nventory_PurchaseInit_Request.LineItem\032/"
+  "\n\010LineItem\022\021\n\titemdefid\030\001 \001(\004\022\020\n\010quantit"
+  "y\030\002 \001(\r\"D\n CInventory_PurchaseInit_Respo"
+  "nse\022\017\n\007orderid\030\001 \001(\004\022\017\n\007transid\030\002 \001(\004\"W\n"
+  "#CInventory_PurchaseFinalize_Request\022\r\n\005"
+  "appid\030\001 \001(\r\022\020\n\010language\030\002 \001(\005\022\017\n\007orderid"
+  "\030\003 \001(\004\"Q\n\036CInventory_InspectItem_Request"
+  "\022\021\n\titemdefid\030\001 \001(\004\022\016\n\006itemid\030\002 \001(\006\022\014\n\004t"
+  "ags\030\003 \001(\t\"i\n&CInventoryClient_NewItems_N"
+  "otification\022\r\n\005appid\030\001 \001(\r\0220\n\022inventory_"
+  "response\030\002 \001(\0132\024.CInventory_Response2\231\n\n"
+  "\tInventory\022F\n\014GetInventory\022 .CInventory_"
+  "GetInventory_Request\032\024.CInventory_Respon"
+  "se\022F\n\014ExchangeItem\022 .CInventory_Exchange"
+  "Item_Request\032\024.CInventory_Response\022}\n\032Ge"
+  "tEligiblePromoItemDefIDs\022..CInventory_Ge"
+  "tEligiblePromoItemDefIDs_Request\032/.CInve"
+  "ntory_GetEligiblePromoItemDefIDs_Respons"
+  "e\022A\n\014AddPromoItem\022\033.CInventory_AddItem_R"
+  "equest\032\024.CInventory_Response\022H\n\017SafeModi"
+  "fyItems\022\037.CInventory_ModifyItems_Request"
+  "\032\024.CInventory_Response\022L\n\017ConsumePlaytim"
+  "e\022#.CInventory_ConsumePlaytime_Request\032\024"
+  ".CInventory_Response\022D\n\013ConsumeItem\022\037.CI"
+  "nventory_ConsumeItem_Request\032\024.CInventor"
+  "y_Response\022D\n\017DevGenerateItem\022\033.CInvento"
+  "ry_AddItem_Request\032\024.CInventory_Response"
+  "\022J\n\016DevSetNextDrop\022\".CInventory_DevSetNe"
+  "xtDrop_Request\032\024.CInventory_Response\022H\n\016"
+  "SplitItemStack\022 .CInventory_SplitItemSta"
+  "cRequest\032\024.CInventory_Response\022P\n\021Combin"
+  "eItemStacks\022%.CInventory_CombineItemStac"
+  "ks_Request\032\024.CInventory_Response\022Y\n\016GetI"
+  "temDefMeta\022\".CInventory_GetItemDefMeta_R"
+  "equest\032#.CInventory_GetItemDefMeta_Respo"
+  "nse\022h\n\023GetUserPurchaseInfo\022\'.CInventory_"
+  "GetUserPurchaseInfo_Request\032(.CInventory"
+  "_GetUserPurchaseInfo_Response\022S\n\014Purchas"
+  "eInit\022 .CInventory_PurchaseInit_Request\032"
+  "!.CInventory_PurchaseInit_Response\022N\n\020Pu"
+  "rchaseFinalize\022$.CInventory_PurchaseFina"
+  "lize_Request\032\024.CInventory_Response\022D\n\013In"
+  "spectItem\022\037.CInventory_InspectItem_Reque"
+  "st\032\024.CInventory_Response2_\n\017InventoryCli"
+  "ent\022F\n\016NotifyNewItems\022\'.CInventoryClient"
+  "_NewItems_Notification\032\013.NoResponse\032\004\300\265\030"
+  "\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5finventory_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -771,7 +774,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5finventory_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5finventory_2esteamclient_2eproto = {
-  false, false, 3930, descriptor_table_protodef_steammessages_5finventory_2esteamclient_2eproto, "steammessages_inventory.steamclient.proto", 
+  false, false, 3952, descriptor_table_protodef_steammessages_5finventory_2esteamclient_2eproto, "steammessages_inventory.steamclient.proto", 
   &descriptor_table_steammessages_5finventory_2esteamclient_2eproto_once, descriptor_table_steammessages_5finventory_2esteamclient_2eproto_deps, 3, 23,
   schemas, file_default_instances, TableStruct_steammessages_5finventory_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5finventory_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5finventory_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5finventory_2esteamclient_2eproto,
@@ -2270,7 +2273,8 @@ class CInventory_AddItem_Request::_Internal {
 CInventory_AddItem_Request::CInventory_AddItem_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   itemdefid_(arena),
-  itempropsjson_(arena) {
+  itempropsjson_(arena),
+  itemquantity_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CInventory_AddItem_Request)
@@ -2279,7 +2283,8 @@ CInventory_AddItem_Request::CInventory_AddItem_Request(const CInventory_AddItem_
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
       itemdefid_(from.itemdefid_),
-      itempropsjson_(from.itempropsjson_) {
+      itempropsjson_(from.itempropsjson_),
+      itemquantity_(from.itemquantity_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&steamid_, &from.steamid_,
     static_cast<size_t>(reinterpret_cast<char*>(&requestid_) -
@@ -2322,6 +2327,7 @@ void CInventory_AddItem_Request::Clear() {
 
   itemdefid_.Clear();
   itempropsjson_.Clear();
+  itemquantity_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     ::memset(&steamid_, 0, static_cast<size_t>(
@@ -2419,6 +2425,21 @@ const char* CInventory_AddItem_Request::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // repeated uint32 itemquantity = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_itemquantity(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<72>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_itemquantity(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -2501,6 +2522,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_is_purchase(), target);
   }
 
+  // repeated uint32 itemquantity = 9;
+  for (int i = 0, n = this->_internal_itemquantity_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_itemquantity(i), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2532,6 +2559,15 @@ size_t CInventory_AddItem_Request::ByteSizeLong() const {
   for (int i = 0, n = itempropsjson_.size(); i < n; i++) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
       itempropsjson_.Get(i));
+  }
+
+  // repeated uint32 itemquantity = 9;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->itemquantity_);
+    total_size += 1 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_itemquantity_size());
+    total_size += data_size;
   }
 
   cached_has_bits = _has_bits_[0];
@@ -2606,6 +2642,7 @@ void CInventory_AddItem_Request::MergeFrom(const CInventory_AddItem_Request& fro
 
   itemdefid_.MergeFrom(from.itemdefid_);
   itempropsjson_.MergeFrom(from.itempropsjson_);
+  itemquantity_.MergeFrom(from.itemquantity_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2654,6 +2691,7 @@ void CInventory_AddItem_Request::InternalSwap(CInventory_AddItem_Request* other)
   swap(_has_bits_[0], other->_has_bits_[0]);
   itemdefid_.InternalSwap(&other->itemdefid_);
   itempropsjson_.InternalSwap(&other->itempropsjson_);
+  itemquantity_.InternalSwap(&other->itemquantity_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CInventory_AddItem_Request, requestid_)
       + sizeof(CInventory_AddItem_Request::requestid_)

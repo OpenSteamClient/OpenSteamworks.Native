@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fclientnotificationtypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[37]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[40]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -71,6 +71,9 @@ extern CClientNotificationCannotReadControllerGuideButtonDefaultTypeInternal _CC
 class CClientNotificationClaimSteamDeckRewards;
 struct CClientNotificationClaimSteamDeckRewardsDefaultTypeInternal;
 extern CClientNotificationClaimSteamDeckRewardsDefaultTypeInternal _CClientNotificationClaimSteamDeckRewards_default_instance_;
+class CClientNotificationClipDownloaded;
+struct CClientNotificationClipDownloadedDefaultTypeInternal;
+extern CClientNotificationClipDownloadedDefaultTypeInternal _CClientNotificationClipDownloaded_default_instance_;
 class CClientNotificationCloudSyncConflict;
 struct CClientNotificationCloudSyncConflictDefaultTypeInternal;
 extern CClientNotificationCloudSyncConflictDefaultTypeInternal _CClientNotificationCloudSyncConflict_default_instance_;
@@ -107,9 +110,15 @@ extern CClientNotificationFriendMessageDefaultTypeInternal _CClientNotificationF
 class CClientNotificationFriendOnline;
 struct CClientNotificationFriendOnlineDefaultTypeInternal;
 extern CClientNotificationFriendOnlineDefaultTypeInternal _CClientNotificationFriendOnline_default_instance_;
-class CClientNotificationGRE;
-struct CClientNotificationGREDefaultTypeInternal;
-extern CClientNotificationGREDefaultTypeInternal _CClientNotificationGRE_default_instance_;
+class CClientNotificationGameRecordingError;
+struct CClientNotificationGameRecordingErrorDefaultTypeInternal;
+extern CClientNotificationGameRecordingErrorDefaultTypeInternal _CClientNotificationGameRecordingError_default_instance_;
+class CClientNotificationGameRecordingStart;
+struct CClientNotificationGameRecordingStartDefaultTypeInternal;
+extern CClientNotificationGameRecordingStartDefaultTypeInternal _CClientNotificationGameRecordingStart_default_instance_;
+class CClientNotificationGameRecordingStop;
+struct CClientNotificationGameRecordingStopDefaultTypeInternal;
+extern CClientNotificationGameRecordingStopDefaultTypeInternal _CClientNotificationGameRecordingStop_default_instance_;
 class CClientNotificationGiftReceived;
 struct CClientNotificationGiftReceivedDefaultTypeInternal;
 extern CClientNotificationGiftReceivedDefaultTypeInternal _CClientNotificationGiftReceived_default_instance_;
@@ -173,6 +182,7 @@ template<> ::CClientNotificationBatteryTemperature* Arena::CreateMaybeMessage<::
 template<> ::CClientNotificationBroadcastAvailableToWatch* Arena::CreateMaybeMessage<::CClientNotificationBroadcastAvailableToWatch>(Arena*);
 template<> ::CClientNotificationCannotReadControllerGuideButton* Arena::CreateMaybeMessage<::CClientNotificationCannotReadControllerGuideButton>(Arena*);
 template<> ::CClientNotificationClaimSteamDeckRewards* Arena::CreateMaybeMessage<::CClientNotificationClaimSteamDeckRewards>(Arena*);
+template<> ::CClientNotificationClipDownloaded* Arena::CreateMaybeMessage<::CClientNotificationClipDownloaded>(Arena*);
 template<> ::CClientNotificationCloudSyncConflict* Arena::CreateMaybeMessage<::CClientNotificationCloudSyncConflict>(Arena*);
 template<> ::CClientNotificationCloudSyncFailure* Arena::CreateMaybeMessage<::CClientNotificationCloudSyncFailure>(Arena*);
 template<> ::CClientNotificationDockUnsupportedFirmware* Arena::CreateMaybeMessage<::CClientNotificationDockUnsupportedFirmware>(Arena*);
@@ -185,7 +195,9 @@ template<> ::CClientNotificationFriendInvite* Arena::CreateMaybeMessage<::CClien
 template<> ::CClientNotificationFriendInviteRollup* Arena::CreateMaybeMessage<::CClientNotificationFriendInviteRollup>(Arena*);
 template<> ::CClientNotificationFriendMessage* Arena::CreateMaybeMessage<::CClientNotificationFriendMessage>(Arena*);
 template<> ::CClientNotificationFriendOnline* Arena::CreateMaybeMessage<::CClientNotificationFriendOnline>(Arena*);
-template<> ::CClientNotificationGRE* Arena::CreateMaybeMessage<::CClientNotificationGRE>(Arena*);
+template<> ::CClientNotificationGameRecordingError* Arena::CreateMaybeMessage<::CClientNotificationGameRecordingError>(Arena*);
+template<> ::CClientNotificationGameRecordingStart* Arena::CreateMaybeMessage<::CClientNotificationGameRecordingStart>(Arena*);
+template<> ::CClientNotificationGameRecordingStop* Arena::CreateMaybeMessage<::CClientNotificationGameRecordingStop>(Arena*);
 template<> ::CClientNotificationGiftReceived* Arena::CreateMaybeMessage<::CClientNotificationGiftReceived>(Arena*);
 template<> ::CClientNotificationGroupChatMessage* Arena::CreateMaybeMessage<::CClientNotificationGroupChatMessage>(Arena*);
 template<> ::CClientNotificationHardwareSurveyPending* Arena::CreateMaybeMessage<::CClientNotificationHardwareSurveyPending>(Arena*);
@@ -258,14 +270,17 @@ enum EClientNotificationType : int {
   EClientNotificationType_FamilyPurchaseRequestResponse = 47,
   EClientNotificationType_ParentalFeatureRequest = 48,
   EClientNotificationType_ParentalPlaytimeRequest = 49,
-  EClientNotificationType_GRE = 50,
+  EClientNotificationType_GameRecordingError = 50,
   EClientNotificationType_ParentalFeatureResponse = 51,
   EClientNotificationType_ParentalPlaytimeResponse = 52,
-  EClientNotificationType_RequestedGameAdded = 53
+  EClientNotificationType_RequestedGameAdded = 53,
+  EClientNotificationType_ClipDownloaded = 54,
+  EClientNotificationType_GameRecordingStart = 55,
+  EClientNotificationType_GameRecordingStop = 56
 };
 bool EClientNotificationType_IsValid(int value);
 constexpr EClientNotificationType EClientNotificationType_MIN = EClientNotificationType_Invalid;
-constexpr EClientNotificationType EClientNotificationType_MAX = EClientNotificationType_RequestedGameAdded;
+constexpr EClientNotificationType EClientNotificationType_MAX = EClientNotificationType_GameRecordingStop;
 constexpr int EClientNotificationType_ARRAYSIZE = EClientNotificationType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EClientNotificationType_descriptor();
@@ -305,6 +320,29 @@ inline bool ESystemUpdateNotificationType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ESystemUpdateNotificationType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESystemUpdateNotificationType>(
     ESystemUpdateNotificationType_descriptor(), name, value);
+}
+enum EGameRecordingErrorType : int {
+  EGameRecordingErrorGeneral = 1,
+  EGameRecordingErrorLowDiskSpace = 2
+};
+bool EGameRecordingErrorType_IsValid(int value);
+constexpr EGameRecordingErrorType EGameRecordingErrorType_MIN = EGameRecordingErrorGeneral;
+constexpr EGameRecordingErrorType EGameRecordingErrorType_MAX = EGameRecordingErrorLowDiskSpace;
+constexpr int EGameRecordingErrorType_ARRAYSIZE = EGameRecordingErrorType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGameRecordingErrorType_descriptor();
+template<typename T>
+inline const std::string& EGameRecordingErrorType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EGameRecordingErrorType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EGameRecordingErrorType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EGameRecordingErrorType_descriptor(), enum_t_value);
+}
+inline bool EGameRecordingErrorType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EGameRecordingErrorType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EGameRecordingErrorType>(
+    EGameRecordingErrorType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -6455,24 +6493,24 @@ class CClientNotificationPlaytimeWarning PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CClientNotificationGRE PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientNotificationGRE) */ {
+class CClientNotificationGameRecordingError PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientNotificationGameRecordingError) */ {
  public:
-  inline CClientNotificationGRE() : CClientNotificationGRE(nullptr) {}
-  virtual ~CClientNotificationGRE();
-  explicit constexpr CClientNotificationGRE(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CClientNotificationGameRecordingError() : CClientNotificationGameRecordingError(nullptr) {}
+  virtual ~CClientNotificationGameRecordingError();
+  explicit constexpr CClientNotificationGameRecordingError(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CClientNotificationGRE(const CClientNotificationGRE& from);
-  CClientNotificationGRE(CClientNotificationGRE&& from) noexcept
-    : CClientNotificationGRE() {
+  CClientNotificationGameRecordingError(const CClientNotificationGameRecordingError& from);
+  CClientNotificationGameRecordingError(CClientNotificationGameRecordingError&& from) noexcept
+    : CClientNotificationGameRecordingError() {
     *this = ::std::move(from);
   }
 
-  inline CClientNotificationGRE& operator=(const CClientNotificationGRE& from) {
+  inline CClientNotificationGameRecordingError& operator=(const CClientNotificationGameRecordingError& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CClientNotificationGRE& operator=(CClientNotificationGRE&& from) noexcept {
+  inline CClientNotificationGameRecordingError& operator=(CClientNotificationGameRecordingError&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -6497,20 +6535,20 @@ class CClientNotificationGRE PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const CClientNotificationGRE& default_instance() {
+  static const CClientNotificationGameRecordingError& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CClientNotificationGRE* internal_default_instance() {
-    return reinterpret_cast<const CClientNotificationGRE*>(
-               &_CClientNotificationGRE_default_instance_);
+  static inline const CClientNotificationGameRecordingError* internal_default_instance() {
+    return reinterpret_cast<const CClientNotificationGameRecordingError*>(
+               &_CClientNotificationGameRecordingError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     36;
 
-  friend void swap(CClientNotificationGRE& a, CClientNotificationGRE& b) {
+  friend void swap(CClientNotificationGameRecordingError& a, CClientNotificationGameRecordingError& b) {
     a.Swap(&b);
   }
-  inline void Swap(CClientNotificationGRE* other) {
+  inline void Swap(CClientNotificationGameRecordingError* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -6518,7 +6556,7 @@ class CClientNotificationGRE PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CClientNotificationGRE* other) {
+  void UnsafeArenaSwap(CClientNotificationGameRecordingError* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -6526,17 +6564,17 @@ class CClientNotificationGRE PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline CClientNotificationGRE* New() const final {
-    return CreateMaybeMessage<CClientNotificationGRE>(nullptr);
+  inline CClientNotificationGameRecordingError* New() const final {
+    return CreateMaybeMessage<CClientNotificationGameRecordingError>(nullptr);
   }
 
-  CClientNotificationGRE* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CClientNotificationGRE>(arena);
+  CClientNotificationGameRecordingError* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientNotificationGameRecordingError>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CClientNotificationGRE& from);
-  void MergeFrom(const CClientNotificationGRE& from);
+  void CopyFrom(const CClientNotificationGameRecordingError& from);
+  void MergeFrom(const CClientNotificationGameRecordingError& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -6550,13 +6588,333 @@ class CClientNotificationGRE PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CClientNotificationGRE* other);
+  void InternalSwap(CClientNotificationGameRecordingError* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CClientNotificationGRE";
+    return "CClientNotificationGameRecordingError";
   }
   protected:
-  explicit CClientNotificationGRE(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit CClientNotificationGameRecordingError(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientnotificationtypes_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGameIdFieldNumber = 1,
+    kErrorTypeFieldNumber = 2,
+  };
+  // optional fixed64 game_id = 1;
+  bool has_game_id() const;
+  private:
+  bool _internal_has_game_id() const;
+  public:
+  void clear_game_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id() const;
+  void set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_game_id() const;
+  void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional .EGameRecordingErrorType error_type = 2 [default = EGameRecordingErrorGeneral];
+  bool has_error_type() const;
+  private:
+  bool _internal_has_error_type() const;
+  public:
+  void clear_error_type();
+  ::EGameRecordingErrorType error_type() const;
+  void set_error_type(::EGameRecordingErrorType value);
+  private:
+  ::EGameRecordingErrorType _internal_error_type() const;
+  void _internal_set_error_type(::EGameRecordingErrorType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientNotificationGameRecordingError)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
+  int error_type_;
+  friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CClientNotificationClipDownloaded PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientNotificationClipDownloaded) */ {
+ public:
+  inline CClientNotificationClipDownloaded() : CClientNotificationClipDownloaded(nullptr) {}
+  virtual ~CClientNotificationClipDownloaded();
+  explicit constexpr CClientNotificationClipDownloaded(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientNotificationClipDownloaded(const CClientNotificationClipDownloaded& from);
+  CClientNotificationClipDownloaded(CClientNotificationClipDownloaded&& from) noexcept
+    : CClientNotificationClipDownloaded() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientNotificationClipDownloaded& operator=(const CClientNotificationClipDownloaded& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientNotificationClipDownloaded& operator=(CClientNotificationClipDownloaded&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientNotificationClipDownloaded& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientNotificationClipDownloaded* internal_default_instance() {
+    return reinterpret_cast<const CClientNotificationClipDownloaded*>(
+               &_CClientNotificationClipDownloaded_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    37;
+
+  friend void swap(CClientNotificationClipDownloaded& a, CClientNotificationClipDownloaded& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientNotificationClipDownloaded* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientNotificationClipDownloaded* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientNotificationClipDownloaded* New() const final {
+    return CreateMaybeMessage<CClientNotificationClipDownloaded>(nullptr);
+  }
+
+  CClientNotificationClipDownloaded* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientNotificationClipDownloaded>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientNotificationClipDownloaded& from);
+  void MergeFrom(const CClientNotificationClipDownloaded& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientNotificationClipDownloaded* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientNotificationClipDownloaded";
+  }
+  protected:
+  explicit CClientNotificationClipDownloaded(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientnotificationtypes_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kClipIdFieldNumber = 1,
+  };
+  // optional string clip_id = 1;
+  bool has_clip_id() const;
+  private:
+  bool _internal_has_clip_id() const;
+  public:
+  void clear_clip_id();
+  const std::string& clip_id() const;
+  void set_clip_id(const std::string& value);
+  void set_clip_id(std::string&& value);
+  void set_clip_id(const char* value);
+  void set_clip_id(const char* value, size_t size);
+  std::string* mutable_clip_id();
+  std::string* release_clip_id();
+  void set_allocated_clip_id(std::string* clip_id);
+  private:
+  const std::string& _internal_clip_id() const;
+  void _internal_set_clip_id(const std::string& value);
+  std::string* _internal_mutable_clip_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientNotificationClipDownloaded)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr clip_id_;
+  friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CClientNotificationGameRecordingStart PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientNotificationGameRecordingStart) */ {
+ public:
+  inline CClientNotificationGameRecordingStart() : CClientNotificationGameRecordingStart(nullptr) {}
+  virtual ~CClientNotificationGameRecordingStart();
+  explicit constexpr CClientNotificationGameRecordingStart(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientNotificationGameRecordingStart(const CClientNotificationGameRecordingStart& from);
+  CClientNotificationGameRecordingStart(CClientNotificationGameRecordingStart&& from) noexcept
+    : CClientNotificationGameRecordingStart() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientNotificationGameRecordingStart& operator=(const CClientNotificationGameRecordingStart& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientNotificationGameRecordingStart& operator=(CClientNotificationGameRecordingStart&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientNotificationGameRecordingStart& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientNotificationGameRecordingStart* internal_default_instance() {
+    return reinterpret_cast<const CClientNotificationGameRecordingStart*>(
+               &_CClientNotificationGameRecordingStart_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    38;
+
+  friend void swap(CClientNotificationGameRecordingStart& a, CClientNotificationGameRecordingStart& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientNotificationGameRecordingStart* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientNotificationGameRecordingStart* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientNotificationGameRecordingStart* New() const final {
+    return CreateMaybeMessage<CClientNotificationGameRecordingStart>(nullptr);
+  }
+
+  CClientNotificationGameRecordingStart* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientNotificationGameRecordingStart>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientNotificationGameRecordingStart& from);
+  void MergeFrom(const CClientNotificationGameRecordingStart& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientNotificationGameRecordingStart* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientNotificationGameRecordingStart";
+  }
+  protected:
+  explicit CClientNotificationGameRecordingStart(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -6590,7 +6948,7 @@ class CClientNotificationGRE PROTOBUF_FINAL :
   void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CClientNotificationGRE)
+  // @@protoc_insertion_point(class_scope:CClientNotificationGameRecordingStart)
  private:
   class _Internal;
 
@@ -6599,6 +6957,177 @@ class CClientNotificationGRE PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
+  friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CClientNotificationGameRecordingStop PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientNotificationGameRecordingStop) */ {
+ public:
+  inline CClientNotificationGameRecordingStop() : CClientNotificationGameRecordingStop(nullptr) {}
+  virtual ~CClientNotificationGameRecordingStop();
+  explicit constexpr CClientNotificationGameRecordingStop(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientNotificationGameRecordingStop(const CClientNotificationGameRecordingStop& from);
+  CClientNotificationGameRecordingStop(CClientNotificationGameRecordingStop&& from) noexcept
+    : CClientNotificationGameRecordingStop() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientNotificationGameRecordingStop& operator=(const CClientNotificationGameRecordingStop& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientNotificationGameRecordingStop& operator=(CClientNotificationGameRecordingStop&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientNotificationGameRecordingStop& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientNotificationGameRecordingStop* internal_default_instance() {
+    return reinterpret_cast<const CClientNotificationGameRecordingStop*>(
+               &_CClientNotificationGameRecordingStop_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    39;
+
+  friend void swap(CClientNotificationGameRecordingStop& a, CClientNotificationGameRecordingStop& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientNotificationGameRecordingStop* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientNotificationGameRecordingStop* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientNotificationGameRecordingStop* New() const final {
+    return CreateMaybeMessage<CClientNotificationGameRecordingStop>(nullptr);
+  }
+
+  CClientNotificationGameRecordingStop* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientNotificationGameRecordingStop>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientNotificationGameRecordingStop& from);
+  void MergeFrom(const CClientNotificationGameRecordingStop& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientNotificationGameRecordingStop* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientNotificationGameRecordingStop";
+  }
+  protected:
+  explicit CClientNotificationGameRecordingStop(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientnotificationtypes_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kClipIdFieldNumber = 2,
+    kGameIdFieldNumber = 1,
+  };
+  // optional string clip_id = 2;
+  bool has_clip_id() const;
+  private:
+  bool _internal_has_clip_id() const;
+  public:
+  void clear_clip_id();
+  const std::string& clip_id() const;
+  void set_clip_id(const std::string& value);
+  void set_clip_id(std::string&& value);
+  void set_clip_id(const char* value);
+  void set_clip_id(const char* value, size_t size);
+  std::string* mutable_clip_id();
+  std::string* release_clip_id();
+  void set_allocated_clip_id(std::string* clip_id);
+  private:
+  const std::string& _internal_clip_id() const;
+  void _internal_set_clip_id(const std::string& value);
+  std::string* _internal_mutable_clip_id();
+  public:
+
+  // optional fixed64 game_id = 1;
+  bool has_game_id() const;
+  private:
+  bool _internal_has_game_id() const;
+  public:
+  void clear_game_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id() const;
+  void set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_game_id() const;
+  void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientNotificationGameRecordingStop)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr clip_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
   friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
 };
@@ -10313,39 +10842,288 @@ inline void CClientNotificationPlaytimeWarning::set_playtime_remaining(::PROTOBU
 
 // -------------------------------------------------------------------
 
-// CClientNotificationGRE
+// CClientNotificationGameRecordingError
 
 // optional fixed64 game_id = 1;
-inline bool CClientNotificationGRE::_internal_has_game_id() const {
+inline bool CClientNotificationGameRecordingError::_internal_has_game_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CClientNotificationGRE::has_game_id() const {
+inline bool CClientNotificationGameRecordingError::has_game_id() const {
   return _internal_has_game_id();
 }
-inline void CClientNotificationGRE::clear_game_id() {
+inline void CClientNotificationGameRecordingError::clear_game_id() {
   game_id_ = PROTOBUF_ULONGLONG(0);
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGRE::_internal_game_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGameRecordingError::_internal_game_id() const {
   return game_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGRE::game_id() const {
-  // @@protoc_insertion_point(field_get:CClientNotificationGRE.game_id)
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGameRecordingError::game_id() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingError.game_id)
   return _internal_game_id();
 }
-inline void CClientNotificationGRE::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void CClientNotificationGameRecordingError::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _has_bits_[0] |= 0x00000001u;
   game_id_ = value;
 }
-inline void CClientNotificationGRE::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void CClientNotificationGameRecordingError::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_game_id(value);
-  // @@protoc_insertion_point(field_set:CClientNotificationGRE.game_id)
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingError.game_id)
+}
+
+// optional .EGameRecordingErrorType error_type = 2 [default = EGameRecordingErrorGeneral];
+inline bool CClientNotificationGameRecordingError::_internal_has_error_type() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CClientNotificationGameRecordingError::has_error_type() const {
+  return _internal_has_error_type();
+}
+inline void CClientNotificationGameRecordingError::clear_error_type() {
+  error_type_ = 1;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::EGameRecordingErrorType CClientNotificationGameRecordingError::_internal_error_type() const {
+  return static_cast< ::EGameRecordingErrorType >(error_type_);
+}
+inline ::EGameRecordingErrorType CClientNotificationGameRecordingError::error_type() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingError.error_type)
+  return _internal_error_type();
+}
+inline void CClientNotificationGameRecordingError::_internal_set_error_type(::EGameRecordingErrorType value) {
+  assert(::EGameRecordingErrorType_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  error_type_ = value;
+}
+inline void CClientNotificationGameRecordingError::set_error_type(::EGameRecordingErrorType value) {
+  _internal_set_error_type(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingError.error_type)
+}
+
+// -------------------------------------------------------------------
+
+// CClientNotificationClipDownloaded
+
+// optional string clip_id = 1;
+inline bool CClientNotificationClipDownloaded::_internal_has_clip_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientNotificationClipDownloaded::has_clip_id() const {
+  return _internal_has_clip_id();
+}
+inline void CClientNotificationClipDownloaded::clear_clip_id() {
+  clip_id_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CClientNotificationClipDownloaded::clip_id() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationClipDownloaded.clip_id)
+  return _internal_clip_id();
+}
+inline void CClientNotificationClipDownloaded::set_clip_id(const std::string& value) {
+  _internal_set_clip_id(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationClipDownloaded.clip_id)
+}
+inline std::string* CClientNotificationClipDownloaded::mutable_clip_id() {
+  // @@protoc_insertion_point(field_mutable:CClientNotificationClipDownloaded.clip_id)
+  return _internal_mutable_clip_id();
+}
+inline const std::string& CClientNotificationClipDownloaded::_internal_clip_id() const {
+  return clip_id_.Get();
+}
+inline void CClientNotificationClipDownloaded::_internal_set_clip_id(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CClientNotificationClipDownloaded::set_clip_id(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CClientNotificationClipDownloaded.clip_id)
+}
+inline void CClientNotificationClipDownloaded::set_clip_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CClientNotificationClipDownloaded.clip_id)
+}
+inline void CClientNotificationClipDownloaded::set_clip_id(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CClientNotificationClipDownloaded.clip_id)
+}
+inline std::string* CClientNotificationClipDownloaded::_internal_mutable_clip_id() {
+  _has_bits_[0] |= 0x00000001u;
+  return clip_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CClientNotificationClipDownloaded::release_clip_id() {
+  // @@protoc_insertion_point(field_release:CClientNotificationClipDownloaded.clip_id)
+  if (!_internal_has_clip_id()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return clip_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CClientNotificationClipDownloaded::set_allocated_clip_id(std::string* clip_id) {
+  if (clip_id != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  clip_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), clip_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CClientNotificationClipDownloaded.clip_id)
+}
+
+// -------------------------------------------------------------------
+
+// CClientNotificationGameRecordingStart
+
+// optional fixed64 game_id = 1;
+inline bool CClientNotificationGameRecordingStart::_internal_has_game_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientNotificationGameRecordingStart::has_game_id() const {
+  return _internal_has_game_id();
+}
+inline void CClientNotificationGameRecordingStart::clear_game_id() {
+  game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGameRecordingStart::_internal_game_id() const {
+  return game_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGameRecordingStart::game_id() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingStart.game_id)
+  return _internal_game_id();
+}
+inline void CClientNotificationGameRecordingStart::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  game_id_ = value;
+}
+inline void CClientNotificationGameRecordingStart::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_game_id(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingStart.game_id)
+}
+
+// -------------------------------------------------------------------
+
+// CClientNotificationGameRecordingStop
+
+// optional fixed64 game_id = 1;
+inline bool CClientNotificationGameRecordingStop::_internal_has_game_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CClientNotificationGameRecordingStop::has_game_id() const {
+  return _internal_has_game_id();
+}
+inline void CClientNotificationGameRecordingStop::clear_game_id() {
+  game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGameRecordingStop::_internal_game_id() const {
+  return game_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGameRecordingStop::game_id() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingStop.game_id)
+  return _internal_game_id();
+}
+inline void CClientNotificationGameRecordingStop::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  game_id_ = value;
+}
+inline void CClientNotificationGameRecordingStop::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_game_id(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingStop.game_id)
+}
+
+// optional string clip_id = 2;
+inline bool CClientNotificationGameRecordingStop::_internal_has_clip_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientNotificationGameRecordingStop::has_clip_id() const {
+  return _internal_has_clip_id();
+}
+inline void CClientNotificationGameRecordingStop::clear_clip_id() {
+  clip_id_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CClientNotificationGameRecordingStop::clip_id() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingStop.clip_id)
+  return _internal_clip_id();
+}
+inline void CClientNotificationGameRecordingStop::set_clip_id(const std::string& value) {
+  _internal_set_clip_id(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingStop.clip_id)
+}
+inline std::string* CClientNotificationGameRecordingStop::mutable_clip_id() {
+  // @@protoc_insertion_point(field_mutable:CClientNotificationGameRecordingStop.clip_id)
+  return _internal_mutable_clip_id();
+}
+inline const std::string& CClientNotificationGameRecordingStop::_internal_clip_id() const {
+  return clip_id_.Get();
+}
+inline void CClientNotificationGameRecordingStop::_internal_set_clip_id(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CClientNotificationGameRecordingStop::set_clip_id(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CClientNotificationGameRecordingStop.clip_id)
+}
+inline void CClientNotificationGameRecordingStop::set_clip_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CClientNotificationGameRecordingStop.clip_id)
+}
+inline void CClientNotificationGameRecordingStop::set_clip_id(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CClientNotificationGameRecordingStop.clip_id)
+}
+inline std::string* CClientNotificationGameRecordingStop::_internal_mutable_clip_id() {
+  _has_bits_[0] |= 0x00000001u;
+  return clip_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CClientNotificationGameRecordingStop::release_clip_id() {
+  // @@protoc_insertion_point(field_release:CClientNotificationGameRecordingStop.clip_id)
+  if (!_internal_has_clip_id()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return clip_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CClientNotificationGameRecordingStop::set_allocated_clip_id(std::string* clip_id) {
+  if (clip_id != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  clip_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), clip_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CClientNotificationGameRecordingStop.clip_id)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -10433,6 +11211,11 @@ template <> struct is_proto_enum< ::ESystemUpdateNotificationType> : ::std::true
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ESystemUpdateNotificationType>() {
   return ::ESystemUpdateNotificationType_descriptor();
+}
+template <> struct is_proto_enum< ::EGameRecordingErrorType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EGameRecordingErrorType>() {
+  return ::EGameRecordingErrorType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

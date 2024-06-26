@@ -178,11 +178,14 @@ enum EValveIndexComponent : int {
   EValveIndexComponentUnknown = 0,
   EValveIndexComponentHMD = 1,
   EValveIndexComponentLeftKnuckle = 2,
-  EValveIndexComponentRightKnuckle = 3
+  EValveIndexComponentRightKnuckle = 3,
+  ETempDTst1 = 4,
+  ETempDTst2 = 5,
+  ETempDTst3 = 6
 };
 bool EValveIndexComponent_IsValid(int value);
 constexpr EValveIndexComponent EValveIndexComponent_MIN = EValveIndexComponentUnknown;
-constexpr EValveIndexComponent EValveIndexComponent_MAX = EValveIndexComponentRightKnuckle;
+constexpr EValveIndexComponent EValveIndexComponent_MAX = ETempDTst3;
 constexpr int EValveIndexComponent_ARRAYSIZE = EValveIndexComponent_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EValveIndexComponent_descriptor();

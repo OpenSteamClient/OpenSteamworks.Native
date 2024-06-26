@@ -57,6 +57,7 @@
 #include "generated/steammessages_marketingmessages.steamclient.pb.h"
 #include "generated/steammessages_offline.steamclient.pb.h"
 #include "generated/steammessages_parental.steamclient.pb.h"
+#include "generated/steammessages_parental_objects.pb.h"
 #include "generated/steammessages_parties.steamclient.pb.h"
 #include "generated/steammessages_partnerapps.steamclient.pb.h"
 #include "generated/steammessages_player.steamclient.pb.h"
@@ -89,9 +90,12 @@
 #include "generated/steamnetworkingsockets_messages_udp.pb.h"
 #include "generated/webuimessages_achievements.pb.h"
 #include "generated/webuimessages_base.pb.h"
+#include "generated/webuimessages_bluetooth.pb.h"
 #include "generated/webuimessages_gamenotes.pb.h"
 #include "generated/webuimessages_gamescope.pb.h"
+#include "generated/webuimessages_sharedjscontext.pb.h"
 #include "generated/webuimessages_steamengine.pb.h"
+#include "generated/webuimessages_steaminput.pb.h"
 #include "generated/webuimessages_steamos.pb.h"
 #include "generated/webuimessages_storagedevicemanager.pb.h"
 #include "generated/webuimessages_systemmanager.pb.h"
@@ -14797,6 +14801,50 @@ EXPORT void CClientMetrics_ReportClientArgs_Notification_Delete(CClientMetrics_R
     delete ptr;
 }
 
+// Begin CClientMetrics_ClipShare_Notification
+EXPORT CClientMetrics_ClipShare_Notification *CClientMetrics_ClipShare_Notification_Construct() {
+    return new CClientMetrics_ClipShare_Notification();
+}
+
+EXPORT CClientMetrics_ClipShare_Notification *CClientMetrics_ClipShare_Notification_Deserialize(void* buffer, int len) {
+    CClientMetrics_ClipShare_Notification *msg = new CClientMetrics_ClipShare_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientMetrics_ClipShare_Notification_DeserializeInto(CClientMetrics_ClipShare_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientMetrics_ClipShare_Notification_Delete(CClientMetrics_ClipShare_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CClientMetrics_EndGameRecording_Notification
+EXPORT CClientMetrics_EndGameRecording_Notification *CClientMetrics_EndGameRecording_Notification_Construct() {
+    return new CClientMetrics_EndGameRecording_Notification();
+}
+
+EXPORT CClientMetrics_EndGameRecording_Notification *CClientMetrics_EndGameRecording_Notification_Deserialize(void* buffer, int len) {
+    CClientMetrics_EndGameRecording_Notification *msg = new CClientMetrics_EndGameRecording_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientMetrics_EndGameRecording_Notification_DeserializeInto(CClientMetrics_EndGameRecording_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientMetrics_EndGameRecording_Notification_Delete(CClientMetrics_EndGameRecording_Notification* ptr) {
+    delete ptr;
+}
+
 // Begin CClientNotificationCloudSyncFailure
 EXPORT CClientNotificationCloudSyncFailure *CClientNotificationCloudSyncFailure_Construct() {
     return new CClientNotificationCloudSyncFailure();
@@ -15589,13 +15637,13 @@ EXPORT void CClientNotificationPlaytimeWarning_Delete(CClientNotificationPlaytim
     delete ptr;
 }
 
-// Begin CClientNotificationGRE
-EXPORT CClientNotificationGRE *CClientNotificationGRE_Construct() {
-    return new CClientNotificationGRE();
+// Begin CClientNotificationGameRecordingError
+EXPORT CClientNotificationGameRecordingError *CClientNotificationGameRecordingError_Construct() {
+    return new CClientNotificationGameRecordingError();
 }
 
-EXPORT CClientNotificationGRE *CClientNotificationGRE_Deserialize(void* buffer, int len) {
-    CClientNotificationGRE *msg = new CClientNotificationGRE();
+EXPORT CClientNotificationGameRecordingError *CClientNotificationGameRecordingError_Deserialize(void* buffer, int len) {
+    CClientNotificationGameRecordingError *msg = new CClientNotificationGameRecordingError();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -15603,11 +15651,77 @@ EXPORT CClientNotificationGRE *CClientNotificationGRE_Deserialize(void* buffer, 
     return msg;
 }
 
-EXPORT bool CClientNotificationGRE_DeserializeInto(CClientNotificationGRE *target, void* buffer, int len) {
+EXPORT bool CClientNotificationGameRecordingError_DeserializeInto(CClientNotificationGameRecordingError *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CClientNotificationGRE_Delete(CClientNotificationGRE* ptr) {
+EXPORT void CClientNotificationGameRecordingError_Delete(CClientNotificationGameRecordingError* ptr) {
+    delete ptr;
+}
+
+// Begin CClientNotificationClipDownloaded
+EXPORT CClientNotificationClipDownloaded *CClientNotificationClipDownloaded_Construct() {
+    return new CClientNotificationClipDownloaded();
+}
+
+EXPORT CClientNotificationClipDownloaded *CClientNotificationClipDownloaded_Deserialize(void* buffer, int len) {
+    CClientNotificationClipDownloaded *msg = new CClientNotificationClipDownloaded();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientNotificationClipDownloaded_DeserializeInto(CClientNotificationClipDownloaded *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientNotificationClipDownloaded_Delete(CClientNotificationClipDownloaded* ptr) {
+    delete ptr;
+}
+
+// Begin CClientNotificationGameRecordingStart
+EXPORT CClientNotificationGameRecordingStart *CClientNotificationGameRecordingStart_Construct() {
+    return new CClientNotificationGameRecordingStart();
+}
+
+EXPORT CClientNotificationGameRecordingStart *CClientNotificationGameRecordingStart_Deserialize(void* buffer, int len) {
+    CClientNotificationGameRecordingStart *msg = new CClientNotificationGameRecordingStart();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientNotificationGameRecordingStart_DeserializeInto(CClientNotificationGameRecordingStart *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientNotificationGameRecordingStart_Delete(CClientNotificationGameRecordingStart* ptr) {
+    delete ptr;
+}
+
+// Begin CClientNotificationGameRecordingStop
+EXPORT CClientNotificationGameRecordingStop *CClientNotificationGameRecordingStop_Construct() {
+    return new CClientNotificationGameRecordingStop();
+}
+
+EXPORT CClientNotificationGameRecordingStop *CClientNotificationGameRecordingStop_Deserialize(void* buffer, int len) {
+    CClientNotificationGameRecordingStop *msg = new CClientNotificationGameRecordingStop();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientNotificationGameRecordingStop_DeserializeInto(CClientNotificationGameRecordingStop *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientNotificationGameRecordingStop_Delete(CClientNotificationGameRecordingStop* ptr) {
     delete ptr;
 }
 
@@ -23289,6 +23403,50 @@ EXPORT void CMsgClientSetClientAppUpdateStateResponse_Delete(CMsgClientSetClient
     delete ptr;
 }
 
+// Begin CMsgClientLaunchClientApp
+EXPORT CMsgClientLaunchClientApp *CMsgClientLaunchClientApp_Construct() {
+    return new CMsgClientLaunchClientApp();
+}
+
+EXPORT CMsgClientLaunchClientApp *CMsgClientLaunchClientApp_Deserialize(void* buffer, int len) {
+    CMsgClientLaunchClientApp *msg = new CMsgClientLaunchClientApp();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgClientLaunchClientApp_DeserializeInto(CMsgClientLaunchClientApp *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgClientLaunchClientApp_Delete(CMsgClientLaunchClientApp* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgClientLaunchClientAppResponse
+EXPORT CMsgClientLaunchClientAppResponse *CMsgClientLaunchClientAppResponse_Construct() {
+    return new CMsgClientLaunchClientAppResponse();
+}
+
+EXPORT CMsgClientLaunchClientAppResponse *CMsgClientLaunchClientAppResponse_Deserialize(void* buffer, int len) {
+    CMsgClientLaunchClientAppResponse *msg = new CMsgClientLaunchClientAppResponse();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgClientLaunchClientAppResponse_DeserializeInto(CMsgClientLaunchClientAppResponse *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgClientLaunchClientAppResponse_Delete(CMsgClientLaunchClientAppResponse* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgClientEnableOrDisableDownloads
 EXPORT CMsgClientEnableOrDisableDownloads *CMsgClientEnableOrDisableDownloads_Construct() {
     return new CMsgClientEnableOrDisableDownloads();
@@ -27909,6 +28067,50 @@ EXPORT void CFamilyGroups_DeleteFamilyGroup_Response_Delete(CFamilyGroups_Delete
     delete ptr;
 }
 
+// Begin CFamilyGroups_UndeleteFamilyGroup_Request
+EXPORT CFamilyGroups_UndeleteFamilyGroup_Request *CFamilyGroups_UndeleteFamilyGroup_Request_Construct() {
+    return new CFamilyGroups_UndeleteFamilyGroup_Request();
+}
+
+EXPORT CFamilyGroups_UndeleteFamilyGroup_Request *CFamilyGroups_UndeleteFamilyGroup_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_UndeleteFamilyGroup_Request *msg = new CFamilyGroups_UndeleteFamilyGroup_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_UndeleteFamilyGroup_Request_DeserializeInto(CFamilyGroups_UndeleteFamilyGroup_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_UndeleteFamilyGroup_Request_Delete(CFamilyGroups_UndeleteFamilyGroup_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_UndeleteFamilyGroup_Response
+EXPORT CFamilyGroups_UndeleteFamilyGroup_Response *CFamilyGroups_UndeleteFamilyGroup_Response_Construct() {
+    return new CFamilyGroups_UndeleteFamilyGroup_Response();
+}
+
+EXPORT CFamilyGroups_UndeleteFamilyGroup_Response *CFamilyGroups_UndeleteFamilyGroup_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_UndeleteFamilyGroup_Response *msg = new CFamilyGroups_UndeleteFamilyGroup_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_UndeleteFamilyGroup_Response_DeserializeInto(CFamilyGroups_UndeleteFamilyGroup_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_UndeleteFamilyGroup_Response_Delete(CFamilyGroups_UndeleteFamilyGroup_Response* ptr) {
+    delete ptr;
+}
+
 // Begin CFamilyGroups_GetPlaytimeSummary_Request
 EXPORT CFamilyGroups_GetPlaytimeSummary_Request *CFamilyGroups_GetPlaytimeSummary_Request_Construct() {
     return new CFamilyGroups_GetPlaytimeSummary_Request();
@@ -28415,13 +28617,13 @@ EXPORT void CFamilyGroups_GetPreferredLenders_Response_Delete(CFamilyGroups_GetP
     delete ptr;
 }
 
-// Begin CFamilyGroups_GetDispersionForFamily_Request
-EXPORT CFamilyGroups_GetDispersionForFamily_Request *CFamilyGroups_GetDispersionForFamily_Request_Construct() {
-    return new CFamilyGroups_GetDispersionForFamily_Request();
+// Begin CFamilyGroups_ForceAcceptInvite_Request
+EXPORT CFamilyGroups_ForceAcceptInvite_Request *CFamilyGroups_ForceAcceptInvite_Request_Construct() {
+    return new CFamilyGroups_ForceAcceptInvite_Request();
 }
 
-EXPORT CFamilyGroups_GetDispersionForFamily_Request *CFamilyGroups_GetDispersionForFamily_Request_Deserialize(void* buffer, int len) {
-    CFamilyGroups_GetDispersionForFamily_Request *msg = new CFamilyGroups_GetDispersionForFamily_Request();
+EXPORT CFamilyGroups_ForceAcceptInvite_Request *CFamilyGroups_ForceAcceptInvite_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ForceAcceptInvite_Request *msg = new CFamilyGroups_ForceAcceptInvite_Request();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -28429,21 +28631,21 @@ EXPORT CFamilyGroups_GetDispersionForFamily_Request *CFamilyGroups_GetDispersion
     return msg;
 }
 
-EXPORT bool CFamilyGroups_GetDispersionForFamily_Request_DeserializeInto(CFamilyGroups_GetDispersionForFamily_Request *target, void* buffer, int len) {
+EXPORT bool CFamilyGroups_ForceAcceptInvite_Request_DeserializeInto(CFamilyGroups_ForceAcceptInvite_Request *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CFamilyGroups_GetDispersionForFamily_Request_Delete(CFamilyGroups_GetDispersionForFamily_Request* ptr) {
+EXPORT void CFamilyGroups_ForceAcceptInvite_Request_Delete(CFamilyGroups_ForceAcceptInvite_Request* ptr) {
     delete ptr;
 }
 
-// Begin CFamilyGroups_FamilyDispersionGraph_Edge
-EXPORT CFamilyGroups_FamilyDispersionGraph_Edge *CFamilyGroups_FamilyDispersionGraph_Edge_Construct() {
-    return new CFamilyGroups_FamilyDispersionGraph_Edge();
+// Begin CFamilyGroups_ForceAcceptInvite_Response
+EXPORT CFamilyGroups_ForceAcceptInvite_Response *CFamilyGroups_ForceAcceptInvite_Response_Construct() {
+    return new CFamilyGroups_ForceAcceptInvite_Response();
 }
 
-EXPORT CFamilyGroups_FamilyDispersionGraph_Edge *CFamilyGroups_FamilyDispersionGraph_Edge_Deserialize(void* buffer, int len) {
-    CFamilyGroups_FamilyDispersionGraph_Edge *msg = new CFamilyGroups_FamilyDispersionGraph_Edge();
+EXPORT CFamilyGroups_ForceAcceptInvite_Response *CFamilyGroups_ForceAcceptInvite_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ForceAcceptInvite_Response *msg = new CFamilyGroups_ForceAcceptInvite_Response();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -28451,21 +28653,21 @@ EXPORT CFamilyGroups_FamilyDispersionGraph_Edge *CFamilyGroups_FamilyDispersionG
     return msg;
 }
 
-EXPORT bool CFamilyGroups_FamilyDispersionGraph_Edge_DeserializeInto(CFamilyGroups_FamilyDispersionGraph_Edge *target, void* buffer, int len) {
+EXPORT bool CFamilyGroups_ForceAcceptInvite_Response_DeserializeInto(CFamilyGroups_ForceAcceptInvite_Response *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CFamilyGroups_FamilyDispersionGraph_Edge_Delete(CFamilyGroups_FamilyDispersionGraph_Edge* ptr) {
+EXPORT void CFamilyGroups_ForceAcceptInvite_Response_Delete(CFamilyGroups_ForceAcceptInvite_Response* ptr) {
     delete ptr;
 }
 
-// Begin CFamilyGroups_FamilyDispersionGraph
-EXPORT CFamilyGroups_FamilyDispersionGraph *CFamilyGroups_FamilyDispersionGraph_Construct() {
-    return new CFamilyGroups_FamilyDispersionGraph();
+// Begin CFamilyGroups_GetInviteCheckResults_Request
+EXPORT CFamilyGroups_GetInviteCheckResults_Request *CFamilyGroups_GetInviteCheckResults_Request_Construct() {
+    return new CFamilyGroups_GetInviteCheckResults_Request();
 }
 
-EXPORT CFamilyGroups_FamilyDispersionGraph *CFamilyGroups_FamilyDispersionGraph_Deserialize(void* buffer, int len) {
-    CFamilyGroups_FamilyDispersionGraph *msg = new CFamilyGroups_FamilyDispersionGraph();
+EXPORT CFamilyGroups_GetInviteCheckResults_Request *CFamilyGroups_GetInviteCheckResults_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_GetInviteCheckResults_Request *msg = new CFamilyGroups_GetInviteCheckResults_Request();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -28473,21 +28675,21 @@ EXPORT CFamilyGroups_FamilyDispersionGraph *CFamilyGroups_FamilyDispersionGraph_
     return msg;
 }
 
-EXPORT bool CFamilyGroups_FamilyDispersionGraph_DeserializeInto(CFamilyGroups_FamilyDispersionGraph *target, void* buffer, int len) {
+EXPORT bool CFamilyGroups_GetInviteCheckResults_Request_DeserializeInto(CFamilyGroups_GetInviteCheckResults_Request *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CFamilyGroups_FamilyDispersionGraph_Delete(CFamilyGroups_FamilyDispersionGraph* ptr) {
+EXPORT void CFamilyGroups_GetInviteCheckResults_Request_Delete(CFamilyGroups_GetInviteCheckResults_Request* ptr) {
     delete ptr;
 }
 
-// Begin CFamilyGroups_GetDispersionForFamily_Response
-EXPORT CFamilyGroups_GetDispersionForFamily_Response *CFamilyGroups_GetDispersionForFamily_Response_Construct() {
-    return new CFamilyGroups_GetDispersionForFamily_Response();
+// Begin CFamilyGroups_GetInviteCheckResults_Response
+EXPORT CFamilyGroups_GetInviteCheckResults_Response *CFamilyGroups_GetInviteCheckResults_Response_Construct() {
+    return new CFamilyGroups_GetInviteCheckResults_Response();
 }
 
-EXPORT CFamilyGroups_GetDispersionForFamily_Response *CFamilyGroups_GetDispersionForFamily_Response_Deserialize(void* buffer, int len) {
-    CFamilyGroups_GetDispersionForFamily_Response *msg = new CFamilyGroups_GetDispersionForFamily_Response();
+EXPORT CFamilyGroups_GetInviteCheckResults_Response *CFamilyGroups_GetInviteCheckResults_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_GetInviteCheckResults_Response *msg = new CFamilyGroups_GetInviteCheckResults_Response();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -28495,11 +28697,55 @@ EXPORT CFamilyGroups_GetDispersionForFamily_Response *CFamilyGroups_GetDispersio
     return msg;
 }
 
-EXPORT bool CFamilyGroups_GetDispersionForFamily_Response_DeserializeInto(CFamilyGroups_GetDispersionForFamily_Response *target, void* buffer, int len) {
+EXPORT bool CFamilyGroups_GetInviteCheckResults_Response_DeserializeInto(CFamilyGroups_GetInviteCheckResults_Response *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CFamilyGroups_GetDispersionForFamily_Response_Delete(CFamilyGroups_GetDispersionForFamily_Response* ptr) {
+EXPORT void CFamilyGroups_GetInviteCheckResults_Response_Delete(CFamilyGroups_GetInviteCheckResults_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_ClearCooldownSkip_Request
+EXPORT CFamilyGroups_ClearCooldownSkip_Request *CFamilyGroups_ClearCooldownSkip_Request_Construct() {
+    return new CFamilyGroups_ClearCooldownSkip_Request();
+}
+
+EXPORT CFamilyGroups_ClearCooldownSkip_Request *CFamilyGroups_ClearCooldownSkip_Request_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ClearCooldownSkip_Request *msg = new CFamilyGroups_ClearCooldownSkip_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_ClearCooldownSkip_Request_DeserializeInto(CFamilyGroups_ClearCooldownSkip_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_ClearCooldownSkip_Request_Delete(CFamilyGroups_ClearCooldownSkip_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroups_ClearCooldownSkip_Response
+EXPORT CFamilyGroups_ClearCooldownSkip_Response *CFamilyGroups_ClearCooldownSkip_Response_Construct() {
+    return new CFamilyGroups_ClearCooldownSkip_Response();
+}
+
+EXPORT CFamilyGroups_ClearCooldownSkip_Response *CFamilyGroups_ClearCooldownSkip_Response_Deserialize(void* buffer, int len) {
+    CFamilyGroups_ClearCooldownSkip_Response *msg = new CFamilyGroups_ClearCooldownSkip_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroups_ClearCooldownSkip_Response_DeserializeInto(CFamilyGroups_ClearCooldownSkip_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroups_ClearCooldownSkip_Response_Delete(CFamilyGroups_ClearCooldownSkip_Response* ptr) {
     delete ptr;
 }
 
@@ -32023,116 +32269,6 @@ EXPORT void COffline_GetUnsignedOfflineLogonTicket_Response_Delete(COffline_GetU
     delete ptr;
 }
 
-// Begin ParentalApp
-EXPORT ParentalApp *ParentalApp_Construct() {
-    return new ParentalApp();
-}
-
-EXPORT ParentalApp *ParentalApp_Deserialize(void* buffer, int len) {
-    ParentalApp *msg = new ParentalApp();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool ParentalApp_DeserializeInto(ParentalApp *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void ParentalApp_Delete(ParentalApp* ptr) {
-    delete ptr;
-}
-
-// Begin ParentalPlaytimeDay
-EXPORT ParentalPlaytimeDay *ParentalPlaytimeDay_Construct() {
-    return new ParentalPlaytimeDay();
-}
-
-EXPORT ParentalPlaytimeDay *ParentalPlaytimeDay_Deserialize(void* buffer, int len) {
-    ParentalPlaytimeDay *msg = new ParentalPlaytimeDay();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool ParentalPlaytimeDay_DeserializeInto(ParentalPlaytimeDay *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void ParentalPlaytimeDay_Delete(ParentalPlaytimeDay* ptr) {
-    delete ptr;
-}
-
-// Begin ParentalPlaytimeRestrictions
-EXPORT ParentalPlaytimeRestrictions *ParentalPlaytimeRestrictions_Construct() {
-    return new ParentalPlaytimeRestrictions();
-}
-
-EXPORT ParentalPlaytimeRestrictions *ParentalPlaytimeRestrictions_Deserialize(void* buffer, int len) {
-    ParentalPlaytimeRestrictions *msg = new ParentalPlaytimeRestrictions();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool ParentalPlaytimeRestrictions_DeserializeInto(ParentalPlaytimeRestrictions *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void ParentalPlaytimeRestrictions_Delete(ParentalPlaytimeRestrictions* ptr) {
-    delete ptr;
-}
-
-// Begin ParentalTemporaryPlaytimeRestrictions
-EXPORT ParentalTemporaryPlaytimeRestrictions *ParentalTemporaryPlaytimeRestrictions_Construct() {
-    return new ParentalTemporaryPlaytimeRestrictions();
-}
-
-EXPORT ParentalTemporaryPlaytimeRestrictions *ParentalTemporaryPlaytimeRestrictions_Deserialize(void* buffer, int len) {
-    ParentalTemporaryPlaytimeRestrictions *msg = new ParentalTemporaryPlaytimeRestrictions();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool ParentalTemporaryPlaytimeRestrictions_DeserializeInto(ParentalTemporaryPlaytimeRestrictions *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void ParentalTemporaryPlaytimeRestrictions_Delete(ParentalTemporaryPlaytimeRestrictions* ptr) {
-    delete ptr;
-}
-
-// Begin ParentalSettings
-EXPORT ParentalSettings *ParentalSettings_Construct() {
-    return new ParentalSettings();
-}
-
-EXPORT ParentalSettings *ParentalSettings_Deserialize(void* buffer, int len) {
-    ParentalSettings *msg = new ParentalSettings();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool ParentalSettings_DeserializeInto(ParentalSettings *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void ParentalSettings_Delete(ParentalSettings* ptr) {
-    delete ptr;
-}
-
 // Begin CParental_EnableParentalSettings_Request
 EXPORT CParental_EnableParentalSettings_Request *CParental_EnableParentalSettings_Request_Construct() {
     return new CParental_EnableParentalSettings_Request();
@@ -32771,50 +32907,6 @@ EXPORT void CParental_GetRequests_Request_Delete(CParental_GetRequests_Request* 
     delete ptr;
 }
 
-// Begin ParentalFeatureRequest
-EXPORT ParentalFeatureRequest *ParentalFeatureRequest_Construct() {
-    return new ParentalFeatureRequest();
-}
-
-EXPORT ParentalFeatureRequest *ParentalFeatureRequest_Deserialize(void* buffer, int len) {
-    ParentalFeatureRequest *msg = new ParentalFeatureRequest();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool ParentalFeatureRequest_DeserializeInto(ParentalFeatureRequest *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void ParentalFeatureRequest_Delete(ParentalFeatureRequest* ptr) {
-    delete ptr;
-}
-
-// Begin ParentalPlaytimeRequest
-EXPORT ParentalPlaytimeRequest *ParentalPlaytimeRequest_Construct() {
-    return new ParentalPlaytimeRequest();
-}
-
-EXPORT ParentalPlaytimeRequest *ParentalPlaytimeRequest_Deserialize(void* buffer, int len) {
-    ParentalPlaytimeRequest *msg = new ParentalPlaytimeRequest();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool ParentalPlaytimeRequest_DeserializeInto(ParentalPlaytimeRequest *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void ParentalPlaytimeRequest_Delete(ParentalPlaytimeRequest* ptr) {
-    delete ptr;
-}
-
 // Begin CParental_GetRequests_Response
 EXPORT CParental_GetRequests_Response *CParental_GetRequests_Response_Construct() {
     return new CParental_GetRequests_Response();
@@ -32966,6 +33058,160 @@ EXPORT bool CParental_PlaytimeUsed_Notification_DeserializeInto(CParental_Playti
 }
 
 EXPORT void CParental_PlaytimeUsed_Notification_Delete(CParental_PlaytimeUsed_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin ParentalApp
+EXPORT ParentalApp *ParentalApp_Construct() {
+    return new ParentalApp();
+}
+
+EXPORT ParentalApp *ParentalApp_Deserialize(void* buffer, int len) {
+    ParentalApp *msg = new ParentalApp();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ParentalApp_DeserializeInto(ParentalApp *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ParentalApp_Delete(ParentalApp* ptr) {
+    delete ptr;
+}
+
+// Begin ParentalPlaytimeDay
+EXPORT ParentalPlaytimeDay *ParentalPlaytimeDay_Construct() {
+    return new ParentalPlaytimeDay();
+}
+
+EXPORT ParentalPlaytimeDay *ParentalPlaytimeDay_Deserialize(void* buffer, int len) {
+    ParentalPlaytimeDay *msg = new ParentalPlaytimeDay();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ParentalPlaytimeDay_DeserializeInto(ParentalPlaytimeDay *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ParentalPlaytimeDay_Delete(ParentalPlaytimeDay* ptr) {
+    delete ptr;
+}
+
+// Begin ParentalPlaytimeRestrictions
+EXPORT ParentalPlaytimeRestrictions *ParentalPlaytimeRestrictions_Construct() {
+    return new ParentalPlaytimeRestrictions();
+}
+
+EXPORT ParentalPlaytimeRestrictions *ParentalPlaytimeRestrictions_Deserialize(void* buffer, int len) {
+    ParentalPlaytimeRestrictions *msg = new ParentalPlaytimeRestrictions();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ParentalPlaytimeRestrictions_DeserializeInto(ParentalPlaytimeRestrictions *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ParentalPlaytimeRestrictions_Delete(ParentalPlaytimeRestrictions* ptr) {
+    delete ptr;
+}
+
+// Begin ParentalTemporaryPlaytimeRestrictions
+EXPORT ParentalTemporaryPlaytimeRestrictions *ParentalTemporaryPlaytimeRestrictions_Construct() {
+    return new ParentalTemporaryPlaytimeRestrictions();
+}
+
+EXPORT ParentalTemporaryPlaytimeRestrictions *ParentalTemporaryPlaytimeRestrictions_Deserialize(void* buffer, int len) {
+    ParentalTemporaryPlaytimeRestrictions *msg = new ParentalTemporaryPlaytimeRestrictions();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ParentalTemporaryPlaytimeRestrictions_DeserializeInto(ParentalTemporaryPlaytimeRestrictions *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ParentalTemporaryPlaytimeRestrictions_Delete(ParentalTemporaryPlaytimeRestrictions* ptr) {
+    delete ptr;
+}
+
+// Begin ParentalSettings
+EXPORT ParentalSettings *ParentalSettings_Construct() {
+    return new ParentalSettings();
+}
+
+EXPORT ParentalSettings *ParentalSettings_Deserialize(void* buffer, int len) {
+    ParentalSettings *msg = new ParentalSettings();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ParentalSettings_DeserializeInto(ParentalSettings *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ParentalSettings_Delete(ParentalSettings* ptr) {
+    delete ptr;
+}
+
+// Begin ParentalFeatureRequest
+EXPORT ParentalFeatureRequest *ParentalFeatureRequest_Construct() {
+    return new ParentalFeatureRequest();
+}
+
+EXPORT ParentalFeatureRequest *ParentalFeatureRequest_Deserialize(void* buffer, int len) {
+    ParentalFeatureRequest *msg = new ParentalFeatureRequest();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ParentalFeatureRequest_DeserializeInto(ParentalFeatureRequest *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ParentalFeatureRequest_Delete(ParentalFeatureRequest* ptr) {
+    delete ptr;
+}
+
+// Begin ParentalPlaytimeRequest
+EXPORT ParentalPlaytimeRequest *ParentalPlaytimeRequest_Construct() {
+    return new ParentalPlaytimeRequest();
+}
+
+EXPORT ParentalPlaytimeRequest *ParentalPlaytimeRequest_Deserialize(void* buffer, int len) {
+    ParentalPlaytimeRequest *msg = new ParentalPlaytimeRequest();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ParentalPlaytimeRequest_DeserializeInto(ParentalPlaytimeRequest *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ParentalPlaytimeRequest_Delete(ParentalPlaytimeRequest* ptr) {
     delete ptr;
 }
 
@@ -40163,6 +40409,28 @@ EXPORT void CRemoteClient_UnregisterStatusUpdate_Notification_Delete(CRemoteClie
     delete ptr;
 }
 
+// Begin CRemoteClient_DeviceDetails
+EXPORT CRemoteClient_DeviceDetails *CRemoteClient_DeviceDetails_Construct() {
+    return new CRemoteClient_DeviceDetails();
+}
+
+EXPORT CRemoteClient_DeviceDetails *CRemoteClient_DeviceDetails_Deserialize(void* buffer, int len) {
+    CRemoteClient_DeviceDetails *msg = new CRemoteClient_DeviceDetails();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_DeviceDetails_DeserializeInto(CRemoteClient_DeviceDetails *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_DeviceDetails_Delete(CRemoteClient_DeviceDetails* ptr) {
+    delete ptr;
+}
+
 // Begin CRemoteClient_Online_Notification
 EXPORT CRemoteClient_Online_Notification *CRemoteClient_Online_Notification_Construct() {
     return new CRemoteClient_Online_Notification();
@@ -40182,6 +40450,226 @@ EXPORT bool CRemoteClient_Online_Notification_DeserializeInto(CRemoteClient_Onli
 }
 
 EXPORT void CRemoteClient_Online_Notification_Delete(CRemoteClient_Online_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_GetRecentClients_Request
+EXPORT CRemoteClient_GetRecentClients_Request *CRemoteClient_GetRecentClients_Request_Construct() {
+    return new CRemoteClient_GetRecentClients_Request();
+}
+
+EXPORT CRemoteClient_GetRecentClients_Request *CRemoteClient_GetRecentClients_Request_Deserialize(void* buffer, int len) {
+    CRemoteClient_GetRecentClients_Request *msg = new CRemoteClient_GetRecentClients_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_GetRecentClients_Request_DeserializeInto(CRemoteClient_GetRecentClients_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_GetRecentClients_Request_Delete(CRemoteClient_GetRecentClients_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_ClientLogin
+EXPORT CRemoteClient_ClientLogin *CRemoteClient_ClientLogin_Construct() {
+    return new CRemoteClient_ClientLogin();
+}
+
+EXPORT CRemoteClient_ClientLogin *CRemoteClient_ClientLogin_Deserialize(void* buffer, int len) {
+    CRemoteClient_ClientLogin *msg = new CRemoteClient_ClientLogin();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_ClientLogin_DeserializeInto(CRemoteClient_ClientLogin *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_ClientLogin_Delete(CRemoteClient_ClientLogin* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_ClientDetails
+EXPORT CRemoteClient_ClientDetails *CRemoteClient_ClientDetails_Construct() {
+    return new CRemoteClient_ClientDetails();
+}
+
+EXPORT CRemoteClient_ClientDetails *CRemoteClient_ClientDetails_Deserialize(void* buffer, int len) {
+    CRemoteClient_ClientDetails *msg = new CRemoteClient_ClientDetails();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_ClientDetails_DeserializeInto(CRemoteClient_ClientDetails *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_ClientDetails_Delete(CRemoteClient_ClientDetails* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_GetRecentClients_Response
+EXPORT CRemoteClient_GetRecentClients_Response *CRemoteClient_GetRecentClients_Response_Construct() {
+    return new CRemoteClient_GetRecentClients_Response();
+}
+
+EXPORT CRemoteClient_GetRecentClients_Response *CRemoteClient_GetRecentClients_Response_Deserialize(void* buffer, int len) {
+    CRemoteClient_GetRecentClients_Response *msg = new CRemoteClient_GetRecentClients_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_GetRecentClients_Response_DeserializeInto(CRemoteClient_GetRecentClients_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_GetRecentClients_Response_Delete(CRemoteClient_GetRecentClients_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_Task
+EXPORT CRemoteClient_Task *CRemoteClient_Task_Construct() {
+    return new CRemoteClient_Task();
+}
+
+EXPORT CRemoteClient_Task *CRemoteClient_Task_Deserialize(void* buffer, int len) {
+    CRemoteClient_Task *msg = new CRemoteClient_Task();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_Task_DeserializeInto(CRemoteClient_Task *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_Task_Delete(CRemoteClient_Task* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_AddClientTasRequest
+EXPORT CRemoteClient_AddClientTasRequest *CRemoteClient_AddClientTasRequest_Construct() {
+    return new CRemoteClient_AddClientTasRequest();
+}
+
+EXPORT CRemoteClient_AddClientTasRequest *CRemoteClient_AddClientTasRequest_Deserialize(void* buffer, int len) {
+    CRemoteClient_AddClientTasRequest *msg = new CRemoteClient_AddClientTasRequest();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_AddClientTasRequest_DeserializeInto(CRemoteClient_AddClientTasRequest *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_AddClientTasRequest_Delete(CRemoteClient_AddClientTasRequest* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_AddClientTasResponse
+EXPORT CRemoteClient_AddClientTasResponse *CRemoteClient_AddClientTasResponse_Construct() {
+    return new CRemoteClient_AddClientTasResponse();
+}
+
+EXPORT CRemoteClient_AddClientTasResponse *CRemoteClient_AddClientTasResponse_Deserialize(void* buffer, int len) {
+    CRemoteClient_AddClientTasResponse *msg = new CRemoteClient_AddClientTasResponse();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_AddClientTasResponse_DeserializeInto(CRemoteClient_AddClientTasResponse *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_AddClientTasResponse_Delete(CRemoteClient_AddClientTasResponse* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_TaskList_Notification
+EXPORT CRemoteClient_TaskList_Notification *CRemoteClient_TaskList_Notification_Construct() {
+    return new CRemoteClient_TaskList_Notification();
+}
+
+EXPORT CRemoteClient_TaskList_Notification *CRemoteClient_TaskList_Notification_Deserialize(void* buffer, int len) {
+    CRemoteClient_TaskList_Notification *msg = new CRemoteClient_TaskList_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_TaskList_Notification_DeserializeInto(CRemoteClient_TaskList_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_TaskList_Notification_Delete(CRemoteClient_TaskList_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_MarkTaskComplete_Request
+EXPORT CRemoteClient_MarkTaskComplete_Request *CRemoteClient_MarkTaskComplete_Request_Construct() {
+    return new CRemoteClient_MarkTaskComplete_Request();
+}
+
+EXPORT CRemoteClient_MarkTaskComplete_Request *CRemoteClient_MarkTaskComplete_Request_Deserialize(void* buffer, int len) {
+    CRemoteClient_MarkTaskComplete_Request *msg = new CRemoteClient_MarkTaskComplete_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_MarkTaskComplete_Request_DeserializeInto(CRemoteClient_MarkTaskComplete_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_MarkTaskComplete_Request_Delete(CRemoteClient_MarkTaskComplete_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CRemoteClient_MarkTaskComplete_Response
+EXPORT CRemoteClient_MarkTaskComplete_Response *CRemoteClient_MarkTaskComplete_Response_Construct() {
+    return new CRemoteClient_MarkTaskComplete_Response();
+}
+
+EXPORT CRemoteClient_MarkTaskComplete_Response *CRemoteClient_MarkTaskComplete_Response_Deserialize(void* buffer, int len) {
+    CRemoteClient_MarkTaskComplete_Response *msg = new CRemoteClient_MarkTaskComplete_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CRemoteClient_MarkTaskComplete_Response_DeserializeInto(CRemoteClient_MarkTaskComplete_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CRemoteClient_MarkTaskComplete_Response_Delete(CRemoteClient_MarkTaskComplete_Response* ptr) {
     delete ptr;
 }
 
@@ -47357,6 +47845,94 @@ EXPORT void CStore_UpdatePackageReservations_Response_Delete(CStore_UpdatePackag
     delete ptr;
 }
 
+// Begin CStore_GetWishlistDemoEmailStatus_Request
+EXPORT CStore_GetWishlistDemoEmailStatus_Request *CStore_GetWishlistDemoEmailStatus_Request_Construct() {
+    return new CStore_GetWishlistDemoEmailStatus_Request();
+}
+
+EXPORT CStore_GetWishlistDemoEmailStatus_Request *CStore_GetWishlistDemoEmailStatus_Request_Deserialize(void* buffer, int len) {
+    CStore_GetWishlistDemoEmailStatus_Request *msg = new CStore_GetWishlistDemoEmailStatus_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CStore_GetWishlistDemoEmailStatus_Request_DeserializeInto(CStore_GetWishlistDemoEmailStatus_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CStore_GetWishlistDemoEmailStatus_Request_Delete(CStore_GetWishlistDemoEmailStatus_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CStore_GetWishlistDemoEmailStatus_Response
+EXPORT CStore_GetWishlistDemoEmailStatus_Response *CStore_GetWishlistDemoEmailStatus_Response_Construct() {
+    return new CStore_GetWishlistDemoEmailStatus_Response();
+}
+
+EXPORT CStore_GetWishlistDemoEmailStatus_Response *CStore_GetWishlistDemoEmailStatus_Response_Deserialize(void* buffer, int len) {
+    CStore_GetWishlistDemoEmailStatus_Response *msg = new CStore_GetWishlistDemoEmailStatus_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CStore_GetWishlistDemoEmailStatus_Response_DeserializeInto(CStore_GetWishlistDemoEmailStatus_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CStore_GetWishlistDemoEmailStatus_Response_Delete(CStore_GetWishlistDemoEmailStatus_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CStore_QueueWishlistDemoEmailToFire_Request
+EXPORT CStore_QueueWishlistDemoEmailToFire_Request *CStore_QueueWishlistDemoEmailToFire_Request_Construct() {
+    return new CStore_QueueWishlistDemoEmailToFire_Request();
+}
+
+EXPORT CStore_QueueWishlistDemoEmailToFire_Request *CStore_QueueWishlistDemoEmailToFire_Request_Deserialize(void* buffer, int len) {
+    CStore_QueueWishlistDemoEmailToFire_Request *msg = new CStore_QueueWishlistDemoEmailToFire_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CStore_QueueWishlistDemoEmailToFire_Request_DeserializeInto(CStore_QueueWishlistDemoEmailToFire_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CStore_QueueWishlistDemoEmailToFire_Request_Delete(CStore_QueueWishlistDemoEmailToFire_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CStore_QueueWishlistDemoEmailToFire_Response
+EXPORT CStore_QueueWishlistDemoEmailToFire_Response *CStore_QueueWishlistDemoEmailToFire_Response_Construct() {
+    return new CStore_QueueWishlistDemoEmailToFire_Response();
+}
+
+EXPORT CStore_QueueWishlistDemoEmailToFire_Response *CStore_QueueWishlistDemoEmailToFire_Response_Deserialize(void* buffer, int len) {
+    CStore_QueueWishlistDemoEmailToFire_Response *msg = new CStore_QueueWishlistDemoEmailToFire_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CStore_QueueWishlistDemoEmailToFire_Response_DeserializeInto(CStore_QueueWishlistDemoEmailToFire_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CStore_QueueWishlistDemoEmailToFire_Response_Delete(CStore_QueueWishlistDemoEmailToFire_Response* ptr) {
+    delete ptr;
+}
+
 // Begin CReservationPositionMessage
 EXPORT CReservationPositionMessage *CReservationPositionMessage_Construct() {
     return new CReservationPositionMessage();
@@ -51185,6 +51761,556 @@ EXPORT void WebUINoResponse_Delete(WebUINoResponse* ptr) {
     delete ptr;
 }
 
+// Begin CBluetoothManager_GetState_Request
+EXPORT CBluetoothManager_GetState_Request *CBluetoothManager_GetState_Request_Construct() {
+    return new CBluetoothManager_GetState_Request();
+}
+
+EXPORT CBluetoothManager_GetState_Request *CBluetoothManager_GetState_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_GetState_Request *msg = new CBluetoothManager_GetState_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_GetState_Request_DeserializeInto(CBluetoothManager_GetState_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_GetState_Request_Delete(CBluetoothManager_GetState_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgBluetoothManagerAdapterInfo
+EXPORT CMsgBluetoothManagerAdapterInfo *CMsgBluetoothManagerAdapterInfo_Construct() {
+    return new CMsgBluetoothManagerAdapterInfo();
+}
+
+EXPORT CMsgBluetoothManagerAdapterInfo *CMsgBluetoothManagerAdapterInfo_Deserialize(void* buffer, int len) {
+    CMsgBluetoothManagerAdapterInfo *msg = new CMsgBluetoothManagerAdapterInfo();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgBluetoothManagerAdapterInfo_DeserializeInto(CMsgBluetoothManagerAdapterInfo *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgBluetoothManagerAdapterInfo_Delete(CMsgBluetoothManagerAdapterInfo* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgBluetoothManagerDeviceInfo
+EXPORT CMsgBluetoothManagerDeviceInfo *CMsgBluetoothManagerDeviceInfo_Construct() {
+    return new CMsgBluetoothManagerDeviceInfo();
+}
+
+EXPORT CMsgBluetoothManagerDeviceInfo *CMsgBluetoothManagerDeviceInfo_Deserialize(void* buffer, int len) {
+    CMsgBluetoothManagerDeviceInfo *msg = new CMsgBluetoothManagerDeviceInfo();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgBluetoothManagerDeviceInfo_DeserializeInto(CMsgBluetoothManagerDeviceInfo *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgBluetoothManagerDeviceInfo_Delete(CMsgBluetoothManagerDeviceInfo* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_GetState_Response
+EXPORT CBluetoothManager_GetState_Response *CBluetoothManager_GetState_Response_Construct() {
+    return new CBluetoothManager_GetState_Response();
+}
+
+EXPORT CBluetoothManager_GetState_Response *CBluetoothManager_GetState_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_GetState_Response *msg = new CBluetoothManager_GetState_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_GetState_Response_DeserializeInto(CBluetoothManager_GetState_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_GetState_Response_Delete(CBluetoothManager_GetState_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_GetAdapterDetails_Request
+EXPORT CBluetoothManager_GetAdapterDetails_Request *CBluetoothManager_GetAdapterDetails_Request_Construct() {
+    return new CBluetoothManager_GetAdapterDetails_Request();
+}
+
+EXPORT CBluetoothManager_GetAdapterDetails_Request *CBluetoothManager_GetAdapterDetails_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_GetAdapterDetails_Request *msg = new CBluetoothManager_GetAdapterDetails_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_GetAdapterDetails_Request_DeserializeInto(CBluetoothManager_GetAdapterDetails_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_GetAdapterDetails_Request_Delete(CBluetoothManager_GetAdapterDetails_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgBluetoothManagerAdapterDetails
+EXPORT CMsgBluetoothManagerAdapterDetails *CMsgBluetoothManagerAdapterDetails_Construct() {
+    return new CMsgBluetoothManagerAdapterDetails();
+}
+
+EXPORT CMsgBluetoothManagerAdapterDetails *CMsgBluetoothManagerAdapterDetails_Deserialize(void* buffer, int len) {
+    CMsgBluetoothManagerAdapterDetails *msg = new CMsgBluetoothManagerAdapterDetails();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgBluetoothManagerAdapterDetails_DeserializeInto(CMsgBluetoothManagerAdapterDetails *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgBluetoothManagerAdapterDetails_Delete(CMsgBluetoothManagerAdapterDetails* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_GetAdapterDetails_Response
+EXPORT CBluetoothManager_GetAdapterDetails_Response *CBluetoothManager_GetAdapterDetails_Response_Construct() {
+    return new CBluetoothManager_GetAdapterDetails_Response();
+}
+
+EXPORT CBluetoothManager_GetAdapterDetails_Response *CBluetoothManager_GetAdapterDetails_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_GetAdapterDetails_Response *msg = new CBluetoothManager_GetAdapterDetails_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_GetAdapterDetails_Response_DeserializeInto(CBluetoothManager_GetAdapterDetails_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_GetAdapterDetails_Response_Delete(CBluetoothManager_GetAdapterDetails_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_GetDeviceDetails_Request
+EXPORT CBluetoothManager_GetDeviceDetails_Request *CBluetoothManager_GetDeviceDetails_Request_Construct() {
+    return new CBluetoothManager_GetDeviceDetails_Request();
+}
+
+EXPORT CBluetoothManager_GetDeviceDetails_Request *CBluetoothManager_GetDeviceDetails_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_GetDeviceDetails_Request *msg = new CBluetoothManager_GetDeviceDetails_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_GetDeviceDetails_Request_DeserializeInto(CBluetoothManager_GetDeviceDetails_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_GetDeviceDetails_Request_Delete(CBluetoothManager_GetDeviceDetails_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgBluetoothManagerDeviceDetails
+EXPORT CMsgBluetoothManagerDeviceDetails *CMsgBluetoothManagerDeviceDetails_Construct() {
+    return new CMsgBluetoothManagerDeviceDetails();
+}
+
+EXPORT CMsgBluetoothManagerDeviceDetails *CMsgBluetoothManagerDeviceDetails_Deserialize(void* buffer, int len) {
+    CMsgBluetoothManagerDeviceDetails *msg = new CMsgBluetoothManagerDeviceDetails();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgBluetoothManagerDeviceDetails_DeserializeInto(CMsgBluetoothManagerDeviceDetails *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgBluetoothManagerDeviceDetails_Delete(CMsgBluetoothManagerDeviceDetails* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_GetDeviceDetails_Response
+EXPORT CBluetoothManager_GetDeviceDetails_Response *CBluetoothManager_GetDeviceDetails_Response_Construct() {
+    return new CBluetoothManager_GetDeviceDetails_Response();
+}
+
+EXPORT CBluetoothManager_GetDeviceDetails_Response *CBluetoothManager_GetDeviceDetails_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_GetDeviceDetails_Response *msg = new CBluetoothManager_GetDeviceDetails_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_GetDeviceDetails_Response_DeserializeInto(CBluetoothManager_GetDeviceDetails_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_GetDeviceDetails_Response_Delete(CBluetoothManager_GetDeviceDetails_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_StateChanged_Notification
+EXPORT CBluetoothManager_StateChanged_Notification *CBluetoothManager_StateChanged_Notification_Construct() {
+    return new CBluetoothManager_StateChanged_Notification();
+}
+
+EXPORT CBluetoothManager_StateChanged_Notification *CBluetoothManager_StateChanged_Notification_Deserialize(void* buffer, int len) {
+    CBluetoothManager_StateChanged_Notification *msg = new CBluetoothManager_StateChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_StateChanged_Notification_DeserializeInto(CBluetoothManager_StateChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_StateChanged_Notification_Delete(CBluetoothManager_StateChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_SetDiscovering_Request
+EXPORT CBluetoothManager_SetDiscovering_Request *CBluetoothManager_SetDiscovering_Request_Construct() {
+    return new CBluetoothManager_SetDiscovering_Request();
+}
+
+EXPORT CBluetoothManager_SetDiscovering_Request *CBluetoothManager_SetDiscovering_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_SetDiscovering_Request *msg = new CBluetoothManager_SetDiscovering_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_SetDiscovering_Request_DeserializeInto(CBluetoothManager_SetDiscovering_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_SetDiscovering_Request_Delete(CBluetoothManager_SetDiscovering_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_SetDiscovering_Response
+EXPORT CBluetoothManager_SetDiscovering_Response *CBluetoothManager_SetDiscovering_Response_Construct() {
+    return new CBluetoothManager_SetDiscovering_Response();
+}
+
+EXPORT CBluetoothManager_SetDiscovering_Response *CBluetoothManager_SetDiscovering_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_SetDiscovering_Response *msg = new CBluetoothManager_SetDiscovering_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_SetDiscovering_Response_DeserializeInto(CBluetoothManager_SetDiscovering_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_SetDiscovering_Response_Delete(CBluetoothManager_SetDiscovering_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_Pair_Request
+EXPORT CBluetoothManager_Pair_Request *CBluetoothManager_Pair_Request_Construct() {
+    return new CBluetoothManager_Pair_Request();
+}
+
+EXPORT CBluetoothManager_Pair_Request *CBluetoothManager_Pair_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_Pair_Request *msg = new CBluetoothManager_Pair_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_Pair_Request_DeserializeInto(CBluetoothManager_Pair_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_Pair_Request_Delete(CBluetoothManager_Pair_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_Pair_Response
+EXPORT CBluetoothManager_Pair_Response *CBluetoothManager_Pair_Response_Construct() {
+    return new CBluetoothManager_Pair_Response();
+}
+
+EXPORT CBluetoothManager_Pair_Response *CBluetoothManager_Pair_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_Pair_Response *msg = new CBluetoothManager_Pair_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_Pair_Response_DeserializeInto(CBluetoothManager_Pair_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_Pair_Response_Delete(CBluetoothManager_Pair_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_CancelPair_Request
+EXPORT CBluetoothManager_CancelPair_Request *CBluetoothManager_CancelPair_Request_Construct() {
+    return new CBluetoothManager_CancelPair_Request();
+}
+
+EXPORT CBluetoothManager_CancelPair_Request *CBluetoothManager_CancelPair_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_CancelPair_Request *msg = new CBluetoothManager_CancelPair_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_CancelPair_Request_DeserializeInto(CBluetoothManager_CancelPair_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_CancelPair_Request_Delete(CBluetoothManager_CancelPair_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_CancelPair_Response
+EXPORT CBluetoothManager_CancelPair_Response *CBluetoothManager_CancelPair_Response_Construct() {
+    return new CBluetoothManager_CancelPair_Response();
+}
+
+EXPORT CBluetoothManager_CancelPair_Response *CBluetoothManager_CancelPair_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_CancelPair_Response *msg = new CBluetoothManager_CancelPair_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_CancelPair_Response_DeserializeInto(CBluetoothManager_CancelPair_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_CancelPair_Response_Delete(CBluetoothManager_CancelPair_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_Forget_Request
+EXPORT CBluetoothManager_Forget_Request *CBluetoothManager_Forget_Request_Construct() {
+    return new CBluetoothManager_Forget_Request();
+}
+
+EXPORT CBluetoothManager_Forget_Request *CBluetoothManager_Forget_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_Forget_Request *msg = new CBluetoothManager_Forget_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_Forget_Request_DeserializeInto(CBluetoothManager_Forget_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_Forget_Request_Delete(CBluetoothManager_Forget_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_Forget_Response
+EXPORT CBluetoothManager_Forget_Response *CBluetoothManager_Forget_Response_Construct() {
+    return new CBluetoothManager_Forget_Response();
+}
+
+EXPORT CBluetoothManager_Forget_Response *CBluetoothManager_Forget_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_Forget_Response *msg = new CBluetoothManager_Forget_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_Forget_Response_DeserializeInto(CBluetoothManager_Forget_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_Forget_Response_Delete(CBluetoothManager_Forget_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_Connect_Request
+EXPORT CBluetoothManager_Connect_Request *CBluetoothManager_Connect_Request_Construct() {
+    return new CBluetoothManager_Connect_Request();
+}
+
+EXPORT CBluetoothManager_Connect_Request *CBluetoothManager_Connect_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_Connect_Request *msg = new CBluetoothManager_Connect_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_Connect_Request_DeserializeInto(CBluetoothManager_Connect_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_Connect_Request_Delete(CBluetoothManager_Connect_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_Connect_Response
+EXPORT CBluetoothManager_Connect_Response *CBluetoothManager_Connect_Response_Construct() {
+    return new CBluetoothManager_Connect_Response();
+}
+
+EXPORT CBluetoothManager_Connect_Response *CBluetoothManager_Connect_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_Connect_Response *msg = new CBluetoothManager_Connect_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_Connect_Response_DeserializeInto(CBluetoothManager_Connect_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_Connect_Response_Delete(CBluetoothManager_Connect_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_Disconnect_Request
+EXPORT CBluetoothManager_Disconnect_Request *CBluetoothManager_Disconnect_Request_Construct() {
+    return new CBluetoothManager_Disconnect_Request();
+}
+
+EXPORT CBluetoothManager_Disconnect_Request *CBluetoothManager_Disconnect_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_Disconnect_Request *msg = new CBluetoothManager_Disconnect_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_Disconnect_Request_DeserializeInto(CBluetoothManager_Disconnect_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_Disconnect_Request_Delete(CBluetoothManager_Disconnect_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_Disconnect_Response
+EXPORT CBluetoothManager_Disconnect_Response *CBluetoothManager_Disconnect_Response_Construct() {
+    return new CBluetoothManager_Disconnect_Response();
+}
+
+EXPORT CBluetoothManager_Disconnect_Response *CBluetoothManager_Disconnect_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_Disconnect_Response *msg = new CBluetoothManager_Disconnect_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_Disconnect_Response_DeserializeInto(CBluetoothManager_Disconnect_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_Disconnect_Response_Delete(CBluetoothManager_Disconnect_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_SetWakeAllowed_Request
+EXPORT CBluetoothManager_SetWakeAllowed_Request *CBluetoothManager_SetWakeAllowed_Request_Construct() {
+    return new CBluetoothManager_SetWakeAllowed_Request();
+}
+
+EXPORT CBluetoothManager_SetWakeAllowed_Request *CBluetoothManager_SetWakeAllowed_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_SetWakeAllowed_Request *msg = new CBluetoothManager_SetWakeAllowed_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_SetWakeAllowed_Request_DeserializeInto(CBluetoothManager_SetWakeAllowed_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_SetWakeAllowed_Request_Delete(CBluetoothManager_SetWakeAllowed_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_SetWakeAllowed_Response
+EXPORT CBluetoothManager_SetWakeAllowed_Response *CBluetoothManager_SetWakeAllowed_Response_Construct() {
+    return new CBluetoothManager_SetWakeAllowed_Response();
+}
+
+EXPORT CBluetoothManager_SetWakeAllowed_Response *CBluetoothManager_SetWakeAllowed_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_SetWakeAllowed_Response *msg = new CBluetoothManager_SetWakeAllowed_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_SetWakeAllowed_Response_DeserializeInto(CBluetoothManager_SetWakeAllowed_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_SetWakeAllowed_Response_Delete(CBluetoothManager_SetWakeAllowed_Response* ptr) {
+    delete ptr;
+}
+
 // Begin CGameNotes_UploadImage_Request
 EXPORT CGameNotes_UploadImage_Request *CGameNotes_UploadImage_Request_Construct() {
     return new CGameNotes_UploadImage_Request();
@@ -51383,6 +52509,72 @@ EXPORT void CGamescope_SetBlurParams_Response_Delete(CGamescope_SetBlurParams_Re
     delete ptr;
 }
 
+// Begin CSharedJSContext_GetDesiredSteamUIWindows_Request
+EXPORT CSharedJSContext_GetDesiredSteamUIWindows_Request *CSharedJSContext_GetDesiredSteamUIWindows_Request_Construct() {
+    return new CSharedJSContext_GetDesiredSteamUIWindows_Request();
+}
+
+EXPORT CSharedJSContext_GetDesiredSteamUIWindows_Request *CSharedJSContext_GetDesiredSteamUIWindows_Request_Deserialize(void* buffer, int len) {
+    CSharedJSContext_GetDesiredSteamUIWindows_Request *msg = new CSharedJSContext_GetDesiredSteamUIWindows_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSharedJSContext_GetDesiredSteamUIWindows_Request_DeserializeInto(CSharedJSContext_GetDesiredSteamUIWindows_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSharedJSContext_GetDesiredSteamUIWindows_Request_Delete(CSharedJSContext_GetDesiredSteamUIWindows_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgSteamUIBrowserWindow
+EXPORT CMsgSteamUIBrowserWindow *CMsgSteamUIBrowserWindow_Construct() {
+    return new CMsgSteamUIBrowserWindow();
+}
+
+EXPORT CMsgSteamUIBrowserWindow *CMsgSteamUIBrowserWindow_Deserialize(void* buffer, int len) {
+    CMsgSteamUIBrowserWindow *msg = new CMsgSteamUIBrowserWindow();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgSteamUIBrowserWindow_DeserializeInto(CMsgSteamUIBrowserWindow *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgSteamUIBrowserWindow_Delete(CMsgSteamUIBrowserWindow* ptr) {
+    delete ptr;
+}
+
+// Begin CSharedJSContext_GetDesiredSteamUIWindows_Response
+EXPORT CSharedJSContext_GetDesiredSteamUIWindows_Response *CSharedJSContext_GetDesiredSteamUIWindows_Response_Construct() {
+    return new CSharedJSContext_GetDesiredSteamUIWindows_Response();
+}
+
+EXPORT CSharedJSContext_GetDesiredSteamUIWindows_Response *CSharedJSContext_GetDesiredSteamUIWindows_Response_Deserialize(void* buffer, int len) {
+    CSharedJSContext_GetDesiredSteamUIWindows_Response *msg = new CSharedJSContext_GetDesiredSteamUIWindows_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSharedJSContext_GetDesiredSteamUIWindows_Response_DeserializeInto(CSharedJSContext_GetDesiredSteamUIWindows_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSharedJSContext_GetDesiredSteamUIWindows_Response_Delete(CSharedJSContext_GetDesiredSteamUIWindows_Response* ptr) {
+    delete ptr;
+}
+
 // Begin CSteamEngine_UpdateTextFilterDictionary_Notification
 EXPORT CSteamEngine_UpdateTextFilterDictionary_Notification *CSteamEngine_UpdateTextFilterDictionary_Notification_Construct() {
     return new CSteamEngine_UpdateTextFilterDictionary_Notification();
@@ -51512,6 +52704,270 @@ EXPORT bool CSteamEngine_GetGameIDForPID_Response_DeserializeInto(CSteamEngine_G
 }
 
 EXPORT void CSteamEngine_GetGameIDForPID_Response_Delete(CSteamEngine_GetGameIDForPID_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamInputService_ControllerButtonStateChanged_Notification
+EXPORT CSteamInputService_ControllerButtonStateChanged_Notification *CSteamInputService_ControllerButtonStateChanged_Notification_Construct() {
+    return new CSteamInputService_ControllerButtonStateChanged_Notification();
+}
+
+EXPORT CSteamInputService_ControllerButtonStateChanged_Notification *CSteamInputService_ControllerButtonStateChanged_Notification_Deserialize(void* buffer, int len) {
+    CSteamInputService_ControllerButtonStateChanged_Notification *msg = new CSteamInputService_ControllerButtonStateChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamInputService_ControllerButtonStateChanged_Notification_DeserializeInto(CSteamInputService_ControllerButtonStateChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamInputService_ControllerButtonStateChanged_Notification_Delete(CSteamInputService_ControllerButtonStateChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin ControllerVector2
+EXPORT ControllerVector2 *ControllerVector2_Construct() {
+    return new ControllerVector2();
+}
+
+EXPORT ControllerVector2 *ControllerVector2_Deserialize(void* buffer, int len) {
+    ControllerVector2 *msg = new ControllerVector2();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ControllerVector2_DeserializeInto(ControllerVector2 *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ControllerVector2_Delete(ControllerVector2* ptr) {
+    delete ptr;
+}
+
+// Begin ControllerVector3
+EXPORT ControllerVector3 *ControllerVector3_Construct() {
+    return new ControllerVector3();
+}
+
+EXPORT ControllerVector3 *ControllerVector3_Deserialize(void* buffer, int len) {
+    ControllerVector3 *msg = new ControllerVector3();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ControllerVector3_DeserializeInto(ControllerVector3 *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ControllerVector3_Delete(ControllerVector3* ptr) {
+    delete ptr;
+}
+
+// Begin ControllerQuaternion
+EXPORT ControllerQuaternion *ControllerQuaternion_Construct() {
+    return new ControllerQuaternion();
+}
+
+EXPORT ControllerQuaternion *ControllerQuaternion_Deserialize(void* buffer, int len) {
+    ControllerQuaternion *msg = new ControllerQuaternion();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ControllerQuaternion_DeserializeInto(ControllerQuaternion *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ControllerQuaternion_Delete(ControllerQuaternion* ptr) {
+    delete ptr;
+}
+
+// Begin ControllerGyroEulerAngles
+EXPORT ControllerGyroEulerAngles *ControllerGyroEulerAngles_Construct() {
+    return new ControllerGyroEulerAngles();
+}
+
+EXPORT ControllerGyroEulerAngles *ControllerGyroEulerAngles_Deserialize(void* buffer, int len) {
+    ControllerGyroEulerAngles *msg = new ControllerGyroEulerAngles();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool ControllerGyroEulerAngles_DeserializeInto(ControllerGyroEulerAngles *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void ControllerGyroEulerAngles_Delete(ControllerGyroEulerAngles* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamInputService_ControllerAxesStateChange_Notification
+EXPORT CSteamInputService_ControllerAxesStateChange_Notification *CSteamInputService_ControllerAxesStateChange_Notification_Construct() {
+    return new CSteamInputService_ControllerAxesStateChange_Notification();
+}
+
+EXPORT CSteamInputService_ControllerAxesStateChange_Notification *CSteamInputService_ControllerAxesStateChange_Notification_Deserialize(void* buffer, int len) {
+    CSteamInputService_ControllerAxesStateChange_Notification *msg = new CSteamInputService_ControllerAxesStateChange_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamInputService_ControllerAxesStateChange_Notification_DeserializeInto(CSteamInputService_ControllerAxesStateChange_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamInputService_ControllerAxesStateChange_Notification_Delete(CSteamInputService_ControllerAxesStateChange_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamInputService_GyroQuaternionChanged_Notification
+EXPORT CSteamInputService_GyroQuaternionChanged_Notification *CSteamInputService_GyroQuaternionChanged_Notification_Construct() {
+    return new CSteamInputService_GyroQuaternionChanged_Notification();
+}
+
+EXPORT CSteamInputService_GyroQuaternionChanged_Notification *CSteamInputService_GyroQuaternionChanged_Notification_Deserialize(void* buffer, int len) {
+    CSteamInputService_GyroQuaternionChanged_Notification *msg = new CSteamInputService_GyroQuaternionChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamInputService_GyroQuaternionChanged_Notification_DeserializeInto(CSteamInputService_GyroQuaternionChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamInputService_GyroQuaternionChanged_Notification_Delete(CSteamInputService_GyroQuaternionChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamInputService_GyroSpeedChanged_Notification
+EXPORT CSteamInputService_GyroSpeedChanged_Notification *CSteamInputService_GyroSpeedChanged_Notification_Construct() {
+    return new CSteamInputService_GyroSpeedChanged_Notification();
+}
+
+EXPORT CSteamInputService_GyroSpeedChanged_Notification *CSteamInputService_GyroSpeedChanged_Notification_Deserialize(void* buffer, int len) {
+    CSteamInputService_GyroSpeedChanged_Notification *msg = new CSteamInputService_GyroSpeedChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamInputService_GyroSpeedChanged_Notification_DeserializeInto(CSteamInputService_GyroSpeedChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamInputService_GyroSpeedChanged_Notification_Delete(CSteamInputService_GyroSpeedChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamInputService_GyroAccelerometerChanged_Notification
+EXPORT CSteamInputService_GyroAccelerometerChanged_Notification *CSteamInputService_GyroAccelerometerChanged_Notification_Construct() {
+    return new CSteamInputService_GyroAccelerometerChanged_Notification();
+}
+
+EXPORT CSteamInputService_GyroAccelerometerChanged_Notification *CSteamInputService_GyroAccelerometerChanged_Notification_Deserialize(void* buffer, int len) {
+    CSteamInputService_GyroAccelerometerChanged_Notification *msg = new CSteamInputService_GyroAccelerometerChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamInputService_GyroAccelerometerChanged_Notification_DeserializeInto(CSteamInputService_GyroAccelerometerChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamInputService_GyroAccelerometerChanged_Notification_Delete(CSteamInputService_GyroAccelerometerChanged_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamInputService_GyroCalibration_Notification
+EXPORT CSteamInputService_GyroCalibration_Notification *CSteamInputService_GyroCalibration_Notification_Construct() {
+    return new CSteamInputService_GyroCalibration_Notification();
+}
+
+EXPORT CSteamInputService_GyroCalibration_Notification *CSteamInputService_GyroCalibration_Notification_Deserialize(void* buffer, int len) {
+    CSteamInputService_GyroCalibration_Notification *msg = new CSteamInputService_GyroCalibration_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamInputService_GyroCalibration_Notification_DeserializeInto(CSteamInputService_GyroCalibration_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamInputService_GyroCalibration_Notification_Delete(CSteamInputService_GyroCalibration_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamInputService_ControllerStateFlow_Request
+EXPORT CSteamInputService_ControllerStateFlow_Request *CSteamInputService_ControllerStateFlow_Request_Construct() {
+    return new CSteamInputService_ControllerStateFlow_Request();
+}
+
+EXPORT CSteamInputService_ControllerStateFlow_Request *CSteamInputService_ControllerStateFlow_Request_Deserialize(void* buffer, int len) {
+    CSteamInputService_ControllerStateFlow_Request *msg = new CSteamInputService_ControllerStateFlow_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamInputService_ControllerStateFlow_Request_DeserializeInto(CSteamInputService_ControllerStateFlow_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamInputService_ControllerStateFlow_Request_Delete(CSteamInputService_ControllerStateFlow_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamInputService_ControllerStateFlow_Response
+EXPORT CSteamInputService_ControllerStateFlow_Response *CSteamInputService_ControllerStateFlow_Response_Construct() {
+    return new CSteamInputService_ControllerStateFlow_Response();
+}
+
+EXPORT CSteamInputService_ControllerStateFlow_Response *CSteamInputService_ControllerStateFlow_Response_Deserialize(void* buffer, int len) {
+    CSteamInputService_ControllerStateFlow_Response *msg = new CSteamInputService_ControllerStateFlow_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamInputService_ControllerStateFlow_Response_DeserializeInto(CSteamInputService_ControllerStateFlow_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamInputService_ControllerStateFlow_Response_Delete(CSteamInputService_ControllerStateFlow_Response* ptr) {
     delete ptr;
 }
 
@@ -52436,6 +53892,50 @@ EXPORT bool CSystemManager_Hibernate_Response_DeserializeInto(CSystemManager_Hib
 }
 
 EXPORT void CSystemManager_Hibernate_Response_Delete(CSystemManager_Hibernate_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CSystemManager_WriteFile_Request
+EXPORT CSystemManager_WriteFile_Request *CSystemManager_WriteFile_Request_Construct() {
+    return new CSystemManager_WriteFile_Request();
+}
+
+EXPORT CSystemManager_WriteFile_Request *CSystemManager_WriteFile_Request_Deserialize(void* buffer, int len) {
+    CSystemManager_WriteFile_Request *msg = new CSystemManager_WriteFile_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSystemManager_WriteFile_Request_DeserializeInto(CSystemManager_WriteFile_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSystemManager_WriteFile_Request_Delete(CSystemManager_WriteFile_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CSystemManager_WriteFile_Response
+EXPORT CSystemManager_WriteFile_Response *CSystemManager_WriteFile_Response_Construct() {
+    return new CSystemManager_WriteFile_Response();
+}
+
+EXPORT CSystemManager_WriteFile_Response *CSystemManager_WriteFile_Response_Deserialize(void* buffer, int len) {
+    CSystemManager_WriteFile_Response *msg = new CSystemManager_WriteFile_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSystemManager_WriteFile_Response_DeserializeInto(CSystemManager_WriteFile_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSystemManager_WriteFile_Response_Delete(CSystemManager_WriteFile_Response* ptr) {
     delete ptr;
 }
 

@@ -37,6 +37,7 @@
 #include "steammessages_base.pb.h"
 #include "steammessages_unified_base.steamclient.pb.h"
 #include "clientmetrics.pb.h"
+#include "enums.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_steammessages_5fclientmetrics_2esteamclient_2eproto
@@ -52,7 +53,7 @@ struct TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[20]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[22]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -72,6 +73,9 @@ extern CClientMetrics_AppInterfaceStats_NotificationDefaultTypeInternal _CClient
 class CClientMetrics_ClientBootstrap_Notification;
 struct CClientMetrics_ClientBootstrap_NotificationDefaultTypeInternal;
 extern CClientMetrics_ClientBootstrap_NotificationDefaultTypeInternal _CClientMetrics_ClientBootstrap_Notification_default_instance_;
+class CClientMetrics_ClipShare_Notification;
+struct CClientMetrics_ClipShare_NotificationDefaultTypeInternal;
+extern CClientMetrics_ClipShare_NotificationDefaultTypeInternal _CClientMetrics_ClipShare_Notification_default_instance_;
 class CClientMetrics_CloudAppSyncStats_Notification;
 struct CClientMetrics_CloudAppSyncStats_NotificationDefaultTypeInternal;
 extern CClientMetrics_CloudAppSyncStats_NotificationDefaultTypeInternal _CClientMetrics_CloudAppSyncStats_Notification_default_instance_;
@@ -87,6 +91,9 @@ extern CClientMetrics_DownloadRates_NotificationDefaultTypeInternal _CClientMetr
 class CClientMetrics_DownloadRates_Notification_StatsInfo;
 struct CClientMetrics_DownloadRates_Notification_StatsInfoDefaultTypeInternal;
 extern CClientMetrics_DownloadRates_Notification_StatsInfoDefaultTypeInternal _CClientMetrics_DownloadRates_Notification_StatsInfo_default_instance_;
+class CClientMetrics_EndGameRecording_Notification;
+struct CClientMetrics_EndGameRecording_NotificationDefaultTypeInternal;
+extern CClientMetrics_EndGameRecording_NotificationDefaultTypeInternal _CClientMetrics_EndGameRecording_Notification_default_instance_;
 class CClientMetrics_IPv6Connectivity_Notification;
 struct CClientMetrics_IPv6Connectivity_NotificationDefaultTypeInternal;
 extern CClientMetrics_IPv6Connectivity_NotificationDefaultTypeInternal _CClientMetrics_IPv6Connectivity_Notification_default_instance_;
@@ -125,11 +132,13 @@ template<> ::CClientMetrics_AppInterfaceCreation* Arena::CreateMaybeMessage<::CC
 template<> ::CClientMetrics_AppInterfaceMethodCounts* Arena::CreateMaybeMessage<::CClientMetrics_AppInterfaceMethodCounts>(Arena*);
 template<> ::CClientMetrics_AppInterfaceStats_Notification* Arena::CreateMaybeMessage<::CClientMetrics_AppInterfaceStats_Notification>(Arena*);
 template<> ::CClientMetrics_ClientBootstrap_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ClientBootstrap_Notification>(Arena*);
+template<> ::CClientMetrics_ClipShare_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ClipShare_Notification>(Arena*);
 template<> ::CClientMetrics_CloudAppSyncStats_Notification* Arena::CreateMaybeMessage<::CClientMetrics_CloudAppSyncStats_Notification>(Arena*);
 template<> ::CClientMetrics_ContentDownloadResponse_Counts_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ContentDownloadResponse_Counts_Notification>(Arena*);
 template<> ::CClientMetrics_ContentValidation_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ContentValidation_Notification>(Arena*);
 template<> ::CClientMetrics_DownloadRates_Notification* Arena::CreateMaybeMessage<::CClientMetrics_DownloadRates_Notification>(Arena*);
 template<> ::CClientMetrics_DownloadRates_Notification_StatsInfo* Arena::CreateMaybeMessage<::CClientMetrics_DownloadRates_Notification_StatsInfo>(Arena*);
+template<> ::CClientMetrics_EndGameRecording_Notification* Arena::CreateMaybeMessage<::CClientMetrics_EndGameRecording_Notification>(Arena*);
 template<> ::CClientMetrics_IPv6Connectivity_Notification* Arena::CreateMaybeMessage<::CClientMetrics_IPv6Connectivity_Notification>(Arena*);
 template<> ::CClientMetrics_IPv6Connectivity_Result* Arena::CreateMaybeMessage<::CClientMetrics_IPv6Connectivity_Result>(Arena*);
 template<> ::CClientMetrics_ReportClientArgs_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ReportClientArgs_Notification>(Arena*);
@@ -190,6 +199,33 @@ inline bool ESteamPipeOperationType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ESteamPipeOperationType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamPipeOperationType>(
     ESteamPipeOperationType_descriptor(), name, value);
+}
+enum EClipShareMethod : int {
+  EClipShareMethod_Chat = 1,
+  EClipShareMethod_Clipboard = 2,
+  EClipShareMethod_File = 3,
+  EClipShareMethod_SendClip = 4,
+  EClipShareMethod_SaveToMedia = 5,
+  EClipShareMethod_CreateLink = 6
+};
+bool EClipShareMethod_IsValid(int value);
+constexpr EClipShareMethod EClipShareMethod_MIN = EClipShareMethod_Chat;
+constexpr EClipShareMethod EClipShareMethod_MAX = EClipShareMethod_CreateLink;
+constexpr int EClipShareMethod_ARRAYSIZE = EClipShareMethod_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EClipShareMethod_descriptor();
+template<typename T>
+inline const std::string& EClipShareMethod_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EClipShareMethod>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EClipShareMethod_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EClipShareMethod_descriptor(), enum_t_value);
+}
+inline bool EClipShareMethod_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EClipShareMethod* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EClipShareMethod>(
+    EClipShareMethod_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -4409,6 +4445,7 @@ class CClientMetrics_ReportClientArgs_Notification PROTOBUF_FINAL :
     kFpsCounterEnabledFieldNumber = 7,
     kLibraryLowBandwidthModeEnabledFieldNumber = 8,
     kLibraryLowPerfModeEnabledFieldNumber = 9,
+    kGrModeFieldNumber = 10,
   };
   // repeated string client_args = 1;
   int client_args_size() const;
@@ -4538,6 +4575,19 @@ class CClientMetrics_ReportClientArgs_Notification PROTOBUF_FINAL :
   void _internal_set_library_low_perf_mode_enabled(bool value);
   public:
 
+  // optional int32 gr_mode = 10;
+  bool has_gr_mode() const;
+  private:
+  bool _internal_has_gr_mode() const;
+  public:
+  void clear_gr_mode();
+  ::PROTOBUF_NAMESPACE_ID::int32 gr_mode() const;
+  void set_gr_mode(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_gr_mode() const;
+  void _internal_set_gr_mode(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CClientMetrics_ReportClientArgs_Notification)
  private:
   class _Internal;
@@ -4556,6 +4606,410 @@ class CClientMetrics_ReportClientArgs_Notification PROTOBUF_FINAL :
   bool fps_counter_enabled_;
   bool library_low_bandwidth_mode_enabled_;
   bool library_low_perf_mode_enabled_;
+  ::PROTOBUF_NAMESPACE_ID::int32 gr_mode_;
+  friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CClientMetrics_ClipShare_Notification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientMetrics_ClipShare_Notification) */ {
+ public:
+  inline CClientMetrics_ClipShare_Notification() : CClientMetrics_ClipShare_Notification(nullptr) {}
+  virtual ~CClientMetrics_ClipShare_Notification();
+  explicit constexpr CClientMetrics_ClipShare_Notification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientMetrics_ClipShare_Notification(const CClientMetrics_ClipShare_Notification& from);
+  CClientMetrics_ClipShare_Notification(CClientMetrics_ClipShare_Notification&& from) noexcept
+    : CClientMetrics_ClipShare_Notification() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientMetrics_ClipShare_Notification& operator=(const CClientMetrics_ClipShare_Notification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientMetrics_ClipShare_Notification& operator=(CClientMetrics_ClipShare_Notification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientMetrics_ClipShare_Notification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientMetrics_ClipShare_Notification* internal_default_instance() {
+    return reinterpret_cast<const CClientMetrics_ClipShare_Notification*>(
+               &_CClientMetrics_ClipShare_Notification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(CClientMetrics_ClipShare_Notification& a, CClientMetrics_ClipShare_Notification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientMetrics_ClipShare_Notification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientMetrics_ClipShare_Notification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientMetrics_ClipShare_Notification* New() const final {
+    return CreateMaybeMessage<CClientMetrics_ClipShare_Notification>(nullptr);
+  }
+
+  CClientMetrics_ClipShare_Notification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientMetrics_ClipShare_Notification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientMetrics_ClipShare_Notification& from);
+  void MergeFrom(const CClientMetrics_ClipShare_Notification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientMetrics_ClipShare_Notification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientMetrics_ClipShare_Notification";
+  }
+  protected:
+  explicit CClientMetrics_ClipShare_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBytesFieldNumber = 4,
+    kGameidFieldNumber = 5,
+    kSecondsFieldNumber = 3,
+    kEresultFieldNumber = 1,
+    kShareMethodFieldNumber = 2,
+  };
+  // optional uint64 bytes = 4;
+  bool has_bytes() const;
+  private:
+  bool _internal_has_bytes() const;
+  public:
+  void clear_bytes();
+  ::PROTOBUF_NAMESPACE_ID::uint64 bytes() const;
+  void set_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes() const;
+  void _internal_set_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional fixed64 gameid = 5;
+  bool has_gameid() const;
+  private:
+  bool _internal_has_gameid() const;
+  public:
+  void clear_gameid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid() const;
+  void set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gameid() const;
+  void _internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional float seconds = 3;
+  bool has_seconds() const;
+  private:
+  bool _internal_has_seconds() const;
+  public:
+  void clear_seconds();
+  float seconds() const;
+  void set_seconds(float value);
+  private:
+  float _internal_seconds() const;
+  void _internal_set_seconds(float value);
+  public:
+
+  // optional uint32 eresult = 1 [default = 2];
+  bool has_eresult() const;
+  private:
+  bool _internal_has_eresult() const;
+  public:
+  void clear_eresult();
+  ::PROTOBUF_NAMESPACE_ID::uint32 eresult() const;
+  void set_eresult(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_eresult() const;
+  void _internal_set_eresult(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional .EClipShareMethod share_method = 2 [default = EClipShareMethod_Chat];
+  bool has_share_method() const;
+  private:
+  bool _internal_has_share_method() const;
+  public:
+  void clear_share_method();
+  ::EClipShareMethod share_method() const;
+  void set_share_method(::EClipShareMethod value);
+  private:
+  ::EClipShareMethod _internal_share_method() const;
+  void _internal_set_share_method(::EClipShareMethod value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientMetrics_ClipShare_Notification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
+  float seconds_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 eresult_;
+  int share_method_;
+  friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CClientMetrics_EndGameRecording_Notification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientMetrics_EndGameRecording_Notification) */ {
+ public:
+  inline CClientMetrics_EndGameRecording_Notification() : CClientMetrics_EndGameRecording_Notification(nullptr) {}
+  virtual ~CClientMetrics_EndGameRecording_Notification();
+  explicit constexpr CClientMetrics_EndGameRecording_Notification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientMetrics_EndGameRecording_Notification(const CClientMetrics_EndGameRecording_Notification& from);
+  CClientMetrics_EndGameRecording_Notification(CClientMetrics_EndGameRecording_Notification&& from) noexcept
+    : CClientMetrics_EndGameRecording_Notification() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientMetrics_EndGameRecording_Notification& operator=(const CClientMetrics_EndGameRecording_Notification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientMetrics_EndGameRecording_Notification& operator=(CClientMetrics_EndGameRecording_Notification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientMetrics_EndGameRecording_Notification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientMetrics_EndGameRecording_Notification* internal_default_instance() {
+    return reinterpret_cast<const CClientMetrics_EndGameRecording_Notification*>(
+               &_CClientMetrics_EndGameRecording_Notification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(CClientMetrics_EndGameRecording_Notification& a, CClientMetrics_EndGameRecording_Notification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientMetrics_EndGameRecording_Notification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientMetrics_EndGameRecording_Notification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientMetrics_EndGameRecording_Notification* New() const final {
+    return CreateMaybeMessage<CClientMetrics_EndGameRecording_Notification>(nullptr);
+  }
+
+  CClientMetrics_EndGameRecording_Notification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientMetrics_EndGameRecording_Notification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientMetrics_EndGameRecording_Notification& from);
+  void MergeFrom(const CClientMetrics_EndGameRecording_Notification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientMetrics_EndGameRecording_Notification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientMetrics_EndGameRecording_Notification";
+  }
+  protected:
+  explicit CClientMetrics_EndGameRecording_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRecordingTypeFieldNumber = 1,
+    kSecondsFieldNumber = 2,
+    kBytesFieldNumber = 3,
+    kGameidFieldNumber = 4,
+  };
+  // optional .EGameRecordingType recording_type = 1 [default = EGameRecordingType_Unknown];
+  bool has_recording_type() const;
+  private:
+  bool _internal_has_recording_type() const;
+  public:
+  void clear_recording_type();
+  ::EGameRecordingType recording_type() const;
+  void set_recording_type(::EGameRecordingType value);
+  private:
+  ::EGameRecordingType _internal_recording_type() const;
+  void _internal_set_recording_type(::EGameRecordingType value);
+  public:
+
+  // optional float seconds = 2;
+  bool has_seconds() const;
+  private:
+  bool _internal_has_seconds() const;
+  public:
+  void clear_seconds();
+  float seconds() const;
+  void set_seconds(float value);
+  private:
+  float _internal_seconds() const;
+  void _internal_set_seconds(float value);
+  public:
+
+  // optional uint64 bytes = 3;
+  bool has_bytes() const;
+  private:
+  bool _internal_has_bytes() const;
+  public:
+  void clear_bytes();
+  ::PROTOBUF_NAMESPACE_ID::uint64 bytes() const;
+  void set_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes() const;
+  void _internal_set_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional fixed64 gameid = 4;
+  bool has_gameid() const;
+  private:
+  bool _internal_has_gameid() const;
+  public:
+  void clear_gameid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid() const;
+  void set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gameid() const;
+  void _internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientMetrics_EndGameRecording_Notification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int recording_type_;
+  float seconds_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
   friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
 };
 // ===================================================================
@@ -4615,6 +5069,14 @@ class ClientMetrics : public ::PROTOBUF_NAMESPACE_ID::Service {
                        ::google::protobuf::Closure* done);
   virtual void ReportClientArgs(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CClientMetrics_ReportClientArgs_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ReportClipShare(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CClientMetrics_ClipShare_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ReportEndGameRecording(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CClientMetrics_EndGameRecording_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
 
@@ -4688,6 +5150,14 @@ class ClientMetrics_Stub : public ClientMetrics {
                        ::google::protobuf::Closure* done);
   void ReportClientArgs(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CClientMetrics_ReportClientArgs_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void ReportClipShare(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CClientMetrics_ClipShare_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void ReportEndGameRecording(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CClientMetrics_EndGameRecording_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
  private:
@@ -8491,9 +8961,303 @@ inline void CClientMetrics_ReportClientArgs_Notification::set_library_low_perf_m
   // @@protoc_insertion_point(field_set:CClientMetrics_ReportClientArgs_Notification.library_low_perf_mode_enabled)
 }
 
+// optional int32 gr_mode = 10;
+inline bool CClientMetrics_ReportClientArgs_Notification::_internal_has_gr_mode() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ReportClientArgs_Notification::has_gr_mode() const {
+  return _internal_has_gr_mode();
+}
+inline void CClientMetrics_ReportClientArgs_Notification::clear_gr_mode() {
+  gr_mode_ = 0;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportClientArgs_Notification::_internal_gr_mode() const {
+  return gr_mode_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportClientArgs_Notification::gr_mode() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ReportClientArgs_Notification.gr_mode)
+  return _internal_gr_mode();
+}
+inline void CClientMetrics_ReportClientArgs_Notification::_internal_set_gr_mode(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000100u;
+  gr_mode_ = value;
+}
+inline void CClientMetrics_ReportClientArgs_Notification::set_gr_mode(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_gr_mode(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ReportClientArgs_Notification.gr_mode)
+}
+
+// -------------------------------------------------------------------
+
+// CClientMetrics_ClipShare_Notification
+
+// optional uint32 eresult = 1 [default = 2];
+inline bool CClientMetrics_ClipShare_Notification::_internal_has_eresult() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ClipShare_Notification::has_eresult() const {
+  return _internal_has_eresult();
+}
+inline void CClientMetrics_ClipShare_Notification::clear_eresult() {
+  eresult_ = 2u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_ClipShare_Notification::_internal_eresult() const {
+  return eresult_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_ClipShare_Notification::eresult() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ClipShare_Notification.eresult)
+  return _internal_eresult();
+}
+inline void CClientMetrics_ClipShare_Notification::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  eresult_ = value;
+}
+inline void CClientMetrics_ClipShare_Notification::set_eresult(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_eresult(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ClipShare_Notification.eresult)
+}
+
+// optional .EClipShareMethod share_method = 2 [default = EClipShareMethod_Chat];
+inline bool CClientMetrics_ClipShare_Notification::_internal_has_share_method() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ClipShare_Notification::has_share_method() const {
+  return _internal_has_share_method();
+}
+inline void CClientMetrics_ClipShare_Notification::clear_share_method() {
+  share_method_ = 1;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::EClipShareMethod CClientMetrics_ClipShare_Notification::_internal_share_method() const {
+  return static_cast< ::EClipShareMethod >(share_method_);
+}
+inline ::EClipShareMethod CClientMetrics_ClipShare_Notification::share_method() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ClipShare_Notification.share_method)
+  return _internal_share_method();
+}
+inline void CClientMetrics_ClipShare_Notification::_internal_set_share_method(::EClipShareMethod value) {
+  assert(::EClipShareMethod_IsValid(value));
+  _has_bits_[0] |= 0x00000010u;
+  share_method_ = value;
+}
+inline void CClientMetrics_ClipShare_Notification::set_share_method(::EClipShareMethod value) {
+  _internal_set_share_method(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ClipShare_Notification.share_method)
+}
+
+// optional float seconds = 3;
+inline bool CClientMetrics_ClipShare_Notification::_internal_has_seconds() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ClipShare_Notification::has_seconds() const {
+  return _internal_has_seconds();
+}
+inline void CClientMetrics_ClipShare_Notification::clear_seconds() {
+  seconds_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline float CClientMetrics_ClipShare_Notification::_internal_seconds() const {
+  return seconds_;
+}
+inline float CClientMetrics_ClipShare_Notification::seconds() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ClipShare_Notification.seconds)
+  return _internal_seconds();
+}
+inline void CClientMetrics_ClipShare_Notification::_internal_set_seconds(float value) {
+  _has_bits_[0] |= 0x00000004u;
+  seconds_ = value;
+}
+inline void CClientMetrics_ClipShare_Notification::set_seconds(float value) {
+  _internal_set_seconds(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ClipShare_Notification.seconds)
+}
+
+// optional uint64 bytes = 4;
+inline bool CClientMetrics_ClipShare_Notification::_internal_has_bytes() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ClipShare_Notification::has_bytes() const {
+  return _internal_has_bytes();
+}
+inline void CClientMetrics_ClipShare_Notification::clear_bytes() {
+  bytes_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_ClipShare_Notification::_internal_bytes() const {
+  return bytes_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_ClipShare_Notification::bytes() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ClipShare_Notification.bytes)
+  return _internal_bytes();
+}
+inline void CClientMetrics_ClipShare_Notification::_internal_set_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  bytes_ = value;
+}
+inline void CClientMetrics_ClipShare_Notification::set_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_bytes(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ClipShare_Notification.bytes)
+}
+
+// optional fixed64 gameid = 5;
+inline bool CClientMetrics_ClipShare_Notification::_internal_has_gameid() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ClipShare_Notification::has_gameid() const {
+  return _internal_has_gameid();
+}
+inline void CClientMetrics_ClipShare_Notification::clear_gameid() {
+  gameid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_ClipShare_Notification::_internal_gameid() const {
+  return gameid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_ClipShare_Notification::gameid() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ClipShare_Notification.gameid)
+  return _internal_gameid();
+}
+inline void CClientMetrics_ClipShare_Notification::_internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  gameid_ = value;
+}
+inline void CClientMetrics_ClipShare_Notification::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_gameid(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ClipShare_Notification.gameid)
+}
+
+// -------------------------------------------------------------------
+
+// CClientMetrics_EndGameRecording_Notification
+
+// optional .EGameRecordingType recording_type = 1 [default = EGameRecordingType_Unknown];
+inline bool CClientMetrics_EndGameRecording_Notification::_internal_has_recording_type() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientMetrics_EndGameRecording_Notification::has_recording_type() const {
+  return _internal_has_recording_type();
+}
+inline void CClientMetrics_EndGameRecording_Notification::clear_recording_type() {
+  recording_type_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::EGameRecordingType CClientMetrics_EndGameRecording_Notification::_internal_recording_type() const {
+  return static_cast< ::EGameRecordingType >(recording_type_);
+}
+inline ::EGameRecordingType CClientMetrics_EndGameRecording_Notification::recording_type() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_EndGameRecording_Notification.recording_type)
+  return _internal_recording_type();
+}
+inline void CClientMetrics_EndGameRecording_Notification::_internal_set_recording_type(::EGameRecordingType value) {
+  assert(::EGameRecordingType_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  recording_type_ = value;
+}
+inline void CClientMetrics_EndGameRecording_Notification::set_recording_type(::EGameRecordingType value) {
+  _internal_set_recording_type(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_EndGameRecording_Notification.recording_type)
+}
+
+// optional float seconds = 2;
+inline bool CClientMetrics_EndGameRecording_Notification::_internal_has_seconds() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CClientMetrics_EndGameRecording_Notification::has_seconds() const {
+  return _internal_has_seconds();
+}
+inline void CClientMetrics_EndGameRecording_Notification::clear_seconds() {
+  seconds_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline float CClientMetrics_EndGameRecording_Notification::_internal_seconds() const {
+  return seconds_;
+}
+inline float CClientMetrics_EndGameRecording_Notification::seconds() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_EndGameRecording_Notification.seconds)
+  return _internal_seconds();
+}
+inline void CClientMetrics_EndGameRecording_Notification::_internal_set_seconds(float value) {
+  _has_bits_[0] |= 0x00000002u;
+  seconds_ = value;
+}
+inline void CClientMetrics_EndGameRecording_Notification::set_seconds(float value) {
+  _internal_set_seconds(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_EndGameRecording_Notification.seconds)
+}
+
+// optional uint64 bytes = 3;
+inline bool CClientMetrics_EndGameRecording_Notification::_internal_has_bytes() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientMetrics_EndGameRecording_Notification::has_bytes() const {
+  return _internal_has_bytes();
+}
+inline void CClientMetrics_EndGameRecording_Notification::clear_bytes() {
+  bytes_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_EndGameRecording_Notification::_internal_bytes() const {
+  return bytes_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_EndGameRecording_Notification::bytes() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_EndGameRecording_Notification.bytes)
+  return _internal_bytes();
+}
+inline void CClientMetrics_EndGameRecording_Notification::_internal_set_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000004u;
+  bytes_ = value;
+}
+inline void CClientMetrics_EndGameRecording_Notification::set_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_bytes(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_EndGameRecording_Notification.bytes)
+}
+
+// optional fixed64 gameid = 4;
+inline bool CClientMetrics_EndGameRecording_Notification::_internal_has_gameid() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CClientMetrics_EndGameRecording_Notification::has_gameid() const {
+  return _internal_has_gameid();
+}
+inline void CClientMetrics_EndGameRecording_Notification::clear_gameid() {
+  gameid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_EndGameRecording_Notification::_internal_gameid() const {
+  return gameid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_EndGameRecording_Notification::gameid() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_EndGameRecording_Notification.gameid)
+  return _internal_gameid();
+}
+inline void CClientMetrics_EndGameRecording_Notification::_internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000008u;
+  gameid_ = value;
+}
+inline void CClientMetrics_EndGameRecording_Notification::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_gameid(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_EndGameRecording_Notification.gameid)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -8547,6 +9311,11 @@ template <> struct is_proto_enum< ::ESteamPipeOperationType> : ::std::true_type 
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ESteamPipeOperationType>() {
   return ::ESteamPipeOperationType_descriptor();
+}
+template <> struct is_proto_enum< ::EClipShareMethod> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EClipShareMethod>() {
+  return ::EClipShareMethod_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

@@ -476,6 +476,9 @@ class CSteamOSManagerState PROTOBUF_FINAL :
     kTdpLimitMinFieldNumber = 8,
     kTdpLimitMaxFieldNumber = 9,
     kIsCecAvailableFieldNumber = 10,
+    kIsWifiDebugSupportedFieldNumber = 11,
+    kIsWifiDebugForceDisabledFieldNumber = 12,
+    kIsWifiForceWpaSupplicantSupportedFieldNumber = 13,
   };
   // optional string os_version = 2;
   bool has_os_version() const;
@@ -619,6 +622,45 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   void _internal_set_is_cec_available(bool value);
   public:
 
+  // optional bool is_wifi_debug_supported = 11;
+  bool has_is_wifi_debug_supported() const;
+  private:
+  bool _internal_has_is_wifi_debug_supported() const;
+  public:
+  void clear_is_wifi_debug_supported();
+  bool is_wifi_debug_supported() const;
+  void set_is_wifi_debug_supported(bool value);
+  private:
+  bool _internal_is_wifi_debug_supported() const;
+  void _internal_set_is_wifi_debug_supported(bool value);
+  public:
+
+  // optional bool is_wifi_debug_force_disabled = 12;
+  bool has_is_wifi_debug_force_disabled() const;
+  private:
+  bool _internal_has_is_wifi_debug_force_disabled() const;
+  public:
+  void clear_is_wifi_debug_force_disabled();
+  bool is_wifi_debug_force_disabled() const;
+  void set_is_wifi_debug_force_disabled(bool value);
+  private:
+  bool _internal_is_wifi_debug_force_disabled() const;
+  void _internal_set_is_wifi_debug_force_disabled(bool value);
+  public:
+
+  // optional bool is_wifi_force_wpa_supplicant_supported = 13;
+  bool has_is_wifi_force_wpa_supplicant_supported() const;
+  private:
+  bool _internal_has_is_wifi_force_wpa_supplicant_supported() const;
+  public:
+  void clear_is_wifi_force_wpa_supplicant_supported();
+  bool is_wifi_force_wpa_supplicant_supported() const;
+  void set_is_wifi_force_wpa_supplicant_supported(bool value);
+  private:
+  bool _internal_is_wifi_force_wpa_supplicant_supported() const;
+  void _internal_set_is_wifi_force_wpa_supplicant_supported(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSteamOSManagerState)
  private:
   class _Internal;
@@ -638,6 +680,9 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 tdp_limit_min_;
   ::PROTOBUF_NAMESPACE_ID::int32 tdp_limit_max_;
   bool is_cec_available_;
+  bool is_wifi_debug_supported_;
+  bool is_wifi_debug_force_disabled_;
+  bool is_wifi_force_wpa_supplicant_supported_;
   friend struct ::TableStruct_webuimessages_5fsteamos_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4174,6 +4219,90 @@ inline void CSteamOSManagerState::_internal_set_is_cec_available(bool value) {
 inline void CSteamOSManagerState::set_is_cec_available(bool value) {
   _internal_set_is_cec_available(value);
   // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_cec_available)
+}
+
+// optional bool is_wifi_debug_supported = 11;
+inline bool CSteamOSManagerState::_internal_has_is_wifi_debug_supported() const {
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_is_wifi_debug_supported() const {
+  return _internal_has_is_wifi_debug_supported();
+}
+inline void CSteamOSManagerState::clear_is_wifi_debug_supported() {
+  is_wifi_debug_supported_ = false;
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline bool CSteamOSManagerState::_internal_is_wifi_debug_supported() const {
+  return is_wifi_debug_supported_;
+}
+inline bool CSteamOSManagerState::is_wifi_debug_supported() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.is_wifi_debug_supported)
+  return _internal_is_wifi_debug_supported();
+}
+inline void CSteamOSManagerState::_internal_set_is_wifi_debug_supported(bool value) {
+  _has_bits_[0] |= 0x00000400u;
+  is_wifi_debug_supported_ = value;
+}
+inline void CSteamOSManagerState::set_is_wifi_debug_supported(bool value) {
+  _internal_set_is_wifi_debug_supported(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_wifi_debug_supported)
+}
+
+// optional bool is_wifi_debug_force_disabled = 12;
+inline bool CSteamOSManagerState::_internal_has_is_wifi_debug_force_disabled() const {
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_is_wifi_debug_force_disabled() const {
+  return _internal_has_is_wifi_debug_force_disabled();
+}
+inline void CSteamOSManagerState::clear_is_wifi_debug_force_disabled() {
+  is_wifi_debug_force_disabled_ = false;
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline bool CSteamOSManagerState::_internal_is_wifi_debug_force_disabled() const {
+  return is_wifi_debug_force_disabled_;
+}
+inline bool CSteamOSManagerState::is_wifi_debug_force_disabled() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.is_wifi_debug_force_disabled)
+  return _internal_is_wifi_debug_force_disabled();
+}
+inline void CSteamOSManagerState::_internal_set_is_wifi_debug_force_disabled(bool value) {
+  _has_bits_[0] |= 0x00000800u;
+  is_wifi_debug_force_disabled_ = value;
+}
+inline void CSteamOSManagerState::set_is_wifi_debug_force_disabled(bool value) {
+  _internal_set_is_wifi_debug_force_disabled(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_wifi_debug_force_disabled)
+}
+
+// optional bool is_wifi_force_wpa_supplicant_supported = 13;
+inline bool CSteamOSManagerState::_internal_has_is_wifi_force_wpa_supplicant_supported() const {
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_is_wifi_force_wpa_supplicant_supported() const {
+  return _internal_has_is_wifi_force_wpa_supplicant_supported();
+}
+inline void CSteamOSManagerState::clear_is_wifi_force_wpa_supplicant_supported() {
+  is_wifi_force_wpa_supplicant_supported_ = false;
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline bool CSteamOSManagerState::_internal_is_wifi_force_wpa_supplicant_supported() const {
+  return is_wifi_force_wpa_supplicant_supported_;
+}
+inline bool CSteamOSManagerState::is_wifi_force_wpa_supplicant_supported() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.is_wifi_force_wpa_supplicant_supported)
+  return _internal_is_wifi_force_wpa_supplicant_supported();
+}
+inline void CSteamOSManagerState::_internal_set_is_wifi_force_wpa_supplicant_supported(bool value) {
+  _has_bits_[0] |= 0x00001000u;
+  is_wifi_force_wpa_supplicant_supported_ = value;
+}
+inline void CSteamOSManagerState::set_is_wifi_force_wpa_supplicant_supported(bool value) {
+  _internal_set_is_wifi_force_wpa_supplicant_supported(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_wifi_force_wpa_supplicant_supported)
 }
 
 // -------------------------------------------------------------------

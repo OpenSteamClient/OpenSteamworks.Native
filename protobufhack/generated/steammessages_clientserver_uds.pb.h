@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fclientserver_5fuds_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[17]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[19]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -89,6 +89,12 @@ extern CMsgClientInstallClientAppDefaultTypeInternal _CMsgClientInstallClientApp
 class CMsgClientInstallClientAppResponse;
 struct CMsgClientInstallClientAppResponseDefaultTypeInternal;
 extern CMsgClientInstallClientAppResponseDefaultTypeInternal _CMsgClientInstallClientAppResponse_default_instance_;
+class CMsgClientLaunchClientApp;
+struct CMsgClientLaunchClientAppDefaultTypeInternal;
+extern CMsgClientLaunchClientAppDefaultTypeInternal _CMsgClientLaunchClientApp_default_instance_;
+class CMsgClientLaunchClientAppResponse;
+struct CMsgClientLaunchClientAppResponseDefaultTypeInternal;
+extern CMsgClientLaunchClientAppResponseDefaultTypeInternal _CMsgClientLaunchClientAppResponse_default_instance_;
 class CMsgClientSetClientAppUpdateState;
 struct CMsgClientSetClientAppUpdateStateDefaultTypeInternal;
 extern CMsgClientSetClientAppUpdateStateDefaultTypeInternal _CMsgClientSetClientAppUpdateState_default_instance_;
@@ -119,6 +125,8 @@ template<> ::CMsgClientGetClientDetailsResponse* Arena::CreateMaybeMessage<::CMs
 template<> ::CMsgClientGetClientDetailsResponse_Game* Arena::CreateMaybeMessage<::CMsgClientGetClientDetailsResponse_Game>(Arena*);
 template<> ::CMsgClientInstallClientApp* Arena::CreateMaybeMessage<::CMsgClientInstallClientApp>(Arena*);
 template<> ::CMsgClientInstallClientAppResponse* Arena::CreateMaybeMessage<::CMsgClientInstallClientAppResponse>(Arena*);
+template<> ::CMsgClientLaunchClientApp* Arena::CreateMaybeMessage<::CMsgClientLaunchClientApp>(Arena*);
+template<> ::CMsgClientLaunchClientAppResponse* Arena::CreateMaybeMessage<::CMsgClientLaunchClientAppResponse>(Arena*);
 template<> ::CMsgClientSetClientAppUpdateState* Arena::CreateMaybeMessage<::CMsgClientSetClientAppUpdateState>(Arena*);
 template<> ::CMsgClientSetClientAppUpdateStateResponse* Arena::CreateMaybeMessage<::CMsgClientSetClientAppUpdateStateResponse>(Arena*);
 template<> ::CMsgClientUDSP2PSessionEnded* Arena::CreateMaybeMessage<::CMsgClientUDSP2PSessionEnded>(Arena*);
@@ -1342,6 +1350,7 @@ class CMsgClientGetClientAppList PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kFilterAppidsFieldNumber = 8,
     kMediaFieldNumber = 1,
     kToolsFieldNumber = 2,
     kGamesFieldNumber = 3,
@@ -1350,6 +1359,28 @@ class CMsgClientGetClientAppList PROTOBUF_FINAL :
     kComicsFieldNumber = 6,
     kIncludeClientInfoFieldNumber = 7,
   };
+  // repeated uint32 filter_appids = 8;
+  int filter_appids_size() const;
+  private:
+  int _internal_filter_appids_size() const;
+  public:
+  void clear_filter_appids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_filter_appids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_filter_appids() const;
+  void _internal_add_filter_appids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_filter_appids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 filter_appids(int index) const;
+  void set_filter_appids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_filter_appids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      filter_appids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_filter_appids();
+
   // optional bool media = 1;
   bool has_media() const;
   private:
@@ -1450,6 +1481,7 @@ class CMsgClientGetClientAppList PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > filter_appids_;
   bool media_;
   bool tools_;
   bool games_;
@@ -1761,12 +1793,13 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
     kNumDownloadingFieldNumber = 12,
     kBytesStagedFieldNumber = 16,
     kNumPausedFieldNumber = 13,
+    kSourceBuildidFieldNumber = 19,
+    kBytesToStageFieldNumber = 17,
+    kBytesRequiredFieldNumber = 18,
     kChangingFieldNumber = 14,
     kAvailableOnPlatformFieldNumber = 15,
     kUninstallingFieldNumber = 23,
-    kBytesToStageFieldNumber = 17,
-    kBytesRequiredFieldNumber = 18,
-    kSourceBuildidFieldNumber = 19,
+    kRunningFieldNumber = 25,
     kTargetBuildidFieldNumber = 20,
     kEstimatedSecondsRemainingFieldNumber = 21,
     kQueuePositionFieldNumber = 22,
@@ -1973,6 +2006,45 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
   void _internal_set_num_paused(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 source_buildid = 19;
+  bool has_source_buildid() const;
+  private:
+  bool _internal_has_source_buildid() const;
+  public:
+  void clear_source_buildid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 source_buildid() const;
+  void set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_source_buildid() const;
+  void _internal_set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint64 bytes_to_stage = 17;
+  bool has_bytes_to_stage() const;
+  private:
+  bool _internal_has_bytes_to_stage() const;
+  public:
+  void clear_bytes_to_stage();
+  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_to_stage() const;
+  void set_bytes_to_stage(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes_to_stage() const;
+  void _internal_set_bytes_to_stage(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint64 bytes_required = 18;
+  bool has_bytes_required() const;
+  private:
+  bool _internal_has_bytes_required() const;
+  public:
+  void clear_bytes_required();
+  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_required() const;
+  void set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes_required() const;
+  void _internal_set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // optional bool changing = 14;
   bool has_changing() const;
   private:
@@ -2012,43 +2084,17 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
   void _internal_set_uninstalling(bool value);
   public:
 
-  // optional uint64 bytes_to_stage = 17;
-  bool has_bytes_to_stage() const;
+  // optional bool running = 25;
+  bool has_running() const;
   private:
-  bool _internal_has_bytes_to_stage() const;
+  bool _internal_has_running() const;
   public:
-  void clear_bytes_to_stage();
-  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_to_stage() const;
-  void set_bytes_to_stage(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void clear_running();
+  bool running() const;
+  void set_running(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes_to_stage() const;
-  void _internal_set_bytes_to_stage(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // optional uint64 bytes_required = 18;
-  bool has_bytes_required() const;
-  private:
-  bool _internal_has_bytes_required() const;
-  public:
-  void clear_bytes_required();
-  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_required() const;
-  void set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes_required() const;
-  void _internal_set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // optional uint32 source_buildid = 19;
-  bool has_source_buildid() const;
-  private:
-  bool _internal_has_source_buildid() const;
-  public:
-  void clear_source_buildid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 source_buildid() const;
-  void set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_source_buildid() const;
-  void _internal_set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  bool _internal_running() const;
+  void _internal_set_running(bool value);
   public:
 
   // optional uint32 target_buildid = 20;
@@ -2126,12 +2172,13 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 num_downloading_;
   ::PROTOBUF_NAMESPACE_ID::uint64 bytes_staged_;
   ::PROTOBUF_NAMESPACE_ID::uint32 num_paused_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 source_buildid_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_to_stage_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_required_;
   bool changing_;
   bool available_on_platform_;
   bool uninstalling_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_to_stage_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_required_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 source_buildid_;
+  bool running_;
   ::PROTOBUF_NAMESPACE_ID::uint32 target_buildid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 estimated_seconds_remaining_;
   ::PROTOBUF_NAMESPACE_ID::int32 queue_position_;
@@ -3240,6 +3287,408 @@ class CMsgClientSetClientAppUpdateStateResponse PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMsgClientLaunchClientApp PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientLaunchClientApp) */ {
+ public:
+  inline CMsgClientLaunchClientApp() : CMsgClientLaunchClientApp(nullptr) {}
+  virtual ~CMsgClientLaunchClientApp();
+  explicit constexpr CMsgClientLaunchClientApp(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientLaunchClientApp(const CMsgClientLaunchClientApp& from);
+  CMsgClientLaunchClientApp(CMsgClientLaunchClientApp&& from) noexcept
+    : CMsgClientLaunchClientApp() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientLaunchClientApp& operator=(const CMsgClientLaunchClientApp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientLaunchClientApp& operator=(CMsgClientLaunchClientApp&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgClientLaunchClientApp& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientLaunchClientApp* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientLaunchClientApp*>(
+               &_CMsgClientLaunchClientApp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(CMsgClientLaunchClientApp& a, CMsgClientLaunchClientApp& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientLaunchClientApp* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientLaunchClientApp* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgClientLaunchClientApp* New() const final {
+    return CreateMaybeMessage<CMsgClientLaunchClientApp>(nullptr);
+  }
+
+  CMsgClientLaunchClientApp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgClientLaunchClientApp>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgClientLaunchClientApp& from);
+  void MergeFrom(const CMsgClientLaunchClientApp& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientLaunchClientApp* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientLaunchClientApp";
+  }
+  protected:
+  explicit CMsgClientLaunchClientApp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientserver_5fuds_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kArgsFieldNumber = 6,
+    kQueryParamsFieldNumber = 7,
+    kAppidFieldNumber = 1,
+    kLanguageFieldNumber = 2,
+    kLaunchOptionTypeFieldNumber = 3,
+    kLaunchOptionFieldNumber = 4,
+    kLaunchSourceFieldNumber = 5,
+  };
+  // optional string args = 6;
+  bool has_args() const;
+  private:
+  bool _internal_has_args() const;
+  public:
+  void clear_args();
+  const std::string& args() const;
+  void set_args(const std::string& value);
+  void set_args(std::string&& value);
+  void set_args(const char* value);
+  void set_args(const char* value, size_t size);
+  std::string* mutable_args();
+  std::string* release_args();
+  void set_allocated_args(std::string* args);
+  private:
+  const std::string& _internal_args() const;
+  void _internal_set_args(const std::string& value);
+  std::string* _internal_mutable_args();
+  public:
+
+  // optional string query_params = 7;
+  bool has_query_params() const;
+  private:
+  bool _internal_has_query_params() const;
+  public:
+  void clear_query_params();
+  const std::string& query_params() const;
+  void set_query_params(const std::string& value);
+  void set_query_params(std::string&& value);
+  void set_query_params(const char* value);
+  void set_query_params(const char* value, size_t size);
+  std::string* mutable_query_params();
+  std::string* release_query_params();
+  void set_allocated_query_params(std::string* query_params);
+  private:
+  const std::string& _internal_query_params() const;
+  void _internal_set_query_params(const std::string& value);
+  std::string* _internal_mutable_query_params();
+  public:
+
+  // optional uint32 appid = 1;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
+  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
+  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 language = 2;
+  bool has_language() const;
+  private:
+  bool _internal_has_language() const;
+  public:
+  void clear_language();
+  ::PROTOBUF_NAMESPACE_ID::uint32 language() const;
+  void set_language(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_language() const;
+  void _internal_set_language(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 launch_option_type = 3;
+  bool has_launch_option_type() const;
+  private:
+  bool _internal_has_launch_option_type() const;
+  public:
+  void clear_launch_option_type();
+  ::PROTOBUF_NAMESPACE_ID::uint32 launch_option_type() const;
+  void set_launch_option_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_launch_option_type() const;
+  void _internal_set_launch_option_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 launch_option = 4;
+  bool has_launch_option() const;
+  private:
+  bool _internal_has_launch_option() const;
+  public:
+  void clear_launch_option();
+  ::PROTOBUF_NAMESPACE_ID::uint32 launch_option() const;
+  void set_launch_option(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_launch_option() const;
+  void _internal_set_launch_option(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 launch_source = 5;
+  bool has_launch_source() const;
+  private:
+  bool _internal_has_launch_source() const;
+  public:
+  void clear_launch_source();
+  ::PROTOBUF_NAMESPACE_ID::uint32 launch_source() const;
+  void set_launch_source(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_launch_source() const;
+  void _internal_set_launch_source(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientLaunchClientApp)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr args_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_params_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 language_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 launch_option_type_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 launch_option_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 launch_source_;
+  friend struct ::TableStruct_steammessages_5fclientserver_5fuds_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientLaunchClientAppResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientLaunchClientAppResponse) */ {
+ public:
+  inline CMsgClientLaunchClientAppResponse() : CMsgClientLaunchClientAppResponse(nullptr) {}
+  virtual ~CMsgClientLaunchClientAppResponse();
+  explicit constexpr CMsgClientLaunchClientAppResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientLaunchClientAppResponse(const CMsgClientLaunchClientAppResponse& from);
+  CMsgClientLaunchClientAppResponse(CMsgClientLaunchClientAppResponse&& from) noexcept
+    : CMsgClientLaunchClientAppResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientLaunchClientAppResponse& operator=(const CMsgClientLaunchClientAppResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientLaunchClientAppResponse& operator=(CMsgClientLaunchClientAppResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgClientLaunchClientAppResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientLaunchClientAppResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientLaunchClientAppResponse*>(
+               &_CMsgClientLaunchClientAppResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(CMsgClientLaunchClientAppResponse& a, CMsgClientLaunchClientAppResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientLaunchClientAppResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientLaunchClientAppResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgClientLaunchClientAppResponse* New() const final {
+    return CreateMaybeMessage<CMsgClientLaunchClientAppResponse>(nullptr);
+  }
+
+  CMsgClientLaunchClientAppResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgClientLaunchClientAppResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgClientLaunchClientAppResponse& from);
+  void MergeFrom(const CMsgClientLaunchClientAppResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientLaunchClientAppResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientLaunchClientAppResponse";
+  }
+  protected:
+  explicit CMsgClientLaunchClientAppResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientserver_5fuds_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultFieldNumber = 1,
+  };
+  // optional uint32 result = 1;
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  ::PROTOBUF_NAMESPACE_ID::uint32 result() const;
+  void set_result(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_result() const;
+  void _internal_set_result(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientLaunchClientAppResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 result_;
+  friend struct ::TableStruct_steammessages_5fclientserver_5fuds_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgClientEnableOrDisableDownloads PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientEnableOrDisableDownloads) */ {
  public:
@@ -3290,7 +3739,7 @@ class CMsgClientEnableOrDisableDownloads PROTOBUF_FINAL :
                &_CMsgClientEnableOrDisableDownloads_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(CMsgClientEnableOrDisableDownloads& a, CMsgClientEnableOrDisableDownloads& b) {
     a.Swap(&b);
@@ -3439,7 +3888,7 @@ class CMsgClientEnableOrDisableDownloadsResponse PROTOBUF_FINAL :
                &_CMsgClientEnableOrDisableDownloadsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(CMsgClientEnableOrDisableDownloadsResponse& a, CMsgClientEnableOrDisableDownloadsResponse& b) {
     a.Swap(&b);
@@ -4718,6 +5167,53 @@ inline void CMsgClientGetClientAppList::set_include_client_info(bool value) {
   // @@protoc_insertion_point(field_set:CMsgClientGetClientAppList.include_client_info)
 }
 
+// repeated uint32 filter_appids = 8;
+inline int CMsgClientGetClientAppList::_internal_filter_appids_size() const {
+  return filter_appids_.size();
+}
+inline int CMsgClientGetClientAppList::filter_appids_size() const {
+  return _internal_filter_appids_size();
+}
+inline void CMsgClientGetClientAppList::clear_filter_appids() {
+  filter_appids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppList::_internal_filter_appids(int index) const {
+  return filter_appids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppList::filter_appids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientGetClientAppList.filter_appids)
+  return _internal_filter_appids(index);
+}
+inline void CMsgClientGetClientAppList::set_filter_appids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  filter_appids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgClientGetClientAppList.filter_appids)
+}
+inline void CMsgClientGetClientAppList::_internal_add_filter_appids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  filter_appids_.Add(value);
+}
+inline void CMsgClientGetClientAppList::add_filter_appids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_filter_appids(value);
+  // @@protoc_insertion_point(field_add:CMsgClientGetClientAppList.filter_appids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CMsgClientGetClientAppList::_internal_filter_appids() const {
+  return filter_appids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CMsgClientGetClientAppList::filter_appids() const {
+  // @@protoc_insertion_point(field_list:CMsgClientGetClientAppList.filter_appids)
+  return _internal_filter_appids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CMsgClientGetClientAppList::_internal_mutable_filter_appids() {
+  return &filter_appids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CMsgClientGetClientAppList::mutable_filter_appids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientGetClientAppList.filter_appids)
+  return _internal_mutable_filter_appids();
+}
+
 // -------------------------------------------------------------------
 
 // CMsgClientGetClientAppListResponse_App_DLC
@@ -5249,7 +5745,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_num_paused(::PROTOBUF_NA
 
 // optional bool changing = 14;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_changing() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_changing() const {
@@ -5257,7 +5753,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_changing() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_changing() {
   changing_ = false;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline bool CMsgClientGetClientAppListResponse_App::_internal_changing() const {
   return changing_;
@@ -5267,7 +5763,7 @@ inline bool CMsgClientGetClientAppListResponse_App::changing() const {
   return _internal_changing();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_changing(bool value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00010000u;
   changing_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_changing(bool value) {
@@ -5277,7 +5773,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_changing(bool value) {
 
 // optional bool available_on_platform = 15;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_available_on_platform() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_available_on_platform() const {
@@ -5285,7 +5781,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_available_on_platform() 
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_available_on_platform() {
   available_on_platform_ = false;
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline bool CMsgClientGetClientAppListResponse_App::_internal_available_on_platform() const {
   return available_on_platform_;
@@ -5295,7 +5791,7 @@ inline bool CMsgClientGetClientAppListResponse_App::available_on_platform() cons
   return _internal_available_on_platform();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_available_on_platform(bool value) {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00020000u;
   available_on_platform_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_available_on_platform(bool value) {
@@ -5333,7 +5829,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_bytes_staged(::PROTOBUF_
 
 // optional uint64 bytes_to_stage = 17;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_bytes_to_stage() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_bytes_to_stage() const {
@@ -5341,7 +5837,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_bytes_to_stage() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_bytes_to_stage() {
   bytes_to_stage_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientGetClientAppListResponse_App::_internal_bytes_to_stage() const {
   return bytes_to_stage_;
@@ -5351,7 +5847,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientGetClientAppListResponse_App::b
   return _internal_bytes_to_stage();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_bytes_to_stage(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00004000u;
   bytes_to_stage_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_bytes_to_stage(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -5361,7 +5857,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_bytes_to_stage(::PROTOBU
 
 // optional uint64 bytes_required = 18;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_bytes_required() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_bytes_required() const {
@@ -5369,7 +5865,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_bytes_required() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_bytes_required() {
   bytes_required_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientGetClientAppListResponse_App::_internal_bytes_required() const {
   return bytes_required_;
@@ -5379,7 +5875,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientGetClientAppListResponse_App::b
   return _internal_bytes_required();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00008000u;
   bytes_required_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -5389,7 +5885,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_bytes_required(::PROTOBU
 
 // optional uint32 source_buildid = 19;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_source_buildid() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_source_buildid() const {
@@ -5397,7 +5893,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_source_buildid() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_source_buildid() {
   source_buildid_ = 0u;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_source_buildid() const {
   return source_buildid_;
@@ -5407,7 +5903,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::s
   return _internal_source_buildid();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00002000u;
   source_buildid_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -5417,7 +5913,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_source_buildid(::PROTOBU
 
 // optional uint32 target_buildid = 20;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_target_buildid() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_target_buildid() const {
@@ -5425,7 +5921,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_target_buildid() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_target_buildid() {
   target_buildid_ = 0u;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_target_buildid() const {
   return target_buildid_;
@@ -5435,7 +5931,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::t
   return _internal_target_buildid();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_target_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
   target_buildid_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_target_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -5445,7 +5941,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_target_buildid(::PROTOBU
 
 // optional uint32 estimated_seconds_remaining = 21;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_estimated_seconds_remaining() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_estimated_seconds_remaining() const {
@@ -5453,7 +5949,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_estimated_seconds_remain
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_estimated_seconds_remaining() {
   estimated_seconds_remaining_ = 0u;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_estimated_seconds_remaining() const {
   return estimated_seconds_remaining_;
@@ -5463,7 +5959,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::e
   return _internal_estimated_seconds_remaining();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_estimated_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
   estimated_seconds_remaining_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_estimated_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -5473,7 +5969,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_estimated_seconds_remain
 
 // optional int32 queue_position = 22;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_queue_position() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_queue_position() const {
@@ -5481,7 +5977,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_queue_position() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_queue_position() {
   queue_position_ = 0;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientGetClientAppListResponse_App::_internal_queue_position() const {
   return queue_position_;
@@ -5491,7 +5987,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientGetClientAppListResponse_App::qu
   return _internal_queue_position();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_queue_position(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
   queue_position_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_queue_position(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -5501,7 +5997,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_queue_position(::PROTOBU
 
 // optional bool uninstalling = 23;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_uninstalling() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_uninstalling() const {
@@ -5509,7 +6005,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_uninstalling() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_uninstalling() {
   uninstalling_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline bool CMsgClientGetClientAppListResponse_App::_internal_uninstalling() const {
   return uninstalling_;
@@ -5519,7 +6015,7 @@ inline bool CMsgClientGetClientAppListResponse_App::uninstalling() const {
   return _internal_uninstalling();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_uninstalling(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00040000u;
   uninstalling_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_uninstalling(bool value) {
@@ -5529,7 +6025,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_uninstalling(bool value)
 
 // optional uint32 rt_time_scheduled = 24;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_rt_time_scheduled() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_rt_time_scheduled() const {
@@ -5537,7 +6033,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_rt_time_scheduled() cons
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_rt_time_scheduled() {
   rt_time_scheduled_ = 0u;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_rt_time_scheduled() const {
   return rt_time_scheduled_;
@@ -5547,12 +6043,40 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::r
   return _internal_rt_time_scheduled();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_rt_time_scheduled(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
   rt_time_scheduled_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_rt_time_scheduled(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_rt_time_scheduled(value);
   // @@protoc_insertion_point(field_set:CMsgClientGetClientAppListResponse.App.rt_time_scheduled)
+}
+
+// optional bool running = 25;
+inline bool CMsgClientGetClientAppListResponse_App::_internal_has_running() const {
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  return value;
+}
+inline bool CMsgClientGetClientAppListResponse_App::has_running() const {
+  return _internal_has_running();
+}
+inline void CMsgClientGetClientAppListResponse_App::clear_running() {
+  running_ = false;
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline bool CMsgClientGetClientAppListResponse_App::_internal_running() const {
+  return running_;
+}
+inline bool CMsgClientGetClientAppListResponse_App::running() const {
+  // @@protoc_insertion_point(field_get:CMsgClientGetClientAppListResponse.App.running)
+  return _internal_running();
+}
+inline void CMsgClientGetClientAppListResponse_App::_internal_set_running(bool value) {
+  _has_bits_[0] |= 0x00080000u;
+  running_ = value;
+}
+inline void CMsgClientGetClientAppListResponse_App::set_running(bool value) {
+  _internal_set_running(value);
+  // @@protoc_insertion_point(field_set:CMsgClientGetClientAppListResponse.App.running)
 }
 
 // -------------------------------------------------------------------
@@ -5931,6 +6455,328 @@ inline void CMsgClientSetClientAppUpdateStateResponse::set_result(::PROTOBUF_NAM
 
 // -------------------------------------------------------------------
 
+// CMsgClientLaunchClientApp
+
+// optional uint32 appid = 1;
+inline bool CMsgClientLaunchClientApp::_internal_has_appid() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientLaunchClientApp::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CMsgClientLaunchClientApp::clear_appid() {
+  appid_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::_internal_appid() const {
+  return appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::appid() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLaunchClientApp.appid)
+  return _internal_appid();
+}
+inline void CMsgClientLaunchClientApp::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  appid_ = value;
+}
+inline void CMsgClientLaunchClientApp::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLaunchClientApp.appid)
+}
+
+// optional uint32 language = 2;
+inline bool CMsgClientLaunchClientApp::_internal_has_language() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgClientLaunchClientApp::has_language() const {
+  return _internal_has_language();
+}
+inline void CMsgClientLaunchClientApp::clear_language() {
+  language_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::_internal_language() const {
+  return language_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::language() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLaunchClientApp.language)
+  return _internal_language();
+}
+inline void CMsgClientLaunchClientApp::_internal_set_language(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  language_ = value;
+}
+inline void CMsgClientLaunchClientApp::set_language(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_language(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLaunchClientApp.language)
+}
+
+// optional uint32 launch_option_type = 3;
+inline bool CMsgClientLaunchClientApp::_internal_has_launch_option_type() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgClientLaunchClientApp::has_launch_option_type() const {
+  return _internal_has_launch_option_type();
+}
+inline void CMsgClientLaunchClientApp::clear_launch_option_type() {
+  launch_option_type_ = 0u;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::_internal_launch_option_type() const {
+  return launch_option_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::launch_option_type() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLaunchClientApp.launch_option_type)
+  return _internal_launch_option_type();
+}
+inline void CMsgClientLaunchClientApp::_internal_set_launch_option_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  launch_option_type_ = value;
+}
+inline void CMsgClientLaunchClientApp::set_launch_option_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_launch_option_type(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLaunchClientApp.launch_option_type)
+}
+
+// optional uint32 launch_option = 4;
+inline bool CMsgClientLaunchClientApp::_internal_has_launch_option() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgClientLaunchClientApp::has_launch_option() const {
+  return _internal_has_launch_option();
+}
+inline void CMsgClientLaunchClientApp::clear_launch_option() {
+  launch_option_ = 0u;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::_internal_launch_option() const {
+  return launch_option_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::launch_option() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLaunchClientApp.launch_option)
+  return _internal_launch_option();
+}
+inline void CMsgClientLaunchClientApp::_internal_set_launch_option(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000020u;
+  launch_option_ = value;
+}
+inline void CMsgClientLaunchClientApp::set_launch_option(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_launch_option(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLaunchClientApp.launch_option)
+}
+
+// optional uint32 launch_source = 5;
+inline bool CMsgClientLaunchClientApp::_internal_has_launch_source() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CMsgClientLaunchClientApp::has_launch_source() const {
+  return _internal_has_launch_source();
+}
+inline void CMsgClientLaunchClientApp::clear_launch_source() {
+  launch_source_ = 0u;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::_internal_launch_source() const {
+  return launch_source_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientApp::launch_source() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLaunchClientApp.launch_source)
+  return _internal_launch_source();
+}
+inline void CMsgClientLaunchClientApp::_internal_set_launch_source(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000040u;
+  launch_source_ = value;
+}
+inline void CMsgClientLaunchClientApp::set_launch_source(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_launch_source(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLaunchClientApp.launch_source)
+}
+
+// optional string args = 6;
+inline bool CMsgClientLaunchClientApp::_internal_has_args() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientLaunchClientApp::has_args() const {
+  return _internal_has_args();
+}
+inline void CMsgClientLaunchClientApp::clear_args() {
+  args_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgClientLaunchClientApp::args() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLaunchClientApp.args)
+  return _internal_args();
+}
+inline void CMsgClientLaunchClientApp::set_args(const std::string& value) {
+  _internal_set_args(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLaunchClientApp.args)
+}
+inline std::string* CMsgClientLaunchClientApp::mutable_args() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientLaunchClientApp.args)
+  return _internal_mutable_args();
+}
+inline const std::string& CMsgClientLaunchClientApp::_internal_args() const {
+  return args_.Get();
+}
+inline void CMsgClientLaunchClientApp::_internal_set_args(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  args_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientLaunchClientApp::set_args(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  args_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientLaunchClientApp.args)
+}
+inline void CMsgClientLaunchClientApp::set_args(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  args_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientLaunchClientApp.args)
+}
+inline void CMsgClientLaunchClientApp::set_args(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  args_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientLaunchClientApp.args)
+}
+inline std::string* CMsgClientLaunchClientApp::_internal_mutable_args() {
+  _has_bits_[0] |= 0x00000001u;
+  return args_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientLaunchClientApp::release_args() {
+  // @@protoc_insertion_point(field_release:CMsgClientLaunchClientApp.args)
+  if (!_internal_has_args()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return args_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientLaunchClientApp::set_allocated_args(std::string* args) {
+  if (args != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  args_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), args,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientLaunchClientApp.args)
+}
+
+// optional string query_params = 7;
+inline bool CMsgClientLaunchClientApp::_internal_has_query_params() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientLaunchClientApp::has_query_params() const {
+  return _internal_has_query_params();
+}
+inline void CMsgClientLaunchClientApp::clear_query_params() {
+  query_params_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CMsgClientLaunchClientApp::query_params() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLaunchClientApp.query_params)
+  return _internal_query_params();
+}
+inline void CMsgClientLaunchClientApp::set_query_params(const std::string& value) {
+  _internal_set_query_params(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLaunchClientApp.query_params)
+}
+inline std::string* CMsgClientLaunchClientApp::mutable_query_params() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientLaunchClientApp.query_params)
+  return _internal_mutable_query_params();
+}
+inline const std::string& CMsgClientLaunchClientApp::_internal_query_params() const {
+  return query_params_.Get();
+}
+inline void CMsgClientLaunchClientApp::_internal_set_query_params(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  query_params_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientLaunchClientApp::set_query_params(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  query_params_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientLaunchClientApp.query_params)
+}
+inline void CMsgClientLaunchClientApp::set_query_params(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  query_params_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientLaunchClientApp.query_params)
+}
+inline void CMsgClientLaunchClientApp::set_query_params(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  query_params_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientLaunchClientApp.query_params)
+}
+inline std::string* CMsgClientLaunchClientApp::_internal_mutable_query_params() {
+  _has_bits_[0] |= 0x00000002u;
+  return query_params_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientLaunchClientApp::release_query_params() {
+  // @@protoc_insertion_point(field_release:CMsgClientLaunchClientApp.query_params)
+  if (!_internal_has_query_params()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return query_params_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientLaunchClientApp::set_allocated_query_params(std::string* query_params) {
+  if (query_params != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  query_params_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), query_params,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientLaunchClientApp.query_params)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientLaunchClientAppResponse
+
+// optional uint32 result = 1;
+inline bool CMsgClientLaunchClientAppResponse::_internal_has_result() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientLaunchClientAppResponse::has_result() const {
+  return _internal_has_result();
+}
+inline void CMsgClientLaunchClientAppResponse::clear_result() {
+  result_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientAppResponse::_internal_result() const {
+  return result_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientLaunchClientAppResponse::result() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLaunchClientAppResponse.result)
+  return _internal_result();
+}
+inline void CMsgClientLaunchClientAppResponse::_internal_set_result(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  result_ = value;
+}
+inline void CMsgClientLaunchClientAppResponse::set_result(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLaunchClientAppResponse.result)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgClientEnableOrDisableDownloads
 
 // optional bool enable = 1;
@@ -5996,6 +6842,10 @@ inline void CMsgClientEnableOrDisableDownloadsResponse::set_result(::PROTOBUF_NA
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

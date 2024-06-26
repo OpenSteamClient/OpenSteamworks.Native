@@ -1250,6 +1250,7 @@ class CInventory_AddItem_Request PROTOBUF_FINAL :
   enum : int {
     kItemdefidFieldNumber = 2,
     kItempropsjsonFieldNumber = 3,
+    kItemquantityFieldNumber = 9,
     kSteamidFieldNumber = 4,
     kAppidFieldNumber = 1,
     kNotifyFieldNumber = 5,
@@ -1302,6 +1303,28 @@ class CInventory_AddItem_Request PROTOBUF_FINAL :
   const std::string& _internal_itempropsjson(int index) const;
   std::string* _internal_add_itempropsjson();
   public:
+
+  // repeated uint32 itemquantity = 9;
+  int itemquantity_size() const;
+  private:
+  int _internal_itemquantity_size() const;
+  public:
+  void clear_itemquantity();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_itemquantity(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_itemquantity() const;
+  void _internal_add_itemquantity(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_itemquantity();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 itemquantity(int index) const;
+  void set_itemquantity(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_itemquantity(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      itemquantity() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_itemquantity();
 
   // optional uint64 steamid = 4;
   bool has_steamid() const;
@@ -1392,6 +1415,7 @@ class CInventory_AddItem_Request PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > itemdefid_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> itempropsjson_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > itemquantity_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steamid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   bool notify_;
@@ -5606,6 +5630,53 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 CInventory_AddItem_Request::mutable_itempropsjson() {
   // @@protoc_insertion_point(field_mutable_list:CInventory_AddItem_Request.itempropsjson)
   return &itempropsjson_;
+}
+
+// repeated uint32 itemquantity = 9;
+inline int CInventory_AddItem_Request::_internal_itemquantity_size() const {
+  return itemquantity_.size();
+}
+inline int CInventory_AddItem_Request::itemquantity_size() const {
+  return _internal_itemquantity_size();
+}
+inline void CInventory_AddItem_Request::clear_itemquantity() {
+  itemquantity_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInventory_AddItem_Request::_internal_itemquantity(int index) const {
+  return itemquantity_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInventory_AddItem_Request::itemquantity(int index) const {
+  // @@protoc_insertion_point(field_get:CInventory_AddItem_Request.itemquantity)
+  return _internal_itemquantity(index);
+}
+inline void CInventory_AddItem_Request::set_itemquantity(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  itemquantity_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CInventory_AddItem_Request.itemquantity)
+}
+inline void CInventory_AddItem_Request::_internal_add_itemquantity(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  itemquantity_.Add(value);
+}
+inline void CInventory_AddItem_Request::add_itemquantity(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_itemquantity(value);
+  // @@protoc_insertion_point(field_add:CInventory_AddItem_Request.itemquantity)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CInventory_AddItem_Request::_internal_itemquantity() const {
+  return itemquantity_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CInventory_AddItem_Request::itemquantity() const {
+  // @@protoc_insertion_point(field_list:CInventory_AddItem_Request.itemquantity)
+  return _internal_itemquantity();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CInventory_AddItem_Request::_internal_mutable_itemquantity() {
+  return &itemquantity_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CInventory_AddItem_Request::mutable_itemquantity() {
+  // @@protoc_insertion_point(field_mutable_list:CInventory_AddItem_Request.itemquantity)
+  return _internal_mutable_itemquantity();
 }
 
 // optional uint64 steamid = 4;

@@ -7910,6 +7910,7 @@ class CInputMouseWheelMsg PROTOBUF_FINAL :
   enum : int {
     kInputMarkFieldNumber = 1,
     kDirectionFieldNumber = 2,
+    kAmountFieldNumber = 3,
   };
   // optional uint32 input_mark = 1;
   bool has_input_mark() const;
@@ -7937,6 +7938,19 @@ class CInputMouseWheelMsg PROTOBUF_FINAL :
   void _internal_set_direction(::EStreamMouseWheelDirection value);
   public:
 
+  // optional float amount = 3 [default = 1];
+  bool has_amount() const;
+  private:
+  bool _internal_has_amount() const;
+  public:
+  void clear_amount();
+  float amount() const;
+  void set_amount(float value);
+  private:
+  float _internal_amount() const;
+  void _internal_set_amount(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CInputMouseWheelMsg)
  private:
   class _Internal;
@@ -7948,6 +7962,7 @@ class CInputMouseWheelMsg PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 input_mark_;
   int direction_;
+  float amount_;
   friend struct ::TableStruct_steammessages_5fremoteplay_2eproto;
 };
 // -------------------------------------------------------------------
@@ -27128,6 +27143,34 @@ inline void CInputMouseWheelMsg::_internal_set_direction(::EStreamMouseWheelDire
 inline void CInputMouseWheelMsg::set_direction(::EStreamMouseWheelDirection value) {
   _internal_set_direction(value);
   // @@protoc_insertion_point(field_set:CInputMouseWheelMsg.direction)
+}
+
+// optional float amount = 3 [default = 1];
+inline bool CInputMouseWheelMsg::_internal_has_amount() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CInputMouseWheelMsg::has_amount() const {
+  return _internal_has_amount();
+}
+inline void CInputMouseWheelMsg::clear_amount() {
+  amount_ = 1;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline float CInputMouseWheelMsg::_internal_amount() const {
+  return amount_;
+}
+inline float CInputMouseWheelMsg::amount() const {
+  // @@protoc_insertion_point(field_get:CInputMouseWheelMsg.amount)
+  return _internal_amount();
+}
+inline void CInputMouseWheelMsg::_internal_set_amount(float value) {
+  _has_bits_[0] |= 0x00000004u;
+  amount_ = value;
+}
+inline void CInputMouseWheelMsg::set_amount(float value) {
+  _internal_set_amount(value);
+  // @@protoc_insertion_point(field_set:CInputMouseWheelMsg.amount)
 }
 
 // -------------------------------------------------------------------

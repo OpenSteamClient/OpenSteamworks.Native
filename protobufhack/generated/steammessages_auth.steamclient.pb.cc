@@ -348,7 +348,9 @@ constexpr CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescriptio
   , os_platform_(0u)
   , auth_type_(0u)
   , gaming_device_type_(0u)
-  , os_type_(0){}
+  , os_type_(0)
+  , authentication_type_(0)
+{}
 struct CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescriptionDefaultTypeInternal {
   constexpr CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescriptionDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -692,7 +694,7 @@ struct CCloudGaming_GetTimeRemaining_ResponseDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloudGaming_GetTimeRemaining_ResponseDefaultTypeInternal _CCloudGaming_GetTimeRemaining_Response_default_instance_;
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fauth_2esteamclient_2eproto[46];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto[6];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto[7];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fauth_2esteamclient_2eproto[3];
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fauth_2esteamclient_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -988,6 +990,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fauth_2esteamcl
   PROTOBUF_FIELD_OFFSET(::CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription, first_seen_),
   PROTOBUF_FIELD_OFFSET(::CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription, last_seen_),
   PROTOBUF_FIELD_OFFSET(::CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription, os_type_),
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription, authentication_type_),
   3,
   0,
   4,
@@ -999,6 +1002,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fauth_2esteamcl
   1,
   2,
   10,
+  11,
   PROTOBUF_FIELD_OFFSET(::CAuthentication_RefreshToken_Enumerate_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CAuthentication_RefreshToken_Enumerate_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1250,32 +1254,32 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 245, 252, sizeof(::CAuthentication_AccessToken_GenerateForApp_Response)},
   { 254, -1, sizeof(::CAuthentication_RefreshToken_Enumerate_Request)},
   { 259, 270, sizeof(::CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent)},
-  { 276, 292, sizeof(::CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription)},
-  { 303, 310, sizeof(::CAuthentication_RefreshToken_Enumerate_Response)},
-  { 312, -1, sizeof(::CAuthentication_GetAuthSessionsForAccount_Request)},
-  { 317, -1, sizeof(::CAuthentication_GetAuthSessionsForAccount_Response)},
-  { 323, 331, sizeof(::CAuthentication_MigrateMobileSession_Request)},
-  { 334, 341, sizeof(::CAuthentication_MigrateMobileSession_Response)},
-  { 343, 350, sizeof(::CAuthentication_Token_Revoke_Request)},
-  { 352, -1, sizeof(::CAuthentication_Token_Revoke_Response)},
-  { 357, 366, sizeof(::CAuthentication_RefreshToken_Revoke_Request)},
-  { 370, -1, sizeof(::CAuthentication_RefreshToken_Revoke_Response)},
-  { 375, 382, sizeof(::CAuthenticationSupport_QueryRefreshTokensByAccount_Request)},
-  { 384, 394, sizeof(::CSupportRefreshTokenDescription_TokenUsageEvent)},
-  { 399, 416, sizeof(::CSupportRefreshTokenDescription)},
-  { 428, 435, sizeof(::CAuthenticationSupport_QueryRefreshTokensByAccount_Response)},
-  { 437, 443, sizeof(::CAuthenticationSupport_QueryRefreshTokenByID_Request)},
-  { 444, -1, sizeof(::CAuthenticationSupport_QueryRefreshTokenByID_Response)},
-  { 450, 457, sizeof(::CAuthenticationSupport_RevokeToken_Request)},
-  { 459, -1, sizeof(::CAuthenticationSupport_RevokeToken_Response)},
-  { 464, 470, sizeof(::CAuthenticationSupport_GetTokenHistory_Request)},
-  { 471, 480, sizeof(::CSupportRefreshTokenAudit)},
-  { 484, -1, sizeof(::CAuthenticationSupport_GetTokenHistory_Response)},
-  { 490, 497, sizeof(::CCloudGaming_CreateNonce_Request)},
-  { 499, 506, sizeof(::CCloudGaming_CreateNonce_Response)},
-  { 508, 515, sizeof(::CCloudGaming_GetTimeRemaining_Request)},
-  { 517, 524, sizeof(::CCloudGaming_TimeRemaining)},
-  { 526, -1, sizeof(::CCloudGaming_GetTimeRemaining_Response)},
+  { 276, 293, sizeof(::CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription)},
+  { 305, 312, sizeof(::CAuthentication_RefreshToken_Enumerate_Response)},
+  { 314, -1, sizeof(::CAuthentication_GetAuthSessionsForAccount_Request)},
+  { 319, -1, sizeof(::CAuthentication_GetAuthSessionsForAccount_Response)},
+  { 325, 333, sizeof(::CAuthentication_MigrateMobileSession_Request)},
+  { 336, 343, sizeof(::CAuthentication_MigrateMobileSession_Response)},
+  { 345, 352, sizeof(::CAuthentication_Token_Revoke_Request)},
+  { 354, -1, sizeof(::CAuthentication_Token_Revoke_Response)},
+  { 359, 368, sizeof(::CAuthentication_RefreshToken_Revoke_Request)},
+  { 372, -1, sizeof(::CAuthentication_RefreshToken_Revoke_Response)},
+  { 377, 384, sizeof(::CAuthenticationSupport_QueryRefreshTokensByAccount_Request)},
+  { 386, 396, sizeof(::CSupportRefreshTokenDescription_TokenUsageEvent)},
+  { 401, 418, sizeof(::CSupportRefreshTokenDescription)},
+  { 430, 437, sizeof(::CAuthenticationSupport_QueryRefreshTokensByAccount_Response)},
+  { 439, 445, sizeof(::CAuthenticationSupport_QueryRefreshTokenByID_Request)},
+  { 446, -1, sizeof(::CAuthenticationSupport_QueryRefreshTokenByID_Response)},
+  { 452, 459, sizeof(::CAuthenticationSupport_RevokeToken_Request)},
+  { 461, -1, sizeof(::CAuthenticationSupport_RevokeToken_Response)},
+  { 466, 472, sizeof(::CAuthenticationSupport_GetTokenHistory_Request)},
+  { 473, 482, sizeof(::CSupportRefreshTokenAudit)},
+  { 486, -1, sizeof(::CAuthenticationSupport_GetTokenHistory_Response)},
+  { 492, 499, sizeof(::CCloudGaming_CreateNonce_Request)},
+  { 501, 508, sizeof(::CCloudGaming_CreateNonce_Response)},
+  { 510, 517, sizeof(::CCloudGaming_GetTimeRemaining_Request)},
+  { 519, 526, sizeof(::CCloudGaming_TimeRemaining)},
+  { 528, -1, sizeof(::CCloudGaming_GetTimeRemaining_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1422,7 +1426,7 @@ const char descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto[
   "Authentication_AccessToken_GenerateForAp"
   "p_Response\022\024\n\014access_token\030\001 \001(\t\022\025\n\rrefr"
   "esh_token\030\002 \001(\t\"0\n.CAuthentication_Refre"
-  "shToken_Enumerate_Request\"\352\005\n/CAuthentic"
+  "shToken_Enumerate_Request\"\272\006\n/CAuthentic"
   "ation_RefreshToken_Enumerate_Response\022`\n"
   "\016refresh_tokens\030\001 \003(\0132H.CAuthentication_"
   "RefreshToken_Enumerate_Response.RefreshT"
@@ -1430,7 +1434,7 @@ const char descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto[
   "\006\032y\n\017TokenUsageEvent\022\014\n\004time\030\001 \001(\r\022\032\n\002ip"
   "\030\002 \001(\0132\016.CMsgIPAddress\022\016\n\006locale\030\003 \001(\t\022\017"
   "\n\007country\030\004 \001(\t\022\r\n\005state\030\005 \001(\t\022\014\n\004city\030\006"
-  " \001(\t\032\277\003\n\027RefreshTokenDescription\022\020\n\010toke"
+  " \001(\t\032\217\004\n\027RefreshTokenDescription\022\020\n\010toke"
   "n_id\030\001 \001(\006\022\031\n\021token_description\030\002 \001(\t\022\024\n"
   "\014time_updated\030\003 \001(\r\022N\n\rplatform_type\030\004 \001"
   "(\0162\027.EAuthTokenPlatformType:\036EAuthTokenP"
@@ -1441,7 +1445,9 @@ const char descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto[
   "umerate_Response.TokenUsageEvent\022S\n\tlast"
   "_seen\030\n \001(\0132@.CAuthentication_RefreshTok"
   "en_Enumerate_Response.TokenUsageEvent\022\017\n"
-  "\007os_type\030\013 \001(\005\"3\n1CAuthentication_GetAut"
+  "\007os_type\030\013 \001(\005\022N\n\023authentication_type\030\014 "
+  "\001(\0162\024.EAuthenticationType:\033EAuthenticati"
+  "onType_Unknown\"3\n1CAuthentication_GetAut"
   "hSessionsForAccount_Request\"H\n2CAuthenti"
   "cation_GetAuthSessionsForAccount_Respons"
   "e\022\022\n\nclient_ids\030\001 \003(\004\"a\n,CAuthentication"
@@ -1524,82 +1530,87 @@ const char descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto[
   "AuthSessionSecurityHistory_NoPriorHistor"
   "y\020\002*L\n\021ETokenRenewalType\022\032\n\026ETokenRenewa"
   "lType_None\020\000\022\033\n\027ETokenRenewalType_Allow\020"
-  "\001*\237\002\n\026EAuthTokenRevokeAction\022\032\n\026EAuthTok"
-  "enRevokeLogout\020\000\022\035\n\031EAuthTokenRevokePerm"
-  "anent\020\001\022\034\n\030EAuthTokenRevokeReplaced\020\002\022\033\n"
-  "\027EAuthTokenRevokeSupport\020\003\022\033\n\027EAuthToken"
-  "RevokeConsume\020\004\022\'\n#EAuthTokenRevokeNonRe"
-  "memberedLogout\020\005\022*\n&EAuthTokenRevokeNonR"
-  "ememberedPermanent\020\006\022\035\n\031EAuthTokenRevoke"
-  "Automatic\020\007*\370\001\n\017EAuthTokenState\022\033\n\027EAuth"
-  "TokenState_Invalid\020\000\022\027\n\023EAuthTokenState_"
-  "New\020\001\022\035\n\031EAuthTokenState_Confirmed\020\002\022\032\n\026"
-  "EAuthTokenState_Issued\020\003\022\032\n\026EAuthTokenSt"
-  "ate_Denied\020\004\022\035\n\031EAuthTokenState_LoggedOu"
-  "t\020\005\022\034\n\030EAuthTokenState_Consumed\020\006\022\033\n\027EAu"
-  "thTokenState_Revoked\020c2\257\r\n\016Authenticatio"
-  "n\022~\n\027GetPasswordRSAPublicKey\0220.CAuthenti"
-  "cation_GetPasswordRSAPublicKey_Request\0321"
-  ".CAuthentication_GetPasswordRSAPublicKey"
-  "_Response\022x\n\025BeginAuthSessionViaQR\022..CAu"
-  "thentication_BeginAuthSessionViaQR_Reque"
-  "st\032/.CAuthentication_BeginAuthSessionVia"
-  "QR_Response\022\223\001\n\036BeginAuthSessionViaCrede"
-  "ntials\0227.CAuthentication_BeginAuthSessio"
-  "nViaCredentials_Request\0328.CAuthenticatio"
-  "n_BeginAuthSessionViaCredentials_Respons"
-  "e\022x\n\025PollAuthSessionStatus\022..CAuthentica"
-  "tion_PollAuthSessionStatus_Request\032/.CAu"
-  "thentication_PollAuthSessionStatus_Respo"
-  "nse\022o\n\022GetAuthSessionInfo\022+.CAuthenticat"
-  "ion_GetAuthSessionInfo_Request\032,.CAuthen"
-  "tication_GetAuthSessionInfo_Response\022\256\001\n"
-  "\'UpdateAuthSessionWithMobileConfirmation"
-  "\022@.CAuthentication_UpdateAuthSessionWith"
-  "MobileConfirmation_Request\032A.CAuthentica"
-  "tion_UpdateAuthSessionWithMobileConfirma"
-  "tion_Response\022\242\001\n#UpdateAuthSessionWithS"
-  "teamGuardCode\022<.CAuthentication_UpdateAu"
-  "thSessionWithSteamGuardCode_Request\032=.CA"
-  "uthentication_UpdateAuthSessionWithSteam"
-  "GuardCode_Response\022\206\001\n\031GenerateAccessTok"
-  "enForApp\0223.CAuthentication_AccessToken_G"
-  "enerateForApp_Request\0324.CAuthentication_"
-  "AccessToken_GenerateForApp_Response\022t\n\017E"
-  "numerateTokens\022/.CAuthentication_Refresh"
-  "Token_Enumerate_Request\0320.CAuthenticatio"
-  "n_RefreshToken_Enumerate_Response\022\204\001\n\031Ge"
-  "tAuthSessionsForAccount\0222.CAuthenticatio"
-  "n_GetAuthSessionsForAccount_Request\0323.CA"
-  "uthentication_GetAuthSessionsForAccount_"
-  "Response\022u\n\024MigrateMobileSession\022-.CAuth"
-  "entication_MigrateMobileSession_Request\032"
-  "..CAuthentication_MigrateMobileSession_R"
-  "esponse\022\\\n\013RevokeToken\022%.CAuthentication"
-  "_Token_Revoke_Request\032&.CAuthentication_"
-  "Token_Revoke_Response\022q\n\022RevokeRefreshTo"
-  "ken\022,.CAuthentication_RefreshToken_Revok"
-  "e_Request\032-.CAuthentication_RefreshToken"
-  "_Revoke_Response2\233\004\n\025AuthenticationSuppo"
-  "rt\022\230\001\n\033QueryRefreshTokensByAccount\022;.CAu"
-  "thenticationSupport_QueryRefreshTokensBy"
-  "Account_Request\032<.CAuthenticationSupport"
-  "_QueryRefreshTokensByAccount_Response\022\206\001"
-  "\n\025QueryRefreshTokenByID\0225.CAuthenticatio"
-  "nSupport_QueryRefreshTokenByID_Request\0326"
-  ".CAuthenticationSupport_QueryRefreshToke"
-  "nByID_Response\022h\n\013RevokeToken\022+.CAuthent"
-  "icationSupport_RevokeToken_Request\032,.CAu"
-  "thenticationSupport_RevokeToken_Response"
-  "\022t\n\017GetTokenHistory\022/.CAuthenticationSup"
-  "port_GetTokenHistory_Request\0320.CAuthenti"
-  "cationSupport_GetTokenHistory_Response2\310"
-  "\001\n\013CloudGaming\022T\n\013CreateNonce\022!.CCloudGa"
-  "ming_CreateNonce_Request\032\".CCloudGaming_"
-  "CreateNonce_Response\022c\n\020GetTimeRemaining"
-  "\022&.CCloudGaming_GetTimeRemaining_Request"
-  "\032\'.CCloudGaming_GetTimeRemaining_Respons"
-  "eB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "\001*\303\001\n\023EAuthenticationType\022\037\n\033EAuthentica"
+  "tionType_Unknown\020\000\022 \n\034EAuthenticationTyp"
+  "e_Password\020\001\022\032\n\026EAuthenticationType_QR\020\002"
+  "\022\'\n#EAuthenticationType_AccountCreation\020"
+  "\003\022$\n EAuthenticationType_GuestAccount\020\004*"
+  "\237\002\n\026EAuthTokenRevokeAction\022\032\n\026EAuthToken"
+  "RevokeLogout\020\000\022\035\n\031EAuthTokenRevokePerman"
+  "ent\020\001\022\034\n\030EAuthTokenRevokeReplaced\020\002\022\033\n\027E"
+  "AuthTokenRevokeSupport\020\003\022\033\n\027EAuthTokenRe"
+  "vokeConsume\020\004\022\'\n#EAuthTokenRevokeNonReme"
+  "mberedLogout\020\005\022*\n&EAuthTokenRevokeNonRem"
+  "emberedPermanent\020\006\022\035\n\031EAuthTokenRevokeAu"
+  "tomatic\020\007*\370\001\n\017EAuthTokenState\022\033\n\027EAuthTo"
+  "kenState_Invalid\020\000\022\027\n\023EAuthTokenState_Ne"
+  "w\020\001\022\035\n\031EAuthTokenState_Confirmed\020\002\022\032\n\026EA"
+  "uthTokenState_Issued\020\003\022\032\n\026EAuthTokenStat"
+  "e_Denied\020\004\022\035\n\031EAuthTokenState_LoggedOut\020"
+  "\005\022\034\n\030EAuthTokenState_Consumed\020\006\022\033\n\027EAuth"
+  "TokenState_Revoked\020c2\257\r\n\016Authentication\022"
+  "~\n\027GetPasswordRSAPublicKey\0220.CAuthentica"
+  "tion_GetPasswordRSAPublicKey_Request\0321.C"
+  "Authentication_GetPasswordRSAPublicKey_R"
+  "esponse\022x\n\025BeginAuthSessionViaQR\022..CAuth"
+  "entication_BeginAuthSessionViaQR_Request"
+  "\032/.CAuthentication_BeginAuthSessionViaQR"
+  "_Response\022\223\001\n\036BeginAuthSessionViaCredent"
+  "ials\0227.CAuthentication_BeginAuthSessionV"
+  "iaCredentials_Request\0328.CAuthentication_"
+  "BeginAuthSessionViaCredentials_Response\022"
+  "x\n\025PollAuthSessionStatus\022..CAuthenticati"
+  "on_PollAuthSessionStatus_Request\032/.CAuth"
+  "entication_PollAuthSessionStatus_Respons"
+  "e\022o\n\022GetAuthSessionInfo\022+.CAuthenticatio"
+  "n_GetAuthSessionInfo_Request\032,.CAuthenti"
+  "cation_GetAuthSessionInfo_Response\022\256\001\n\'U"
+  "pdateAuthSessionWithMobileConfirmation\022@"
+  ".CAuthentication_UpdateAuthSessionWithMo"
+  "bileConfirmation_Request\032A.CAuthenticati"
+  "on_UpdateAuthSessionWithMobileConfirmati"
+  "on_Response\022\242\001\n#UpdateAuthSessionWithSte"
+  "amGuardCode\022<.CAuthentication_UpdateAuth"
+  "SessionWithSteamGuardCode_Request\032=.CAut"
+  "hentication_UpdateAuthSessionWithSteamGu"
+  "ardCode_Response\022\206\001\n\031GenerateAccessToken"
+  "ForApp\0223.CAuthentication_AccessToken_Gen"
+  "erateForApp_Request\0324.CAuthentication_Ac"
+  "cessToken_GenerateForApp_Response\022t\n\017Enu"
+  "merateTokens\022/.CAuthentication_RefreshTo"
+  "ken_Enumerate_Request\0320.CAuthentication_"
+  "RefreshToken_Enumerate_Response\022\204\001\n\031GetA"
+  "uthSessionsForAccount\0222.CAuthentication_"
+  "GetAuthSessionsForAccount_Request\0323.CAut"
+  "hentication_GetAuthSessionsForAccount_Re"
+  "sponse\022u\n\024MigrateMobileSession\022-.CAuthen"
+  "tication_MigrateMobileSession_Request\032.."
+  "CAuthentication_MigrateMobileSession_Res"
+  "ponse\022\\\n\013RevokeToken\022%.CAuthentication_T"
+  "oken_Revoke_Request\032&.CAuthentication_To"
+  "ken_Revoke_Response\022q\n\022RevokeRefreshToke"
+  "n\022,.CAuthentication_RefreshToken_Revoke_"
+  "Request\032-.CAuthentication_RefreshToken_R"
+  "evoke_Response2\233\004\n\025AuthenticationSupport"
+  "\022\230\001\n\033QueryRefreshTokensByAccount\022;.CAuth"
+  "enticationSupport_QueryRefreshTokensByAc"
+  "count_Request\032<.CAuthenticationSupport_Q"
+  "ueryRefreshTokensByAccount_Response\022\206\001\n\025"
+  "QueryRefreshTokenByID\0225.CAuthenticationS"
+  "upport_QueryRefreshTokenByID_Request\0326.C"
+  "AuthenticationSupport_QueryRefreshTokenB"
+  "yID_Response\022h\n\013RevokeToken\022+.CAuthentic"
+  "ationSupport_RevokeToken_Request\032,.CAuth"
+  "enticationSupport_RevokeToken_Response\022t"
+  "\n\017GetTokenHistory\022/.CAuthenticationSuppo"
+  "rt_GetTokenHistory_Request\0320.CAuthentica"
+  "tionSupport_GetTokenHistory_Response2\310\001\n"
+  "\013CloudGaming\022T\n\013CreateNonce\022!.CCloudGami"
+  "ng_CreateNonce_Request\032\".CCloudGaming_Cr"
+  "eateNonce_Response\022c\n\020GetTimeRemaining\022&"
+  ".CCloudGaming_GetTimeRemaining_Request\032\'"
+  ".CCloudGaming_GetTimeRemaining_ResponseB"
+  "\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fauth_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -1609,7 +1620,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fauth_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fauth_2esteamclient_2eproto = {
-  false, false, 10872, descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto, "steammessages_auth.steamclient.proto", 
+  false, false, 11150, descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto, "steammessages_auth.steamclient.proto", 
   &descriptor_table_steammessages_5fauth_2esteamclient_2eproto_once, descriptor_table_steammessages_5fauth_2esteamclient_2eproto_deps, 4, 46,
   schemas, file_default_instances, TableStruct_steammessages_5fauth_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fauth_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fauth_2esteamclient_2eproto,
@@ -1687,9 +1698,26 @@ bool ETokenRenewalType_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAuthTokenRevokeAction_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAuthenticationType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fauth_2esteamclient_2eproto);
   return file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto[4];
+}
+bool EAuthenticationType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAuthTokenRevokeAction_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fauth_2esteamclient_2eproto);
+  return file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto[5];
 }
 bool EAuthTokenRevokeAction_IsValid(int value) {
   switch (value) {
@@ -1709,7 +1737,7 @@ bool EAuthTokenRevokeAction_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAuthTokenState_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fauth_2esteamclient_2eproto);
-  return file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto[5];
+  return file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto[6];
 }
 bool EAuthTokenState_IsValid(int value) {
   switch (value) {
@@ -8699,6 +8727,9 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_
   static void set_has_os_type(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
+  static void set_has_authentication_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
 };
 
 const ::CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent&
@@ -8735,8 +8766,8 @@ CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::CAuthen
     last_seen_ = nullptr;
   }
   ::memcpy(&token_id_, &from.token_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&os_type_) -
-    reinterpret_cast<char*>(&token_id_)) + sizeof(os_type_));
+    static_cast<size_t>(reinterpret_cast<char*>(&authentication_type_) -
+    reinterpret_cast<char*>(&token_id_)) + sizeof(authentication_type_));
   // @@protoc_insertion_point(copy_constructor:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription)
 }
 
@@ -8744,8 +8775,8 @@ void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::Sh
 token_description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&first_seen_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&os_type_) -
-    reinterpret_cast<char*>(&first_seen_)) + sizeof(os_type_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&authentication_type_) -
+    reinterpret_cast<char*>(&first_seen_)) + sizeof(authentication_type_));
 }
 
 CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::~CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription() {
@@ -8796,10 +8827,10 @@ void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::Cl
         reinterpret_cast<char*>(&os_platform_) -
         reinterpret_cast<char*>(&token_id_)) + sizeof(os_platform_));
   }
-  if (cached_has_bits & 0x00000700u) {
+  if (cached_has_bits & 0x00000f00u) {
     ::memset(&auth_type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&os_type_) -
-        reinterpret_cast<char*>(&auth_type_)) + sizeof(os_type_));
+        reinterpret_cast<char*>(&authentication_type_) -
+        reinterpret_cast<char*>(&auth_type_)) + sizeof(authentication_type_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -8904,6 +8935,18 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
           _Internal::set_has_os_type(&has_bits);
           os_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .EAuthenticationType authentication_type = 12 [default = EAuthenticationType_Unknown];
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EAuthenticationType_IsValid(val))) {
+            _internal_set_authentication_type(static_cast<::EAuthenticationType>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(12, val, mutable_unknown_fields());
+          }
         } else goto handle_unusual;
         continue;
       default: {
@@ -9011,6 +9054,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_os_type(), target);
   }
 
+  // optional .EAuthenticationType authentication_type = 12 [default = EAuthenticationType_Unknown];
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      12, this->_internal_authentication_type(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -9081,7 +9131,7 @@ size_t CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::
     }
 
   }
-  if (cached_has_bits & 0x00000700u) {
+  if (cached_has_bits & 0x00000f00u) {
     // optional uint32 auth_type = 7;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
@@ -9101,6 +9151,12 @@ size_t CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_os_type());
+    }
+
+    // optional .EAuthenticationType authentication_type = 12 [default = EAuthenticationType_Unknown];
+    if (cached_has_bits & 0x00000800u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_authentication_type());
     }
 
   }
@@ -9163,7 +9219,7 @@ void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::Me
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000700u) {
+  if (cached_has_bits & 0x00000f00u) {
     if (cached_has_bits & 0x00000100u) {
       auth_type_ = from.auth_type_;
     }
@@ -9172,6 +9228,9 @@ void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::Me
     }
     if (cached_has_bits & 0x00000400u) {
       os_type_ = from.os_type_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      authentication_type_ = from.authentication_type_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -9201,8 +9260,8 @@ void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::In
   swap(_has_bits_[0], other->_has_bits_[0]);
   token_description_.Swap(&other->token_description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription, os_type_)
-      + sizeof(CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::os_type_)
+      PROTOBUF_FIELD_OFFSET(CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription, authentication_type_)
+      + sizeof(CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::authentication_type_)
       - PROTOBUF_FIELD_OFFSET(CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription, first_seen_)>(
           reinterpret_cast<char*>(&first_seen_),
           reinterpret_cast<char*>(&other->first_seen_));

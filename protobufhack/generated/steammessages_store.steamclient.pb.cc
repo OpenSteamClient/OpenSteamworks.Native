@@ -583,6 +583,57 @@ struct CStore_UpdatePackageReservations_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_UpdatePackageReservations_ResponseDefaultTypeInternal _CStore_UpdatePackageReservations_Response_default_instance_;
+constexpr CStore_GetWishlistDemoEmailStatus_Request::CStore_GetWishlistDemoEmailStatus_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : appid_(0u)
+  , demo_appid_(0u){}
+struct CStore_GetWishlistDemoEmailStatus_RequestDefaultTypeInternal {
+  constexpr CStore_GetWishlistDemoEmailStatus_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStore_GetWishlistDemoEmailStatus_RequestDefaultTypeInternal() {}
+  union {
+    CStore_GetWishlistDemoEmailStatus_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_GetWishlistDemoEmailStatus_RequestDefaultTypeInternal _CStore_GetWishlistDemoEmailStatus_Request_default_instance_;
+constexpr CStore_GetWishlistDemoEmailStatus_Response::CStore_GetWishlistDemoEmailStatus_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : can_fire_(false)
+  , time_staged_(0u)
+  , demo_release_date_(0u){}
+struct CStore_GetWishlistDemoEmailStatus_ResponseDefaultTypeInternal {
+  constexpr CStore_GetWishlistDemoEmailStatus_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStore_GetWishlistDemoEmailStatus_ResponseDefaultTypeInternal() {}
+  union {
+    CStore_GetWishlistDemoEmailStatus_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_GetWishlistDemoEmailStatus_ResponseDefaultTypeInternal _CStore_GetWishlistDemoEmailStatus_Response_default_instance_;
+constexpr CStore_QueueWishlistDemoEmailToFire_Request::CStore_QueueWishlistDemoEmailToFire_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : appid_(0u)
+  , demo_appid_(0u){}
+struct CStore_QueueWishlistDemoEmailToFire_RequestDefaultTypeInternal {
+  constexpr CStore_QueueWishlistDemoEmailToFire_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStore_QueueWishlistDemoEmailToFire_RequestDefaultTypeInternal() {}
+  union {
+    CStore_QueueWishlistDemoEmailToFire_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_QueueWishlistDemoEmailToFire_RequestDefaultTypeInternal _CStore_QueueWishlistDemoEmailToFire_Request_default_instance_;
+constexpr CStore_QueueWishlistDemoEmailToFire_Response::CStore_QueueWishlistDemoEmailToFire_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CStore_QueueWishlistDemoEmailToFire_ResponseDefaultTypeInternal {
+  constexpr CStore_QueueWishlistDemoEmailToFire_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStore_QueueWishlistDemoEmailToFire_ResponseDefaultTypeInternal() {}
+  union {
+    CStore_QueueWishlistDemoEmailToFire_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_QueueWishlistDemoEmailToFire_ResponseDefaultTypeInternal _CStore_QueueWishlistDemoEmailToFire_Response_default_instance_;
 constexpr CReservationPositionMessage::CReservationPositionMessage(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : product_identifier_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -749,7 +800,7 @@ struct CStore_StorePreferencesChanged_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_StorePreferencesChanged_NotificationDefaultTypeInternal _CStore_StorePreferencesChanged_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fstore_2esteamclient_2eproto[51];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fstore_2esteamclient_2eproto[55];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fstore_2esteamclient_2eproto[5];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fstore_2esteamclient_2eproto[2];
 
@@ -1216,6 +1267,40 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstore_2esteamc
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CStore_UpdatePackageReservations_Response, reservation_status_),
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Request, appid_),
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Request, demo_appid_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Response, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Response, can_fire_),
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Response, time_staged_),
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Response, demo_release_date_),
+  0,
+  1,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Request, appid_),
+  PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Request, demo_appid_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CReservationPositionMessage, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CReservationPositionMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1361,19 +1446,23 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 434, 442, sizeof(::CStore_MigratePartnerLinkTracking_Notification)},
   { 445, 453, sizeof(::CStore_UpdatePackageReservations_Request)},
   { 456, -1, sizeof(::CStore_UpdatePackageReservations_Response)},
-  { 462, 474, sizeof(::CReservationPositionMessage)},
-  { 481, -1, sizeof(::CStore_SetReservationPositionMessage_Request)},
-  { 487, -1, sizeof(::CStore_SetReservationPositionMessage_Response)},
-  { 492, 500, sizeof(::CStore_DeleteReservationPositionMessage_Request)},
-  { 503, -1, sizeof(::CStore_DeleteReservationPositionMessage_Response)},
-  { 508, -1, sizeof(::CStore_GetAllReservationPositionMessages_Request)},
-  { 513, -1, sizeof(::CStore_GetAllReservationPositionMessages_Response)},
-  { 519, -1, sizeof(::CStore_ReloadAllReservationPositionMessages_Notification)},
-  { 524, 531, sizeof(::CSteamDeckCompatibility_SetFeedbacRequest)},
-  { 533, -1, sizeof(::CSteamDeckCompatibility_SetFeedbacResponse)},
-  { 538, 544, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Request)},
-  { 545, 553, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Response)},
-  { 556, 564, sizeof(::CStore_StorePreferencesChanged_Notification)},
+  { 462, 469, sizeof(::CStore_GetWishlistDemoEmailStatus_Request)},
+  { 471, 479, sizeof(::CStore_GetWishlistDemoEmailStatus_Response)},
+  { 482, 489, sizeof(::CStore_QueueWishlistDemoEmailToFire_Request)},
+  { 491, -1, sizeof(::CStore_QueueWishlistDemoEmailToFire_Response)},
+  { 496, 508, sizeof(::CReservationPositionMessage)},
+  { 515, -1, sizeof(::CStore_SetReservationPositionMessage_Request)},
+  { 521, -1, sizeof(::CStore_SetReservationPositionMessage_Response)},
+  { 526, 534, sizeof(::CStore_DeleteReservationPositionMessage_Request)},
+  { 537, -1, sizeof(::CStore_DeleteReservationPositionMessage_Response)},
+  { 542, -1, sizeof(::CStore_GetAllReservationPositionMessages_Request)},
+  { 547, -1, sizeof(::CStore_GetAllReservationPositionMessages_Response)},
+  { 553, -1, sizeof(::CStore_ReloadAllReservationPositionMessages_Notification)},
+  { 558, 565, sizeof(::CSteamDeckCompatibility_SetFeedbacRequest)},
+  { 567, -1, sizeof(::CSteamDeckCompatibility_SetFeedbacResponse)},
+  { 572, 578, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Request)},
+  { 579, 587, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Response)},
+  { 590, 598, sizeof(::CStore_StorePreferencesChanged_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1415,6 +1504,10 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_MigratePartnerLinkTracking_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_UpdatePackageReservations_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_UpdatePackageReservations_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_GetWishlistDemoEmailStatus_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_GetWishlistDemoEmailStatus_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_QueueWishlistDemoEmailToFire_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_QueueWishlistDemoEmailToFire_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CReservationPositionMessage_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_SetReservationPositionMessage_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_SetReservationPositionMessage_Response_default_instance_),
@@ -1577,143 +1670,158 @@ const char descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto
   "(\r\022\035\n\025packages_to_unreserve\030\002 \003(\r\022\024\n\014cou"
   "ntry_code\030\003 \001(\t\"c\n)CStore_UpdatePackageR"
   "eservations_Response\0226\n\022reservation_stat"
-  "us\030\001 \003(\0132\032.CPackageReservationStatus\"\331\001\n"
-  "\033CReservationPositionMessage\022\024\n\014edistrib"
-  "utor\030\001 \001(\r\022\032\n\022product_identifier\030\002 \001(\t\022\034"
-  "\n\024start_queue_position\030\003 \001(\r\022$\n\034rtime_es"
-  "timated_notification\030\004 \001(\r\022\032\n\022localizati"
-  "on_token\030\005 \001(\t\022\021\n\taccountid\030\006 \001(\r\022\025\n\rrti"
-  "me_created\030\007 \001(\r\"^\n,CStore_SetReservatio"
-  "nPositionMessage_Request\022.\n\010settings\030\001 \003"
-  "(\0132\034.CReservationPositionMessage\"/\n-CSto"
-  "re_SetReservationPositionMessage_Respons"
-  "e\"\201\001\n/CStore_DeleteReservationPositionMe"
-  "ssage_Request\022\024\n\014edistributor\030\001 \001(\r\022\032\n\022p"
-  "roduct_identifier\030\002 \001(\t\022\034\n\024start_queue_p"
-  "osition\030\003 \001(\r\"2\n0CStore_DeleteReservatio"
-  "nPositionMessage_Response\"2\n0CStore_GetA"
-  "llReservationPositionMessages_Request\"c\n"
-  "1CStore_GetAllReservationPositionMessage"
-  "s_Response\022.\n\010settings\030\001 \003(\0132\034.CReservat"
-  "ionPositionMessage\":\n8CStore_ReloadAllRe"
-  "servationPositionMessages_Notification\"\223"
-  "\001\n)CSteamDeckCompatibility_SetFeedbacReq"
-  "uest\022\r\n\005appid\030\001 \001(\r\022W\n\010feedback\030\002 \001(\0162 ."
-  "ESteamDeckCompatibilityFeedback:#ESteamD"
-  "eckCompatibilityFeedbacUnset\",\n*CSteamDe"
-  "ckCompatibility_SetFeedbacResponse\"=\n,CS"
-  "teamDeckCompatibility_ShouldPrompt_Reque"
-  "st\022\r\n\005appid\030\001 \001(\r\"\272\001\n-CSteamDeckCompatib"
-  "ility_ShouldPrompt_Response\022\016\n\006prompt\030\001 "
-  "\001(\010\022\027\n\017feedbaceligible\030\002 \001(\010\022`\n\021existing"
-  "_feedback\030\003 \001(\0162 .ESteamDeckCompatibilit"
-  "yFeedback:#ESteamDeckCompatibilityFeedba"
-  "cUnset\"\333\001\n+CStore_StorePreferencesChange"
-  "d_Notification\022,\n\013preferences\030\001 \001(\0132\027.CS"
-  "tore_UserPreferences\0223\n\017tag_preferences\030"
-  "\002 \001(\0132\032.CStore_UserTagPreferences\022I\n\036con"
-  "tent_descriptor_preferences\030\003 \001(\0132!.User"
-  "ContentDescriptorPreferences*\215\005\n\030EStoreD"
-  "iscoveryQueueType\022\037\n\033EStoreDiscoveryQueu"
-  "eTypeNew\020\000\022&\n\"EStoreDiscoveryQueueTypeCo"
-  "mingSoon\020\001\022\'\n#EStoreDiscoveryQueueTypeRe"
-  "commended\020\002\022+\n\'EStoreDiscoveryQueueTypeE"
-  "veryNewRelease\020\003\022)\n%EStoreDiscoveryQueue"
-  "TypeMLRecommender\020\005\022*\n&EStoreDiscoveryQu"
-  "eueTypeWishlistOnSale\020\006\022\037\n\033EStoreDiscove"
-  "ryQueueTypeDLC\020\007\022%\n!EStoreDiscoveryQueue"
-  "TypeDLCOnSale\020\010\0221\n-EStoreDiscoveryQueueT"
-  "ypeRecommendedComingSoon\020\t\022+\n\'EStoreDisc"
-  "overyQueueTypeRecommendedFree\020\n\022-\n)EStor"
-  "eDiscoveryQueueTypeRecommendedOnSale\020\013\022,"
-  "\n(EStoreDiscoveryQueueTypeRecommendedDem"
-  "os\020\014\022*\n&EStoreDiscoveryQueueTypeDLCNewRe"
-  "leases\020\r\022)\n%EStoreDiscoveryQueueTypeDLCT"
-  "opSellers\020\016\022\037\n\033EStoreDiscoveryQueueTypeM"
-  "AX\020\017*v\n\017EPlaytestStatus\022\025\n\021ETesterStatus"
-  "None\020\000\022\030\n\024ETesterStatusPending\020\001\022\030\n\024ETes"
-  "terStatusInvited\020\002\022\030\n\024ETesterStatusGrant"
-  "ed\020\003*\204\004\n\016EAppReportType\022\032\n\026EAppReportTyp"
-  "e_Invalid\020\000\022\027\n\023EAppReportType_Scam\020\001\022\032\n\026"
-  "EAppReportType_Malware\020\002\022\035\n\031EAppReportTy"
-  "pe_HateSpeech\020\003\022\036\n\032EAppReportType_Pornog"
-  "raphy\020\004\022)\n%EAppReportType_NonLabeledAdul"
-  "tContent\020\005\022\033\n\027EAppReportType_Libelous\020\006\022"
-  "\034\n\030EAppReportType_Offensive\020\007\022#\n\037EAppRep"
-  "ortType_ExploitsChildren\020\010\0226\n2EAppReport"
-  "Type_MtxWithNonSteamWalletPaymentMethods"
-  "\020\t\022%\n!EAppReportType_CopyrightViolation\020"
-  "\n\022\037\n\033EAppReportType_ViolatesLaws\020\013\022\030\n\024EA"
-  "ppReportType_Other\020\014\022\031\n\025EAppReportType_B"
-  "roken\020\r\022\"\n\036EAppReportType_AIContentRepor"
-  "t\020\016*\232\001\n\032EUserReviewScorePreference\022$\n EU"
-  "serReviewScorePreference_Unset\020\000\022)\n%EUse"
-  "rReviewScorePreference_IncludeAll\020\001\022+\n\'E"
-  "UserReviewScorePreference_ExcludeBombs\020\002"
-  "*\334\001\n\"EPartnerLinkTrackingBackfillSource\022"
-  "+\n\'EPartnerLinkTrackingBackfillSource_No"
-  "ne\020\000\022*\n&EPartnerLinkTrackingBackfillSour"
-  "ce_Web\020\001\022-\n)EPartnerLinkTrackingBackfill"
-  "Source_Mobile\020\002\022.\n*EPartnerLinkTrackingB"
-  "ackfillSource_Desktop\020\0032\210\021\n\005Store\022N\n\rReg"
-  "isterCDKey\022\035.CStore_RegisterCDKey_Reques"
-  "t\032\036.CStore_RegisterCDKey_Response\022]\n\022Get"
-  "MostPopularTags\022\".CStore_GetMostPopularT"
-  "ags_Request\032#.CStore_GetMostPopularTags_"
-  "Response\022l\n\027GetLocalizedNameForTags\022\'.CS"
-  "tore_GetLocalizedNameForTags_Request\032(.C"
-  "Store_GetLocalizedNameForTags_Response\022E"
-  "\n\nGetTagList\022\032.CStore_GetTagList_Request"
-  "\032\033.CStore_GetTagList_Response\022Z\n\021GetDisc"
-  "overyQueue\022!.CStore_GetDiscoveryQueue_Re"
-  "quest\032\".CStore_GetDiscoveryQueue_Respons"
-  "e\022r\n\031GetDiscoveryQueueSettings\022).CStore_"
-  "GetDiscoveryQueueSettings_Request\032*.CSto"
-  "re_GetDiscoveryQueueSettings_Response\022i\n"
-  "\026SkipDiscoveryQueueItem\022&.CStore_SkipDis"
-  "coveryQueueItem_Request\032\'.CStore_SkipDis"
-  "coveryQueueItem_Response\022o\n\030GetUserGameI"
-  "nterestState\022(.CStore_GetUserGameInteres"
-  "tState_Request\032).CStore_GetUserGameInter"
-  "estState_Response\022{\n\034GetDiscoveryQueueSk"
-  "ippedApps\022,.CStore_GetDiscoveryQueueSkip"
-  "pedApps_Request\032-.CStore_GetDiscoveryQue"
-  "ueSkippedApps_Response\022B\n\tReportApp\022\031.CS"
-  "tore_ReportApp_Request\032\032.CStore_ReportAp"
-  "p_Response\022`\n\023GetStorePreferences\022#.CSto"
-  "re_GetStorePreferences_Request\032$.CStore_"
-  "GetStorePreferences_Response\022x\n\033GetTrend"
-  "ingAppsAmongFriends\022+.CStore_GetTrending"
-  "AppsAmongFriends_Request\032,.CStore_GetTre"
-  "ndingAppsAmongFriends_Response\022Z\n\032Migrat"
-  "ePartnerLinkTracking\022/.CStore_MigratePar"
-  "tnerLinkTracking_Notification\032\013.NoRespon"
-  "se\022r\n\031UpdatePackageReservations\022).CStore"
-  "_UpdatePackageReservations_Request\032*.CSt"
-  "ore_UpdatePackageReservations_Response\022~"
-  "\n\035SetReservationPositionMessage\022-.CStore"
-  "_SetReservationPositionMessage_Request\032."
-  ".CStore_SetReservationPositionMessage_Re"
-  "sponse\022\207\001\n DeleteReservationPositionMess"
-  "age\0220.CStore_DeleteReservationPositionMe"
-  "ssage_Request\0321.CStore_DeleteReservation"
-  "PositionMessage_Response\022\212\001\n!GetAllReser"
-  "vationPositionMessages\0221.CStore_GetAllRe"
-  "servationPositionMessages_Request\0322.CSto"
-  "re_GetAllReservationPositionMessages_Res"
-  "ponse\022n\n$ReloadAllReservationPositionMes"
-  "sages\0229.CStore_ReloadAllReservationPosit"
-  "ionMessages_Notification\032\013.NoResponse\022s\n"
-  "\030SetCompatibilityFeedback\022*.CSteamDeckCo"
-  "mpatibility_SetFeedbacRequest\032+.CSteamDe"
-  "ckCompatibility_SetFeedbacResponse\022\205\001\n$S"
-  "houldPromptForCompatibilityFeedback\022-.CS"
-  "teamDeckCompatibility_ShouldPrompt_Reque"
-  "st\032..CSteamDeckCompatibility_ShouldPromp"
-  "t_Response2o\n\013StoreClient\022Z\n\035NotifyStore"
-  "PreferencesChanged\022,.CStore_StorePrefere"
-  "ncesChanged_Notification\032\013.NoResponse\032\004\300"
-  "\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "us\030\001 \003(\0132\032.CPackageReservationStatus\"N\n)"
+  "CStore_GetWishlistDemoEmailStatus_Reques"
+  "t\022\r\n\005appid\030\001 \001(\r\022\022\n\ndemo_appid\030\002 \001(\r\"u\n*"
+  "CStore_GetWishlistDemoEmailStatus_Respon"
+  "se\022\027\n\010can_fire\030\001 \001(\010:\005false\022\023\n\013time_stag"
+  "ed\030\002 \001(\r\022\031\n\021demo_release_date\030\003 \001(\r\"P\n+C"
+  "Store_QueueWishlistDemoEmailToFire_Reque"
+  "st\022\r\n\005appid\030\001 \001(\r\022\022\n\ndemo_appid\030\002 \001(\r\".\n"
+  ",CStore_QueueWishlistDemoEmailToFire_Res"
+  "ponse\"\331\001\n\033CReservationPositionMessage\022\024\n"
+  "\014edistributor\030\001 \001(\r\022\032\n\022product_identifie"
+  "r\030\002 \001(\t\022\034\n\024start_queue_position\030\003 \001(\r\022$\n"
+  "\034rtime_estimated_notification\030\004 \001(\r\022\032\n\022l"
+  "ocalization_token\030\005 \001(\t\022\021\n\taccountid\030\006 \001"
+  "(\r\022\025\n\rrtime_created\030\007 \001(\r\"^\n,CStore_SetR"
+  "eservationPositionMessage_Request\022.\n\010set"
+  "tings\030\001 \003(\0132\034.CReservationPositionMessag"
+  "e\"/\n-CStore_SetReservationPositionMessag"
+  "e_Response\"\201\001\n/CStore_DeleteReservationP"
+  "ositionMessage_Request\022\024\n\014edistributor\030\001"
+  " \001(\r\022\032\n\022product_identifier\030\002 \001(\t\022\034\n\024star"
+  "t_queue_position\030\003 \001(\r\"2\n0CStore_DeleteR"
+  "eservationPositionMessage_Response\"2\n0CS"
+  "tore_GetAllReservationPositionMessages_R"
+  "equest\"c\n1CStore_GetAllReservationPositi"
+  "onMessages_Response\022.\n\010settings\030\001 \003(\0132\034."
+  "CReservationPositionMessage\":\n8CStore_Re"
+  "loadAllReservationPositionMessages_Notif"
+  "ication\"\223\001\n)CSteamDeckCompatibility_SetF"
+  "eedbacRequest\022\r\n\005appid\030\001 \001(\r\022W\n\010feedback"
+  "\030\002 \001(\0162 .ESteamDeckCompatibilityFeedback"
+  ":#ESteamDeckCompatibilityFeedbacUnset\",\n"
+  "*CSteamDeckCompatibility_SetFeedbacRespo"
+  "nse\"=\n,CSteamDeckCompatibility_ShouldPro"
+  "mpt_Request\022\r\n\005appid\030\001 \001(\r\"\272\001\n-CSteamDec"
+  "kCompatibility_ShouldPrompt_Response\022\016\n\006"
+  "prompt\030\001 \001(\010\022\027\n\017feedbaceligible\030\002 \001(\010\022`\n"
+  "\021existing_feedback\030\003 \001(\0162 .ESteamDeckCom"
+  "patibilityFeedback:#ESteamDeckCompatibil"
+  "ityFeedbacUnset\"\333\001\n+CStore_StorePreferen"
+  "cesChanged_Notification\022,\n\013preferences\030\001"
+  " \001(\0132\027.CStore_UserPreferences\0223\n\017tag_pre"
+  "ferences\030\002 \001(\0132\032.CStore_UserTagPreferenc"
+  "es\022I\n\036content_descriptor_preferences\030\003 \001"
+  "(\0132!.UserContentDescriptorPreferences*\215\005"
+  "\n\030EStoreDiscoveryQueueType\022\037\n\033EStoreDisc"
+  "overyQueueTypeNew\020\000\022&\n\"EStoreDiscoveryQu"
+  "eueTypeComingSoon\020\001\022\'\n#EStoreDiscoveryQu"
+  "eueTypeRecommended\020\002\022+\n\'EStoreDiscoveryQ"
+  "ueueTypeEveryNewRelease\020\003\022)\n%EStoreDisco"
+  "veryQueueTypeMLRecommender\020\005\022*\n&EStoreDi"
+  "scoveryQueueTypeWishlistOnSale\020\006\022\037\n\033ESto"
+  "reDiscoveryQueueTypeDLC\020\007\022%\n!EStoreDisco"
+  "veryQueueTypeDLCOnSale\020\010\0221\n-EStoreDiscov"
+  "eryQueueTypeRecommendedComingSoon\020\t\022+\n\'E"
+  "StoreDiscoveryQueueTypeRecommendedFree\020\n"
+  "\022-\n)EStoreDiscoveryQueueTypeRecommendedO"
+  "nSale\020\013\022,\n(EStoreDiscoveryQueueTypeRecom"
+  "mendedDemos\020\014\022*\n&EStoreDiscoveryQueueTyp"
+  "eDLCNewReleases\020\r\022)\n%EStoreDiscoveryQueu"
+  "eTypeDLCTopSellers\020\016\022\037\n\033EStoreDiscoveryQ"
+  "ueueTypeMAX\020\017*v\n\017EPlaytestStatus\022\025\n\021ETes"
+  "terStatusNone\020\000\022\030\n\024ETesterStatusPending\020"
+  "\001\022\030\n\024ETesterStatusInvited\020\002\022\030\n\024ETesterSt"
+  "atusGranted\020\003*\204\004\n\016EAppReportType\022\032\n\026EApp"
+  "ReportType_Invalid\020\000\022\027\n\023EAppReportType_S"
+  "cam\020\001\022\032\n\026EAppReportType_Malware\020\002\022\035\n\031EAp"
+  "pReportType_HateSpeech\020\003\022\036\n\032EAppReportTy"
+  "pe_Pornography\020\004\022)\n%EAppReportType_NonLa"
+  "beledAdultContent\020\005\022\033\n\027EAppReportType_Li"
+  "belous\020\006\022\034\n\030EAppReportType_Offensive\020\007\022#"
+  "\n\037EAppReportType_ExploitsChildren\020\010\0226\n2E"
+  "AppReportType_MtxWithNonSteamWalletPayme"
+  "ntMethods\020\t\022%\n!EAppReportType_CopyrightV"
+  "iolation\020\n\022\037\n\033EAppReportType_ViolatesLaw"
+  "s\020\013\022\030\n\024EAppReportType_Other\020\014\022\031\n\025EAppRep"
+  "ortType_Broken\020\r\022\"\n\036EAppReportType_AICon"
+  "tentReport\020\016*\232\001\n\032EUserReviewScorePrefere"
+  "nce\022$\n EUserReviewScorePreference_Unset\020"
+  "\000\022)\n%EUserReviewScorePreference_IncludeA"
+  "ll\020\001\022+\n\'EUserReviewScorePreference_Exclu"
+  "deBombs\020\002*\334\001\n\"EPartnerLinkTrackingBackfi"
+  "llSource\022+\n\'EPartnerLinkTrackingBackfill"
+  "Source_None\020\000\022*\n&EPartnerLinkTrackingBac"
+  "kfillSource_Web\020\001\022-\n)EPartnerLinkTrackin"
+  "gBackfillSource_Mobile\020\002\022.\n*EPartnerLink"
+  "TrackingBackfillSource_Desktop\020\0032\374\022\n\005Sto"
+  "re\022N\n\rRegisterCDKey\022\035.CStore_RegisterCDK"
+  "ey_Request\032\036.CStore_RegisterCDKey_Respon"
+  "se\022]\n\022GetMostPopularTags\022\".CStore_GetMos"
+  "tPopularTags_Request\032#.CStore_GetMostPop"
+  "ularTags_Response\022l\n\027GetLocalizedNameFor"
+  "Tags\022\'.CStore_GetLocalizedNameForTags_Re"
+  "quest\032(.CStore_GetLocalizedNameForTags_R"
+  "esponse\022E\n\nGetTagList\022\032.CStore_GetTagLis"
+  "t_Request\032\033.CStore_GetTagList_Response\022Z"
+  "\n\021GetDiscoveryQueue\022!.CStore_GetDiscover"
+  "yQueue_Request\032\".CStore_GetDiscoveryQueu"
+  "e_Response\022r\n\031GetDiscoveryQueueSettings\022"
+  ").CStore_GetDiscoveryQueueSettings_Reque"
+  "st\032*.CStore_GetDiscoveryQueueSettings_Re"
+  "sponse\022i\n\026SkipDiscoveryQueueItem\022&.CStor"
+  "e_SkipDiscoveryQueueItem_Request\032\'.CStor"
+  "e_SkipDiscoveryQueueItem_Response\022o\n\030Get"
+  "UserGameInterestState\022(.CStore_GetUserGa"
+  "meInterestState_Request\032).CStore_GetUser"
+  "GameInterestState_Response\022{\n\034GetDiscove"
+  "ryQueueSkippedApps\022,.CStore_GetDiscovery"
+  "QueueSkippedApps_Request\032-.CStore_GetDis"
+  "coveryQueueSkippedApps_Response\022B\n\tRepor"
+  "tApp\022\031.CStore_ReportApp_Request\032\032.CStore"
+  "_ReportApp_Response\022`\n\023GetStorePreferenc"
+  "es\022#.CStore_GetStorePreferences_Request\032"
+  "$.CStore_GetStorePreferences_Response\022x\n"
+  "\033GetTrendingAppsAmongFriends\022+.CStore_Ge"
+  "tTrendingAppsAmongFriends_Request\032,.CSto"
+  "re_GetTrendingAppsAmongFriends_Response\022"
+  "Z\n\032MigratePartnerLinkTracking\022/.CStore_M"
+  "igratePartnerLinkTracking_Notification\032\013"
+  ".NoResponse\022r\n\031UpdatePackageReservations"
+  "\022).CStore_UpdatePackageReservations_Requ"
+  "est\032*.CStore_UpdatePackageReservations_R"
+  "esponse\022u\n\032GetWishlistDemoEmailStatus\022*."
+  "CStore_GetWishlistDemoEmailStatus_Reques"
+  "t\032+.CStore_GetWishlistDemoEmailStatus_Re"
+  "sponse\022{\n\034QueueWishlistDemoEmailToFire\022,"
+  ".CStore_QueueWishlistDemoEmailToFire_Req"
+  "uest\032-.CStore_QueueWishlistDemoEmailToFi"
+  "re_Response\022~\n\035SetReservationPositionMes"
+  "sage\022-.CStore_SetReservationPositionMess"
+  "age_Request\032..CStore_SetReservationPosit"
+  "ionMessage_Response\022\207\001\n DeleteReservatio"
+  "nPositionMessage\0220.CStore_DeleteReservat"
+  "ionPositionMessage_Request\0321.CStore_Dele"
+  "teReservationPositionMessage_Response\022\212\001"
+  "\n!GetAllReservationPositionMessages\0221.CS"
+  "tore_GetAllReservationPositionMessages_R"
+  "equest\0322.CStore_GetAllReservationPositio"
+  "nMessages_Response\022n\n$ReloadAllReservati"
+  "onPositionMessages\0229.CStore_ReloadAllRes"
+  "ervationPositionMessages_Notification\032\013."
+  "NoResponse\022s\n\030SetCompatibilityFeedback\022*"
+  ".CSteamDeckCompatibility_SetFeedbacReque"
+  "st\032+.CSteamDeckCompatibility_SetFeedbacR"
+  "esponse\022\205\001\n$ShouldPromptForCompatibility"
+  "Feedback\022-.CSteamDeckCompatibility_Shoul"
+  "dPrompt_Request\032..CSteamDeckCompatibilit"
+  "y_ShouldPrompt_Response2o\n\013StoreClient\022Z"
+  "\n\035NotifyStorePreferencesChanged\022,.CStore"
+  "_StorePreferencesChanged_Notification\032\013."
+  "NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.P"
+  "rotobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fstore_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_contenthubs_2eproto,
@@ -1724,8 +1832,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fstore_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fstore_2esteamclient_2eproto = {
-  false, false, 11314, descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto, "steammessages_store.steamclient.proto", 
-  &descriptor_table_steammessages_5fstore_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstore_2esteamclient_2eproto_deps, 5, 51,
+  false, false, 11887, descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto, "steammessages_store.steamclient.proto", 
+  &descriptor_table_steammessages_5fstore_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstore_2esteamclient_2eproto_deps, 5, 55,
   schemas, file_default_instances, TableStruct_steammessages_5fstore_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fstore_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fstore_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fstore_2esteamclient_2eproto,
 };
@@ -13331,6 +13439,935 @@ void CStore_UpdatePackageReservations_Response::InternalSwap(CStore_UpdatePackag
 
 // ===================================================================
 
+class CStore_GetWishlistDemoEmailStatus_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CStore_GetWishlistDemoEmailStatus_Request>()._has_bits_);
+  static void set_has_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_demo_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CStore_GetWishlistDemoEmailStatus_Request::CStore_GetWishlistDemoEmailStatus_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStore_GetWishlistDemoEmailStatus_Request)
+}
+CStore_GetWishlistDemoEmailStatus_Request::CStore_GetWishlistDemoEmailStatus_Request(const CStore_GetWishlistDemoEmailStatus_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&appid_, &from.appid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&demo_appid_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+  // @@protoc_insertion_point(copy_constructor:CStore_GetWishlistDemoEmailStatus_Request)
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&demo_appid_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+}
+
+CStore_GetWishlistDemoEmailStatus_Request::~CStore_GetWishlistDemoEmailStatus_Request() {
+  // @@protoc_insertion_point(destructor:CStore_GetWishlistDemoEmailStatus_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::ArenaDtor(void* object) {
+  CStore_GetWishlistDemoEmailStatus_Request* _this = reinterpret_cast< CStore_GetWishlistDemoEmailStatus_Request* >(object);
+  (void)_this;
+}
+void CStore_GetWishlistDemoEmailStatus_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStore_GetWishlistDemoEmailStatus_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStore_GetWishlistDemoEmailStatus_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&appid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&demo_appid_) -
+        reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStore_GetWishlistDemoEmailStatus_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 appid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_appid(&has_bits);
+          appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 demo_appid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_demo_appid(&has_bits);
+          demo_appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStore_GetWishlistDemoEmailStatus_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStore_GetWishlistDemoEmailStatus_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 appid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
+  }
+
+  // optional uint32 demo_appid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_demo_appid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStore_GetWishlistDemoEmailStatus_Request)
+  return target;
+}
+
+size_t CStore_GetWishlistDemoEmailStatus_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStore_GetWishlistDemoEmailStatus_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 appid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_appid());
+    }
+
+    // optional uint32 demo_appid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_demo_appid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStore_GetWishlistDemoEmailStatus_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStore_GetWishlistDemoEmailStatus_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStore_GetWishlistDemoEmailStatus_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStore_GetWishlistDemoEmailStatus_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStore_GetWishlistDemoEmailStatus_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::MergeFrom(const CStore_GetWishlistDemoEmailStatus_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStore_GetWishlistDemoEmailStatus_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      appid_ = from.appid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      demo_appid_ = from.demo_appid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStore_GetWishlistDemoEmailStatus_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::CopyFrom(const CStore_GetWishlistDemoEmailStatus_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStore_GetWishlistDemoEmailStatus_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStore_GetWishlistDemoEmailStatus_Request::IsInitialized() const {
+  return true;
+}
+
+void CStore_GetWishlistDemoEmailStatus_Request::InternalSwap(CStore_GetWishlistDemoEmailStatus_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CStore_GetWishlistDemoEmailStatus_Request, demo_appid_)
+      + sizeof(CStore_GetWishlistDemoEmailStatus_Request::demo_appid_)
+      - PROTOBUF_FIELD_OFFSET(CStore_GetWishlistDemoEmailStatus_Request, appid_)>(
+          reinterpret_cast<char*>(&appid_),
+          reinterpret_cast<char*>(&other->appid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStore_GetWishlistDemoEmailStatus_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CStore_GetWishlistDemoEmailStatus_Response::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CStore_GetWishlistDemoEmailStatus_Response>()._has_bits_);
+  static void set_has_can_fire(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_time_staged(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_demo_release_date(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CStore_GetWishlistDemoEmailStatus_Response::CStore_GetWishlistDemoEmailStatus_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStore_GetWishlistDemoEmailStatus_Response)
+}
+CStore_GetWishlistDemoEmailStatus_Response::CStore_GetWishlistDemoEmailStatus_Response(const CStore_GetWishlistDemoEmailStatus_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&can_fire_, &from.can_fire_,
+    static_cast<size_t>(reinterpret_cast<char*>(&demo_release_date_) -
+    reinterpret_cast<char*>(&can_fire_)) + sizeof(demo_release_date_));
+  // @@protoc_insertion_point(copy_constructor:CStore_GetWishlistDemoEmailStatus_Response)
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&can_fire_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&demo_release_date_) -
+    reinterpret_cast<char*>(&can_fire_)) + sizeof(demo_release_date_));
+}
+
+CStore_GetWishlistDemoEmailStatus_Response::~CStore_GetWishlistDemoEmailStatus_Response() {
+  // @@protoc_insertion_point(destructor:CStore_GetWishlistDemoEmailStatus_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::ArenaDtor(void* object) {
+  CStore_GetWishlistDemoEmailStatus_Response* _this = reinterpret_cast< CStore_GetWishlistDemoEmailStatus_Response* >(object);
+  (void)_this;
+}
+void CStore_GetWishlistDemoEmailStatus_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStore_GetWishlistDemoEmailStatus_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStore_GetWishlistDemoEmailStatus_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&can_fire_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&demo_release_date_) -
+        reinterpret_cast<char*>(&can_fire_)) + sizeof(demo_release_date_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStore_GetWishlistDemoEmailStatus_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional bool can_fire = 1 [default = false];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_can_fire(&has_bits);
+          can_fire_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 time_staged = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_time_staged(&has_bits);
+          time_staged_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 demo_release_date = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_demo_release_date(&has_bits);
+          demo_release_date_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStore_GetWishlistDemoEmailStatus_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStore_GetWishlistDemoEmailStatus_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional bool can_fire = 1 [default = false];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_can_fire(), target);
+  }
+
+  // optional uint32 time_staged = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_time_staged(), target);
+  }
+
+  // optional uint32 demo_release_date = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_demo_release_date(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStore_GetWishlistDemoEmailStatus_Response)
+  return target;
+}
+
+size_t CStore_GetWishlistDemoEmailStatus_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStore_GetWishlistDemoEmailStatus_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional bool can_fire = 1 [default = false];
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 1;
+    }
+
+    // optional uint32 time_staged = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_time_staged());
+    }
+
+    // optional uint32 demo_release_date = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_demo_release_date());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStore_GetWishlistDemoEmailStatus_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStore_GetWishlistDemoEmailStatus_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStore_GetWishlistDemoEmailStatus_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStore_GetWishlistDemoEmailStatus_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStore_GetWishlistDemoEmailStatus_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::MergeFrom(const CStore_GetWishlistDemoEmailStatus_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStore_GetWishlistDemoEmailStatus_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      can_fire_ = from.can_fire_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      time_staged_ = from.time_staged_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      demo_release_date_ = from.demo_release_date_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStore_GetWishlistDemoEmailStatus_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::CopyFrom(const CStore_GetWishlistDemoEmailStatus_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStore_GetWishlistDemoEmailStatus_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStore_GetWishlistDemoEmailStatus_Response::IsInitialized() const {
+  return true;
+}
+
+void CStore_GetWishlistDemoEmailStatus_Response::InternalSwap(CStore_GetWishlistDemoEmailStatus_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CStore_GetWishlistDemoEmailStatus_Response, demo_release_date_)
+      + sizeof(CStore_GetWishlistDemoEmailStatus_Response::demo_release_date_)
+      - PROTOBUF_FIELD_OFFSET(CStore_GetWishlistDemoEmailStatus_Response, can_fire_)>(
+          reinterpret_cast<char*>(&can_fire_),
+          reinterpret_cast<char*>(&other->can_fire_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStore_GetWishlistDemoEmailStatus_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CStore_QueueWishlistDemoEmailToFire_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CStore_QueueWishlistDemoEmailToFire_Request>()._has_bits_);
+  static void set_has_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_demo_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CStore_QueueWishlistDemoEmailToFire_Request::CStore_QueueWishlistDemoEmailToFire_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStore_QueueWishlistDemoEmailToFire_Request)
+}
+CStore_QueueWishlistDemoEmailToFire_Request::CStore_QueueWishlistDemoEmailToFire_Request(const CStore_QueueWishlistDemoEmailToFire_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&appid_, &from.appid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&demo_appid_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+  // @@protoc_insertion_point(copy_constructor:CStore_QueueWishlistDemoEmailToFire_Request)
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&demo_appid_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+}
+
+CStore_QueueWishlistDemoEmailToFire_Request::~CStore_QueueWishlistDemoEmailToFire_Request() {
+  // @@protoc_insertion_point(destructor:CStore_QueueWishlistDemoEmailToFire_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::ArenaDtor(void* object) {
+  CStore_QueueWishlistDemoEmailToFire_Request* _this = reinterpret_cast< CStore_QueueWishlistDemoEmailToFire_Request* >(object);
+  (void)_this;
+}
+void CStore_QueueWishlistDemoEmailToFire_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStore_QueueWishlistDemoEmailToFire_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStore_QueueWishlistDemoEmailToFire_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&appid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&demo_appid_) -
+        reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStore_QueueWishlistDemoEmailToFire_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 appid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_appid(&has_bits);
+          appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 demo_appid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_demo_appid(&has_bits);
+          demo_appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStore_QueueWishlistDemoEmailToFire_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStore_QueueWishlistDemoEmailToFire_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 appid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
+  }
+
+  // optional uint32 demo_appid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_demo_appid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStore_QueueWishlistDemoEmailToFire_Request)
+  return target;
+}
+
+size_t CStore_QueueWishlistDemoEmailToFire_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStore_QueueWishlistDemoEmailToFire_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 appid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_appid());
+    }
+
+    // optional uint32 demo_appid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_demo_appid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStore_QueueWishlistDemoEmailToFire_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStore_QueueWishlistDemoEmailToFire_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStore_QueueWishlistDemoEmailToFire_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStore_QueueWishlistDemoEmailToFire_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStore_QueueWishlistDemoEmailToFire_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::MergeFrom(const CStore_QueueWishlistDemoEmailToFire_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStore_QueueWishlistDemoEmailToFire_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      appid_ = from.appid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      demo_appid_ = from.demo_appid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStore_QueueWishlistDemoEmailToFire_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::CopyFrom(const CStore_QueueWishlistDemoEmailToFire_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStore_QueueWishlistDemoEmailToFire_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStore_QueueWishlistDemoEmailToFire_Request::IsInitialized() const {
+  return true;
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Request::InternalSwap(CStore_QueueWishlistDemoEmailToFire_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CStore_QueueWishlistDemoEmailToFire_Request, demo_appid_)
+      + sizeof(CStore_QueueWishlistDemoEmailToFire_Request::demo_appid_)
+      - PROTOBUF_FIELD_OFFSET(CStore_QueueWishlistDemoEmailToFire_Request, appid_)>(
+          reinterpret_cast<char*>(&appid_),
+          reinterpret_cast<char*>(&other->appid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStore_QueueWishlistDemoEmailToFire_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CStore_QueueWishlistDemoEmailToFire_Response::_Internal {
+ public:
+};
+
+CStore_QueueWishlistDemoEmailToFire_Response::CStore_QueueWishlistDemoEmailToFire_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStore_QueueWishlistDemoEmailToFire_Response)
+}
+CStore_QueueWishlistDemoEmailToFire_Response::CStore_QueueWishlistDemoEmailToFire_Response(const CStore_QueueWishlistDemoEmailToFire_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CStore_QueueWishlistDemoEmailToFire_Response)
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::SharedCtor() {
+}
+
+CStore_QueueWishlistDemoEmailToFire_Response::~CStore_QueueWishlistDemoEmailToFire_Response() {
+  // @@protoc_insertion_point(destructor:CStore_QueueWishlistDemoEmailToFire_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::ArenaDtor(void* object) {
+  CStore_QueueWishlistDemoEmailToFire_Response* _this = reinterpret_cast< CStore_QueueWishlistDemoEmailToFire_Response* >(object);
+  (void)_this;
+}
+void CStore_QueueWishlistDemoEmailToFire_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStore_QueueWishlistDemoEmailToFire_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStore_QueueWishlistDemoEmailToFire_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStore_QueueWishlistDemoEmailToFire_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStore_QueueWishlistDemoEmailToFire_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStore_QueueWishlistDemoEmailToFire_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStore_QueueWishlistDemoEmailToFire_Response)
+  return target;
+}
+
+size_t CStore_QueueWishlistDemoEmailToFire_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStore_QueueWishlistDemoEmailToFire_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStore_QueueWishlistDemoEmailToFire_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStore_QueueWishlistDemoEmailToFire_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStore_QueueWishlistDemoEmailToFire_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStore_QueueWishlistDemoEmailToFire_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStore_QueueWishlistDemoEmailToFire_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::MergeFrom(const CStore_QueueWishlistDemoEmailToFire_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStore_QueueWishlistDemoEmailToFire_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStore_QueueWishlistDemoEmailToFire_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::CopyFrom(const CStore_QueueWishlistDemoEmailToFire_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStore_QueueWishlistDemoEmailToFire_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStore_QueueWishlistDemoEmailToFire_Response::IsInitialized() const {
+  return true;
+}
+
+void CStore_QueueWishlistDemoEmailToFire_Response::InternalSwap(CStore_QueueWishlistDemoEmailToFire_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStore_QueueWishlistDemoEmailToFire_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CReservationPositionMessage::_Internal {
  public:
   using HasBits = decltype(std::declval<CReservationPositionMessage>()._has_bits_);
@@ -16394,6 +17431,22 @@ void Store::UpdatePackageReservations(::PROTOBUF_NAMESPACE_ID::RpcController* co
   done->Run();
 }
 
+void Store::GetWishlistDemoEmailStatus(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CStore_GetWishlistDemoEmailStatus_Request*,
+                         ::CStore_GetWishlistDemoEmailStatus_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetWishlistDemoEmailStatus() not implemented.");
+  done->Run();
+}
+
+void Store::QueueWishlistDemoEmailToFire(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CStore_QueueWishlistDemoEmailToFire_Request*,
+                         ::CStore_QueueWishlistDemoEmailToFire_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method QueueWishlistDemoEmailToFire() not implemented.");
+  done->Run();
+}
+
 void Store::SetReservationPositionMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CStore_SetReservationPositionMessage_Request*,
                          ::CStore_SetReservationPositionMessage_Response*,
@@ -16562,6 +17615,22 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
              done);
       break;
     case 14:
+      GetWishlistDemoEmailStatus(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_GetWishlistDemoEmailStatus_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CStore_GetWishlistDemoEmailStatus_Response*>(
+                 response),
+             done);
+      break;
+    case 15:
+      QueueWishlistDemoEmailToFire(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_QueueWishlistDemoEmailToFire_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CStore_QueueWishlistDemoEmailToFire_Response*>(
+                 response),
+             done);
+      break;
+    case 16:
       SetReservationPositionMessage(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_SetReservationPositionMessage_Request*>(
                  request),
@@ -16569,7 +17638,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 15:
+    case 17:
       DeleteReservationPositionMessage(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_DeleteReservationPositionMessage_Request*>(
                  request),
@@ -16577,7 +17646,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 16:
+    case 18:
       GetAllReservationPositionMessages(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_GetAllReservationPositionMessages_Request*>(
                  request),
@@ -16585,7 +17654,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 17:
+    case 19:
       ReloadAllReservationPositionMessages(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_ReloadAllReservationPositionMessages_Notification*>(
                  request),
@@ -16593,7 +17662,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 18:
+    case 20:
       SetCompatibilityFeedback(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CSteamDeckCompatibility_SetFeedbacRequest*>(
                  request),
@@ -16601,7 +17670,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 19:
+    case 21:
       ShouldPromptForCompatibilityFeedback(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CSteamDeckCompatibility_ShouldPrompt_Request*>(
                  request),
@@ -16648,16 +17717,20 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Store::GetRequestPrototype(
     case 13:
       return ::CStore_UpdatePackageReservations_Request::default_instance();
     case 14:
-      return ::CStore_SetReservationPositionMessage_Request::default_instance();
+      return ::CStore_GetWishlistDemoEmailStatus_Request::default_instance();
     case 15:
-      return ::CStore_DeleteReservationPositionMessage_Request::default_instance();
+      return ::CStore_QueueWishlistDemoEmailToFire_Request::default_instance();
     case 16:
-      return ::CStore_GetAllReservationPositionMessages_Request::default_instance();
+      return ::CStore_SetReservationPositionMessage_Request::default_instance();
     case 17:
-      return ::CStore_ReloadAllReservationPositionMessages_Notification::default_instance();
+      return ::CStore_DeleteReservationPositionMessage_Request::default_instance();
     case 18:
-      return ::CSteamDeckCompatibility_SetFeedbacRequest::default_instance();
+      return ::CStore_GetAllReservationPositionMessages_Request::default_instance();
     case 19:
+      return ::CStore_ReloadAllReservationPositionMessages_Notification::default_instance();
+    case 20:
+      return ::CSteamDeckCompatibility_SetFeedbacRequest::default_instance();
+    case 21:
       return ::CSteamDeckCompatibility_ShouldPrompt_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -16699,16 +17772,20 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Store::GetResponsePrototype(
     case 13:
       return ::CStore_UpdatePackageReservations_Response::default_instance();
     case 14:
-      return ::CStore_SetReservationPositionMessage_Response::default_instance();
+      return ::CStore_GetWishlistDemoEmailStatus_Response::default_instance();
     case 15:
-      return ::CStore_DeleteReservationPositionMessage_Response::default_instance();
+      return ::CStore_QueueWishlistDemoEmailToFire_Response::default_instance();
     case 16:
-      return ::CStore_GetAllReservationPositionMessages_Response::default_instance();
+      return ::CStore_SetReservationPositionMessage_Response::default_instance();
     case 17:
-      return ::NoResponse::default_instance();
+      return ::CStore_DeleteReservationPositionMessage_Response::default_instance();
     case 18:
-      return ::CSteamDeckCompatibility_SetFeedbacResponse::default_instance();
+      return ::CStore_GetAllReservationPositionMessages_Response::default_instance();
     case 19:
+      return ::NoResponse::default_instance();
+    case 20:
+      return ::CSteamDeckCompatibility_SetFeedbacResponse::default_instance();
+    case 21:
       return ::CSteamDeckCompatibility_ShouldPrompt_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -16826,46 +17903,60 @@ void Store_Stub::UpdatePackageReservations(::PROTOBUF_NAMESPACE_ID::RpcControlle
   channel_->CallMethod(descriptor()->method(13),
                        controller, request, response, done);
 }
+void Store_Stub::GetWishlistDemoEmailStatus(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CStore_GetWishlistDemoEmailStatus_Request* request,
+                              ::CStore_GetWishlistDemoEmailStatus_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(14),
+                       controller, request, response, done);
+}
+void Store_Stub::QueueWishlistDemoEmailToFire(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CStore_QueueWishlistDemoEmailToFire_Request* request,
+                              ::CStore_QueueWishlistDemoEmailToFire_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(15),
+                       controller, request, response, done);
+}
 void Store_Stub::SetReservationPositionMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStore_SetReservationPositionMessage_Request* request,
                               ::CStore_SetReservationPositionMessage_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(14),
+  channel_->CallMethod(descriptor()->method(16),
                        controller, request, response, done);
 }
 void Store_Stub::DeleteReservationPositionMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStore_DeleteReservationPositionMessage_Request* request,
                               ::CStore_DeleteReservationPositionMessage_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(15),
+  channel_->CallMethod(descriptor()->method(17),
                        controller, request, response, done);
 }
 void Store_Stub::GetAllReservationPositionMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStore_GetAllReservationPositionMessages_Request* request,
                               ::CStore_GetAllReservationPositionMessages_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(16),
+  channel_->CallMethod(descriptor()->method(18),
                        controller, request, response, done);
 }
 void Store_Stub::ReloadAllReservationPositionMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStore_ReloadAllReservationPositionMessages_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(17),
+  channel_->CallMethod(descriptor()->method(19),
                        controller, request, response, done);
 }
 void Store_Stub::SetCompatibilityFeedback(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CSteamDeckCompatibility_SetFeedbacRequest* request,
                               ::CSteamDeckCompatibility_SetFeedbacResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(18),
+  channel_->CallMethod(descriptor()->method(20),
                        controller, request, response, done);
 }
 void Store_Stub::ShouldPromptForCompatibilityFeedback(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CSteamDeckCompatibility_ShouldPrompt_Request* request,
                               ::CSteamDeckCompatibility_ShouldPrompt_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(19),
+  channel_->CallMethod(descriptor()->method(21),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -17070,6 +18161,18 @@ template<> PROTOBUF_NOINLINE ::CStore_UpdatePackageReservations_Request* Arena::
 }
 template<> PROTOBUF_NOINLINE ::CStore_UpdatePackageReservations_Response* Arena::CreateMaybeMessage< ::CStore_UpdatePackageReservations_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CStore_UpdatePackageReservations_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStore_GetWishlistDemoEmailStatus_Request* Arena::CreateMaybeMessage< ::CStore_GetWishlistDemoEmailStatus_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStore_GetWishlistDemoEmailStatus_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStore_GetWishlistDemoEmailStatus_Response* Arena::CreateMaybeMessage< ::CStore_GetWishlistDemoEmailStatus_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStore_GetWishlistDemoEmailStatus_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStore_QueueWishlistDemoEmailToFire_Request* Arena::CreateMaybeMessage< ::CStore_QueueWishlistDemoEmailToFire_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStore_QueueWishlistDemoEmailToFire_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStore_QueueWishlistDemoEmailToFire_Response* Arena::CreateMaybeMessage< ::CStore_QueueWishlistDemoEmailToFire_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStore_QueueWishlistDemoEmailToFire_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CReservationPositionMessage* Arena::CreateMaybeMessage< ::CReservationPositionMessage >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CReservationPositionMessage >(arena);

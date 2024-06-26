@@ -31,7 +31,8 @@ struct CFamilyGroups_CreateFamilyGroup_RequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_CreateFamilyGroup_RequestDefaultTypeInternal _CFamilyGroups_CreateFamilyGroup_Request_default_instance_;
 constexpr CFamilyGroups_CreateFamilyGroup_Response::CFamilyGroups_CreateFamilyGroup_Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : family_groupid_(PROTOBUF_ULONGLONG(0)){}
+  : family_groupid_(PROTOBUF_ULONGLONG(0))
+  , cooldown_skip_granted_(false){}
 struct CFamilyGroups_CreateFamilyGroup_ResponseDefaultTypeInternal {
   constexpr CFamilyGroups_CreateFamilyGroup_ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -148,9 +149,10 @@ constexpr CFamilyGroups_GetFamilyGroupForUser_Response::CFamilyGroups_GetFamilyG
   : pending_group_invites_()
   , family_group_(nullptr)
   , family_groupid_(PROTOBUF_ULONGLONG(0))
-  , is_not_member_of_any_group_(false)
-  , latest_time_joined_(0u)
   , latest_joined_family_groupid_(PROTOBUF_ULONGLONG(0))
+  , latest_time_joined_(0u)
+  , is_not_member_of_any_group_(false)
+  , can_undelete_last_joined_family_(false)
   , role_(0u)
   , cooldown_seconds_remaining_(0u){}
 struct CFamilyGroups_GetFamilyGroupForUser_ResponseDefaultTypeInternal {
@@ -280,7 +282,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_JoinFamilyGroup_R
 constexpr CFamilyGroups_JoinFamilyGroup_Response::CFamilyGroups_JoinFamilyGroup_Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : two_factor_method_(0)
-{}
+
+  , cooldown_skip_granted_(false)
+  , invite_already_accepted_(false){}
 struct CFamilyGroups_JoinFamilyGroup_ResponseDefaultTypeInternal {
   constexpr CFamilyGroups_JoinFamilyGroup_ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -411,6 +415,29 @@ struct CFamilyGroups_DeleteFamilyGroup_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_DeleteFamilyGroup_ResponseDefaultTypeInternal _CFamilyGroups_DeleteFamilyGroup_Response_default_instance_;
+constexpr CFamilyGroups_UndeleteFamilyGroup_Request::CFamilyGroups_UndeleteFamilyGroup_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : family_groupid_(PROTOBUF_ULONGLONG(0)){}
+struct CFamilyGroups_UndeleteFamilyGroup_RequestDefaultTypeInternal {
+  constexpr CFamilyGroups_UndeleteFamilyGroup_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CFamilyGroups_UndeleteFamilyGroup_RequestDefaultTypeInternal() {}
+  union {
+    CFamilyGroups_UndeleteFamilyGroup_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_UndeleteFamilyGroup_RequestDefaultTypeInternal _CFamilyGroups_UndeleteFamilyGroup_Request_default_instance_;
+constexpr CFamilyGroups_UndeleteFamilyGroup_Response::CFamilyGroups_UndeleteFamilyGroup_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CFamilyGroups_UndeleteFamilyGroup_ResponseDefaultTypeInternal {
+  constexpr CFamilyGroups_UndeleteFamilyGroup_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CFamilyGroups_UndeleteFamilyGroup_ResponseDefaultTypeInternal() {}
+  union {
+    CFamilyGroups_UndeleteFamilyGroup_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_UndeleteFamilyGroup_ResponseDefaultTypeInternal _CFamilyGroups_UndeleteFamilyGroup_Response_default_instance_;
 constexpr CFamilyGroups_GetPlaytimeSummary_Request::CFamilyGroups_GetPlaytimeSummary_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : family_groupid_(PROTOBUF_ULONGLONG(0)){}
@@ -441,7 +468,8 @@ struct CFamilyGroups_PlaytimeEntryDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_PlaytimeEntryDefaultTypeInternal _CFamilyGroups_PlaytimeEntry_default_instance_;
 constexpr CFamilyGroups_GetPlaytimeSummary_Response::CFamilyGroups_GetPlaytimeSummary_Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : entries_(){}
+  : entries_()
+  , entries_by_owner_(){}
 struct CFamilyGroups_GetPlaytimeSummary_ResponseDefaultTypeInternal {
   constexpr CFamilyGroups_GetPlaytimeSummary_ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -626,7 +654,9 @@ constexpr CFamilyGroups_GetSharedLibraryApps_Request::CFamilyGroups_GetSharedLib
   , family_groupid_(PROTOBUF_ULONGLONG(0))
   , include_own_(false)
   , include_excluded_(false)
-  , max_apps_(0u){}
+  , include_non_games_(false)
+  , max_apps_(0u)
+  , steamid_(PROTOBUF_ULONGLONG(0)){}
 struct CFamilyGroups_GetSharedLibraryApps_RequestDefaultTypeInternal {
   constexpr CFamilyGroups_GetSharedLibraryApps_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -646,9 +676,11 @@ constexpr CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::CFamilyGroups_G
   , appid_(0u)
   , exclude_reason_(0)
 
-  , rt_playtime_(0u)
   , rt_time_acquired_(0u)
-  , rt_last_played_(0u){}
+  , rt_last_played_(0u)
+  , rt_playtime_(0u)
+  , app_type_(1)
+{}
 struct CFamilyGroups_GetSharedLibraryApps_Response_SharedAppDefaultTypeInternal {
   constexpr CFamilyGroups_GetSharedLibraryApps_Response_SharedAppDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -660,7 +692,8 @@ struct CFamilyGroups_GetSharedLibraryApps_Response_SharedAppDefaultTypeInternal 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_GetSharedLibraryApps_Response_SharedAppDefaultTypeInternal _CFamilyGroups_GetSharedLibraryApps_Response_SharedApp_default_instance_;
 constexpr CFamilyGroups_GetSharedLibraryApps_Response::CFamilyGroups_GetSharedLibraryApps_Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : apps_(){}
+  : apps_()
+  , owner_steamid_(PROTOBUF_ULONGLONG(0)){}
 struct CFamilyGroups_GetSharedLibraryApps_ResponseDefaultTypeInternal {
   constexpr CFamilyGroups_GetSharedLibraryApps_ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -732,57 +765,81 @@ struct CFamilyGroups_GetPreferredLenders_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_GetPreferredLenders_ResponseDefaultTypeInternal _CFamilyGroups_GetPreferredLenders_Response_default_instance_;
-constexpr CFamilyGroups_GetDispersionForFamily_Request::CFamilyGroups_GetDispersionForFamily_Request(
+constexpr CFamilyGroups_ForceAcceptInvite_Request::CFamilyGroups_ForceAcceptInvite_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : family_groupid_(PROTOBUF_ULONGLONG(0)){}
-struct CFamilyGroups_GetDispersionForFamily_RequestDefaultTypeInternal {
-  constexpr CFamilyGroups_GetDispersionForFamily_RequestDefaultTypeInternal()
+  : family_groupid_(PROTOBUF_ULONGLONG(0))
+  , steamid_(PROTOBUF_ULONGLONG(0)){}
+struct CFamilyGroups_ForceAcceptInvite_RequestDefaultTypeInternal {
+  constexpr CFamilyGroups_ForceAcceptInvite_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CFamilyGroups_GetDispersionForFamily_RequestDefaultTypeInternal() {}
+  ~CFamilyGroups_ForceAcceptInvite_RequestDefaultTypeInternal() {}
   union {
-    CFamilyGroups_GetDispersionForFamily_Request _instance;
+    CFamilyGroups_ForceAcceptInvite_Request _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_GetDispersionForFamily_RequestDefaultTypeInternal _CFamilyGroups_GetDispersionForFamily_Request_default_instance_;
-constexpr CFamilyGroups_FamilyDispersionGraph_Edge::CFamilyGroups_FamilyDispersionGraph_Edge(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : accountid1_(0u)
-  , accountid2_(0u)
-  , distance_(0){}
-struct CFamilyGroups_FamilyDispersionGraph_EdgeDefaultTypeInternal {
-  constexpr CFamilyGroups_FamilyDispersionGraph_EdgeDefaultTypeInternal()
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_ForceAcceptInvite_RequestDefaultTypeInternal _CFamilyGroups_ForceAcceptInvite_Request_default_instance_;
+constexpr CFamilyGroups_ForceAcceptInvite_Response::CFamilyGroups_ForceAcceptInvite_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CFamilyGroups_ForceAcceptInvite_ResponseDefaultTypeInternal {
+  constexpr CFamilyGroups_ForceAcceptInvite_ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CFamilyGroups_FamilyDispersionGraph_EdgeDefaultTypeInternal() {}
+  ~CFamilyGroups_ForceAcceptInvite_ResponseDefaultTypeInternal() {}
   union {
-    CFamilyGroups_FamilyDispersionGraph_Edge _instance;
+    CFamilyGroups_ForceAcceptInvite_Response _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_FamilyDispersionGraph_EdgeDefaultTypeInternal _CFamilyGroups_FamilyDispersionGraph_Edge_default_instance_;
-constexpr CFamilyGroups_FamilyDispersionGraph::CFamilyGroups_FamilyDispersionGraph(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_ForceAcceptInvite_ResponseDefaultTypeInternal _CFamilyGroups_ForceAcceptInvite_Response_default_instance_;
+constexpr CFamilyGroups_GetInviteCheckResults_Request::CFamilyGroups_GetInviteCheckResults_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : edges_(){}
-struct CFamilyGroups_FamilyDispersionGraphDefaultTypeInternal {
-  constexpr CFamilyGroups_FamilyDispersionGraphDefaultTypeInternal()
+  : family_groupid_(PROTOBUF_ULONGLONG(0))
+  , steamid_(PROTOBUF_ULONGLONG(0)){}
+struct CFamilyGroups_GetInviteCheckResults_RequestDefaultTypeInternal {
+  constexpr CFamilyGroups_GetInviteCheckResults_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CFamilyGroups_FamilyDispersionGraphDefaultTypeInternal() {}
+  ~CFamilyGroups_GetInviteCheckResults_RequestDefaultTypeInternal() {}
   union {
-    CFamilyGroups_FamilyDispersionGraph _instance;
+    CFamilyGroups_GetInviteCheckResults_Request _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_FamilyDispersionGraphDefaultTypeInternal _CFamilyGroups_FamilyDispersionGraph_default_instance_;
-constexpr CFamilyGroups_GetDispersionForFamily_Response::CFamilyGroups_GetDispersionForFamily_Response(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_GetInviteCheckResults_RequestDefaultTypeInternal _CFamilyGroups_GetInviteCheckResults_Request_default_instance_;
+constexpr CFamilyGroups_GetInviteCheckResults_Response::CFamilyGroups_GetInviteCheckResults_Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : graph_(nullptr)
-  , total_dispersion_(0){}
-struct CFamilyGroups_GetDispersionForFamily_ResponseDefaultTypeInternal {
-  constexpr CFamilyGroups_GetDispersionForFamily_ResponseDefaultTypeInternal()
+  : wallet_country_matches_(false)
+  , ip_match_(false)
+  , join_restriction_(0u){}
+struct CFamilyGroups_GetInviteCheckResults_ResponseDefaultTypeInternal {
+  constexpr CFamilyGroups_GetInviteCheckResults_ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CFamilyGroups_GetDispersionForFamily_ResponseDefaultTypeInternal() {}
+  ~CFamilyGroups_GetInviteCheckResults_ResponseDefaultTypeInternal() {}
   union {
-    CFamilyGroups_GetDispersionForFamily_Response _instance;
+    CFamilyGroups_GetInviteCheckResults_Response _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_GetDispersionForFamily_ResponseDefaultTypeInternal _CFamilyGroups_GetDispersionForFamily_Response_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_GetInviteCheckResults_ResponseDefaultTypeInternal _CFamilyGroups_GetInviteCheckResults_Response_default_instance_;
+constexpr CFamilyGroups_ClearCooldownSkip_Request::CFamilyGroups_ClearCooldownSkip_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : steamid_(PROTOBUF_ULONGLONG(0))
+  , invite_id_(PROTOBUF_ULONGLONG(0)){}
+struct CFamilyGroups_ClearCooldownSkip_RequestDefaultTypeInternal {
+  constexpr CFamilyGroups_ClearCooldownSkip_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CFamilyGroups_ClearCooldownSkip_RequestDefaultTypeInternal() {}
+  union {
+    CFamilyGroups_ClearCooldownSkip_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_ClearCooldownSkip_RequestDefaultTypeInternal _CFamilyGroups_ClearCooldownSkip_Request_default_instance_;
+constexpr CFamilyGroups_ClearCooldownSkip_Response::CFamilyGroups_ClearCooldownSkip_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CFamilyGroups_ClearCooldownSkip_ResponseDefaultTypeInternal {
+  constexpr CFamilyGroups_ClearCooldownSkip_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CFamilyGroups_ClearCooldownSkip_ResponseDefaultTypeInternal() {}
+  union {
+    CFamilyGroups_ClearCooldownSkip_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_ClearCooldownSkip_ResponseDefaultTypeInternal _CFamilyGroups_ClearCooldownSkip_Response_default_instance_;
 constexpr CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : member_steamid_(PROTOBUF_ULONGLONG(0))
@@ -845,7 +902,7 @@ struct CFamilyGroupsClient_GroupChanged_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_GroupChanged_NotificationDefaultTypeInternal _CFamilyGroupsClient_GroupChanged_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5ffamilygroups_2esteamclient_2eproto[62];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5ffamilygroups_2esteamclient_2eproto[66];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto[5];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto[2];
 
@@ -865,7 +922,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_CreateFamilyGroup_Response, family_groupid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_CreateFamilyGroup_Response, cooldown_skip_granted_),
   0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroup_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroup_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -958,14 +1017,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroupForUser_Response, role_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroupForUser_Response, cooldown_seconds_remaining_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroupForUser_Response, family_group_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroupForUser_Response, can_undelete_last_joined_family_),
   1,
-  2,
-  3,
   4,
+  3,
+  2,
   ~0u,
-  5,
   6,
+  7,
   0,
+  5,
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ModifyFamilyGroupDetails_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ModifyFamilyGroupDetails_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1045,7 +1106,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_JoinFamilyGroup_Response, two_factor_method_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_JoinFamilyGroup_Response, cooldown_skip_granted_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_JoinFamilyGroup_Response, invite_already_accepted_),
   0,
+  1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ConfirmJoinFamilyGroup_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ConfirmJoinFamilyGroup_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1117,6 +1182,18 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_UndeleteFamilyGroup_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_UndeleteFamilyGroup_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_UndeleteFamilyGroup_Request, family_groupid_),
+  0,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_UndeleteFamilyGroup_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetPlaytimeSummary_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetPlaytimeSummary_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1145,6 +1222,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetPlaytimeSummary_Response, entries_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetPlaytimeSummary_Response, entries_by_owner_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_RequestPurchase_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_RequestPurchase_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1281,11 +1359,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Request, include_excluded_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Request, language_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Request, max_apps_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Request, include_non_games_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Request, steamid_),
   1,
   2,
   3,
   0,
+  5,
   4,
+  6,
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1301,6 +1383,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, rt_time_acquired_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, rt_last_played_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, rt_playtime_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, app_type_),
   4,
   ~0u,
   0,
@@ -1308,15 +1391,19 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   2,
   3,
   5,
+  6,
   7,
   8,
-  6,
-  ~0u,  // no _has_bits_
+  9,
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response, apps_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response, owner_steamid_),
+  ~0u,
+  0,
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_SetPreferredLender_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_SetPreferredLender_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1355,39 +1442,54 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetPreferredLenders_Response, members_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetDispersionForFamily_Request, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetDispersionForFamily_Request, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ForceAcceptInvite_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ForceAcceptInvite_Request, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetDispersionForFamily_Request, family_groupid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ForceAcceptInvite_Request, family_groupid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ForceAcceptInvite_Request, steamid_),
   0,
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_FamilyDispersionGraph_Edge, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_FamilyDispersionGraph_Edge, _internal_metadata_),
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ForceAcceptInvite_Response, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_FamilyDispersionGraph_Edge, accountid1_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_FamilyDispersionGraph_Edge, accountid2_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_FamilyDispersionGraph_Edge, distance_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Request, family_groupid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Request, steamid_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Response, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Response, wallet_country_matches_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Response, ip_match_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetInviteCheckResults_Response, join_restriction_),
   0,
   1,
   2,
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_FamilyDispersionGraph, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ClearCooldownSkip_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ClearCooldownSkip_Request, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_FamilyDispersionGraph, edges_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetDispersionForFamily_Response, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetDispersionForFamily_Response, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetDispersionForFamily_Response, total_dispersion_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetDispersionForFamily_Response, graph_),
-  1,
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ClearCooldownSkip_Request, steamid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ClearCooldownSkip_Request, invite_id_),
   0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_ClearCooldownSkip_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1430,67 +1532,71 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::CFamilyGroups_CreateFamilyGroup_Request)},
-  { 9, 15, sizeof(::CFamilyGroups_CreateFamilyGroup_Response)},
-  { 16, 23, sizeof(::CFamilyGroups_GetFamilyGroup_Request)},
-  { 25, 34, sizeof(::FamilyGroupMember)},
-  { 38, 45, sizeof(::FamilyGroupPendingInvite)},
-  { 47, 53, sizeof(::FamilyGroupFormerMember)},
-  { 54, 67, sizeof(::CFamilyGroups_GetFamilyGroup_Response)},
-  { 75, 82, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Request)},
-  { 84, 92, sizeof(::FamilyGroupPendingInviteForUser)},
-  { 95, 108, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Response)},
-  { 116, 123, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Request)},
-  { 125, -1, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Response)},
-  { 130, 138, sizeof(::CFamilyGroups_InviteToFamilyGroup_Request)},
-  { 141, 148, sizeof(::CFamilyGroups_InviteToFamilyGroup_Response)},
-  { 150, 158, sizeof(::CFamilyGroups_ConfirmInviteToFamilyGroup_Request)},
-  { 161, -1, sizeof(::CFamilyGroups_ConfirmInviteToFamilyGroup_Response)},
-  { 166, 173, sizeof(::CFamilyGroups_ResendInvitationToFamilyGroup_Request)},
-  { 175, -1, sizeof(::CFamilyGroups_ResendInvitationToFamilyGroup_Response)},
-  { 180, 187, sizeof(::CFamilyGroups_JoinFamilyGroup_Request)},
-  { 189, 195, sizeof(::CFamilyGroups_JoinFamilyGroup_Response)},
-  { 196, 204, sizeof(::CFamilyGroups_ConfirmJoinFamilyGroup_Request)},
-  { 207, -1, sizeof(::CFamilyGroups_ConfirmJoinFamilyGroup_Response)},
-  { 212, 219, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Request)},
-  { 221, -1, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Response)},
-  { 226, 233, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Request)},
-  { 235, -1, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Response)},
-  { 240, 247, sizeof(::CFamilyGroups_GetUsersSharingDevice_Request)},
-  { 249, -1, sizeof(::CFamilyGroups_GetUsersSharingDevice_Response)},
-  { 255, 261, sizeof(::CFamilyGroups_DeleteFamilyGroup_Request)},
-  { 262, -1, sizeof(::CFamilyGroups_DeleteFamilyGroup_Response)},
-  { 267, 273, sizeof(::CFamilyGroups_GetPlaytimeSummary_Request)},
-  { 274, 284, sizeof(::CFamilyGroups_PlaytimeEntry)},
-  { 289, -1, sizeof(::CFamilyGroups_GetPlaytimeSummary_Response)},
-  { 295, 304, sizeof(::CFamilyGroups_RequestPurchase_Request)},
-  { 308, 315, sizeof(::CFamilyGroups_RequestPurchase_Response)},
-  { 317, 325, sizeof(::CFamilyGroups_GetPurchaseRequests_Request)},
-  { 328, 345, sizeof(::PurchaseRequest)},
-  { 357, -1, sizeof(::CFamilyGroups_GetPurchaseRequests_Response)},
-  { 363, 371, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Request)},
-  { 374, -1, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Response)},
-  { 379, 385, sizeof(::CFamilyGroups_GetChangeLog_Request)},
-  { 386, 396, sizeof(::CFamilyGroups_GetChangeLog_Response_Change)},
-  { 401, -1, sizeof(::CFamilyGroups_GetChangeLog_Response)},
-  { 407, 414, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Request)},
-  { 416, -1, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Response)},
-  { 421, 431, sizeof(::CFamilyGroups_GetSharedLibraryApps_Request)},
-  { 436, 451, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp)},
-  { 461, -1, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response)},
-  { 467, 475, sizeof(::CFamilyGroups_SetPreferredLender_Request)},
-  { 478, -1, sizeof(::CFamilyGroups_SetPreferredLender_Response)},
-  { 483, 489, sizeof(::CFamilyGroups_GetPreferredLenders_Request)},
-  { 490, 497, sizeof(::CFamilyGroups_GetPreferredLenders_Response_FamilyMember)},
-  { 499, -1, sizeof(::CFamilyGroups_GetPreferredLenders_Response)},
-  { 505, 511, sizeof(::CFamilyGroups_GetDispersionForFamily_Request)},
-  { 512, 520, sizeof(::CFamilyGroups_FamilyDispersionGraph_Edge)},
-  { 523, -1, sizeof(::CFamilyGroups_FamilyDispersionGraph)},
-  { 529, 536, sizeof(::CFamilyGroups_GetDispersionForFamily_Response)},
-  { 538, 545, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember)},
-  { 547, 554, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp)},
-  { 556, 563, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification)},
-  { 565, -1, sizeof(::CFamilyGroupsClient_InviteStatus_Notification)},
-  { 570, 576, sizeof(::CFamilyGroupsClient_GroupChanged_Notification)},
+  { 9, 16, sizeof(::CFamilyGroups_CreateFamilyGroup_Response)},
+  { 18, 25, sizeof(::CFamilyGroups_GetFamilyGroup_Request)},
+  { 27, 36, sizeof(::FamilyGroupMember)},
+  { 40, 47, sizeof(::FamilyGroupPendingInvite)},
+  { 49, 55, sizeof(::FamilyGroupFormerMember)},
+  { 56, 69, sizeof(::CFamilyGroups_GetFamilyGroup_Response)},
+  { 77, 84, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Request)},
+  { 86, 94, sizeof(::FamilyGroupPendingInviteForUser)},
+  { 97, 111, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Response)},
+  { 120, 127, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Request)},
+  { 129, -1, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Response)},
+  { 134, 142, sizeof(::CFamilyGroups_InviteToFamilyGroup_Request)},
+  { 145, 152, sizeof(::CFamilyGroups_InviteToFamilyGroup_Response)},
+  { 154, 162, sizeof(::CFamilyGroups_ConfirmInviteToFamilyGroup_Request)},
+  { 165, -1, sizeof(::CFamilyGroups_ConfirmInviteToFamilyGroup_Response)},
+  { 170, 177, sizeof(::CFamilyGroups_ResendInvitationToFamilyGroup_Request)},
+  { 179, -1, sizeof(::CFamilyGroups_ResendInvitationToFamilyGroup_Response)},
+  { 184, 191, sizeof(::CFamilyGroups_JoinFamilyGroup_Request)},
+  { 193, 201, sizeof(::CFamilyGroups_JoinFamilyGroup_Response)},
+  { 204, 212, sizeof(::CFamilyGroups_ConfirmJoinFamilyGroup_Request)},
+  { 215, -1, sizeof(::CFamilyGroups_ConfirmJoinFamilyGroup_Response)},
+  { 220, 227, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Request)},
+  { 229, -1, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Response)},
+  { 234, 241, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Request)},
+  { 243, -1, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Response)},
+  { 248, 255, sizeof(::CFamilyGroups_GetUsersSharingDevice_Request)},
+  { 257, -1, sizeof(::CFamilyGroups_GetUsersSharingDevice_Response)},
+  { 263, 269, sizeof(::CFamilyGroups_DeleteFamilyGroup_Request)},
+  { 270, -1, sizeof(::CFamilyGroups_DeleteFamilyGroup_Response)},
+  { 275, 281, sizeof(::CFamilyGroups_UndeleteFamilyGroup_Request)},
+  { 282, -1, sizeof(::CFamilyGroups_UndeleteFamilyGroup_Response)},
+  { 287, 293, sizeof(::CFamilyGroups_GetPlaytimeSummary_Request)},
+  { 294, 304, sizeof(::CFamilyGroups_PlaytimeEntry)},
+  { 309, -1, sizeof(::CFamilyGroups_GetPlaytimeSummary_Response)},
+  { 316, 325, sizeof(::CFamilyGroups_RequestPurchase_Request)},
+  { 329, 336, sizeof(::CFamilyGroups_RequestPurchase_Response)},
+  { 338, 346, sizeof(::CFamilyGroups_GetPurchaseRequests_Request)},
+  { 349, 366, sizeof(::PurchaseRequest)},
+  { 378, -1, sizeof(::CFamilyGroups_GetPurchaseRequests_Response)},
+  { 384, 392, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Request)},
+  { 395, -1, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Response)},
+  { 400, 406, sizeof(::CFamilyGroups_GetChangeLog_Request)},
+  { 407, 417, sizeof(::CFamilyGroups_GetChangeLog_Response_Change)},
+  { 422, -1, sizeof(::CFamilyGroups_GetChangeLog_Response)},
+  { 428, 435, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Request)},
+  { 437, -1, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Response)},
+  { 442, 454, sizeof(::CFamilyGroups_GetSharedLibraryApps_Request)},
+  { 461, 477, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp)},
+  { 488, 495, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response)},
+  { 497, 505, sizeof(::CFamilyGroups_SetPreferredLender_Request)},
+  { 508, -1, sizeof(::CFamilyGroups_SetPreferredLender_Response)},
+  { 513, 519, sizeof(::CFamilyGroups_GetPreferredLenders_Request)},
+  { 520, 527, sizeof(::CFamilyGroups_GetPreferredLenders_Response_FamilyMember)},
+  { 529, -1, sizeof(::CFamilyGroups_GetPreferredLenders_Response)},
+  { 535, 542, sizeof(::CFamilyGroups_ForceAcceptInvite_Request)},
+  { 544, -1, sizeof(::CFamilyGroups_ForceAcceptInvite_Response)},
+  { 549, 556, sizeof(::CFamilyGroups_GetInviteCheckResults_Request)},
+  { 558, 566, sizeof(::CFamilyGroups_GetInviteCheckResults_Response)},
+  { 569, 576, sizeof(::CFamilyGroups_ClearCooldownSkip_Request)},
+  { 578, -1, sizeof(::CFamilyGroups_ClearCooldownSkip_Response)},
+  { 583, 590, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember)},
+  { 592, 599, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp)},
+  { 601, 608, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification)},
+  { 610, -1, sizeof(::CFamilyGroupsClient_InviteStatus_Notification)},
+  { 615, 621, sizeof(::CFamilyGroupsClient_GroupChanged_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1524,6 +1630,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetUsersSharingDevice_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_DeleteFamilyGroup_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_DeleteFamilyGroup_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_UndeleteFamilyGroup_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_UndeleteFamilyGroup_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetPlaytimeSummary_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_PlaytimeEntry_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetPlaytimeSummary_Response_default_instance_),
@@ -1547,10 +1655,12 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetPreferredLenders_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetPreferredLenders_Response_FamilyMember_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetPreferredLenders_Response_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetDispersionForFamily_Request_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_FamilyDispersionGraph_Edge_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_FamilyDispersionGraph_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetDispersionForFamily_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_ForceAcceptInvite_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_ForceAcceptInvite_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetInviteCheckResults_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetInviteCheckResults_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_ClearCooldownSkip_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_ClearCooldownSkip_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_NotifyRunningApps_Notification_default_instance_),
@@ -1562,325 +1672,349 @@ const char descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_
   "\n,steammessages_familygroups.steamclient"
   ".proto\032 google/protobuf/descriptor.proto"
   "\032\030steammessages_base.proto\032,steammessage"
-  "s_unified_base.steamclient.proto\"H\n\'CFam"
-  "ilyGroups_CreateFamilyGroup_Request\022\014\n\004n"
-  "ame\030\001 \001(\t\022\017\n\007steamid\030\002 \001(\006\"B\n(CFamilyGro"
-  "ups_CreateFamilyGroup_Response\022\026\n\016family"
-  "_groupid\030\001 \001(\004\"Y\n$CFamilyGroups_GetFamil"
-  "yGroup_Request\022\026\n\016family_groupid\030\001 \001(\004\022\031"
-  "\n\021send_running_apps\030\002 \001(\010\"\225\001\n\021FamilyGrou"
-  "pMember\022\017\n\007steamid\030\001 \001(\006\0226\n\004role\030\002 \001(\0162\021"
-  ".EFamilyGroupRole:\025EFamilyGroupRole_None"
-  "\022\023\n\013time_joined\030\003 \001(\r\022\"\n\032cooldown_second"
-  "s_remaining\030\004 \001(\r\"c\n\030FamilyGroupPendingI"
-  "nvite\022\017\n\007steamid\030\001 \001(\006\0226\n\004role\030\002 \001(\0162\021.E"
-  "FamilyGroupRole:\025EFamilyGroupRole_None\"*"
-  "\n\027FamilyGroupFormerMember\022\017\n\007steamid\030\001 \001"
-  "(\006\"\257\002\n%CFamilyGroups_GetFamilyGroup_Resp"
-  "onse\022\014\n\004name\030\001 \001(\t\022#\n\007members\030\002 \003(\0132\022.Fa"
-  "milyGroupMember\0222\n\017pending_invites\030\003 \003(\013"
-  "2\031.FamilyGroupPendingInvite\022\022\n\nfree_spot"
-  "s\030\004 \001(\r\022\017\n\007country\030\005 \001(\t\022\'\n\037slot_cooldow"
-  "n_remaining_seconds\030\006 \001(\r\0220\n\016former_memb"
-  "ers\030\007 \003(\0132\030.FamilyGroupFormerMember\022\037\n\027s"
-  "lot_cooldown_overrides\030\010 \001(\r\"e\n+CFamilyG"
-  "roups_GetFamilyGroupForUser_Request\022\017\n\007s"
-  "teamid\030\001 \001(\004\022%\n\035include_family_group_res"
-  "ponse\030\002 \001(\010\"\212\001\n\037FamilyGroupPendingInvite"
-  "ForUser\022\026\n\016family_groupid\030\001 \001(\004\0226\n\004role\030"
-  "\002 \001(\0162\021.EFamilyGroupRole:\025EFamilyGroupRo"
-  "le_None\022\027\n\017inviter_steamid\030\003 \001(\006\"\335\002\n,CFa"
-  "milyGroups_GetFamilyGroupForUser_Respons"
-  "e\022\026\n\016family_groupid\030\001 \001(\004\022\"\n\032is_not_memb"
-  "er_of_any_group\030\002 \001(\010\022\032\n\022latest_time_joi"
-  "ned\030\003 \001(\r\022$\n\034latest_joined_family_groupi"
-  "d\030\004 \001(\004\022\?\n\025pending_group_invites\030\005 \003(\0132 "
-  ".FamilyGroupPendingInviteForUser\022\014\n\004role"
-  "\030\006 \001(\r\022\"\n\032cooldown_seconds_remaining\030\007 \001"
-  "(\r\022<\n\014family_group\030\010 \001(\0132&.CFamilyGroups"
-  "_GetFamilyGroup_Response\"V\n.CFamilyGroup"
-  "s_ModifyFamilyGroupDetails_Request\022\026\n\016fa"
-  "mily_groupid\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\"1\n/CFam"
-  "ilyGroups_ModifyFamilyGroupDetails_Respo"
-  "nse\"\236\001\n)CFamilyGroups_InviteToFamilyGrou"
-  "p_Request\022\026\n\016family_groupid\030\001 \001(\004\022\030\n\020rec"
-  "eiver_steamid\030\002 \001(\006\022\?\n\rreceiver_role\030\003 \001"
+  "s_unified_base.steamclient.proto\032\013enums."
+  "proto\"H\n\'CFamilyGroups_CreateFamilyGroup"
+  "_Request\022\014\n\004name\030\001 \001(\t\022\017\n\007steamid\030\002 \001(\006\""
+  "a\n(CFamilyGroups_CreateFamilyGroup_Respo"
+  "nse\022\026\n\016family_groupid\030\001 \001(\004\022\035\n\025cooldown_"
+  "skip_granted\030\002 \001(\010\"Y\n$CFamilyGroups_GetF"
+  "amilyGroup_Request\022\026\n\016family_groupid\030\001 \001"
+  "(\004\022\031\n\021send_running_apps\030\002 \001(\010\"\225\001\n\021Family"
+  "GroupMember\022\017\n\007steamid\030\001 \001(\006\0226\n\004role\030\002 \001"
   "(\0162\021.EFamilyGroupRole:\025EFamilyGroupRole_"
-  "None\"\233\001\n*CFamilyGroups_InviteToFamilyGro"
-  "up_Response\022\021\n\tinvite_id\030\001 \001(\004\022Z\n\021two_fa"
-  "ctor_method\030\002 \001(\0162\035.EFamilyGroupsTwoFact"
-  "orMethod: EFamilyGroupsTwoFactorMethodNo"
-  "ne\"l\n0CFamilyGroups_ConfirmInviteToFamil"
-  "yGroup_Request\022\026\n\016family_groupid\030\001 \001(\004\022\021"
-  "\n\tinvite_id\030\002 \001(\004\022\r\n\005nonce\030\003 \001(\004\"3\n1CFam"
+  "None\022\023\n\013time_joined\030\003 \001(\r\022\"\n\032cooldown_se"
+  "conds_remaining\030\004 \001(\r\"c\n\030FamilyGroupPend"
+  "ingInvite\022\017\n\007steamid\030\001 \001(\006\0226\n\004role\030\002 \001(\016"
+  "2\021.EFamilyGroupRole:\025EFamilyGroupRole_No"
+  "ne\"*\n\027FamilyGroupFormerMember\022\017\n\007steamid"
+  "\030\001 \001(\006\"\257\002\n%CFamilyGroups_GetFamilyGroup_"
+  "Response\022\014\n\004name\030\001 \001(\t\022#\n\007members\030\002 \003(\0132"
+  "\022.FamilyGroupMember\0222\n\017pending_invites\030\003"
+  " \003(\0132\031.FamilyGroupPendingInvite\022\022\n\nfree_"
+  "spots\030\004 \001(\r\022\017\n\007country\030\005 \001(\t\022\'\n\037slot_coo"
+  "ldown_remaining_seconds\030\006 \001(\r\0220\n\016former_"
+  "members\030\007 \003(\0132\030.FamilyGroupFormerMember\022"
+  "\037\n\027slot_cooldown_overrides\030\010 \001(\r\"e\n+CFam"
+  "ilyGroups_GetFamilyGroupForUser_Request\022"
+  "\017\n\007steamid\030\001 \001(\004\022%\n\035include_family_group"
+  "_response\030\002 \001(\010\"\212\001\n\037FamilyGroupPendingIn"
+  "viteForUser\022\026\n\016family_groupid\030\001 \001(\004\0226\n\004r"
+  "ole\030\002 \001(\0162\021.EFamilyGroupRole:\025EFamilyGro"
+  "upRole_None\022\027\n\017inviter_steamid\030\003 \001(\006\"\206\003\n"
+  ",CFamilyGroups_GetFamilyGroupForUser_Res"
+  "ponse\022\026\n\016family_groupid\030\001 \001(\004\022\"\n\032is_not_"
+  "member_of_any_group\030\002 \001(\010\022\032\n\022latest_time"
+  "_joined\030\003 \001(\r\022$\n\034latest_joined_family_gr"
+  "oupid\030\004 \001(\004\022\?\n\025pending_group_invites\030\005 \003"
+  "(\0132 .FamilyGroupPendingInviteForUser\022\014\n\004"
+  "role\030\006 \001(\r\022\"\n\032cooldown_seconds_remaining"
+  "\030\007 \001(\r\022<\n\014family_group\030\010 \001(\0132&.CFamilyGr"
+  "oups_GetFamilyGroup_Response\022\'\n\037can_unde"
+  "lete_last_joined_family\030\t \001(\010\"V\n.CFamily"
+  "Groups_ModifyFamilyGroupDetails_Request\022"
+  "\026\n\016family_groupid\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\"1\n"
+  "/CFamilyGroups_ModifyFamilyGroupDetails_"
+  "Response\"\236\001\n)CFamilyGroups_InviteToFamil"
+  "yGroup_Request\022\026\n\016family_groupid\030\001 \001(\004\022\030"
+  "\n\020receiver_steamid\030\002 \001(\006\022\?\n\rreceiver_rol"
+  "e\030\003 \001(\0162\021.EFamilyGroupRole:\025EFamilyGroup"
+  "Role_None\"\233\001\n*CFamilyGroups_InviteToFami"
+  "lyGroup_Response\022\021\n\tinvite_id\030\001 \001(\004\022Z\n\021t"
+  "wo_factor_method\030\002 \001(\0162\035.EFamilyGroupsTw"
+  "oFactorMethod: EFamilyGroupsTwoFactorMet"
+  "hodNone\"l\n0CFamilyGroups_ConfirmInviteTo"
+  "FamilyGroup_Request\022\026\n\016family_groupid\030\001 "
+  "\001(\004\022\021\n\tinvite_id\030\002 \001(\004\022\r\n\005nonce\030\003 \001(\004\"3\n"
+  "1CFamilyGroups_ConfirmInviteToFamilyGrou"
+  "p_Response\"^\n3CFamilyGroups_ResendInvita"
+  "tionToFamilyGroup_Request\022\026\n\016family_grou"
+  "pid\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\004\"6\n4CFamilyGro"
+  "ups_ResendInvitationToFamilyGroup_Respon"
+  "se\"N\n%CFamilyGroups_JoinFamilyGroup_Requ"
+  "est\022\026\n\016family_groupid\030\001 \001(\004\022\r\n\005nonce\030\002 \001"
+  "(\004\"\304\001\n&CFamilyGroups_JoinFamilyGroup_Res"
+  "ponse\022Z\n\021two_factor_method\030\002 \001(\0162\035.EFami"
+  "lyGroupsTwoFactorMethod: EFamilyGroupsTw"
+  "oFactorMethodNone\022\035\n\025cooldown_skip_grant"
+  "ed\030\003 \001(\010\022\037\n\027invite_already_accepted\030\004 \001("
+  "\010\"h\n,CFamilyGroups_ConfirmJoinFamilyGrou"
+  "p_Request\022\026\n\016family_groupid\030\001 \001(\004\022\021\n\tinv"
+  "ite_id\030\002 \001(\004\022\r\n\005nonce\030\003 \001(\004\"/\n-CFamilyGr"
+  "oups_ConfirmJoinFamilyGroup_Response\"`\n+"
+  "CFamilyGroups_RemoveFromFamilyGroup_Requ"
+  "est\022\026\n\016family_groupid\030\001 \001(\004\022\031\n\021steamid_t"
+  "o_remove\030\002 \001(\006\".\n,CFamilyGroups_RemoveFr"
+  "omFamilyGroup_Response\"b\n-CFamilyGroups_"
+  "CancelFamilyGroupInvite_Request\022\026\n\016famil"
+  "y_groupid\030\001 \001(\004\022\031\n\021steamid_to_cancel\030\002 \001"
+  "(\006\"0\n.CFamilyGroups_CancelFamilyGroupInv"
+  "ite_Response\"a\n+CFamilyGroups_GetUsersSh"
+  "aringDevice_Request\022\026\n\016family_groupid\030\001 "
+  "\001(\004\022\032\n\022client_instance_id\030\002 \001(\004\"=\n,CFami"
+  "lyGroups_GetUsersSharingDevice_Response\022"
+  "\r\n\005users\030\001 \003(\006\"A\n\'CFamilyGroups_DeleteFa"
+  "milyGroup_Request\022\026\n\016family_groupid\030\001 \001("
+  "\004\"*\n(CFamilyGroups_DeleteFamilyGroup_Res"
+  "ponse\"C\n)CFamilyGroups_UndeleteFamilyGro"
+  "up_Request\022\026\n\016family_groupid\030\001 \001(\004\",\n*CF"
+  "amilyGroups_UndeleteFamilyGroup_Response"
+  "\"B\n(CFamilyGroups_GetPlaytimeSummary_Req"
+  "uest\022\026\n\016family_groupid\030\001 \001(\006\"\202\001\n\033CFamily"
+  "Groups_PlaytimeEntry\022\017\n\007steamid\030\001 \001(\006\022\r\n"
+  "\005appid\030\002 \001(\r\022\024\n\014first_played\030\003 \001(\r\022\025\n\rla"
+  "test_played\030\004 \001(\r\022\026\n\016seconds_played\030\005 \001("
+  "\r\"\222\001\n)CFamilyGroups_GetPlaytimeSummary_R"
+  "esponse\022-\n\007entries\030\001 \003(\0132\034.CFamilyGroups"
+  "_PlaytimeEntry\0226\n\020entries_by_owner\030\002 \003(\013"
+  "2\034.CFamilyGroups_PlaytimeEntry\"\216\001\n%CFami"
+  "lyGroups_RequestPurchase_Request\022\026\n\016fami"
+  "ly_groupid\030\001 \001(\004\022\027\n\017gidshoppingcart\030\002 \001("
+  "\004\022\032\n\022store_country_code\030\003 \001(\t\022\030\n\020use_acc"
+  "ount_cart\030\004 \001(\010\"U\n&CFamilyGroups_Request"
+  "Purchase_Response\022\027\n\017gidshoppingcart\030\001 \001"
+  "(\004\022\022\n\nrequest_id\030\002 \001(\004\"|\n)CFamilyGroups_"
+  "GetPurchaseRequests_Request\022\026\n\016family_gr"
+  "oupid\030\001 \001(\004\022\023\n\013request_ids\030\003 \003(\004\022\"\n\032rt_i"
+  "nclude_completed_since\030\004 \001(\r\"\377\002\n\017Purchas"
+  "eRequest\022\031\n\021requester_steamid\030\001 \001(\006\022\027\n\017g"
+  "idshoppingcart\030\002 \001(\004\022\026\n\016time_requested\030\003"
+  " \001(\r\022\026\n\016time_responded\030\004 \001(\r\022\031\n\021responde"
+  "r_steamid\030\005 \001(\006\022M\n\017response_action\030\006 \001(\016"
+  "2\027.EPurchaseRequestAction:\033EPurchaseRequ"
+  "estAction_None\022\024\n\014is_completed\030\007 \001(\010\022\022\n\n"
+  "request_id\030\010 \001(\004\022\034\n\024requested_packageids"
+  "\030\t \003(\r\022\034\n\024purchased_packageids\030\n \003(\r\022\033\n\023"
+  "requested_bundleids\030\013 \003(\r\022\033\n\023purchased_b"
+  "undleids\030\014 \003(\r\"P\n*CFamilyGroups_GetPurch"
+  "aseRequests_Response\022\"\n\010requests\030\001 \003(\0132\020"
+  ".PurchaseRequest\"\244\001\n0CFamilyGroups_Respo"
+  "ndToRequestedPurchase_Request\022\026\n\016family_"
+  "groupid\030\001 \001(\004\022D\n\006action\030\003 \001(\0162\027.EPurchas"
+  "eRequestAction:\033EPurchaseRequestAction_N"
+  "one\022\022\n\nrequest_id\030\004 \001(\004\"3\n1CFamilyGroups"
+  "_RespondToRequestedPurchase_Response\"<\n\""
+  "CFamilyGroups_GetChangeLog_Request\022\026\n\016fa"
+  "mily_groupid\030\001 \001(\004\"\367\001\n#CFamilyGroups_Get"
+  "ChangeLog_Response\022<\n\007changes\030\001 \003(\0132+.CF"
+  "amilyGroups_GetChangeLog_Response.Change"
+  "\032\221\001\n\006Change\022\021\n\ttimestamp\030\001 \001(\006\022\025\n\ractor_"
+  "steamid\030\002 \001(\006\022;\n\004type\030\003 \001(\0162\032.EFamilyGro"
+  "upChangeLogType:\021InvalidChangeType\022\014\n\004bo"
+  "dy\030\004 \001(\t\022\022\n\nby_support\030\005 \001(\010\"b\n0CFamilyG"
+  "roups_SetFamilyCooldownOverrides_Request"
+  "\022\026\n\016family_groupid\030\001 \001(\004\022\026\n\016cooldown_cou"
+  "nt\030\002 \001(\r\"3\n1CFamilyGroups_SetFamilyCoold"
+  "ownOverrides_Response\"\303\001\n*CFamilyGroups_"
+  "GetSharedLibraryApps_Request\022\026\n\016family_g"
+  "roupid\030\001 \001(\006\022\023\n\013include_own\030\002 \001(\010\022\030\n\020inc"
+  "lude_excluded\030\003 \001(\010\022\020\n\010language\030\005 \001(\t\022\020\n"
+  "\010max_apps\030\006 \001(\r\022\031\n\021include_non_games\030\007 \001"
+  "(\010\022\017\n\007steamid\030\010 \001(\006\"\325\003\n+CFamilyGroups_Ge"
+  "tSharedLibraryApps_Response\022D\n\004apps\030\001 \003("
+  "\01326.CFamilyGroups_GetSharedLibraryApps_R"
+  "esponse.SharedApp\022\025\n\rowner_steamid\030\002 \001(\006"
+  "\032\310\002\n\tSharedApp\022\r\n\005appid\030\001 \001(\r\022\026\n\016owner_s"
+  "teamids\030\002 \003(\006\022\014\n\004name\030\006 \001(\t\022\017\n\007sort_as\030\007"
+  " \001(\t\022\030\n\020capsule_filename\030\010 \001(\t\022\025\n\rimg_ic"
+  "on_hash\030\t \001(\t\022M\n\016exclude_reason\030\n \001(\0162\034."
+  "ESharedLibraryExcludeReason:\027ESharedLibr"
+  "ary_Included\022\030\n\020rt_time_acquired\030\013 \001(\r\022\026"
+  "\n\016rt_last_played\030\014 \001(\r\022\023\n\013rt_playtime\030\r "
+  "\001(\r\022.\n\010app_type\030\016 \001(\0162\016.EProtoAppType:\014E"
+  "AppTypeGame\"i\n(CFamilyGroups_SetPreferre"
+  "dLender_Request\022\026\n\016family_groupid\030\001 \001(\004\022"
+  "\r\n\005appid\030\002 \001(\r\022\026\n\016lender_steamid\030\003 \001(\006\"+"
+  "\n)CFamilyGroups_SetPreferredLender_Respo"
+  "nse\"C\n)CFamilyGroups_GetPreferredLenders"
+  "_Request\022\026\n\016family_groupid\030\001 \001(\004\"\262\001\n*CFa"
+  "milyGroups_GetPreferredLenders_Response\022"
+  "I\n\007members\030\001 \003(\01328.CFamilyGroups_GetPref"
+  "erredLenders_Response.FamilyMember\0329\n\014Fa"
+  "milyMember\022\017\n\007steamid\030\001 \001(\006\022\030\n\020preferred"
+  "_appids\030\002 \003(\r\"R\n\'CFamilyGroups_ForceAcce"
+  "ptInvite_Request\022\026\n\016family_groupid\030\001 \001(\004"
+  "\022\017\n\007steamid\030\002 \001(\006\"*\n(CFamilyGroups_Force"
+  "AcceptInvite_Response\"V\n+CFamilyGroups_G"
+  "etInviteCheckResults_Request\022\026\n\016family_g"
+  "roupid\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\006\"z\n,CFamily"
+  "Groups_GetInviteCheckResults_Response\022\036\n"
+  "\026wallet_country_matches\030\001 \001(\010\022\020\n\010ip_matc"
+  "h\030\002 \001(\010\022\030\n\020join_restriction\030\003 \001(\r\"M\n\'CFa"
+  "milyGroups_ClearCooldownSkip_Request\022\017\n\007"
+  "steamid\030\001 \001(\006\022\021\n\tinvite_id\030\002 \001(\004\"*\n(CFam"
+  "ilyGroups_ClearCooldownSkip_Response\"\333\002\n"
+  "2CFamilyGroupsClient_NotifyRunningApps_N"
+  "otification\022\026\n\016family_groupid\030\001 \001(\004\022T\n\014r"
+  "unning_apps\030\002 \003(\0132>.CFamilyGroupsClient_"
+  "NotifyRunningApps_Notification.RunningAp"
+  "p\032>\n\rPlayingMember\022\026\n\016member_steamid\030\001 \001"
+  "(\006\022\025\n\rowner_steamid\030\002 \001(\006\032w\n\nRunningApp\022"
+  "\r\n\005appid\030\001 \001(\r\022Z\n\017playing_members\030\003 \003(\0132"
+  "A.CFamilyGroupsClient_NotifyRunningApps_"
+  "Notification.PlayingMember\"/\n-CFamilyGro"
+  "upsClient_InviteStatus_Notification\"G\n-C"
+  "FamilyGroupsClient_GroupChanged_Notifica"
+  "tion\022\026\n\016family_groupid\030\001 \001(\004*\177\n\020EFamilyG"
+  "roupRole\022\031\n\025EFamilyGroupRole_None\020\000\022\032\n\026E"
+  "FamilyGroupRole_Adult\020\001\022\032\n\026EFamilyGroupR"
+  "ole_Child\020\002\022\030\n\024EFamilyGroupRole_MAX\020\003*\223\001"
+  "\n\034EFamilyGroupsTwoFactorMethod\022$\n EFamil"
+  "yGroupsTwoFactorMethodNone\020\000\022&\n\"EFamilyG"
+  "roupsTwoFactorMethodMobile\020\001\022%\n!EFamilyG"
+  "roupsTwoFactorMethodEmail\020\002*\354\001\n\026EPurchas"
+  "eRequestAction\022\037\n\033EPurchaseRequestAction"
+  "_None\020\000\022\"\n\036EPurchaseRequestAction_Declin"
+  "e\020\001\022$\n EPurchaseRequestAction_Purchased\020"
+  "\002\022$\n EPurchaseRequestAction_Abandoned\020\003\022"
+  "!\n\035EPurchaseRequestAction_Cancel\020\004\022\036\n\032EP"
+  "urchaseRequestAction_MAX\020\005*\324\005\n\031EFamilyGr"
+  "oupChangeLogType\022\025\n\021InvalidChangeType\020\000\022"
+  "\026\n\022FamilyGroupCreated\020\001\022\027\n\023FamilyGroupMo"
+  "dified\020\002\022\026\n\022FamilyGroupDeleted\020\003\022\022\n\016Acco"
+  "untInvited\020\004\022\033\n\027InviteDeniedByGroupSize\020"
+  "\005\022\025\n\021JoinedFamilyGroup\020\006\022\036\n\032JoinDeniedBy"
+  "RegionMismatch\020\007\022 \n\034JoinDeniedByMissingI"
+  "pAddress\020\010\022\036\n\032JoinDeniedByFamilyCooldown"
+  "\020\t\022\034\n\030JoinDeniedByUserCooldown\020\n\022\032\n\026Join"
+  "DeniedByOtherGroup\020\013\022\022\n\016AccountRemoved\020\014"
+  "\022\022\n\016InviteCanceled\020\r\022\025\n\021PurchaseRequeste"
+  "d\020\016\022\033\n\027ParentalSettingsEnabled\020\017\022\034\n\030Pare"
+  "ntalSettingsDisabled\020\020\022\033\n\027ParentalSettin"
+  "gsChanged\020\021\022\"\n\036FamilyCooldownOverridesCh"
+  "anged\020\022\022\033\n\027PurchaseRequestCanceled\020\023\022\033\n\027"
+  "PurchaseRequestApproved\020\024\022\033\n\027PurchaseReq"
+  "uestDeclined\020\025\022\030\n\024CooldownSkipConsumed\020\026"
+  "\022\027\n\023FamilyGroupRestored\020\027\022\016\n\nJoinDenied\020"
+  "\030\022\036\n\032SupportForceAcceptedInvite\020\031*\342\n\n\033ES"
+  "haredLibraryExcludeReason\022\033\n\027ESharedLibr"
+  "ary_Included\020\000\022(\n$ESharedLibrary_AppExcl"
+  "uded_ByPartner\020\001\022\"\n\036ESharedLibrary_Licen"
+  "seExcluded\020\002\022\033\n\027ESharedLibrary_FreeGame\020"
+  "\003\022!\n\035ESharedLibrary_LicensePrivate\020\004\022+\n\'"
+  "ESharedLibrary_AppExcluded_WrongAppType\020"
+  "\006\022/\n+ESharedLibrary_AppExcluded_Nonrefun"
+  "dableDLC\020\007\022,\n(ESharedLibrary_AppExcluded"
+  "_UnreleasedApp\020\010\0220\n,ESharedLibrary_AppEx"
+  "cluded_ParentAppExcluded\020\t\022,\n(ESharedLib"
+  "rary_PackageExcluded_ByPartner\020\n\022*\n&ESha"
+  "redLibrary_PackageExcluded_Special\020\013\022&\n\""
+  "ESharedLibrary_PackageExcluded_Dev\020\014\022.\n*"
+  "ESharedLibrary_PackageExcluded_FreeWeeke"
+  "nd\020\r\022*\n&ESharedLibrary_PackageExcluded_I"
+  "nvalid\020\017\0223\n/ESharedLibrary_PackageExclud"
+  "ed_RecurringLicense\020\020\0223\n/ESharedLibrary_"
+  "PackageExcluded_WrongLicenseType\020\021\022,\n(ES"
+  "haredLibrary_PackageExcluded_MasterSub\020\022"
+  "\0222\n.ESharedLibrary_PackageExcluded_NoSha"
+  "reableApps\020\023\0223\n/ESharedLibrary_LicenseEx"
+  "cluded_PaymentMasterSub\020\024\0225\n1ESharedLibr"
+  "ary_LicenseExcluded_PaymentFamilyGroup\020\025"
+  "\022:\n6ESharedLibrary_LicenseExcluded_Payme"
+  "ntAuthorizedDevice\020\026\0223\n/ESharedLibrary_L"
+  "icenseExcluded_PaymentAutoGrant\020\027\022.\n*ESh"
+  "aredLibrary_LicenseExcluded_FlagPending\020"
+  "\030\0224\n0ESharedLibrary_LicenseExcluded_Flag"
+  "PendingRefund\020\031\022/\n+ESharedLibrary_Licens"
+  "eExcluded_FlagBorrowed\020\032\0220\n,ESharedLibra"
+  "ry_LicenseExcluded_FlagAutoGrant\020\033\0221\n-ES"
+  "haredLibrary_LicenseExcluded_FlagTimedTr"
+  "ial\020\034\022*\n&ESharedLibrary_LicenseExcluded_"
+  "FreeSub\020\035\022+\n\'ESharedLibrary_LicenseExclu"
+  "ded_Inactive\020\0362\264\027\n\014FamilyGroups\022h\n\021Creat"
+  "eFamilyGroup\022(.CFamilyGroups_CreateFamil"
+  "yGroup_Request\032).CFamilyGroups_CreateFam"
+  "ilyGroup_Response\022_\n\016GetFamilyGroup\022%.CF"
+  "amilyGroups_GetFamilyGroup_Request\032&.CFa"
+  "milyGroups_GetFamilyGroup_Response\022t\n\025Ge"
+  "tFamilyGroupForUser\022,.CFamilyGroups_GetF"
+  "amilyGroupForUser_Request\032-.CFamilyGroup"
+  "s_GetFamilyGroupForUser_Response\022}\n\030Modi"
+  "fyFamilyGroupDetails\022/.CFamilyGroups_Mod"
+  "ifyFamilyGroupDetails_Request\0320.CFamilyG"
+  "roups_ModifyFamilyGroupDetails_Response\022"
+  "n\n\023InviteToFamilyGroup\022*.CFamilyGroups_I"
+  "nviteToFamilyGroup_Request\032+.CFamilyGrou"
+  "ps_InviteToFamilyGroup_Response\022\203\001\n\032Conf"
+  "irmInviteToFamilyGroup\0221.CFamilyGroups_C"
+  "onfirmInviteToFamilyGroup_Request\0322.CFam"
   "ilyGroups_ConfirmInviteToFamilyGroup_Res"
-  "ponse\"^\n3CFamilyGroups_ResendInvitationT"
-  "oFamilyGroup_Request\022\026\n\016family_groupid\030\001"
-  " \001(\004\022\017\n\007steamid\030\002 \001(\004\"6\n4CFamilyGroups_R"
-  "esendInvitationToFamilyGroup_Response\"N\n"
-  "%CFamilyGroups_JoinFamilyGroup_Request\022\026"
-  "\n\016family_groupid\030\001 \001(\004\022\r\n\005nonce\030\002 \001(\004\"\204\001"
-  "\n&CFamilyGroups_JoinFamilyGroup_Response"
-  "\022Z\n\021two_factor_method\030\002 \001(\0162\035.EFamilyGro"
-  "upsTwoFactorMethod: EFamilyGroupsTwoFact"
-  "orMethodNone\"h\n,CFamilyGroups_ConfirmJoi"
-  "nFamilyGroup_Request\022\026\n\016family_groupid\030\001"
-  " \001(\004\022\021\n\tinvite_id\030\002 \001(\004\022\r\n\005nonce\030\003 \001(\004\"/"
-  "\n-CFamilyGroups_ConfirmJoinFamilyGroup_R"
-  "esponse\"`\n+CFamilyGroups_RemoveFromFamil"
-  "yGroup_Request\022\026\n\016family_groupid\030\001 \001(\004\022\031"
-  "\n\021steamid_to_remove\030\002 \001(\006\".\n,CFamilyGrou"
-  "ps_RemoveFromFamilyGroup_Response\"b\n-CFa"
+  "ponse\022\214\001\n\035ResendInvitationToFamilyGroup\022"
+  "4.CFamilyGroups_ResendInvitationToFamily"
+  "Group_Request\0325.CFamilyGroups_ResendInvi"
+  "tationToFamilyGroup_Response\022b\n\017JoinFami"
+  "lyGroup\022&.CFamilyGroups_JoinFamilyGroup_"
+  "Request\032\'.CFamilyGroups_JoinFamilyGroup_"
+  "Response\022w\n\026ConfirmJoinFamilyGroup\022-.CFa"
+  "milyGroups_ConfirmJoinFamilyGroup_Reques"
+  "t\032..CFamilyGroups_ConfirmJoinFamilyGroup"
+  "_Response\022t\n\025RemoveFromFamilyGroup\022,.CFa"
+  "milyGroups_RemoveFromFamilyGroup_Request"
+  "\032-.CFamilyGroups_RemoveFromFamilyGroup_R"
+  "esponse\022z\n\027CancelFamilyGroupInvite\022..CFa"
   "milyGroups_CancelFamilyGroupInvite_Reque"
-  "st\022\026\n\016family_groupid\030\001 \001(\004\022\031\n\021steamid_to"
-  "_cancel\030\002 \001(\006\"0\n.CFamilyGroups_CancelFam"
-  "ilyGroupInvite_Response\"a\n+CFamilyGroups"
-  "_GetUsersSharingDevice_Request\022\026\n\016family"
-  "_groupid\030\001 \001(\004\022\032\n\022client_instance_id\030\002 \001"
-  "(\004\"=\n,CFamilyGroups_GetUsersSharingDevic"
-  "e_Response\022\r\n\005users\030\001 \003(\006\"A\n\'CFamilyGrou"
-  "ps_DeleteFamilyGroup_Request\022\026\n\016family_g"
-  "roupid\030\001 \001(\004\"*\n(CFamilyGroups_DeleteFami"
-  "lyGroup_Response\"B\n(CFamilyGroups_GetPla"
-  "ytimeSummary_Request\022\026\n\016family_groupid\030\001"
-  " \001(\006\"\202\001\n\033CFamilyGroups_PlaytimeEntry\022\017\n\007"
-  "steamid\030\001 \001(\006\022\r\n\005appid\030\002 \001(\r\022\024\n\014first_pl"
-  "ayed\030\003 \001(\r\022\025\n\rlatest_played\030\004 \001(\r\022\026\n\016sec"
-  "onds_played\030\005 \001(\r\"Z\n)CFamilyGroups_GetPl"
-  "aytimeSummary_Response\022-\n\007entries\030\001 \003(\0132"
-  "\034.CFamilyGroups_PlaytimeEntry\"\216\001\n%CFamil"
-  "yGroups_RequestPurchase_Request\022\026\n\016famil"
-  "y_groupid\030\001 \001(\004\022\027\n\017gidshoppingcart\030\002 \001(\004"
-  "\022\032\n\022store_country_code\030\003 \001(\t\022\030\n\020use_acco"
-  "unt_cart\030\004 \001(\010\"U\n&CFamilyGroups_RequestP"
-  "urchase_Response\022\027\n\017gidshoppingcart\030\001 \001("
-  "\004\022\022\n\nrequest_id\030\002 \001(\004\"|\n)CFamilyGroups_G"
-  "etPurchaseRequests_Request\022\026\n\016family_gro"
-  "upid\030\001 \001(\004\022\023\n\013request_ids\030\003 \003(\004\022\"\n\032rt_in"
-  "clude_completed_since\030\004 \001(\r\"\377\002\n\017Purchase"
-  "Request\022\031\n\021requester_steamid\030\001 \001(\006\022\027\n\017gi"
-  "dshoppingcart\030\002 \001(\004\022\026\n\016time_requested\030\003 "
-  "\001(\r\022\026\n\016time_responded\030\004 \001(\r\022\031\n\021responder"
-  "_steamid\030\005 \001(\006\022M\n\017response_action\030\006 \001(\0162"
-  "\027.EPurchaseRequestAction:\033EPurchaseReque"
-  "stAction_None\022\024\n\014is_completed\030\007 \001(\010\022\022\n\nr"
-  "equest_id\030\010 \001(\004\022\034\n\024requested_packageids\030"
-  "\t \003(\r\022\034\n\024purchased_packageids\030\n \003(\r\022\033\n\023r"
-  "equested_bundleids\030\013 \003(\r\022\033\n\023purchased_bu"
-  "ndleids\030\014 \003(\r\"P\n*CFamilyGroups_GetPurcha"
-  "seRequests_Response\022\"\n\010requests\030\001 \003(\0132\020."
-  "PurchaseRequest\"\244\001\n0CFamilyGroups_Respon"
-  "dToRequestedPurchase_Request\022\026\n\016family_g"
-  "roupid\030\001 \001(\004\022D\n\006action\030\003 \001(\0162\027.EPurchase"
-  "RequestAction:\033EPurchaseRequestAction_No"
-  "ne\022\022\n\nrequest_id\030\004 \001(\004\"3\n1CFamilyGroups_"
-  "RespondToRequestedPurchase_Response\"<\n\"C"
-  "FamilyGroups_GetChangeLog_Request\022\026\n\016fam"
-  "ily_groupid\030\001 \001(\004\"\367\001\n#CFamilyGroups_GetC"
-  "hangeLog_Response\022<\n\007changes\030\001 \003(\0132+.CFa"
-  "milyGroups_GetChangeLog_Response.Change\032"
-  "\221\001\n\006Change\022\021\n\ttimestamp\030\001 \001(\006\022\025\n\ractor_s"
-  "teamid\030\002 \001(\006\022;\n\004type\030\003 \001(\0162\032.EFamilyGrou"
-  "pChangeLogType:\021InvalidChangeType\022\014\n\004bod"
-  "y\030\004 \001(\t\022\022\n\nby_support\030\005 \001(\010\"b\n0CFamilyGr"
-  "oups_SetFamilyCooldownOverrides_Request\022"
-  "\026\n\016family_groupid\030\001 \001(\004\022\026\n\016cooldown_coun"
-  "t\030\002 \001(\r\"3\n1CFamilyGroups_SetFamilyCooldo"
-  "wnOverrides_Response\"\227\001\n*CFamilyGroups_G"
-  "etSharedLibraryApps_Request\022\026\n\016family_gr"
-  "oupid\030\001 \001(\006\022\023\n\013include_own\030\002 \001(\010\022\030\n\020incl"
-  "ude_excluded\030\003 \001(\010\022\020\n\010language\030\005 \001(\t\022\020\n\010"
-  "max_apps\030\006 \001(\r\"\216\003\n+CFamilyGroups_GetShar"
-  "edLibraryApps_Response\022D\n\004apps\030\001 \003(\01326.C"
-  "FamilyGroups_GetSharedLibraryApps_Respon"
-  "se.SharedApp\032\230\002\n\tSharedApp\022\r\n\005appid\030\001 \001("
-  "\r\022\026\n\016owner_steamids\030\002 \003(\006\022\014\n\004name\030\006 \001(\t\022"
-  "\017\n\007sort_as\030\007 \001(\t\022\030\n\020capsule_filename\030\010 \001"
-  "(\t\022\025\n\rimg_icon_hash\030\t \001(\t\022M\n\016exclude_rea"
-  "son\030\n \001(\0162\034.ESharedLibraryExcludeReason:"
-  "\027ESharedLibrary_Included\022\030\n\020rt_time_acqu"
-  "ired\030\013 \001(\r\022\026\n\016rt_last_played\030\014 \001(\r\022\023\n\013rt"
-  "_playtime\030\r \001(\r\"i\n(CFamilyGroups_SetPref"
-  "erredLender_Request\022\026\n\016family_groupid\030\001 "
-  "\001(\004\022\r\n\005appid\030\002 \001(\r\022\026\n\016lender_steamid\030\003 \001"
-  "(\006\"+\n)CFamilyGroups_SetPreferredLender_R"
-  "esponse\"C\n)CFamilyGroups_GetPreferredLen"
-  "ders_Request\022\026\n\016family_groupid\030\001 \001(\004\"\262\001\n"
-  "*CFamilyGroups_GetPreferredLenders_Respo"
-  "nse\022I\n\007members\030\001 \003(\01328.CFamilyGroups_Get"
-  "PreferredLenders_Response.FamilyMember\0329"
-  "\n\014FamilyMember\022\017\n\007steamid\030\001 \001(\006\022\030\n\020prefe"
-  "rred_appids\030\002 \003(\r\"F\n,CFamilyGroups_GetDi"
-  "spersionForFamily_Request\022\026\n\016family_grou"
-  "pid\030\001 \001(\004\"\241\001\n#CFamilyGroups_FamilyDisper"
-  "sionGraph\0228\n\005edges\030\001 \003(\0132).CFamilyGroups"
-  "_FamilyDispersionGraph.Edge\032@\n\004Edge\022\022\n\na"
-  "ccountid1\030\001 \001(\r\022\022\n\naccountid2\030\002 \001(\r\022\020\n\010d"
-  "istance\030\003 \001(\001\"~\n-CFamilyGroups_GetDisper"
-  "sionForFamily_Response\022\030\n\020total_dispersi"
-  "on\030\001 \001(\001\0223\n\005graph\030\002 \001(\0132$.CFamilyGroups_"
-  "FamilyDispersionGraph\"\333\002\n2CFamilyGroupsC"
-  "lient_NotifyRunningApps_Notification\022\026\n\016"
-  "family_groupid\030\001 \001(\004\022T\n\014running_apps\030\002 \003"
-  "(\0132>.CFamilyGroupsClient_NotifyRunningAp"
-  "ps_Notification.RunningApp\032>\n\rPlayingMem"
-  "ber\022\026\n\016member_steamid\030\001 \001(\006\022\025\n\rowner_ste"
-  "amid\030\002 \001(\006\032w\n\nRunningApp\022\r\n\005appid\030\001 \001(\r\022"
-  "Z\n\017playing_members\030\003 \003(\0132A.CFamilyGroups"
-  "Client_NotifyRunningApps_Notification.Pl"
-  "ayingMember\"/\n-CFamilyGroupsClient_Invit"
-  "eStatus_Notification\"G\n-CFamilyGroupsCli"
-  "ent_GroupChanged_Notification\022\026\n\016family_"
-  "groupid\030\001 \001(\004*\177\n\020EFamilyGroupRole\022\031\n\025EFa"
-  "milyGroupRole_None\020\000\022\032\n\026EFamilyGroupRole"
-  "_Adult\020\001\022\032\n\026EFamilyGroupRole_Child\020\002\022\030\n\024"
-  "EFamilyGroupRole_MAX\020\003*\223\001\n\034EFamilyGroups"
-  "TwoFactorMethod\022$\n EFamilyGroupsTwoFacto"
-  "rMethodNone\020\000\022&\n\"EFamilyGroupsTwoFactorM"
-  "ethodMobile\020\001\022%\n!EFamilyGroupsTwoFactorM"
-  "ethodEmail\020\002*\354\001\n\026EPurchaseRequestAction\022"
-  "\037\n\033EPurchaseRequestAction_None\020\000\022\"\n\036EPur"
-  "chaseRequestAction_Decline\020\001\022$\n EPurchas"
-  "eRequestAction_Purchased\020\002\022$\n EPurchaseR"
-  "equestAction_Abandoned\020\003\022!\n\035EPurchaseReq"
-  "uestAction_Cancel\020\004\022\036\n\032EPurchaseRequestA"
-  "ction_MAX\020\005*\361\004\n\031EFamilyGroupChangeLogTyp"
-  "e\022\025\n\021InvalidChangeType\020\000\022\026\n\022FamilyGroupC"
-  "reated\020\001\022\027\n\023FamilyGroupModified\020\002\022\026\n\022Fam"
-  "ilyGroupDeleted\020\003\022\022\n\016AccountInvited\020\004\022\033\n"
-  "\027InviteDeniedByGroupSize\020\005\022\025\n\021JoinedFami"
-  "lyGroup\020\006\022\036\n\032JoinDeniedByRegionMismatch\020"
-  "\007\022 \n\034JoinDeniedByMissingIpAddress\020\010\022\036\n\032J"
-  "oinDeniedByFamilyCooldown\020\t\022\034\n\030JoinDenie"
-  "dByUserCooldown\020\n\022\032\n\026JoinDeniedByOtherGr"
-  "oup\020\013\022\022\n\016AccountRemoved\020\014\022\022\n\016InviteCance"
-  "led\020\r\022\025\n\021PurchaseRequested\020\016\022\033\n\027Parental"
-  "SettingsEnabled\020\017\022\034\n\030ParentalSettingsDis"
-  "abled\020\020\022\033\n\027ParentalSettingsChanged\020\021\022\"\n\036"
-  "FamilyCooldownOverridesChanged\020\022\022\033\n\027Purc"
-  "haseRequestCanceled\020\023\022\033\n\027PurchaseRequest"
-  "Approved\020\024\022\033\n\027PurchaseRequestDeclined\020\025*"
-  "\224\013\n\033ESharedLibraryExcludeReason\022\033\n\027EShar"
-  "edLibrary_Included\020\000\022(\n$ESharedLibrary_A"
-  "ppExcluded_ByPartner\020\001\022\"\n\036ESharedLibrary"
-  "_LicenseExcluded\020\002\022\033\n\027ESharedLibrary_Fre"
-  "eGame\020\003\022!\n\035ESharedLibrary_LicensePrivate"
-  "\020\004\022+\n\'ESharedLibrary_AppExcluded_WrongAp"
-  "pType\020\006\022/\n+ESharedLibrary_AppExcluded_No"
-  "nrefundableDLC\020\007\022,\n(ESharedLibrary_AppEx"
-  "cluded_UnreleasedApp\020\010\0220\n,ESharedLibrary"
-  "_AppExcluded_ParentAppExcluded\020\t\022,\n(ESha"
-  "redLibrary_PackageExcluded_ByPartner\020\n\022*"
-  "\n&ESharedLibrary_PackageExcluded_Special"
-  "\020\013\022&\n\"ESharedLibrary_PackageExcluded_Dev"
-  "\020\014\022.\n*ESharedLibrary_PackageExcluded_Fre"
-  "eWeekend\020\r\0220\n,ESharedLibrary_PackageExcl"
-  "uded_FreePromotion\020\016\022*\n&ESharedLibrary_P"
-  "ackageExcluded_Invalid\020\017\0223\n/ESharedLibra"
-  "ry_PackageExcluded_RecurringLicense\020\020\0223\n"
-  "/ESharedLibrary_PackageExcluded_WrongLic"
-  "enseType\020\021\022,\n(ESharedLibrary_PackageExcl"
-  "uded_MasterSub\020\022\0222\n.ESharedLibrary_Packa"
-  "geExcluded_NoShareableApps\020\023\0223\n/ESharedL"
-  "ibrary_LicenseExcluded_PaymentMasterSub\020"
-  "\024\0225\n1ESharedLibrary_LicenseExcluded_Paym"
-  "entFamilyGroup\020\025\022:\n6ESharedLibrary_Licen"
-  "seExcluded_PaymentAuthorizedDevice\020\026\0223\n/"
-  "ESharedLibrary_LicenseExcluded_PaymentAu"
-  "toGrant\020\027\022.\n*ESharedLibrary_LicenseExclu"
-  "ded_FlagPending\020\030\0224\n0ESharedLibrary_Lice"
-  "nseExcluded_FlagPendingRefund\020\031\022/\n+EShar"
-  "edLibrary_LicenseExcluded_FlagBorrowed\020\032"
-  "\0220\n,ESharedLibrary_LicenseExcluded_FlagA"
-  "utoGrant\020\033\0221\n-ESharedLibrary_LicenseExcl"
-  "uded_FlagTimedTrial\020\034\022*\n&ESharedLibrary_"
-  "LicenseExcluded_FreeSub\020\035\022+\n\'ESharedLibr"
-  "ary_LicenseExcluded_Inactive\020\0362\363\024\n\014Famil"
-  "yGroups\022h\n\021CreateFamilyGroup\022(.CFamilyGr"
-  "oups_CreateFamilyGroup_Request\032).CFamily"
-  "Groups_CreateFamilyGroup_Response\022_\n\016Get"
-  "FamilyGroup\022%.CFamilyGroups_GetFamilyGro"
-  "up_Request\032&.CFamilyGroups_GetFamilyGrou"
-  "p_Response\022t\n\025GetFamilyGroupForUser\022,.CF"
-  "amilyGroups_GetFamilyGroupForUser_Reques"
-  "t\032-.CFamilyGroups_GetFamilyGroupForUser_"
-  "Response\022}\n\030ModifyFamilyGroupDetails\022/.C"
-  "FamilyGroups_ModifyFamilyGroupDetails_Re"
-  "quest\0320.CFamilyGroups_ModifyFamilyGroupD"
-  "etails_Response\022n\n\023InviteToFamilyGroup\022*"
-  ".CFamilyGroups_InviteToFamilyGroup_Reque"
-  "st\032+.CFamilyGroups_InviteToFamilyGroup_R"
-  "esponse\022\203\001\n\032ConfirmInviteToFamilyGroup\0221"
-  ".CFamilyGroups_ConfirmInviteToFamilyGrou"
-  "p_Request\0322.CFamilyGroups_ConfirmInviteT"
-  "oFamilyGroup_Response\022\214\001\n\035ResendInvitati"
-  "onToFamilyGroup\0224.CFamilyGroups_ResendIn"
-  "vitationToFamilyGroup_Request\0325.CFamilyG"
-  "roups_ResendInvitationToFamilyGroup_Resp"
-  "onse\022b\n\017JoinFamilyGroup\022&.CFamilyGroups_"
-  "JoinFamilyGroup_Request\032\'.CFamilyGroups_"
-  "JoinFamilyGroup_Response\022w\n\026ConfirmJoinF"
-  "amilyGroup\022-.CFamilyGroups_ConfirmJoinFa"
-  "milyGroup_Request\032..CFamilyGroups_Confir"
-  "mJoinFamilyGroup_Response\022t\n\025RemoveFromF"
-  "amilyGroup\022,.CFamilyGroups_RemoveFromFam"
-  "ilyGroup_Request\032-.CFamilyGroups_RemoveF"
-  "romFamilyGroup_Response\022z\n\027CancelFamilyG"
-  "roupInvite\022..CFamilyGroups_CancelFamilyG"
-  "roupInvite_Request\032/.CFamilyGroups_Cance"
-  "lFamilyGroupInvite_Response\022t\n\025GetUsersS"
-  "haringDevice\022,.CFamilyGroups_GetUsersSha"
-  "ringDevice_Request\032-.CFamilyGroups_GetUs"
-  "ersSharingDevice_Response\022h\n\021DeleteFamil"
-  "yGroup\022(.CFamilyGroups_DeleteFamilyGroup"
-  "_Request\032).CFamilyGroups_DeleteFamilyGro"
-  "up_Response\022k\n\022GetPlaytimeSummary\022).CFam"
-  "ilyGroups_GetPlaytimeSummary_Request\032*.C"
-  "FamilyGroups_GetPlaytimeSummary_Response"
-  "\022b\n\017RequestPurchase\022&.CFamilyGroups_Requ"
-  "estPurchase_Request\032\'.CFamilyGroups_Requ"
-  "estPurchase_Response\022n\n\023GetPurchaseReque"
-  "sts\022*.CFamilyGroups_GetPurchaseRequests_"
-  "Request\032+.CFamilyGroups_GetPurchaseReque"
-  "sts_Response\022\203\001\n\032RespondToRequestedPurch"
-  "ase\0221.CFamilyGroups_RespondToRequestedPu"
-  "rchase_Request\0322.CFamilyGroups_RespondTo"
-  "RequestedPurchase_Response\022Y\n\014GetChangeL"
-  "og\022#.CFamilyGroups_GetChangeLog_Request\032"
-  "$.CFamilyGroups_GetChangeLog_Response\022\203\001"
-  "\n\032SetFamilyCooldownOverrides\0221.CFamilyGr"
-  "oups_SetFamilyCooldownOverrides_Request\032"
-  "2.CFamilyGroups_SetFamilyCooldownOverrid"
-  "es_Response\022q\n\024GetSharedLibraryApps\022+.CF"
-  "amilyGroups_GetSharedLibraryApps_Request"
-  "\032,.CFamilyGroups_GetSharedLibraryApps_Re"
-  "sponse\022k\n\022SetPreferredLender\022).CFamilyGr"
-  "oups_SetPreferredLender_Request\032*.CFamil"
-  "yGroups_SetPreferredLender_Response\022n\n\023G"
-  "etPreferredLenders\022*.CFamilyGroups_GetPr"
-  "eferredLenders_Request\032+.CFamilyGroups_G"
-  "etPreferredLenders_Response\022w\n\026GetDisper"
-  "sionForFamily\022-.CFamilyGroups_GetDispers"
-  "ionForFamily_Request\032..CFamilyGroups_Get"
-  "DispersionForFamily_Response2\227\002\n\022FamilyG"
-  "roupsClient\022U\n\021NotifyRunningApps\0223.CFami"
-  "lyGroupsClient_NotifyRunningApps_Notific"
-  "ation\032\013.NoResponse\022Q\n\022NotifyInviteStatus"
-  "\022..CFamilyGroupsClient_InviteStatus_Noti"
-  "fication\032\013.NoResponse\022Q\n\022NotifyGroupChan"
-  "ged\022..CFamilyGroupsClient_GroupChanged_N"
-  "otification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027Op"
-  "enSteamworks.Protobuf"
+  "st\032/.CFamilyGroups_CancelFamilyGroupInvi"
+  "te_Response\022t\n\025GetUsersSharingDevice\022,.C"
+  "FamilyGroups_GetUsersSharingDevice_Reque"
+  "st\032-.CFamilyGroups_GetUsersSharingDevice"
+  "_Response\022h\n\021DeleteFamilyGroup\022(.CFamily"
+  "Groups_DeleteFamilyGroup_Request\032).CFami"
+  "lyGroups_DeleteFamilyGroup_Response\022n\n\023U"
+  "ndeleteFamilyGroup\022*.CFamilyGroups_Undel"
+  "eteFamilyGroup_Request\032+.CFamilyGroups_U"
+  "ndeleteFamilyGroup_Response\022k\n\022GetPlayti"
+  "meSummary\022).CFamilyGroups_GetPlaytimeSum"
+  "mary_Request\032*.CFamilyGroups_GetPlaytime"
+  "Summary_Response\022b\n\017RequestPurchase\022&.CF"
+  "amilyGroups_RequestPurchase_Request\032\'.CF"
+  "amilyGroups_RequestPurchase_Response\022n\n\023"
+  "GetPurchaseRequests\022*.CFamilyGroups_GetP"
+  "urchaseRequests_Request\032+.CFamilyGroups_"
+  "GetPurchaseRequests_Response\022\203\001\n\032Respond"
+  "ToRequestedPurchase\0221.CFamilyGroups_Resp"
+  "ondToRequestedPurchase_Request\0322.CFamily"
+  "Groups_RespondToRequestedPurchase_Respon"
+  "se\022Y\n\014GetChangeLog\022#.CFamilyGroups_GetCh"
+  "angeLog_Request\032$.CFamilyGroups_GetChang"
+  "eLog_Response\022\203\001\n\032SetFamilyCooldownOverr"
+  "ides\0221.CFamilyGroups_SetFamilyCooldownOv"
+  "errides_Request\0322.CFamilyGroups_SetFamil"
+  "yCooldownOverrides_Response\022q\n\024GetShared"
+  "LibraryApps\022+.CFamilyGroups_GetSharedLib"
+  "raryApps_Request\032,.CFamilyGroups_GetShar"
+  "edLibraryApps_Response\022k\n\022SetPreferredLe"
+  "nder\022).CFamilyGroups_SetPreferredLender_"
+  "Request\032*.CFamilyGroups_SetPreferredLend"
+  "er_Response\022n\n\023GetPreferredLenders\022*.CFa"
+  "milyGroups_GetPreferredLenders_Request\032+"
+  ".CFamilyGroups_GetPreferredLenders_Respo"
+  "nse\022h\n\021ForceAcceptInvite\022(.CFamilyGroups"
+  "_ForceAcceptInvite_Request\032).CFamilyGrou"
+  "ps_ForceAcceptInvite_Response\022t\n\025GetInvi"
+  "teCheckResults\022,.CFamilyGroups_GetInvite"
+  "CheckResults_Request\032-.CFamilyGroups_Get"
+  "InviteCheckResults_Response\022h\n\021ClearCool"
+  "downSkip\022(.CFamilyGroups_ClearCooldownSk"
+  "ip_Request\032).CFamilyGroups_ClearCooldown"
+  "Skip_Response2\227\002\n\022FamilyGroupsClient\022U\n\021"
+  "NotifyRunningApps\0223.CFamilyGroupsClient_"
+  "NotifyRunningApps_Notification\032\013.NoRespo"
+  "nse\022Q\n\022NotifyInviteStatus\022..CFamilyGroup"
+  "sClient_InviteStatus_Notification\032\013.NoRe"
+  "sponse\022Q\n\022NotifyGroupChanged\022..CFamilyGr"
+  "oupsClient_GroupChanged_Notification\032\013.N"
+  "oResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Pr"
+  "otobuf"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps[3] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps[4] = {
+  &::descriptor_table_enums_2eproto,
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
   &::descriptor_table_steammessages_5fbase_2eproto,
   &::descriptor_table_steammessages_5funified_5fbase_2esteamclient_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto = {
-  false, false, 12461, descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_2eproto, "steammessages_familygroups.steamclient.proto", 
-  &descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_once, descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps, 3, 62,
+  false, false, 13366, descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_2eproto, "steammessages_familygroups.steamclient.proto", 
+  &descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_once, descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps, 4, 66,
   schemas, file_default_instances, TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5ffamilygroups_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto,
 };
@@ -1969,6 +2103,10 @@ bool EFamilyGroupChangeLogType_IsValid(int value) {
     case 19:
     case 20:
     case 21:
+    case 22:
+    case 23:
+    case 24:
+    case 25:
       return true;
     default:
       return false;
@@ -1994,7 +2132,6 @@ bool ESharedLibraryExcludeReason_IsValid(int value) {
     case 11:
     case 12:
     case 13:
-    case 14:
     case 15:
     case 16:
     case 17:
@@ -2277,6 +2414,9 @@ class CFamilyGroups_CreateFamilyGroup_Response::_Internal {
   static void set_has_family_groupid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_cooldown_skip_granted(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
 CFamilyGroups_CreateFamilyGroup_Response::CFamilyGroups_CreateFamilyGroup_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -2289,12 +2429,17 @@ CFamilyGroups_CreateFamilyGroup_Response::CFamilyGroups_CreateFamilyGroup_Respon
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  family_groupid_ = from.family_groupid_;
+  ::memcpy(&family_groupid_, &from.family_groupid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&cooldown_skip_granted_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(cooldown_skip_granted_));
   // @@protoc_insertion_point(copy_constructor:CFamilyGroups_CreateFamilyGroup_Response)
 }
 
 void CFamilyGroups_CreateFamilyGroup_Response::SharedCtor() {
-family_groupid_ = PROTOBUF_ULONGLONG(0);
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&family_groupid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&cooldown_skip_granted_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(cooldown_skip_granted_));
 }
 
 CFamilyGroups_CreateFamilyGroup_Response::~CFamilyGroups_CreateFamilyGroup_Response() {
@@ -2323,7 +2468,12 @@ void CFamilyGroups_CreateFamilyGroup_Response::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  family_groupid_ = PROTOBUF_ULONGLONG(0);
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&family_groupid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&cooldown_skip_granted_) -
+        reinterpret_cast<char*>(&family_groupid_)) + sizeof(cooldown_skip_granted_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2341,6 +2491,14 @@ const char* CFamilyGroups_CreateFamilyGroup_Response::_InternalParse(const char*
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_family_groupid(&has_bits);
           family_groupid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool cooldown_skip_granted = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_cooldown_skip_granted(&has_bits);
+          cooldown_skip_granted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2380,6 +2538,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_family_groupid(), target);
   }
 
+  // optional bool cooldown_skip_granted = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_cooldown_skip_granted(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2396,14 +2560,21 @@ size_t CFamilyGroups_CreateFamilyGroup_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint64 family_groupid = 1;
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_family_groupid());
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint64 family_groupid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_family_groupid());
+    }
 
+    // optional bool cooldown_skip_granted = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -2435,8 +2606,15 @@ void CFamilyGroups_CreateFamilyGroup_Response::MergeFrom(const CFamilyGroups_Cre
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_family_groupid()) {
-    _internal_set_family_groupid(from._internal_family_groupid());
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      family_groupid_ = from.family_groupid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      cooldown_skip_granted_ = from.cooldown_skip_granted_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -2462,7 +2640,12 @@ void CFamilyGroups_CreateFamilyGroup_Response::InternalSwap(CFamilyGroups_Create
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(family_groupid_, other->family_groupid_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_CreateFamilyGroup_Response, cooldown_skip_granted_)
+      + sizeof(CFamilyGroups_CreateFamilyGroup_Response::cooldown_skip_granted_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_CreateFamilyGroup_Response, family_groupid_)>(
+          reinterpret_cast<char*>(&family_groupid_),
+          reinterpret_cast<char*>(&other->family_groupid_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_CreateFamilyGroup_Response::GetMetadata() const {
@@ -4470,23 +4653,26 @@ class CFamilyGroups_GetFamilyGroupForUser_Response::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_is_not_member_of_any_group(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_latest_time_joined(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_latest_joined_family_groupid(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_role(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_cooldown_seconds_remaining(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 128u;
   }
   static const ::CFamilyGroups_GetFamilyGroup_Response& family_group(const CFamilyGroups_GetFamilyGroupForUser_Response* msg);
   static void set_has_family_group(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
+  }
+  static void set_has_can_undelete_last_joined_family(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -4557,7 +4743,7 @@ void CFamilyGroups_GetFamilyGroupForUser_Response::Clear() {
     GOOGLE_DCHECK(family_group_ != nullptr);
     family_group_->Clear();
   }
-  if (cached_has_bits & 0x0000007eu) {
+  if (cached_has_bits & 0x000000feu) {
     ::memset(&family_groupid_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&cooldown_seconds_remaining_) -
         reinterpret_cast<char*>(&family_groupid_)) + sizeof(cooldown_seconds_remaining_));
@@ -4641,6 +4827,14 @@ const char* CFamilyGroups_GetFamilyGroupForUser_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool can_undelete_last_joined_family = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          _Internal::set_has_can_undelete_last_joined_family(&has_bits);
+          can_undelete_last_joined_family_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -4678,7 +4872,7 @@ failure:
   }
 
   // optional bool is_not_member_of_any_group = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_is_not_member_of_any_group(), target);
   }
@@ -4690,7 +4884,7 @@ failure:
   }
 
   // optional uint64 latest_joined_family_groupid = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_latest_joined_family_groupid(), target);
   }
@@ -4704,13 +4898,13 @@ failure:
   }
 
   // optional uint32 role = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_role(), target);
   }
 
   // optional uint32 cooldown_seconds_remaining = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_cooldown_seconds_remaining(), target);
   }
@@ -4721,6 +4915,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
         8, _Internal::family_group(this), target, stream);
+  }
+
+  // optional bool can_undelete_last_joined_family = 9;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_can_undelete_last_joined_family(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4747,7 +4947,7 @@ size_t CFamilyGroups_GetFamilyGroupForUser_Response::ByteSizeLong() const {
   }
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     // optional .CFamilyGroups_GetFamilyGroup_Response family_group = 8;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -4762,9 +4962,11 @@ size_t CFamilyGroups_GetFamilyGroupForUser_Response::ByteSizeLong() const {
           this->_internal_family_groupid());
     }
 
-    // optional bool is_not_member_of_any_group = 2;
+    // optional uint64 latest_joined_family_groupid = 4;
     if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 1;
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_latest_joined_family_groupid());
     }
 
     // optional uint32 latest_time_joined = 3;
@@ -4774,22 +4976,25 @@ size_t CFamilyGroups_GetFamilyGroupForUser_Response::ByteSizeLong() const {
           this->_internal_latest_time_joined());
     }
 
-    // optional uint64 latest_joined_family_groupid = 4;
+    // optional bool is_not_member_of_any_group = 2;
     if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-          this->_internal_latest_joined_family_groupid());
+      total_size += 1 + 1;
+    }
+
+    // optional bool can_undelete_last_joined_family = 9;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 + 1;
     }
 
     // optional uint32 role = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_role());
     }
 
     // optional uint32 cooldown_seconds_remaining = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cooldown_seconds_remaining());
@@ -4829,7 +5034,7 @@ void CFamilyGroups_GetFamilyGroupForUser_Response::MergeFrom(const CFamilyGroups
 
   pending_group_invites_.MergeFrom(from.pending_group_invites_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_mutable_family_group()->::CFamilyGroups_GetFamilyGroup_Response::MergeFrom(from._internal_family_group());
     }
@@ -4837,18 +5042,21 @@ void CFamilyGroups_GetFamilyGroupForUser_Response::MergeFrom(const CFamilyGroups
       family_groupid_ = from.family_groupid_;
     }
     if (cached_has_bits & 0x00000004u) {
-      is_not_member_of_any_group_ = from.is_not_member_of_any_group_;
+      latest_joined_family_groupid_ = from.latest_joined_family_groupid_;
     }
     if (cached_has_bits & 0x00000008u) {
       latest_time_joined_ = from.latest_time_joined_;
     }
     if (cached_has_bits & 0x00000010u) {
-      latest_joined_family_groupid_ = from.latest_joined_family_groupid_;
+      is_not_member_of_any_group_ = from.is_not_member_of_any_group_;
     }
     if (cached_has_bits & 0x00000020u) {
-      role_ = from.role_;
+      can_undelete_last_joined_family_ = from.can_undelete_last_joined_family_;
     }
     if (cached_has_bits & 0x00000040u) {
+      role_ = from.role_;
+    }
+    if (cached_has_bits & 0x00000080u) {
       cooldown_seconds_remaining_ = from.cooldown_seconds_remaining_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -6928,6 +7136,12 @@ class CFamilyGroups_JoinFamilyGroup_Response::_Internal {
   static void set_has_two_factor_method(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_cooldown_skip_granted(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_invite_already_accepted(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 CFamilyGroups_JoinFamilyGroup_Response::CFamilyGroups_JoinFamilyGroup_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -6940,12 +7154,17 @@ CFamilyGroups_JoinFamilyGroup_Response::CFamilyGroups_JoinFamilyGroup_Response(c
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  two_factor_method_ = from.two_factor_method_;
+  ::memcpy(&two_factor_method_, &from.two_factor_method_,
+    static_cast<size_t>(reinterpret_cast<char*>(&invite_already_accepted_) -
+    reinterpret_cast<char*>(&two_factor_method_)) + sizeof(invite_already_accepted_));
   // @@protoc_insertion_point(copy_constructor:CFamilyGroups_JoinFamilyGroup_Response)
 }
 
 void CFamilyGroups_JoinFamilyGroup_Response::SharedCtor() {
-two_factor_method_ = 0;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&two_factor_method_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&invite_already_accepted_) -
+    reinterpret_cast<char*>(&two_factor_method_)) + sizeof(invite_already_accepted_));
 }
 
 CFamilyGroups_JoinFamilyGroup_Response::~CFamilyGroups_JoinFamilyGroup_Response() {
@@ -6974,7 +7193,12 @@ void CFamilyGroups_JoinFamilyGroup_Response::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  two_factor_method_ = 0;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&two_factor_method_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&invite_already_accepted_) -
+        reinterpret_cast<char*>(&two_factor_method_)) + sizeof(invite_already_accepted_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -6997,6 +7221,22 @@ const char* CFamilyGroups_JoinFamilyGroup_Response::_InternalParse(const char* p
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(2, val, mutable_unknown_fields());
           }
+        } else goto handle_unusual;
+        continue;
+      // optional bool cooldown_skip_granted = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_cooldown_skip_granted(&has_bits);
+          cooldown_skip_granted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool invite_already_accepted = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_invite_already_accepted(&has_bits);
+          invite_already_accepted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -7036,6 +7276,18 @@ failure:
       2, this->_internal_two_factor_method(), target);
   }
 
+  // optional bool cooldown_skip_granted = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_cooldown_skip_granted(), target);
+  }
+
+  // optional bool invite_already_accepted = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_invite_already_accepted(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -7052,13 +7304,25 @@ size_t CFamilyGroups_JoinFamilyGroup_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .EFamilyGroupsTwoFactorMethod two_factor_method = 2 [default = EFamilyGroupsTwoFactorMethodNone];
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_two_factor_method());
-  }
+  if (cached_has_bits & 0x00000007u) {
+    // optional .EFamilyGroupsTwoFactorMethod two_factor_method = 2 [default = EFamilyGroupsTwoFactorMethodNone];
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_two_factor_method());
+    }
 
+    // optional bool cooldown_skip_granted = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool invite_already_accepted = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -7090,8 +7354,18 @@ void CFamilyGroups_JoinFamilyGroup_Response::MergeFrom(const CFamilyGroups_JoinF
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_two_factor_method()) {
-    _internal_set_two_factor_method(from._internal_two_factor_method());
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      two_factor_method_ = from.two_factor_method_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      cooldown_skip_granted_ = from.cooldown_skip_granted_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      invite_already_accepted_ = from.invite_already_accepted_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -7117,7 +7391,12 @@ void CFamilyGroups_JoinFamilyGroup_Response::InternalSwap(CFamilyGroups_JoinFami
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(two_factor_method_, other->two_factor_method_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_JoinFamilyGroup_Response, invite_already_accepted_)
+      + sizeof(CFamilyGroups_JoinFamilyGroup_Response::invite_already_accepted_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_JoinFamilyGroup_Response, two_factor_method_)>(
+          reinterpret_cast<char*>(&two_factor_method_),
+          reinterpret_cast<char*>(&other->two_factor_method_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_JoinFamilyGroup_Response::GetMetadata() const {
@@ -9172,6 +9451,364 @@ void CFamilyGroups_DeleteFamilyGroup_Response::InternalSwap(CFamilyGroups_Delete
 
 // ===================================================================
 
+class CFamilyGroups_UndeleteFamilyGroup_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CFamilyGroups_UndeleteFamilyGroup_Request>()._has_bits_);
+  static void set_has_family_groupid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CFamilyGroups_UndeleteFamilyGroup_Request::CFamilyGroups_UndeleteFamilyGroup_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_UndeleteFamilyGroup_Request)
+}
+CFamilyGroups_UndeleteFamilyGroup_Request::CFamilyGroups_UndeleteFamilyGroup_Request(const CFamilyGroups_UndeleteFamilyGroup_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  family_groupid_ = from.family_groupid_;
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_UndeleteFamilyGroup_Request)
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::SharedCtor() {
+family_groupid_ = PROTOBUF_ULONGLONG(0);
+}
+
+CFamilyGroups_UndeleteFamilyGroup_Request::~CFamilyGroups_UndeleteFamilyGroup_Request() {
+  // @@protoc_insertion_point(destructor:CFamilyGroups_UndeleteFamilyGroup_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::ArenaDtor(void* object) {
+  CFamilyGroups_UndeleteFamilyGroup_Request* _this = reinterpret_cast< CFamilyGroups_UndeleteFamilyGroup_Request* >(object);
+  (void)_this;
+}
+void CFamilyGroups_UndeleteFamilyGroup_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CFamilyGroups_UndeleteFamilyGroup_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroups_UndeleteFamilyGroup_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  family_groupid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CFamilyGroups_UndeleteFamilyGroup_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 family_groupid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_family_groupid(&has_bits);
+          family_groupid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_UndeleteFamilyGroup_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_UndeleteFamilyGroup_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 family_groupid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_family_groupid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_UndeleteFamilyGroup_Request)
+  return target;
+}
+
+size_t CFamilyGroups_UndeleteFamilyGroup_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_UndeleteFamilyGroup_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional uint64 family_groupid = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_family_groupid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_UndeleteFamilyGroup_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CFamilyGroups_UndeleteFamilyGroup_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_UndeleteFamilyGroup_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_UndeleteFamilyGroup_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_UndeleteFamilyGroup_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::MergeFrom(const CFamilyGroups_UndeleteFamilyGroup_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_UndeleteFamilyGroup_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_family_groupid()) {
+    _internal_set_family_groupid(from._internal_family_groupid());
+  }
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_UndeleteFamilyGroup_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::CopyFrom(const CFamilyGroups_UndeleteFamilyGroup_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_UndeleteFamilyGroup_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CFamilyGroups_UndeleteFamilyGroup_Request::IsInitialized() const {
+  return true;
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Request::InternalSwap(CFamilyGroups_UndeleteFamilyGroup_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(family_groupid_, other->family_groupid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_UndeleteFamilyGroup_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CFamilyGroups_UndeleteFamilyGroup_Response::_Internal {
+ public:
+};
+
+CFamilyGroups_UndeleteFamilyGroup_Response::CFamilyGroups_UndeleteFamilyGroup_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_UndeleteFamilyGroup_Response)
+}
+CFamilyGroups_UndeleteFamilyGroup_Response::CFamilyGroups_UndeleteFamilyGroup_Response(const CFamilyGroups_UndeleteFamilyGroup_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_UndeleteFamilyGroup_Response)
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::SharedCtor() {
+}
+
+CFamilyGroups_UndeleteFamilyGroup_Response::~CFamilyGroups_UndeleteFamilyGroup_Response() {
+  // @@protoc_insertion_point(destructor:CFamilyGroups_UndeleteFamilyGroup_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::ArenaDtor(void* object) {
+  CFamilyGroups_UndeleteFamilyGroup_Response* _this = reinterpret_cast< CFamilyGroups_UndeleteFamilyGroup_Response* >(object);
+  (void)_this;
+}
+void CFamilyGroups_UndeleteFamilyGroup_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CFamilyGroups_UndeleteFamilyGroup_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroups_UndeleteFamilyGroup_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CFamilyGroups_UndeleteFamilyGroup_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_UndeleteFamilyGroup_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_UndeleteFamilyGroup_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_UndeleteFamilyGroup_Response)
+  return target;
+}
+
+size_t CFamilyGroups_UndeleteFamilyGroup_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_UndeleteFamilyGroup_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_UndeleteFamilyGroup_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CFamilyGroups_UndeleteFamilyGroup_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_UndeleteFamilyGroup_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_UndeleteFamilyGroup_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_UndeleteFamilyGroup_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::MergeFrom(const CFamilyGroups_UndeleteFamilyGroup_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_UndeleteFamilyGroup_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_UndeleteFamilyGroup_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::CopyFrom(const CFamilyGroups_UndeleteFamilyGroup_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_UndeleteFamilyGroup_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CFamilyGroups_UndeleteFamilyGroup_Response::IsInitialized() const {
+  return true;
+}
+
+void CFamilyGroups_UndeleteFamilyGroup_Response::InternalSwap(CFamilyGroups_UndeleteFamilyGroup_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_UndeleteFamilyGroup_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CFamilyGroups_GetPlaytimeSummary_Request::_Internal {
  public:
   using HasBits = decltype(std::declval<CFamilyGroups_GetPlaytimeSummary_Request>()._has_bits_);
@@ -9705,14 +10342,16 @@ class CFamilyGroups_GetPlaytimeSummary_Response::_Internal {
 
 CFamilyGroups_GetPlaytimeSummary_Response::CFamilyGroups_GetPlaytimeSummary_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  entries_(arena) {
+  entries_(arena),
+  entries_by_owner_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CFamilyGroups_GetPlaytimeSummary_Response)
 }
 CFamilyGroups_GetPlaytimeSummary_Response::CFamilyGroups_GetPlaytimeSummary_Response(const CFamilyGroups_GetPlaytimeSummary_Response& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      entries_(from.entries_) {
+      entries_(from.entries_),
+      entries_by_owner_(from.entries_by_owner_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetPlaytimeSummary_Response)
 }
@@ -9747,6 +10386,7 @@ void CFamilyGroups_GetPlaytimeSummary_Response::Clear() {
   (void) cached_has_bits;
 
   entries_.Clear();
+  entries_by_owner_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -9767,6 +10407,18 @@ const char* CFamilyGroups_GetPlaytimeSummary_Response::_InternalParse(const char
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated .CFamilyGroups_PlaytimeEntry entries_by_owner = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_entries_by_owner(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -9805,6 +10457,14 @@ failure:
       InternalWriteMessage(1, this->_internal_entries(i), target, stream);
   }
 
+  // repeated .CFamilyGroups_PlaytimeEntry entries_by_owner = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_entries_by_owner_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_entries_by_owner(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -9824,6 +10484,13 @@ size_t CFamilyGroups_GetPlaytimeSummary_Response::ByteSizeLong() const {
   // repeated .CFamilyGroups_PlaytimeEntry entries = 1;
   total_size += 1UL * this->_internal_entries_size();
   for (const auto& msg : this->entries_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .CFamilyGroups_PlaytimeEntry entries_by_owner = 2;
+  total_size += 1UL * this->_internal_entries_by_owner_size();
+  for (const auto& msg : this->entries_by_owner_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -9860,6 +10527,7 @@ void CFamilyGroups_GetPlaytimeSummary_Response::MergeFrom(const CFamilyGroups_Ge
   (void) cached_has_bits;
 
   entries_.MergeFrom(from.entries_);
+  entries_by_owner_.MergeFrom(from.entries_by_owner_);
 }
 
 void CFamilyGroups_GetPlaytimeSummary_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -9884,6 +10552,7 @@ void CFamilyGroups_GetPlaytimeSummary_Response::InternalSwap(CFamilyGroups_GetPl
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   entries_.InternalSwap(&other->entries_);
+  entries_by_owner_.InternalSwap(&other->entries_by_owner_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_GetPlaytimeSummary_Response::GetMetadata() const {
@@ -13088,7 +13757,13 @@ class CFamilyGroups_GetSharedLibraryApps_Request::_Internal {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_max_apps(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_include_non_games(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
+  }
+  static void set_has_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
   }
 };
 
@@ -13108,8 +13783,8 @@ CFamilyGroups_GetSharedLibraryApps_Request::CFamilyGroups_GetSharedLibraryApps_R
       GetArena());
   }
   ::memcpy(&family_groupid_, &from.family_groupid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&max_apps_) -
-    reinterpret_cast<char*>(&family_groupid_)) + sizeof(max_apps_));
+    static_cast<size_t>(reinterpret_cast<char*>(&steamid_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
   // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetSharedLibraryApps_Request)
 }
 
@@ -13117,8 +13792,8 @@ void CFamilyGroups_GetSharedLibraryApps_Request::SharedCtor() {
 language_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&family_groupid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&max_apps_) -
-    reinterpret_cast<char*>(&family_groupid_)) + sizeof(max_apps_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&steamid_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
 }
 
 CFamilyGroups_GetSharedLibraryApps_Request::~CFamilyGroups_GetSharedLibraryApps_Request() {
@@ -13152,10 +13827,10 @@ void CFamilyGroups_GetSharedLibraryApps_Request::Clear() {
   if (cached_has_bits & 0x00000001u) {
     language_.ClearNonDefaultToEmpty();
   }
-  if (cached_has_bits & 0x0000001eu) {
+  if (cached_has_bits & 0x0000007eu) {
     ::memset(&family_groupid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&max_apps_) -
-        reinterpret_cast<char*>(&family_groupid_)) + sizeof(max_apps_));
+        reinterpret_cast<char*>(&steamid_) -
+        reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -13210,6 +13885,22 @@ const char* CFamilyGroups_GetSharedLibraryApps_Request::_InternalParse(const cha
           _Internal::set_has_max_apps(&has_bits);
           max_apps_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool include_non_games = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          _Internal::set_has_include_non_games(&has_bits);
+          include_non_games_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional fixed64 steamid = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
+          _Internal::set_has_steamid(&has_bits);
+          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
       default: {
@@ -13271,9 +13962,21 @@ failure:
   }
 
   // optional uint32 max_apps = 6;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_max_apps(), target);
+  }
+
+  // optional bool include_non_games = 7;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_include_non_games(), target);
+  }
+
+  // optional fixed64 steamid = 8;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(8, this->_internal_steamid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -13293,7 +13996,7 @@ size_t CFamilyGroups_GetSharedLibraryApps_Request::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000007fu) {
     // optional string language = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -13316,11 +14019,21 @@ size_t CFamilyGroups_GetSharedLibraryApps_Request::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional uint32 max_apps = 6;
+    // optional bool include_non_games = 7;
     if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
+    }
+
+    // optional uint32 max_apps = 6;
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_max_apps());
+    }
+
+    // optional fixed64 steamid = 8;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 + 8;
     }
 
   }
@@ -13356,7 +14069,7 @@ void CFamilyGroups_GetSharedLibraryApps_Request::MergeFrom(const CFamilyGroups_G
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_language(from._internal_language());
     }
@@ -13370,7 +14083,13 @@ void CFamilyGroups_GetSharedLibraryApps_Request::MergeFrom(const CFamilyGroups_G
       include_excluded_ = from.include_excluded_;
     }
     if (cached_has_bits & 0x00000010u) {
+      include_non_games_ = from.include_non_games_;
+    }
+    if (cached_has_bits & 0x00000020u) {
       max_apps_ = from.max_apps_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      steamid_ = from.steamid_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -13400,8 +14119,8 @@ void CFamilyGroups_GetSharedLibraryApps_Request::InternalSwap(CFamilyGroups_GetS
   swap(_has_bits_[0], other->_has_bits_[0]);
   language_.Swap(&other->language_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetSharedLibraryApps_Request, max_apps_)
-      + sizeof(CFamilyGroups_GetSharedLibraryApps_Request::max_apps_)
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetSharedLibraryApps_Request, steamid_)
+      + sizeof(CFamilyGroups_GetSharedLibraryApps_Request::steamid_)
       - PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetSharedLibraryApps_Request, family_groupid_)>(
           reinterpret_cast<char*>(&family_groupid_),
           reinterpret_cast<char*>(&other->family_groupid_));
@@ -13436,13 +14155,16 @@ class CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_Internal {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_rt_time_acquired(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_rt_last_played(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_rt_playtime(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_app_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
   }
 };
 
@@ -13479,8 +14201,8 @@ CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::CFamilyGroups_GetSharedLi
       GetArena());
   }
   ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&rt_last_played_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(rt_last_played_));
+    static_cast<size_t>(reinterpret_cast<char*>(&app_type_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(app_type_));
   // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetSharedLibraryApps_Response.SharedApp)
 }
 
@@ -13491,8 +14213,9 @@ capsule_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyS
 img_icon_hash_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&rt_last_played_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(rt_last_played_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&rt_playtime_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(rt_playtime_));
+app_type_ = 1;
 }
 
 CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::~CFamilyGroups_GetSharedLibraryApps_Response_SharedApp() {
@@ -13543,10 +14266,13 @@ void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::Clear() {
   }
   if (cached_has_bits & 0x000000f0u) {
     ::memset(&appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&rt_time_acquired_) -
-        reinterpret_cast<char*>(&appid_)) + sizeof(rt_time_acquired_));
+        reinterpret_cast<char*>(&rt_last_played_) -
+        reinterpret_cast<char*>(&appid_)) + sizeof(rt_last_played_));
   }
-  rt_last_played_ = 0u;
+  if (cached_has_bits & 0x00000300u) {
+    rt_playtime_ = 0u;
+    app_type_ = 1;
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -13662,6 +14388,18 @@ const char* CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional .EProtoAppType app_type = 14 [default = EAppTypeGame];
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EProtoAppType_IsValid(val))) {
+            _internal_set_app_type(static_cast<::EProtoAppType>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(14, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -13752,21 +14490,28 @@ failure:
   }
 
   // optional uint32 rt_time_acquired = 11;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_rt_time_acquired(), target);
   }
 
   // optional uint32 rt_last_played = 12;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_rt_last_played(), target);
   }
 
   // optional uint32 rt_playtime = 13;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_rt_playtime(), target);
+  }
+
+  // optional .EProtoAppType app_type = 14 [default = EAppTypeGame];
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      14, this->_internal_app_type(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -13837,28 +14582,36 @@ size_t CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::ByteSizeLong() con
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_exclude_reason());
     }
 
-    // optional uint32 rt_playtime = 13;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rt_playtime());
-    }
-
     // optional uint32 rt_time_acquired = 11;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rt_time_acquired());
     }
 
-  }
-  // optional uint32 rt_last_played = 12;
-  if (cached_has_bits & 0x00000100u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_rt_last_played());
-  }
+    // optional uint32 rt_last_played = 12;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_rt_last_played());
+    }
 
+  }
+  if (cached_has_bits & 0x00000300u) {
+    // optional uint32 rt_playtime = 13;
+    if (cached_has_bits & 0x00000100u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_rt_playtime());
+    }
+
+    // optional .EProtoAppType app_type = 14 [default = EAppTypeGame];
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_app_type());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -13912,15 +14665,21 @@ void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::MergeFrom(const CFam
       exclude_reason_ = from.exclude_reason_;
     }
     if (cached_has_bits & 0x00000040u) {
-      rt_playtime_ = from.rt_playtime_;
+      rt_time_acquired_ = from.rt_time_acquired_;
     }
     if (cached_has_bits & 0x00000080u) {
-      rt_time_acquired_ = from.rt_time_acquired_;
+      rt_last_played_ = from.rt_last_played_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000100u) {
-    _internal_set_rt_last_played(from._internal_rt_last_played());
+  if (cached_has_bits & 0x00000300u) {
+    if (cached_has_bits & 0x00000100u) {
+      rt_playtime_ = from.rt_playtime_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      app_type_ = from.app_type_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -13952,11 +14711,12 @@ void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::InternalSwap(CFamily
   capsule_filename_.Swap(&other->capsule_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   img_icon_hash_.Swap(&other->img_icon_hash_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, rt_last_played_)
-      + sizeof(CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::rt_last_played_)
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, rt_playtime_)
+      + sizeof(CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::rt_playtime_)
       - PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetSharedLibraryApps_Response_SharedApp, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));
+  swap(app_type_, other->app_type_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::GetMetadata() const {
@@ -13968,6 +14728,10 @@ void CFamilyGroups_GetSharedLibraryApps_Response_SharedApp::InternalSwap(CFamily
 
 class CFamilyGroups_GetSharedLibraryApps_Response::_Internal {
  public:
+  using HasBits = decltype(std::declval<CFamilyGroups_GetSharedLibraryApps_Response>()._has_bits_);
+  static void set_has_owner_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
 CFamilyGroups_GetSharedLibraryApps_Response::CFamilyGroups_GetSharedLibraryApps_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -13979,12 +14743,15 @@ CFamilyGroups_GetSharedLibraryApps_Response::CFamilyGroups_GetSharedLibraryApps_
 }
 CFamilyGroups_GetSharedLibraryApps_Response::CFamilyGroups_GetSharedLibraryApps_Response(const CFamilyGroups_GetSharedLibraryApps_Response& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
       apps_(from.apps_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  owner_steamid_ = from.owner_steamid_;
   // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetSharedLibraryApps_Response)
 }
 
 void CFamilyGroups_GetSharedLibraryApps_Response::SharedCtor() {
+owner_steamid_ = PROTOBUF_ULONGLONG(0);
 }
 
 CFamilyGroups_GetSharedLibraryApps_Response::~CFamilyGroups_GetSharedLibraryApps_Response() {
@@ -14014,11 +14781,14 @@ void CFamilyGroups_GetSharedLibraryApps_Response::Clear() {
   (void) cached_has_bits;
 
   apps_.Clear();
+  owner_steamid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CFamilyGroups_GetSharedLibraryApps_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
@@ -14036,6 +14806,14 @@ const char* CFamilyGroups_GetSharedLibraryApps_Response::_InternalParse(const ch
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
+      // optional fixed64 owner_steamid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          _Internal::set_has_owner_steamid(&has_bits);
+          owner_steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -14051,6 +14829,7 @@ const char* CFamilyGroups_GetSharedLibraryApps_Response::_InternalParse(const ch
     }  // switch
   }  // while
 success:
+  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -14070,6 +14849,13 @@ failure:
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, this->_internal_apps(i), target, stream);
+  }
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 owner_steamid = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_owner_steamid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -14093,6 +14879,12 @@ size_t CFamilyGroups_GetSharedLibraryApps_Response::ByteSizeLong() const {
   for (const auto& msg : this->apps_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // optional fixed64 owner_steamid = 2;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 + 8;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -14127,6 +14919,9 @@ void CFamilyGroups_GetSharedLibraryApps_Response::MergeFrom(const CFamilyGroups_
   (void) cached_has_bits;
 
   apps_.MergeFrom(from.apps_);
+  if (from._internal_has_owner_steamid()) {
+    _internal_set_owner_steamid(from._internal_owner_steamid());
+  }
 }
 
 void CFamilyGroups_GetSharedLibraryApps_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -14150,7 +14945,9 @@ bool CFamilyGroups_GetSharedLibraryApps_Response::IsInitialized() const {
 void CFamilyGroups_GetSharedLibraryApps_Response::InternalSwap(CFamilyGroups_GetSharedLibraryApps_Response* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   apps_.InternalSwap(&other->apps_);
+  swap(owner_steamid_, other->owner_steamid_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_GetSharedLibraryApps_Response::GetMetadata() const {
@@ -15220,64 +16017,77 @@ void CFamilyGroups_GetPreferredLenders_Response::InternalSwap(CFamilyGroups_GetP
 
 // ===================================================================
 
-class CFamilyGroups_GetDispersionForFamily_Request::_Internal {
+class CFamilyGroups_ForceAcceptInvite_Request::_Internal {
  public:
-  using HasBits = decltype(std::declval<CFamilyGroups_GetDispersionForFamily_Request>()._has_bits_);
+  using HasBits = decltype(std::declval<CFamilyGroups_ForceAcceptInvite_Request>()._has_bits_);
   static void set_has_family_groupid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
-CFamilyGroups_GetDispersionForFamily_Request::CFamilyGroups_GetDispersionForFamily_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CFamilyGroups_ForceAcceptInvite_Request::CFamilyGroups_ForceAcceptInvite_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_GetDispersionForFamily_Request)
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_ForceAcceptInvite_Request)
 }
-CFamilyGroups_GetDispersionForFamily_Request::CFamilyGroups_GetDispersionForFamily_Request(const CFamilyGroups_GetDispersionForFamily_Request& from)
+CFamilyGroups_ForceAcceptInvite_Request::CFamilyGroups_ForceAcceptInvite_Request(const CFamilyGroups_ForceAcceptInvite_Request& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  family_groupid_ = from.family_groupid_;
-  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetDispersionForFamily_Request)
+  ::memcpy(&family_groupid_, &from.family_groupid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&steamid_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_ForceAcceptInvite_Request)
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::SharedCtor() {
-family_groupid_ = PROTOBUF_ULONGLONG(0);
+void CFamilyGroups_ForceAcceptInvite_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&family_groupid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&steamid_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
 }
 
-CFamilyGroups_GetDispersionForFamily_Request::~CFamilyGroups_GetDispersionForFamily_Request() {
-  // @@protoc_insertion_point(destructor:CFamilyGroups_GetDispersionForFamily_Request)
+CFamilyGroups_ForceAcceptInvite_Request::~CFamilyGroups_ForceAcceptInvite_Request() {
+  // @@protoc_insertion_point(destructor:CFamilyGroups_ForceAcceptInvite_Request)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::SharedDtor() {
+void CFamilyGroups_ForceAcceptInvite_Request::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::ArenaDtor(void* object) {
-  CFamilyGroups_GetDispersionForFamily_Request* _this = reinterpret_cast< CFamilyGroups_GetDispersionForFamily_Request* >(object);
+void CFamilyGroups_ForceAcceptInvite_Request::ArenaDtor(void* object) {
+  CFamilyGroups_ForceAcceptInvite_Request* _this = reinterpret_cast< CFamilyGroups_ForceAcceptInvite_Request* >(object);
   (void)_this;
 }
-void CFamilyGroups_GetDispersionForFamily_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void CFamilyGroups_ForceAcceptInvite_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void CFamilyGroups_GetDispersionForFamily_Request::SetCachedSize(int size) const {
+void CFamilyGroups_ForceAcceptInvite_Request::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::Clear() {
-// @@protoc_insertion_point(message_clear_start:CFamilyGroups_GetDispersionForFamily_Request)
+void CFamilyGroups_ForceAcceptInvite_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroups_ForceAcceptInvite_Request)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  family_groupid_ = PROTOBUF_ULONGLONG(0);
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&family_groupid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&steamid_) -
+        reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CFamilyGroups_GetDispersionForFamily_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CFamilyGroups_ForceAcceptInvite_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -15293,6 +16103,14 @@ const char* CFamilyGroups_GetDispersionForFamily_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional fixed64 steamid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          _Internal::set_has_steamid(&has_bits);
+          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -15316,9 +16134,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_GetDispersionForFamily_Request::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_ForceAcceptInvite_Request::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_GetDispersionForFamily_Request)
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_ForceAcceptInvite_Request)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -15329,29 +16147,216 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_family_groupid(), target);
   }
 
+  // optional fixed64 steamid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_steamid(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_GetDispersionForFamily_Request)
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_ForceAcceptInvite_Request)
   return target;
 }
 
-size_t CFamilyGroups_GetDispersionForFamily_Request::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_GetDispersionForFamily_Request)
+size_t CFamilyGroups_ForceAcceptInvite_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_ForceAcceptInvite_Request)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint64 family_groupid = 1;
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_family_groupid());
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint64 family_groupid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_family_groupid());
+    }
+
+    // optional fixed64 steamid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 8;
+    }
+
   }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CFamilyGroups_ForceAcceptInvite_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_ForceAcceptInvite_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CFamilyGroups_ForceAcceptInvite_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_ForceAcceptInvite_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_ForceAcceptInvite_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_ForceAcceptInvite_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CFamilyGroups_ForceAcceptInvite_Request::MergeFrom(const CFamilyGroups_ForceAcceptInvite_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_ForceAcceptInvite_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      family_groupid_ = from.family_groupid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      steamid_ = from.steamid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CFamilyGroups_ForceAcceptInvite_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_ForceAcceptInvite_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CFamilyGroups_ForceAcceptInvite_Request::CopyFrom(const CFamilyGroups_ForceAcceptInvite_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_ForceAcceptInvite_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CFamilyGroups_ForceAcceptInvite_Request::IsInitialized() const {
+  return true;
+}
+
+void CFamilyGroups_ForceAcceptInvite_Request::InternalSwap(CFamilyGroups_ForceAcceptInvite_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_ForceAcceptInvite_Request, steamid_)
+      + sizeof(CFamilyGroups_ForceAcceptInvite_Request::steamid_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_ForceAcceptInvite_Request, family_groupid_)>(
+          reinterpret_cast<char*>(&family_groupid_),
+          reinterpret_cast<char*>(&other->family_groupid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_ForceAcceptInvite_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CFamilyGroups_ForceAcceptInvite_Response::_Internal {
+ public:
+};
+
+CFamilyGroups_ForceAcceptInvite_Response::CFamilyGroups_ForceAcceptInvite_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_ForceAcceptInvite_Response)
+}
+CFamilyGroups_ForceAcceptInvite_Response::CFamilyGroups_ForceAcceptInvite_Response(const CFamilyGroups_ForceAcceptInvite_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_ForceAcceptInvite_Response)
+}
+
+void CFamilyGroups_ForceAcceptInvite_Response::SharedCtor() {
+}
+
+CFamilyGroups_ForceAcceptInvite_Response::~CFamilyGroups_ForceAcceptInvite_Response() {
+  // @@protoc_insertion_point(destructor:CFamilyGroups_ForceAcceptInvite_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CFamilyGroups_ForceAcceptInvite_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CFamilyGroups_ForceAcceptInvite_Response::ArenaDtor(void* object) {
+  CFamilyGroups_ForceAcceptInvite_Response* _this = reinterpret_cast< CFamilyGroups_ForceAcceptInvite_Response* >(object);
+  (void)_this;
+}
+void CFamilyGroups_ForceAcceptInvite_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CFamilyGroups_ForceAcceptInvite_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CFamilyGroups_ForceAcceptInvite_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroups_ForceAcceptInvite_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CFamilyGroups_ForceAcceptInvite_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_ForceAcceptInvite_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_ForceAcceptInvite_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_ForceAcceptInvite_Response)
+  return target;
+}
+
+size_t CFamilyGroups_ForceAcceptInvite_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_ForceAcceptInvite_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
@@ -15362,139 +16367,381 @@ size_t CFamilyGroups_GetDispersionForFamily_Request::ByteSizeLong() const {
   return total_size;
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_GetDispersionForFamily_Request)
+void CFamilyGroups_ForceAcceptInvite_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_ForceAcceptInvite_Response)
   GOOGLE_DCHECK_NE(&from, this);
-  const CFamilyGroups_GetDispersionForFamily_Request* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_GetDispersionForFamily_Request>(
+  const CFamilyGroups_ForceAcceptInvite_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_ForceAcceptInvite_Response>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_GetDispersionForFamily_Request)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_ForceAcceptInvite_Response)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_GetDispersionForFamily_Request)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_ForceAcceptInvite_Response)
     MergeFrom(*source);
   }
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::MergeFrom(const CFamilyGroups_GetDispersionForFamily_Request& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_GetDispersionForFamily_Request)
+void CFamilyGroups_ForceAcceptInvite_Response::MergeFrom(const CFamilyGroups_ForceAcceptInvite_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_ForceAcceptInvite_Response)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_family_groupid()) {
-    _internal_set_family_groupid(from._internal_family_groupid());
-  }
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_GetDispersionForFamily_Request)
+void CFamilyGroups_ForceAcceptInvite_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_ForceAcceptInvite_Response)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::CopyFrom(const CFamilyGroups_GetDispersionForFamily_Request& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_GetDispersionForFamily_Request)
+void CFamilyGroups_ForceAcceptInvite_Response::CopyFrom(const CFamilyGroups_ForceAcceptInvite_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_ForceAcceptInvite_Response)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CFamilyGroups_GetDispersionForFamily_Request::IsInitialized() const {
+bool CFamilyGroups_ForceAcceptInvite_Response::IsInitialized() const {
   return true;
 }
 
-void CFamilyGroups_GetDispersionForFamily_Request::InternalSwap(CFamilyGroups_GetDispersionForFamily_Request* other) {
+void CFamilyGroups_ForceAcceptInvite_Response::InternalSwap(CFamilyGroups_ForceAcceptInvite_Response* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(family_groupid_, other->family_groupid_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_GetDispersionForFamily_Request::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_ForceAcceptInvite_Response::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-class CFamilyGroups_FamilyDispersionGraph_Edge::_Internal {
+class CFamilyGroups_GetInviteCheckResults_Request::_Internal {
  public:
-  using HasBits = decltype(std::declval<CFamilyGroups_FamilyDispersionGraph_Edge>()._has_bits_);
-  static void set_has_accountid1(HasBits* has_bits) {
+  using HasBits = decltype(std::declval<CFamilyGroups_GetInviteCheckResults_Request>()._has_bits_);
+  static void set_has_family_groupid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_accountid2(HasBits* has_bits) {
+  static void set_has_steamid(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_distance(HasBits* has_bits) {
+};
+
+CFamilyGroups_GetInviteCheckResults_Request::CFamilyGroups_GetInviteCheckResults_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_GetInviteCheckResults_Request)
+}
+CFamilyGroups_GetInviteCheckResults_Request::CFamilyGroups_GetInviteCheckResults_Request(const CFamilyGroups_GetInviteCheckResults_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&family_groupid_, &from.family_groupid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&steamid_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetInviteCheckResults_Request)
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&family_groupid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&steamid_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
+}
+
+CFamilyGroups_GetInviteCheckResults_Request::~CFamilyGroups_GetInviteCheckResults_Request() {
+  // @@protoc_insertion_point(destructor:CFamilyGroups_GetInviteCheckResults_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::ArenaDtor(void* object) {
+  CFamilyGroups_GetInviteCheckResults_Request* _this = reinterpret_cast< CFamilyGroups_GetInviteCheckResults_Request* >(object);
+  (void)_this;
+}
+void CFamilyGroups_GetInviteCheckResults_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CFamilyGroups_GetInviteCheckResults_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroups_GetInviteCheckResults_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&family_groupid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&steamid_) -
+        reinterpret_cast<char*>(&family_groupid_)) + sizeof(steamid_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CFamilyGroups_GetInviteCheckResults_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 family_groupid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_family_groupid(&has_bits);
+          family_groupid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional fixed64 steamid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          _Internal::set_has_steamid(&has_bits);
+          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_GetInviteCheckResults_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_GetInviteCheckResults_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 family_groupid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_family_groupid(), target);
+  }
+
+  // optional fixed64 steamid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_steamid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_GetInviteCheckResults_Request)
+  return target;
+}
+
+size_t CFamilyGroups_GetInviteCheckResults_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_GetInviteCheckResults_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint64 family_groupid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_family_groupid());
+    }
+
+    // optional fixed64 steamid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_GetInviteCheckResults_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CFamilyGroups_GetInviteCheckResults_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_GetInviteCheckResults_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_GetInviteCheckResults_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_GetInviteCheckResults_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::MergeFrom(const CFamilyGroups_GetInviteCheckResults_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_GetInviteCheckResults_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      family_groupid_ = from.family_groupid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      steamid_ = from.steamid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_GetInviteCheckResults_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::CopyFrom(const CFamilyGroups_GetInviteCheckResults_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_GetInviteCheckResults_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CFamilyGroups_GetInviteCheckResults_Request::IsInitialized() const {
+  return true;
+}
+
+void CFamilyGroups_GetInviteCheckResults_Request::InternalSwap(CFamilyGroups_GetInviteCheckResults_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetInviteCheckResults_Request, steamid_)
+      + sizeof(CFamilyGroups_GetInviteCheckResults_Request::steamid_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetInviteCheckResults_Request, family_groupid_)>(
+          reinterpret_cast<char*>(&family_groupid_),
+          reinterpret_cast<char*>(&other->family_groupid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_GetInviteCheckResults_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CFamilyGroups_GetInviteCheckResults_Response::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CFamilyGroups_GetInviteCheckResults_Response>()._has_bits_);
+  static void set_has_wallet_country_matches(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_ip_match(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_join_restriction(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
 };
 
-CFamilyGroups_FamilyDispersionGraph_Edge::CFamilyGroups_FamilyDispersionGraph_Edge(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CFamilyGroups_GetInviteCheckResults_Response::CFamilyGroups_GetInviteCheckResults_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_FamilyDispersionGraph.Edge)
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_GetInviteCheckResults_Response)
 }
-CFamilyGroups_FamilyDispersionGraph_Edge::CFamilyGroups_FamilyDispersionGraph_Edge(const CFamilyGroups_FamilyDispersionGraph_Edge& from)
+CFamilyGroups_GetInviteCheckResults_Response::CFamilyGroups_GetInviteCheckResults_Response(const CFamilyGroups_GetInviteCheckResults_Response& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&accountid1_, &from.accountid1_,
-    static_cast<size_t>(reinterpret_cast<char*>(&distance_) -
-    reinterpret_cast<char*>(&accountid1_)) + sizeof(distance_));
-  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_FamilyDispersionGraph.Edge)
+  ::memcpy(&wallet_country_matches_, &from.wallet_country_matches_,
+    static_cast<size_t>(reinterpret_cast<char*>(&join_restriction_) -
+    reinterpret_cast<char*>(&wallet_country_matches_)) + sizeof(join_restriction_));
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetInviteCheckResults_Response)
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::SharedCtor() {
+void CFamilyGroups_GetInviteCheckResults_Response::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&accountid1_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&distance_) -
-    reinterpret_cast<char*>(&accountid1_)) + sizeof(distance_));
+    reinterpret_cast<char*>(&wallet_country_matches_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&join_restriction_) -
+    reinterpret_cast<char*>(&wallet_country_matches_)) + sizeof(join_restriction_));
 }
 
-CFamilyGroups_FamilyDispersionGraph_Edge::~CFamilyGroups_FamilyDispersionGraph_Edge() {
-  // @@protoc_insertion_point(destructor:CFamilyGroups_FamilyDispersionGraph.Edge)
+CFamilyGroups_GetInviteCheckResults_Response::~CFamilyGroups_GetInviteCheckResults_Response() {
+  // @@protoc_insertion_point(destructor:CFamilyGroups_GetInviteCheckResults_Response)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::SharedDtor() {
+void CFamilyGroups_GetInviteCheckResults_Response::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::ArenaDtor(void* object) {
-  CFamilyGroups_FamilyDispersionGraph_Edge* _this = reinterpret_cast< CFamilyGroups_FamilyDispersionGraph_Edge* >(object);
+void CFamilyGroups_GetInviteCheckResults_Response::ArenaDtor(void* object) {
+  CFamilyGroups_GetInviteCheckResults_Response* _this = reinterpret_cast< CFamilyGroups_GetInviteCheckResults_Response* >(object);
   (void)_this;
 }
-void CFamilyGroups_FamilyDispersionGraph_Edge::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void CFamilyGroups_GetInviteCheckResults_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void CFamilyGroups_FamilyDispersionGraph_Edge::SetCachedSize(int size) const {
+void CFamilyGroups_GetInviteCheckResults_Response::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::Clear() {
-// @@protoc_insertion_point(message_clear_start:CFamilyGroups_FamilyDispersionGraph.Edge)
+void CFamilyGroups_GetInviteCheckResults_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroups_GetInviteCheckResults_Response)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&accountid1_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&distance_) -
-        reinterpret_cast<char*>(&accountid1_)) + sizeof(distance_));
+    ::memset(&wallet_country_matches_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&join_restriction_) -
+        reinterpret_cast<char*>(&wallet_country_matches_)) + sizeof(join_restriction_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CFamilyGroups_FamilyDispersionGraph_Edge::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CFamilyGroups_GetInviteCheckResults_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -15502,28 +16749,28 @@ const char* CFamilyGroups_FamilyDispersionGraph_Edge::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 accountid1 = 1;
+      // optional bool wallet_country_matches = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_accountid1(&has_bits);
-          accountid1_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_wallet_country_matches(&has_bits);
+          wallet_country_matches_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 accountid2 = 2;
+      // optional bool ip_match = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_accountid2(&has_bits);
-          accountid2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_ip_match(&has_bits);
+          ip_match_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional double distance = 3;
+      // optional uint32 join_restriction = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
-          _Internal::set_has_distance(&has_bits);
-          distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_join_restriction(&has_bits);
+          join_restriction_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -15549,41 +16796,41 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_FamilyDispersionGraph_Edge::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_GetInviteCheckResults_Response::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_FamilyDispersionGraph.Edge)
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_GetInviteCheckResults_Response)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 accountid1 = 1;
+  // optional bool wallet_country_matches = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_accountid1(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_wallet_country_matches(), target);
   }
 
-  // optional uint32 accountid2 = 2;
+  // optional bool ip_match = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_accountid2(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_ip_match(), target);
   }
 
-  // optional double distance = 3;
+  // optional uint32 join_restriction = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_distance(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_join_restriction(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_FamilyDispersionGraph.Edge)
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_GetInviteCheckResults_Response)
   return target;
 }
 
-size_t CFamilyGroups_FamilyDispersionGraph_Edge::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_FamilyDispersionGraph.Edge)
+size_t CFamilyGroups_GetInviteCheckResults_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_GetInviteCheckResults_Response)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -15592,23 +16839,21 @@ size_t CFamilyGroups_FamilyDispersionGraph_Edge::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 accountid1 = 1;
+    // optional bool wallet_country_matches = 1;
     if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_accountid1());
+      total_size += 1 + 1;
     }
 
-    // optional uint32 accountid2 = 2;
+    // optional bool ip_match = 2;
     if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_accountid2());
+      total_size += 1 + 1;
     }
 
-    // optional double distance = 3;
+    // optional uint32 join_restriction = 3;
     if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 8;
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_join_restriction());
     }
 
   }
@@ -15621,23 +16866,23 @@ size_t CFamilyGroups_FamilyDispersionGraph_Edge::ByteSizeLong() const {
   return total_size;
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_FamilyDispersionGraph.Edge)
+void CFamilyGroups_GetInviteCheckResults_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_GetInviteCheckResults_Response)
   GOOGLE_DCHECK_NE(&from, this);
-  const CFamilyGroups_FamilyDispersionGraph_Edge* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_FamilyDispersionGraph_Edge>(
+  const CFamilyGroups_GetInviteCheckResults_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_GetInviteCheckResults_Response>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_FamilyDispersionGraph.Edge)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_GetInviteCheckResults_Response)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_FamilyDispersionGraph.Edge)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_GetInviteCheckResults_Response)
     MergeFrom(*source);
   }
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::MergeFrom(const CFamilyGroups_FamilyDispersionGraph_Edge& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_FamilyDispersionGraph.Edge)
+void CFamilyGroups_GetInviteCheckResults_Response::MergeFrom(const CFamilyGroups_GetInviteCheckResults_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_GetInviteCheckResults_Response)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -15646,329 +16891,126 @@ void CFamilyGroups_FamilyDispersionGraph_Edge::MergeFrom(const CFamilyGroups_Fam
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      accountid1_ = from.accountid1_;
+      wallet_country_matches_ = from.wallet_country_matches_;
     }
     if (cached_has_bits & 0x00000002u) {
-      accountid2_ = from.accountid2_;
+      ip_match_ = from.ip_match_;
     }
     if (cached_has_bits & 0x00000004u) {
-      distance_ = from.distance_;
+      join_restriction_ = from.join_restriction_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_FamilyDispersionGraph.Edge)
+void CFamilyGroups_GetInviteCheckResults_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_GetInviteCheckResults_Response)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::CopyFrom(const CFamilyGroups_FamilyDispersionGraph_Edge& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_FamilyDispersionGraph.Edge)
+void CFamilyGroups_GetInviteCheckResults_Response::CopyFrom(const CFamilyGroups_GetInviteCheckResults_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_GetInviteCheckResults_Response)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CFamilyGroups_FamilyDispersionGraph_Edge::IsInitialized() const {
+bool CFamilyGroups_GetInviteCheckResults_Response::IsInitialized() const {
   return true;
 }
 
-void CFamilyGroups_FamilyDispersionGraph_Edge::InternalSwap(CFamilyGroups_FamilyDispersionGraph_Edge* other) {
+void CFamilyGroups_GetInviteCheckResults_Response::InternalSwap(CFamilyGroups_GetInviteCheckResults_Response* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CFamilyGroups_FamilyDispersionGraph_Edge, distance_)
-      + sizeof(CFamilyGroups_FamilyDispersionGraph_Edge::distance_)
-      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_FamilyDispersionGraph_Edge, accountid1_)>(
-          reinterpret_cast<char*>(&accountid1_),
-          reinterpret_cast<char*>(&other->accountid1_));
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetInviteCheckResults_Response, join_restriction_)
+      + sizeof(CFamilyGroups_GetInviteCheckResults_Response::join_restriction_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetInviteCheckResults_Response, wallet_country_matches_)>(
+          reinterpret_cast<char*>(&wallet_country_matches_),
+          reinterpret_cast<char*>(&other->wallet_country_matches_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_FamilyDispersionGraph_Edge::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_GetInviteCheckResults_Response::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-class CFamilyGroups_FamilyDispersionGraph::_Internal {
+class CFamilyGroups_ClearCooldownSkip_Request::_Internal {
  public:
-};
-
-CFamilyGroups_FamilyDispersionGraph::CFamilyGroups_FamilyDispersionGraph(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  edges_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_FamilyDispersionGraph)
-}
-CFamilyGroups_FamilyDispersionGraph::CFamilyGroups_FamilyDispersionGraph(const CFamilyGroups_FamilyDispersionGraph& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      edges_(from.edges_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_FamilyDispersionGraph)
-}
-
-void CFamilyGroups_FamilyDispersionGraph::SharedCtor() {
-}
-
-CFamilyGroups_FamilyDispersionGraph::~CFamilyGroups_FamilyDispersionGraph() {
-  // @@protoc_insertion_point(destructor:CFamilyGroups_FamilyDispersionGraph)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CFamilyGroups_FamilyDispersionGraph::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CFamilyGroups_FamilyDispersionGraph::ArenaDtor(void* object) {
-  CFamilyGroups_FamilyDispersionGraph* _this = reinterpret_cast< CFamilyGroups_FamilyDispersionGraph* >(object);
-  (void)_this;
-}
-void CFamilyGroups_FamilyDispersionGraph::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CFamilyGroups_FamilyDispersionGraph::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CFamilyGroups_FamilyDispersionGraph::Clear() {
-// @@protoc_insertion_point(message_clear_start:CFamilyGroups_FamilyDispersionGraph)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  edges_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CFamilyGroups_FamilyDispersionGraph::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated .CFamilyGroups_FamilyDispersionGraph.Edge edges = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_edges(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_FamilyDispersionGraph::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_FamilyDispersionGraph)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .CFamilyGroups_FamilyDispersionGraph.Edge edges = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_edges_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_edges(i), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_FamilyDispersionGraph)
-  return target;
-}
-
-size_t CFamilyGroups_FamilyDispersionGraph::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_FamilyDispersionGraph)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .CFamilyGroups_FamilyDispersionGraph.Edge edges = 1;
-  total_size += 1UL * this->_internal_edges_size();
-  for (const auto& msg : this->edges_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CFamilyGroups_FamilyDispersionGraph::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_FamilyDispersionGraph)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CFamilyGroups_FamilyDispersionGraph* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_FamilyDispersionGraph>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_FamilyDispersionGraph)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_FamilyDispersionGraph)
-    MergeFrom(*source);
-  }
-}
-
-void CFamilyGroups_FamilyDispersionGraph::MergeFrom(const CFamilyGroups_FamilyDispersionGraph& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_FamilyDispersionGraph)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  edges_.MergeFrom(from.edges_);
-}
-
-void CFamilyGroups_FamilyDispersionGraph::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_FamilyDispersionGraph)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CFamilyGroups_FamilyDispersionGraph::CopyFrom(const CFamilyGroups_FamilyDispersionGraph& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_FamilyDispersionGraph)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CFamilyGroups_FamilyDispersionGraph::IsInitialized() const {
-  return true;
-}
-
-void CFamilyGroups_FamilyDispersionGraph::InternalSwap(CFamilyGroups_FamilyDispersionGraph* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  edges_.InternalSwap(&other->edges_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_FamilyDispersionGraph::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CFamilyGroups_GetDispersionForFamily_Response::_Internal {
- public:
-  using HasBits = decltype(std::declval<CFamilyGroups_GetDispersionForFamily_Response>()._has_bits_);
-  static void set_has_total_dispersion(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static const ::CFamilyGroups_FamilyDispersionGraph& graph(const CFamilyGroups_GetDispersionForFamily_Response* msg);
-  static void set_has_graph(HasBits* has_bits) {
+  using HasBits = decltype(std::declval<CFamilyGroups_ClearCooldownSkip_Request>()._has_bits_);
+  static void set_has_steamid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_invite_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
-const ::CFamilyGroups_FamilyDispersionGraph&
-CFamilyGroups_GetDispersionForFamily_Response::_Internal::graph(const CFamilyGroups_GetDispersionForFamily_Response* msg) {
-  return *msg->graph_;
-}
-CFamilyGroups_GetDispersionForFamily_Response::CFamilyGroups_GetDispersionForFamily_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CFamilyGroups_ClearCooldownSkip_Request::CFamilyGroups_ClearCooldownSkip_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_GetDispersionForFamily_Response)
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_ClearCooldownSkip_Request)
 }
-CFamilyGroups_GetDispersionForFamily_Response::CFamilyGroups_GetDispersionForFamily_Response(const CFamilyGroups_GetDispersionForFamily_Response& from)
+CFamilyGroups_ClearCooldownSkip_Request::CFamilyGroups_ClearCooldownSkip_Request(const CFamilyGroups_ClearCooldownSkip_Request& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_graph()) {
-    graph_ = new ::CFamilyGroups_FamilyDispersionGraph(*from.graph_);
-  } else {
-    graph_ = nullptr;
-  }
-  total_dispersion_ = from.total_dispersion_;
-  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetDispersionForFamily_Response)
+  ::memcpy(&steamid_, &from.steamid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&invite_id_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(invite_id_));
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_ClearCooldownSkip_Request)
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::SharedCtor() {
+void CFamilyGroups_ClearCooldownSkip_Request::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&graph_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&total_dispersion_) -
-    reinterpret_cast<char*>(&graph_)) + sizeof(total_dispersion_));
+    reinterpret_cast<char*>(&steamid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&invite_id_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(invite_id_));
 }
 
-CFamilyGroups_GetDispersionForFamily_Response::~CFamilyGroups_GetDispersionForFamily_Response() {
-  // @@protoc_insertion_point(destructor:CFamilyGroups_GetDispersionForFamily_Response)
+CFamilyGroups_ClearCooldownSkip_Request::~CFamilyGroups_ClearCooldownSkip_Request() {
+  // @@protoc_insertion_point(destructor:CFamilyGroups_ClearCooldownSkip_Request)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::SharedDtor() {
+void CFamilyGroups_ClearCooldownSkip_Request::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete graph_;
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::ArenaDtor(void* object) {
-  CFamilyGroups_GetDispersionForFamily_Response* _this = reinterpret_cast< CFamilyGroups_GetDispersionForFamily_Response* >(object);
+void CFamilyGroups_ClearCooldownSkip_Request::ArenaDtor(void* object) {
+  CFamilyGroups_ClearCooldownSkip_Request* _this = reinterpret_cast< CFamilyGroups_ClearCooldownSkip_Request* >(object);
   (void)_this;
 }
-void CFamilyGroups_GetDispersionForFamily_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void CFamilyGroups_ClearCooldownSkip_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void CFamilyGroups_GetDispersionForFamily_Response::SetCachedSize(int size) const {
+void CFamilyGroups_ClearCooldownSkip_Request::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::Clear() {
-// @@protoc_insertion_point(message_clear_start:CFamilyGroups_GetDispersionForFamily_Response)
+void CFamilyGroups_ClearCooldownSkip_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroups_ClearCooldownSkip_Request)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(graph_ != nullptr);
-    graph_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&steamid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&invite_id_) -
+        reinterpret_cast<char*>(&steamid_)) + sizeof(invite_id_));
   }
-  total_dispersion_ = 0;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CFamilyGroups_GetDispersionForFamily_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CFamilyGroups_ClearCooldownSkip_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -15976,18 +17018,19 @@ const char* CFamilyGroups_GetDispersionForFamily_Response::_InternalParse(const 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional double total_dispersion = 1;
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
-          _Internal::set_has_total_dispersion(&has_bits);
-          total_dispersion_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
+          _Internal::set_has_steamid(&has_bits);
+          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional .CFamilyGroups_FamilyDispersionGraph graph = 2;
+      // optional uint64 invite_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_graph(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_invite_id(&has_bits);
+          invite_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -16014,37 +17057,35 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_GetDispersionForFamily_Response::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_ClearCooldownSkip_Request::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_GetDispersionForFamily_Response)
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_ClearCooldownSkip_Request)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional double total_dispersion = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_total_dispersion(), target);
-  }
-
-  // optional .CFamilyGroups_FamilyDispersionGraph graph = 2;
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::graph(this), target, stream);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
+  }
+
+  // optional uint64 invite_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_invite_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_GetDispersionForFamily_Response)
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_ClearCooldownSkip_Request)
   return target;
 }
 
-size_t CFamilyGroups_GetDispersionForFamily_Response::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_GetDispersionForFamily_Response)
+size_t CFamilyGroups_ClearCooldownSkip_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_ClearCooldownSkip_Request)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -16053,16 +17094,16 @@ size_t CFamilyGroups_GetDispersionForFamily_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .CFamilyGroups_FamilyDispersionGraph graph = 2;
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *graph_);
+      total_size += 1 + 8;
     }
 
-    // optional double total_dispersion = 1;
+    // optional uint64 invite_id = 2;
     if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 8;
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_invite_id());
     }
 
   }
@@ -16075,23 +17116,23 @@ size_t CFamilyGroups_GetDispersionForFamily_Response::ByteSizeLong() const {
   return total_size;
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_GetDispersionForFamily_Response)
+void CFamilyGroups_ClearCooldownSkip_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_ClearCooldownSkip_Request)
   GOOGLE_DCHECK_NE(&from, this);
-  const CFamilyGroups_GetDispersionForFamily_Response* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_GetDispersionForFamily_Response>(
+  const CFamilyGroups_ClearCooldownSkip_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_ClearCooldownSkip_Request>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_GetDispersionForFamily_Response)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_ClearCooldownSkip_Request)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_GetDispersionForFamily_Response)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_ClearCooldownSkip_Request)
     MergeFrom(*source);
   }
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::MergeFrom(const CFamilyGroups_GetDispersionForFamily_Response& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_GetDispersionForFamily_Response)
+void CFamilyGroups_ClearCooldownSkip_Request::MergeFrom(const CFamilyGroups_ClearCooldownSkip_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_ClearCooldownSkip_Request)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -16100,46 +17141,203 @@ void CFamilyGroups_GetDispersionForFamily_Response::MergeFrom(const CFamilyGroup
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _internal_mutable_graph()->::CFamilyGroups_FamilyDispersionGraph::MergeFrom(from._internal_graph());
+      steamid_ = from.steamid_;
     }
     if (cached_has_bits & 0x00000002u) {
-      total_dispersion_ = from.total_dispersion_;
+      invite_id_ = from.invite_id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_GetDispersionForFamily_Response)
+void CFamilyGroups_ClearCooldownSkip_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_ClearCooldownSkip_Request)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::CopyFrom(const CFamilyGroups_GetDispersionForFamily_Response& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_GetDispersionForFamily_Response)
+void CFamilyGroups_ClearCooldownSkip_Request::CopyFrom(const CFamilyGroups_ClearCooldownSkip_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_ClearCooldownSkip_Request)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CFamilyGroups_GetDispersionForFamily_Response::IsInitialized() const {
+bool CFamilyGroups_ClearCooldownSkip_Request::IsInitialized() const {
   return true;
 }
 
-void CFamilyGroups_GetDispersionForFamily_Response::InternalSwap(CFamilyGroups_GetDispersionForFamily_Response* other) {
+void CFamilyGroups_ClearCooldownSkip_Request::InternalSwap(CFamilyGroups_ClearCooldownSkip_Request* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetDispersionForFamily_Response, total_dispersion_)
-      + sizeof(CFamilyGroups_GetDispersionForFamily_Response::total_dispersion_)
-      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetDispersionForFamily_Response, graph_)>(
-          reinterpret_cast<char*>(&graph_),
-          reinterpret_cast<char*>(&other->graph_));
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_ClearCooldownSkip_Request, invite_id_)
+      + sizeof(CFamilyGroups_ClearCooldownSkip_Request::invite_id_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_ClearCooldownSkip_Request, steamid_)>(
+          reinterpret_cast<char*>(&steamid_),
+          reinterpret_cast<char*>(&other->steamid_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_GetDispersionForFamily_Response::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_ClearCooldownSkip_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CFamilyGroups_ClearCooldownSkip_Response::_Internal {
+ public:
+};
+
+CFamilyGroups_ClearCooldownSkip_Response::CFamilyGroups_ClearCooldownSkip_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroups_ClearCooldownSkip_Response)
+}
+CFamilyGroups_ClearCooldownSkip_Response::CFamilyGroups_ClearCooldownSkip_Response(const CFamilyGroups_ClearCooldownSkip_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroups_ClearCooldownSkip_Response)
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::SharedCtor() {
+}
+
+CFamilyGroups_ClearCooldownSkip_Response::~CFamilyGroups_ClearCooldownSkip_Response() {
+  // @@protoc_insertion_point(destructor:CFamilyGroups_ClearCooldownSkip_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::ArenaDtor(void* object) {
+  CFamilyGroups_ClearCooldownSkip_Response* _this = reinterpret_cast< CFamilyGroups_ClearCooldownSkip_Response* >(object);
+  (void)_this;
+}
+void CFamilyGroups_ClearCooldownSkip_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CFamilyGroups_ClearCooldownSkip_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroups_ClearCooldownSkip_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CFamilyGroups_ClearCooldownSkip_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroups_ClearCooldownSkip_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroups_ClearCooldownSkip_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroups_ClearCooldownSkip_Response)
+  return target;
+}
+
+size_t CFamilyGroups_ClearCooldownSkip_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroups_ClearCooldownSkip_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroups_ClearCooldownSkip_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CFamilyGroups_ClearCooldownSkip_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroups_ClearCooldownSkip_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroups_ClearCooldownSkip_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroups_ClearCooldownSkip_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::MergeFrom(const CFamilyGroups_ClearCooldownSkip_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroups_ClearCooldownSkip_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroups_ClearCooldownSkip_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::CopyFrom(const CFamilyGroups_ClearCooldownSkip_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroups_ClearCooldownSkip_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CFamilyGroups_ClearCooldownSkip_Response::IsInitialized() const {
+  return true;
+}
+
+void CFamilyGroups_ClearCooldownSkip_Response::InternalSwap(CFamilyGroups_ClearCooldownSkip_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_ClearCooldownSkip_Response::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -17330,6 +18528,14 @@ void FamilyGroups::DeleteFamilyGroup(::PROTOBUF_NAMESPACE_ID::RpcController* con
   done->Run();
 }
 
+void FamilyGroups::UndeleteFamilyGroup(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CFamilyGroups_UndeleteFamilyGroup_Request*,
+                         ::CFamilyGroups_UndeleteFamilyGroup_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method UndeleteFamilyGroup() not implemented.");
+  done->Run();
+}
+
 void FamilyGroups::GetPlaytimeSummary(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CFamilyGroups_GetPlaytimeSummary_Request*,
                          ::CFamilyGroups_GetPlaytimeSummary_Response*,
@@ -17402,11 +18608,27 @@ void FamilyGroups::GetPreferredLenders(::PROTOBUF_NAMESPACE_ID::RpcController* c
   done->Run();
 }
 
-void FamilyGroups::GetDispersionForFamily(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                         const ::CFamilyGroups_GetDispersionForFamily_Request*,
-                         ::CFamilyGroups_GetDispersionForFamily_Response*,
+void FamilyGroups::ForceAcceptInvite(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CFamilyGroups_ForceAcceptInvite_Request*,
+                         ::CFamilyGroups_ForceAcceptInvite_Response*,
                          ::google::protobuf::Closure* done) {
-  controller->SetFailed("Method GetDispersionForFamily() not implemented.");
+  controller->SetFailed("Method ForceAcceptInvite() not implemented.");
+  done->Run();
+}
+
+void FamilyGroups::GetInviteCheckResults(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CFamilyGroups_GetInviteCheckResults_Request*,
+                         ::CFamilyGroups_GetInviteCheckResults_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetInviteCheckResults() not implemented.");
+  done->Run();
+}
+
+void FamilyGroups::ClearCooldownSkip(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CFamilyGroups_ClearCooldownSkip_Request*,
+                         ::CFamilyGroups_ClearCooldownSkip_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method ClearCooldownSkip() not implemented.");
   done->Run();
 }
 
@@ -17522,6 +18744,14 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
              done);
       break;
     case 13:
+      UndeleteFamilyGroup(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_UndeleteFamilyGroup_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CFamilyGroups_UndeleteFamilyGroup_Response*>(
+                 response),
+             done);
+      break;
+    case 14:
       GetPlaytimeSummary(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_GetPlaytimeSummary_Request*>(
                  request),
@@ -17529,7 +18759,7 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 14:
+    case 15:
       RequestPurchase(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_RequestPurchase_Request*>(
                  request),
@@ -17537,7 +18767,7 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 15:
+    case 16:
       GetPurchaseRequests(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_GetPurchaseRequests_Request*>(
                  request),
@@ -17545,7 +18775,7 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 16:
+    case 17:
       RespondToRequestedPurchase(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_RespondToRequestedPurchase_Request*>(
                  request),
@@ -17553,7 +18783,7 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 17:
+    case 18:
       GetChangeLog(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_GetChangeLog_Request*>(
                  request),
@@ -17561,7 +18791,7 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 18:
+    case 19:
       SetFamilyCooldownOverrides(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_SetFamilyCooldownOverrides_Request*>(
                  request),
@@ -17569,7 +18799,7 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 19:
+    case 20:
       GetSharedLibraryApps(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_GetSharedLibraryApps_Request*>(
                  request),
@@ -17577,7 +18807,7 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 20:
+    case 21:
       SetPreferredLender(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_SetPreferredLender_Request*>(
                  request),
@@ -17585,7 +18815,7 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 21:
+    case 22:
       GetPreferredLenders(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_GetPreferredLenders_Request*>(
                  request),
@@ -17593,11 +18823,27 @@ void FamilyGroups::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 22:
-      GetDispersionForFamily(controller,
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_GetDispersionForFamily_Request*>(
+    case 23:
+      ForceAcceptInvite(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_ForceAcceptInvite_Request*>(
                  request),
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CFamilyGroups_GetDispersionForFamily_Response*>(
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CFamilyGroups_ForceAcceptInvite_Response*>(
+                 response),
+             done);
+      break;
+    case 24:
+      GetInviteCheckResults(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_GetInviteCheckResults_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CFamilyGroups_GetInviteCheckResults_Response*>(
+                 response),
+             done);
+      break;
+    case 25:
+      ClearCooldownSkip(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroups_ClearCooldownSkip_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CFamilyGroups_ClearCooldownSkip_Response*>(
                  response),
              done);
       break;
@@ -17638,25 +18884,31 @@ const ::PROTOBUF_NAMESPACE_ID::Message& FamilyGroups::GetRequestPrototype(
     case 12:
       return ::CFamilyGroups_DeleteFamilyGroup_Request::default_instance();
     case 13:
-      return ::CFamilyGroups_GetPlaytimeSummary_Request::default_instance();
+      return ::CFamilyGroups_UndeleteFamilyGroup_Request::default_instance();
     case 14:
-      return ::CFamilyGroups_RequestPurchase_Request::default_instance();
+      return ::CFamilyGroups_GetPlaytimeSummary_Request::default_instance();
     case 15:
-      return ::CFamilyGroups_GetPurchaseRequests_Request::default_instance();
+      return ::CFamilyGroups_RequestPurchase_Request::default_instance();
     case 16:
-      return ::CFamilyGroups_RespondToRequestedPurchase_Request::default_instance();
+      return ::CFamilyGroups_GetPurchaseRequests_Request::default_instance();
     case 17:
-      return ::CFamilyGroups_GetChangeLog_Request::default_instance();
+      return ::CFamilyGroups_RespondToRequestedPurchase_Request::default_instance();
     case 18:
-      return ::CFamilyGroups_SetFamilyCooldownOverrides_Request::default_instance();
+      return ::CFamilyGroups_GetChangeLog_Request::default_instance();
     case 19:
-      return ::CFamilyGroups_GetSharedLibraryApps_Request::default_instance();
+      return ::CFamilyGroups_SetFamilyCooldownOverrides_Request::default_instance();
     case 20:
-      return ::CFamilyGroups_SetPreferredLender_Request::default_instance();
+      return ::CFamilyGroups_GetSharedLibraryApps_Request::default_instance();
     case 21:
-      return ::CFamilyGroups_GetPreferredLenders_Request::default_instance();
+      return ::CFamilyGroups_SetPreferredLender_Request::default_instance();
     case 22:
-      return ::CFamilyGroups_GetDispersionForFamily_Request::default_instance();
+      return ::CFamilyGroups_GetPreferredLenders_Request::default_instance();
+    case 23:
+      return ::CFamilyGroups_ForceAcceptInvite_Request::default_instance();
+    case 24:
+      return ::CFamilyGroups_GetInviteCheckResults_Request::default_instance();
+    case 25:
+      return ::CFamilyGroups_ClearCooldownSkip_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -17695,25 +18947,31 @@ const ::PROTOBUF_NAMESPACE_ID::Message& FamilyGroups::GetResponsePrototype(
     case 12:
       return ::CFamilyGroups_DeleteFamilyGroup_Response::default_instance();
     case 13:
-      return ::CFamilyGroups_GetPlaytimeSummary_Response::default_instance();
+      return ::CFamilyGroups_UndeleteFamilyGroup_Response::default_instance();
     case 14:
-      return ::CFamilyGroups_RequestPurchase_Response::default_instance();
+      return ::CFamilyGroups_GetPlaytimeSummary_Response::default_instance();
     case 15:
-      return ::CFamilyGroups_GetPurchaseRequests_Response::default_instance();
+      return ::CFamilyGroups_RequestPurchase_Response::default_instance();
     case 16:
-      return ::CFamilyGroups_RespondToRequestedPurchase_Response::default_instance();
+      return ::CFamilyGroups_GetPurchaseRequests_Response::default_instance();
     case 17:
-      return ::CFamilyGroups_GetChangeLog_Response::default_instance();
+      return ::CFamilyGroups_RespondToRequestedPurchase_Response::default_instance();
     case 18:
-      return ::CFamilyGroups_SetFamilyCooldownOverrides_Response::default_instance();
+      return ::CFamilyGroups_GetChangeLog_Response::default_instance();
     case 19:
-      return ::CFamilyGroups_GetSharedLibraryApps_Response::default_instance();
+      return ::CFamilyGroups_SetFamilyCooldownOverrides_Response::default_instance();
     case 20:
-      return ::CFamilyGroups_SetPreferredLender_Response::default_instance();
+      return ::CFamilyGroups_GetSharedLibraryApps_Response::default_instance();
     case 21:
-      return ::CFamilyGroups_GetPreferredLenders_Response::default_instance();
+      return ::CFamilyGroups_SetPreferredLender_Response::default_instance();
     case 22:
-      return ::CFamilyGroups_GetDispersionForFamily_Response::default_instance();
+      return ::CFamilyGroups_GetPreferredLenders_Response::default_instance();
+    case 23:
+      return ::CFamilyGroups_ForceAcceptInvite_Response::default_instance();
+    case 24:
+      return ::CFamilyGroups_GetInviteCheckResults_Response::default_instance();
+    case 25:
+      return ::CFamilyGroups_ClearCooldownSkip_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -17823,74 +19081,95 @@ void FamilyGroups_Stub::DeleteFamilyGroup(::PROTOBUF_NAMESPACE_ID::RpcController
   channel_->CallMethod(descriptor()->method(12),
                        controller, request, response, done);
 }
+void FamilyGroups_Stub::UndeleteFamilyGroup(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CFamilyGroups_UndeleteFamilyGroup_Request* request,
+                              ::CFamilyGroups_UndeleteFamilyGroup_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(13),
+                       controller, request, response, done);
+}
 void FamilyGroups_Stub::GetPlaytimeSummary(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_GetPlaytimeSummary_Request* request,
                               ::CFamilyGroups_GetPlaytimeSummary_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(13),
+  channel_->CallMethod(descriptor()->method(14),
                        controller, request, response, done);
 }
 void FamilyGroups_Stub::RequestPurchase(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_RequestPurchase_Request* request,
                               ::CFamilyGroups_RequestPurchase_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(14),
+  channel_->CallMethod(descriptor()->method(15),
                        controller, request, response, done);
 }
 void FamilyGroups_Stub::GetPurchaseRequests(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_GetPurchaseRequests_Request* request,
                               ::CFamilyGroups_GetPurchaseRequests_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(15),
+  channel_->CallMethod(descriptor()->method(16),
                        controller, request, response, done);
 }
 void FamilyGroups_Stub::RespondToRequestedPurchase(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_RespondToRequestedPurchase_Request* request,
                               ::CFamilyGroups_RespondToRequestedPurchase_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(16),
+  channel_->CallMethod(descriptor()->method(17),
                        controller, request, response, done);
 }
 void FamilyGroups_Stub::GetChangeLog(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_GetChangeLog_Request* request,
                               ::CFamilyGroups_GetChangeLog_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(17),
+  channel_->CallMethod(descriptor()->method(18),
                        controller, request, response, done);
 }
 void FamilyGroups_Stub::SetFamilyCooldownOverrides(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_SetFamilyCooldownOverrides_Request* request,
                               ::CFamilyGroups_SetFamilyCooldownOverrides_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(18),
+  channel_->CallMethod(descriptor()->method(19),
                        controller, request, response, done);
 }
 void FamilyGroups_Stub::GetSharedLibraryApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_GetSharedLibraryApps_Request* request,
                               ::CFamilyGroups_GetSharedLibraryApps_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(19),
+  channel_->CallMethod(descriptor()->method(20),
                        controller, request, response, done);
 }
 void FamilyGroups_Stub::SetPreferredLender(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_SetPreferredLender_Request* request,
                               ::CFamilyGroups_SetPreferredLender_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(20),
+  channel_->CallMethod(descriptor()->method(21),
                        controller, request, response, done);
 }
 void FamilyGroups_Stub::GetPreferredLenders(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CFamilyGroups_GetPreferredLenders_Request* request,
                               ::CFamilyGroups_GetPreferredLenders_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(21),
+  channel_->CallMethod(descriptor()->method(22),
                        controller, request, response, done);
 }
-void FamilyGroups_Stub::GetDispersionForFamily(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                              const ::CFamilyGroups_GetDispersionForFamily_Request* request,
-                              ::CFamilyGroups_GetDispersionForFamily_Response* response,
+void FamilyGroups_Stub::ForceAcceptInvite(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CFamilyGroups_ForceAcceptInvite_Request* request,
+                              ::CFamilyGroups_ForceAcceptInvite_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(22),
+  channel_->CallMethod(descriptor()->method(23),
+                       controller, request, response, done);
+}
+void FamilyGroups_Stub::GetInviteCheckResults(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CFamilyGroups_GetInviteCheckResults_Request* request,
+                              ::CFamilyGroups_GetInviteCheckResults_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(24),
+                       controller, request, response, done);
+}
+void FamilyGroups_Stub::ClearCooldownSkip(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CFamilyGroups_ClearCooldownSkip_Request* request,
+                              ::CFamilyGroups_ClearCooldownSkip_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(25),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -18126,6 +19405,12 @@ template<> PROTOBUF_NOINLINE ::CFamilyGroups_DeleteFamilyGroup_Request* Arena::C
 template<> PROTOBUF_NOINLINE ::CFamilyGroups_DeleteFamilyGroup_Response* Arena::CreateMaybeMessage< ::CFamilyGroups_DeleteFamilyGroup_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CFamilyGroups_DeleteFamilyGroup_Response >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CFamilyGroups_UndeleteFamilyGroup_Request* Arena::CreateMaybeMessage< ::CFamilyGroups_UndeleteFamilyGroup_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroups_UndeleteFamilyGroup_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CFamilyGroups_UndeleteFamilyGroup_Response* Arena::CreateMaybeMessage< ::CFamilyGroups_UndeleteFamilyGroup_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroups_UndeleteFamilyGroup_Response >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetPlaytimeSummary_Request* Arena::CreateMaybeMessage< ::CFamilyGroups_GetPlaytimeSummary_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CFamilyGroups_GetPlaytimeSummary_Request >(arena);
 }
@@ -18195,17 +19480,23 @@ template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetPreferredLenders_Response_Family
 template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetPreferredLenders_Response* Arena::CreateMaybeMessage< ::CFamilyGroups_GetPreferredLenders_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CFamilyGroups_GetPreferredLenders_Response >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetDispersionForFamily_Request* Arena::CreateMaybeMessage< ::CFamilyGroups_GetDispersionForFamily_Request >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CFamilyGroups_GetDispersionForFamily_Request >(arena);
+template<> PROTOBUF_NOINLINE ::CFamilyGroups_ForceAcceptInvite_Request* Arena::CreateMaybeMessage< ::CFamilyGroups_ForceAcceptInvite_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroups_ForceAcceptInvite_Request >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CFamilyGroups_FamilyDispersionGraph_Edge* Arena::CreateMaybeMessage< ::CFamilyGroups_FamilyDispersionGraph_Edge >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CFamilyGroups_FamilyDispersionGraph_Edge >(arena);
+template<> PROTOBUF_NOINLINE ::CFamilyGroups_ForceAcceptInvite_Response* Arena::CreateMaybeMessage< ::CFamilyGroups_ForceAcceptInvite_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroups_ForceAcceptInvite_Response >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CFamilyGroups_FamilyDispersionGraph* Arena::CreateMaybeMessage< ::CFamilyGroups_FamilyDispersionGraph >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CFamilyGroups_FamilyDispersionGraph >(arena);
+template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetInviteCheckResults_Request* Arena::CreateMaybeMessage< ::CFamilyGroups_GetInviteCheckResults_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroups_GetInviteCheckResults_Request >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetDispersionForFamily_Response* Arena::CreateMaybeMessage< ::CFamilyGroups_GetDispersionForFamily_Response >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CFamilyGroups_GetDispersionForFamily_Response >(arena);
+template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetInviteCheckResults_Response* Arena::CreateMaybeMessage< ::CFamilyGroups_GetInviteCheckResults_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroups_GetInviteCheckResults_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CFamilyGroups_ClearCooldownSkip_Request* Arena::CreateMaybeMessage< ::CFamilyGroups_ClearCooldownSkip_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroups_ClearCooldownSkip_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CFamilyGroups_ClearCooldownSkip_Response* Arena::CreateMaybeMessage< ::CFamilyGroups_ClearCooldownSkip_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroups_ClearCooldownSkip_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember >(arena);

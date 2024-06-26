@@ -17,7 +17,7 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 static constexpr ::PROTOBUF_NAMESPACE_ID::Metadata* file_level_metadata_enums_2eproto = nullptr;
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_enums_2eproto[54];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_enums_2eproto[56];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_enums_2eproto = nullptr;
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_enums_2eproto::offsets[1] = {};
 static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
@@ -374,8 +374,25 @@ const char descriptor_table_protodef_enums_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "AsyncGameSessionUserVisibilityEnvelopeAn"
   "dSessionList\020\000\0222\n.EAsyncGameSessionUserV"
   "isibilitySessionListOnly\020\001\022,\n(EAsyncGame"
-  "SessionUserVisibilityDismissed\020\002B#H\001\200\001\001\252"
-  "\002\027OpenSteamworks.Protobuf\200\265\030\001"
+  "SessionUserVisibilityDismissed\020\002*\312\001\n\022EGa"
+  "meRecordingType\022\036\n\032EGameRecordingType_Un"
+  "known\020\000\022#\n\037EGameRecordingType_NotRecordi"
+  "ng\020\001\022&\n\"EGameRecordingType_ManualRecordi"
+  "ng\020\002\022*\n&EGameRecordingType_BackgroundRec"
+  "ording\020\003\022\033\n\027EGameRecordingType_Clip\020\004*\302\003"
+  "\n\rEProtoAppType\022\023\n\017EAppTypeInvalid\020\000\022\020\n\014"
+  "EAppTypeGame\020\001\022\027\n\023EAppTypeApplication\020\002\022"
+  "\020\n\014EAppTypeTool\020\004\022\020\n\014EAppTypeDemo\020\010\022\025\n\021E"
+  "AppTypeDeprected\020\020\022\017\n\013EAppTypeDLC\020 \022\021\n\rE"
+  "AppTypeGuide\020@\022\023\n\016EAppTypeDriver\020\200\001\022\023\n\016E"
+  "AppTypeConfig\020\200\002\022\025\n\020EAppTypeHardware\020\200\004\022"
+  "\026\n\021EAppTypeFranchise\020\200\010\022\022\n\rEAppTypeVideo"
+  "\020\200\020\022\023\n\016EAppTypePlugin\020\200 \022\027\n\022EAppTypeMusi"
+  "cAlbum\020\200@\022\024\n\016EAppTypeSeries\020\200\200\001\022\023\n\rEAppT"
+  "ypeComic\020\200\200\002\022\022\n\014EAppTypeBeta\020\200\200\004\022\030\n\020EApp"
+  "TypeShortcut\020\200\200\200\200\004\022\036\n\021EAppTypeDepotOnly\020"
+  "\200\200\200\200\370\377\377\377\377\001B#H\001\200\001\001\252\002\027OpenSteamworks.Proto"
+  "buf\200\265\030\001"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_enums_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -383,7 +400,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_enums_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_enums_2eproto = {
-  false, false, 14069, descriptor_table_protodef_enums_2eproto, "enums.proto", 
+  false, false, 14727, descriptor_table_protodef_enums_2eproto, "enums.proto", 
   &descriptor_table_enums_2eproto_once, descriptor_table_enums_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_enums_2eproto::offsets,
   file_level_metadata_enums_2eproto, file_level_enum_descriptors_enums_2eproto, file_level_service_descriptors_enums_2eproto,
@@ -1372,6 +1389,55 @@ bool EAsyncGameSessionUserVisibility_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGameRecordingType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[54];
+}
+bool EGameRecordingType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProtoAppType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[55];
+}
+bool EProtoAppType_IsValid(int value) {
+  switch (value) {
+    case -2147483647 - 1:
+    case 0:
+    case 1:
+    case 2:
+    case 4:
+    case 8:
+    case 16:
+    case 32:
+    case 64:
+    case 128:
+    case 256:
+    case 512:
+    case 1024:
+    case 2048:
+    case 4096:
+    case 8192:
+    case 16384:
+    case 32768:
+    case 65536:
+    case 1073741824:
       return true;
     default:
       return false;

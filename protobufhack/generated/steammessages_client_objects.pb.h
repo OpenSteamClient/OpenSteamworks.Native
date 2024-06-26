@@ -4885,9 +4885,12 @@ class CMsgBluetoothDevicesData_Device PROTOBUF_FINAL :
     kIdFieldNumber = 1,
     kAdapterIdFieldNumber = 2,
     kEtypeFieldNumber = 3,
+    kStrengthRawFieldNumber = 8,
     kIsConnectedFieldNumber = 6,
     kIsPairedFieldNumber = 7,
-    kStrengthRawFieldNumber = 8,
+    kWakeAllowedFieldNumber = 9,
+    kWakeAllowedSupportedFieldNumber = 10,
+    kBatteryPercentFieldNumber = 11,
   };
   // optional string mac = 4;
   bool has_mac() const;
@@ -4968,6 +4971,19 @@ class CMsgBluetoothDevicesData_Device PROTOBUF_FINAL :
   void _internal_set_etype(::EBluetoothDeviceType value);
   public:
 
+  // optional int32 strength_raw = 8;
+  bool has_strength_raw() const;
+  private:
+  bool _internal_has_strength_raw() const;
+  public:
+  void clear_strength_raw();
+  ::PROTOBUF_NAMESPACE_ID::int32 strength_raw() const;
+  void set_strength_raw(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_strength_raw() const;
+  void _internal_set_strength_raw(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // optional bool is_connected = 6;
   bool has_is_connected() const;
   private:
@@ -4994,17 +5010,43 @@ class CMsgBluetoothDevicesData_Device PROTOBUF_FINAL :
   void _internal_set_is_paired(bool value);
   public:
 
-  // optional int32 strength_raw = 8;
-  bool has_strength_raw() const;
+  // optional bool wake_allowed = 9;
+  bool has_wake_allowed() const;
   private:
-  bool _internal_has_strength_raw() const;
+  bool _internal_has_wake_allowed() const;
   public:
-  void clear_strength_raw();
-  ::PROTOBUF_NAMESPACE_ID::int32 strength_raw() const;
-  void set_strength_raw(::PROTOBUF_NAMESPACE_ID::int32 value);
+  void clear_wake_allowed();
+  bool wake_allowed() const;
+  void set_wake_allowed(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_strength_raw() const;
-  void _internal_set_strength_raw(::PROTOBUF_NAMESPACE_ID::int32 value);
+  bool _internal_wake_allowed() const;
+  void _internal_set_wake_allowed(bool value);
+  public:
+
+  // optional bool wake_allowed_supported = 10;
+  bool has_wake_allowed_supported() const;
+  private:
+  bool _internal_has_wake_allowed_supported() const;
+  public:
+  void clear_wake_allowed_supported();
+  bool wake_allowed_supported() const;
+  void set_wake_allowed_supported(bool value);
+  private:
+  bool _internal_wake_allowed_supported() const;
+  void _internal_set_wake_allowed_supported(bool value);
+  public:
+
+  // optional int32 battery_percent = 11;
+  bool has_battery_percent() const;
+  private:
+  bool _internal_has_battery_percent() const;
+  public:
+  void clear_battery_percent();
+  ::PROTOBUF_NAMESPACE_ID::int32 battery_percent() const;
+  void set_battery_percent(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_battery_percent() const;
+  void _internal_set_battery_percent(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgBluetoothDevicesData.Device)
@@ -5021,9 +5063,12 @@ class CMsgBluetoothDevicesData_Device PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 adapter_id_;
   int etype_;
+  ::PROTOBUF_NAMESPACE_ID::int32 strength_raw_;
   bool is_connected_;
   bool is_paired_;
-  ::PROTOBUF_NAMESPACE_ID::int32 strength_raw_;
+  bool wake_allowed_;
+  bool wake_allowed_supported_;
+  ::PROTOBUF_NAMESPACE_ID::int32 battery_percent_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
 };
 // -------------------------------------------------------------------
@@ -21132,7 +21177,7 @@ inline void CMsgBluetoothDevicesData_Device::set_allocated_name(std::string* nam
 
 // optional bool is_connected = 6;
 inline bool CMsgBluetoothDevicesData_Device::_internal_has_is_connected() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgBluetoothDevicesData_Device::has_is_connected() const {
@@ -21140,7 +21185,7 @@ inline bool CMsgBluetoothDevicesData_Device::has_is_connected() const {
 }
 inline void CMsgBluetoothDevicesData_Device::clear_is_connected() {
   is_connected_ = false;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline bool CMsgBluetoothDevicesData_Device::_internal_is_connected() const {
   return is_connected_;
@@ -21150,7 +21195,7 @@ inline bool CMsgBluetoothDevicesData_Device::is_connected() const {
   return _internal_is_connected();
 }
 inline void CMsgBluetoothDevicesData_Device::_internal_set_is_connected(bool value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   is_connected_ = value;
 }
 inline void CMsgBluetoothDevicesData_Device::set_is_connected(bool value) {
@@ -21160,7 +21205,7 @@ inline void CMsgBluetoothDevicesData_Device::set_is_connected(bool value) {
 
 // optional bool is_paired = 7;
 inline bool CMsgBluetoothDevicesData_Device::_internal_has_is_paired() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgBluetoothDevicesData_Device::has_is_paired() const {
@@ -21168,7 +21213,7 @@ inline bool CMsgBluetoothDevicesData_Device::has_is_paired() const {
 }
 inline void CMsgBluetoothDevicesData_Device::clear_is_paired() {
   is_paired_ = false;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline bool CMsgBluetoothDevicesData_Device::_internal_is_paired() const {
   return is_paired_;
@@ -21178,7 +21223,7 @@ inline bool CMsgBluetoothDevicesData_Device::is_paired() const {
   return _internal_is_paired();
 }
 inline void CMsgBluetoothDevicesData_Device::_internal_set_is_paired(bool value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   is_paired_ = value;
 }
 inline void CMsgBluetoothDevicesData_Device::set_is_paired(bool value) {
@@ -21188,7 +21233,7 @@ inline void CMsgBluetoothDevicesData_Device::set_is_paired(bool value) {
 
 // optional int32 strength_raw = 8;
 inline bool CMsgBluetoothDevicesData_Device::_internal_has_strength_raw() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgBluetoothDevicesData_Device::has_strength_raw() const {
@@ -21196,7 +21241,7 @@ inline bool CMsgBluetoothDevicesData_Device::has_strength_raw() const {
 }
 inline void CMsgBluetoothDevicesData_Device::clear_strength_raw() {
   strength_raw_ = 0;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgBluetoothDevicesData_Device::_internal_strength_raw() const {
   return strength_raw_;
@@ -21206,12 +21251,96 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgBluetoothDevicesData_Device::strength_
   return _internal_strength_raw();
 }
 inline void CMsgBluetoothDevicesData_Device::_internal_set_strength_raw(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000020u;
   strength_raw_ = value;
 }
 inline void CMsgBluetoothDevicesData_Device::set_strength_raw(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_strength_raw(value);
   // @@protoc_insertion_point(field_set:CMsgBluetoothDevicesData.Device.strength_raw)
+}
+
+// optional bool wake_allowed = 9;
+inline bool CMsgBluetoothDevicesData_Device::_internal_has_wake_allowed() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CMsgBluetoothDevicesData_Device::has_wake_allowed() const {
+  return _internal_has_wake_allowed();
+}
+inline void CMsgBluetoothDevicesData_Device::clear_wake_allowed() {
+  wake_allowed_ = false;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline bool CMsgBluetoothDevicesData_Device::_internal_wake_allowed() const {
+  return wake_allowed_;
+}
+inline bool CMsgBluetoothDevicesData_Device::wake_allowed() const {
+  // @@protoc_insertion_point(field_get:CMsgBluetoothDevicesData.Device.wake_allowed)
+  return _internal_wake_allowed();
+}
+inline void CMsgBluetoothDevicesData_Device::_internal_set_wake_allowed(bool value) {
+  _has_bits_[0] |= 0x00000100u;
+  wake_allowed_ = value;
+}
+inline void CMsgBluetoothDevicesData_Device::set_wake_allowed(bool value) {
+  _internal_set_wake_allowed(value);
+  // @@protoc_insertion_point(field_set:CMsgBluetoothDevicesData.Device.wake_allowed)
+}
+
+// optional bool wake_allowed_supported = 10;
+inline bool CMsgBluetoothDevicesData_Device::_internal_has_wake_allowed_supported() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgBluetoothDevicesData_Device::has_wake_allowed_supported() const {
+  return _internal_has_wake_allowed_supported();
+}
+inline void CMsgBluetoothDevicesData_Device::clear_wake_allowed_supported() {
+  wake_allowed_supported_ = false;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline bool CMsgBluetoothDevicesData_Device::_internal_wake_allowed_supported() const {
+  return wake_allowed_supported_;
+}
+inline bool CMsgBluetoothDevicesData_Device::wake_allowed_supported() const {
+  // @@protoc_insertion_point(field_get:CMsgBluetoothDevicesData.Device.wake_allowed_supported)
+  return _internal_wake_allowed_supported();
+}
+inline void CMsgBluetoothDevicesData_Device::_internal_set_wake_allowed_supported(bool value) {
+  _has_bits_[0] |= 0x00000200u;
+  wake_allowed_supported_ = value;
+}
+inline void CMsgBluetoothDevicesData_Device::set_wake_allowed_supported(bool value) {
+  _internal_set_wake_allowed_supported(value);
+  // @@protoc_insertion_point(field_set:CMsgBluetoothDevicesData.Device.wake_allowed_supported)
+}
+
+// optional int32 battery_percent = 11;
+inline bool CMsgBluetoothDevicesData_Device::_internal_has_battery_percent() const {
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool CMsgBluetoothDevicesData_Device::has_battery_percent() const {
+  return _internal_has_battery_percent();
+}
+inline void CMsgBluetoothDevicesData_Device::clear_battery_percent() {
+  battery_percent_ = 0;
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgBluetoothDevicesData_Device::_internal_battery_percent() const {
+  return battery_percent_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgBluetoothDevicesData_Device::battery_percent() const {
+  // @@protoc_insertion_point(field_get:CMsgBluetoothDevicesData.Device.battery_percent)
+  return _internal_battery_percent();
+}
+inline void CMsgBluetoothDevicesData_Device::_internal_set_battery_percent(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000400u;
+  battery_percent_ = value;
+}
+inline void CMsgBluetoothDevicesData_Device::set_battery_percent(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_battery_percent(value);
+  // @@protoc_insertion_point(field_set:CMsgBluetoothDevicesData.Device.battery_percent)
 }
 
 // -------------------------------------------------------------------

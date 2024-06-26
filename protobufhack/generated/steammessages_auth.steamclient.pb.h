@@ -348,6 +348,32 @@ inline bool ETokenRenewalType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ETokenRenewalType>(
     ETokenRenewalType_descriptor(), name, value);
 }
+enum EAuthenticationType : int {
+  EAuthenticationType_Unknown = 0,
+  EAuthenticationType_Password = 1,
+  EAuthenticationType_QR = 2,
+  EAuthenticationType_AccountCreation = 3,
+  EAuthenticationType_GuestAccount = 4
+};
+bool EAuthenticationType_IsValid(int value);
+constexpr EAuthenticationType EAuthenticationType_MIN = EAuthenticationType_Unknown;
+constexpr EAuthenticationType EAuthenticationType_MAX = EAuthenticationType_GuestAccount;
+constexpr int EAuthenticationType_ARRAYSIZE = EAuthenticationType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAuthenticationType_descriptor();
+template<typename T>
+inline const std::string& EAuthenticationType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EAuthenticationType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EAuthenticationType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EAuthenticationType_descriptor(), enum_t_value);
+}
+inline bool EAuthenticationType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAuthenticationType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAuthenticationType>(
+    EAuthenticationType_descriptor(), name, value);
+}
 enum EAuthTokenRevokeAction : int {
   EAuthTokenRevokeLogout = 0,
   EAuthTokenRevokePermanent = 1,
@@ -4854,6 +4880,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
     kAuthTypeFieldNumber = 7,
     kGamingDeviceTypeFieldNumber = 8,
     kOsTypeFieldNumber = 11,
+    kAuthenticationTypeFieldNumber = 12,
   };
   // optional string token_description = 2;
   bool has_token_description() const;
@@ -5015,6 +5042,19 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   void _internal_set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional .EAuthenticationType authentication_type = 12 [default = EAuthenticationType_Unknown];
+  bool has_authentication_type() const;
+  private:
+  bool _internal_has_authentication_type() const;
+  public:
+  void clear_authentication_type();
+  ::EAuthenticationType authentication_type() const;
+  void set_authentication_type(::EAuthenticationType value);
+  private:
+  ::EAuthenticationType _internal_authentication_type() const;
+  void _internal_set_authentication_type(::EAuthenticationType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription)
  private:
   class _Internal;
@@ -5035,6 +5075,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   ::PROTOBUF_NAMESPACE_ID::uint32 auth_type_;
   ::PROTOBUF_NAMESPACE_ID::uint32 gaming_device_type_;
   ::PROTOBUF_NAMESPACE_ID::int32 os_type_;
+  int authentication_type_;
   friend struct ::TableStruct_steammessages_5fauth_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -14750,6 +14791,35 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.os_type)
 }
 
+// optional .EAuthenticationType authentication_type = 12 [default = EAuthenticationType_Unknown];
+inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_authentication_type() const {
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::has_authentication_type() const {
+  return _internal_has_authentication_type();
+}
+inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::clear_authentication_type() {
+  authentication_type_ = 0;
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline ::EAuthenticationType CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_authentication_type() const {
+  return static_cast< ::EAuthenticationType >(authentication_type_);
+}
+inline ::EAuthenticationType CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::authentication_type() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.authentication_type)
+  return _internal_authentication_type();
+}
+inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_set_authentication_type(::EAuthenticationType value) {
+  assert(::EAuthenticationType_IsValid(value));
+  _has_bits_[0] |= 0x00000800u;
+  authentication_type_ = value;
+}
+inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::set_authentication_type(::EAuthenticationType value) {
+  _internal_set_authentication_type(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.authentication_type)
+}
+
 // -------------------------------------------------------------------
 
 // CAuthentication_RefreshToken_Enumerate_Response
@@ -17374,6 +17444,11 @@ template <> struct is_proto_enum< ::ETokenRenewalType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ETokenRenewalType>() {
   return ::ETokenRenewalType_descriptor();
+}
+template <> struct is_proto_enum< ::EAuthenticationType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EAuthenticationType>() {
+  return ::EAuthenticationType_descriptor();
 }
 template <> struct is_proto_enum< ::EAuthTokenRevokeAction> : ::std::true_type {};
 template <>

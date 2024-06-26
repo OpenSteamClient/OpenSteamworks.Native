@@ -10513,6 +10513,7 @@ class CPublishedFile_GetChangeHistoryEntry_Response PROTOBUF_FINAL :
     kSnapshotGameBranchMaxFieldNumber = 5,
     kLanguageFieldNumber = 2,
     kSavedSnapshotFieldNumber = 3,
+    kManifestIdFieldNumber = 6,
   };
   // optional string change_description = 1;
   bool has_change_description() const;
@@ -10600,6 +10601,19 @@ class CPublishedFile_GetChangeHistoryEntry_Response PROTOBUF_FINAL :
   void _internal_set_saved_snapshot(bool value);
   public:
 
+  // optional fixed64 manifest_id = 6;
+  bool has_manifest_id() const;
+  private:
+  bool _internal_has_manifest_id() const;
+  public:
+  void clear_manifest_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 manifest_id() const;
+  void set_manifest_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_manifest_id() const;
+  void _internal_set_manifest_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CPublishedFile_GetChangeHistoryEntry_Response)
  private:
   class _Internal;
@@ -10614,6 +10628,7 @@ class CPublishedFile_GetChangeHistoryEntry_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr snapshot_game_branch_max_;
   ::PROTOBUF_NAMESPACE_ID::int32 language_;
   bool saved_snapshot_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 manifest_id_;
   friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -10952,6 +10967,7 @@ class CPublishedFile_GetChangeHistory_Response_ChangeLog PROTOBUF_FINAL :
     kSnapshotGameBranchMaxFieldNumber = 6,
     kTimestampFieldNumber = 1,
     kLanguageFieldNumber = 3,
+    kManifestIdFieldNumber = 7,
     kSavedSnapshotFieldNumber = 4,
   };
   // optional string change_description = 2;
@@ -11040,6 +11056,19 @@ class CPublishedFile_GetChangeHistory_Response_ChangeLog PROTOBUF_FINAL :
   void _internal_set_language(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional fixed64 manifest_id = 7;
+  bool has_manifest_id() const;
+  private:
+  bool _internal_has_manifest_id() const;
+  public:
+  void clear_manifest_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 manifest_id() const;
+  void set_manifest_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_manifest_id() const;
+  void _internal_set_manifest_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // optional bool saved_snapshot = 4;
   bool has_saved_snapshot() const;
   private:
@@ -11067,6 +11096,7 @@ class CPublishedFile_GetChangeHistory_Response_ChangeLog PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr snapshot_game_branch_max_;
   ::PROTOBUF_NAMESPACE_ID::uint32 timestamp_;
   ::PROTOBUF_NAMESPACE_ID::int32 language_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 manifest_id_;
   bool saved_snapshot_;
   friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
 };
@@ -30834,6 +30864,34 @@ inline void CPublishedFile_GetChangeHistoryEntry_Response::set_allocated_snapsho
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_GetChangeHistoryEntry_Response.snapshot_game_branch_max)
 }
 
+// optional fixed64 manifest_id = 6;
+inline bool CPublishedFile_GetChangeHistoryEntry_Response::_internal_has_manifest_id() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CPublishedFile_GetChangeHistoryEntry_Response::has_manifest_id() const {
+  return _internal_has_manifest_id();
+}
+inline void CPublishedFile_GetChangeHistoryEntry_Response::clear_manifest_id() {
+  manifest_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_GetChangeHistoryEntry_Response::_internal_manifest_id() const {
+  return manifest_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_GetChangeHistoryEntry_Response::manifest_id() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_GetChangeHistoryEntry_Response.manifest_id)
+  return _internal_manifest_id();
+}
+inline void CPublishedFile_GetChangeHistoryEntry_Response::_internal_set_manifest_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000020u;
+  manifest_id_ = value;
+}
+inline void CPublishedFile_GetChangeHistoryEntry_Response::set_manifest_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_manifest_id(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_GetChangeHistoryEntry_Response.manifest_id)
+}
+
 // -------------------------------------------------------------------
 
 // CPublishedFile_GetChangeHistory_Request
@@ -31113,7 +31171,7 @@ inline void CPublishedFile_GetChangeHistory_Response_ChangeLog::set_language(::P
 
 // optional bool saved_snapshot = 4;
 inline bool CPublishedFile_GetChangeHistory_Response_ChangeLog::_internal_has_saved_snapshot() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CPublishedFile_GetChangeHistory_Response_ChangeLog::has_saved_snapshot() const {
@@ -31121,7 +31179,7 @@ inline bool CPublishedFile_GetChangeHistory_Response_ChangeLog::has_saved_snapsh
 }
 inline void CPublishedFile_GetChangeHistory_Response_ChangeLog::clear_saved_snapshot() {
   saved_snapshot_ = false;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline bool CPublishedFile_GetChangeHistory_Response_ChangeLog::_internal_saved_snapshot() const {
   return saved_snapshot_;
@@ -31131,7 +31189,7 @@ inline bool CPublishedFile_GetChangeHistory_Response_ChangeLog::saved_snapshot()
   return _internal_saved_snapshot();
 }
 inline void CPublishedFile_GetChangeHistory_Response_ChangeLog::_internal_set_saved_snapshot(bool value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   saved_snapshot_ = value;
 }
 inline void CPublishedFile_GetChangeHistory_Response_ChangeLog::set_saved_snapshot(bool value) {
@@ -31283,6 +31341,34 @@ inline void CPublishedFile_GetChangeHistory_Response_ChangeLog::set_allocated_sn
   snapshot_game_branch_max_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), snapshot_game_branch_max,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_GetChangeHistory_Response.ChangeLog.snapshot_game_branch_max)
+}
+
+// optional fixed64 manifest_id = 7;
+inline bool CPublishedFile_GetChangeHistory_Response_ChangeLog::_internal_has_manifest_id() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CPublishedFile_GetChangeHistory_Response_ChangeLog::has_manifest_id() const {
+  return _internal_has_manifest_id();
+}
+inline void CPublishedFile_GetChangeHistory_Response_ChangeLog::clear_manifest_id() {
+  manifest_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_GetChangeHistory_Response_ChangeLog::_internal_manifest_id() const {
+  return manifest_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_GetChangeHistory_Response_ChangeLog::manifest_id() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_GetChangeHistory_Response.ChangeLog.manifest_id)
+  return _internal_manifest_id();
+}
+inline void CPublishedFile_GetChangeHistory_Response_ChangeLog::_internal_set_manifest_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000020u;
+  manifest_id_ = value;
+}
+inline void CPublishedFile_GetChangeHistory_Response_ChangeLog::set_manifest_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_manifest_id(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_GetChangeHistory_Response.ChangeLog.manifest_id)
 }
 
 // -------------------------------------------------------------------

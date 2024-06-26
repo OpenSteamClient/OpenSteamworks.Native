@@ -342,9 +342,12 @@ constexpr CMsgBluetoothDevicesData_Device::CMsgBluetoothDevicesData_Device(
   , adapter_id_(0u)
   , etype_(0)
 
+  , strength_raw_(0)
   , is_connected_(false)
   , is_paired_(false)
-  , strength_raw_(0){}
+  , wake_allowed_(false)
+  , wake_allowed_supported_(false)
+  , battery_percent_(0){}
 struct CMsgBluetoothDevicesData_DeviceDefaultTypeInternal {
   constexpr CMsgBluetoothDevicesData_DeviceDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1524,14 +1527,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclient_5fobjec
   PROTOBUF_FIELD_OFFSET(::CMsgBluetoothDevicesData_Device, is_connected_),
   PROTOBUF_FIELD_OFFSET(::CMsgBluetoothDevicesData_Device, is_paired_),
   PROTOBUF_FIELD_OFFSET(::CMsgBluetoothDevicesData_Device, strength_raw_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBluetoothDevicesData_Device, wake_allowed_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBluetoothDevicesData_Device, wake_allowed_supported_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBluetoothDevicesData_Device, battery_percent_),
   2,
   3,
   4,
   0,
   1,
-  5,
   6,
   7,
+  5,
+  8,
+  9,
+  10,
   PROTOBUF_FIELD_OFFSET(::CMsgBluetoothDevicesData_Manager, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgBluetoothDevicesData_Manager, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2385,57 +2394,57 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 248, 257, sizeof(::CCloud_PendingRemoteOperation)},
   { 261, -1, sizeof(::CMsgCloudPendingRemoteOperations)},
   { 267, 277, sizeof(::CMsgBluetoothDevicesData_Adapter)},
-  { 282, 295, sizeof(::CMsgBluetoothDevicesData_Device)},
-  { 303, 309, sizeof(::CMsgBluetoothDevicesData_Manager)},
-  { 310, 318, sizeof(::CMsgBluetoothDevicesData)},
-  { 321, 328, sizeof(::CMsgSystemPerfDiagnosticEntry)},
-  { 330, 341, sizeof(::CMsgSystemPerfNetworkInterface)},
-  { 347, 355, sizeof(::CMsgSystemPerfDiagnosticInfo)},
-  { 358, 393, sizeof(::CMsgSystemPerfLimits)},
-  { 423, 446, sizeof(::CMsgSystemPerfSettingsGlobal)},
-  { 464, 494, sizeof(::CMsgSystemPerfSettingsPerApp)},
-  { 519, 526, sizeof(::CMsgSystemPerfSettings)},
-  { 528, 554, sizeof(::CMsgSystemPerfSettingsV1)},
-  { 575, 584, sizeof(::CMsgSystemPerfState)},
-  { 588, 598, sizeof(::CMsgSystemPerfUpdateSettings)},
-  { 602, 609, sizeof(::CMsgSystemPerfLegacySettingEntry)},
-  { 611, 618, sizeof(::CMsgSystemPerfLegacySettings)},
-  { 620, 632, sizeof(::CMsgSystemDockUpdateState)},
-  { 639, 645, sizeof(::CMsgSystemDockState)},
-  { 646, 652, sizeof(::CMsgSystemDockUpdateFirmware)},
-  { 653, 660, sizeof(::CMsgSystemAudioVolume_ChannelEntry)},
-  { 662, 669, sizeof(::CMsgSystemAudioVolume)},
-  { 671, 678, sizeof(::CMsgSystemAudioManagerObject)},
-  { 680, 690, sizeof(::CMsgSystemAudioManagerDevice)},
-  { 695, 707, sizeof(::CMsgSystemAudioManagerNode)},
-  { 714, 729, sizeof(::CMsgSystemAudioManagerPort)},
-  { 739, 749, sizeof(::CMsgSystemAudioManagerLink)},
-  { 754, -1, sizeof(::CMsgSystemAudioManagerStateHW)},
-  { 763, 771, sizeof(::CMsgSystemAudioManagerState)},
-  { 774, 780, sizeof(::CMsgSystemAudioManagerUpdateSomething)},
-  { 781, 790, sizeof(::CMsgSystemDisplayMode)},
-  { 794, 817, sizeof(::CMsgSystemDisplay)},
-  { 835, 843, sizeof(::CMsgSystemDisplayManagerState)},
-  { 846, 853, sizeof(::CMsgSystemDisplayManagerSetMode)},
-  { 855, 896, sizeof(::CMsgSystemManagerSettings)},
-  { 932, 939, sizeof(::CMsgSelectOSBranchParams)},
-  { 941, 949, sizeof(::CMsgSystemUpdateProgress)},
-  { 952, 964, sizeof(::CMsgSystemUpdateCheckResult)},
-  { 971, -1, sizeof(::CMsgSystemUpdateApplyParams)},
-  { 977, 986, sizeof(::CMsgSystemUpdateApplyResult)},
-  { 990, 1000, sizeof(::CMsgSystemUpdateState)},
-  { 1005, 1011, sizeof(::CMsgAchievementChange)},
-  { 1012, 1019, sizeof(::CMsgCellList_Cell)},
-  { 1021, -1, sizeof(::CMsgCellList)},
-  { 1027, 1051, sizeof(::CMsgShortcutInfo)},
-  { 1070, -1, sizeof(::CMsgShortcutAppIds)},
-  { 1076, 1083, sizeof(::CMsgMonitorInfo_MonitorInfo)},
-  { 1085, 1092, sizeof(::CMsgMonitorInfo)},
-  { 1094, 1100, sizeof(::CMsgGenerateSystemReportReply)},
-  { 1101, 1108, sizeof(::CMsgWebUITransportInfo)},
-  { 1110, 1116, sizeof(::CMsgWebUITransportFailure)},
-  { 1117, 1125, sizeof(::CMsgClientShaderHitCacheEntry)},
-  { 1128, -1, sizeof(::CMsgClientShaderHitCache)},
+  { 282, 298, sizeof(::CMsgBluetoothDevicesData_Device)},
+  { 309, 315, sizeof(::CMsgBluetoothDevicesData_Manager)},
+  { 316, 324, sizeof(::CMsgBluetoothDevicesData)},
+  { 327, 334, sizeof(::CMsgSystemPerfDiagnosticEntry)},
+  { 336, 347, sizeof(::CMsgSystemPerfNetworkInterface)},
+  { 353, 361, sizeof(::CMsgSystemPerfDiagnosticInfo)},
+  { 364, 399, sizeof(::CMsgSystemPerfLimits)},
+  { 429, 452, sizeof(::CMsgSystemPerfSettingsGlobal)},
+  { 470, 500, sizeof(::CMsgSystemPerfSettingsPerApp)},
+  { 525, 532, sizeof(::CMsgSystemPerfSettings)},
+  { 534, 560, sizeof(::CMsgSystemPerfSettingsV1)},
+  { 581, 590, sizeof(::CMsgSystemPerfState)},
+  { 594, 604, sizeof(::CMsgSystemPerfUpdateSettings)},
+  { 608, 615, sizeof(::CMsgSystemPerfLegacySettingEntry)},
+  { 617, 624, sizeof(::CMsgSystemPerfLegacySettings)},
+  { 626, 638, sizeof(::CMsgSystemDockUpdateState)},
+  { 645, 651, sizeof(::CMsgSystemDockState)},
+  { 652, 658, sizeof(::CMsgSystemDockUpdateFirmware)},
+  { 659, 666, sizeof(::CMsgSystemAudioVolume_ChannelEntry)},
+  { 668, 675, sizeof(::CMsgSystemAudioVolume)},
+  { 677, 684, sizeof(::CMsgSystemAudioManagerObject)},
+  { 686, 696, sizeof(::CMsgSystemAudioManagerDevice)},
+  { 701, 713, sizeof(::CMsgSystemAudioManagerNode)},
+  { 720, 735, sizeof(::CMsgSystemAudioManagerPort)},
+  { 745, 755, sizeof(::CMsgSystemAudioManagerLink)},
+  { 760, -1, sizeof(::CMsgSystemAudioManagerStateHW)},
+  { 769, 777, sizeof(::CMsgSystemAudioManagerState)},
+  { 780, 786, sizeof(::CMsgSystemAudioManagerUpdateSomething)},
+  { 787, 796, sizeof(::CMsgSystemDisplayMode)},
+  { 800, 823, sizeof(::CMsgSystemDisplay)},
+  { 841, 849, sizeof(::CMsgSystemDisplayManagerState)},
+  { 852, 859, sizeof(::CMsgSystemDisplayManagerSetMode)},
+  { 861, 902, sizeof(::CMsgSystemManagerSettings)},
+  { 938, 945, sizeof(::CMsgSelectOSBranchParams)},
+  { 947, 955, sizeof(::CMsgSystemUpdateProgress)},
+  { 958, 970, sizeof(::CMsgSystemUpdateCheckResult)},
+  { 977, -1, sizeof(::CMsgSystemUpdateApplyParams)},
+  { 983, 992, sizeof(::CMsgSystemUpdateApplyResult)},
+  { 996, 1006, sizeof(::CMsgSystemUpdateState)},
+  { 1011, 1017, sizeof(::CMsgAchievementChange)},
+  { 1018, 1025, sizeof(::CMsgCellList_Cell)},
+  { 1027, -1, sizeof(::CMsgCellList)},
+  { 1033, 1057, sizeof(::CMsgShortcutInfo)},
+  { 1076, -1, sizeof(::CMsgShortcutAppIds)},
+  { 1082, 1089, sizeof(::CMsgMonitorInfo_MonitorInfo)},
+  { 1091, 1098, sizeof(::CMsgMonitorInfo)},
+  { 1100, 1106, sizeof(::CMsgGenerateSystemReportReply)},
+  { 1107, 1114, sizeof(::CMsgWebUITransportInfo)},
+  { 1116, 1122, sizeof(::CMsgWebUITransportFailure)},
+  { 1123, 1131, sizeof(::CMsgClientShaderHitCacheEntry)},
+  { 1134, -1, sizeof(::CMsgClientShaderHitCache)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2593,353 +2602,355 @@ const char descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto[] 
   "t_id\030\003 \001(\004\022\031\n\021time_last_updated\030\004 \001(\r\"V\n"
   " CMsgCloudPendingRemoteOperations\0222\n\nope"
   "rations\030\001 \003(\0132\036.CCloud_PendingRemoteOper"
-  "ation\"\216\004\n\030CMsgBluetoothDevicesData\0223\n\010ad"
+  "ation\"\335\004\n\030CMsgBluetoothDevicesData\0223\n\010ad"
   "apters\030\001 \003(\0132!.CMsgBluetoothDevicesData."
   "Adapter\0221\n\007devices\030\002 \003(\0132 .CMsgBluetooth"
   "DevicesData.Device\0222\n\007manager\030\003 \001(\0132!.CM"
   "sgBluetoothDevicesData.Manager\032_\n\007Adapte"
   "r\022\r\n\002id\030\001 \001(\r:\0010\022\013\n\003mac\030\002 \001(\t\022\014\n\004name\030\003 "
   "\001(\t\022\022\n\nis_enabled\030\004 \001(\010\022\026\n\016is_discoverin"
-  "g\030\005 \001(\010\032\313\001\n\006Device\022\r\n\002id\030\001 \001(\r:\0010\022\025\n\nada"
+  "g\030\005 \001(\010\032\232\002\n\006Device\022\r\n\002id\030\001 \001(\r:\0010\022\025\n\nada"
   "pter_id\030\002 \001(\r:\0010\022A\n\005etype\030\003 \001(\0162\025.EBluet"
   "oothDeviceType:\033BluetoothDeviceType_Inva"
   "lid\022\013\n\003mac\030\004 \001(\t\022\014\n\004name\030\005 \001(\t\022\024\n\014is_con"
   "nected\030\006 \001(\010\022\021\n\tis_paired\030\007 \001(\010\022\024\n\014stren"
-  "gth_raw\030\010 \001(\005\032\'\n\007Manager\022\034\n\024is_bluetooth"
-  "_enabled\030\001 \001(\010\"<\n\035CMsgSystemPerfDiagnost"
-  "icEntry\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\245\001\n"
-  "\036CMsgSystemPerfNetworkInterface\022\014\n\004name\030"
-  "\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\001\022\026\n\016tx_bytes_tot"
-  "al\030\003 \001(\003\022\026\n\016rx_bytes_total\030\004 \001(\003\022\030\n\020tx_b"
-  "ytes_per_sec\030\005 \001(\005\022\030\n\020rx_bytes_per_sec\030\006"
-  " \001(\005\"\234\001\n\034CMsgSystemPerfDiagnosticInfo\022/\n"
-  "\007entries\030\001 \003(\0132\036.CMsgSystemPerfDiagnosti"
-  "cEntry\0223\n\ninterfaces\030\002 \003(\0132\037.CMsgSystemP"
-  "erfNetworkInterface\022\026\n\016battery_temp_c\030\003 "
-  "\001(\002\"\223\t\n\024CMsgSystemPerfLimits\022#\n\033cpu_gove"
-  "rnor_manual_min_mhz\030\001 \001(\005\022#\n\033cpu_governo"
-  "r_manual_max_mhz\030\002 \001(\005\022\031\n\021fsr_sharpness_"
-  "min\030\003 \001(\005\022\031\n\021fsr_sharpness_max\030\004 \001(\005\022&\n\036"
-  "gpu_performance_manual_min_mhz\030\005 \001(\005\022&\n\036"
-  "gpu_performance_manual_max_mhz\030\006 \001(\005\022\"\n\032"
-  "perf_overlay_is_standalone\030\007 \001(\010\022 \n\030is_d"
-  "ynamic_vrs_available\030\010 \001(\010\0220\n(is_manual_"
-  "display_refresh_rate_available\030\t \001(\010\022\?\n "
-  "gpu_performance_levels_available\030\n \003(\0162\025"
-  ".EGPUPerformanceLevel\022%\n\035display_refresh"
-  "_manual_hz_min\030\013 \001(\005\022%\n\035display_refresh_"
-  "manual_hz_max\030\014 \001(\005\022\031\n\021fps_limit_options"
-  "\030\r \003(\005\022\025\n\rtdp_limit_min\030\016 \001(\005\022\025\n\rtdp_lim"
-  "it_max\030\017 \001(\005\022\030\n\020is_nis_supported\030\020 \001(\010\022\031"
-  "\n\021nis_sharpness_min\030\021 \001(\005\022\031\n\021nis_sharpne"
-  "ss_max\030\022 \001(\005\022.\n&display_external_refresh"
-  "_manual_hz_min\030\023 \001(\005\022.\n&display_external"
-  "_refresh_manual_hz_max\030\024 \001(\005\022\"\n\032fps_limi"
-  "t_options_external\030\025 \003(\005\022\034\n\024is_tearing_s"
-  "upported\030\026 \001(\010\022\030\n\020is_vrr_supported\030\027 \001(\010"
-  "\0222\n*is_dynamic_refresh_rate_in_steam_sup"
-  "ported\030\030 \001(\010\0220\n(is_split_scaling_and_fil"
-  "tering_supported\030\031 \001(\010\022=\n\037split_scaling_"
-  "filters_available\030\032 \003(\0162\024.ESplitScalingF"
-  "ilter\022=\n\037split_scaling_scalers_available"
-  "\030\033 \003(\0162\024.ESplitScalingScaler\022\030\n\020is_hdr_s"
-  "upported\030\034 \001(\010\022(\n display_refresh_manual"
-  "_hz_oc_max\030\035 \001(\005\022\'\n\037disable_refresh_rate"
-  "_management\030\036 \001(\010\"\302\007\n\034CMsgSystemPerfSett"
-  "ingsGlobal\022\036\n\026diagnostic_update_rate\030\001 \001"
-  "(\002\022Y\n\032system_trace_service_state\030\002 \001(\0162\024"
-  ".ESystemServiceState:\037ESystemServiceStat"
-  "e_Unavailable\022_\n graphics_profiling_serv"
-  "ice_state\030\003 \001(\0162\024.ESystemServiceState:\037E"
-  "SystemServiceState_Unavailable\022Y\n\032perf_o"
-  "verlay_service_state\030\004 \001(\0162\024.ESystemServ"
-  "iceState:\037ESystemServiceState_Unavailabl"
-  "e\022X\n\022perf_overlay_level\030\005 \001(\0162\032.EGraphic"
-  "sPerfOverlayLevel: EGraphicsPerfOverlayL"
-  "evel_Hidden\022/\n\'is_show_perf_overlay_over"
-  "_steam_enabled\030\006 \001(\010\022$\n\034is_advanced_sett"
-  "ings_enabled\030\007 \001(\010\022.\n&allow_external_dis"
-  "play_refresh_control\030\010 \001(\010\022\026\n\016is_hdr_ena"
-  "bled\030\t \001(\010\022V\n\033hdr_on_sdr_tonemap_operato"
-  "r\030\014 \001(\0162\024.EHDRToneMapOperator:\033EHDRToneM"
-  "apOperator_Invalid\022$\n\034is_hdr_debug_heatm"
-  "ap_enabled\030\r \001(\010\022+\n\035force_hdr_wide_gammu"
-  "t_for_sdr\030\017 \001(\010:\004true\022\036\n\026allow_experimen"
-  "tal_hdr\030\020 \001(\010\022\035\n\025sdr_to_hdr_brightness\030\026"
-  " \001(\002\022\037\n\027debug_force_hdr_support\030\022 \001(\010\022#\n"
-  "\033force_hdr_10pq_output_debug\030\023 \001(\010\022\035\n\025is"
-  "_display_oc_enabled\030\024 \001(\010\022#\n\033is_color_ma"
-  "nagement_enabled\030\025 \001(\010\"\337\007\n\034CMsgSystemPer"
-  "fSettingsPerApp\022\"\n\032gpu_performance_manua"
-  "l_mhz\030\001 \001(\005\022\021\n\tfps_limit\030\002 \001(\005\022&\n\036is_var"
-  "iable_resolution_enabled\030\003 \001(\010\022\'\n\037is_dyn"
-  "amic_refresh_rate_enabled\030\004 \001(\010\022\021\n\ttdp_l"
-  "imit\030\005 \001(\005\0229\n\014cpu_governor\030\006 \001(\0162\r.ECPUG"
-  "overnor:\024ECPUGovernor_Invalid\022\037\n\027cpu_gov"
-  "ernor_manual_mhz\030\007 \001(\005\022\026\n\016scaling_filter"
-  "\030\010 \001(\005\022\025\n\rfsr_sharpness\030\t \001(\005\022\034\n\024is_fps_"
-  "limit_enabled\030\n \001(\010\022\034\n\024is_tdp_limit_enab"
-  "led\030\013 \001(\010\022#\n\033is_low_latency_mode_enabled"
-  "\030\014 \001(\010\022!\n\031display_refresh_manual_hz\030\r \001("
-  "\005\022$\n\034is_game_perf_profile_enabled\030\016 \001(\010\022"
-  "R\n\025gpu_performance_level\030\017 \001(\0162\025.EGPUPer"
-  "formanceLevel:\034EGPUPerformanceLevel_Inva"
-  "lid\022\025\n\rnis_sharpness\030\020 \001(\005\022*\n\"display_ex"
-  "ternal_refresh_manual_hz\030\021 \001(\005\022\032\n\022fps_li"
-  "mit_external\030\022 \001(\005\022\032\n\022is_tearing_enabled"
-  "\030\023 \001(\010\022\026\n\016is_vrr_enabled\030\024 \001(\010\022\"\n\032is_com"
-  "posite_debug_enabled\030\025 \001(\010\022\027\n\017force_comp"
-  "osite\030\026 \001(\010\022)\n!use_dynamic_refresh_rate_"
-  "in_steam\030\027 \001(\010\022O\n\024split_scaling_filter\030\030"
-  " \001(\0162\024.ESplitScalingFilter:\033ESplitScalin"
-  "gFilter_Invalid\022O\n\024split_scaling_scaler\030"
-  "\031 \001(\0162\024.ESplitScalingScaler:\033ESplitScali"
-  "ngScaler_Invalid\"w\n\026CMsgSystemPerfSettin"
-  "gs\022-\n\006global\030\001 \001(\0132\035.CMsgSystemPerfSetti"
-  "ngsGlobal\022.\n\007per_app\030\002 \001(\0132\035.CMsgSystemP"
-  "erfSettingsPerApp\"\200\010\n\030CMsgSystemPerfSett"
-  "ingsV1\022\036\n\026diagnostic_update_rate\030\001 \001(\002\022Y"
-  "\n\032system_trace_service_state\030\002 \001(\0162\024.ESy"
-  "stemServiceState:\037ESystemServiceState_Un"
-  "available\022_\n graphics_profiling_service_"
-  "state\030\003 \001(\0162\024.ESystemServiceState:\037ESyst"
-  "emServiceState_Unavailable\022Y\n\032perf_overl"
-  "ay_service_state\030\004 \001(\0162\024.ESystemServiceS"
-  "tate:\037ESystemServiceState_Unavailable\022X\n"
-  "\022perf_overlay_level\030\005 \001(\0162\032.EGraphicsPer"
-  "fOverlayLevel: EGraphicsPerfOverlayLevel"
-  "_Hidden\022R\n\025gpu_performance_level\030\006 \001(\0162\025"
-  ".EGPUPerformanceLevel:\034EGPUPerformanceLe"
-  "vel_Invalid\022\"\n\032gpu_performance_manual_mh"
-  "z\030\007 \001(\005\022\021\n\tfps_limit\030\010 \001(\005\022&\n\036is_variabl"
-  "e_resolution_enabled\030\t \001(\010\022\'\n\037is_dynamic"
-  "_refresh_rate_enabled\030\n \001(\010\022\021\n\ttdp_limit"
-  "\030\013 \001(\005\0229\n\014cpu_governor\030\014 \001(\0162\r.ECPUGover"
-  "nor:\024ECPUGovernor_Invalid\022\037\n\027cpu_governo"
-  "r_manual_mhz\030\r \001(\005\022\026\n\016scaling_filter\030\016 \001"
-  "(\005\022\025\n\rfsr_sharpness\030\017 \001(\005\022\034\n\024is_fps_limi"
-  "t_enabled\030\020 \001(\010\022\034\n\024is_tdp_limit_enabled\030"
-  "\021 \001(\010\022/\n\'is_show_perf_overlay_over_steam"
-  "_enabled\030\022 \001(\010\022#\n\033is_low_latency_mode_en"
-  "abled\030\023 \001(\010\022!\n\031display_refresh_manual_hz"
-  "\030\024 \001(\005\022$\n\034is_game_perf_profile_enabled\030\025"
-  " \001(\010\"\240\001\n\023CMsgSystemPerfState\022%\n\006limits\030\001"
-  " \001(\0132\025.CMsgSystemPerfLimits\022)\n\010settings\030"
-  "\002 \001(\0132\027.CMsgSystemPerfSettings\022\027\n\017curren"
-  "t_game_id\030\003 \001(\004\022\036\n\026active_profile_game_i"
-  "d\030\004 \001(\004\"\244\001\n\034CMsgSystemPerfUpdateSettings"
-  "\022\016\n\006gameid\030\001 \001(\004\022\033\n\023skip_storage_update\030"
-  "\004 \001(\010\022\032\n\020reset_to_default\030\002 \001(\010H\000\0221\n\016set"
-  "tings_delta\030\003 \001(\0132\027.CMsgSystemPerfSettin"
-  "gsH\000B\010\n\006update\"l\n CMsgSystemPerfLegacySe"
-  "ttingEntry\022\027\n\017profile_game_id\030\001 \001(\004\022/\n\010s"
-  "ettings\030\002 \001(\0132\035.CMsgSystemPerfSettingsPe"
-  "rApp\"\212\001\n\034CMsgSystemPerfLegacySettings\022-\n"
-  "\006global\030\001 \001(\0132\035.CMsgSystemPerfSettingsGl"
-  "obal\022;\n\020per_app_settings\030\002 \003(\0132!.CMsgSys"
-  "temPerfLegacySettingEntry\"\370\001\n\031CMsgSystem"
-  "DockUpdateState\0224\n\005state\030\001 \001(\0162\016.EUpdate"
-  "rState:\025EUpdaterState_Invalid\022\032\n\022rtime_l"
-  "ast_checked\030\002 \001(\007\022\027\n\017version_current\030\003 \001"
-  "(\t\022\031\n\021version_available\030\004 \001(\t\022\026\n\016stage_p"
-  "rogress\030\005 \001(\002\022\"\n\032rtime_estimated_complet"
-  "ion\030\006 \001(\007\022\031\n\021old_fw_workaround\030\007 \001(\005\"G\n\023"
-  "CMsgSystemDockState\0220\n\014update_state\030\001 \001("
-  "\0132\032.CMsgSystemDockUpdateState\"0\n\034CMsgSys"
-  "temDockUpdateFirmware\022\020\n\010checonly\030\001 \001(\010\""
-  "\303\001\n\025CMsgSystemAudioVolume\0224\n\007entries\030\001 \003"
-  "(\0132#.CMsgSystemAudioVolume.ChannelEntry\022"
-  "\020\n\010is_muted\030\002 \001(\010\032b\n\014ChannelEntry\022B\n\010ech"
-  "annel\030\001 \001(\0162\024.ESystemAudioChannel:\032Syste"
-  "mAudioChannel_Invalid\022\016\n\006volume\030\002 \001(\002\"E\n"
-  "\034CMsgSystemAudioManagerObject\022\n\n\002id\030\001 \001("
-  "\r\022\031\n\021rtime_last_update\030\002 \001(\007\"\211\001\n\034CMsgSys"
-  "temAudioManagerDevice\022+\n\004base\030\001 \001(\0132\035.CM"
-  "sgSystemAudioManagerObject\022\014\n\004name\030\002 \001(\t"
-  "\022\014\n\004nick\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\013\n\003a"
-  "pi\030\005 \001(\t\"\377\001\n\032CMsgSystemAudioManagerNode\022"
-  "+\n\004base\030\001 \001(\0132\035.CMsgSystemAudioManagerOb"
-  "ject\022\021\n\tdevice_id\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\014\n"
-  "\004nick\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022H\n\nedir"
-  "ection\030\006 \001(\0162\026.ESystemAudioDirection:\034Sy"
-  "stemAudioDirection_Invalid\022&\n\006volume\030\007 \001"
-  "(\0132\026.CMsgSystemAudioVolume\"\336\002\n\032CMsgSyste"
-  "mAudioManagerPort\022+\n\004base\030\001 \001(\0132\035.CMsgSy"
-  "stemAudioManagerObject\022\017\n\007node_id\030\003 \001(\r\022"
-  "\014\n\004name\030\004 \001(\t\022\r\n\005alias\030\005 \001(\t\022A\n\005etype\030\006 "
-  "\001(\0162\025.ESystemAudioPortType:\033SystemAudioP"
-  "ortType_Invalid\022P\n\nedirection\030\007 \001(\0162\032.ES"
-  "ystemAudioPortDirection: SystemAudioPort"
-  "Direction_Invalid\022\023\n\013is_physical\030\010 \001(\010\022\023"
-  "\n\013is_terminal\030\t \001(\010\022\022\n\nis_control\030\n \001(\010\022"
-  "\022\n\nis_monitor\030\013 \001(\010\"\247\001\n\032CMsgSystemAudioM"
-  "anagerLink\022+\n\004base\030\001 \001(\0132\035.CMsgSystemAud"
-  "ioManagerObject\022\026\n\016output_node_id\030\002 \001(\r\022"
-  "\026\n\016output_port_id\030\003 \001(\r\022\025\n\rinput_node_id"
-  "\030\004 \001(\r\022\025\n\rinput_port_id\030\005 \001(\r\"\323\001\n\035CMsgSy"
-  "stemAudioManagerStateHW\022.\n\007devices\030\001 \003(\013"
-  "2\035.CMsgSystemAudioManagerDevice\022*\n\005nodes"
-  "\030\002 \003(\0132\033.CMsgSystemAudioManagerNode\022*\n\005p"
-  "orts\030\003 \003(\0132\033.CMsgSystemAudioManagerPort\022"
-  "*\n\005links\030\004 \003(\0132\033.CMsgSystemAudioManagerL"
-  "ink\"p\n\033CMsgSystemAudioManagerState\022\024\n\014rt"
-  "ime_filter\030\001 \001(\007\022\017\n\007counter\030\002 \001(\005\022*\n\002hw\030"
-  "\003 \001(\0132\036.CMsgSystemAudioManagerStateHW\"8\n"
-  "%CMsgSystemAudioManagerUpdateSomething\022\017"
-  "\n\007counter\030\001 \001(\005\"V\n\025CMsgSystemDisplayMode"
-  "\022\n\n\002id\030\001 \001(\005\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 "
-  "\001(\005\022\022\n\nrefresh_hz\030\004 \001(\005\"\264\003\n\021CMsgSystemDi"
-  "splay\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013descr"
-  "iption\030\003 \001(\t\022\022\n\nis_primary\030\004 \001(\010\022\022\n\nis_e"
-  "nabled\030\005 \001(\010\022\023\n\013is_internal\030\006 \001(\010\022\031\n\021has"
-  "_mode_override\030\007 \001(\010\022\020\n\010width_mm\030\010 \001(\005\022\021"
-  "\n\theight_mm\030\t \001(\005\022\027\n\017current_mode_id\030\n \001"
-  "(\005\022%\n\005modes\030\013 \003(\0132\026.CMsgSystemDisplayMod"
-  "e\022\030\n\020refresh_rate_min\030\014 \001(\005\022\030\n\020refresh_r"
-  "ate_max\030\r \001(\005\022\026\n\016is_vrr_capable\030\016 \001(\010\022\026\n"
-  "\016is_vrr_enabled\030\017 \001(\010\022\026\n\016is_hdr_capable\030"
-  "\020 \001(\010\022\026\n\016is_hdr_enabled\030\021 \001(\010\022\037\n\027support"
-  "ed_refresh_rates\030\022 \003(\005\"\321\001\n\035CMsgSystemDis"
-  "playManagerState\022$\n\010displays\030\001 \003(\0132\022.CMs"
-  "gSystemDisplay\022#\n\033is_mode_switching_supp"
-  "orted\030\002 \001(\010\022e\n\022compatibility_mode\030\003 \001(\0162"
-  " .ESystemDisplayCompatibilityMode:\'ESyst"
-  "emDisplayCompatibilityMode_Invalid\"F\n\037CM"
-  "sgSystemDisplayManagerSetMode\022\022\n\ndisplay"
-  "_id\030\001 \001(\005\022\017\n\007mode_id\030\002 \001(\005\"\234\013\n\031CMsgSyste"
-  "mManagerSettings\022*\n\"idle_backlight_dim_b"
-  "attery_seconds\030\001 \001(\002\022%\n\035idle_backlight_d"
-  "im_ac_seconds\030\002 \001(\002\022$\n\034idle_suspend_batt"
-  "ery_seconds\030\003 \001(\002\022\037\n\027idle_suspend_ac_sec"
-  "onds\030\004 \001(\002\022\036\n\026idle_suspend_supressed\030\005 \001"
-  "(\010\022(\n is_adaptive_brightness_available\030\006"
-  " \001(\010\022+\n#display_adaptive_brightness_enab"
-  "led\030\007 \001(\010\022!\n\031display_nightmode_enabled\030\n"
-  " \001(\010\022&\n\036display_nightmode_tintstrength\030\013"
-  " \001(\002\022 \n\030display_nightmode_maxhue\030\014 \001(\002\022 "
-  "\n\030display_nightmode_maxsat\030\r \001(\002\022\037\n\027disp"
-  "lay_nightmode_uiexp\030\016 \001(\002\022\037\n\027display_nig"
-  "htmode_blend\030\017 \001(\002\022\037\n\027display_nightmode_"
-  "reset\030\020 \001(\010\022*\n\"display_nightmode_schedul"
-  "e_enabled\030\021 \001(\010\022,\n$display_nightmode_sch"
-  "edule_starttime\030\022 \001(\002\022*\n\"display_nightmo"
-  "de_schedule_endtime\030\023 \001(\002\022#\n\033display_dia"
-  "gnostics_enabled\030\024 \001(\010\022\027\n\017als_lux_primar"
-  "y\030\025 \001(\002\022\026\n\016als_lux_median\030\026 \001(\002\022\035\n\025displ"
-  "ay_backlight_raw\030\027 \001(\002\022&\n\036display_bright"
-  "ness_adaptivemin\030\030 \001(\002\022&\n\036display_bright"
-  "ness_adaptivemax\030\031 \001(\002\022!\n\031is_wifi_powers"
-  "ave_enabled\030\032 \001(\010\022 \n\030is_fan_control_avai"
-  "lable\030\033 \001(\010\022N\n\020fan_control_mode\030\034 \001(\0162\026."
-  "ESystemFanControlMode:\034SystemFanControlM"
-  "ode_Invalid\022\'\n\037is_display_brightness_ava"
-  "ilable\030\035 \001(\010\022,\n$is_display_colormanageme"
-  "nt_available\030\037 \001(\010\022\032\n\022display_colorgamut"
-  "\030  \001(\002\022\031\n\021als_lux_alternate\030! \001(\002\022&\n\036is_"
-  "display_colortemp_available\030\" \001(\010\022\031\n\021dis"
-  "play_colortemp\030# \001(\002\022!\n\031display_colortem"
-  "p_default\030$ \001(\002\022!\n\031display_colortemp_ena"
-  "bled\030% \001(\010\022U\n\033display_colorgamut_labelse"
-  "t\030& \001(\0162\024.EColorGamutLabelSet:\032ColorGamu"
-  "tLabelSet_Default\022.\n&display_brightness_"
-  "overdrive_hdr_split\030\' \001(\002\"`\n\030CMsgSelectO"
-  "SBranchParams\022-\n\006branch\030\001 \001(\0162\n.EOSBranc"
-  "h:\021EOSBranch_Unknown\022\025\n\rcustom_branch\030\002 "
-  "\001(\t\"p\n\030CMsgSystemUpdateProgress\022\026\n\016stage"
-  "_progress\030\001 \001(\002\022\030\n\020stage_size_bytes\030\002 \001("
-  "\003\022\"\n\032rtime_estimated_completion\030\003 \001(\007\"\325\001"
-  "\n\033CMsgSystemUpdateCheckResult\0221\n\004type\030\001 "
-  "\001(\0162\r.EUpdaterType:\024EUpdaterType_Invalid"
-  "\022\022\n\007eresult\030\002 \001(\r:\0012\022\025\n\rrtime_checked\030\003 "
-  "\001(\007\022\021\n\tavailable\030\004 \001(\010\022\017\n\007version\030\005 \001(\t\022"
-  "\024\n\014auto_message\030\006 \001(\t\022\036\n\026system_restart_"
-  "pending\030\007 \001(\010\"A\n\033CMsgSystemUpdateApplyPa"
-  "rams\022\"\n\013apply_types\030\001 \003(\0162\r.EUpdaterType"
-  "\"\264\001\n\033CMsgSystemUpdateApplyResult\0221\n\004type"
-  "\030\001 \001(\0162\r.EUpdaterType:\024EUpdaterType_Inva"
-  "lid\022\022\n\007eresult\030\002 \001(\r:\0012\022&\n\027requires_clie"
-  "nt_restart\030\003 \001(\010:\005false\022&\n\027requires_syst"
-  "em_restart\030\004 \001(\010:\005false\"\215\002\n\025CMsgSystemUp"
-  "dateState\0224\n\005state\030\001 \001(\0162\016.EUpdaterState"
-  ":\025EUpdaterState_Invalid\022+\n\010progress\030\002 \001("
-  "\0132\031.CMsgSystemUpdateProgress\0228\n\022update_c"
-  "hecresults\030\003 \003(\0132\034.CMsgSystemUpdateCheck"
-  "Result\022:\n\024update_apply_results\030\004 \003(\0132\034.C"
-  "MsgSystemUpdateApplyResult\022\033\n\023supports_o"
-  "s_updates\030\005 \001(\010\"&\n\025CMsgAchievementChange"
-  "\022\r\n\005appid\030\001 \001(\r\"\\\n\014CMsgCellList\022!\n\005cells"
-  "\030\001 \003(\0132\022.CMsgCellList.Cell\032)\n\004Cell\022\017\n\007ce"
-  "ll_id\030\001 \001(\r\022\020\n\010loc_name\030\002 \001(\t\"\214\003\n\020CMsgSh"
-  "ortcutInfo\022\r\n\005appid\030\001 \001(\r\022\013\n\003exe\030\002 \001(\t\022\021"
-  "\n\tstart_dir\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\014\n\004path\030"
-  "\005 \001(\t\022\014\n\004args\030\006 \001(\t\022\020\n\010app_name\030\007 \001(\t\022\026\n"
-  "\016override_appid\030\010 \001(\r\022\023\n\013flatpaappid\030\t \001"
-  "(\t\022\014\n\004tags\030\n \003(\t\022\021\n\tis_remote\030\013 \001(\010\022\021\n\ti"
-  "s_hidden\030\014 \001(\010\022\024\n\014is_temporary\030\r \001(\010\022\021\n\t"
-  "is_openvr\030\016 \001(\010\022\034\n\024allow_desktop_config\030"
-  "\017 \001(\010\022\025\n\rallow_overlay\030\020 \001(\010\022\033\n\023rt_last_"
-  "played_time\030\021 \001(\r\022\032\n\022is_devkit_shortcut\030"
-  "\022 \001(\010\022\025\n\rdevkit_gameid\030\023 \001(\t\"$\n\022CMsgShor"
-  "tcutAppIds\022\016\n\006appids\030\001 \003(\r\"\252\001\n\017CMsgMonit"
-  "orInfo\022\035\n\025selected_display_name\030\001 \002(\t\022.\n"
-  "\010monitors\030\002 \003(\0132\034.CMsgMonitorInfo.Monito"
-  "rInfo\032H\n\013MonitorInfo\022\033\n\023monitor_device_n"
-  "ame\030\001 \002(\t\022\034\n\024monitor_display_name\030\002 \002(\t\""
-  "2\n\035CMsgGenerateSystemReportReply\022\021\n\trepo"
-  "rt_id\030\001 \001(\t\"8\n\026CMsgWebUITransportInfo\022\014\n"
-  "\004port\030\001 \001(\r\022\020\n\010auth_key\030\002 \001(\t\"2\n\031CMsgWeb"
-  "UITransportFailure\022\025\n\rconnect_count\030\001 \001("
-  "\r\"^\n\035CMsgClientShaderHitCacheEntry\022\017\n\007ke"
-  "y_sha\030\001 \001(\014\022\020\n\010code_sha\030\002 \001(\014\022\032\n\022time_la"
-  "st_reported\030\003 \001(\004\"K\n\030CMsgClientShaderHit"
-  "Cache\022/\n\007entries\030\001 \003(\0132\036.CMsgClientShade"
-  "rHitCacheEntry*\214\002\n\034ECloudPendingRemoteOp"
-  "eration\022$\n ECloudPendingRemoteOperationN"
-  "one\020\000\0220\n,ECloudPendingRemoteOperationApp"
-  "SessionActive\020\001\0220\n,ECloudPendingRemoteOp"
-  "erationUploadInProgress\020\002\022-\n)ECloudPendi"
-  "ngRemoteOperationUploadPending\020\003\0223\n/EClo"
-  "udPendingRemoteOperationAppSessionSuspen"
-  "ded\020\004*\202\014\n\030ESteamDeckKeyboardLayout\022#\n\037ES"
-  "teamDeckKeyboardLayout_QWERTY\020\000\022&\n\"EStea"
-  "mDeckKeyboardLayout_Bulgarian\020\001\022/\n+EStea"
-  "mDeckKeyboardLayout_Chinese_Simplified\020\002"
-  "\0220\n,ESteamDeckKeyboardLayout_Chinese_Tra"
-  "ditional\020\003\022\"\n\036ESteamDeckKeyboardLayout_C"
-  "zech\020\004\022#\n\037ESteamDeckKeyboardLayout_Danis"
-  "h\020\005\022$\n ESteamDeckKeyboardLayout_Finnish\020"
-  "\006\022#\n\037ESteamDeckKeyboardLayout_French\020\007\022#"
-  "\n\037ESteamDeckKeyboardLayout_German\020\010\022\"\n\036E"
-  "SteamDeckKeyboardLayout_Greek\020\t\022&\n\"EStea"
-  "mDeckKeyboardLayout_Hungarian\020\n\022$\n EStea"
-  "mDeckKeyboardLayout_Italian\020\013\022%\n!ESteamD"
-  "eckKeyboardLayout_Japanese\020\014\022#\n\037ESteamDe"
-  "ckKeyboardLayout_Korean\020\r\022&\n\"ESteamDeckK"
-  "eyboardLayout_Norwegian\020\016\022#\n\037ESteamDeckK"
-  "eyboardLayout_Polish\020\017\022\'\n#ESteamDeckKeyb"
-  "oardLayout_Portuguese\020\020\022%\n!ESteamDeckKey"
-  "boardLayout_Romanian\020\021\022$\n ESteamDeckKeyb"
-  "oardLayout_Russian\020\022\022$\n ESteamDeckKeyboa"
-  "rdLayout_Spanish\020\023\022$\n ESteamDeckKeyboard"
-  "Layout_Swedish\020\024\022!\n\035ESteamDeckKeyboardLa"
-  "yout_Thai\020\025\022&\n\"ESteamDeckKeyboardLayout_"
-  "Turkish_F\020\026\022&\n\"ESteamDeckKeyboardLayout_"
-  "Turkish_Q\020\027\022&\n\"ESteamDeckKeyboardLayout_"
-  "Ukrainian\020\030\022\'\n#ESteamDeckKeyboardLayout_"
-  "Vietnamese\020\031\0221\n-ESteamDeckKeyboardLayout"
-  "_QWERTY_International\020\032\022#\n\037ESteamDeckKey"
-  "boardLayout_Dvorak\020\033\022$\n ESteamDeckKeyboa"
-  "rdLayout_Colemak\020\034\022;\n7ESteamDeckKeyboard"
-  "Layout_Bulgarian_Phonetic_Traditional\020\035\022"
-  "/\n+ESteamDeckKeyboardLayout_Bulgarian_Ph"
-  "onetic\020\036\0229\n5ESteamDeckKeyboardLayout_Chi"
-  "nese_Traditional_Bopomofo\020\037\0228\n4ESteamDec"
-  "kKeyboardLayout_Chinese_Traditional_Cang"
-  "jie\020 \022*\n&ESteamDeckKeyboardLayout_Japane"
-  "se_Kana\020!\0226\n2ESteamDeckKeyboardLayout_Ch"
-  "inese_Traditional_Quick\020\"\022\'\n#ESteamDeckK"
-  "eyboardLayout_Indonesian\020#B\037H\001\200\001\000\252\002\027Open"
-  "Steamworks.Protobuf"
+  "gth_raw\030\010 \001(\005\022\024\n\014wake_allowed\030\t \001(\010\022\036\n\026w"
+  "ake_allowed_supported\030\n \001(\010\022\027\n\017battery_p"
+  "ercent\030\013 \001(\005\032\'\n\007Manager\022\034\n\024is_bluetooth_"
+  "enabled\030\001 \001(\010\"<\n\035CMsgSystemPerfDiagnosti"
+  "cEntry\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\245\001\n\036"
+  "CMsgSystemPerfNetworkInterface\022\014\n\004name\030\001"
+  " \001(\t\022\021\n\ttimestamp\030\002 \001(\001\022\026\n\016tx_bytes_tota"
+  "l\030\003 \001(\003\022\026\n\016rx_bytes_total\030\004 \001(\003\022\030\n\020tx_by"
+  "tes_per_sec\030\005 \001(\005\022\030\n\020rx_bytes_per_sec\030\006 "
+  "\001(\005\"\234\001\n\034CMsgSystemPerfDiagnosticInfo\022/\n\007"
+  "entries\030\001 \003(\0132\036.CMsgSystemPerfDiagnostic"
+  "Entry\0223\n\ninterfaces\030\002 \003(\0132\037.CMsgSystemPe"
+  "rfNetworkInterface\022\026\n\016battery_temp_c\030\003 \001"
+  "(\002\"\223\t\n\024CMsgSystemPerfLimits\022#\n\033cpu_gover"
+  "nor_manual_min_mhz\030\001 \001(\005\022#\n\033cpu_governor"
+  "_manual_max_mhz\030\002 \001(\005\022\031\n\021fsr_sharpness_m"
+  "in\030\003 \001(\005\022\031\n\021fsr_sharpness_max\030\004 \001(\005\022&\n\036g"
+  "pu_performance_manual_min_mhz\030\005 \001(\005\022&\n\036g"
+  "pu_performance_manual_max_mhz\030\006 \001(\005\022\"\n\032p"
+  "erf_overlay_is_standalone\030\007 \001(\010\022 \n\030is_dy"
+  "namic_vrs_available\030\010 \001(\010\0220\n(is_manual_d"
+  "isplay_refresh_rate_available\030\t \001(\010\022\?\n g"
+  "pu_performance_levels_available\030\n \003(\0162\025."
+  "EGPUPerformanceLevel\022%\n\035display_refresh_"
+  "manual_hz_min\030\013 \001(\005\022%\n\035display_refresh_m"
+  "anual_hz_max\030\014 \001(\005\022\031\n\021fps_limit_options\030"
+  "\r \003(\005\022\025\n\rtdp_limit_min\030\016 \001(\005\022\025\n\rtdp_limi"
+  "t_max\030\017 \001(\005\022\030\n\020is_nis_supported\030\020 \001(\010\022\031\n"
+  "\021nis_sharpness_min\030\021 \001(\005\022\031\n\021nis_sharpnes"
+  "s_max\030\022 \001(\005\022.\n&display_external_refresh_"
+  "manual_hz_min\030\023 \001(\005\022.\n&display_external_"
+  "refresh_manual_hz_max\030\024 \001(\005\022\"\n\032fps_limit"
+  "_options_external\030\025 \003(\005\022\034\n\024is_tearing_su"
+  "pported\030\026 \001(\010\022\030\n\020is_vrr_supported\030\027 \001(\010\022"
+  "2\n*is_dynamic_refresh_rate_in_steam_supp"
+  "orted\030\030 \001(\010\0220\n(is_split_scaling_and_filt"
+  "ering_supported\030\031 \001(\010\022=\n\037split_scaling_f"
+  "ilters_available\030\032 \003(\0162\024.ESplitScalingFi"
+  "lter\022=\n\037split_scaling_scalers_available\030"
+  "\033 \003(\0162\024.ESplitScalingScaler\022\030\n\020is_hdr_su"
+  "pported\030\034 \001(\010\022(\n display_refresh_manual_"
+  "hz_oc_max\030\035 \001(\005\022\'\n\037disable_refresh_rate_"
+  "management\030\036 \001(\010\"\302\007\n\034CMsgSystemPerfSetti"
+  "ngsGlobal\022\036\n\026diagnostic_update_rate\030\001 \001("
+  "\002\022Y\n\032system_trace_service_state\030\002 \001(\0162\024."
+  "ESystemServiceState:\037ESystemServiceState"
+  "_Unavailable\022_\n graphics_profiling_servi"
+  "ce_state\030\003 \001(\0162\024.ESystemServiceState:\037ES"
+  "ystemServiceState_Unavailable\022Y\n\032perf_ov"
+  "erlay_service_state\030\004 \001(\0162\024.ESystemServi"
+  "ceState:\037ESystemServiceState_Unavailable"
+  "\022X\n\022perf_overlay_level\030\005 \001(\0162\032.EGraphics"
+  "PerfOverlayLevel: EGraphicsPerfOverlayLe"
+  "vel_Hidden\022/\n\'is_show_perf_overlay_over_"
+  "steam_enabled\030\006 \001(\010\022$\n\034is_advanced_setti"
+  "ngs_enabled\030\007 \001(\010\022.\n&allow_external_disp"
+  "lay_refresh_control\030\010 \001(\010\022\026\n\016is_hdr_enab"
+  "led\030\t \001(\010\022V\n\033hdr_on_sdr_tonemap_operator"
+  "\030\014 \001(\0162\024.EHDRToneMapOperator:\033EHDRToneMa"
+  "pOperator_Invalid\022$\n\034is_hdr_debug_heatma"
+  "p_enabled\030\r \001(\010\022+\n\035force_hdr_wide_gammut"
+  "_for_sdr\030\017 \001(\010:\004true\022\036\n\026allow_experiment"
+  "al_hdr\030\020 \001(\010\022\035\n\025sdr_to_hdr_brightness\030\026 "
+  "\001(\002\022\037\n\027debug_force_hdr_support\030\022 \001(\010\022#\n\033"
+  "force_hdr_10pq_output_debug\030\023 \001(\010\022\035\n\025is_"
+  "display_oc_enabled\030\024 \001(\010\022#\n\033is_color_man"
+  "agement_enabled\030\025 \001(\010\"\337\007\n\034CMsgSystemPerf"
+  "SettingsPerApp\022\"\n\032gpu_performance_manual"
+  "_mhz\030\001 \001(\005\022\021\n\tfps_limit\030\002 \001(\005\022&\n\036is_vari"
+  "able_resolution_enabled\030\003 \001(\010\022\'\n\037is_dyna"
+  "mic_refresh_rate_enabled\030\004 \001(\010\022\021\n\ttdp_li"
+  "mit\030\005 \001(\005\0229\n\014cpu_governor\030\006 \001(\0162\r.ECPUGo"
+  "vernor:\024ECPUGovernor_Invalid\022\037\n\027cpu_gove"
+  "rnor_manual_mhz\030\007 \001(\005\022\026\n\016scaling_filter\030"
+  "\010 \001(\005\022\025\n\rfsr_sharpness\030\t \001(\005\022\034\n\024is_fps_l"
+  "imit_enabled\030\n \001(\010\022\034\n\024is_tdp_limit_enabl"
+  "ed\030\013 \001(\010\022#\n\033is_low_latency_mode_enabled\030"
+  "\014 \001(\010\022!\n\031display_refresh_manual_hz\030\r \001(\005"
+  "\022$\n\034is_game_perf_profile_enabled\030\016 \001(\010\022R"
+  "\n\025gpu_performance_level\030\017 \001(\0162\025.EGPUPerf"
+  "ormanceLevel:\034EGPUPerformanceLevel_Inval"
+  "id\022\025\n\rnis_sharpness\030\020 \001(\005\022*\n\"display_ext"
+  "ernal_refresh_manual_hz\030\021 \001(\005\022\032\n\022fps_lim"
+  "it_external\030\022 \001(\005\022\032\n\022is_tearing_enabled\030"
+  "\023 \001(\010\022\026\n\016is_vrr_enabled\030\024 \001(\010\022\"\n\032is_comp"
+  "osite_debug_enabled\030\025 \001(\010\022\027\n\017force_compo"
+  "site\030\026 \001(\010\022)\n!use_dynamic_refresh_rate_i"
+  "n_steam\030\027 \001(\010\022O\n\024split_scaling_filter\030\030 "
+  "\001(\0162\024.ESplitScalingFilter:\033ESplitScaling"
+  "Filter_Invalid\022O\n\024split_scaling_scaler\030\031"
+  " \001(\0162\024.ESplitScalingScaler:\033ESplitScalin"
+  "gScaler_Invalid\"w\n\026CMsgSystemPerfSetting"
+  "s\022-\n\006global\030\001 \001(\0132\035.CMsgSystemPerfSettin"
+  "gsGlobal\022.\n\007per_app\030\002 \001(\0132\035.CMsgSystemPe"
+  "rfSettingsPerApp\"\200\010\n\030CMsgSystemPerfSetti"
+  "ngsV1\022\036\n\026diagnostic_update_rate\030\001 \001(\002\022Y\n"
+  "\032system_trace_service_state\030\002 \001(\0162\024.ESys"
+  "temServiceState:\037ESystemServiceState_Una"
+  "vailable\022_\n graphics_profiling_service_s"
+  "tate\030\003 \001(\0162\024.ESystemServiceState:\037ESyste"
+  "mServiceState_Unavailable\022Y\n\032perf_overla"
+  "y_service_state\030\004 \001(\0162\024.ESystemServiceSt"
+  "ate:\037ESystemServiceState_Unavailable\022X\n\022"
+  "perf_overlay_level\030\005 \001(\0162\032.EGraphicsPerf"
+  "OverlayLevel: EGraphicsPerfOverlayLevel_"
+  "Hidden\022R\n\025gpu_performance_level\030\006 \001(\0162\025."
+  "EGPUPerformanceLevel:\034EGPUPerformanceLev"
+  "el_Invalid\022\"\n\032gpu_performance_manual_mhz"
+  "\030\007 \001(\005\022\021\n\tfps_limit\030\010 \001(\005\022&\n\036is_variable"
+  "_resolution_enabled\030\t \001(\010\022\'\n\037is_dynamic_"
+  "refresh_rate_enabled\030\n \001(\010\022\021\n\ttdp_limit\030"
+  "\013 \001(\005\0229\n\014cpu_governor\030\014 \001(\0162\r.ECPUGovern"
+  "or:\024ECPUGovernor_Invalid\022\037\n\027cpu_governor"
+  "_manual_mhz\030\r \001(\005\022\026\n\016scaling_filter\030\016 \001("
+  "\005\022\025\n\rfsr_sharpness\030\017 \001(\005\022\034\n\024is_fps_limit"
+  "_enabled\030\020 \001(\010\022\034\n\024is_tdp_limit_enabled\030\021"
+  " \001(\010\022/\n\'is_show_perf_overlay_over_steam_"
+  "enabled\030\022 \001(\010\022#\n\033is_low_latency_mode_ena"
+  "bled\030\023 \001(\010\022!\n\031display_refresh_manual_hz\030"
+  "\024 \001(\005\022$\n\034is_game_perf_profile_enabled\030\025 "
+  "\001(\010\"\240\001\n\023CMsgSystemPerfState\022%\n\006limits\030\001 "
+  "\001(\0132\025.CMsgSystemPerfLimits\022)\n\010settings\030\002"
+  " \001(\0132\027.CMsgSystemPerfSettings\022\027\n\017current"
+  "_game_id\030\003 \001(\004\022\036\n\026active_profile_game_id"
+  "\030\004 \001(\004\"\244\001\n\034CMsgSystemPerfUpdateSettings\022"
+  "\016\n\006gameid\030\001 \001(\004\022\033\n\023skip_storage_update\030\004"
+  " \001(\010\022\032\n\020reset_to_default\030\002 \001(\010H\000\0221\n\016sett"
+  "ings_delta\030\003 \001(\0132\027.CMsgSystemPerfSetting"
+  "sH\000B\010\n\006update\"l\n CMsgSystemPerfLegacySet"
+  "tingEntry\022\027\n\017profile_game_id\030\001 \001(\004\022/\n\010se"
+  "ttings\030\002 \001(\0132\035.CMsgSystemPerfSettingsPer"
+  "App\"\212\001\n\034CMsgSystemPerfLegacySettings\022-\n\006"
+  "global\030\001 \001(\0132\035.CMsgSystemPerfSettingsGlo"
+  "bal\022;\n\020per_app_settings\030\002 \003(\0132!.CMsgSyst"
+  "emPerfLegacySettingEntry\"\370\001\n\031CMsgSystemD"
+  "ockUpdateState\0224\n\005state\030\001 \001(\0162\016.EUpdater"
+  "State:\025EUpdaterState_Invalid\022\032\n\022rtime_la"
+  "st_checked\030\002 \001(\007\022\027\n\017version_current\030\003 \001("
+  "\t\022\031\n\021version_available\030\004 \001(\t\022\026\n\016stage_pr"
+  "ogress\030\005 \001(\002\022\"\n\032rtime_estimated_completi"
+  "on\030\006 \001(\007\022\031\n\021old_fw_workaround\030\007 \001(\005\"G\n\023C"
+  "MsgSystemDockState\0220\n\014update_state\030\001 \001(\013"
+  "2\032.CMsgSystemDockUpdateState\"0\n\034CMsgSyst"
+  "emDockUpdateFirmware\022\020\n\010checonly\030\001 \001(\010\"\303"
+  "\001\n\025CMsgSystemAudioVolume\0224\n\007entries\030\001 \003("
+  "\0132#.CMsgSystemAudioVolume.ChannelEntry\022\020"
+  "\n\010is_muted\030\002 \001(\010\032b\n\014ChannelEntry\022B\n\010echa"
+  "nnel\030\001 \001(\0162\024.ESystemAudioChannel:\032System"
+  "AudioChannel_Invalid\022\016\n\006volume\030\002 \001(\002\"E\n\034"
+  "CMsgSystemAudioManagerObject\022\n\n\002id\030\001 \001(\r"
+  "\022\031\n\021rtime_last_update\030\002 \001(\007\"\211\001\n\034CMsgSyst"
+  "emAudioManagerDevice\022+\n\004base\030\001 \001(\0132\035.CMs"
+  "gSystemAudioManagerObject\022\014\n\004name\030\002 \001(\t\022"
+  "\014\n\004nick\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\013\n\003ap"
+  "i\030\005 \001(\t\"\377\001\n\032CMsgSystemAudioManagerNode\022+"
+  "\n\004base\030\001 \001(\0132\035.CMsgSystemAudioManagerObj"
+  "ect\022\021\n\tdevice_id\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\014\n\004"
+  "nick\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022H\n\nedire"
+  "ction\030\006 \001(\0162\026.ESystemAudioDirection:\034Sys"
+  "temAudioDirection_Invalid\022&\n\006volume\030\007 \001("
+  "\0132\026.CMsgSystemAudioVolume\"\336\002\n\032CMsgSystem"
+  "AudioManagerPort\022+\n\004base\030\001 \001(\0132\035.CMsgSys"
+  "temAudioManagerObject\022\017\n\007node_id\030\003 \001(\r\022\014"
+  "\n\004name\030\004 \001(\t\022\r\n\005alias\030\005 \001(\t\022A\n\005etype\030\006 \001"
+  "(\0162\025.ESystemAudioPortType:\033SystemAudioPo"
+  "rtType_Invalid\022P\n\nedirection\030\007 \001(\0162\032.ESy"
+  "stemAudioPortDirection: SystemAudioPortD"
+  "irection_Invalid\022\023\n\013is_physical\030\010 \001(\010\022\023\n"
+  "\013is_terminal\030\t \001(\010\022\022\n\nis_control\030\n \001(\010\022\022"
+  "\n\nis_monitor\030\013 \001(\010\"\247\001\n\032CMsgSystemAudioMa"
+  "nagerLink\022+\n\004base\030\001 \001(\0132\035.CMsgSystemAudi"
+  "oManagerObject\022\026\n\016output_node_id\030\002 \001(\r\022\026"
+  "\n\016output_port_id\030\003 \001(\r\022\025\n\rinput_node_id\030"
+  "\004 \001(\r\022\025\n\rinput_port_id\030\005 \001(\r\"\323\001\n\035CMsgSys"
+  "temAudioManagerStateHW\022.\n\007devices\030\001 \003(\0132"
+  "\035.CMsgSystemAudioManagerDevice\022*\n\005nodes\030"
+  "\002 \003(\0132\033.CMsgSystemAudioManagerNode\022*\n\005po"
+  "rts\030\003 \003(\0132\033.CMsgSystemAudioManagerPort\022*"
+  "\n\005links\030\004 \003(\0132\033.CMsgSystemAudioManagerLi"
+  "nk\"p\n\033CMsgSystemAudioManagerState\022\024\n\014rti"
+  "me_filter\030\001 \001(\007\022\017\n\007counter\030\002 \001(\005\022*\n\002hw\030\003"
+  " \001(\0132\036.CMsgSystemAudioManagerStateHW\"8\n%"
+  "CMsgSystemAudioManagerUpdateSomething\022\017\n"
+  "\007counter\030\001 \001(\005\"V\n\025CMsgSystemDisplayMode\022"
+  "\n\n\002id\030\001 \001(\005\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001"
+  "(\005\022\022\n\nrefresh_hz\030\004 \001(\005\"\264\003\n\021CMsgSystemDis"
+  "play\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013descri"
+  "ption\030\003 \001(\t\022\022\n\nis_primary\030\004 \001(\010\022\022\n\nis_en"
+  "abled\030\005 \001(\010\022\023\n\013is_internal\030\006 \001(\010\022\031\n\021has_"
+  "mode_override\030\007 \001(\010\022\020\n\010width_mm\030\010 \001(\005\022\021\n"
+  "\theight_mm\030\t \001(\005\022\027\n\017current_mode_id\030\n \001("
+  "\005\022%\n\005modes\030\013 \003(\0132\026.CMsgSystemDisplayMode"
+  "\022\030\n\020refresh_rate_min\030\014 \001(\005\022\030\n\020refresh_ra"
+  "te_max\030\r \001(\005\022\026\n\016is_vrr_capable\030\016 \001(\010\022\026\n\016"
+  "is_vrr_enabled\030\017 \001(\010\022\026\n\016is_hdr_capable\030\020"
+  " \001(\010\022\026\n\016is_hdr_enabled\030\021 \001(\010\022\037\n\027supporte"
+  "d_refresh_rates\030\022 \003(\005\"\321\001\n\035CMsgSystemDisp"
+  "layManagerState\022$\n\010displays\030\001 \003(\0132\022.CMsg"
+  "SystemDisplay\022#\n\033is_mode_switching_suppo"
+  "rted\030\002 \001(\010\022e\n\022compatibility_mode\030\003 \001(\0162 "
+  ".ESystemDisplayCompatibilityMode:\'ESyste"
+  "mDisplayCompatibilityMode_Invalid\"F\n\037CMs"
+  "gSystemDisplayManagerSetMode\022\022\n\ndisplay_"
+  "id\030\001 \001(\005\022\017\n\007mode_id\030\002 \001(\005\"\234\013\n\031CMsgSystem"
+  "ManagerSettings\022*\n\"idle_backlight_dim_ba"
+  "ttery_seconds\030\001 \001(\002\022%\n\035idle_backlight_di"
+  "m_ac_seconds\030\002 \001(\002\022$\n\034idle_suspend_batte"
+  "ry_seconds\030\003 \001(\002\022\037\n\027idle_suspend_ac_seco"
+  "nds\030\004 \001(\002\022\036\n\026idle_suspend_supressed\030\005 \001("
+  "\010\022(\n is_adaptive_brightness_available\030\006 "
+  "\001(\010\022+\n#display_adaptive_brightness_enabl"
+  "ed\030\007 \001(\010\022!\n\031display_nightmode_enabled\030\n "
+  "\001(\010\022&\n\036display_nightmode_tintstrength\030\013 "
+  "\001(\002\022 \n\030display_nightmode_maxhue\030\014 \001(\002\022 \n"
+  "\030display_nightmode_maxsat\030\r \001(\002\022\037\n\027displ"
+  "ay_nightmode_uiexp\030\016 \001(\002\022\037\n\027display_nigh"
+  "tmode_blend\030\017 \001(\002\022\037\n\027display_nightmode_r"
+  "eset\030\020 \001(\010\022*\n\"display_nightmode_schedule"
+  "_enabled\030\021 \001(\010\022,\n$display_nightmode_sche"
+  "dule_starttime\030\022 \001(\002\022*\n\"display_nightmod"
+  "e_schedule_endtime\030\023 \001(\002\022#\n\033display_diag"
+  "nostics_enabled\030\024 \001(\010\022\027\n\017als_lux_primary"
+  "\030\025 \001(\002\022\026\n\016als_lux_median\030\026 \001(\002\022\035\n\025displa"
+  "y_backlight_raw\030\027 \001(\002\022&\n\036display_brightn"
+  "ess_adaptivemin\030\030 \001(\002\022&\n\036display_brightn"
+  "ess_adaptivemax\030\031 \001(\002\022!\n\031is_wifi_powersa"
+  "ve_enabled\030\032 \001(\010\022 \n\030is_fan_control_avail"
+  "able\030\033 \001(\010\022N\n\020fan_control_mode\030\034 \001(\0162\026.E"
+  "SystemFanControlMode:\034SystemFanControlMo"
+  "de_Invalid\022\'\n\037is_display_brightness_avai"
+  "lable\030\035 \001(\010\022,\n$is_display_colormanagemen"
+  "t_available\030\037 \001(\010\022\032\n\022display_colorgamut\030"
+  "  \001(\002\022\031\n\021als_lux_alternate\030! \001(\002\022&\n\036is_d"
+  "isplay_colortemp_available\030\" \001(\010\022\031\n\021disp"
+  "lay_colortemp\030# \001(\002\022!\n\031display_colortemp"
+  "_default\030$ \001(\002\022!\n\031display_colortemp_enab"
+  "led\030% \001(\010\022U\n\033display_colorgamut_labelset"
+  "\030& \001(\0162\024.EColorGamutLabelSet:\032ColorGamut"
+  "LabelSet_Default\022.\n&display_brightness_o"
+  "verdrive_hdr_split\030\' \001(\002\"`\n\030CMsgSelectOS"
+  "BranchParams\022-\n\006branch\030\001 \001(\0162\n.EOSBranch"
+  ":\021EOSBranch_Unknown\022\025\n\rcustom_branch\030\002 \001"
+  "(\t\"p\n\030CMsgSystemUpdateProgress\022\026\n\016stage_"
+  "progress\030\001 \001(\002\022\030\n\020stage_size_bytes\030\002 \001(\003"
+  "\022\"\n\032rtime_estimated_completion\030\003 \001(\007\"\325\001\n"
+  "\033CMsgSystemUpdateCheckResult\0221\n\004type\030\001 \001"
+  "(\0162\r.EUpdaterType:\024EUpdaterType_Invalid\022"
+  "\022\n\007eresult\030\002 \001(\r:\0012\022\025\n\rrtime_checked\030\003 \001"
+  "(\007\022\021\n\tavailable\030\004 \001(\010\022\017\n\007version\030\005 \001(\t\022\024"
+  "\n\014auto_message\030\006 \001(\t\022\036\n\026system_restart_p"
+  "ending\030\007 \001(\010\"A\n\033CMsgSystemUpdateApplyPar"
+  "ams\022\"\n\013apply_types\030\001 \003(\0162\r.EUpdaterType\""
+  "\264\001\n\033CMsgSystemUpdateApplyResult\0221\n\004type\030"
+  "\001 \001(\0162\r.EUpdaterType:\024EUpdaterType_Inval"
+  "id\022\022\n\007eresult\030\002 \001(\r:\0012\022&\n\027requires_clien"
+  "t_restart\030\003 \001(\010:\005false\022&\n\027requires_syste"
+  "m_restart\030\004 \001(\010:\005false\"\215\002\n\025CMsgSystemUpd"
+  "ateState\0224\n\005state\030\001 \001(\0162\016.EUpdaterState:"
+  "\025EUpdaterState_Invalid\022+\n\010progress\030\002 \001(\013"
+  "2\031.CMsgSystemUpdateProgress\0228\n\022update_ch"
+  "ecresults\030\003 \003(\0132\034.CMsgSystemUpdateCheckR"
+  "esult\022:\n\024update_apply_results\030\004 \003(\0132\034.CM"
+  "sgSystemUpdateApplyResult\022\033\n\023supports_os"
+  "_updates\030\005 \001(\010\"&\n\025CMsgAchievementChange\022"
+  "\r\n\005appid\030\001 \001(\r\"\\\n\014CMsgCellList\022!\n\005cells\030"
+  "\001 \003(\0132\022.CMsgCellList.Cell\032)\n\004Cell\022\017\n\007cel"
+  "l_id\030\001 \001(\r\022\020\n\010loc_name\030\002 \001(\t\"\214\003\n\020CMsgSho"
+  "rtcutInfo\022\r\n\005appid\030\001 \001(\r\022\013\n\003exe\030\002 \001(\t\022\021\n"
+  "\tstart_dir\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\014\n\004path\030\005"
+  " \001(\t\022\014\n\004args\030\006 \001(\t\022\020\n\010app_name\030\007 \001(\t\022\026\n\016"
+  "override_appid\030\010 \001(\r\022\023\n\013flatpaappid\030\t \001("
+  "\t\022\014\n\004tags\030\n \003(\t\022\021\n\tis_remote\030\013 \001(\010\022\021\n\tis"
+  "_hidden\030\014 \001(\010\022\024\n\014is_temporary\030\r \001(\010\022\021\n\ti"
+  "s_openvr\030\016 \001(\010\022\034\n\024allow_desktop_config\030\017"
+  " \001(\010\022\025\n\rallow_overlay\030\020 \001(\010\022\033\n\023rt_last_p"
+  "layed_time\030\021 \001(\r\022\032\n\022is_devkit_shortcut\030\022"
+  " \001(\010\022\025\n\rdevkit_gameid\030\023 \001(\t\"$\n\022CMsgShort"
+  "cutAppIds\022\016\n\006appids\030\001 \003(\r\"\252\001\n\017CMsgMonito"
+  "rInfo\022\035\n\025selected_display_name\030\001 \002(\t\022.\n\010"
+  "monitors\030\002 \003(\0132\034.CMsgMonitorInfo.Monitor"
+  "Info\032H\n\013MonitorInfo\022\033\n\023monitor_device_na"
+  "me\030\001 \002(\t\022\034\n\024monitor_display_name\030\002 \002(\t\"2"
+  "\n\035CMsgGenerateSystemReportReply\022\021\n\trepor"
+  "t_id\030\001 \001(\t\"8\n\026CMsgWebUITransportInfo\022\014\n\004"
+  "port\030\001 \001(\r\022\020\n\010auth_key\030\002 \001(\t\"2\n\031CMsgWebU"
+  "ITransportFailure\022\025\n\rconnect_count\030\001 \001(\r"
+  "\"^\n\035CMsgClientShaderHitCacheEntry\022\017\n\007key"
+  "_sha\030\001 \001(\014\022\020\n\010code_sha\030\002 \001(\014\022\032\n\022time_las"
+  "t_reported\030\003 \001(\004\"K\n\030CMsgClientShaderHitC"
+  "ache\022/\n\007entries\030\001 \003(\0132\036.CMsgClientShader"
+  "HitCacheEntry*\214\002\n\034ECloudPendingRemoteOpe"
+  "ration\022$\n ECloudPendingRemoteOperationNo"
+  "ne\020\000\0220\n,ECloudPendingRemoteOperationAppS"
+  "essionActive\020\001\0220\n,ECloudPendingRemoteOpe"
+  "rationUploadInProgress\020\002\022-\n)ECloudPendin"
+  "gRemoteOperationUploadPending\020\003\0223\n/EClou"
+  "dPendingRemoteOperationAppSessionSuspend"
+  "ed\020\004*\202\014\n\030ESteamDeckKeyboardLayout\022#\n\037ESt"
+  "eamDeckKeyboardLayout_QWERTY\020\000\022&\n\"ESteam"
+  "DeckKeyboardLayout_Bulgarian\020\001\022/\n+ESteam"
+  "DeckKeyboardLayout_Chinese_Simplified\020\002\022"
+  "0\n,ESteamDeckKeyboardLayout_Chinese_Trad"
+  "itional\020\003\022\"\n\036ESteamDeckKeyboardLayout_Cz"
+  "ech\020\004\022#\n\037ESteamDeckKeyboardLayout_Danish"
+  "\020\005\022$\n ESteamDeckKeyboardLayout_Finnish\020\006"
+  "\022#\n\037ESteamDeckKeyboardLayout_French\020\007\022#\n"
+  "\037ESteamDeckKeyboardLayout_German\020\010\022\"\n\036ES"
+  "teamDeckKeyboardLayout_Greek\020\t\022&\n\"ESteam"
+  "DeckKeyboardLayout_Hungarian\020\n\022$\n ESteam"
+  "DeckKeyboardLayout_Italian\020\013\022%\n!ESteamDe"
+  "ckKeyboardLayout_Japanese\020\014\022#\n\037ESteamDec"
+  "kKeyboardLayout_Korean\020\r\022&\n\"ESteamDeckKe"
+  "yboardLayout_Norwegian\020\016\022#\n\037ESteamDeckKe"
+  "yboardLayout_Polish\020\017\022\'\n#ESteamDeckKeybo"
+  "ardLayout_Portuguese\020\020\022%\n!ESteamDeckKeyb"
+  "oardLayout_Romanian\020\021\022$\n ESteamDeckKeybo"
+  "ardLayout_Russian\020\022\022$\n ESteamDeckKeyboar"
+  "dLayout_Spanish\020\023\022$\n ESteamDeckKeyboardL"
+  "ayout_Swedish\020\024\022!\n\035ESteamDeckKeyboardLay"
+  "out_Thai\020\025\022&\n\"ESteamDeckKeyboardLayout_T"
+  "urkish_F\020\026\022&\n\"ESteamDeckKeyboardLayout_T"
+  "urkish_Q\020\027\022&\n\"ESteamDeckKeyboardLayout_U"
+  "krainian\020\030\022\'\n#ESteamDeckKeyboardLayout_V"
+  "ietnamese\020\031\0221\n-ESteamDeckKeyboardLayout_"
+  "QWERTY_International\020\032\022#\n\037ESteamDeckKeyb"
+  "oardLayout_Dvorak\020\033\022$\n ESteamDeckKeyboar"
+  "dLayout_Colemak\020\034\022;\n7ESteamDeckKeyboardL"
+  "ayout_Bulgarian_Phonetic_Traditional\020\035\022/"
+  "\n+ESteamDeckKeyboardLayout_Bulgarian_Pho"
+  "netic\020\036\0229\n5ESteamDeckKeyboardLayout_Chin"
+  "ese_Traditional_Bopomofo\020\037\0228\n4ESteamDeck"
+  "KeyboardLayout_Chinese_Traditional_Cangj"
+  "ie\020 \022*\n&ESteamDeckKeyboardLayout_Japanes"
+  "e_Kana\020!\0226\n2ESteamDeckKeyboardLayout_Chi"
+  "nese_Traditional_Quick\020\"\022\'\n#ESteamDeckKe"
+  "yboardLayout_Indonesian\020#B\037H\001\200\001\000\252\002\027OpenS"
+  "teamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -2947,7 +2958,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclient_5fobjects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclient_5fobjects_2eproto = {
-  false, false, 17059, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
+  false, false, 17138, descriptor_table_protodef_steammessages_5fclient_5fobjects_2eproto, "steammessages_client_objects.proto", 
   &descriptor_table_steammessages_5fclient_5fobjects_2eproto_once, descriptor_table_steammessages_5fclient_5fobjects_2eproto_deps, 2, 71,
   schemas, file_default_instances, TableStruct_steammessages_5fclient_5fobjects_2eproto::offsets,
   file_level_metadata_steammessages_5fclient_5fobjects_2eproto, file_level_enum_descriptors_steammessages_5fclient_5fobjects_2eproto, file_level_service_descriptors_steammessages_5fclient_5fobjects_2eproto,
@@ -9937,13 +9948,22 @@ class CMsgBluetoothDevicesData_Device::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_is_connected(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_is_paired(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
-  static void set_has_strength_raw(HasBits* has_bits) {
+  static void set_has_is_paired(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
+  }
+  static void set_has_strength_raw(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_wake_allowed(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_wake_allowed_supported(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
+  }
+  static void set_has_battery_percent(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
   }
 };
 
@@ -9968,8 +9988,8 @@ CMsgBluetoothDevicesData_Device::CMsgBluetoothDevicesData_Device(const CMsgBluet
       GetArena());
   }
   ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&strength_raw_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(strength_raw_));
+    static_cast<size_t>(reinterpret_cast<char*>(&battery_percent_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(battery_percent_));
   // @@protoc_insertion_point(copy_constructor:CMsgBluetoothDevicesData.Device)
 }
 
@@ -9978,8 +9998,8 @@ mac_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyI
 name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&strength_raw_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(strength_raw_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&battery_percent_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(battery_percent_));
 }
 
 CMsgBluetoothDevicesData_Device::~CMsgBluetoothDevicesData_Device() {
@@ -10021,8 +10041,13 @@ void CMsgBluetoothDevicesData_Device::Clear() {
   }
   if (cached_has_bits & 0x000000fcu) {
     ::memset(&id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&strength_raw_) -
-        reinterpret_cast<char*>(&id_)) + sizeof(strength_raw_));
+        reinterpret_cast<char*>(&is_paired_) -
+        reinterpret_cast<char*>(&id_)) + sizeof(is_paired_));
+  }
+  if (cached_has_bits & 0x00000700u) {
+    ::memset(&wake_allowed_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&battery_percent_) -
+        reinterpret_cast<char*>(&wake_allowed_)) + sizeof(battery_percent_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -10110,6 +10135,30 @@ const char* CMsgBluetoothDevicesData_Device::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool wake_allowed = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          _Internal::set_has_wake_allowed(&has_bits);
+          wake_allowed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool wake_allowed_supported = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          _Internal::set_has_wake_allowed_supported(&has_bits);
+          wake_allowed_supported_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 battery_percent = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+          _Internal::set_has_battery_percent(&has_bits);
+          battery_percent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -10180,21 +10229,39 @@ failure:
   }
 
   // optional bool is_connected = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_is_connected(), target);
   }
 
   // optional bool is_paired = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_is_paired(), target);
   }
 
   // optional int32 strength_raw = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_strength_raw(), target);
+  }
+
+  // optional bool wake_allowed = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_wake_allowed(), target);
+  }
+
+  // optional bool wake_allowed_supported = 10;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_wake_allowed_supported(), target);
+  }
+
+  // optional int32 battery_percent = 11;
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_battery_percent(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -10249,21 +10316,40 @@ size_t CMsgBluetoothDevicesData_Device::ByteSizeLong() const {
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_etype());
     }
 
-    // optional bool is_connected = 6;
+    // optional int32 strength_raw = 8;
     if (cached_has_bits & 0x00000020u) {
-      total_size += 1 + 1;
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_strength_raw());
     }
 
-    // optional bool is_paired = 7;
+    // optional bool is_connected = 6;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }
 
-    // optional int32 strength_raw = 8;
+    // optional bool is_paired = 7;
     if (cached_has_bits & 0x00000080u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (cached_has_bits & 0x00000700u) {
+    // optional bool wake_allowed = 9;
+    if (cached_has_bits & 0x00000100u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool wake_allowed_supported = 10;
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 battery_percent = 11;
+    if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_strength_raw());
+          this->_internal_battery_percent());
     }
 
   }
@@ -10316,13 +10402,25 @@ void CMsgBluetoothDevicesData_Device::MergeFrom(const CMsgBluetoothDevicesData_D
       etype_ = from.etype_;
     }
     if (cached_has_bits & 0x00000020u) {
-      is_connected_ = from.is_connected_;
+      strength_raw_ = from.strength_raw_;
     }
     if (cached_has_bits & 0x00000040u) {
-      is_paired_ = from.is_paired_;
+      is_connected_ = from.is_connected_;
     }
     if (cached_has_bits & 0x00000080u) {
-      strength_raw_ = from.strength_raw_;
+      is_paired_ = from.is_paired_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000700u) {
+    if (cached_has_bits & 0x00000100u) {
+      wake_allowed_ = from.wake_allowed_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      wake_allowed_supported_ = from.wake_allowed_supported_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      battery_percent_ = from.battery_percent_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -10353,8 +10451,8 @@ void CMsgBluetoothDevicesData_Device::InternalSwap(CMsgBluetoothDevicesData_Devi
   mac_.Swap(&other->mac_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgBluetoothDevicesData_Device, strength_raw_)
-      + sizeof(CMsgBluetoothDevicesData_Device::strength_raw_)
+      PROTOBUF_FIELD_OFFSET(CMsgBluetoothDevicesData_Device, battery_percent_)
+      + sizeof(CMsgBluetoothDevicesData_Device::battery_percent_)
       - PROTOBUF_FIELD_OFFSET(CMsgBluetoothDevicesData_Device, id_)>(
           reinterpret_cast<char*>(&id_),
           reinterpret_cast<char*>(&other->id_));

@@ -16,87 +16,6 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
-constexpr ParentalApp::ParentalApp(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : appid_(0u)
-  , is_allowed_(false){}
-struct ParentalAppDefaultTypeInternal {
-  constexpr ParentalAppDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~ParentalAppDefaultTypeInternal() {}
-  union {
-    ParentalApp _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ParentalAppDefaultTypeInternal _ParentalApp_default_instance_;
-constexpr ParentalPlaytimeDay::ParentalPlaytimeDay(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : allowed_time_windows_(PROTOBUF_ULONGLONG(0))
-  , allowed_daily_minutes_(0u){}
-struct ParentalPlaytimeDayDefaultTypeInternal {
-  constexpr ParentalPlaytimeDayDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~ParentalPlaytimeDayDefaultTypeInternal() {}
-  union {
-    ParentalPlaytimeDay _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ParentalPlaytimeDayDefaultTypeInternal _ParentalPlaytimeDay_default_instance_;
-constexpr ParentalPlaytimeRestrictions::ParentalPlaytimeRestrictions(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : playtime_days_()
-  , apply_playtime_restrictions_(false){}
-struct ParentalPlaytimeRestrictionsDefaultTypeInternal {
-  constexpr ParentalPlaytimeRestrictionsDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~ParentalPlaytimeRestrictionsDefaultTypeInternal() {}
-  union {
-    ParentalPlaytimeRestrictions _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ParentalPlaytimeRestrictionsDefaultTypeInternal _ParentalPlaytimeRestrictions_default_instance_;
-constexpr ParentalTemporaryPlaytimeRestrictions::ParentalTemporaryPlaytimeRestrictions(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : restrictions_(nullptr)
-  , rtime_expires_(0u){}
-struct ParentalTemporaryPlaytimeRestrictionsDefaultTypeInternal {
-  constexpr ParentalTemporaryPlaytimeRestrictionsDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~ParentalTemporaryPlaytimeRestrictionsDefaultTypeInternal() {}
-  union {
-    ParentalTemporaryPlaytimeRestrictions _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ParentalTemporaryPlaytimeRestrictionsDefaultTypeInternal _ParentalTemporaryPlaytimeRestrictions_default_instance_;
-constexpr ParentalSettings::ParentalSettings(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : applist_base_()
-  , applist_custom_()
-  , excluded_store_content_descriptors_()
-  , excluded_community_content_descriptors_()
-  , applist_base_description_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , salt_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , passwordhash_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , recovery_email_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , playtime_restrictions_(nullptr)
-  , temporary_playtime_restrictions_(nullptr)
-  , steamid_(PROTOBUF_ULONGLONG(0))
-  , applist_base_id_(0u)
-  , passwordhashtype_(0u)
-  , enabled_features_(0u)
-  , is_enabled_(false)
-  , is_site_license_lock_(false)
-  , temporary_enabled_features_(0u)
-  , rtime_temporary_feature_expiration_(0u){}
-struct ParentalSettingsDefaultTypeInternal {
-  constexpr ParentalSettingsDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~ParentalSettingsDefaultTypeInternal() {}
-  union {
-    ParentalSettings _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ParentalSettingsDefaultTypeInternal _ParentalSettings_default_instance_;
 constexpr CParental_EnableParentalSettings_Request::CParental_EnableParentalSettings_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : password_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -448,8 +367,8 @@ struct CParental_ApprovePlaytime_ResponseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CParental_ApprovePlaytime_ResponseDefaultTypeInternal _CParental_ApprovePlaytime_Response_default_instance_;
 constexpr CParental_GetRequests_Request::CParental_GetRequests_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : rt_include_completed_since_(0u)
-  , steamid_(PROTOBUF_ULONGLONG(0)){}
+  : family_groupid_(PROTOBUF_ULONGLONG(0))
+  , rt_include_completed_since_(0u){}
 struct CParental_GetRequests_RequestDefaultTypeInternal {
   constexpr CParental_GetRequests_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -459,46 +378,6 @@ struct CParental_GetRequests_RequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CParental_GetRequests_RequestDefaultTypeInternal _CParental_GetRequests_Request_default_instance_;
-constexpr ParentalFeatureRequest::ParentalFeatureRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : requestid_(PROTOBUF_ULONGLONG(0))
-  , family_groupid_(PROTOBUF_ULONGLONG(0))
-  , steamid_(PROTOBUF_ULONGLONG(0))
-  , features_(0u)
-  , time_requested_(0u)
-  , steamid_responder_(PROTOBUF_ULONGLONG(0))
-  , approved_(false)
-  , time_responded_(0u){}
-struct ParentalFeatureRequestDefaultTypeInternal {
-  constexpr ParentalFeatureRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~ParentalFeatureRequestDefaultTypeInternal() {}
-  union {
-    ParentalFeatureRequest _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ParentalFeatureRequestDefaultTypeInternal _ParentalFeatureRequest_default_instance_;
-constexpr ParentalPlaytimeRequest::ParentalPlaytimeRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : current_playtime_restrictions_(nullptr)
-  , restrictions_approved_(nullptr)
-  , requestid_(PROTOBUF_ULONGLONG(0))
-  , family_groupid_(PROTOBUF_ULONGLONG(0))
-  , steamid_(PROTOBUF_ULONGLONG(0))
-  , time_expires_(0u)
-  , time_requested_(0u)
-  , steamid_responder_(PROTOBUF_ULONGLONG(0))
-  , approved_(false)
-  , time_responded_(0u){}
-struct ParentalPlaytimeRequestDefaultTypeInternal {
-  constexpr ParentalPlaytimeRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~ParentalPlaytimeRequestDefaultTypeInternal() {}
-  union {
-    ParentalPlaytimeRequest _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ParentalPlaytimeRequestDefaultTypeInternal _ParentalPlaytimeRequest_default_instance_;
 constexpr CParental_GetRequests_Response::CParental_GetRequests_Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : feature_requests_()
@@ -590,88 +469,11 @@ struct CParental_PlaytimeUsed_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CParental_PlaytimeUsed_NotificationDefaultTypeInternal _CParental_PlaytimeUsed_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fparental_2esteamclient_2eproto[43];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fparental_2esteamclient_2eproto[36];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_steammessages_5fparental_2esteamclient_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fparental_2esteamclient_2eproto[2];
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fparental_2esteamclient_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  PROTOBUF_FIELD_OFFSET(::ParentalApp, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ParentalApp, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ParentalApp, appid_),
-  PROTOBUF_FIELD_OFFSET(::ParentalApp, is_allowed_),
-  0,
-  1,
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeDay, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeDay, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeDay, allowed_time_windows_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeDay, allowed_daily_minutes_),
-  0,
-  1,
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRestrictions, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRestrictions, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRestrictions, apply_playtime_restrictions_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRestrictions, playtime_days_),
-  0,
-  ~0u,
-  PROTOBUF_FIELD_OFFSET(::ParentalTemporaryPlaytimeRestrictions, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ParentalTemporaryPlaytimeRestrictions, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ParentalTemporaryPlaytimeRestrictions, restrictions_),
-  PROTOBUF_FIELD_OFFSET(::ParentalTemporaryPlaytimeRestrictions, rtime_expires_),
-  0,
-  1,
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, steamid_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, applist_base_id_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, applist_base_description_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, applist_base_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, applist_custom_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, passwordhashtype_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, salt_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, passwordhash_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, is_enabled_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, enabled_features_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, recovery_email_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, is_site_license_lock_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, temporary_enabled_features_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, rtime_temporary_feature_expiration_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, playtime_restrictions_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, temporary_playtime_restrictions_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, excluded_store_content_descriptors_),
-  PROTOBUF_FIELD_OFFSET(::ParentalSettings, excluded_community_content_descriptors_),
-  6,
-  7,
-  0,
-  ~0u,
-  ~0u,
-  8,
-  1,
-  2,
-  10,
-  9,
-  3,
-  11,
-  12,
-  13,
-  4,
-  5,
-  ~0u,
-  ~0u,
   PROTOBUF_FIELD_OFFSET(::CParental_EnableParentalSettings_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CParental_EnableParentalSettings_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -900,55 +702,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fparental_2este
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CParental_GetRequests_Request, rt_include_completed_since_),
-  PROTOBUF_FIELD_OFFSET(::CParental_GetRequests_Request, steamid_),
-  0,
+  PROTOBUF_FIELD_OFFSET(::CParental_GetRequests_Request, family_groupid_),
   1,
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, requestid_),
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, family_groupid_),
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, steamid_),
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, features_),
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, time_requested_),
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, approved_),
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, steamid_responder_),
-  PROTOBUF_FIELD_OFFSET(::ParentalFeatureRequest, time_responded_),
   0,
-  1,
-  2,
-  3,
-  4,
-  6,
-  5,
-  7,
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, requestid_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, family_groupid_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, steamid_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, current_playtime_restrictions_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, time_expires_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, time_requested_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, approved_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, steamid_responder_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, time_responded_),
-  PROTOBUF_FIELD_OFFSET(::ParentalPlaytimeRequest, restrictions_approved_),
-  2,
-  3,
-  4,
-  0,
-  5,
-  6,
-  8,
-  7,
-  9,
-  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CParental_GetRequests_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1012,57 +768,45 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fparental_2este
   1,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 7, sizeof(::ParentalApp)},
-  { 9, 16, sizeof(::ParentalPlaytimeDay)},
-  { 18, 25, sizeof(::ParentalPlaytimeRestrictions)},
-  { 27, 34, sizeof(::ParentalTemporaryPlaytimeRestrictions)},
-  { 36, 59, sizeof(::ParentalSettings)},
-  { 77, 87, sizeof(::CParental_EnableParentalSettings_Request)},
-  { 92, -1, sizeof(::CParental_EnableParentalSettings_Response)},
-  { 97, 104, sizeof(::CParental_DisableParentalSettings_Request)},
-  { 106, -1, sizeof(::CParental_DisableParentalSettings_Response)},
-  { 111, 117, sizeof(::CParental_GetParentalSettings_Request)},
-  { 118, 124, sizeof(::CParental_GetParentalSettings_Response)},
-  { 125, 131, sizeof(::CParental_GetSignedParentalSettings_Request)},
-  { 132, 139, sizeof(::CParental_GetSignedParentalSettings_Response)},
-  { 141, 151, sizeof(::CParental_SetParentalSettings_Request)},
-  { 156, -1, sizeof(::CParental_SetParentalSettings_Response)},
-  { 161, 167, sizeof(::CParental_ValidateToken_Request)},
-  { 168, -1, sizeof(::CParental_ValidateToken_Response)},
-  { 173, 181, sizeof(::CParental_ValidatePassword_Request)},
-  { 184, 190, sizeof(::CParental_ValidatePassword_Response)},
-  { 191, 197, sizeof(::CParental_LockClient_Request)},
-  { 198, -1, sizeof(::CParental_LockClient_Response)},
-  { 203, -1, sizeof(::CParental_RequestRecoveryCode_Request)},
-  { 208, -1, sizeof(::CParental_RequestRecoveryCode_Response)},
-  { 213, 220, sizeof(::CParental_DisableWithRecoveryCode_Request)},
-  { 222, -1, sizeof(::CParental_DisableWithRecoveryCode_Response)},
-  { 227, 234, sizeof(::CParental_RequestFeatureAccess_Request)},
-  { 236, 242, sizeof(::CParental_RequestFeatureAccess_Response)},
-  { 243, 253, sizeof(::CParental_ApproveFeatureAccess_Request)},
-  { 258, -1, sizeof(::CParental_ApproveFeatureAccess_Response)},
-  { 263, 271, sizeof(::CParental_RequestPlaytime_Request)},
-  { 274, 280, sizeof(::CParental_RequestPlaytime_Response)},
-  { 281, 290, sizeof(::CParental_ApprovePlaytime_Request)},
-  { 294, -1, sizeof(::CParental_ApprovePlaytime_Response)},
-  { 299, 306, sizeof(::CParental_GetRequests_Request)},
-  { 308, 321, sizeof(::ParentalFeatureRequest)},
-  { 329, 344, sizeof(::ParentalPlaytimeRequest)},
-  { 354, -1, sizeof(::CParental_GetRequests_Response)},
-  { 361, 369, sizeof(::CParental_ReportPlaytimeAndNotify_Request)},
-  { 372, -1, sizeof(::CParental_ReportPlaytimeAndNotify_Response)},
-  { 377, 386, sizeof(::CParental_ParentalSettingsChange_Notification)},
-  { 390, 397, sizeof(::CParental_ParentalUnlocNotification)},
-  { 399, 405, sizeof(::CParental_ParentalLocNotification)},
-  { 406, 413, sizeof(::CParental_PlaytimeUsed_Notification)},
+  { 0, 10, sizeof(::CParental_EnableParentalSettings_Request)},
+  { 15, -1, sizeof(::CParental_EnableParentalSettings_Response)},
+  { 20, 27, sizeof(::CParental_DisableParentalSettings_Request)},
+  { 29, -1, sizeof(::CParental_DisableParentalSettings_Response)},
+  { 34, 40, sizeof(::CParental_GetParentalSettings_Request)},
+  { 41, 47, sizeof(::CParental_GetParentalSettings_Response)},
+  { 48, 54, sizeof(::CParental_GetSignedParentalSettings_Request)},
+  { 55, 62, sizeof(::CParental_GetSignedParentalSettings_Response)},
+  { 64, 74, sizeof(::CParental_SetParentalSettings_Request)},
+  { 79, -1, sizeof(::CParental_SetParentalSettings_Response)},
+  { 84, 90, sizeof(::CParental_ValidateToken_Request)},
+  { 91, -1, sizeof(::CParental_ValidateToken_Response)},
+  { 96, 104, sizeof(::CParental_ValidatePassword_Request)},
+  { 107, 113, sizeof(::CParental_ValidatePassword_Response)},
+  { 114, 120, sizeof(::CParental_LockClient_Request)},
+  { 121, -1, sizeof(::CParental_LockClient_Response)},
+  { 126, -1, sizeof(::CParental_RequestRecoveryCode_Request)},
+  { 131, -1, sizeof(::CParental_RequestRecoveryCode_Response)},
+  { 136, 143, sizeof(::CParental_DisableWithRecoveryCode_Request)},
+  { 145, -1, sizeof(::CParental_DisableWithRecoveryCode_Response)},
+  { 150, 157, sizeof(::CParental_RequestFeatureAccess_Request)},
+  { 159, 165, sizeof(::CParental_RequestFeatureAccess_Response)},
+  { 166, 176, sizeof(::CParental_ApproveFeatureAccess_Request)},
+  { 181, -1, sizeof(::CParental_ApproveFeatureAccess_Response)},
+  { 186, 194, sizeof(::CParental_RequestPlaytime_Request)},
+  { 197, 203, sizeof(::CParental_RequestPlaytime_Response)},
+  { 204, 213, sizeof(::CParental_ApprovePlaytime_Request)},
+  { 217, -1, sizeof(::CParental_ApprovePlaytime_Response)},
+  { 222, 229, sizeof(::CParental_GetRequests_Request)},
+  { 231, -1, sizeof(::CParental_GetRequests_Response)},
+  { 238, 246, sizeof(::CParental_ReportPlaytimeAndNotify_Request)},
+  { 249, -1, sizeof(::CParental_ReportPlaytimeAndNotify_Response)},
+  { 254, 263, sizeof(::CParental_ParentalSettingsChange_Notification)},
+  { 267, 274, sizeof(::CParental_ParentalUnlocNotification)},
+  { 276, 282, sizeof(::CParental_ParentalLocNotification)},
+  { 283, 290, sizeof(::CParental_PlaytimeUsed_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_ParentalApp_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_ParentalPlaytimeDay_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_ParentalPlaytimeRestrictions_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_ParentalTemporaryPlaytimeRestrictions_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_ParentalSettings_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_EnableParentalSettings_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_EnableParentalSettings_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_DisableParentalSettings_Request_default_instance_),
@@ -1092,8 +836,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_ApprovePlaytime_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_ApprovePlaytime_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_GetRequests_Request_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_ParentalFeatureRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_ParentalPlaytimeRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_GetRequests_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_ReportPlaytimeAndNotify_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CParental_ReportPlaytimeAndNotify_Response_default_instance_),
@@ -1107,175 +849,139 @@ const char descriptor_table_protodef_steammessages_5fparental_2esteamclient_2epr
   "\n(steammessages_parental.steamclient.pro"
   "to\032 google/protobuf/descriptor.proto\032\030st"
   "eammessages_base.proto\032,steammessages_un"
-  "ified_base.steamclient.proto\"0\n\013Parental"
-  "App\022\r\n\005appid\030\001 \001(\r\022\022\n\nis_allowed\030\002 \001(\010\"R"
-  "\n\023ParentalPlaytimeDay\022\034\n\024allowed_time_wi"
-  "ndows\030\001 \001(\004\022\035\n\025allowed_daily_minutes\030\002 \001"
-  "(\r\"p\n\034ParentalPlaytimeRestrictions\022#\n\033ap"
-  "ply_playtime_restrictions\030\002 \001(\010\022+\n\rplayt"
-  "ime_days\030\017 \003(\0132\024.ParentalPlaytimeDay\"j\n%"
-  "ParentalTemporaryPlaytimeRestrictions\022*\n"
-  "\014restrictions\030\001 \001(\0132\024.ParentalPlaytimeDa"
-  "y\022\025\n\rrtime_expires\030\002 \001(\r\"\205\005\n\020ParentalSet"
-  "tings\022\017\n\007steamid\030\001 \001(\006\022\027\n\017applist_base_i"
-  "d\030\002 \001(\r\022 \n\030applist_base_description\030\003 \001("
-  "\t\022\"\n\014applist_base\030\004 \003(\0132\014.ParentalApp\022$\n"
-  "\016applist_custom\030\005 \003(\0132\014.ParentalApp\022\030\n\020p"
-  "asswordhashtype\030\006 \001(\r\022\014\n\004salt\030\007 \001(\014\022\024\n\014p"
-  "asswordhash\030\010 \001(\014\022\022\n\nis_enabled\030\t \001(\010\022\030\n"
-  "\020enabled_features\030\n \001(\r\022\026\n\016recovery_emai"
-  "l\030\013 \001(\t\022\034\n\024is_site_license_lock\030\014 \001(\010\022\"\n"
-  "\032temporary_enabled_features\030\r \001(\r\022*\n\"rti"
-  "me_temporary_feature_expiration\030\016 \001(\r\022<\n"
-  "\025playtime_restrictions\030\017 \001(\0132\035.ParentalP"
-  "laytimeRestrictions\022O\n\037temporary_playtim"
-  "e_restrictions\030\020 \001(\0132&.ParentalTemporary"
-  "PlaytimeRestrictions\022*\n\"excluded_store_c"
-  "ontent_descriptors\030\021 \003(\r\022.\n&excluded_com"
-  "munity_content_descriptors\030\022 \003(\r\"\231\001\n(CPa"
-  "rental_EnableParentalSettings_Request\022\020\n"
-  "\010password\030\001 \001(\t\022#\n\010settings\030\002 \001(\0132\021.Pare"
-  "ntalSettings\022\021\n\tsessionid\030\003 \001(\t\022\022\n\nenabl"
-  "ecode\030\004 \001(\r\022\017\n\007steamid\030\n \001(\006\"+\n)CParenta"
-  "l_EnableParentalSettings_Response\"N\n)CPa"
-  "rental_DisableParentalSettings_Request\022\020"
-  "\n\010password\030\001 \001(\t\022\017\n\007steamid\030\n \001(\006\",\n*CPa"
-  "rental_DisableParentalSettings_Response\""
-  "8\n%CParental_GetParentalSettings_Request"
-  "\022\017\n\007steamid\030\n \001(\006\"M\n&CParental_GetParent"
-  "alSettings_Response\022#\n\010settings\030\001 \001(\0132\021."
-  "ParentalSettings\"\?\n+CParental_GetSignedP"
-  "arentalSettings_Request\022\020\n\010priority\030\001 \001("
-  "\r\"^\n,CParental_GetSignedParentalSettings"
-  "_Response\022\033\n\023serialized_settings\030\001 \001(\014\022\021"
-  "\n\tsignature\030\002 \001(\014\"\230\001\n%CParental_SetParen"
-  "talSettings_Request\022\020\n\010password\030\001 \001(\t\022#\n"
-  "\010settings\030\002 \001(\0132\021.ParentalSettings\022\024\n\014ne"
-  "w_password\030\003 \001(\t\022\021\n\tsessionid\030\004 \001(\t\022\017\n\007s"
-  "teamid\030\n \001(\006\"(\n&CParental_SetParentalSet"
-  "tings_Response\"5\n\037CParental_ValidateToke"
-  "n_Request\022\022\n\nunloctoken\030\001 \001(\t\"\"\n CParent"
-  "al_ValidateToken_Response\"e\n\"CParental_V"
-  "alidatePassword_Request\022\020\n\010password\030\001 \001("
-  "\t\022\017\n\007session\030\002 \001(\t\022\034\n\024send_unlocon_succe"
-  "ss\030\003 \001(\010\"4\n#CParental_ValidatePassword_R"
-  "esponse\022\r\n\005token\030\001 \001(\t\"/\n\034CParental_Lock"
-  "Client_Request\022\017\n\007session\030\001 \001(\t\"\037\n\035CPare"
-  "ntal_LockClient_Response\"\'\n%CParental_Re"
-  "questRecoveryCode_Request\"(\n&CParental_R"
-  "equestRecoveryCode_Response\"S\n)CParental"
-  "_DisableWithRecoveryCode_Request\022\025\n\rreco"
-  "very_code\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\",\n*CPar"
-  "ental_DisableWithRecoveryCode_Response\"K"
-  "\n&CParental_RequestFeatureAccess_Request"
-  "\022\020\n\010features\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\"<\n\'C"
-  "Parental_RequestFeatureAccess_Response\022\021"
-  "\n\trequestid\030\001 \001(\006\"\201\001\n&CParental_ApproveF"
-  "eatureAccess_Request\022\017\n\007approve\030\001 \001(\010\022\021\n"
-  "\trequestid\030\002 \001(\006\022\020\n\010features\030\003 \001(\r\022\020\n\010du"
-  "ration\030\004 \001(\r\022\017\n\007steamid\030\n \001(\006\")\n\'CParent"
-  "al_ApproveFeatureAccess_Response\"\207\001\n!CPa"
-  "rental_RequestPlaytime_Request\022\024\n\014time_e"
-  "xpires\030\001 \001(\r\022;\n\035current_playtime_restric"
-  "tions\030\002 \001(\0132\024.ParentalPlaytimeDay\022\017\n\007ste"
-  "amid\030\n \001(\006\"7\n\"CParental_RequestPlaytime_"
-  "Response\022\021\n\trequestid\030\001 \001(\006\"\237\001\n!CParenta"
-  "l_ApprovePlaytime_Request\022\017\n\007approve\030\001 \001"
-  "(\010\022\021\n\trequestid\030\002 \001(\006\022E\n\025restrictions_ap"
-  "proved\030\003 \001(\0132&.ParentalTemporaryPlaytime"
-  "Restrictions\022\017\n\007steamid\030\n \001(\006\"$\n\"CParent"
-  "al_ApprovePlaytime_Response\"T\n\035CParental"
-  "_GetRequests_Request\022\"\n\032rt_include_compl"
-  "eted_since\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\"\303\001\n\026Pa"
-  "rentalFeatureRequest\022\021\n\trequestid\030\001 \001(\006\022"
-  "\026\n\016family_groupid\030\002 \001(\006\022\017\n\007steamid\030\003 \001(\006"
-  "\022\020\n\010features\030\004 \001(\r\022\026\n\016time_requested\030\005 \001"
-  "(\r\022\020\n\010approved\030\006 \001(\010\022\031\n\021steamid_responde"
-  "r\030\007 \001(\006\022\026\n\016time_responded\030\010 \001(\r\"\314\002\n\027Pare"
-  "ntalPlaytimeRequest\022\021\n\trequestid\030\001 \001(\006\022\026"
-  "\n\016family_groupid\030\002 \001(\006\022\017\n\007steamid\030\003 \001(\006\022"
-  ";\n\035current_playtime_restrictions\030\004 \001(\0132\024"
-  ".ParentalPlaytimeDay\022\024\n\014time_expires\030\005 \001"
-  "(\r\022\026\n\016time_requested\030\006 \001(\r\022\020\n\010approved\030\007"
-  " \001(\010\022\031\n\021steamid_responder\030\010 \001(\006\022\026\n\016time_"
-  "responded\030\t \001(\r\022E\n\025restrictions_approved"
-  "\030\n \001(\0132&.ParentalTemporaryPlaytimeRestri"
-  "ctions\"\210\001\n\036CParental_GetRequests_Respons"
-  "e\0221\n\020feature_requests\030\001 \003(\0132\027.ParentalFe"
-  "atureRequest\0223\n\021playtime_requests\030\002 \003(\0132"
-  "\030.ParentalPlaytimeRequest\"g\n)CParental_R"
-  "eportPlaytimeAndNotify_Request\022\023\n\013day_of"
-  "_week\030\001 \001(\r\022\024\n\014minutes_used\030\002 \001(\r\022\017\n\007ste"
-  "amid\030\n \001(\006\",\n*CParental_ReportPlaytimeAn"
-  "dNotify_Response\"\204\001\n-CParental_ParentalS"
-  "ettingsChange_Notification\022\033\n\023serialized"
-  "_settings\030\001 \001(\014\022\021\n\tsignature\030\002 \001(\014\022\020\n\010pa"
-  "ssword\030\003 \001(\t\022\021\n\tsessionid\030\004 \001(\t\"J\n#CPare"
-  "ntal_ParentalUnlocNotification\022\020\n\010passwo"
-  "rd\030\001 \001(\t\022\021\n\tsessionid\030\002 \001(\t\"6\n!CParental"
-  "_ParentalLocNotification\022\021\n\tsessionid\030\001 "
-  "\001(\t\"P\n#CParental_PlaytimeUsed_Notificati"
-  "on\022\023\n\013day_of_week\030\001 \001(\r\022\024\n\014minutes_used\030"
-  "\002 \001(\r2\351\014\n\010Parental\022o\n\026EnableParentalSett"
-  "ings\022).CParental_EnableParentalSettings_"
-  "Request\032*.CParental_EnableParentalSettin"
-  "gs_Response\022r\n\027DisableParentalSettings\022*"
-  ".CParental_DisableParentalSettings_Reque"
-  "st\032+.CParental_DisableParentalSettings_R"
-  "esponse\022f\n\023GetParentalSettings\022&.CParent"
-  "al_GetParentalSettings_Request\032\'.CParent"
-  "al_GetParentalSettings_Response\022x\n\031GetSi"
-  "gnedParentalSettings\022,.CParental_GetSign"
-  "edParentalSettings_Request\032-.CParental_G"
-  "etSignedParentalSettings_Response\022f\n\023Set"
-  "ParentalSettings\022&.CParental_SetParental"
-  "Settings_Request\032\'.CParental_SetParental"
-  "Settings_Response\022T\n\rValidateToken\022 .CPa"
-  "rental_ValidateToken_Request\032!.CParental"
-  "_ValidateToken_Response\022]\n\020ValidatePassw"
-  "ord\022#.CParental_ValidatePassword_Request"
-  "\032$.CParental_ValidatePassword_Response\022K"
-  "\n\nLockClient\022\035.CParental_LockClient_Requ"
-  "est\032\036.CParental_LockClient_Response\022f\n\023R"
-  "equestRecoveryCode\022&.CParental_RequestRe"
-  "coveryCode_Request\032\'.CParental_RequestRe"
-  "coveryCode_Response\022r\n\027DisableWithRecove"
-  "ryCode\022*.CParental_DisableWithRecoveryCo"
-  "de_Request\032+.CParental_DisableWithRecove"
-  "ryCode_Response\022i\n\024RequestFeatureAccess\022"
-  "\'.CParental_RequestFeatureAccess_Request"
-  "\032(.CParental_RequestFeatureAccess_Respon"
-  "se\022i\n\024ApproveFeatureAccess\022\'.CParental_A"
-  "pproveFeatureAccess_Request\032(.CParental_"
-  "ApproveFeatureAccess_Response\022Z\n\017Request"
-  "Playtime\022\".CParental_RequestPlaytime_Req"
-  "uest\032#.CParental_RequestPlaytime_Respons"
-  "e\022Z\n\017ApprovePlaytime\022\".CParental_Approve"
-  "Playtime_Request\032#.CParental_ApprovePlay"
-  "time_Response\022N\n\013GetRequests\022\036.CParental"
-  "_GetRequests_Request\032\037.CParental_GetRequ"
-  "ests_Response\022r\n\027ReportPlaytimeAndNotify"
-  "\022*.CParental_ReportPlaytimeAndNotify_Req"
-  "uest\032+.CParental_ReportPlaytimeAndNotify"
-  "_Response2\266\002\n\016ParentalClient\022S\n\024NotifySe"
-  "ttingsChange\022..CParental_ParentalSetting"
-  "sChange_Notification\032\013.NoResponse\022A\n\014Not"
-  "ifyUnlock\022$.CParental_ParentalUnlocNotif"
-  "ication\032\013.NoResponse\022=\n\nNotifyLock\022\".CPa"
-  "rental_ParentalLocNotification\032\013.NoRespo"
-  "nse\022G\n\022NotifyPlaytimeUsed\022$.CParental_Pl"
-  "aytimeUsed_Notification\032\013.NoResponse\032\004\300\265"
-  "\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "ified_base.steamclient.proto\032$steammessa"
+  "ges_parental_objects.proto\"\231\001\n(CParental"
+  "_EnableParentalSettings_Request\022\020\n\010passw"
+  "ord\030\001 \001(\t\022#\n\010settings\030\002 \001(\0132\021.ParentalSe"
+  "ttings\022\021\n\tsessionid\030\003 \001(\t\022\022\n\nenablecode\030"
+  "\004 \001(\r\022\017\n\007steamid\030\n \001(\006\"+\n)CParental_Enab"
+  "leParentalSettings_Response\"N\n)CParental"
+  "_DisableParentalSettings_Request\022\020\n\010pass"
+  "word\030\001 \001(\t\022\017\n\007steamid\030\n \001(\006\",\n*CParental"
+  "_DisableParentalSettings_Response\"8\n%CPa"
+  "rental_GetParentalSettings_Request\022\017\n\007st"
+  "eamid\030\n \001(\006\"M\n&CParental_GetParentalSett"
+  "ings_Response\022#\n\010settings\030\001 \001(\0132\021.Parent"
+  "alSettings\"\?\n+CParental_GetSignedParenta"
+  "lSettings_Request\022\020\n\010priority\030\001 \001(\r\"^\n,C"
+  "Parental_GetSignedParentalSettings_Respo"
+  "nse\022\033\n\023serialized_settings\030\001 \001(\014\022\021\n\tsign"
+  "ature\030\002 \001(\014\"\230\001\n%CParental_SetParentalSet"
+  "tings_Request\022\020\n\010password\030\001 \001(\t\022#\n\010setti"
+  "ngs\030\002 \001(\0132\021.ParentalSettings\022\024\n\014new_pass"
+  "word\030\003 \001(\t\022\021\n\tsessionid\030\004 \001(\t\022\017\n\007steamid"
+  "\030\n \001(\006\"(\n&CParental_SetParentalSettings_"
+  "Response\"5\n\037CParental_ValidateToken_Requ"
+  "est\022\022\n\nunloctoken\030\001 \001(\t\"\"\n CParental_Val"
+  "idateToken_Response\"e\n\"CParental_Validat"
+  "ePassword_Request\022\020\n\010password\030\001 \001(\t\022\017\n\007s"
+  "ession\030\002 \001(\t\022\034\n\024send_unlocon_success\030\003 \001"
+  "(\010\"4\n#CParental_ValidatePassword_Respons"
+  "e\022\r\n\005token\030\001 \001(\t\"/\n\034CParental_LockClient"
+  "_Request\022\017\n\007session\030\001 \001(\t\"\037\n\035CParental_L"
+  "ockClient_Response\"\'\n%CParental_RequestR"
+  "ecoveryCode_Request\"(\n&CParental_Request"
+  "RecoveryCode_Response\"S\n)CParental_Disab"
+  "leWithRecoveryCode_Request\022\025\n\rrecovery_c"
+  "ode\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\",\n*CParental_"
+  "DisableWithRecoveryCode_Response\"K\n&CPar"
+  "ental_RequestFeatureAccess_Request\022\020\n\010fe"
+  "atures\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\"<\n\'CParent"
+  "al_RequestFeatureAccess_Response\022\021\n\trequ"
+  "estid\030\001 \001(\006\"\201\001\n&CParental_ApproveFeature"
+  "Access_Request\022\017\n\007approve\030\001 \001(\010\022\021\n\treque"
+  "stid\030\002 \001(\006\022\020\n\010features\030\003 \001(\r\022\020\n\010duration"
+  "\030\004 \001(\r\022\017\n\007steamid\030\n \001(\006\")\n\'CParental_App"
+  "roveFeatureAccess_Response\"\207\001\n!CParental"
+  "_RequestPlaytime_Request\022\024\n\014time_expires"
+  "\030\001 \001(\r\022;\n\035current_playtime_restrictions\030"
+  "\002 \001(\0132\024.ParentalPlaytimeDay\022\017\n\007steamid\030\n"
+  " \001(\006\"7\n\"CParental_RequestPlaytime_Respon"
+  "se\022\021\n\trequestid\030\001 \001(\006\"\237\001\n!CParental_Appr"
+  "ovePlaytime_Request\022\017\n\007approve\030\001 \001(\010\022\021\n\t"
+  "requestid\030\002 \001(\006\022E\n\025restrictions_approved"
+  "\030\003 \001(\0132&.ParentalTemporaryPlaytimeRestri"
+  "ctions\022\017\n\007steamid\030\n \001(\006\"$\n\"CParental_App"
+  "rovePlaytime_Response\"[\n\035CParental_GetRe"
+  "quests_Request\022\"\n\032rt_include_completed_s"
+  "ince\030\001 \001(\r\022\026\n\016family_groupid\030\002 \001(\006\"\210\001\n\036C"
+  "Parental_GetRequests_Response\0221\n\020feature"
+  "_requests\030\001 \003(\0132\027.ParentalFeatureRequest"
+  "\0223\n\021playtime_requests\030\002 \003(\0132\030.ParentalPl"
+  "aytimeRequest\"g\n)CParental_ReportPlaytim"
+  "eAndNotify_Request\022\023\n\013day_of_week\030\001 \001(\r\022"
+  "\024\n\014minutes_used\030\002 \001(\r\022\017\n\007steamid\030\n \001(\006\","
+  "\n*CParental_ReportPlaytimeAndNotify_Resp"
+  "onse\"\204\001\n-CParental_ParentalSettingsChang"
+  "e_Notification\022\033\n\023serialized_settings\030\001 "
+  "\001(\014\022\021\n\tsignature\030\002 \001(\014\022\020\n\010password\030\003 \001(\t"
+  "\022\021\n\tsessionid\030\004 \001(\t\"J\n#CParental_Parenta"
+  "lUnlocNotification\022\020\n\010password\030\001 \001(\t\022\021\n\t"
+  "sessionid\030\002 \001(\t\"6\n!CParental_ParentalLoc"
+  "Notification\022\021\n\tsessionid\030\001 \001(\t\"P\n#CPare"
+  "ntal_PlaytimeUsed_Notification\022\023\n\013day_of"
+  "_week\030\001 \001(\r\022\024\n\014minutes_used\030\002 \001(\r2\351\014\n\010Pa"
+  "rental\022o\n\026EnableParentalSettings\022).CPare"
+  "ntal_EnableParentalSettings_Request\032*.CP"
+  "arental_EnableParentalSettings_Response\022"
+  "r\n\027DisableParentalSettings\022*.CParental_D"
+  "isableParentalSettings_Request\032+.CParent"
+  "al_DisableParentalSettings_Response\022f\n\023G"
+  "etParentalSettings\022&.CParental_GetParent"
+  "alSettings_Request\032\'.CParental_GetParent"
+  "alSettings_Response\022x\n\031GetSignedParental"
+  "Settings\022,.CParental_GetSignedParentalSe"
+  "ttings_Request\032-.CParental_GetSignedPare"
+  "ntalSettings_Response\022f\n\023SetParentalSett"
+  "ings\022&.CParental_SetParentalSettings_Req"
+  "uest\032\'.CParental_SetParentalSettings_Res"
+  "ponse\022T\n\rValidateToken\022 .CParental_Valid"
+  "ateToken_Request\032!.CParental_ValidateTok"
+  "en_Response\022]\n\020ValidatePassword\022#.CParen"
+  "tal_ValidatePassword_Request\032$.CParental"
+  "_ValidatePassword_Response\022K\n\nLockClient"
+  "\022\035.CParental_LockClient_Request\032\036.CParen"
+  "tal_LockClient_Response\022f\n\023RequestRecove"
+  "ryCode\022&.CParental_RequestRecoveryCode_R"
+  "equest\032\'.CParental_RequestRecoveryCode_R"
+  "esponse\022r\n\027DisableWithRecoveryCode\022*.CPa"
+  "rental_DisableWithRecoveryCode_Request\032+"
+  ".CParental_DisableWithRecoveryCode_Respo"
+  "nse\022i\n\024RequestFeatureAccess\022\'.CParental_"
+  "RequestFeatureAccess_Request\032(.CParental"
+  "_RequestFeatureAccess_Response\022i\n\024Approv"
+  "eFeatureAccess\022\'.CParental_ApproveFeatur"
+  "eAccess_Request\032(.CParental_ApproveFeatu"
+  "reAccess_Response\022Z\n\017RequestPlaytime\022\".C"
+  "Parental_RequestPlaytime_Request\032#.CPare"
+  "ntal_RequestPlaytime_Response\022Z\n\017Approve"
+  "Playtime\022\".CParental_ApprovePlaytime_Req"
+  "uest\032#.CParental_ApprovePlaytime_Respons"
+  "e\022N\n\013GetRequests\022\036.CParental_GetRequests"
+  "_Request\032\037.CParental_GetRequests_Respons"
+  "e\022r\n\027ReportPlaytimeAndNotify\022*.CParental"
+  "_ReportPlaytimeAndNotify_Request\032+.CPare"
+  "ntal_ReportPlaytimeAndNotify_Response2\266\002"
+  "\n\016ParentalClient\022S\n\024NotifySettingsChange"
+  "\022..CParental_ParentalSettingsChange_Noti"
+  "fication\032\013.NoResponse\022A\n\014NotifyUnlock\022$."
+  "CParental_ParentalUnlocNotification\032\013.No"
+  "Response\022=\n\nNotifyLock\022\".CParental_Paren"
+  "talLocNotification\032\013.NoResponse\022G\n\022Notif"
+  "yPlaytimeUsed\022$.CParental_PlaytimeUsed_N"
+  "otification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027Op"
+  "enSteamworks.Protobuf"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fparental_2esteamclient_2eproto_deps[3] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fparental_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
   &::descriptor_table_steammessages_5fbase_2eproto,
+  &::descriptor_table_steammessages_5fparental_5fobjects_2eproto,
   &::descriptor_table_steammessages_5funified_5fbase_2esteamclient_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fparental_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fparental_2esteamclient_2eproto = {
-  false, false, 6473, descriptor_table_protodef_steammessages_5fparental_2esteamclient_2eproto, "steammessages_parental.steamclient.proto", 
-  &descriptor_table_steammessages_5fparental_2esteamclient_2eproto_once, descriptor_table_steammessages_5fparental_2esteamclient_2eproto_deps, 3, 43,
+  false, false, 4981, descriptor_table_protodef_steammessages_5fparental_2esteamclient_2eproto, "steammessages_parental.steamclient.proto", 
+  &descriptor_table_steammessages_5fparental_2esteamclient_2eproto_once, descriptor_table_steammessages_5fparental_2esteamclient_2eproto_deps, 4, 36,
   schemas, file_default_instances, TableStruct_steammessages_5fparental_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fparental_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fparental_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fparental_2esteamclient_2eproto,
 };
@@ -1287,1795 +993,6 @@ descriptor_table_steammessages_5fparental_2esteamclient_2eproto_metadata_getter(
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_steammessages_5fparental_2esteamclient_2eproto(&descriptor_table_steammessages_5fparental_2esteamclient_2eproto);
-
-// ===================================================================
-
-class ParentalApp::_Internal {
- public:
-  using HasBits = decltype(std::declval<ParentalApp>()._has_bits_);
-  static void set_has_appid(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_is_allowed(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-};
-
-ParentalApp::ParentalApp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ParentalApp)
-}
-ParentalApp::ParentalApp(const ParentalApp& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&is_allowed_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(is_allowed_));
-  // @@protoc_insertion_point(copy_constructor:ParentalApp)
-}
-
-void ParentalApp::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&is_allowed_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(is_allowed_));
-}
-
-ParentalApp::~ParentalApp() {
-  // @@protoc_insertion_point(destructor:ParentalApp)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ParentalApp::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ParentalApp::ArenaDtor(void* object) {
-  ParentalApp* _this = reinterpret_cast< ParentalApp* >(object);
-  (void)_this;
-}
-void ParentalApp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ParentalApp::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void ParentalApp::Clear() {
-// @@protoc_insertion_point(message_clear_start:ParentalApp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    ::memset(&appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&is_allowed_) -
-        reinterpret_cast<char*>(&appid_)) + sizeof(is_allowed_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* ParentalApp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 appid = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_appid(&has_bits);
-          appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool is_allowed = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_is_allowed(&has_bits);
-          is_allowed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* ParentalApp::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ParentalApp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
-  }
-
-  // optional bool is_allowed = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_is_allowed(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ParentalApp)
-  return target;
-}
-
-size_t ParentalApp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ParentalApp)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional uint32 appid = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_appid());
-    }
-
-    // optional bool is_allowed = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 1;
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ParentalApp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ParentalApp)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ParentalApp* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ParentalApp>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ParentalApp)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ParentalApp)
-    MergeFrom(*source);
-  }
-}
-
-void ParentalApp::MergeFrom(const ParentalApp& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ParentalApp)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      appid_ = from.appid_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      is_allowed_ = from.is_allowed_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void ParentalApp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ParentalApp)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ParentalApp::CopyFrom(const ParentalApp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ParentalApp)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ParentalApp::IsInitialized() const {
-  return true;
-}
-
-void ParentalApp::InternalSwap(ParentalApp* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ParentalApp, is_allowed_)
-      + sizeof(ParentalApp::is_allowed_)
-      - PROTOBUF_FIELD_OFFSET(ParentalApp, appid_)>(
-          reinterpret_cast<char*>(&appid_),
-          reinterpret_cast<char*>(&other->appid_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata ParentalApp::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class ParentalPlaytimeDay::_Internal {
- public:
-  using HasBits = decltype(std::declval<ParentalPlaytimeDay>()._has_bits_);
-  static void set_has_allowed_time_windows(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_allowed_daily_minutes(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-};
-
-ParentalPlaytimeDay::ParentalPlaytimeDay(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ParentalPlaytimeDay)
-}
-ParentalPlaytimeDay::ParentalPlaytimeDay(const ParentalPlaytimeDay& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&allowed_time_windows_, &from.allowed_time_windows_,
-    static_cast<size_t>(reinterpret_cast<char*>(&allowed_daily_minutes_) -
-    reinterpret_cast<char*>(&allowed_time_windows_)) + sizeof(allowed_daily_minutes_));
-  // @@protoc_insertion_point(copy_constructor:ParentalPlaytimeDay)
-}
-
-void ParentalPlaytimeDay::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&allowed_time_windows_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&allowed_daily_minutes_) -
-    reinterpret_cast<char*>(&allowed_time_windows_)) + sizeof(allowed_daily_minutes_));
-}
-
-ParentalPlaytimeDay::~ParentalPlaytimeDay() {
-  // @@protoc_insertion_point(destructor:ParentalPlaytimeDay)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ParentalPlaytimeDay::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ParentalPlaytimeDay::ArenaDtor(void* object) {
-  ParentalPlaytimeDay* _this = reinterpret_cast< ParentalPlaytimeDay* >(object);
-  (void)_this;
-}
-void ParentalPlaytimeDay::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ParentalPlaytimeDay::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void ParentalPlaytimeDay::Clear() {
-// @@protoc_insertion_point(message_clear_start:ParentalPlaytimeDay)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    ::memset(&allowed_time_windows_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&allowed_daily_minutes_) -
-        reinterpret_cast<char*>(&allowed_time_windows_)) + sizeof(allowed_daily_minutes_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* ParentalPlaytimeDay::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint64 allowed_time_windows = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_allowed_time_windows(&has_bits);
-          allowed_time_windows_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 allowed_daily_minutes = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_allowed_daily_minutes(&has_bits);
-          allowed_daily_minutes_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* ParentalPlaytimeDay::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ParentalPlaytimeDay)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint64 allowed_time_windows = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_allowed_time_windows(), target);
-  }
-
-  // optional uint32 allowed_daily_minutes = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_allowed_daily_minutes(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ParentalPlaytimeDay)
-  return target;
-}
-
-size_t ParentalPlaytimeDay::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ParentalPlaytimeDay)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional uint64 allowed_time_windows = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-          this->_internal_allowed_time_windows());
-    }
-
-    // optional uint32 allowed_daily_minutes = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_allowed_daily_minutes());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ParentalPlaytimeDay::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ParentalPlaytimeDay)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ParentalPlaytimeDay* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ParentalPlaytimeDay>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ParentalPlaytimeDay)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ParentalPlaytimeDay)
-    MergeFrom(*source);
-  }
-}
-
-void ParentalPlaytimeDay::MergeFrom(const ParentalPlaytimeDay& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ParentalPlaytimeDay)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      allowed_time_windows_ = from.allowed_time_windows_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      allowed_daily_minutes_ = from.allowed_daily_minutes_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void ParentalPlaytimeDay::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ParentalPlaytimeDay)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ParentalPlaytimeDay::CopyFrom(const ParentalPlaytimeDay& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ParentalPlaytimeDay)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ParentalPlaytimeDay::IsInitialized() const {
-  return true;
-}
-
-void ParentalPlaytimeDay::InternalSwap(ParentalPlaytimeDay* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ParentalPlaytimeDay, allowed_daily_minutes_)
-      + sizeof(ParentalPlaytimeDay::allowed_daily_minutes_)
-      - PROTOBUF_FIELD_OFFSET(ParentalPlaytimeDay, allowed_time_windows_)>(
-          reinterpret_cast<char*>(&allowed_time_windows_),
-          reinterpret_cast<char*>(&other->allowed_time_windows_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata ParentalPlaytimeDay::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class ParentalPlaytimeRestrictions::_Internal {
- public:
-  using HasBits = decltype(std::declval<ParentalPlaytimeRestrictions>()._has_bits_);
-  static void set_has_apply_playtime_restrictions(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-};
-
-ParentalPlaytimeRestrictions::ParentalPlaytimeRestrictions(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  playtime_days_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ParentalPlaytimeRestrictions)
-}
-ParentalPlaytimeRestrictions::ParentalPlaytimeRestrictions(const ParentalPlaytimeRestrictions& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
-      playtime_days_(from.playtime_days_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  apply_playtime_restrictions_ = from.apply_playtime_restrictions_;
-  // @@protoc_insertion_point(copy_constructor:ParentalPlaytimeRestrictions)
-}
-
-void ParentalPlaytimeRestrictions::SharedCtor() {
-apply_playtime_restrictions_ = false;
-}
-
-ParentalPlaytimeRestrictions::~ParentalPlaytimeRestrictions() {
-  // @@protoc_insertion_point(destructor:ParentalPlaytimeRestrictions)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ParentalPlaytimeRestrictions::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ParentalPlaytimeRestrictions::ArenaDtor(void* object) {
-  ParentalPlaytimeRestrictions* _this = reinterpret_cast< ParentalPlaytimeRestrictions* >(object);
-  (void)_this;
-}
-void ParentalPlaytimeRestrictions::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ParentalPlaytimeRestrictions::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void ParentalPlaytimeRestrictions::Clear() {
-// @@protoc_insertion_point(message_clear_start:ParentalPlaytimeRestrictions)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  playtime_days_.Clear();
-  apply_playtime_restrictions_ = false;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* ParentalPlaytimeRestrictions::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional bool apply_playtime_restrictions = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_apply_playtime_restrictions(&has_bits);
-          apply_playtime_restrictions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated .ParentalPlaytimeDay playtime_days = 15;
-      case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_playtime_days(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<122>(ptr));
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* ParentalPlaytimeRestrictions::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ParentalPlaytimeRestrictions)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional bool apply_playtime_restrictions = 2;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_apply_playtime_restrictions(), target);
-  }
-
-  // repeated .ParentalPlaytimeDay playtime_days = 15;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_playtime_days_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(15, this->_internal_playtime_days(i), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ParentalPlaytimeRestrictions)
-  return target;
-}
-
-size_t ParentalPlaytimeRestrictions::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ParentalPlaytimeRestrictions)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .ParentalPlaytimeDay playtime_days = 15;
-  total_size += 1UL * this->_internal_playtime_days_size();
-  for (const auto& msg : this->playtime_days_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // optional bool apply_playtime_restrictions = 2;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 + 1;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ParentalPlaytimeRestrictions::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ParentalPlaytimeRestrictions)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ParentalPlaytimeRestrictions* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ParentalPlaytimeRestrictions>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ParentalPlaytimeRestrictions)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ParentalPlaytimeRestrictions)
-    MergeFrom(*source);
-  }
-}
-
-void ParentalPlaytimeRestrictions::MergeFrom(const ParentalPlaytimeRestrictions& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ParentalPlaytimeRestrictions)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  playtime_days_.MergeFrom(from.playtime_days_);
-  if (from._internal_has_apply_playtime_restrictions()) {
-    _internal_set_apply_playtime_restrictions(from._internal_apply_playtime_restrictions());
-  }
-}
-
-void ParentalPlaytimeRestrictions::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ParentalPlaytimeRestrictions)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ParentalPlaytimeRestrictions::CopyFrom(const ParentalPlaytimeRestrictions& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ParentalPlaytimeRestrictions)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ParentalPlaytimeRestrictions::IsInitialized() const {
-  return true;
-}
-
-void ParentalPlaytimeRestrictions::InternalSwap(ParentalPlaytimeRestrictions* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  playtime_days_.InternalSwap(&other->playtime_days_);
-  swap(apply_playtime_restrictions_, other->apply_playtime_restrictions_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata ParentalPlaytimeRestrictions::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class ParentalTemporaryPlaytimeRestrictions::_Internal {
- public:
-  using HasBits = decltype(std::declval<ParentalTemporaryPlaytimeRestrictions>()._has_bits_);
-  static const ::ParentalPlaytimeDay& restrictions(const ParentalTemporaryPlaytimeRestrictions* msg);
-  static void set_has_restrictions(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_rtime_expires(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-};
-
-const ::ParentalPlaytimeDay&
-ParentalTemporaryPlaytimeRestrictions::_Internal::restrictions(const ParentalTemporaryPlaytimeRestrictions* msg) {
-  return *msg->restrictions_;
-}
-ParentalTemporaryPlaytimeRestrictions::ParentalTemporaryPlaytimeRestrictions(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ParentalTemporaryPlaytimeRestrictions)
-}
-ParentalTemporaryPlaytimeRestrictions::ParentalTemporaryPlaytimeRestrictions(const ParentalTemporaryPlaytimeRestrictions& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_restrictions()) {
-    restrictions_ = new ::ParentalPlaytimeDay(*from.restrictions_);
-  } else {
-    restrictions_ = nullptr;
-  }
-  rtime_expires_ = from.rtime_expires_;
-  // @@protoc_insertion_point(copy_constructor:ParentalTemporaryPlaytimeRestrictions)
-}
-
-void ParentalTemporaryPlaytimeRestrictions::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&restrictions_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&rtime_expires_) -
-    reinterpret_cast<char*>(&restrictions_)) + sizeof(rtime_expires_));
-}
-
-ParentalTemporaryPlaytimeRestrictions::~ParentalTemporaryPlaytimeRestrictions() {
-  // @@protoc_insertion_point(destructor:ParentalTemporaryPlaytimeRestrictions)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ParentalTemporaryPlaytimeRestrictions::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete restrictions_;
-}
-
-void ParentalTemporaryPlaytimeRestrictions::ArenaDtor(void* object) {
-  ParentalTemporaryPlaytimeRestrictions* _this = reinterpret_cast< ParentalTemporaryPlaytimeRestrictions* >(object);
-  (void)_this;
-}
-void ParentalTemporaryPlaytimeRestrictions::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ParentalTemporaryPlaytimeRestrictions::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void ParentalTemporaryPlaytimeRestrictions::Clear() {
-// @@protoc_insertion_point(message_clear_start:ParentalTemporaryPlaytimeRestrictions)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(restrictions_ != nullptr);
-    restrictions_->Clear();
-  }
-  rtime_expires_ = 0u;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* ParentalTemporaryPlaytimeRestrictions::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional .ParentalPlaytimeDay restrictions = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_restrictions(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rtime_expires = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_rtime_expires(&has_bits);
-          rtime_expires_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* ParentalTemporaryPlaytimeRestrictions::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ParentalTemporaryPlaytimeRestrictions)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional .ParentalPlaytimeDay restrictions = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::restrictions(this), target, stream);
-  }
-
-  // optional uint32 rtime_expires = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_rtime_expires(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ParentalTemporaryPlaytimeRestrictions)
-  return target;
-}
-
-size_t ParentalTemporaryPlaytimeRestrictions::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ParentalTemporaryPlaytimeRestrictions)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional .ParentalPlaytimeDay restrictions = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *restrictions_);
-    }
-
-    // optional uint32 rtime_expires = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rtime_expires());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ParentalTemporaryPlaytimeRestrictions::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ParentalTemporaryPlaytimeRestrictions)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ParentalTemporaryPlaytimeRestrictions* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ParentalTemporaryPlaytimeRestrictions>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ParentalTemporaryPlaytimeRestrictions)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ParentalTemporaryPlaytimeRestrictions)
-    MergeFrom(*source);
-  }
-}
-
-void ParentalTemporaryPlaytimeRestrictions::MergeFrom(const ParentalTemporaryPlaytimeRestrictions& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ParentalTemporaryPlaytimeRestrictions)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_mutable_restrictions()->::ParentalPlaytimeDay::MergeFrom(from._internal_restrictions());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      rtime_expires_ = from.rtime_expires_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void ParentalTemporaryPlaytimeRestrictions::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ParentalTemporaryPlaytimeRestrictions)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ParentalTemporaryPlaytimeRestrictions::CopyFrom(const ParentalTemporaryPlaytimeRestrictions& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ParentalTemporaryPlaytimeRestrictions)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ParentalTemporaryPlaytimeRestrictions::IsInitialized() const {
-  return true;
-}
-
-void ParentalTemporaryPlaytimeRestrictions::InternalSwap(ParentalTemporaryPlaytimeRestrictions* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ParentalTemporaryPlaytimeRestrictions, rtime_expires_)
-      + sizeof(ParentalTemporaryPlaytimeRestrictions::rtime_expires_)
-      - PROTOBUF_FIELD_OFFSET(ParentalTemporaryPlaytimeRestrictions, restrictions_)>(
-          reinterpret_cast<char*>(&restrictions_),
-          reinterpret_cast<char*>(&other->restrictions_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata ParentalTemporaryPlaytimeRestrictions::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class ParentalSettings::_Internal {
- public:
-  using HasBits = decltype(std::declval<ParentalSettings>()._has_bits_);
-  static void set_has_steamid(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_applist_base_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-  static void set_has_applist_base_description(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_passwordhashtype(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
-  }
-  static void set_has_salt(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_passwordhash(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_is_enabled(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
-  }
-  static void set_has_enabled_features(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
-  }
-  static void set_has_recovery_email(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_is_site_license_lock(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
-  }
-  static void set_has_temporary_enabled_features(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
-  }
-  static void set_has_rtime_temporary_feature_expiration(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
-  }
-  static const ::ParentalPlaytimeRestrictions& playtime_restrictions(const ParentalSettings* msg);
-  static void set_has_playtime_restrictions(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static const ::ParentalTemporaryPlaytimeRestrictions& temporary_playtime_restrictions(const ParentalSettings* msg);
-  static void set_has_temporary_playtime_restrictions(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-};
-
-const ::ParentalPlaytimeRestrictions&
-ParentalSettings::_Internal::playtime_restrictions(const ParentalSettings* msg) {
-  return *msg->playtime_restrictions_;
-}
-const ::ParentalTemporaryPlaytimeRestrictions&
-ParentalSettings::_Internal::temporary_playtime_restrictions(const ParentalSettings* msg) {
-  return *msg->temporary_playtime_restrictions_;
-}
-ParentalSettings::ParentalSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  applist_base_(arena),
-  applist_custom_(arena),
-  excluded_store_content_descriptors_(arena),
-  excluded_community_content_descriptors_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ParentalSettings)
-}
-ParentalSettings::ParentalSettings(const ParentalSettings& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
-      applist_base_(from.applist_base_),
-      applist_custom_(from.applist_custom_),
-      excluded_store_content_descriptors_(from.excluded_store_content_descriptors_),
-      excluded_community_content_descriptors_(from.excluded_community_content_descriptors_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  applist_base_description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_applist_base_description()) {
-    applist_base_description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_applist_base_description(), 
-      GetArena());
-  }
-  salt_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_salt()) {
-    salt_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_salt(), 
-      GetArena());
-  }
-  passwordhash_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_passwordhash()) {
-    passwordhash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_passwordhash(), 
-      GetArena());
-  }
-  recovery_email_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_recovery_email()) {
-    recovery_email_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_recovery_email(), 
-      GetArena());
-  }
-  if (from._internal_has_playtime_restrictions()) {
-    playtime_restrictions_ = new ::ParentalPlaytimeRestrictions(*from.playtime_restrictions_);
-  } else {
-    playtime_restrictions_ = nullptr;
-  }
-  if (from._internal_has_temporary_playtime_restrictions()) {
-    temporary_playtime_restrictions_ = new ::ParentalTemporaryPlaytimeRestrictions(*from.temporary_playtime_restrictions_);
-  } else {
-    temporary_playtime_restrictions_ = nullptr;
-  }
-  ::memcpy(&steamid_, &from.steamid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&rtime_temporary_feature_expiration_) -
-    reinterpret_cast<char*>(&steamid_)) + sizeof(rtime_temporary_feature_expiration_));
-  // @@protoc_insertion_point(copy_constructor:ParentalSettings)
-}
-
-void ParentalSettings::SharedCtor() {
-applist_base_description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-salt_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-passwordhash_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-recovery_email_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&playtime_restrictions_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&rtime_temporary_feature_expiration_) -
-    reinterpret_cast<char*>(&playtime_restrictions_)) + sizeof(rtime_temporary_feature_expiration_));
-}
-
-ParentalSettings::~ParentalSettings() {
-  // @@protoc_insertion_point(destructor:ParentalSettings)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ParentalSettings::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  applist_base_description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  salt_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  passwordhash_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  recovery_email_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete playtime_restrictions_;
-  if (this != internal_default_instance()) delete temporary_playtime_restrictions_;
-}
-
-void ParentalSettings::ArenaDtor(void* object) {
-  ParentalSettings* _this = reinterpret_cast< ParentalSettings* >(object);
-  (void)_this;
-}
-void ParentalSettings::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ParentalSettings::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void ParentalSettings::Clear() {
-// @@protoc_insertion_point(message_clear_start:ParentalSettings)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  applist_base_.Clear();
-  applist_custom_.Clear();
-  excluded_store_content_descriptors_.Clear();
-  excluded_community_content_descriptors_.Clear();
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
-    if (cached_has_bits & 0x00000001u) {
-      applist_base_description_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      salt_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      passwordhash_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000008u) {
-      recovery_email_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000010u) {
-      GOOGLE_DCHECK(playtime_restrictions_ != nullptr);
-      playtime_restrictions_->Clear();
-    }
-    if (cached_has_bits & 0x00000020u) {
-      GOOGLE_DCHECK(temporary_playtime_restrictions_ != nullptr);
-      temporary_playtime_restrictions_->Clear();
-    }
-  }
-  if (cached_has_bits & 0x000000c0u) {
-    ::memset(&steamid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&applist_base_id_) -
-        reinterpret_cast<char*>(&steamid_)) + sizeof(applist_base_id_));
-  }
-  if (cached_has_bits & 0x00003f00u) {
-    ::memset(&passwordhashtype_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&rtime_temporary_feature_expiration_) -
-        reinterpret_cast<char*>(&passwordhashtype_)) + sizeof(rtime_temporary_feature_expiration_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* ParentalSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional fixed64 steamid = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
-          _Internal::set_has_steamid(&has_bits);
-          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 applist_base_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_applist_base_id(&has_bits);
-          applist_base_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string applist_base_description = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_applist_base_description();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ParentalSettings.applist_base_description");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated .ParentalApp applist_base = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_applist_base(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // repeated .ParentalApp applist_custom = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_applist_custom(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 passwordhashtype = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          _Internal::set_has_passwordhashtype(&has_bits);
-          passwordhashtype_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bytes salt = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          auto str = _internal_mutable_salt();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bytes passwordhash = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
-          auto str = _internal_mutable_passwordhash();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool is_enabled = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
-          _Internal::set_has_is_enabled(&has_bits);
-          is_enabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 enabled_features = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
-          _Internal::set_has_enabled_features(&has_bits);
-          enabled_features_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string recovery_email = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
-          auto str = _internal_mutable_recovery_email();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ParentalSettings.recovery_email");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool is_site_license_lock = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
-          _Internal::set_has_is_site_license_lock(&has_bits);
-          is_site_license_lock_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 temporary_enabled_features = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
-          _Internal::set_has_temporary_enabled_features(&has_bits);
-          temporary_enabled_features_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rtime_temporary_feature_expiration = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
-          _Internal::set_has_rtime_temporary_feature_expiration(&has_bits);
-          rtime_temporary_feature_expiration_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional .ParentalPlaytimeRestrictions playtime_restrictions = 15;
-      case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
-          ptr = ctx->ParseMessage(_internal_mutable_playtime_restrictions(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional .ParentalTemporaryPlaytimeRestrictions temporary_playtime_restrictions = 16;
-      case 16:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
-          ptr = ctx->ParseMessage(_internal_mutable_temporary_playtime_restrictions(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated uint32 excluded_store_content_descriptors = 17;
-      case 17:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
-          ptr -= 2;
-          do {
-            ptr += 2;
-            _internal_add_excluded_store_content_descriptors(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<136>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 138) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_excluded_store_content_descriptors(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated uint32 excluded_community_content_descriptors = 18;
-      case 18:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
-          ptr -= 2;
-          do {
-            ptr += 2;
-            _internal_add_excluded_community_content_descriptors(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<144>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_excluded_community_content_descriptors(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* ParentalSettings::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ParentalSettings)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
-  }
-
-  // optional uint32 applist_base_id = 2;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_applist_base_id(), target);
-  }
-
-  // optional string applist_base_description = 3;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_applist_base_description().data(), static_cast<int>(this->_internal_applist_base_description().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "ParentalSettings.applist_base_description");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_applist_base_description(), target);
-  }
-
-  // repeated .ParentalApp applist_base = 4;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_applist_base_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, this->_internal_applist_base(i), target, stream);
-  }
-
-  // repeated .ParentalApp applist_custom = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_applist_custom_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_applist_custom(i), target, stream);
-  }
-
-  // optional uint32 passwordhashtype = 6;
-  if (cached_has_bits & 0x00000100u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_passwordhashtype(), target);
-  }
-
-  // optional bytes salt = 7;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->WriteBytesMaybeAliased(
-        7, this->_internal_salt(), target);
-  }
-
-  // optional bytes passwordhash = 8;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->WriteBytesMaybeAliased(
-        8, this->_internal_passwordhash(), target);
-  }
-
-  // optional bool is_enabled = 9;
-  if (cached_has_bits & 0x00000400u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_is_enabled(), target);
-  }
-
-  // optional uint32 enabled_features = 10;
-  if (cached_has_bits & 0x00000200u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_enabled_features(), target);
-  }
-
-  // optional string recovery_email = 11;
-  if (cached_has_bits & 0x00000008u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_recovery_email().data(), static_cast<int>(this->_internal_recovery_email().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "ParentalSettings.recovery_email");
-    target = stream->WriteStringMaybeAliased(
-        11, this->_internal_recovery_email(), target);
-  }
-
-  // optional bool is_site_license_lock = 12;
-  if (cached_has_bits & 0x00000800u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_is_site_license_lock(), target);
-  }
-
-  // optional uint32 temporary_enabled_features = 13;
-  if (cached_has_bits & 0x00001000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_temporary_enabled_features(), target);
-  }
-
-  // optional uint32 rtime_temporary_feature_expiration = 14;
-  if (cached_has_bits & 0x00002000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_rtime_temporary_feature_expiration(), target);
-  }
-
-  // optional .ParentalPlaytimeRestrictions playtime_restrictions = 15;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        15, _Internal::playtime_restrictions(this), target, stream);
-  }
-
-  // optional .ParentalTemporaryPlaytimeRestrictions temporary_playtime_restrictions = 16;
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        16, _Internal::temporary_playtime_restrictions(this), target, stream);
-  }
-
-  // repeated uint32 excluded_store_content_descriptors = 17;
-  for (int i = 0, n = this->_internal_excluded_store_content_descriptors_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(17, this->_internal_excluded_store_content_descriptors(i), target);
-  }
-
-  // repeated uint32 excluded_community_content_descriptors = 18;
-  for (int i = 0, n = this->_internal_excluded_community_content_descriptors_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(18, this->_internal_excluded_community_content_descriptors(i), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ParentalSettings)
-  return target;
-}
-
-size_t ParentalSettings::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ParentalSettings)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .ParentalApp applist_base = 4;
-  total_size += 1UL * this->_internal_applist_base_size();
-  for (const auto& msg : this->applist_base_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .ParentalApp applist_custom = 5;
-  total_size += 1UL * this->_internal_applist_custom_size();
-  for (const auto& msg : this->applist_custom_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated uint32 excluded_store_content_descriptors = 17;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->excluded_store_content_descriptors_);
-    total_size += 2 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_excluded_store_content_descriptors_size());
-    total_size += data_size;
-  }
-
-  // repeated uint32 excluded_community_content_descriptors = 18;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->excluded_community_content_descriptors_);
-    total_size += 2 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_excluded_community_content_descriptors_size());
-    total_size += data_size;
-  }
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    // optional string applist_base_description = 3;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_applist_base_description());
-    }
-
-    // optional bytes salt = 7;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-          this->_internal_salt());
-    }
-
-    // optional bytes passwordhash = 8;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-          this->_internal_passwordhash());
-    }
-
-    // optional string recovery_email = 11;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_recovery_email());
-    }
-
-    // optional .ParentalPlaytimeRestrictions playtime_restrictions = 15;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *playtime_restrictions_);
-    }
-
-    // optional .ParentalTemporaryPlaytimeRestrictions temporary_playtime_restrictions = 16;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *temporary_playtime_restrictions_);
-    }
-
-    // optional fixed64 steamid = 1;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 + 8;
-    }
-
-    // optional uint32 applist_base_id = 2;
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_applist_base_id());
-    }
-
-  }
-  if (cached_has_bits & 0x00003f00u) {
-    // optional uint32 passwordhashtype = 6;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_passwordhashtype());
-    }
-
-    // optional uint32 enabled_features = 10;
-    if (cached_has_bits & 0x00000200u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_enabled_features());
-    }
-
-    // optional bool is_enabled = 9;
-    if (cached_has_bits & 0x00000400u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool is_site_license_lock = 12;
-    if (cached_has_bits & 0x00000800u) {
-      total_size += 1 + 1;
-    }
-
-    // optional uint32 temporary_enabled_features = 13;
-    if (cached_has_bits & 0x00001000u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_temporary_enabled_features());
-    }
-
-    // optional uint32 rtime_temporary_feature_expiration = 14;
-    if (cached_has_bits & 0x00002000u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rtime_temporary_feature_expiration());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ParentalSettings::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ParentalSettings)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ParentalSettings* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ParentalSettings>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ParentalSettings)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ParentalSettings)
-    MergeFrom(*source);
-  }
-}
-
-void ParentalSettings::MergeFrom(const ParentalSettings& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ParentalSettings)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  applist_base_.MergeFrom(from.applist_base_);
-  applist_custom_.MergeFrom(from.applist_custom_);
-  excluded_store_content_descriptors_.MergeFrom(from.excluded_store_content_descriptors_);
-  excluded_community_content_descriptors_.MergeFrom(from.excluded_community_content_descriptors_);
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_applist_base_description(from._internal_applist_base_description());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _internal_set_salt(from._internal_salt());
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _internal_set_passwordhash(from._internal_passwordhash());
-    }
-    if (cached_has_bits & 0x00000008u) {
-      _internal_set_recovery_email(from._internal_recovery_email());
-    }
-    if (cached_has_bits & 0x00000010u) {
-      _internal_mutable_playtime_restrictions()->::ParentalPlaytimeRestrictions::MergeFrom(from._internal_playtime_restrictions());
-    }
-    if (cached_has_bits & 0x00000020u) {
-      _internal_mutable_temporary_playtime_restrictions()->::ParentalTemporaryPlaytimeRestrictions::MergeFrom(from._internal_temporary_playtime_restrictions());
-    }
-    if (cached_has_bits & 0x00000040u) {
-      steamid_ = from.steamid_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      applist_base_id_ = from.applist_base_id_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0x00003f00u) {
-    if (cached_has_bits & 0x00000100u) {
-      passwordhashtype_ = from.passwordhashtype_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      enabled_features_ = from.enabled_features_;
-    }
-    if (cached_has_bits & 0x00000400u) {
-      is_enabled_ = from.is_enabled_;
-    }
-    if (cached_has_bits & 0x00000800u) {
-      is_site_license_lock_ = from.is_site_license_lock_;
-    }
-    if (cached_has_bits & 0x00001000u) {
-      temporary_enabled_features_ = from.temporary_enabled_features_;
-    }
-    if (cached_has_bits & 0x00002000u) {
-      rtime_temporary_feature_expiration_ = from.rtime_temporary_feature_expiration_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void ParentalSettings::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ParentalSettings)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ParentalSettings::CopyFrom(const ParentalSettings& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ParentalSettings)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ParentalSettings::IsInitialized() const {
-  return true;
-}
-
-void ParentalSettings::InternalSwap(ParentalSettings* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  applist_base_.InternalSwap(&other->applist_base_);
-  applist_custom_.InternalSwap(&other->applist_custom_);
-  excluded_store_content_descriptors_.InternalSwap(&other->excluded_store_content_descriptors_);
-  excluded_community_content_descriptors_.InternalSwap(&other->excluded_community_content_descriptors_);
-  applist_base_description_.Swap(&other->applist_base_description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  salt_.Swap(&other->salt_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  passwordhash_.Swap(&other->passwordhash_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  recovery_email_.Swap(&other->recovery_email_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ParentalSettings, rtime_temporary_feature_expiration_)
-      + sizeof(ParentalSettings::rtime_temporary_feature_expiration_)
-      - PROTOBUF_FIELD_OFFSET(ParentalSettings, playtime_restrictions_)>(
-          reinterpret_cast<char*>(&playtime_restrictions_),
-          reinterpret_cast<char*>(&other->playtime_restrictions_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata ParentalSettings::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
 
 // ===================================================================
 
@@ -3103,6 +1020,10 @@ class CParental_EnableParentalSettings_Request::_Internal {
 const ::ParentalSettings&
 CParental_EnableParentalSettings_Request::_Internal::settings(const CParental_EnableParentalSettings_Request* msg) {
   return *msg->settings_;
+}
+void CParental_EnableParentalSettings_Request::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000004u;
 }
 CParental_EnableParentalSettings_Request::CParental_EnableParentalSettings_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -4238,6 +2159,10 @@ const ::ParentalSettings&
 CParental_GetParentalSettings_Response::_Internal::settings(const CParental_GetParentalSettings_Response* msg) {
   return *msg->settings_;
 }
+void CParental_GetParentalSettings_Response::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
 CParental_GetParentalSettings_Response::CParental_GetParentalSettings_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -4920,6 +2845,10 @@ class CParental_SetParentalSettings_Request::_Internal {
 const ::ParentalSettings&
 CParental_SetParentalSettings_Request::_Internal::settings(const CParental_SetParentalSettings_Request* msg) {
   return *msg->settings_;
+}
+void CParental_SetParentalSettings_Request::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000008u;
 }
 CParental_SetParentalSettings_Request::CParental_SetParentalSettings_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -8371,6 +6300,10 @@ const ::ParentalPlaytimeDay&
 CParental_RequestPlaytime_Request::_Internal::current_playtime_restrictions(const CParental_RequestPlaytime_Request* msg) {
   return *msg->current_playtime_restrictions_;
 }
+void CParental_RequestPlaytime_Request::clear_current_playtime_restrictions() {
+  if (current_playtime_restrictions_ != nullptr) current_playtime_restrictions_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
 CParental_RequestPlaytime_Request::CParental_RequestPlaytime_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -8863,6 +6796,10 @@ const ::ParentalTemporaryPlaytimeRestrictions&
 CParental_ApprovePlaytime_Request::_Internal::restrictions_approved(const CParental_ApprovePlaytime_Request* msg) {
   return *msg->restrictions_approved_;
 }
+void CParental_ApprovePlaytime_Request::clear_restrictions_approved() {
+  if (restrictions_approved_ != nullptr) restrictions_approved_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
 CParental_ApprovePlaytime_Request::CParental_ApprovePlaytime_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -9315,10 +7252,10 @@ class CParental_GetRequests_Request::_Internal {
  public:
   using HasBits = decltype(std::declval<CParental_GetRequests_Request>()._has_bits_);
   static void set_has_rt_include_completed_since(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_steamid(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
+  }
+  static void set_has_family_groupid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -9332,17 +7269,17 @@ CParental_GetRequests_Request::CParental_GetRequests_Request(const CParental_Get
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&rt_include_completed_since_, &from.rt_include_completed_since_,
-    static_cast<size_t>(reinterpret_cast<char*>(&steamid_) -
-    reinterpret_cast<char*>(&rt_include_completed_since_)) + sizeof(steamid_));
+  ::memcpy(&family_groupid_, &from.family_groupid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&rt_include_completed_since_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(rt_include_completed_since_));
   // @@protoc_insertion_point(copy_constructor:CParental_GetRequests_Request)
 }
 
 void CParental_GetRequests_Request::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&rt_include_completed_since_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&steamid_) -
-    reinterpret_cast<char*>(&rt_include_completed_since_)) + sizeof(steamid_));
+    reinterpret_cast<char*>(&family_groupid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&rt_include_completed_since_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(rt_include_completed_since_));
 }
 
 CParental_GetRequests_Request::~CParental_GetRequests_Request() {
@@ -9373,9 +7310,9 @@ void CParental_GetRequests_Request::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&rt_include_completed_since_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&steamid_) -
-        reinterpret_cast<char*>(&rt_include_completed_since_)) + sizeof(steamid_));
+    ::memset(&family_groupid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&rt_include_completed_since_) -
+        reinterpret_cast<char*>(&family_groupid_)) + sizeof(rt_include_completed_since_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -9397,11 +7334,11 @@ const char* CParental_GetRequests_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 81)) {
-          _Internal::set_has_steamid(&has_bits);
-          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+      // optional fixed64 family_groupid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          _Internal::set_has_family_groupid(&has_bits);
+          family_groupid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
@@ -9436,15 +7373,15 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional uint32 rt_include_completed_since = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_rt_include_completed_since(), target);
   }
 
-  // optional fixed64 steamid = 10;
-  if (cached_has_bits & 0x00000002u) {
+  // optional fixed64 family_groupid = 2;
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(10, this->_internal_steamid(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_family_groupid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -9465,16 +7402,16 @@ size_t CParental_GetRequests_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 rt_include_completed_since = 1;
+    // optional fixed64 family_groupid = 2;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint32 rt_include_completed_since = 1;
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rt_include_completed_since());
-    }
-
-    // optional fixed64 steamid = 10;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 8;
     }
 
   }
@@ -9512,10 +7449,10 @@ void CParental_GetRequests_Request::MergeFrom(const CParental_GetRequests_Reques
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      rt_include_completed_since_ = from.rt_include_completed_since_;
+      family_groupid_ = from.family_groupid_;
     }
     if (cached_has_bits & 0x00000002u) {
-      steamid_ = from.steamid_;
+      rt_include_completed_since_ = from.rt_include_completed_since_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -9544,914 +7481,14 @@ void CParental_GetRequests_Request::InternalSwap(CParental_GetRequests_Request* 
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CParental_GetRequests_Request, steamid_)
-      + sizeof(CParental_GetRequests_Request::steamid_)
-      - PROTOBUF_FIELD_OFFSET(CParental_GetRequests_Request, rt_include_completed_since_)>(
-          reinterpret_cast<char*>(&rt_include_completed_since_),
-          reinterpret_cast<char*>(&other->rt_include_completed_since_));
+      PROTOBUF_FIELD_OFFSET(CParental_GetRequests_Request, rt_include_completed_since_)
+      + sizeof(CParental_GetRequests_Request::rt_include_completed_since_)
+      - PROTOBUF_FIELD_OFFSET(CParental_GetRequests_Request, family_groupid_)>(
+          reinterpret_cast<char*>(&family_groupid_),
+          reinterpret_cast<char*>(&other->family_groupid_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CParental_GetRequests_Request::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class ParentalFeatureRequest::_Internal {
- public:
-  using HasBits = decltype(std::declval<ParentalFeatureRequest>()._has_bits_);
-  static void set_has_requestid(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_family_groupid(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_steamid(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_features(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_time_requested(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_approved(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_steamid_responder(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_time_responded(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-};
-
-ParentalFeatureRequest::ParentalFeatureRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ParentalFeatureRequest)
-}
-ParentalFeatureRequest::ParentalFeatureRequest(const ParentalFeatureRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&requestid_, &from.requestid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&time_responded_) -
-    reinterpret_cast<char*>(&requestid_)) + sizeof(time_responded_));
-  // @@protoc_insertion_point(copy_constructor:ParentalFeatureRequest)
-}
-
-void ParentalFeatureRequest::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&requestid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&time_responded_) -
-    reinterpret_cast<char*>(&requestid_)) + sizeof(time_responded_));
-}
-
-ParentalFeatureRequest::~ParentalFeatureRequest() {
-  // @@protoc_insertion_point(destructor:ParentalFeatureRequest)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ParentalFeatureRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ParentalFeatureRequest::ArenaDtor(void* object) {
-  ParentalFeatureRequest* _this = reinterpret_cast< ParentalFeatureRequest* >(object);
-  (void)_this;
-}
-void ParentalFeatureRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ParentalFeatureRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void ParentalFeatureRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:ParentalFeatureRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    ::memset(&requestid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&time_responded_) -
-        reinterpret_cast<char*>(&requestid_)) + sizeof(time_responded_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* ParentalFeatureRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional fixed64 requestid = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
-          _Internal::set_has_requestid(&has_bits);
-          requestid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional fixed64 family_groupid = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
-          _Internal::set_has_family_groupid(&has_bits);
-          family_groupid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional fixed64 steamid = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
-          _Internal::set_has_steamid(&has_bits);
-          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 features = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          _Internal::set_has_features(&has_bits);
-          features_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 time_requested = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          _Internal::set_has_time_requested(&has_bits);
-          time_requested_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool approved = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          _Internal::set_has_approved(&has_bits);
-          approved_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional fixed64 steamid_responder = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 57)) {
-          _Internal::set_has_steamid_responder(&has_bits);
-          steamid_responder_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 time_responded = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          _Internal::set_has_time_responded(&has_bits);
-          time_responded_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* ParentalFeatureRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ParentalFeatureRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional fixed64 requestid = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_requestid(), target);
-  }
-
-  // optional fixed64 family_groupid = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_family_groupid(), target);
-  }
-
-  // optional fixed64 steamid = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_steamid(), target);
-  }
-
-  // optional uint32 features = 4;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_features(), target);
-  }
-
-  // optional uint32 time_requested = 5;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_time_requested(), target);
-  }
-
-  // optional bool approved = 6;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_approved(), target);
-  }
-
-  // optional fixed64 steamid_responder = 7;
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(7, this->_internal_steamid_responder(), target);
-  }
-
-  // optional uint32 time_responded = 8;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_time_responded(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ParentalFeatureRequest)
-  return target;
-}
-
-size_t ParentalFeatureRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ParentalFeatureRequest)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    // optional fixed64 requestid = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 + 8;
-    }
-
-    // optional fixed64 family_groupid = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 8;
-    }
-
-    // optional fixed64 steamid = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 8;
-    }
-
-    // optional uint32 features = 4;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_features());
-    }
-
-    // optional uint32 time_requested = 5;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_time_requested());
-    }
-
-    // optional fixed64 steamid_responder = 7;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 + 8;
-    }
-
-    // optional bool approved = 6;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 + 1;
-    }
-
-    // optional uint32 time_responded = 8;
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_time_responded());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ParentalFeatureRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ParentalFeatureRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ParentalFeatureRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ParentalFeatureRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ParentalFeatureRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ParentalFeatureRequest)
-    MergeFrom(*source);
-  }
-}
-
-void ParentalFeatureRequest::MergeFrom(const ParentalFeatureRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ParentalFeatureRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    if (cached_has_bits & 0x00000001u) {
-      requestid_ = from.requestid_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      family_groupid_ = from.family_groupid_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      steamid_ = from.steamid_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      features_ = from.features_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      time_requested_ = from.time_requested_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      steamid_responder_ = from.steamid_responder_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      approved_ = from.approved_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      time_responded_ = from.time_responded_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void ParentalFeatureRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ParentalFeatureRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ParentalFeatureRequest::CopyFrom(const ParentalFeatureRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ParentalFeatureRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ParentalFeatureRequest::IsInitialized() const {
-  return true;
-}
-
-void ParentalFeatureRequest::InternalSwap(ParentalFeatureRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ParentalFeatureRequest, time_responded_)
-      + sizeof(ParentalFeatureRequest::time_responded_)
-      - PROTOBUF_FIELD_OFFSET(ParentalFeatureRequest, requestid_)>(
-          reinterpret_cast<char*>(&requestid_),
-          reinterpret_cast<char*>(&other->requestid_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata ParentalFeatureRequest::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class ParentalPlaytimeRequest::_Internal {
- public:
-  using HasBits = decltype(std::declval<ParentalPlaytimeRequest>()._has_bits_);
-  static void set_has_requestid(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_family_groupid(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_steamid(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static const ::ParentalPlaytimeDay& current_playtime_restrictions(const ParentalPlaytimeRequest* msg);
-  static void set_has_current_playtime_restrictions(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_time_expires(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_time_requested(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_approved(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
-  }
-  static void set_has_steamid_responder(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-  static void set_has_time_responded(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
-  }
-  static const ::ParentalTemporaryPlaytimeRestrictions& restrictions_approved(const ParentalPlaytimeRequest* msg);
-  static void set_has_restrictions_approved(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-};
-
-const ::ParentalPlaytimeDay&
-ParentalPlaytimeRequest::_Internal::current_playtime_restrictions(const ParentalPlaytimeRequest* msg) {
-  return *msg->current_playtime_restrictions_;
-}
-const ::ParentalTemporaryPlaytimeRestrictions&
-ParentalPlaytimeRequest::_Internal::restrictions_approved(const ParentalPlaytimeRequest* msg) {
-  return *msg->restrictions_approved_;
-}
-ParentalPlaytimeRequest::ParentalPlaytimeRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ParentalPlaytimeRequest)
-}
-ParentalPlaytimeRequest::ParentalPlaytimeRequest(const ParentalPlaytimeRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_current_playtime_restrictions()) {
-    current_playtime_restrictions_ = new ::ParentalPlaytimeDay(*from.current_playtime_restrictions_);
-  } else {
-    current_playtime_restrictions_ = nullptr;
-  }
-  if (from._internal_has_restrictions_approved()) {
-    restrictions_approved_ = new ::ParentalTemporaryPlaytimeRestrictions(*from.restrictions_approved_);
-  } else {
-    restrictions_approved_ = nullptr;
-  }
-  ::memcpy(&requestid_, &from.requestid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&time_responded_) -
-    reinterpret_cast<char*>(&requestid_)) + sizeof(time_responded_));
-  // @@protoc_insertion_point(copy_constructor:ParentalPlaytimeRequest)
-}
-
-void ParentalPlaytimeRequest::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&current_playtime_restrictions_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&time_responded_) -
-    reinterpret_cast<char*>(&current_playtime_restrictions_)) + sizeof(time_responded_));
-}
-
-ParentalPlaytimeRequest::~ParentalPlaytimeRequest() {
-  // @@protoc_insertion_point(destructor:ParentalPlaytimeRequest)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ParentalPlaytimeRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete current_playtime_restrictions_;
-  if (this != internal_default_instance()) delete restrictions_approved_;
-}
-
-void ParentalPlaytimeRequest::ArenaDtor(void* object) {
-  ParentalPlaytimeRequest* _this = reinterpret_cast< ParentalPlaytimeRequest* >(object);
-  (void)_this;
-}
-void ParentalPlaytimeRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ParentalPlaytimeRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void ParentalPlaytimeRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:ParentalPlaytimeRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      GOOGLE_DCHECK(current_playtime_restrictions_ != nullptr);
-      current_playtime_restrictions_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      GOOGLE_DCHECK(restrictions_approved_ != nullptr);
-      restrictions_approved_->Clear();
-    }
-  }
-  if (cached_has_bits & 0x000000fcu) {
-    ::memset(&requestid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&steamid_responder_) -
-        reinterpret_cast<char*>(&requestid_)) + sizeof(steamid_responder_));
-  }
-  if (cached_has_bits & 0x00000300u) {
-    ::memset(&approved_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&time_responded_) -
-        reinterpret_cast<char*>(&approved_)) + sizeof(time_responded_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* ParentalPlaytimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional fixed64 requestid = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
-          _Internal::set_has_requestid(&has_bits);
-          requestid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional fixed64 family_groupid = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
-          _Internal::set_has_family_groupid(&has_bits);
-          family_groupid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional fixed64 steamid = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
-          _Internal::set_has_steamid(&has_bits);
-          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional .ParentalPlaytimeDay current_playtime_restrictions = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_current_playtime_restrictions(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 time_expires = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          _Internal::set_has_time_expires(&has_bits);
-          time_expires_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 time_requested = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          _Internal::set_has_time_requested(&has_bits);
-          time_requested_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool approved = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          _Internal::set_has_approved(&has_bits);
-          approved_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional fixed64 steamid_responder = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
-          _Internal::set_has_steamid_responder(&has_bits);
-          steamid_responder_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
-          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 time_responded = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
-          _Internal::set_has_time_responded(&has_bits);
-          time_responded_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
-          ptr = ctx->ParseMessage(_internal_mutable_restrictions_approved(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* ParentalPlaytimeRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ParentalPlaytimeRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional fixed64 requestid = 1;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_requestid(), target);
-  }
-
-  // optional fixed64 family_groupid = 2;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_family_groupid(), target);
-  }
-
-  // optional fixed64 steamid = 3;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_steamid(), target);
-  }
-
-  // optional .ParentalPlaytimeDay current_playtime_restrictions = 4;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::current_playtime_restrictions(this), target, stream);
-  }
-
-  // optional uint32 time_expires = 5;
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_time_expires(), target);
-  }
-
-  // optional uint32 time_requested = 6;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_time_requested(), target);
-  }
-
-  // optional bool approved = 7;
-  if (cached_has_bits & 0x00000100u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_approved(), target);
-  }
-
-  // optional fixed64 steamid_responder = 8;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(8, this->_internal_steamid_responder(), target);
-  }
-
-  // optional uint32 time_responded = 9;
-  if (cached_has_bits & 0x00000200u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_time_responded(), target);
-  }
-
-  // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        10, _Internal::restrictions_approved(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ParentalPlaytimeRequest)
-  return target;
-}
-
-size_t ParentalPlaytimeRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ParentalPlaytimeRequest)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    // optional .ParentalPlaytimeDay current_playtime_restrictions = 4;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *current_playtime_restrictions_);
-    }
-
-    // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *restrictions_approved_);
-    }
-
-    // optional fixed64 requestid = 1;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 8;
-    }
-
-    // optional fixed64 family_groupid = 2;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 + 8;
-    }
-
-    // optional fixed64 steamid = 3;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 + 8;
-    }
-
-    // optional uint32 time_expires = 5;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_time_expires());
-    }
-
-    // optional uint32 time_requested = 6;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_time_requested());
-    }
-
-    // optional fixed64 steamid_responder = 8;
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 1 + 8;
-    }
-
-  }
-  if (cached_has_bits & 0x00000300u) {
-    // optional bool approved = 7;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += 1 + 1;
-    }
-
-    // optional uint32 time_responded = 9;
-    if (cached_has_bits & 0x00000200u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_time_responded());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ParentalPlaytimeRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ParentalPlaytimeRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ParentalPlaytimeRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ParentalPlaytimeRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ParentalPlaytimeRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ParentalPlaytimeRequest)
-    MergeFrom(*source);
-  }
-}
-
-void ParentalPlaytimeRequest::MergeFrom(const ParentalPlaytimeRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ParentalPlaytimeRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_mutable_current_playtime_restrictions()->::ParentalPlaytimeDay::MergeFrom(from._internal_current_playtime_restrictions());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _internal_mutable_restrictions_approved()->::ParentalTemporaryPlaytimeRestrictions::MergeFrom(from._internal_restrictions_approved());
-    }
-    if (cached_has_bits & 0x00000004u) {
-      requestid_ = from.requestid_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      family_groupid_ = from.family_groupid_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      steamid_ = from.steamid_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      time_expires_ = from.time_expires_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      time_requested_ = from.time_requested_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      steamid_responder_ = from.steamid_responder_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0x00000300u) {
-    if (cached_has_bits & 0x00000100u) {
-      approved_ = from.approved_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      time_responded_ = from.time_responded_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void ParentalPlaytimeRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ParentalPlaytimeRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ParentalPlaytimeRequest::CopyFrom(const ParentalPlaytimeRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ParentalPlaytimeRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ParentalPlaytimeRequest::IsInitialized() const {
-  return true;
-}
-
-void ParentalPlaytimeRequest::InternalSwap(ParentalPlaytimeRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ParentalPlaytimeRequest, time_responded_)
-      + sizeof(ParentalPlaytimeRequest::time_responded_)
-      - PROTOBUF_FIELD_OFFSET(ParentalPlaytimeRequest, current_playtime_restrictions_)>(
-          reinterpret_cast<char*>(&current_playtime_restrictions_),
-          reinterpret_cast<char*>(&other->current_playtime_restrictions_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata ParentalPlaytimeRequest::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -10462,6 +7499,12 @@ class CParental_GetRequests_Response::_Internal {
  public:
 };
 
+void CParental_GetRequests_Response::clear_feature_requests() {
+  feature_requests_.Clear();
+}
+void CParental_GetRequests_Response::clear_playtime_requests() {
+  playtime_requests_.Clear();
+}
 CParental_GetRequests_Response::CParental_GetRequests_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   feature_requests_(arena),
@@ -12851,21 +9894,6 @@ void ParentalClient_Stub::NotifyPlaytimeUsed(::PROTOBUF_NAMESPACE_ID::RpcControl
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::ParentalApp* Arena::CreateMaybeMessage< ::ParentalApp >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ParentalApp >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ParentalPlaytimeDay* Arena::CreateMaybeMessage< ::ParentalPlaytimeDay >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ParentalPlaytimeDay >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ParentalPlaytimeRestrictions* Arena::CreateMaybeMessage< ::ParentalPlaytimeRestrictions >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ParentalPlaytimeRestrictions >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ParentalTemporaryPlaytimeRestrictions* Arena::CreateMaybeMessage< ::ParentalTemporaryPlaytimeRestrictions >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ParentalTemporaryPlaytimeRestrictions >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ParentalSettings* Arena::CreateMaybeMessage< ::ParentalSettings >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ParentalSettings >(arena);
-}
 template<> PROTOBUF_NOINLINE ::CParental_EnableParentalSettings_Request* Arena::CreateMaybeMessage< ::CParental_EnableParentalSettings_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CParental_EnableParentalSettings_Request >(arena);
 }
@@ -12952,12 +9980,6 @@ template<> PROTOBUF_NOINLINE ::CParental_ApprovePlaytime_Response* Arena::Create
 }
 template<> PROTOBUF_NOINLINE ::CParental_GetRequests_Request* Arena::CreateMaybeMessage< ::CParental_GetRequests_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CParental_GetRequests_Request >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ParentalFeatureRequest* Arena::CreateMaybeMessage< ::ParentalFeatureRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ParentalFeatureRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ParentalPlaytimeRequest* Arena::CreateMaybeMessage< ::ParentalPlaytimeRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ParentalPlaytimeRequest >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CParental_GetRequests_Response* Arena::CreateMaybeMessage< ::CParental_GetRequests_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CParental_GetRequests_Response >(arena);

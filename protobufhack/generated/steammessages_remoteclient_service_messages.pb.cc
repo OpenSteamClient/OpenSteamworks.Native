@@ -177,9 +177,24 @@ struct CRemoteClient_UnregisterStatusUpdate_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_UnregisterStatusUpdate_NotificationDefaultTypeInternal _CRemoteClient_UnregisterStatusUpdate_Notification_default_instance_;
+constexpr CRemoteClient_DeviceDetails::CRemoteClient_DeviceDetails(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : device_friendly_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , os_type_(0)
+  , gaming_device_type_(0u){}
+struct CRemoteClient_DeviceDetailsDefaultTypeInternal {
+  constexpr CRemoteClient_DeviceDetailsDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_DeviceDetailsDefaultTypeInternal() {}
+  union {
+    CRemoteClient_DeviceDetails _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_DeviceDetailsDefaultTypeInternal _CRemoteClient_DeviceDetails_default_instance_;
 constexpr CRemoteClient_Online_Notification::CRemoteClient_Online_Notification(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : steamid_(PROTOBUF_ULONGLONG(0))
+  : device_details_(nullptr)
+  , steamid_(PROTOBUF_ULONGLONG(0))
   , remote_client_id_(PROTOBUF_ULONGLONG(0)){}
 struct CRemoteClient_Online_NotificationDefaultTypeInternal {
   constexpr CRemoteClient_Online_NotificationDefaultTypeInternal()
@@ -190,6 +205,138 @@ struct CRemoteClient_Online_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_Online_NotificationDefaultTypeInternal _CRemoteClient_Online_Notification_default_instance_;
+constexpr CRemoteClient_GetRecentClients_Request::CRemoteClient_GetRecentClients_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CRemoteClient_GetRecentClients_RequestDefaultTypeInternal {
+  constexpr CRemoteClient_GetRecentClients_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_GetRecentClients_RequestDefaultTypeInternal() {}
+  union {
+    CRemoteClient_GetRecentClients_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_GetRecentClients_RequestDefaultTypeInternal _CRemoteClient_GetRecentClients_Request_default_instance_;
+constexpr CRemoteClient_ClientLogin::CRemoteClient_ClientLogin(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : device_details_(nullptr)
+  , remote_client_id_(PROTOBUF_ULONGLONG(0))
+  , token_id_(PROTOBUF_ULONGLONG(0)){}
+struct CRemoteClient_ClientLoginDefaultTypeInternal {
+  constexpr CRemoteClient_ClientLoginDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_ClientLoginDefaultTypeInternal() {}
+  union {
+    CRemoteClient_ClientLogin _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_ClientLoginDefaultTypeInternal _CRemoteClient_ClientLogin_default_instance_;
+constexpr CRemoteClient_ClientDetails::CRemoteClient_ClientDetails(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : city_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , state_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , country_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , device_details_(nullptr)
+  , remote_client_id_(PROTOBUF_ULONGLONG(0))
+  , last_seen_(PROTOBUF_ULONGLONG(0))
+  , is_online_(false){}
+struct CRemoteClient_ClientDetailsDefaultTypeInternal {
+  constexpr CRemoteClient_ClientDetailsDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_ClientDetailsDefaultTypeInternal() {}
+  union {
+    CRemoteClient_ClientDetails _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_ClientDetailsDefaultTypeInternal _CRemoteClient_ClientDetails_default_instance_;
+constexpr CRemoteClient_GetRecentClients_Response::CRemoteClient_GetRecentClients_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : clients_(){}
+struct CRemoteClient_GetRecentClients_ResponseDefaultTypeInternal {
+  constexpr CRemoteClient_GetRecentClients_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_GetRecentClients_ResponseDefaultTypeInternal() {}
+  union {
+    CRemoteClient_GetRecentClients_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_GetRecentClients_ResponseDefaultTypeInternal _CRemoteClient_GetRecentClients_Response_default_instance_;
+constexpr CRemoteClient_Task::CRemoteClient_Task(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : url_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , tasid_(PROTOBUF_ULONGLONG(0))
+  , file_id_(PROTOBUF_LONGLONG(0))
+  , type_(1)
+{}
+struct CRemoteClient_TaskDefaultTypeInternal {
+  constexpr CRemoteClient_TaskDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_TaskDefaultTypeInternal() {}
+  union {
+    CRemoteClient_Task _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_TaskDefaultTypeInternal _CRemoteClient_Task_default_instance_;
+constexpr CRemoteClient_AddClientTasRequest::CRemoteClient_AddClientTasRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : task_(nullptr)
+  , remote_client_id_(PROTOBUF_ULONGLONG(0)){}
+struct CRemoteClient_AddClientTasRequestDefaultTypeInternal {
+  constexpr CRemoteClient_AddClientTasRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_AddClientTasRequestDefaultTypeInternal() {}
+  union {
+    CRemoteClient_AddClientTasRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_AddClientTasRequestDefaultTypeInternal _CRemoteClient_AddClientTasRequest_default_instance_;
+constexpr CRemoteClient_AddClientTasResponse::CRemoteClient_AddClientTasResponse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CRemoteClient_AddClientTasResponseDefaultTypeInternal {
+  constexpr CRemoteClient_AddClientTasResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_AddClientTasResponseDefaultTypeInternal() {}
+  union {
+    CRemoteClient_AddClientTasResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_AddClientTasResponseDefaultTypeInternal _CRemoteClient_AddClientTasResponse_default_instance_;
+constexpr CRemoteClient_TaskList_Notification::CRemoteClient_TaskList_Notification(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : tasklist_()
+  , remote_client_id_(PROTOBUF_ULONGLONG(0)){}
+struct CRemoteClient_TaskList_NotificationDefaultTypeInternal {
+  constexpr CRemoteClient_TaskList_NotificationDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_TaskList_NotificationDefaultTypeInternal() {}
+  union {
+    CRemoteClient_TaskList_Notification _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_TaskList_NotificationDefaultTypeInternal _CRemoteClient_TaskList_Notification_default_instance_;
+constexpr CRemoteClient_MarkTaskComplete_Request::CRemoteClient_MarkTaskComplete_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : remote_client_id_(PROTOBUF_ULONGLONG(0))
+  , tasid_(PROTOBUF_ULONGLONG(0)){}
+struct CRemoteClient_MarkTaskComplete_RequestDefaultTypeInternal {
+  constexpr CRemoteClient_MarkTaskComplete_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_MarkTaskComplete_RequestDefaultTypeInternal() {}
+  union {
+    CRemoteClient_MarkTaskComplete_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_MarkTaskComplete_RequestDefaultTypeInternal _CRemoteClient_MarkTaskComplete_Request_default_instance_;
+constexpr CRemoteClient_MarkTaskComplete_Response::CRemoteClient_MarkTaskComplete_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CRemoteClient_MarkTaskComplete_ResponseDefaultTypeInternal {
+  constexpr CRemoteClient_MarkTaskComplete_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CRemoteClient_MarkTaskComplete_ResponseDefaultTypeInternal() {}
+  union {
+    CRemoteClient_MarkTaskComplete_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CRemoteClient_MarkTaskComplete_ResponseDefaultTypeInternal _CRemoteClient_MarkTaskComplete_Response_default_instance_;
 constexpr CRemoteClient_RemotePacket_Notification::CRemoteClient_RemotePacket_Notification(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : payload_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -536,8 +683,8 @@ struct CCMRemoteClient_ServerMessageDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCMRemoteClient_ServerMessageDefaultTypeInternal _CCMRemoteClient_ServerMessage_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fremoteclient_5fservice_5fmessages_2eproto[40];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_steammessages_5fremoteclient_5fservice_5fmessages_2eproto = nullptr;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fremoteclient_5fservice_5fmessages_2eproto[51];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fremoteclient_5fservice_5fmessages_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fremoteclient_5fservice_5fmessages_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteclient_5fservice_5fmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -642,6 +789,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteclient_5
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_UnregisterStatusUpdate_Notification, steamid_),
   0,
   1,
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_DeviceDetails, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_DeviceDetails, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_DeviceDetails, device_friendly_name_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_DeviceDetails, os_type_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_DeviceDetails, gaming_device_type_),
+  0,
+  1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_Online_Notification, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_Online_Notification, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -649,8 +807,101 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteclient_5
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_Online_Notification, steamid_),
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_Online_Notification, remote_client_id_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_Online_Notification, device_details_),
+  1,
+  2,
+  0,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_GetRecentClients_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientLogin, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientLogin, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientLogin, remote_client_id_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientLogin, token_id_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientLogin, device_details_),
+  1,
+  2,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, remote_client_id_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, device_details_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, last_seen_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, city_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, state_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, country_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_ClientDetails, is_online_),
+  4,
+  3,
+  5,
   0,
   1,
+  2,
+  6,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_GetRecentClients_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_GetRecentClients_Response, clients_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_Task, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_Task, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_Task, type_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_Task, tasid_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_Task, url_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_Task, file_id_),
+  3,
+  1,
+  0,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_AddClientTasRequest, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_AddClientTasRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_AddClientTasRequest, remote_client_id_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_AddClientTasRequest, task_),
+  1,
+  0,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_AddClientTasResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_TaskList_Notification, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_TaskList_Notification, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_TaskList_Notification, remote_client_id_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_TaskList_Notification, tasklist_),
+  0,
+  ~0u,
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Request, remote_client_id_),
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Request, tasid_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CRemoteClient_MarkTaskComplete_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_RemotePacket_Notification, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CRemoteClient_RemotePacket_Notification, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -931,33 +1182,44 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 76, -1, sizeof(::CRemoteClient_CancelPairing_Response)},
   { 81, 89, sizeof(::CRemoteClient_RegisterStatusUpdate_Notification)},
   { 92, 99, sizeof(::CRemoteClient_UnregisterStatusUpdate_Notification)},
-  { 101, 108, sizeof(::CRemoteClient_Online_Notification)},
-  { 110, 118, sizeof(::CRemoteClient_RemotePacket_Notification)},
-  { 121, 128, sizeof(::CRemoteClient_ReplyPacket_Notification)},
-  { 130, 136, sizeof(::CRemoteClient_GetReplies_Request)},
-  { 137, -1, sizeof(::CRemoteClient_GetReplies_Response)},
-  { 143, 150, sizeof(::CRemoteClient_AllocateRelayServer_Request)},
-  { 152, 158, sizeof(::CRemoteClient_AllocateRelayServer_Response)},
-  { 159, 165, sizeof(::CRemoteClient_AllocateSDR_Request)},
-  { 166, -1, sizeof(::CRemoteClient_AllocateSDR_Response)},
-  { 171, 179, sizeof(::CRemoteClient_SteamBroadcast_Notification)},
-  { 182, 192, sizeof(::CRemoteClient_SteamToSteam_Notification)},
-  { 197, 208, sizeof(::CRemotePlay_SessionStarted_Request)},
-  { 214, 220, sizeof(::CRemotePlay_SessionStarted_Response)},
-  { 221, 230, sizeof(::CRemotePlay_SessionStopped_Notification)},
-  { 234, 245, sizeof(::CRemotePlayTogether_Notification_Player)},
-  { 251, 258, sizeof(::CRemotePlayTogether_Notification_ControllerSlot_obsolete)},
-  { 260, 268, sizeof(::CRemotePlayTogether_Notification_ControllerSlot)},
-  { 271, 284, sizeof(::CRemotePlayTogether_Notification_GroupUpdated)},
-  { 292, 300, sizeof(::CRemotePlayTogether_Notification)},
-  { 302, 309, sizeof(::CRemoteClient_CreateRemotePlayTogetherInvitation_Request)},
-  { 311, 317, sizeof(::CRemoteClient_CreateRemotePlayTogetherInvitation_Response)},
-  { 318, 324, sizeof(::CRemoteClient_DeleteRemotePlayTogetherInvitation_Request)},
-  { 325, -1, sizeof(::CRemoteClient_DeleteRemotePlayTogetherInvitation_Response)},
-  { 330, 336, sizeof(::CRemoteClient_LookupRemotePlayTogetherInvitation_Request)},
-  { 337, 343, sizeof(::CRemoteClient_LookupRemotePlayTogetherInvitation_Response)},
-  { 344, -1, sizeof(::CCMRemoteClient_ClientMessage)},
-  { 357, 369, sizeof(::CCMRemoteClient_ServerMessage)},
+  { 101, 109, sizeof(::CRemoteClient_DeviceDetails)},
+  { 112, 120, sizeof(::CRemoteClient_Online_Notification)},
+  { 123, -1, sizeof(::CRemoteClient_GetRecentClients_Request)},
+  { 128, 136, sizeof(::CRemoteClient_ClientLogin)},
+  { 139, 151, sizeof(::CRemoteClient_ClientDetails)},
+  { 158, -1, sizeof(::CRemoteClient_GetRecentClients_Response)},
+  { 164, 173, sizeof(::CRemoteClient_Task)},
+  { 177, 184, sizeof(::CRemoteClient_AddClientTasRequest)},
+  { 186, -1, sizeof(::CRemoteClient_AddClientTasResponse)},
+  { 191, 198, sizeof(::CRemoteClient_TaskList_Notification)},
+  { 200, 207, sizeof(::CRemoteClient_MarkTaskComplete_Request)},
+  { 209, -1, sizeof(::CRemoteClient_MarkTaskComplete_Response)},
+  { 214, 222, sizeof(::CRemoteClient_RemotePacket_Notification)},
+  { 225, 232, sizeof(::CRemoteClient_ReplyPacket_Notification)},
+  { 234, 240, sizeof(::CRemoteClient_GetReplies_Request)},
+  { 241, -1, sizeof(::CRemoteClient_GetReplies_Response)},
+  { 247, 254, sizeof(::CRemoteClient_AllocateRelayServer_Request)},
+  { 256, 262, sizeof(::CRemoteClient_AllocateRelayServer_Response)},
+  { 263, 269, sizeof(::CRemoteClient_AllocateSDR_Request)},
+  { 270, -1, sizeof(::CRemoteClient_AllocateSDR_Response)},
+  { 275, 283, sizeof(::CRemoteClient_SteamBroadcast_Notification)},
+  { 286, 296, sizeof(::CRemoteClient_SteamToSteam_Notification)},
+  { 301, 312, sizeof(::CRemotePlay_SessionStarted_Request)},
+  { 318, 324, sizeof(::CRemotePlay_SessionStarted_Response)},
+  { 325, 334, sizeof(::CRemotePlay_SessionStopped_Notification)},
+  { 338, 349, sizeof(::CRemotePlayTogether_Notification_Player)},
+  { 355, 362, sizeof(::CRemotePlayTogether_Notification_ControllerSlot_obsolete)},
+  { 364, 372, sizeof(::CRemotePlayTogether_Notification_ControllerSlot)},
+  { 375, 388, sizeof(::CRemotePlayTogether_Notification_GroupUpdated)},
+  { 396, 404, sizeof(::CRemotePlayTogether_Notification)},
+  { 406, 413, sizeof(::CRemoteClient_CreateRemotePlayTogetherInvitation_Request)},
+  { 415, 421, sizeof(::CRemoteClient_CreateRemotePlayTogetherInvitation_Response)},
+  { 422, 428, sizeof(::CRemoteClient_DeleteRemotePlayTogetherInvitation_Request)},
+  { 429, -1, sizeof(::CRemoteClient_DeleteRemotePlayTogetherInvitation_Response)},
+  { 434, 440, sizeof(::CRemoteClient_LookupRemotePlayTogetherInvitation_Request)},
+  { 441, 447, sizeof(::CRemoteClient_LookupRemotePlayTogetherInvitation_Response)},
+  { 448, -1, sizeof(::CCMRemoteClient_ClientMessage)},
+  { 461, 473, sizeof(::CCMRemoteClient_ServerMessage)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -974,7 +1236,18 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_CancelPairing_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_RegisterStatusUpdate_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_UnregisterStatusUpdate_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_DeviceDetails_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_Online_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_GetRecentClients_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_ClientLogin_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_ClientDetails_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_GetRecentClients_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_Task_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_AddClientTasRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_AddClientTasResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_TaskList_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_MarkTaskComplete_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_MarkTaskComplete_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_RemotePacket_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_ReplyPacket_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CRemoteClient_GetReplies_Request_default_instance_),
@@ -1028,95 +1301,124 @@ const char descriptor_table_protodef_steammessages_5fremoteclient_5fservice_5fme
   "eamid\030\002 \001(\006\022\021\n\tdevice_id\030\003 \001(\006\"X\n1CRemot"
   "eClient_UnregisterStatusUpdate_Notificat"
   "ion\022\022\n\nsession_id\030\001 \001(\006\022\017\n\007steamid\030\002 \001(\006"
-  "\"N\n!CRemoteClient_Online_Notification\022\017\n"
-  "\007steamid\030\001 \001(\006\022\030\n\020remote_client_id\030\002 \001(\006"
-  "\"_\n\'CRemoteClient_RemotePacket_Notificat"
-  "ion\022\022\n\nsession_id\030\001 \001(\006\022\017\n\007steamid\030\002 \001(\006"
-  "\022\017\n\007payload\030\004 \001(\014\"M\n&CRemoteClient_Reply"
-  "Packet_Notification\022\022\n\nsession_id\030\001 \001(\006\022"
-  "\017\n\007payload\030\002 \001(\014\"6\n CRemoteClient_GetRep"
-  "lies_Request\022\022\n\nsession_id\030\001 \001(\006\"4\n!CRem"
-  "oteClient_GetReplies_Response\022\017\n\007payload"
-  "\030\001 \003(\014\"P\n)CRemoteClient_AllocateRelaySer"
-  "ver_Request\022\016\n\006cellid\030\001 \001(\r\022\023\n\013credentia"
-  "ls\030\002 \001(\t\"B\n*CRemoteClient_AllocateRelayS"
-  "erver_Response\022\024\n\014relay_server\030\001 \001(\t\"2\n!"
-  "CRemoteClient_AllocateSDR_Request\022\r\n\005app"
-  "id\030\001 \001(\r\"$\n\"CRemoteClient_AllocateSDR_Re"
-  "sponse\"_\n)CRemoteClient_SteamBroadcast_N"
-  "otification\022\017\n\007steamid\030\001 \001(\006\022\020\n\010clientid"
-  "\030\002 \001(\006\022\017\n\007payload\030\003 \001(\014\"\223\001\n\'CRemoteClien"
-  "t_SteamToSteam_Notification\022\017\n\007steamid\030\001"
-  " \001(\006\022\024\n\014src_clientid\030\002 \001(\006\022\024\n\014dst_client"
-  "id\030\003 \001(\006\022\020\n\010secretid\030\004 \001(\r\022\031\n\021encrypted_"
-  "payload\030\005 \001(\014\"\270\001\n\"CRemotePlay_SessionSta"
-  "rted_Request\022\027\n\017host_account_id\030\001 \001(\r\022\031\n"
-  "\021client_account_id\030\002 \001(\r\022\r\n\005appid\030\003 \001(\r\022"
-  "\032\n\022device_form_factor\030\004 \001(\005\022\034\n\024remote_pl"
-  "ay_together\030\005 \001(\010\022\025\n\rguest_session\030\006 \001(\010"
-  "\"8\n#CRemotePlay_SessionStarted_Response\022"
-  "\021\n\trecord_id\030\001 \001(\006\"u\n\'CRemotePlay_Sessio"
-  "nStopped_Notification\022\021\n\trecord_id\030\001 \001(\006"
-  "\022\021\n\tused_x264\030\002 \001(\010\022\021\n\tused_h264\030\003 \001(\010\022\021"
-  "\n\tused_hevc\030\004 \001(\010\"\267\006\n CRemotePlayTogethe"
-  "r_Notification\022\017\n\007steamid\030\001 \001(\006\022G\n\rgroup"
-  "_updated\030\002 \001(\0132..CRemotePlayTogether_Not"
-  "ification.GroupUpdatedH\000\032\214\001\n\006Player\022\017\n\007s"
-  "teamid\030\001 \001(\006\022\017\n\007guestid\030\002 \001(\r\022\023\n\013avatar_"
-  "hash\030\003 \001(\014\022\030\n\020keyboard_enabled\030\004 \001(\010\022\025\n\r"
-  "mouse_enabled\030\005 \001(\010\022\032\n\022controller_enable"
-  "d\030\006 \001(\010\032:\n\027ControllerSlot_obsolete\022\016\n\006sl"
-  "otid\030\001 \001(\r\022\017\n\007steamid\030\002 \001(\006\032s\n\016Controlle"
-  "rSlot\022\016\n\006slotid\030\001 \001(\r\0228\n\006player\030\002 \001(\0132(."
-  "CRemotePlayTogether_Notification.Player\022"
-  "\027\n\017controller_type\030\003 \001(\005\032\355\002\n\014GroupUpdate"
-  "d\022\024\n\014host_steamid\030\001 \001(\006\022\025\n\rhost_clientid"
-  "\030\002 \001(\006\022\030\n\020players_obsolete\030\003 \003(\006\022\023\n\013host"
-  "_gameid\030\004 \001(\006\022\\\n\031controller_slots_obsole"
-  "te\030\005 \003(\01329.CRemotePlayTogether_Notificat"
-  "ion.ControllerSlot_obsolete\022\027\n\017has_new_p"
-  "layers\030\006 \001(\010\022>\n\014player_slots\030\007 \003(\0132(.CRe"
-  "motePlayTogether_Notification.Player\022J\n\020"
-  "controller_slots\030\010 \003(\01320.CRemotePlayToge"
-  "ther_Notification.ControllerSlotB\t\n\007Mess"
-  "age\"d\n8CRemoteClient_CreateRemotePlayTog"
-  "etherInvitation_Request\022\r\n\005appid\030\001 \001(\r\022\031"
-  "\n\021launch_parameters\030\002 \001(\t\"T\n9CRemoteClie"
-  "nt_CreateRemotePlayTogetherInvitation_Re"
-  "sponse\022\027\n\017invitation_code\030\001 \001(\t\"S\n8CRemo"
-  "teClient_DeleteRemotePlayTogetherInvitat"
-  "ion_Request\022\027\n\017invitation_code\030\001 \001(\t\";\n9"
-  "CRemoteClient_DeleteRemotePlayTogetherIn"
-  "vitation_Response\"S\n8CRemoteClient_Looku"
-  "pRemotePlayTogetherInvitation_Request\022\027\n"
-  "\017invitation_code\030\001 \001(\t\"S\n9CRemoteClient_"
-  "LookupRemotePlayTogetherInvitation_Respo"
-  "nse\022\026\n\016invitation_url\030\001 \001(\t\"\272\004\n\035CCMRemot"
-  "eClient_ClientMessage\022F\n\026create_session_"
-  "request\030\001 \001(\0132$.CRemoteClient_CreateSess"
-  "ion_RequestH\000\022D\n\025start_pairing_request\030\002"
-  " \001(\0132#.CRemoteClient_StartPairing_Reques"
-  "tH\000\022I\n\030set_pairing_info_request\030\003 \001(\0132%."
-  "CRemoteClient_SetPairingInfo_RequestH\000\022F"
-  "\n\026cancel_pairing_request\030\004 \001(\0132$.CRemote"
-  "Client_CancelPairing_RequestH\000\022R\n\026regist"
-  "er_status_update\030\005 \001(\01320.CRemoteClient_R"
-  "egisterStatusUpdate_NotificationH\000\022V\n\030un"
-  "register_status_update\030\006 \001(\01322.CRemoteCl"
-  "ient_UnregisterStatusUpdate_Notification"
-  "H\000\022A\n\rremote_packet\030\007 \001(\0132(.CRemoteClien"
-  "t_RemotePacket_NotificationH\000B\t\n\007Message"
-  "\"\237\003\n\035CCMRemoteClient_ServerMessage\022\016\n\006re"
-  "sult\030\001 \001(\005\022H\n\027create_session_response\030\002 "
-  "\001(\0132%.CRemoteClient_CreateSession_Respon"
-  "seH\000\022F\n\026start_pairing_response\030\003 \001(\0132$.C"
-  "RemoteClient_StartPairing_ResponseH\000\022K\n\031"
-  "set_pairing_info_response\030\004 \001(\0132&.CRemot"
-  "eClient_SetPairingInfo_ResponseH\000\022H\n\027can"
-  "cel_pairing_response\030\005 \001(\0132%.CRemoteClie"
-  "nt_CancelPairing_ResponseH\000\022:\n\014reply_pac"
-  "ket\030\006 \001(\0132\".CRemoteClient_GetReplies_Res"
-  "ponseH\000B\t\n\007MessageB\032\252\002\027OpenSteamworks.Pr"
+  "\"h\n\033CRemoteClient_DeviceDetails\022\034\n\024devic"
+  "e_friendly_name\030\001 \001(\t\022\017\n\007os_type\030\002 \001(\005\022\032"
+  "\n\022gaming_device_type\030\003 \001(\r\"\204\001\n!CRemoteCl"
+  "ient_Online_Notification\022\017\n\007steamid\030\001 \001("
+  "\006\022\030\n\020remote_client_id\030\002 \001(\006\0224\n\016device_de"
+  "tails\030\003 \001(\0132\034.CRemoteClient_DeviceDetail"
+  "s\"(\n&CRemoteClient_GetRecentClients_Requ"
+  "est\"}\n\031CRemoteClient_ClientLogin\022\030\n\020remo"
+  "te_client_id\030\001 \001(\006\022\020\n\010token_id\030\002 \001(\006\0224\n\016"
+  "device_details\030\003 \001(\0132\034.CRemoteClient_Dev"
+  "iceDetails\"\301\001\n\033CRemoteClient_ClientDetai"
+  "ls\022\030\n\020remote_client_id\030\001 \001(\006\0224\n\016device_d"
+  "etails\030\002 \001(\0132\034.CRemoteClient_DeviceDetai"
+  "ls\022\021\n\tlast_seen\030\004 \001(\004\022\014\n\004city\030\005 \001(\t\022\r\n\005s"
+  "tate\030\006 \001(\t\022\017\n\007country\030\007 \001(\t\022\021\n\tis_online"
+  "\030\010 \001(\010\"X\n\'CRemoteClient_GetRecentClients"
+  "_Response\022-\n\007clients\030\001 \003(\0132\034.CRemoteClie"
+  "nt_ClientDetails\"}\n\022CRemoteClient_Task\022:"
+  "\n\004type\030\001 \001(\0162\024.ECLientTaskListType:\026ECli"
+  "entTasDownloadClip\022\r\n\005tasid\030\002 \001(\006\022\013\n\003url"
+  "\030\003 \001(\t\022\017\n\007file_id\030\004 \001(\003\"`\n!CRemoteClient"
+  "_AddClientTasRequest\022\030\n\020remote_client_id"
+  "\030\001 \001(\006\022!\n\004task\030\002 \001(\0132\023.CRemoteClient_Tas"
+  "k\"$\n\"CRemoteClient_AddClientTasResponse\""
+  "f\n#CRemoteClient_TaskList_Notification\022\030"
+  "\n\020remote_client_id\030\001 \001(\006\022%\n\010tasklist\030\002 \003"
+  "(\0132\023.CRemoteClient_Task\"Q\n&CRemoteClient"
+  "_MarkTaskComplete_Request\022\030\n\020remote_clie"
+  "nt_id\030\001 \001(\006\022\r\n\005tasid\030\002 \001(\006\")\n\'CRemoteCli"
+  "ent_MarkTaskComplete_Response\"_\n\'CRemote"
+  "Client_RemotePacket_Notification\022\022\n\nsess"
+  "ion_id\030\001 \001(\006\022\017\n\007steamid\030\002 \001(\006\022\017\n\007payload"
+  "\030\004 \001(\014\"M\n&CRemoteClient_ReplyPacket_Noti"
+  "fication\022\022\n\nsession_id\030\001 \001(\006\022\017\n\007payload\030"
+  "\002 \001(\014\"6\n CRemoteClient_GetReplies_Reques"
+  "t\022\022\n\nsession_id\030\001 \001(\006\"4\n!CRemoteClient_G"
+  "etReplies_Response\022\017\n\007payload\030\001 \003(\014\"P\n)C"
+  "RemoteClient_AllocateRelayServer_Request"
+  "\022\016\n\006cellid\030\001 \001(\r\022\023\n\013credentials\030\002 \001(\t\"B\n"
+  "*CRemoteClient_AllocateRelayServer_Respo"
+  "nse\022\024\n\014relay_server\030\001 \001(\t\"2\n!CRemoteClie"
+  "nt_AllocateSDR_Request\022\r\n\005appid\030\001 \001(\r\"$\n"
+  "\"CRemoteClient_AllocateSDR_Response\"_\n)C"
+  "RemoteClient_SteamBroadcast_Notification"
+  "\022\017\n\007steamid\030\001 \001(\006\022\020\n\010clientid\030\002 \001(\006\022\017\n\007p"
+  "ayload\030\003 \001(\014\"\223\001\n\'CRemoteClient_SteamToSt"
+  "eam_Notification\022\017\n\007steamid\030\001 \001(\006\022\024\n\014src"
+  "_clientid\030\002 \001(\006\022\024\n\014dst_clientid\030\003 \001(\006\022\020\n"
+  "\010secretid\030\004 \001(\r\022\031\n\021encrypted_payload\030\005 \001"
+  "(\014\"\270\001\n\"CRemotePlay_SessionStarted_Reques"
+  "t\022\027\n\017host_account_id\030\001 \001(\r\022\031\n\021client_acc"
+  "ount_id\030\002 \001(\r\022\r\n\005appid\030\003 \001(\r\022\032\n\022device_f"
+  "orm_factor\030\004 \001(\005\022\034\n\024remote_play_together"
+  "\030\005 \001(\010\022\025\n\rguest_session\030\006 \001(\010\"8\n#CRemote"
+  "Play_SessionStarted_Response\022\021\n\trecord_i"
+  "d\030\001 \001(\006\"u\n\'CRemotePlay_SessionStopped_No"
+  "tification\022\021\n\trecord_id\030\001 \001(\006\022\021\n\tused_x2"
+  "64\030\002 \001(\010\022\021\n\tused_h264\030\003 \001(\010\022\021\n\tused_hevc"
+  "\030\004 \001(\010\"\267\006\n CRemotePlayTogether_Notificat"
+  "ion\022\017\n\007steamid\030\001 \001(\006\022G\n\rgroup_updated\030\002 "
+  "\001(\0132..CRemotePlayTogether_Notification.G"
+  "roupUpdatedH\000\032\214\001\n\006Player\022\017\n\007steamid\030\001 \001("
+  "\006\022\017\n\007guestid\030\002 \001(\r\022\023\n\013avatar_hash\030\003 \001(\014\022"
+  "\030\n\020keyboard_enabled\030\004 \001(\010\022\025\n\rmouse_enabl"
+  "ed\030\005 \001(\010\022\032\n\022controller_enabled\030\006 \001(\010\032:\n\027"
+  "ControllerSlot_obsolete\022\016\n\006slotid\030\001 \001(\r\022"
+  "\017\n\007steamid\030\002 \001(\006\032s\n\016ControllerSlot\022\016\n\006sl"
+  "otid\030\001 \001(\r\0228\n\006player\030\002 \001(\0132(.CRemotePlay"
+  "Together_Notification.Player\022\027\n\017controll"
+  "er_type\030\003 \001(\005\032\355\002\n\014GroupUpdated\022\024\n\014host_s"
+  "teamid\030\001 \001(\006\022\025\n\rhost_clientid\030\002 \001(\006\022\030\n\020p"
+  "layers_obsolete\030\003 \003(\006\022\023\n\013host_gameid\030\004 \001"
+  "(\006\022\\\n\031controller_slots_obsolete\030\005 \003(\01329."
+  "CRemotePlayTogether_Notification.Control"
+  "lerSlot_obsolete\022\027\n\017has_new_players\030\006 \001("
+  "\010\022>\n\014player_slots\030\007 \003(\0132(.CRemotePlayTog"
+  "ether_Notification.Player\022J\n\020controller_"
+  "slots\030\010 \003(\01320.CRemotePlayTogether_Notifi"
+  "cation.ControllerSlotB\t\n\007Message\"d\n8CRem"
+  "oteClient_CreateRemotePlayTogetherInvita"
+  "tion_Request\022\r\n\005appid\030\001 \001(\r\022\031\n\021launch_pa"
+  "rameters\030\002 \001(\t\"T\n9CRemoteClient_CreateRe"
+  "motePlayTogetherInvitation_Response\022\027\n\017i"
+  "nvitation_code\030\001 \001(\t\"S\n8CRemoteClient_De"
+  "leteRemotePlayTogetherInvitation_Request"
+  "\022\027\n\017invitation_code\030\001 \001(\t\";\n9CRemoteClie"
+  "nt_DeleteRemotePlayTogetherInvitation_Re"
+  "sponse\"S\n8CRemoteClient_LookupRemotePlay"
+  "TogetherInvitation_Request\022\027\n\017invitation"
+  "_code\030\001 \001(\t\"S\n9CRemoteClient_LookupRemot"
+  "ePlayTogetherInvitation_Response\022\026\n\016invi"
+  "tation_url\030\001 \001(\t\"\272\004\n\035CCMRemoteClient_Cli"
+  "entMessage\022F\n\026create_session_request\030\001 \001"
+  "(\0132$.CRemoteClient_CreateSession_Request"
+  "H\000\022D\n\025start_pairing_request\030\002 \001(\0132#.CRem"
+  "oteClient_StartPairing_RequestH\000\022I\n\030set_"
+  "pairing_info_request\030\003 \001(\0132%.CRemoteClie"
+  "nt_SetPairingInfo_RequestH\000\022F\n\026cancel_pa"
+  "iring_request\030\004 \001(\0132$.CRemoteClient_Canc"
+  "elPairing_RequestH\000\022R\n\026register_status_u"
+  "pdate\030\005 \001(\01320.CRemoteClient_RegisterStat"
+  "usUpdate_NotificationH\000\022V\n\030unregister_st"
+  "atus_update\030\006 \001(\01322.CRemoteClient_Unregi"
+  "sterStatusUpdate_NotificationH\000\022A\n\rremot"
+  "e_packet\030\007 \001(\0132(.CRemoteClient_RemotePac"
+  "ket_NotificationH\000B\t\n\007Message\"\237\003\n\035CCMRem"
+  "oteClient_ServerMessage\022\016\n\006result\030\001 \001(\005\022"
+  "H\n\027create_session_response\030\002 \001(\0132%.CRemo"
+  "teClient_CreateSession_ResponseH\000\022F\n\026sta"
+  "rt_pairing_response\030\003 \001(\0132$.CRemoteClien"
+  "t_StartPairing_ResponseH\000\022K\n\031set_pairing"
+  "_info_response\030\004 \001(\0132&.CRemoteClient_Set"
+  "PairingInfo_ResponseH\000\022H\n\027cancel_pairing"
+  "_response\030\005 \001(\0132%.CRemoteClient_CancelPa"
+  "iring_ResponseH\000\022:\n\014reply_packet\030\006 \001(\0132\""
+  ".CRemoteClient_GetReplies_ResponseH\000B\t\n\007"
+  "Message*1\n\023ECLientTaskListType\022\032\n\026EClien"
+  "tTasDownloadClip\020\001B\032\252\002\027OpenSteamworks.Pr"
   "otobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_deps[1] = {
@@ -1124,8 +1426,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto = {
-  false, false, 4526, descriptor_table_protodef_steammessages_5fremoteclient_5fservice_5fmessages_2eproto, "steammessages_remoteclient_service_messages.proto", 
-  &descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_once, descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_deps, 1, 40,
+  false, false, 5686, descriptor_table_protodef_steammessages_5fremoteclient_5fservice_5fmessages_2eproto, "steammessages_remoteclient_service_messages.proto", 
+  &descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_once, descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_deps, 1, 51,
   schemas, file_default_instances, TableStruct_steammessages_5fremoteclient_5fservice_5fmessages_2eproto::offsets,
   file_level_metadata_steammessages_5fremoteclient_5fservice_5fmessages_2eproto, file_level_enum_descriptors_steammessages_5fremoteclient_5fservice_5fmessages_2eproto, file_level_service_descriptors_steammessages_5fremoteclient_5fservice_5fmessages_2eproto,
 };
@@ -1137,6 +1439,19 @@ descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto_metad
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_steammessages_5fremoteclient_5fservice_5fmessages_2eproto(&descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto);
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECLientTaskListType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fremoteclient_5fservice_5fmessages_2eproto);
+  return file_level_enum_descriptors_steammessages_5fremoteclient_5fservice_5fmessages_2eproto[0];
+}
+bool ECLientTaskListType_IsValid(int value) {
+  switch (value) {
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -3938,17 +4253,319 @@ void CRemoteClient_UnregisterStatusUpdate_Notification::InternalSwap(CRemoteClie
 
 // ===================================================================
 
+class CRemoteClient_DeviceDetails::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CRemoteClient_DeviceDetails>()._has_bits_);
+  static void set_has_device_friendly_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_os_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_gaming_device_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CRemoteClient_DeviceDetails::CRemoteClient_DeviceDetails(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_DeviceDetails)
+}
+CRemoteClient_DeviceDetails::CRemoteClient_DeviceDetails(const CRemoteClient_DeviceDetails& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  device_friendly_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_device_friendly_name()) {
+    device_friendly_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_device_friendly_name(), 
+      GetArena());
+  }
+  ::memcpy(&os_type_, &from.os_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&gaming_device_type_) -
+    reinterpret_cast<char*>(&os_type_)) + sizeof(gaming_device_type_));
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_DeviceDetails)
+}
+
+void CRemoteClient_DeviceDetails::SharedCtor() {
+device_friendly_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&os_type_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&gaming_device_type_) -
+    reinterpret_cast<char*>(&os_type_)) + sizeof(gaming_device_type_));
+}
+
+CRemoteClient_DeviceDetails::~CRemoteClient_DeviceDetails() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_DeviceDetails)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_DeviceDetails::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  device_friendly_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CRemoteClient_DeviceDetails::ArenaDtor(void* object) {
+  CRemoteClient_DeviceDetails* _this = reinterpret_cast< CRemoteClient_DeviceDetails* >(object);
+  (void)_this;
+}
+void CRemoteClient_DeviceDetails::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_DeviceDetails::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_DeviceDetails::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_DeviceDetails)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    device_friendly_name_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&os_type_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&gaming_device_type_) -
+        reinterpret_cast<char*>(&os_type_)) + sizeof(gaming_device_type_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_DeviceDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string device_friendly_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_device_friendly_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CRemoteClient_DeviceDetails.device_friendly_name");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 os_type = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_os_type(&has_bits);
+          os_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 gaming_device_type = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_gaming_device_type(&has_bits);
+          gaming_device_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_DeviceDetails::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_DeviceDetails)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string device_friendly_name = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_device_friendly_name().data(), static_cast<int>(this->_internal_device_friendly_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CRemoteClient_DeviceDetails.device_friendly_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_device_friendly_name(), target);
+  }
+
+  // optional int32 os_type = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_os_type(), target);
+  }
+
+  // optional uint32 gaming_device_type = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_gaming_device_type(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_DeviceDetails)
+  return target;
+}
+
+size_t CRemoteClient_DeviceDetails::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_DeviceDetails)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional string device_friendly_name = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_device_friendly_name());
+    }
+
+    // optional int32 os_type = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_os_type());
+    }
+
+    // optional uint32 gaming_device_type = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_gaming_device_type());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_DeviceDetails::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_DeviceDetails)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_DeviceDetails* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_DeviceDetails>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_DeviceDetails)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_DeviceDetails)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_DeviceDetails::MergeFrom(const CRemoteClient_DeviceDetails& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_DeviceDetails)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_device_friendly_name(from._internal_device_friendly_name());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      os_type_ = from.os_type_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      gaming_device_type_ = from.gaming_device_type_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CRemoteClient_DeviceDetails::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_DeviceDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_DeviceDetails::CopyFrom(const CRemoteClient_DeviceDetails& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_DeviceDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_DeviceDetails::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_DeviceDetails::InternalSwap(CRemoteClient_DeviceDetails* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  device_friendly_name_.Swap(&other->device_friendly_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CRemoteClient_DeviceDetails, gaming_device_type_)
+      + sizeof(CRemoteClient_DeviceDetails::gaming_device_type_)
+      - PROTOBUF_FIELD_OFFSET(CRemoteClient_DeviceDetails, os_type_)>(
+          reinterpret_cast<char*>(&os_type_),
+          reinterpret_cast<char*>(&other->os_type_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_DeviceDetails::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CRemoteClient_Online_Notification::_Internal {
  public:
   using HasBits = decltype(std::declval<CRemoteClient_Online_Notification>()._has_bits_);
   static void set_has_steamid(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_remote_client_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
+  }
+  static const ::CRemoteClient_DeviceDetails& device_details(const CRemoteClient_Online_Notification* msg);
+  static void set_has_device_details(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
+const ::CRemoteClient_DeviceDetails&
+CRemoteClient_Online_Notification::_Internal::device_details(const CRemoteClient_Online_Notification* msg) {
+  return *msg->device_details_;
+}
 CRemoteClient_Online_Notification::CRemoteClient_Online_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -3959,6 +4576,11 @@ CRemoteClient_Online_Notification::CRemoteClient_Online_Notification(const CRemo
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_device_details()) {
+    device_details_ = new ::CRemoteClient_DeviceDetails(*from.device_details_);
+  } else {
+    device_details_ = nullptr;
+  }
   ::memcpy(&steamid_, &from.steamid_,
     static_cast<size_t>(reinterpret_cast<char*>(&remote_client_id_) -
     reinterpret_cast<char*>(&steamid_)) + sizeof(remote_client_id_));
@@ -3967,9 +4589,9 @@ CRemoteClient_Online_Notification::CRemoteClient_Online_Notification(const CRemo
 
 void CRemoteClient_Online_Notification::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&steamid_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&device_details_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&remote_client_id_) -
-    reinterpret_cast<char*>(&steamid_)) + sizeof(remote_client_id_));
+    reinterpret_cast<char*>(&device_details_)) + sizeof(remote_client_id_));
 }
 
 CRemoteClient_Online_Notification::~CRemoteClient_Online_Notification() {
@@ -3980,6 +4602,7 @@ CRemoteClient_Online_Notification::~CRemoteClient_Online_Notification() {
 
 void CRemoteClient_Online_Notification::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete device_details_;
 }
 
 void CRemoteClient_Online_Notification::ArenaDtor(void* object) {
@@ -3999,7 +4622,11 @@ void CRemoteClient_Online_Notification::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(device_details_ != nullptr);
+    device_details_->Clear();
+  }
+  if (cached_has_bits & 0x00000006u) {
     ::memset(&steamid_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&remote_client_id_) -
         reinterpret_cast<char*>(&steamid_)) + sizeof(remote_client_id_));
@@ -4030,6 +4657,13 @@ const char* CRemoteClient_Online_Notification::_InternalParse(const char* ptr, :
           _Internal::set_has_remote_client_id(&has_bits);
           remote_client_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional .CRemoteClient_DeviceDetails device_details = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_device_details(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -4063,15 +4697,23 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional fixed64 steamid = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
   // optional fixed64 remote_client_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_remote_client_id(), target);
+  }
+
+  // optional .CRemoteClient_DeviceDetails device_details = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::device_details(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4091,14 +4733,21 @@ size_t CRemoteClient_Online_Notification::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 steamid = 1;
+  if (cached_has_bits & 0x00000007u) {
+    // optional .CRemoteClient_DeviceDetails device_details = 3;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *device_details_);
+    }
+
+    // optional fixed64 steamid = 1;
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
     // optional fixed64 remote_client_id = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
@@ -4135,11 +4784,14 @@ void CRemoteClient_Online_Notification::MergeFrom(const CRemoteClient_Online_Not
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      steamid_ = from.steamid_;
+      _internal_mutable_device_details()->::CRemoteClient_DeviceDetails::MergeFrom(from._internal_device_details());
     }
     if (cached_has_bits & 0x00000002u) {
+      steamid_ = from.steamid_;
+    }
+    if (cached_has_bits & 0x00000004u) {
       remote_client_id_ = from.remote_client_id_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -4171,12 +4823,2476 @@ void CRemoteClient_Online_Notification::InternalSwap(CRemoteClient_Online_Notifi
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CRemoteClient_Online_Notification, remote_client_id_)
       + sizeof(CRemoteClient_Online_Notification::remote_client_id_)
-      - PROTOBUF_FIELD_OFFSET(CRemoteClient_Online_Notification, steamid_)>(
-          reinterpret_cast<char*>(&steamid_),
-          reinterpret_cast<char*>(&other->steamid_));
+      - PROTOBUF_FIELD_OFFSET(CRemoteClient_Online_Notification, device_details_)>(
+          reinterpret_cast<char*>(&device_details_),
+          reinterpret_cast<char*>(&other->device_details_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_Online_Notification::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_GetRecentClients_Request::_Internal {
+ public:
+};
+
+CRemoteClient_GetRecentClients_Request::CRemoteClient_GetRecentClients_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_GetRecentClients_Request)
+}
+CRemoteClient_GetRecentClients_Request::CRemoteClient_GetRecentClients_Request(const CRemoteClient_GetRecentClients_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_GetRecentClients_Request)
+}
+
+void CRemoteClient_GetRecentClients_Request::SharedCtor() {
+}
+
+CRemoteClient_GetRecentClients_Request::~CRemoteClient_GetRecentClients_Request() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_GetRecentClients_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_GetRecentClients_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CRemoteClient_GetRecentClients_Request::ArenaDtor(void* object) {
+  CRemoteClient_GetRecentClients_Request* _this = reinterpret_cast< CRemoteClient_GetRecentClients_Request* >(object);
+  (void)_this;
+}
+void CRemoteClient_GetRecentClients_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_GetRecentClients_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_GetRecentClients_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_GetRecentClients_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_GetRecentClients_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_GetRecentClients_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_GetRecentClients_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_GetRecentClients_Request)
+  return target;
+}
+
+size_t CRemoteClient_GetRecentClients_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_GetRecentClients_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_GetRecentClients_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_GetRecentClients_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_GetRecentClients_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_GetRecentClients_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_GetRecentClients_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_GetRecentClients_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_GetRecentClients_Request::MergeFrom(const CRemoteClient_GetRecentClients_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_GetRecentClients_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CRemoteClient_GetRecentClients_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_GetRecentClients_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_GetRecentClients_Request::CopyFrom(const CRemoteClient_GetRecentClients_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_GetRecentClients_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_GetRecentClients_Request::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_GetRecentClients_Request::InternalSwap(CRemoteClient_GetRecentClients_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_GetRecentClients_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_ClientLogin::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CRemoteClient_ClientLogin>()._has_bits_);
+  static void set_has_remote_client_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_token_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static const ::CRemoteClient_DeviceDetails& device_details(const CRemoteClient_ClientLogin* msg);
+  static void set_has_device_details(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CRemoteClient_DeviceDetails&
+CRemoteClient_ClientLogin::_Internal::device_details(const CRemoteClient_ClientLogin* msg) {
+  return *msg->device_details_;
+}
+CRemoteClient_ClientLogin::CRemoteClient_ClientLogin(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_ClientLogin)
+}
+CRemoteClient_ClientLogin::CRemoteClient_ClientLogin(const CRemoteClient_ClientLogin& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_device_details()) {
+    device_details_ = new ::CRemoteClient_DeviceDetails(*from.device_details_);
+  } else {
+    device_details_ = nullptr;
+  }
+  ::memcpy(&remote_client_id_, &from.remote_client_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&token_id_) -
+    reinterpret_cast<char*>(&remote_client_id_)) + sizeof(token_id_));
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_ClientLogin)
+}
+
+void CRemoteClient_ClientLogin::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&device_details_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&token_id_) -
+    reinterpret_cast<char*>(&device_details_)) + sizeof(token_id_));
+}
+
+CRemoteClient_ClientLogin::~CRemoteClient_ClientLogin() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_ClientLogin)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_ClientLogin::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete device_details_;
+}
+
+void CRemoteClient_ClientLogin::ArenaDtor(void* object) {
+  CRemoteClient_ClientLogin* _this = reinterpret_cast< CRemoteClient_ClientLogin* >(object);
+  (void)_this;
+}
+void CRemoteClient_ClientLogin::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_ClientLogin::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_ClientLogin::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_ClientLogin)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(device_details_ != nullptr);
+    device_details_->Clear();
+  }
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&remote_client_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&token_id_) -
+        reinterpret_cast<char*>(&remote_client_id_)) + sizeof(token_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_ClientLogin::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 remote_client_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_remote_client_id(&has_bits);
+          remote_client_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional fixed64 token_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          _Internal::set_has_token_id(&has_bits);
+          token_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional .CRemoteClient_DeviceDetails device_details = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_device_details(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_ClientLogin::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_ClientLogin)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 remote_client_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_remote_client_id(), target);
+  }
+
+  // optional fixed64 token_id = 2;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_token_id(), target);
+  }
+
+  // optional .CRemoteClient_DeviceDetails device_details = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::device_details(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_ClientLogin)
+  return target;
+}
+
+size_t CRemoteClient_ClientLogin::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_ClientLogin)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional .CRemoteClient_DeviceDetails device_details = 3;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *device_details_);
+    }
+
+    // optional fixed64 remote_client_id = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 8;
+    }
+
+    // optional fixed64 token_id = 2;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_ClientLogin::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_ClientLogin)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_ClientLogin* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_ClientLogin>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_ClientLogin)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_ClientLogin)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_ClientLogin::MergeFrom(const CRemoteClient_ClientLogin& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_ClientLogin)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_device_details()->::CRemoteClient_DeviceDetails::MergeFrom(from._internal_device_details());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      remote_client_id_ = from.remote_client_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      token_id_ = from.token_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CRemoteClient_ClientLogin::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_ClientLogin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_ClientLogin::CopyFrom(const CRemoteClient_ClientLogin& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_ClientLogin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_ClientLogin::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_ClientLogin::InternalSwap(CRemoteClient_ClientLogin* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CRemoteClient_ClientLogin, token_id_)
+      + sizeof(CRemoteClient_ClientLogin::token_id_)
+      - PROTOBUF_FIELD_OFFSET(CRemoteClient_ClientLogin, device_details_)>(
+          reinterpret_cast<char*>(&device_details_),
+          reinterpret_cast<char*>(&other->device_details_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_ClientLogin::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_ClientDetails::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CRemoteClient_ClientDetails>()._has_bits_);
+  static void set_has_remote_client_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static const ::CRemoteClient_DeviceDetails& device_details(const CRemoteClient_ClientDetails* msg);
+  static void set_has_device_details(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_last_seen(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_city(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_state(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_country(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_is_online(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
+};
+
+const ::CRemoteClient_DeviceDetails&
+CRemoteClient_ClientDetails::_Internal::device_details(const CRemoteClient_ClientDetails* msg) {
+  return *msg->device_details_;
+}
+CRemoteClient_ClientDetails::CRemoteClient_ClientDetails(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_ClientDetails)
+}
+CRemoteClient_ClientDetails::CRemoteClient_ClientDetails(const CRemoteClient_ClientDetails& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  city_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_city()) {
+    city_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_city(), 
+      GetArena());
+  }
+  state_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_state()) {
+    state_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_state(), 
+      GetArena());
+  }
+  country_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_country()) {
+    country_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_country(), 
+      GetArena());
+  }
+  if (from._internal_has_device_details()) {
+    device_details_ = new ::CRemoteClient_DeviceDetails(*from.device_details_);
+  } else {
+    device_details_ = nullptr;
+  }
+  ::memcpy(&remote_client_id_, &from.remote_client_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&is_online_) -
+    reinterpret_cast<char*>(&remote_client_id_)) + sizeof(is_online_));
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_ClientDetails)
+}
+
+void CRemoteClient_ClientDetails::SharedCtor() {
+city_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+state_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+country_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&device_details_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_online_) -
+    reinterpret_cast<char*>(&device_details_)) + sizeof(is_online_));
+}
+
+CRemoteClient_ClientDetails::~CRemoteClient_ClientDetails() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_ClientDetails)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_ClientDetails::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  city_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  state_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  country_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete device_details_;
+}
+
+void CRemoteClient_ClientDetails::ArenaDtor(void* object) {
+  CRemoteClient_ClientDetails* _this = reinterpret_cast< CRemoteClient_ClientDetails* >(object);
+  (void)_this;
+}
+void CRemoteClient_ClientDetails::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_ClientDetails::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_ClientDetails::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_ClientDetails)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      city_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      state_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      country_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(device_details_ != nullptr);
+      device_details_->Clear();
+    }
+  }
+  if (cached_has_bits & 0x00000070u) {
+    ::memset(&remote_client_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&is_online_) -
+        reinterpret_cast<char*>(&remote_client_id_)) + sizeof(is_online_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_ClientDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 remote_client_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_remote_client_id(&has_bits);
+          remote_client_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional .CRemoteClient_DeviceDetails device_details = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_device_details(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 last_seen = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_last_seen(&has_bits);
+          last_seen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string city = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_city();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CRemoteClient_ClientDetails.city");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string state = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          auto str = _internal_mutable_state();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CRemoteClient_ClientDetails.state");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string country = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          auto str = _internal_mutable_country();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CRemoteClient_ClientDetails.country");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_online = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          _Internal::set_has_is_online(&has_bits);
+          is_online_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_ClientDetails::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_ClientDetails)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 remote_client_id = 1;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_remote_client_id(), target);
+  }
+
+  // optional .CRemoteClient_DeviceDetails device_details = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::device_details(this), target, stream);
+  }
+
+  // optional uint64 last_seen = 4;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_last_seen(), target);
+  }
+
+  // optional string city = 5;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_city().data(), static_cast<int>(this->_internal_city().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CRemoteClient_ClientDetails.city");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_city(), target);
+  }
+
+  // optional string state = 6;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_state().data(), static_cast<int>(this->_internal_state().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CRemoteClient_ClientDetails.state");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_state(), target);
+  }
+
+  // optional string country = 7;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_country().data(), static_cast<int>(this->_internal_country().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CRemoteClient_ClientDetails.country");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_country(), target);
+  }
+
+  // optional bool is_online = 8;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_is_online(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_ClientDetails)
+  return target;
+}
+
+size_t CRemoteClient_ClientDetails::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_ClientDetails)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000007fu) {
+    // optional string city = 5;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_city());
+    }
+
+    // optional string state = 6;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_state());
+    }
+
+    // optional string country = 7;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_country());
+    }
+
+    // optional .CRemoteClient_DeviceDetails device_details = 2;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *device_details_);
+    }
+
+    // optional fixed64 remote_client_id = 1;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint64 last_seen = 4;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_last_seen());
+    }
+
+    // optional bool is_online = 8;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_ClientDetails::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_ClientDetails)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_ClientDetails* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_ClientDetails>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_ClientDetails)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_ClientDetails)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_ClientDetails::MergeFrom(const CRemoteClient_ClientDetails& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_ClientDetails)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000007fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_city(from._internal_city());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_state(from._internal_state());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _internal_set_country(from._internal_country());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _internal_mutable_device_details()->::CRemoteClient_DeviceDetails::MergeFrom(from._internal_device_details());
+    }
+    if (cached_has_bits & 0x00000010u) {
+      remote_client_id_ = from.remote_client_id_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      last_seen_ = from.last_seen_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      is_online_ = from.is_online_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CRemoteClient_ClientDetails::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_ClientDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_ClientDetails::CopyFrom(const CRemoteClient_ClientDetails& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_ClientDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_ClientDetails::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_ClientDetails::InternalSwap(CRemoteClient_ClientDetails* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  city_.Swap(&other->city_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  state_.Swap(&other->state_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  country_.Swap(&other->country_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CRemoteClient_ClientDetails, is_online_)
+      + sizeof(CRemoteClient_ClientDetails::is_online_)
+      - PROTOBUF_FIELD_OFFSET(CRemoteClient_ClientDetails, device_details_)>(
+          reinterpret_cast<char*>(&device_details_),
+          reinterpret_cast<char*>(&other->device_details_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_ClientDetails::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_GetRecentClients_Response::_Internal {
+ public:
+};
+
+CRemoteClient_GetRecentClients_Response::CRemoteClient_GetRecentClients_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  clients_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_GetRecentClients_Response)
+}
+CRemoteClient_GetRecentClients_Response::CRemoteClient_GetRecentClients_Response(const CRemoteClient_GetRecentClients_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      clients_(from.clients_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_GetRecentClients_Response)
+}
+
+void CRemoteClient_GetRecentClients_Response::SharedCtor() {
+}
+
+CRemoteClient_GetRecentClients_Response::~CRemoteClient_GetRecentClients_Response() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_GetRecentClients_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_GetRecentClients_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CRemoteClient_GetRecentClients_Response::ArenaDtor(void* object) {
+  CRemoteClient_GetRecentClients_Response* _this = reinterpret_cast< CRemoteClient_GetRecentClients_Response* >(object);
+  (void)_this;
+}
+void CRemoteClient_GetRecentClients_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_GetRecentClients_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_GetRecentClients_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_GetRecentClients_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clients_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_GetRecentClients_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .CRemoteClient_ClientDetails clients = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_clients(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_GetRecentClients_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_GetRecentClients_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CRemoteClient_ClientDetails clients = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_clients_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_clients(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_GetRecentClients_Response)
+  return target;
+}
+
+size_t CRemoteClient_GetRecentClients_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_GetRecentClients_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CRemoteClient_ClientDetails clients = 1;
+  total_size += 1UL * this->_internal_clients_size();
+  for (const auto& msg : this->clients_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_GetRecentClients_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_GetRecentClients_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_GetRecentClients_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_GetRecentClients_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_GetRecentClients_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_GetRecentClients_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_GetRecentClients_Response::MergeFrom(const CRemoteClient_GetRecentClients_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_GetRecentClients_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  clients_.MergeFrom(from.clients_);
+}
+
+void CRemoteClient_GetRecentClients_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_GetRecentClients_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_GetRecentClients_Response::CopyFrom(const CRemoteClient_GetRecentClients_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_GetRecentClients_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_GetRecentClients_Response::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_GetRecentClients_Response::InternalSwap(CRemoteClient_GetRecentClients_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  clients_.InternalSwap(&other->clients_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_GetRecentClients_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_Task::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CRemoteClient_Task>()._has_bits_);
+  static void set_has_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_tasid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_url(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_file_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CRemoteClient_Task::CRemoteClient_Task(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_Task)
+}
+CRemoteClient_Task::CRemoteClient_Task(const CRemoteClient_Task& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_url()) {
+    url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_url(), 
+      GetArena());
+  }
+  ::memcpy(&tasid_, &from.tasid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&type_) -
+    reinterpret_cast<char*>(&tasid_)) + sizeof(type_));
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_Task)
+}
+
+void CRemoteClient_Task::SharedCtor() {
+url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&tasid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&file_id_) -
+    reinterpret_cast<char*>(&tasid_)) + sizeof(file_id_));
+type_ = 1;
+}
+
+CRemoteClient_Task::~CRemoteClient_Task() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_Task)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_Task::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  url_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CRemoteClient_Task::ArenaDtor(void* object) {
+  CRemoteClient_Task* _this = reinterpret_cast< CRemoteClient_Task* >(object);
+  (void)_this;
+}
+void CRemoteClient_Task::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_Task::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_Task::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_Task)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    url_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x0000000eu) {
+    ::memset(&tasid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&file_id_) -
+        reinterpret_cast<char*>(&tasid_)) + sizeof(file_id_));
+    type_ = 1;
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_Task::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional .ECLientTaskListType type = 1 [default = EClientTasDownloadClip];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::ECLientTaskListType_IsValid(val))) {
+            _internal_set_type(static_cast<::ECLientTaskListType>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional fixed64 tasid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          _Internal::set_has_tasid(&has_bits);
+          tasid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional string url = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_url();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CRemoteClient_Task.url");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int64 file_id = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_file_id(&has_bits);
+          file_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_Task::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_Task)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .ECLientTaskListType type = 1 [default = EClientTasDownloadClip];
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_type(), target);
+  }
+
+  // optional fixed64 tasid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_tasid(), target);
+  }
+
+  // optional string url = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_url().data(), static_cast<int>(this->_internal_url().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CRemoteClient_Task.url");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_url(), target);
+  }
+
+  // optional int64 file_id = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(4, this->_internal_file_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_Task)
+  return target;
+}
+
+size_t CRemoteClient_Task::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_Task)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional string url = 3;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_url());
+    }
+
+    // optional fixed64 tasid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 8;
+    }
+
+    // optional int64 file_id = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+          this->_internal_file_id());
+    }
+
+    // optional .ECLientTaskListType type = 1 [default = EClientTasDownloadClip];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_Task::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_Task)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_Task* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_Task>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_Task)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_Task)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_Task::MergeFrom(const CRemoteClient_Task& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_Task)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_url(from._internal_url());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      tasid_ = from.tasid_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      file_id_ = from.file_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      type_ = from.type_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CRemoteClient_Task::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_Task)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_Task::CopyFrom(const CRemoteClient_Task& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_Task)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_Task::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_Task::InternalSwap(CRemoteClient_Task* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  url_.Swap(&other->url_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CRemoteClient_Task, file_id_)
+      + sizeof(CRemoteClient_Task::file_id_)
+      - PROTOBUF_FIELD_OFFSET(CRemoteClient_Task, tasid_)>(
+          reinterpret_cast<char*>(&tasid_),
+          reinterpret_cast<char*>(&other->tasid_));
+  swap(type_, other->type_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_Task::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_AddClientTasRequest::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CRemoteClient_AddClientTasRequest>()._has_bits_);
+  static void set_has_remote_client_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::CRemoteClient_Task& task(const CRemoteClient_AddClientTasRequest* msg);
+  static void set_has_task(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CRemoteClient_Task&
+CRemoteClient_AddClientTasRequest::_Internal::task(const CRemoteClient_AddClientTasRequest* msg) {
+  return *msg->task_;
+}
+CRemoteClient_AddClientTasRequest::CRemoteClient_AddClientTasRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_AddClientTasRequest)
+}
+CRemoteClient_AddClientTasRequest::CRemoteClient_AddClientTasRequest(const CRemoteClient_AddClientTasRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_task()) {
+    task_ = new ::CRemoteClient_Task(*from.task_);
+  } else {
+    task_ = nullptr;
+  }
+  remote_client_id_ = from.remote_client_id_;
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_AddClientTasRequest)
+}
+
+void CRemoteClient_AddClientTasRequest::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&task_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&remote_client_id_) -
+    reinterpret_cast<char*>(&task_)) + sizeof(remote_client_id_));
+}
+
+CRemoteClient_AddClientTasRequest::~CRemoteClient_AddClientTasRequest() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_AddClientTasRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_AddClientTasRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete task_;
+}
+
+void CRemoteClient_AddClientTasRequest::ArenaDtor(void* object) {
+  CRemoteClient_AddClientTasRequest* _this = reinterpret_cast< CRemoteClient_AddClientTasRequest* >(object);
+  (void)_this;
+}
+void CRemoteClient_AddClientTasRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_AddClientTasRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_AddClientTasRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_AddClientTasRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(task_ != nullptr);
+    task_->Clear();
+  }
+  remote_client_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_AddClientTasRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 remote_client_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_remote_client_id(&has_bits);
+          remote_client_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional .CRemoteClient_Task task = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_task(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_AddClientTasRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_AddClientTasRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 remote_client_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_remote_client_id(), target);
+  }
+
+  // optional .CRemoteClient_Task task = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::task(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_AddClientTasRequest)
+  return target;
+}
+
+size_t CRemoteClient_AddClientTasRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_AddClientTasRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CRemoteClient_Task task = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *task_);
+    }
+
+    // optional fixed64 remote_client_id = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_AddClientTasRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_AddClientTasRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_AddClientTasRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_AddClientTasRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_AddClientTasRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_AddClientTasRequest)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_AddClientTasRequest::MergeFrom(const CRemoteClient_AddClientTasRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_AddClientTasRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_task()->::CRemoteClient_Task::MergeFrom(from._internal_task());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      remote_client_id_ = from.remote_client_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CRemoteClient_AddClientTasRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_AddClientTasRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_AddClientTasRequest::CopyFrom(const CRemoteClient_AddClientTasRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_AddClientTasRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_AddClientTasRequest::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_AddClientTasRequest::InternalSwap(CRemoteClient_AddClientTasRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CRemoteClient_AddClientTasRequest, remote_client_id_)
+      + sizeof(CRemoteClient_AddClientTasRequest::remote_client_id_)
+      - PROTOBUF_FIELD_OFFSET(CRemoteClient_AddClientTasRequest, task_)>(
+          reinterpret_cast<char*>(&task_),
+          reinterpret_cast<char*>(&other->task_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_AddClientTasRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_AddClientTasResponse::_Internal {
+ public:
+};
+
+CRemoteClient_AddClientTasResponse::CRemoteClient_AddClientTasResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_AddClientTasResponse)
+}
+CRemoteClient_AddClientTasResponse::CRemoteClient_AddClientTasResponse(const CRemoteClient_AddClientTasResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_AddClientTasResponse)
+}
+
+void CRemoteClient_AddClientTasResponse::SharedCtor() {
+}
+
+CRemoteClient_AddClientTasResponse::~CRemoteClient_AddClientTasResponse() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_AddClientTasResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_AddClientTasResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CRemoteClient_AddClientTasResponse::ArenaDtor(void* object) {
+  CRemoteClient_AddClientTasResponse* _this = reinterpret_cast< CRemoteClient_AddClientTasResponse* >(object);
+  (void)_this;
+}
+void CRemoteClient_AddClientTasResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_AddClientTasResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_AddClientTasResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_AddClientTasResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_AddClientTasResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_AddClientTasResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_AddClientTasResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_AddClientTasResponse)
+  return target;
+}
+
+size_t CRemoteClient_AddClientTasResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_AddClientTasResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_AddClientTasResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_AddClientTasResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_AddClientTasResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_AddClientTasResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_AddClientTasResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_AddClientTasResponse)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_AddClientTasResponse::MergeFrom(const CRemoteClient_AddClientTasResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_AddClientTasResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CRemoteClient_AddClientTasResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_AddClientTasResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_AddClientTasResponse::CopyFrom(const CRemoteClient_AddClientTasResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_AddClientTasResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_AddClientTasResponse::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_AddClientTasResponse::InternalSwap(CRemoteClient_AddClientTasResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_AddClientTasResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_TaskList_Notification::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CRemoteClient_TaskList_Notification>()._has_bits_);
+  static void set_has_remote_client_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CRemoteClient_TaskList_Notification::CRemoteClient_TaskList_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  tasklist_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_TaskList_Notification)
+}
+CRemoteClient_TaskList_Notification::CRemoteClient_TaskList_Notification(const CRemoteClient_TaskList_Notification& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      tasklist_(from.tasklist_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  remote_client_id_ = from.remote_client_id_;
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_TaskList_Notification)
+}
+
+void CRemoteClient_TaskList_Notification::SharedCtor() {
+remote_client_id_ = PROTOBUF_ULONGLONG(0);
+}
+
+CRemoteClient_TaskList_Notification::~CRemoteClient_TaskList_Notification() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_TaskList_Notification)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_TaskList_Notification::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CRemoteClient_TaskList_Notification::ArenaDtor(void* object) {
+  CRemoteClient_TaskList_Notification* _this = reinterpret_cast< CRemoteClient_TaskList_Notification* >(object);
+  (void)_this;
+}
+void CRemoteClient_TaskList_Notification::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_TaskList_Notification::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_TaskList_Notification::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_TaskList_Notification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  tasklist_.Clear();
+  remote_client_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_TaskList_Notification::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 remote_client_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_remote_client_id(&has_bits);
+          remote_client_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // repeated .CRemoteClient_Task tasklist = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_tasklist(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_TaskList_Notification::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_TaskList_Notification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 remote_client_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_remote_client_id(), target);
+  }
+
+  // repeated .CRemoteClient_Task tasklist = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_tasklist_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_tasklist(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_TaskList_Notification)
+  return target;
+}
+
+size_t CRemoteClient_TaskList_Notification::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_TaskList_Notification)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CRemoteClient_Task tasklist = 2;
+  total_size += 1UL * this->_internal_tasklist_size();
+  for (const auto& msg : this->tasklist_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // optional fixed64 remote_client_id = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_TaskList_Notification::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_TaskList_Notification)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_TaskList_Notification* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_TaskList_Notification>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_TaskList_Notification)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_TaskList_Notification)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_TaskList_Notification::MergeFrom(const CRemoteClient_TaskList_Notification& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_TaskList_Notification)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  tasklist_.MergeFrom(from.tasklist_);
+  if (from._internal_has_remote_client_id()) {
+    _internal_set_remote_client_id(from._internal_remote_client_id());
+  }
+}
+
+void CRemoteClient_TaskList_Notification::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_TaskList_Notification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_TaskList_Notification::CopyFrom(const CRemoteClient_TaskList_Notification& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_TaskList_Notification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_TaskList_Notification::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_TaskList_Notification::InternalSwap(CRemoteClient_TaskList_Notification* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  tasklist_.InternalSwap(&other->tasklist_);
+  swap(remote_client_id_, other->remote_client_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_TaskList_Notification::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_MarkTaskComplete_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CRemoteClient_MarkTaskComplete_Request>()._has_bits_);
+  static void set_has_remote_client_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_tasid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CRemoteClient_MarkTaskComplete_Request::CRemoteClient_MarkTaskComplete_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_MarkTaskComplete_Request)
+}
+CRemoteClient_MarkTaskComplete_Request::CRemoteClient_MarkTaskComplete_Request(const CRemoteClient_MarkTaskComplete_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&remote_client_id_, &from.remote_client_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&tasid_) -
+    reinterpret_cast<char*>(&remote_client_id_)) + sizeof(tasid_));
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_MarkTaskComplete_Request)
+}
+
+void CRemoteClient_MarkTaskComplete_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&remote_client_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&tasid_) -
+    reinterpret_cast<char*>(&remote_client_id_)) + sizeof(tasid_));
+}
+
+CRemoteClient_MarkTaskComplete_Request::~CRemoteClient_MarkTaskComplete_Request() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_MarkTaskComplete_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_MarkTaskComplete_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CRemoteClient_MarkTaskComplete_Request::ArenaDtor(void* object) {
+  CRemoteClient_MarkTaskComplete_Request* _this = reinterpret_cast< CRemoteClient_MarkTaskComplete_Request* >(object);
+  (void)_this;
+}
+void CRemoteClient_MarkTaskComplete_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_MarkTaskComplete_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_MarkTaskComplete_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_MarkTaskComplete_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&remote_client_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&tasid_) -
+        reinterpret_cast<char*>(&remote_client_id_)) + sizeof(tasid_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_MarkTaskComplete_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 remote_client_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_remote_client_id(&has_bits);
+          remote_client_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional fixed64 tasid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          _Internal::set_has_tasid(&has_bits);
+          tasid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_MarkTaskComplete_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_MarkTaskComplete_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 remote_client_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_remote_client_id(), target);
+  }
+
+  // optional fixed64 tasid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_tasid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_MarkTaskComplete_Request)
+  return target;
+}
+
+size_t CRemoteClient_MarkTaskComplete_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_MarkTaskComplete_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional fixed64 remote_client_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional fixed64 tasid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_MarkTaskComplete_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_MarkTaskComplete_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_MarkTaskComplete_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_MarkTaskComplete_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_MarkTaskComplete_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_MarkTaskComplete_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_MarkTaskComplete_Request::MergeFrom(const CRemoteClient_MarkTaskComplete_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_MarkTaskComplete_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      remote_client_id_ = from.remote_client_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      tasid_ = from.tasid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CRemoteClient_MarkTaskComplete_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_MarkTaskComplete_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_MarkTaskComplete_Request::CopyFrom(const CRemoteClient_MarkTaskComplete_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_MarkTaskComplete_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_MarkTaskComplete_Request::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_MarkTaskComplete_Request::InternalSwap(CRemoteClient_MarkTaskComplete_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CRemoteClient_MarkTaskComplete_Request, tasid_)
+      + sizeof(CRemoteClient_MarkTaskComplete_Request::tasid_)
+      - PROTOBUF_FIELD_OFFSET(CRemoteClient_MarkTaskComplete_Request, remote_client_id_)>(
+          reinterpret_cast<char*>(&remote_client_id_),
+          reinterpret_cast<char*>(&other->remote_client_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_MarkTaskComplete_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CRemoteClient_MarkTaskComplete_Response::_Internal {
+ public:
+};
+
+CRemoteClient_MarkTaskComplete_Response::CRemoteClient_MarkTaskComplete_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CRemoteClient_MarkTaskComplete_Response)
+}
+CRemoteClient_MarkTaskComplete_Response::CRemoteClient_MarkTaskComplete_Response(const CRemoteClient_MarkTaskComplete_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CRemoteClient_MarkTaskComplete_Response)
+}
+
+void CRemoteClient_MarkTaskComplete_Response::SharedCtor() {
+}
+
+CRemoteClient_MarkTaskComplete_Response::~CRemoteClient_MarkTaskComplete_Response() {
+  // @@protoc_insertion_point(destructor:CRemoteClient_MarkTaskComplete_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CRemoteClient_MarkTaskComplete_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CRemoteClient_MarkTaskComplete_Response::ArenaDtor(void* object) {
+  CRemoteClient_MarkTaskComplete_Response* _this = reinterpret_cast< CRemoteClient_MarkTaskComplete_Response* >(object);
+  (void)_this;
+}
+void CRemoteClient_MarkTaskComplete_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CRemoteClient_MarkTaskComplete_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CRemoteClient_MarkTaskComplete_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CRemoteClient_MarkTaskComplete_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CRemoteClient_MarkTaskComplete_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CRemoteClient_MarkTaskComplete_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CRemoteClient_MarkTaskComplete_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CRemoteClient_MarkTaskComplete_Response)
+  return target;
+}
+
+size_t CRemoteClient_MarkTaskComplete_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CRemoteClient_MarkTaskComplete_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CRemoteClient_MarkTaskComplete_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CRemoteClient_MarkTaskComplete_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CRemoteClient_MarkTaskComplete_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CRemoteClient_MarkTaskComplete_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CRemoteClient_MarkTaskComplete_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CRemoteClient_MarkTaskComplete_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CRemoteClient_MarkTaskComplete_Response::MergeFrom(const CRemoteClient_MarkTaskComplete_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CRemoteClient_MarkTaskComplete_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CRemoteClient_MarkTaskComplete_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CRemoteClient_MarkTaskComplete_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CRemoteClient_MarkTaskComplete_Response::CopyFrom(const CRemoteClient_MarkTaskComplete_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CRemoteClient_MarkTaskComplete_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CRemoteClient_MarkTaskComplete_Response::IsInitialized() const {
+  return true;
+}
+
+void CRemoteClient_MarkTaskComplete_Response::InternalSwap(CRemoteClient_MarkTaskComplete_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CRemoteClient_MarkTaskComplete_Response::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -11419,8 +14535,41 @@ template<> PROTOBUF_NOINLINE ::CRemoteClient_RegisterStatusUpdate_Notification* 
 template<> PROTOBUF_NOINLINE ::CRemoteClient_UnregisterStatusUpdate_Notification* Arena::CreateMaybeMessage< ::CRemoteClient_UnregisterStatusUpdate_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CRemoteClient_UnregisterStatusUpdate_Notification >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CRemoteClient_DeviceDetails* Arena::CreateMaybeMessage< ::CRemoteClient_DeviceDetails >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_DeviceDetails >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CRemoteClient_Online_Notification* Arena::CreateMaybeMessage< ::CRemoteClient_Online_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CRemoteClient_Online_Notification >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_GetRecentClients_Request* Arena::CreateMaybeMessage< ::CRemoteClient_GetRecentClients_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_GetRecentClients_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_ClientLogin* Arena::CreateMaybeMessage< ::CRemoteClient_ClientLogin >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_ClientLogin >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_ClientDetails* Arena::CreateMaybeMessage< ::CRemoteClient_ClientDetails >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_ClientDetails >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_GetRecentClients_Response* Arena::CreateMaybeMessage< ::CRemoteClient_GetRecentClients_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_GetRecentClients_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_Task* Arena::CreateMaybeMessage< ::CRemoteClient_Task >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_Task >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_AddClientTasRequest* Arena::CreateMaybeMessage< ::CRemoteClient_AddClientTasRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_AddClientTasRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_AddClientTasResponse* Arena::CreateMaybeMessage< ::CRemoteClient_AddClientTasResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_AddClientTasResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_TaskList_Notification* Arena::CreateMaybeMessage< ::CRemoteClient_TaskList_Notification >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_TaskList_Notification >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_MarkTaskComplete_Request* Arena::CreateMaybeMessage< ::CRemoteClient_MarkTaskComplete_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_MarkTaskComplete_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CRemoteClient_MarkTaskComplete_Response* Arena::CreateMaybeMessage< ::CRemoteClient_MarkTaskComplete_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CRemoteClient_MarkTaskComplete_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CRemoteClient_RemotePacket_Notification* Arena::CreateMaybeMessage< ::CRemoteClient_RemotePacket_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CRemoteClient_RemotePacket_Notification >(arena);

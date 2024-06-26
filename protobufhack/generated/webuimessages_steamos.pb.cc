@@ -43,7 +43,10 @@ constexpr CSteamOSManagerState::CSteamOSManagerState(
   , is_tdp_limit_available_(false)
   , tdp_limit_min_(0)
   , tdp_limit_max_(0)
-  , is_cec_available_(false){}
+  , is_cec_available_(false)
+  , is_wifi_debug_supported_(false)
+  , is_wifi_debug_force_disabled_(false)
+  , is_wifi_force_wpa_supplicant_supported_(false){}
 struct CSteamOSManagerStateDefaultTypeInternal {
   constexpr CSteamOSManagerStateDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -322,6 +325,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, tdp_limit_min_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, tdp_limit_max_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_cec_available_),
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_wifi_debug_supported_),
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_wifi_debug_force_disabled_),
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_wifi_force_wpa_supplicant_supported_),
   3,
   0,
   4,
@@ -332,6 +338,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   7,
   8,
   9,
+  10,
+  11,
+  12,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CSteamOSManager_GetState_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -461,27 +470,27 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, sizeof(::CMsgFactoryResetState)},
-  { 13, 28, sizeof(::CSteamOSManagerState)},
-  { 38, -1, sizeof(::CSteamOSManager_GetState_Request)},
-  { 43, 49, sizeof(::CSteamOSManager_GetState_Response)},
-  { 50, -1, sizeof(::CSteamOSManager_StateChanged_Notification)},
-  { 55, 61, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Request)},
-  { 62, 68, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Response)},
-  { 69, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Request)},
-  { 74, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
-  { 79, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
-  { 84, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
-  { 89, -1, sizeof(::CSteamOSManager_FactoryReset_Request)},
-  { 94, -1, sizeof(::CSteamOSManager_FactoryReset_Response)},
-  { 99, 107, sizeof(::CSteamOSSLSPlugin)},
-  { 110, 118, sizeof(::CSteamOSSLSState)},
-  { 121, -1, sizeof(::CSteamOSSLS_GetState_Request)},
-  { 126, 132, sizeof(::CSteamOSSLS_GetState_Response)},
-  { 133, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
-  { 138, 144, sizeof(::CSteamOSSLS_SetEnabled_Request)},
-  { 145, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
-  { 150, 157, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
-  { 159, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
+  { 13, 31, sizeof(::CSteamOSManagerState)},
+  { 44, -1, sizeof(::CSteamOSManager_GetState_Request)},
+  { 49, 55, sizeof(::CSteamOSManager_GetState_Response)},
+  { 56, -1, sizeof(::CSteamOSManager_StateChanged_Notification)},
+  { 61, 67, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Request)},
+  { 68, 74, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Response)},
+  { 75, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Request)},
+  { 80, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
+  { 85, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
+  { 90, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
+  { 95, -1, sizeof(::CSteamOSManager_FactoryReset_Request)},
+  { 100, -1, sizeof(::CSteamOSManager_FactoryReset_Response)},
+  { 105, 113, sizeof(::CSteamOSSLSPlugin)},
+  { 116, 124, sizeof(::CSteamOSSLSState)},
+  { 127, -1, sizeof(::CSteamOSSLS_GetState_Request)},
+  { 132, 138, sizeof(::CSteamOSSLS_GetState_Response)},
+  { 139, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
+  { 144, 150, sizeof(::CSteamOSSLS_SetEnabled_Request)},
+  { 151, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
+  { 156, 163, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
+  { 165, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -516,7 +525,7 @@ const char descriptor_table_protodef_webuimessages_5fsteamos_2eproto[] PROTOBUF_
   "se.proto\"}\n\025CMsgFactoryResetState\022\022\n\nis_"
   "running\030\001 \001(\010\022\020\n\010progress\030\002 \001(\005\022\032\n\022is_re"
   "start_pending\030\003 \001(\010\022\"\n\032rtime_estimated_c"
-  "ompletion\030\004 \001(\007\"\211\003\n\024CSteamOSManagerState"
+  "ompletion\030\004 \001(\007\"\200\004\n\024CSteamOSManagerState"
   "\022\034\n\024is_service_available\030\001 \001(\010\022\022\n\nos_ver"
   "sion\030\002 \001(\t\022%\n\035is_mandatory_update_availa"
   "ble\030\003 \001(\010\022R\n\025startup_movie_variant\030\004 \001(\016"
@@ -526,60 +535,63 @@ const char descriptor_table_protodef_webuimessages_5fsteamos_2eproto[] PROTOBUF_
   "\001(\0132\026.CMsgFactoryResetState\022\036\n\026is_tdp_li"
   "mit_available\030\007 \001(\010\022\025\n\rtdp_limit_min\030\010 \001"
   "(\005\022\025\n\rtdp_limit_max\030\t \001(\005\022\030\n\020is_cec_avai"
-  "lable\030\n \001(\010\"\"\n CSteamOSManager_GetState_"
-  "Request\"I\n!CSteamOSManager_GetState_Resp"
-  "onse\022$\n\005state\030\001 \001(\0132\025.CSteamOSManagerSta"
-  "te\"+\n)CSteamOSManager_StateChanged_Notif"
-  "ication\"d\n2CSteamOSManager_IsTelemetryHe"
-  "lperAvailable_Request\022.\n\005etype\030\001 \001(\0162\013.E"
-  "SLSHelper:\022ESLSHelper_Invalid\"H\n3CSteamO"
-  "SManager_IsTelemetryHelperAvailable_Resp"
-  "onse\022\021\n\tavailable\030\001 \001(\010\"2\n0CSteamOSManag"
-  "er_OptOutOfSideloadedClient_Request\"3\n1C"
-  "SteamOSManager_OptOutOfSideloadedClient_"
-  "Response\".\n,CSteamOSManager_ApplyMandato"
-  "ryUpdate_Request\"/\n-CSteamOSManager_Appl"
-  "yMandatoryUpdate_Response\"&\n$CSteamOSMan"
-  "ager_FactoryReset_Request\"\'\n%CSteamOSMan"
-  "ager_FactoryReset_Response\"m\n\021CSteamOSSL"
-  "SPlugin\022.\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESL"
-  "SHelper_Invalid\022\024\n\014is_available\030\002 \001(\010\022\022\n"
-  "\nis_enabled\030\003 \001(\010\"a\n\020CSteamOSSLSState\022\024\n"
-  "\014is_available\030\001 \001(\010\022\022\n\nis_enabled\030\002 \001(\010\022"
-  "#\n\007plugins\030\003 \003(\0132\022.CSteamOSSLSPlugin\"\036\n\034"
-  "CSteamOSSLS_GetState_Request\"A\n\035CSteamOS"
-  "SLS_GetState_Response\022 \n\005state\030\001 \001(\0132\021.C"
-  "SteamOSSLSState\"\'\n%CSteamOSSLS_StateChan"
-  "ged_Notification\"1\n\036CSteamOSSLS_SetEnabl"
-  "ed_Request\022\017\n\007enabled\030\001 \001(\010\"!\n\037CSteamOSS"
-  "LS_SetEnabled_Response\"g\n$CSteamOSSLS_Se"
-  "tPluginEnabled_Request\022.\n\005etype\030\001 \001(\0162\013."
-  "ESLSHelper:\022ESLSHelper_Invalid\022\017\n\007enable"
-  "d\030\002 \001(\010\"\'\n%CSteamOSSLS_SetPluginEnabled_"
-  "Response2\227\004\n\016SteamOSManager\022Q\n\010GetState\022"
-  "!.CSteamOSManager_GetState_Request\032\".CSt"
-  "eamOSManager_GetState_Response\022R\n\022Notify"
-  "StateChanged\022*.CSteamOSManager_StateChan"
-  "ged_Notification\032\020.WebUINoResponse\022\201\001\n\030O"
-  "ptOutOfSideloadedClient\0221.CSteamOSManage"
-  "r_OptOutOfSideloadedClient_Request\0322.CSt"
-  "eamOSManager_OptOutOfSideloadedClient_Re"
-  "sponse\022u\n\024ApplyMandatoryUpdate\022-.CSteamO"
-  "SManager_ApplyMandatoryUpdate_Request\032.."
-  "CSteamOSManager_ApplyMandatoryUpdate_Res"
-  "ponse\022]\n\014FactoryReset\022%.CSteamOSManager_"
-  "FactoryReset_Request\032&.CSteamOSManager_F"
-  "actoryReset_Response\032\004\200\227\"\0012\341\002\n\nSteamOSSL"
-  "S\022I\n\010GetState\022\035.CSteamOSSLS_GetState_Req"
-  "uest\032\036.CSteamOSSLS_GetState_Response\022N\n\022"
-  "NotifyStateChanged\022&.CSteamOSSLS_StateCh"
-  "anged_Notification\032\020.WebUINoResponse\022O\n\n"
-  "SetEnabled\022\037.CSteamOSSLS_SetEnabled_Requ"
-  "est\032 .CSteamOSSLS_SetEnabled_Response\022a\n"
-  "\020SetPluginEnabled\022%.CSteamOSSLS_SetPlugi"
-  "nEnabled_Request\032&.CSteamOSSLS_SetPlugin"
-  "Enabled_Response\032\004\200\227\"\001B\037H\001\200\001\001\252\002\027OpenStea"
-  "mworks.Protobuf"
+  "lable\030\n \001(\010\022\037\n\027is_wifi_debug_supported\030\013"
+  " \001(\010\022$\n\034is_wifi_debug_force_disabled\030\014 \001"
+  "(\010\022.\n&is_wifi_force_wpa_supplicant_suppo"
+  "rted\030\r \001(\010\"\"\n CSteamOSManager_GetState_R"
+  "equest\"I\n!CSteamOSManager_GetState_Respo"
+  "nse\022$\n\005state\030\001 \001(\0132\025.CSteamOSManagerStat"
+  "e\"+\n)CSteamOSManager_StateChanged_Notifi"
+  "cation\"d\n2CSteamOSManager_IsTelemetryHel"
+  "perAvailable_Request\022.\n\005etype\030\001 \001(\0162\013.ES"
+  "LSHelper:\022ESLSHelper_Invalid\"H\n3CSteamOS"
+  "Manager_IsTelemetryHelperAvailable_Respo"
+  "nse\022\021\n\tavailable\030\001 \001(\010\"2\n0CSteamOSManage"
+  "r_OptOutOfSideloadedClient_Request\"3\n1CS"
+  "teamOSManager_OptOutOfSideloadedClient_R"
+  "esponse\".\n,CSteamOSManager_ApplyMandator"
+  "yUpdate_Request\"/\n-CSteamOSManager_Apply"
+  "MandatoryUpdate_Response\"&\n$CSteamOSMana"
+  "ger_FactoryReset_Request\"\'\n%CSteamOSMana"
+  "ger_FactoryReset_Response\"m\n\021CSteamOSSLS"
+  "Plugin\022.\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLS"
+  "Helper_Invalid\022\024\n\014is_available\030\002 \001(\010\022\022\n\n"
+  "is_enabled\030\003 \001(\010\"a\n\020CSteamOSSLSState\022\024\n\014"
+  "is_available\030\001 \001(\010\022\022\n\nis_enabled\030\002 \001(\010\022#"
+  "\n\007plugins\030\003 \003(\0132\022.CSteamOSSLSPlugin\"\036\n\034C"
+  "SteamOSSLS_GetState_Request\"A\n\035CSteamOSS"
+  "LS_GetState_Response\022 \n\005state\030\001 \001(\0132\021.CS"
+  "teamOSSLSState\"\'\n%CSteamOSSLS_StateChang"
+  "ed_Notification\"1\n\036CSteamOSSLS_SetEnable"
+  "d_Request\022\017\n\007enabled\030\001 \001(\010\"!\n\037CSteamOSSL"
+  "S_SetEnabled_Response\"g\n$CSteamOSSLS_Set"
+  "PluginEnabled_Request\022.\n\005etype\030\001 \001(\0162\013.E"
+  "SLSHelper:\022ESLSHelper_Invalid\022\017\n\007enabled"
+  "\030\002 \001(\010\"\'\n%CSteamOSSLS_SetPluginEnabled_R"
+  "esponse2\227\004\n\016SteamOSManager\022Q\n\010GetState\022!"
+  ".CSteamOSManager_GetState_Request\032\".CSte"
+  "amOSManager_GetState_Response\022R\n\022NotifyS"
+  "tateChanged\022*.CSteamOSManager_StateChang"
+  "ed_Notification\032\020.WebUINoResponse\022\201\001\n\030Op"
+  "tOutOfSideloadedClient\0221.CSteamOSManager"
+  "_OptOutOfSideloadedClient_Request\0322.CSte"
+  "amOSManager_OptOutOfSideloadedClient_Res"
+  "ponse\022u\n\024ApplyMandatoryUpdate\022-.CSteamOS"
+  "Manager_ApplyMandatoryUpdate_Request\032..C"
+  "SteamOSManager_ApplyMandatoryUpdate_Resp"
+  "onse\022]\n\014FactoryReset\022%.CSteamOSManager_F"
+  "actoryReset_Request\032&.CSteamOSManager_Fa"
+  "ctoryReset_Response\032\004\200\227\"\0012\341\002\n\nSteamOSSLS"
+  "\022I\n\010GetState\022\035.CSteamOSSLS_GetState_Requ"
+  "est\032\036.CSteamOSSLS_GetState_Response\022N\n\022N"
+  "otifyStateChanged\022&.CSteamOSSLS_StateCha"
+  "nged_Notification\032\020.WebUINoResponse\022O\n\nS"
+  "etEnabled\022\037.CSteamOSSLS_SetEnabled_Reque"
+  "st\032 .CSteamOSSLS_SetEnabled_Response\022a\n\020"
+  "SetPluginEnabled\022%.CSteamOSSLS_SetPlugin"
+  "Enabled_Request\032&.CSteamOSSLS_SetPluginE"
+  "nabled_Response\032\004\200\227\"\001B\037H\001\200\001\001\252\002\027OpenSteam"
+  "works.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fsteamos_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -589,7 +601,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fsteamos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fsteamos_2eproto = {
-  false, false, 2775, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
+  false, false, 2894, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
   &descriptor_table_webuimessages_5fsteamos_2eproto_once, descriptor_table_webuimessages_5fsteamos_2eproto_deps, 4, 22,
   schemas, file_default_instances, TableStruct_webuimessages_5fsteamos_2eproto::offsets,
   file_level_metadata_webuimessages_5fsteamos_2eproto, file_level_enum_descriptors_webuimessages_5fsteamos_2eproto, file_level_service_descriptors_webuimessages_5fsteamos_2eproto,
@@ -936,6 +948,15 @@ class CSteamOSManagerState::_Internal {
   static void set_has_is_cec_available(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
+  static void set_has_is_wifi_debug_supported(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
+  }
+  static void set_has_is_wifi_debug_force_disabled(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
+  static void set_has_is_wifi_force_wpa_supplicant_supported(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
 };
 
 const ::CMsgFactoryResetState&
@@ -963,8 +984,8 @@ CSteamOSManagerState::CSteamOSManagerState(const CSteamOSManagerState& from)
     factory_reset_state_ = nullptr;
   }
   ::memcpy(&startup_movie_variant_, &from.startup_movie_variant_,
-    static_cast<size_t>(reinterpret_cast<char*>(&is_cec_available_) -
-    reinterpret_cast<char*>(&startup_movie_variant_)) + sizeof(is_cec_available_));
+    static_cast<size_t>(reinterpret_cast<char*>(&is_wifi_force_wpa_supplicant_supported_) -
+    reinterpret_cast<char*>(&startup_movie_variant_)) + sizeof(is_wifi_force_wpa_supplicant_supported_));
   // @@protoc_insertion_point(copy_constructor:CSteamOSManagerState)
 }
 
@@ -972,8 +993,8 @@ void CSteamOSManagerState::SharedCtor() {
 os_version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&factory_reset_state_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&is_cec_available_) -
-    reinterpret_cast<char*>(&factory_reset_state_)) + sizeof(is_cec_available_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_wifi_force_wpa_supplicant_supported_) -
+    reinterpret_cast<char*>(&factory_reset_state_)) + sizeof(is_wifi_force_wpa_supplicant_supported_));
 }
 
 CSteamOSManagerState::~CSteamOSManagerState() {
@@ -1019,10 +1040,10 @@ void CSteamOSManagerState::Clear() {
         reinterpret_cast<char*>(&tdp_limit_min_) -
         reinterpret_cast<char*>(&startup_movie_variant_)) + sizeof(tdp_limit_min_));
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00001f00u) {
     ::memset(&tdp_limit_max_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&is_cec_available_) -
-        reinterpret_cast<char*>(&tdp_limit_max_)) + sizeof(is_cec_available_));
+        reinterpret_cast<char*>(&is_wifi_force_wpa_supplicant_supported_) -
+        reinterpret_cast<char*>(&tdp_limit_max_)) + sizeof(is_wifi_force_wpa_supplicant_supported_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1119,6 +1140,30 @@ const char* CSteamOSManagerState::_InternalParse(const char* ptr, ::PROTOBUF_NAM
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_is_cec_available(&has_bits);
           is_cec_available_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_wifi_debug_supported = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+          _Internal::set_has_is_wifi_debug_supported(&has_bits);
+          is_wifi_debug_supported_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_wifi_debug_force_disabled = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+          _Internal::set_has_is_wifi_debug_force_disabled(&has_bits);
+          is_wifi_debug_force_disabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_wifi_force_wpa_supplicant_supported = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          _Internal::set_has_is_wifi_force_wpa_supplicant_supported(&has_bits);
+          is_wifi_force_wpa_supplicant_supported_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1219,6 +1264,24 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_is_cec_available(), target);
   }
 
+  // optional bool is_wifi_debug_supported = 11;
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_is_wifi_debug_supported(), target);
+  }
+
+  // optional bool is_wifi_debug_force_disabled = 12;
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_is_wifi_debug_force_disabled(), target);
+  }
+
+  // optional bool is_wifi_force_wpa_supplicant_supported = 13;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_is_wifi_force_wpa_supplicant_supported(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1285,7 +1348,7 @@ size_t CSteamOSManagerState::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00001f00u) {
     // optional int32 tdp_limit_max = 9;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
@@ -1295,6 +1358,21 @@ size_t CSteamOSManagerState::ByteSizeLong() const {
 
     // optional bool is_cec_available = 10;
     if (cached_has_bits & 0x00000200u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_wifi_debug_supported = 11;
+    if (cached_has_bits & 0x00000400u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_wifi_debug_force_disabled = 12;
+    if (cached_has_bits & 0x00000800u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_wifi_force_wpa_supplicant_supported = 13;
+    if (cached_has_bits & 0x00001000u) {
       total_size += 1 + 1;
     }
 
@@ -1358,12 +1436,21 @@ void CSteamOSManagerState::MergeFrom(const CSteamOSManagerState& from) {
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
       tdp_limit_max_ = from.tdp_limit_max_;
     }
     if (cached_has_bits & 0x00000200u) {
       is_cec_available_ = from.is_cec_available_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      is_wifi_debug_supported_ = from.is_wifi_debug_supported_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      is_wifi_debug_force_disabled_ = from.is_wifi_debug_force_disabled_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      is_wifi_force_wpa_supplicant_supported_ = from.is_wifi_force_wpa_supplicant_supported_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1393,8 +1480,8 @@ void CSteamOSManagerState::InternalSwap(CSteamOSManagerState* other) {
   swap(_has_bits_[0], other->_has_bits_[0]);
   os_version_.Swap(&other->os_version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, is_cec_available_)
-      + sizeof(CSteamOSManagerState::is_cec_available_)
+      PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, is_wifi_force_wpa_supplicant_supported_)
+      + sizeof(CSteamOSManagerState::is_wifi_force_wpa_supplicant_supported_)
       - PROTOBUF_FIELD_OFFSET(CSteamOSManagerState, factory_reset_state_)>(
           reinterpret_cast<char*>(&factory_reset_state_),
           reinterpret_cast<char*>(&other->factory_reset_state_));

@@ -29,52 +29,58 @@ const char descriptor_table_protodef_steammessages_5fremoteclient_5fservice_2est
   "or.proto\032\030steammessages_base.proto\032,stea"
   "mmessages_unified_base.steamclient.proto"
   "\0321steammessages_remoteclient_service_mes"
-  "sages.proto2\267\t\n\014RemoteClient\022_\n\016GetPairi"
+  "sages.proto2\205\013\n\014RemoteClient\022_\n\016GetPairi"
   "ngInfo\022%.CRemoteClient_GetPairingInfo_Re"
   "quest\032&.CRemoteClient_GetPairingInfo_Res"
   "ponse\022\?\n\014NotifyOnline\022\".CRemoteClient_On"
-  "line_Notification\032\013.NoResponse\022I\n\021Notify"
-  "ReplyPacket\022\'.CRemoteClient_ReplyPacket_"
-  "Notification\032\013.NoResponse\022n\n\023AllocateRel"
-  "ayServer\022*.CRemoteClient_AllocateRelaySe"
-  "rver_Request\032+.CRemoteClient_AllocateRel"
-  "ayServer_Response\022V\n\013AllocateSDR\022\".CRemo"
-  "teClient_AllocateSDR_Request\032#.CRemoteCl"
-  "ient_AllocateSDR_Response\022S\n\030SendSteamBr"
-  "oadcastPacket\022*.CRemoteClient_SteamBroad"
-  "cast_Notification\032\013.NoResponse\022O\n\026SendSt"
-  "eamToSteamPacket\022(.CRemoteClient_SteamTo"
-  "Steam_Notification\032\013.NoResponse\022i\n\034SendR"
-  "emotePlaySessionStarted\022#.CRemotePlay_Se"
-  "ssionStarted_Request\032$.CRemotePlay_Sessi"
-  "onStarted_Response\022U\n\034SendRemotePlaySess"
-  "ionStopped\022(.CRemotePlay_SessionStopped_"
-  "Notification\032\013.NoResponse\022N\n\034SendRemoteP"
-  "layTogetherPacket\022!.CRemotePlayTogether_"
-  "Notification\032\013.NoResponse\022\233\001\n\"CreateRemo"
-  "tePlayTogetherInvitation\0229.CRemoteClient"
-  "_CreateRemotePlayTogetherInvitation_Requ"
-  "est\032:.CRemoteClient_CreateRemotePlayToge"
-  "therInvitation_Response\022\233\001\n\"DeleteRemote"
-  "PlayTogetherInvitation\0229.CRemoteClient_D"
-  "eleteRemotePlayTogetherInvitation_Reques"
-  "t\032:.CRemoteClient_DeleteRemotePlayTogeth"
-  "erInvitation_Response2\246\004\n\027RemoteClientSt"
-  "eamClient\022[\n\032NotifyRegisterStatusUpdate\022"
-  "0.CRemoteClient_RegisterStatusUpdate_Not"
-  "ification\032\013.NoResponse\022_\n\034NotifyUnregist"
-  "erStatusUpdate\0222.CRemoteClient_Unregiste"
-  "rStatusUpdate_Notification\032\013.NoResponse\022"
-  "K\n\022NotifyRemotePacket\022(.CRemoteClient_Re"
-  "motePacket_Notification\032\013.NoResponse\022U\n\032"
-  "NotifySteamBroadcastPacket\022*.CRemoteClie"
-  "nt_SteamBroadcast_Notification\032\013.NoRespo"
-  "nse\022Q\n\030NotifySteamToSteamPacket\022(.CRemot"
-  "eClient_SteamToSteam_Notification\032\013.NoRe"
-  "sponse\022P\n\036NotifyRemotePlayTogetherPacket"
-  "\022!.CRemotePlayTogether_Notification\032\013.No"
-  "Response\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Pro"
-  "tobuf"
+  "line_Notification\032\013.NoResponse\022e\n\020GetRec"
+  "entClients\022\'.CRemoteClient_GetRecentClie"
+  "nts_Request\032(.CRemoteClient_GetRecentCli"
+  "ents_Response\022e\n\020MarkTaskComplete\022\'.CRem"
+  "oteClient_MarkTaskComplete_Request\032(.CRe"
+  "moteClient_MarkTaskComplete_Response\022I\n\021"
+  "NotifyReplyPacket\022\'.CRemoteClient_ReplyP"
+  "acket_Notification\032\013.NoResponse\022n\n\023Alloc"
+  "ateRelayServer\022*.CRemoteClient_AllocateR"
+  "elayServer_Request\032+.CRemoteClient_Alloc"
+  "ateRelayServer_Response\022V\n\013AllocateSDR\022\""
+  ".CRemoteClient_AllocateSDR_Request\032#.CRe"
+  "moteClient_AllocateSDR_Response\022S\n\030SendS"
+  "teamBroadcastPacket\022*.CRemoteClient_Stea"
+  "mBroadcast_Notification\032\013.NoResponse\022O\n\026"
+  "SendSteamToSteamPacket\022(.CRemoteClient_S"
+  "teamToSteam_Notification\032\013.NoResponse\022i\n"
+  "\034SendRemotePlaySessionStarted\022#.CRemoteP"
+  "lay_SessionStarted_Request\032$.CRemotePlay"
+  "_SessionStarted_Response\022U\n\034SendRemotePl"
+  "aySessionStopped\022(.CRemotePlay_SessionSt"
+  "opped_Notification\032\013.NoResponse\022N\n\034SendR"
+  "emotePlayTogetherPacket\022!.CRemotePlayTog"
+  "ether_Notification\032\013.NoResponse\022\233\001\n\"Crea"
+  "teRemotePlayTogetherInvitation\0229.CRemote"
+  "Client_CreateRemotePlayTogetherInvitatio"
+  "n_Request\032:.CRemoteClient_CreateRemotePl"
+  "ayTogetherInvitation_Response\022\233\001\n\"Delete"
+  "RemotePlayTogetherInvitation\0229.CRemoteCl"
+  "ient_DeleteRemotePlayTogetherInvitation_"
+  "Request\032:.CRemoteClient_DeleteRemotePlay"
+  "TogetherInvitation_Response2\353\004\n\027RemoteCl"
+  "ientSteamClient\022[\n\032NotifyRegisterStatusU"
+  "pdate\0220.CRemoteClient_RegisterStatusUpda"
+  "te_Notification\032\013.NoResponse\022_\n\034NotifyUn"
+  "registerStatusUpdate\0222.CRemoteClient_Unr"
+  "egisterStatusUpdate_Notification\032\013.NoRes"
+  "ponse\022K\n\022NotifyRemotePacket\022(.CRemoteCli"
+  "ent_RemotePacket_Notification\032\013.NoRespon"
+  "se\022U\n\032NotifySteamBroadcastPacket\022*.CRemo"
+  "teClient_SteamBroadcast_Notification\032\013.N"
+  "oResponse\022Q\n\030NotifySteamToSteamPacket\022(."
+  "CRemoteClient_SteamToSteam_Notification\032"
+  "\013.NoResponse\022P\n\036NotifyRemotePlayTogether"
+  "Packet\022!.CRemotePlayTogether_Notificatio"
+  "n\032\013.NoResponse\022C\n\016NotifyTaskList\022$.CRemo"
+  "teClient_TaskList_Notification\032\013.NoRespo"
+  "nse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -84,7 +90,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto = {
-  false, false, 2005, descriptor_table_protodef_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto, "steammessages_remoteclient_service.steamclient.proto", 
+  false, false, 2280, descriptor_table_protodef_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto, "steammessages_remoteclient_service.steamclient.proto", 
   &descriptor_table_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto_once, descriptor_table_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto_deps, 4, 0,
   schemas, file_default_instances, TableStruct_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fremoteclient_5fservice_2esteamclient_2eproto,
@@ -124,6 +130,22 @@ void RemoteClient::NotifyOnline(::PROTOBUF_NAMESPACE_ID::RpcController* controll
                          ::NoResponse*,
                          ::google::protobuf::Closure* done) {
   controller->SetFailed("Method NotifyOnline() not implemented.");
+  done->Run();
+}
+
+void RemoteClient::GetRecentClients(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CRemoteClient_GetRecentClients_Request*,
+                         ::CRemoteClient_GetRecentClients_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetRecentClients() not implemented.");
+  done->Run();
+}
+
+void RemoteClient::MarkTaskComplete(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CRemoteClient_MarkTaskComplete_Request*,
+                         ::CRemoteClient_MarkTaskComplete_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method MarkTaskComplete() not implemented.");
   done->Run();
 }
 
@@ -231,6 +253,22 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
              done);
       break;
     case 2:
+      GetRecentClients(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_GetRecentClients_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CRemoteClient_GetRecentClients_Response*>(
+                 response),
+             done);
+      break;
+    case 3:
+      MarkTaskComplete(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_MarkTaskComplete_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CRemoteClient_MarkTaskComplete_Response*>(
+                 response),
+             done);
+      break;
+    case 4:
       NotifyReplyPacket(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_ReplyPacket_Notification*>(
                  request),
@@ -238,7 +276,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 3:
+    case 5:
       AllocateRelayServer(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_AllocateRelayServer_Request*>(
                  request),
@@ -246,7 +284,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 4:
+    case 6:
       AllocateSDR(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_AllocateSDR_Request*>(
                  request),
@@ -254,7 +292,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 5:
+    case 7:
       SendSteamBroadcastPacket(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_SteamBroadcast_Notification*>(
                  request),
@@ -262,7 +300,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 6:
+    case 8:
       SendSteamToSteamPacket(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_SteamToSteam_Notification*>(
                  request),
@@ -270,7 +308,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 7:
+    case 9:
       SendRemotePlaySessionStarted(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemotePlay_SessionStarted_Request*>(
                  request),
@@ -278,7 +316,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 8:
+    case 10:
       SendRemotePlaySessionStopped(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemotePlay_SessionStopped_Notification*>(
                  request),
@@ -286,7 +324,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 9:
+    case 11:
       SendRemotePlayTogetherPacket(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemotePlayTogether_Notification*>(
                  request),
@@ -294,7 +332,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 10:
+    case 12:
       CreateRemotePlayTogetherInvitation(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_CreateRemotePlayTogetherInvitation_Request*>(
                  request),
@@ -302,7 +340,7 @@ void RemoteClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
-    case 11:
+    case 13:
       DeleteRemotePlayTogetherInvitation(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_DeleteRemotePlayTogetherInvitation_Request*>(
                  request),
@@ -325,24 +363,28 @@ const ::PROTOBUF_NAMESPACE_ID::Message& RemoteClient::GetRequestPrototype(
     case 1:
       return ::CRemoteClient_Online_Notification::default_instance();
     case 2:
-      return ::CRemoteClient_ReplyPacket_Notification::default_instance();
+      return ::CRemoteClient_GetRecentClients_Request::default_instance();
     case 3:
-      return ::CRemoteClient_AllocateRelayServer_Request::default_instance();
+      return ::CRemoteClient_MarkTaskComplete_Request::default_instance();
     case 4:
-      return ::CRemoteClient_AllocateSDR_Request::default_instance();
+      return ::CRemoteClient_ReplyPacket_Notification::default_instance();
     case 5:
-      return ::CRemoteClient_SteamBroadcast_Notification::default_instance();
+      return ::CRemoteClient_AllocateRelayServer_Request::default_instance();
     case 6:
-      return ::CRemoteClient_SteamToSteam_Notification::default_instance();
+      return ::CRemoteClient_AllocateSDR_Request::default_instance();
     case 7:
-      return ::CRemotePlay_SessionStarted_Request::default_instance();
+      return ::CRemoteClient_SteamBroadcast_Notification::default_instance();
     case 8:
-      return ::CRemotePlay_SessionStopped_Notification::default_instance();
+      return ::CRemoteClient_SteamToSteam_Notification::default_instance();
     case 9:
-      return ::CRemotePlayTogether_Notification::default_instance();
+      return ::CRemotePlay_SessionStarted_Request::default_instance();
     case 10:
-      return ::CRemoteClient_CreateRemotePlayTogetherInvitation_Request::default_instance();
+      return ::CRemotePlay_SessionStopped_Notification::default_instance();
     case 11:
+      return ::CRemotePlayTogether_Notification::default_instance();
+    case 12:
+      return ::CRemoteClient_CreateRemotePlayTogetherInvitation_Request::default_instance();
+    case 13:
       return ::CRemoteClient_DeleteRemotePlayTogetherInvitation_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -360,24 +402,28 @@ const ::PROTOBUF_NAMESPACE_ID::Message& RemoteClient::GetResponsePrototype(
     case 1:
       return ::NoResponse::default_instance();
     case 2:
-      return ::NoResponse::default_instance();
+      return ::CRemoteClient_GetRecentClients_Response::default_instance();
     case 3:
-      return ::CRemoteClient_AllocateRelayServer_Response::default_instance();
+      return ::CRemoteClient_MarkTaskComplete_Response::default_instance();
     case 4:
-      return ::CRemoteClient_AllocateSDR_Response::default_instance();
+      return ::NoResponse::default_instance();
     case 5:
-      return ::NoResponse::default_instance();
+      return ::CRemoteClient_AllocateRelayServer_Response::default_instance();
     case 6:
-      return ::NoResponse::default_instance();
+      return ::CRemoteClient_AllocateSDR_Response::default_instance();
     case 7:
-      return ::CRemotePlay_SessionStarted_Response::default_instance();
+      return ::NoResponse::default_instance();
     case 8:
       return ::NoResponse::default_instance();
     case 9:
-      return ::NoResponse::default_instance();
+      return ::CRemotePlay_SessionStarted_Response::default_instance();
     case 10:
-      return ::CRemoteClient_CreateRemotePlayTogetherInvitation_Response::default_instance();
+      return ::NoResponse::default_instance();
     case 11:
+      return ::NoResponse::default_instance();
+    case 12:
+      return ::CRemoteClient_CreateRemotePlayTogetherInvitation_Response::default_instance();
+    case 13:
       return ::CRemoteClient_DeleteRemotePlayTogetherInvitation_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -411,74 +457,88 @@ void RemoteClient_Stub::NotifyOnline(::PROTOBUF_NAMESPACE_ID::RpcController* con
   channel_->CallMethod(descriptor()->method(1),
                        controller, request, response, done);
 }
+void RemoteClient_Stub::GetRecentClients(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CRemoteClient_GetRecentClients_Request* request,
+                              ::CRemoteClient_GetRecentClients_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(2),
+                       controller, request, response, done);
+}
+void RemoteClient_Stub::MarkTaskComplete(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CRemoteClient_MarkTaskComplete_Request* request,
+                              ::CRemoteClient_MarkTaskComplete_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(3),
+                       controller, request, response, done);
+}
 void RemoteClient_Stub::NotifyReplyPacket(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemoteClient_ReplyPacket_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(2),
+  channel_->CallMethod(descriptor()->method(4),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::AllocateRelayServer(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemoteClient_AllocateRelayServer_Request* request,
                               ::CRemoteClient_AllocateRelayServer_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(3),
+  channel_->CallMethod(descriptor()->method(5),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::AllocateSDR(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemoteClient_AllocateSDR_Request* request,
                               ::CRemoteClient_AllocateSDR_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(4),
+  channel_->CallMethod(descriptor()->method(6),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::SendSteamBroadcastPacket(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemoteClient_SteamBroadcast_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(5),
+  channel_->CallMethod(descriptor()->method(7),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::SendSteamToSteamPacket(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemoteClient_SteamToSteam_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(6),
+  channel_->CallMethod(descriptor()->method(8),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::SendRemotePlaySessionStarted(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemotePlay_SessionStarted_Request* request,
                               ::CRemotePlay_SessionStarted_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(7),
+  channel_->CallMethod(descriptor()->method(9),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::SendRemotePlaySessionStopped(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemotePlay_SessionStopped_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(8),
+  channel_->CallMethod(descriptor()->method(10),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::SendRemotePlayTogetherPacket(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemotePlayTogether_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(9),
+  channel_->CallMethod(descriptor()->method(11),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::CreateRemotePlayTogetherInvitation(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemoteClient_CreateRemotePlayTogetherInvitation_Request* request,
                               ::CRemoteClient_CreateRemotePlayTogetherInvitation_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(10),
+  channel_->CallMethod(descriptor()->method(12),
                        controller, request, response, done);
 }
 void RemoteClient_Stub::DeleteRemotePlayTogetherInvitation(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CRemoteClient_DeleteRemotePlayTogetherInvitation_Request* request,
                               ::CRemoteClient_DeleteRemotePlayTogetherInvitation_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(11),
+  channel_->CallMethod(descriptor()->method(13),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -542,6 +602,14 @@ void RemoteClientSteamClient::NotifyRemotePlayTogetherPacket(::PROTOBUF_NAMESPAC
   done->Run();
 }
 
+void RemoteClientSteamClient::NotifyTaskList(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CRemoteClient_TaskList_Notification*,
+                         ::NoResponse*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method NotifyTaskList() not implemented.");
+  done->Run();
+}
+
 void RemoteClientSteamClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -597,6 +665,14 @@ void RemoteClientSteamClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDe
                  response),
              done);
       break;
+    case 6:
+      NotifyTaskList(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CRemoteClient_TaskList_Notification*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::NoResponse*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -619,6 +695,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& RemoteClientSteamClient::GetRequestProto
       return ::CRemoteClient_SteamToSteam_Notification::default_instance();
     case 5:
       return ::CRemotePlayTogether_Notification::default_instance();
+    case 6:
+      return ::CRemoteClient_TaskList_Notification::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -641,6 +719,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& RemoteClientSteamClient::GetResponseProt
     case 4:
       return ::NoResponse::default_instance();
     case 5:
+      return ::NoResponse::default_instance();
+    case 6:
       return ::NoResponse::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -700,6 +780,13 @@ void RemoteClientSteamClient_Stub::NotifyRemotePlayTogetherPacket(::PROTOBUF_NAM
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(5),
+                       controller, request, response, done);
+}
+void RemoteClientSteamClient_Stub::NotifyTaskList(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CRemoteClient_TaskList_Notification* request,
+                              ::NoResponse* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(6),
                        controller, request, response, done);
 }
 

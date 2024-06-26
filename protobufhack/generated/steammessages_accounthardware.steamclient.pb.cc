@@ -786,51 +786,52 @@ const char descriptor_table_protodef_steammessages_5faccounthardware_2esteamclie
   "ponents_Request\022\025\n\rserial_number\030\001 \001(\t\022\027"
   "\n\017controller_code\030\002 \001(\t\"K\n0CAccountHardw"
   "are_GetSteamDeckComponents_Response\022\027\n\017j"
-  "son_components\030\001 \001(\t*\237\001\n\024EValveIndexComp"
+  "son_components\030\001 \001(\t*\317\001\n\024EValveIndexComp"
   "onent\022\037\n\033EValveIndexComponentUnknown\020\000\022\033"
   "\n\027EValveIndexComponentHMD\020\001\022#\n\037EValveInd"
   "exComponentLeftKnuckle\020\002\022$\n EValveIndexC"
-  "omponentRightKnuckle\020\0032\226\014\n\017AccountHardwa"
-  "re\022\200\001\n\027RegisterSteamController\0221.CAccoun"
-  "tHardware_RegisterSteamController_Reques"
-  "t\0322.CAccountHardware_RegisterSteamContro"
-  "ller_Response\022\244\001\n#CompleteSteamControlle"
-  "rRegistration\022=.CAccountHardware_Complet"
-  "eSteamControllerRegistration_Request\032>.C"
-  "AccountHardware_CompleteSteamControllerR"
-  "egistration_Response\022\234\001\n#QueryAccountsRe"
-  "gisteredToController\0229.CAccountHardware_"
-  "QueryAccountsRegisteredToSerial_Request\032"
-  ":.CAccountHardware_QueryAccountsRegister"
-  "edToSerial_Response\022\213\001\n SetDesiredContro"
-  "llerConfigForApp\0222.CAccountHardware_Stea"
-  "mControllerSetConfig_Request\0323.CAccountH"
-  "ardware_SteamControllerSetConfig_Respons"
-  "e\022\213\001\n GetDesiredControllerConfigForApp\0222"
-  ".CAccountHardware_SteamControllerGetConf"
-  "ig_Request\0323.CAccountHardware_SteamContr"
-  "ollerGetConfig_Response\022\206\001\n\031DeRegisterSt"
-  "eamController\0223.CAccountHardware_DeRegis"
-  "terSteamController_Request\0324.CAccountHar"
-  "dware_DeRegisterSteamController_Response"
-  "\022\207\001\n SetControllerPersonalizationFile\0220."
-  "CAccountHardware_SetPersonalizationFile_"
-  "Request\0321.CAccountHardware_SetPersonaliz"
-  "ationFile_Response\022\207\001\n GetControllerPers"
-  "onalizationFile\0220.CAccountHardware_GetPe"
-  "rsonalizationFile_Request\0321.CAccountHard"
-  "ware_GetPersonalizationFile_Response\022s\n\024"
-  "VRCompatibilityCheck\022,.CAccountHardware_"
-  "VRCompatibilityChecRequest\032-.CAccountHar"
-  "dware_VRCompatibilityChecResponse\022\214\001\n\033Re"
-  "gisterValveIndexComponent\0225.CAccountHard"
-  "ware_RegisterValveIndexComponent_Request"
-  "\0326.CAccountHardware_RegisterValveIndexCo"
-  "mponent_Response\022}\n\026GetSteamDeckComponen"
-  "ts\0220.CAccountHardware_GetSteamDeckCompon"
-  "ents_Request\0321.CAccountHardware_GetSteam"
-  "DeckComponents_ResponseB\035\200\001\001\252\002\027OpenSteam"
-  "works.Protobuf"
+  "omponentRightKnuckle\020\003\022\016\n\nETempDTst1\020\004\022\016"
+  "\n\nETempDTst2\020\005\022\016\n\nETempDTst3\020\0062\226\014\n\017Accou"
+  "ntHardware\022\200\001\n\027RegisterSteamController\0221"
+  ".CAccountHardware_RegisterSteamControlle"
+  "r_Request\0322.CAccountHardware_RegisterSte"
+  "amController_Response\022\244\001\n#CompleteSteamC"
+  "ontrollerRegistration\022=.CAccountHardware"
+  "_CompleteSteamControllerRegistration_Req"
+  "uest\032>.CAccountHardware_CompleteSteamCon"
+  "trollerRegistration_Response\022\234\001\n#QueryAc"
+  "countsRegisteredToController\0229.CAccountH"
+  "ardware_QueryAccountsRegisteredToSerial_"
+  "Request\032:.CAccountHardware_QueryAccounts"
+  "RegisteredToSerial_Response\022\213\001\n SetDesir"
+  "edControllerConfigForApp\0222.CAccountHardw"
+  "are_SteamControllerSetConfig_Request\0323.C"
+  "AccountHardware_SteamControllerSetConfig"
+  "_Response\022\213\001\n GetDesiredControllerConfig"
+  "ForApp\0222.CAccountHardware_SteamControlle"
+  "rGetConfig_Request\0323.CAccountHardware_St"
+  "eamControllerGetConfig_Response\022\206\001\n\031DeRe"
+  "gisterSteamController\0223.CAccountHardware"
+  "_DeRegisterSteamController_Request\0324.CAc"
+  "countHardware_DeRegisterSteamController_"
+  "Response\022\207\001\n SetControllerPersonalizatio"
+  "nFile\0220.CAccountHardware_SetPersonalizat"
+  "ionFile_Request\0321.CAccountHardware_SetPe"
+  "rsonalizationFile_Response\022\207\001\n GetContro"
+  "llerPersonalizationFile\0220.CAccountHardwa"
+  "re_GetPersonalizationFile_Request\0321.CAcc"
+  "ountHardware_GetPersonalizationFile_Resp"
+  "onse\022s\n\024VRCompatibilityCheck\022,.CAccountH"
+  "ardware_VRCompatibilityChecRequest\032-.CAc"
+  "countHardware_VRCompatibilityChecRespons"
+  "e\022\214\001\n\033RegisterValveIndexComponent\0225.CAcc"
+  "ountHardware_RegisterValveIndexComponent"
+  "_Request\0326.CAccountHardware_RegisterValv"
+  "eIndexComponent_Response\022}\n\026GetSteamDeck"
+  "Components\0220.CAccountHardware_GetSteamDe"
+  "ckComponents_Request\0321.CAccountHardware_"
+  "GetSteamDeckComponents_ResponseB\035\200\001\001\252\002\027O"
+  "penSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -839,7 +840,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto = {
-  false, false, 5054, descriptor_table_protodef_steammessages_5faccounthardware_2esteamclient_2eproto, "steammessages_accounthardware.steamclient.proto", 
+  false, false, 5102, descriptor_table_protodef_steammessages_5faccounthardware_2esteamclient_2eproto, "steammessages_accounthardware.steamclient.proto", 
   &descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto_once, descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto_deps, 3, 28,
   schemas, file_default_instances, TableStruct_steammessages_5faccounthardware_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5faccounthardware_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5faccounthardware_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5faccounthardware_2esteamclient_2eproto,
@@ -862,6 +863,9 @@ bool EValveIndexComponent_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+    case 4:
+    case 5:
+    case 6:
       return true;
     default:
       return false;

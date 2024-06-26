@@ -176,47 +176,6 @@ inline bool EAppCloudStatus_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAppCloudStatus>(
     EAppCloudStatus_descriptor(), name, value);
 }
-enum EProtoAppType : int {
-  EAppTypeInvalid = 0,
-  EAppTypeGame = 1,
-  EAppTypeApplication = 2,
-  EAppTypeTool = 4,
-  EAppTypeDemo = 8,
-  EAppTypeDeprected = 16,
-  EAppTypeDLC = 32,
-  EAppTypeGuide = 64,
-  EAppTypeDriver = 128,
-  EAppTypeConfig = 256,
-  EAppTypeHardware = 512,
-  EAppTypeFranchise = 1024,
-  EAppTypeVideo = 2048,
-  EAppTypePlugin = 4096,
-  EAppTypeMusicAlbum = 8192,
-  EAppTypeSeries = 16384,
-  EAppTypeComic = 32768,
-  EAppTypeBeta = 65536,
-  EAppTypeShortcut = 1073741824,
-  EAppTypeDepotOnly = -2147483647 - 1
-};
-bool EProtoAppType_IsValid(int value);
-constexpr EProtoAppType EProtoAppType_MIN = EAppTypeDepotOnly;
-constexpr EProtoAppType EProtoAppType_MAX = EAppTypeShortcut;
-constexpr int EProtoAppType_ARRAYSIZE = EProtoAppType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProtoAppType_descriptor();
-template<typename T>
-inline const std::string& EProtoAppType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, EProtoAppType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function EProtoAppType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    EProtoAppType_descriptor(), enum_t_value);
-}
-inline bool EProtoAppType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EProtoAppType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EProtoAppType>(
-    EProtoAppType_descriptor(), name, value);
-}
 enum EAppAssociationType : int {
   EAppAssociationTypeInvalid = 0,
   EAppAssociationTypePublisher = 1,
@@ -1005,7 +964,6 @@ class CAppOverview PROTOBUF_FINAL :
     kRtCustomImageMtimeFieldNumber = 47,
     kOptionalParentAppIdFieldNumber = 48,
     kOwnerAccountIdFieldNumber = 49,
-    kPs5ControllerSupportFieldNumber = 70,
     kReviewScoreWithBombsFieldNumber = 53,
     kReviewPercentageWithBombsFieldNumber = 54,
     kReviewScoreWithoutBombsFieldNumber = 55,
@@ -1019,6 +977,8 @@ class CAppOverview PROTOBUF_FINAL :
     kRtPurchasedTimeFieldNumber = 66,
     kLocalCacheVersionFieldNumber = 68,
     kPs4ControllerSupportFieldNumber = 69,
+    kPs5ControllerSupportFieldNumber = 70,
+    kNumberOfCopiesFieldNumber = 72,
   };
   // repeated uint32 store_tag = 19;
   int store_tag_size() const;
@@ -1606,19 +1566,6 @@ class CAppOverview PROTOBUF_FINAL :
   void _internal_set_owner_account_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EAppControllerSupportLevel ps5_controller_support = 70 [default = EAppControllerSupportLevelNone];
-  bool has_ps5_controller_support() const;
-  private:
-  bool _internal_has_ps5_controller_support() const;
-  public:
-  void clear_ps5_controller_support();
-  ::EAppControllerSupportLevel ps5_controller_support() const;
-  void set_ps5_controller_support(::EAppControllerSupportLevel value);
-  private:
-  ::EAppControllerSupportLevel _internal_ps5_controller_support() const;
-  void _internal_set_ps5_controller_support(::EAppControllerSupportLevel value);
-  public:
-
   // optional uint32 review_score_with_bombs = 53;
   bool has_review_score_with_bombs() const;
   private:
@@ -1788,6 +1735,32 @@ class CAppOverview PROTOBUF_FINAL :
   void _internal_set_ps4_controller_support(::EAppControllerSupportLevel value);
   public:
 
+  // optional .EAppControllerSupportLevel ps5_controller_support = 70 [default = EAppControllerSupportLevelNone];
+  bool has_ps5_controller_support() const;
+  private:
+  bool _internal_has_ps5_controller_support() const;
+  public:
+  void clear_ps5_controller_support();
+  ::EAppControllerSupportLevel ps5_controller_support() const;
+  void set_ps5_controller_support(::EAppControllerSupportLevel value);
+  private:
+  ::EAppControllerSupportLevel _internal_ps5_controller_support() const;
+  void _internal_set_ps5_controller_support(::EAppControllerSupportLevel value);
+  public:
+
+  // optional uint32 number_of_copies = 72;
+  bool has_number_of_copies() const;
+  private:
+  bool _internal_has_number_of_copies() const;
+  public:
+  void clear_number_of_copies();
+  ::PROTOBUF_NAMESPACE_ID::uint32 number_of_copies() const;
+  void set_number_of_copies(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_number_of_copies() const;
+  void _internal_set_number_of_copies(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CAppOverview)
  private:
   class _Internal;
@@ -1834,7 +1807,6 @@ class CAppOverview PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 rt_custom_image_mtime_;
   ::PROTOBUF_NAMESPACE_ID::uint32 optional_parent_app_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 owner_account_id_;
-  int ps5_controller_support_;
   ::PROTOBUF_NAMESPACE_ID::uint32 review_score_with_bombs_;
   ::PROTOBUF_NAMESPACE_ID::uint32 review_percentage_with_bombs_;
   ::PROTOBUF_NAMESPACE_ID::uint32 review_score_without_bombs_;
@@ -1848,6 +1820,8 @@ class CAppOverview PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 rt_purchased_time_;
   ::PROTOBUF_NAMESPACE_ID::uint32 local_cache_version_;
   int ps4_controller_support_;
+  int ps5_controller_support_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 number_of_copies_;
   friend struct ::TableStruct_steammessages_5fappoverview_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4309,7 +4283,7 @@ inline void CAppOverview::set_owner_account_id(::PROTOBUF_NAMESPACE_ID::uint32 v
 
 // optional uint32 review_score_with_bombs = 53;
 inline bool CAppOverview::_internal_has_review_score_with_bombs() const {
-  bool value = (_has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CAppOverview::has_review_score_with_bombs() const {
@@ -4317,7 +4291,7 @@ inline bool CAppOverview::has_review_score_with_bombs() const {
 }
 inline void CAppOverview::clear_review_score_with_bombs() {
   review_score_with_bombs_ = 0u;
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[1] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_review_score_with_bombs() const {
   return review_score_with_bombs_;
@@ -4327,7 +4301,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::review_score_with_bombs() c
   return _internal_review_score_with_bombs();
 }
 inline void CAppOverview::_internal_set_review_score_with_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[1] |= 0x00000002u;
   review_score_with_bombs_ = value;
 }
 inline void CAppOverview::set_review_score_with_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4337,7 +4311,7 @@ inline void CAppOverview::set_review_score_with_bombs(::PROTOBUF_NAMESPACE_ID::u
 
 // optional uint32 review_percentage_with_bombs = 54;
 inline bool CAppOverview::_internal_has_review_percentage_with_bombs() const {
-  bool value = (_has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CAppOverview::has_review_percentage_with_bombs() const {
@@ -4345,7 +4319,7 @@ inline bool CAppOverview::has_review_percentage_with_bombs() const {
 }
 inline void CAppOverview::clear_review_percentage_with_bombs() {
   review_percentage_with_bombs_ = 0u;
-  _has_bits_[1] &= ~0x00000008u;
+  _has_bits_[1] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_review_percentage_with_bombs() const {
   return review_percentage_with_bombs_;
@@ -4355,7 +4329,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::review_percentage_with_bomb
   return _internal_review_percentage_with_bombs();
 }
 inline void CAppOverview::_internal_set_review_percentage_with_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000008u;
+  _has_bits_[1] |= 0x00000004u;
   review_percentage_with_bombs_ = value;
 }
 inline void CAppOverview::set_review_percentage_with_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4365,7 +4339,7 @@ inline void CAppOverview::set_review_percentage_with_bombs(::PROTOBUF_NAMESPACE_
 
 // optional uint32 review_score_without_bombs = 55;
 inline bool CAppOverview::_internal_has_review_score_without_bombs() const {
-  bool value = (_has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CAppOverview::has_review_score_without_bombs() const {
@@ -4373,7 +4347,7 @@ inline bool CAppOverview::has_review_score_without_bombs() const {
 }
 inline void CAppOverview::clear_review_score_without_bombs() {
   review_score_without_bombs_ = 0u;
-  _has_bits_[1] &= ~0x00000010u;
+  _has_bits_[1] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_review_score_without_bombs() const {
   return review_score_without_bombs_;
@@ -4383,7 +4357,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::review_score_without_bombs(
   return _internal_review_score_without_bombs();
 }
 inline void CAppOverview::_internal_set_review_score_without_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000010u;
+  _has_bits_[1] |= 0x00000008u;
   review_score_without_bombs_ = value;
 }
 inline void CAppOverview::set_review_score_without_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4393,7 +4367,7 @@ inline void CAppOverview::set_review_score_without_bombs(::PROTOBUF_NAMESPACE_ID
 
 // optional uint32 review_percentage_without_bombs = 56;
 inline bool CAppOverview::_internal_has_review_percentage_without_bombs() const {
-  bool value = (_has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CAppOverview::has_review_percentage_without_bombs() const {
@@ -4401,7 +4375,7 @@ inline bool CAppOverview::has_review_percentage_without_bombs() const {
 }
 inline void CAppOverview::clear_review_percentage_without_bombs() {
   review_percentage_without_bombs_ = 0u;
-  _has_bits_[1] &= ~0x00000020u;
+  _has_bits_[1] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_review_percentage_without_bombs() const {
   return review_percentage_without_bombs_;
@@ -4411,7 +4385,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::review_percentage_without_b
   return _internal_review_percentage_without_bombs();
 }
 inline void CAppOverview::_internal_set_review_percentage_without_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000020u;
+  _has_bits_[1] |= 0x00000010u;
   review_percentage_without_bombs_ = value;
 }
 inline void CAppOverview::set_review_percentage_without_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4494,7 +4468,7 @@ inline void CAppOverview::set_allocated_library_id(std::string* library_id) {
 
 // optional bool vr_only = 58;
 inline bool CAppOverview::_internal_has_vr_only() const {
-  bool value = (_has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CAppOverview::has_vr_only() const {
@@ -4502,7 +4476,7 @@ inline bool CAppOverview::has_vr_only() const {
 }
 inline void CAppOverview::clear_vr_only() {
   vr_only_ = false;
-  _has_bits_[1] &= ~0x00000200u;
+  _has_bits_[1] &= ~0x00000100u;
 }
 inline bool CAppOverview::_internal_vr_only() const {
   return vr_only_;
@@ -4512,7 +4486,7 @@ inline bool CAppOverview::vr_only() const {
   return _internal_vr_only();
 }
 inline void CAppOverview::_internal_set_vr_only(bool value) {
-  _has_bits_[1] |= 0x00000200u;
+  _has_bits_[1] |= 0x00000100u;
   vr_only_ = value;
 }
 inline void CAppOverview::set_vr_only(bool value) {
@@ -4522,7 +4496,7 @@ inline void CAppOverview::set_vr_only(bool value) {
 
 // optional uint32 mastersub_appid = 59;
 inline bool CAppOverview::_internal_has_mastersub_appid() const {
-  bool value = (_has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CAppOverview::has_mastersub_appid() const {
@@ -4530,7 +4504,7 @@ inline bool CAppOverview::has_mastersub_appid() const {
 }
 inline void CAppOverview::clear_mastersub_appid() {
   mastersub_appid_ = 0u;
-  _has_bits_[1] &= ~0x00000040u;
+  _has_bits_[1] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_mastersub_appid() const {
   return mastersub_appid_;
@@ -4540,7 +4514,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::mastersub_appid() const {
   return _internal_mastersub_appid();
 }
 inline void CAppOverview::_internal_set_mastersub_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000040u;
+  _has_bits_[1] |= 0x00000020u;
   mastersub_appid_ = value;
 }
 inline void CAppOverview::set_mastersub_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4696,7 +4670,7 @@ inline void CAppOverview::set_allocated_site_license_site_name(std::string* site
 
 // optional uint32 shortcut_override_appid = 63;
 inline bool CAppOverview::_internal_has_shortcut_override_appid() const {
-  bool value = (_has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CAppOverview::has_shortcut_override_appid() const {
@@ -4704,7 +4678,7 @@ inline bool CAppOverview::has_shortcut_override_appid() const {
 }
 inline void CAppOverview::clear_shortcut_override_appid() {
   shortcut_override_appid_ = 0u;
-  _has_bits_[1] &= ~0x00000080u;
+  _has_bits_[1] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_shortcut_override_appid() const {
   return shortcut_override_appid_;
@@ -4714,7 +4688,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::shortcut_override_appid() c
   return _internal_shortcut_override_appid();
 }
 inline void CAppOverview::_internal_set_shortcut_override_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000080u;
+  _has_bits_[1] |= 0x00000040u;
   shortcut_override_appid_ = value;
 }
 inline void CAppOverview::set_shortcut_override_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4724,7 +4698,7 @@ inline void CAppOverview::set_shortcut_override_appid(::PROTOBUF_NAMESPACE_ID::u
 
 // optional .ESteamDeckCompatibilityCategory steam_deccompat_category = 64 [default = ESteamDeckCompatibilityCategory_Unknown];
 inline bool CAppOverview::_internal_has_steam_deccompat_category() const {
-  bool value = (_has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CAppOverview::has_steam_deccompat_category() const {
@@ -4732,7 +4706,7 @@ inline bool CAppOverview::has_steam_deccompat_category() const {
 }
 inline void CAppOverview::clear_steam_deccompat_category() {
   steam_deccompat_category_ = 0;
-  _has_bits_[1] &= ~0x00000100u;
+  _has_bits_[1] &= ~0x00000080u;
 }
 inline ::ESteamDeckCompatibilityCategory CAppOverview::_internal_steam_deccompat_category() const {
   return static_cast< ::ESteamDeckCompatibilityCategory >(steam_deccompat_category_);
@@ -4743,7 +4717,7 @@ inline ::ESteamDeckCompatibilityCategory CAppOverview::steam_deccompat_category(
 }
 inline void CAppOverview::_internal_set_steam_deccompat_category(::ESteamDeckCompatibilityCategory value) {
   assert(::ESteamDeckCompatibilityCategory_IsValid(value));
-  _has_bits_[1] |= 0x00000100u;
+  _has_bits_[1] |= 0x00000080u;
   steam_deccompat_category_ = value;
 }
 inline void CAppOverview::set_steam_deccompat_category(::ESteamDeckCompatibilityCategory value) {
@@ -4753,7 +4727,7 @@ inline void CAppOverview::set_steam_deccompat_category(::ESteamDeckCompatibility
 
 // optional uint32 rt_last_time_locally_played = 65;
 inline bool CAppOverview::_internal_has_rt_last_time_locally_played() const {
-  bool value = (_has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_last_time_locally_played() const {
@@ -4761,7 +4735,7 @@ inline bool CAppOverview::has_rt_last_time_locally_played() const {
 }
 inline void CAppOverview::clear_rt_last_time_locally_played() {
   rt_last_time_locally_played_ = 0u;
-  _has_bits_[1] &= ~0x00000800u;
+  _has_bits_[1] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_last_time_locally_played() const {
   return rt_last_time_locally_played_;
@@ -4771,7 +4745,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_last_time_locally_played
   return _internal_rt_last_time_locally_played();
 }
 inline void CAppOverview::_internal_set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000800u;
+  _has_bits_[1] |= 0x00000400u;
   rt_last_time_locally_played_ = value;
 }
 inline void CAppOverview::set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4781,7 +4755,7 @@ inline void CAppOverview::set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_I
 
 // optional uint32 rt_purchased_time = 66;
 inline bool CAppOverview::_internal_has_rt_purchased_time() const {
-  bool value = (_has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_purchased_time() const {
@@ -4789,7 +4763,7 @@ inline bool CAppOverview::has_rt_purchased_time() const {
 }
 inline void CAppOverview::clear_rt_purchased_time() {
   rt_purchased_time_ = 0u;
-  _has_bits_[1] &= ~0x00001000u;
+  _has_bits_[1] &= ~0x00000800u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_purchased_time() const {
   return rt_purchased_time_;
@@ -4799,7 +4773,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_purchased_time() const {
   return _internal_rt_purchased_time();
 }
 inline void CAppOverview::_internal_set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00001000u;
+  _has_bits_[1] |= 0x00000800u;
   rt_purchased_time_ = value;
 }
 inline void CAppOverview::set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4882,7 +4856,7 @@ inline void CAppOverview::set_allocated_header_filename(std::string* header_file
 
 // optional uint32 local_cache_version = 68;
 inline bool CAppOverview::_internal_has_local_cache_version() const {
-  bool value = (_has_bits_[1] & 0x00002000u) != 0;
+  bool value = (_has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_local_cache_version() const {
@@ -4890,7 +4864,7 @@ inline bool CAppOverview::has_local_cache_version() const {
 }
 inline void CAppOverview::clear_local_cache_version() {
   local_cache_version_ = 0u;
-  _has_bits_[1] &= ~0x00002000u;
+  _has_bits_[1] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_local_cache_version() const {
   return local_cache_version_;
@@ -4900,7 +4874,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::local_cache_version() const
   return _internal_local_cache_version();
 }
 inline void CAppOverview::_internal_set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00002000u;
+  _has_bits_[1] |= 0x00001000u;
   local_cache_version_ = value;
 }
 inline void CAppOverview::set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4910,7 +4884,7 @@ inline void CAppOverview::set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional .EAppControllerSupportLevel ps4_controller_support = 69 [default = EAppControllerSupportLevelNone];
 inline bool CAppOverview::_internal_has_ps4_controller_support() const {
-  bool value = (_has_bits_[1] & 0x00004000u) != 0;
+  bool value = (_has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_ps4_controller_support() const {
@@ -4918,7 +4892,7 @@ inline bool CAppOverview::has_ps4_controller_support() const {
 }
 inline void CAppOverview::clear_ps4_controller_support() {
   ps4_controller_support_ = 0;
-  _has_bits_[1] &= ~0x00004000u;
+  _has_bits_[1] &= ~0x00002000u;
 }
 inline ::EAppControllerSupportLevel CAppOverview::_internal_ps4_controller_support() const {
   return static_cast< ::EAppControllerSupportLevel >(ps4_controller_support_);
@@ -4929,7 +4903,7 @@ inline ::EAppControllerSupportLevel CAppOverview::ps4_controller_support() const
 }
 inline void CAppOverview::_internal_set_ps4_controller_support(::EAppControllerSupportLevel value) {
   assert(::EAppControllerSupportLevel_IsValid(value));
-  _has_bits_[1] |= 0x00004000u;
+  _has_bits_[1] |= 0x00002000u;
   ps4_controller_support_ = value;
 }
 inline void CAppOverview::set_ps4_controller_support(::EAppControllerSupportLevel value) {
@@ -4939,7 +4913,7 @@ inline void CAppOverview::set_ps4_controller_support(::EAppControllerSupportLeve
 
 // optional .EAppControllerSupportLevel ps5_controller_support = 70 [default = EAppControllerSupportLevelNone];
 inline bool CAppOverview::_internal_has_ps5_controller_support() const {
-  bool value = (_has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_has_bits_[1] & 0x00004000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_ps5_controller_support() const {
@@ -4947,7 +4921,7 @@ inline bool CAppOverview::has_ps5_controller_support() const {
 }
 inline void CAppOverview::clear_ps5_controller_support() {
   ps5_controller_support_ = 0;
-  _has_bits_[1] &= ~0x00000002u;
+  _has_bits_[1] &= ~0x00004000u;
 }
 inline ::EAppControllerSupportLevel CAppOverview::_internal_ps5_controller_support() const {
   return static_cast< ::EAppControllerSupportLevel >(ps5_controller_support_);
@@ -4958,7 +4932,7 @@ inline ::EAppControllerSupportLevel CAppOverview::ps5_controller_support() const
 }
 inline void CAppOverview::_internal_set_ps5_controller_support(::EAppControllerSupportLevel value) {
   assert(::EAppControllerSupportLevel_IsValid(value));
-  _has_bits_[1] |= 0x00000002u;
+  _has_bits_[1] |= 0x00004000u;
   ps5_controller_support_ = value;
 }
 inline void CAppOverview::set_ps5_controller_support(::EAppControllerSupportLevel value) {
@@ -4968,7 +4942,7 @@ inline void CAppOverview::set_ps5_controller_support(::EAppControllerSupportLeve
 
 // optional bool gamepad_preferred = 71;
 inline bool CAppOverview::_internal_has_gamepad_preferred() const {
-  bool value = (_has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CAppOverview::has_gamepad_preferred() const {
@@ -4976,7 +4950,7 @@ inline bool CAppOverview::has_gamepad_preferred() const {
 }
 inline void CAppOverview::clear_gamepad_preferred() {
   gamepad_preferred_ = false;
-  _has_bits_[1] &= ~0x00000400u;
+  _has_bits_[1] &= ~0x00000200u;
 }
 inline bool CAppOverview::_internal_gamepad_preferred() const {
   return gamepad_preferred_;
@@ -4986,12 +4960,40 @@ inline bool CAppOverview::gamepad_preferred() const {
   return _internal_gamepad_preferred();
 }
 inline void CAppOverview::_internal_set_gamepad_preferred(bool value) {
-  _has_bits_[1] |= 0x00000400u;
+  _has_bits_[1] |= 0x00000200u;
   gamepad_preferred_ = value;
 }
 inline void CAppOverview::set_gamepad_preferred(bool value) {
   _internal_set_gamepad_preferred(value);
   // @@protoc_insertion_point(field_set:CAppOverview.gamepad_preferred)
+}
+
+// optional uint32 number_of_copies = 72;
+inline bool CAppOverview::_internal_has_number_of_copies() const {
+  bool value = (_has_bits_[1] & 0x00008000u) != 0;
+  return value;
+}
+inline bool CAppOverview::has_number_of_copies() const {
+  return _internal_has_number_of_copies();
+}
+inline void CAppOverview::clear_number_of_copies() {
+  number_of_copies_ = 0u;
+  _has_bits_[1] &= ~0x00008000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_number_of_copies() const {
+  return number_of_copies_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::number_of_copies() const {
+  // @@protoc_insertion_point(field_get:CAppOverview.number_of_copies)
+  return _internal_number_of_copies();
+}
+inline void CAppOverview::_internal_set_number_of_copies(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[1] |= 0x00008000u;
+  number_of_copies_ = value;
+}
+inline void CAppOverview::set_number_of_copies(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_number_of_copies(value);
+  // @@protoc_insertion_point(field_set:CAppOverview.number_of_copies)
 }
 
 // -------------------------------------------------------------------
@@ -5345,11 +5347,6 @@ template <> struct is_proto_enum< ::EAppCloudStatus> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EAppCloudStatus>() {
   return ::EAppCloudStatus_descriptor();
-}
-template <> struct is_proto_enum< ::EProtoAppType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::EProtoAppType>() {
-  return ::EProtoAppType_descriptor();
 }
 template <> struct is_proto_enum< ::EAppAssociationType> : ::std::true_type {};
 template <>

@@ -1526,6 +1526,73 @@ inline bool EAsyncGameSessionUserVisibility_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAsyncGameSessionUserVisibility>(
     EAsyncGameSessionUserVisibility_descriptor(), name, value);
 }
+enum EGameRecordingType : int {
+  EGameRecordingType_Unknown = 0,
+  EGameRecordingType_NotRecording = 1,
+  EGameRecordingType_ManualRecording = 2,
+  EGameRecordingType_BackgroundRecording = 3,
+  EGameRecordingType_Clip = 4
+};
+bool EGameRecordingType_IsValid(int value);
+constexpr EGameRecordingType EGameRecordingType_MIN = EGameRecordingType_Unknown;
+constexpr EGameRecordingType EGameRecordingType_MAX = EGameRecordingType_Clip;
+constexpr int EGameRecordingType_ARRAYSIZE = EGameRecordingType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGameRecordingType_descriptor();
+template<typename T>
+inline const std::string& EGameRecordingType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EGameRecordingType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EGameRecordingType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EGameRecordingType_descriptor(), enum_t_value);
+}
+inline bool EGameRecordingType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EGameRecordingType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EGameRecordingType>(
+    EGameRecordingType_descriptor(), name, value);
+}
+enum EProtoAppType : int {
+  EAppTypeInvalid = 0,
+  EAppTypeGame = 1,
+  EAppTypeApplication = 2,
+  EAppTypeTool = 4,
+  EAppTypeDemo = 8,
+  EAppTypeDeprected = 16,
+  EAppTypeDLC = 32,
+  EAppTypeGuide = 64,
+  EAppTypeDriver = 128,
+  EAppTypeConfig = 256,
+  EAppTypeHardware = 512,
+  EAppTypeFranchise = 1024,
+  EAppTypeVideo = 2048,
+  EAppTypePlugin = 4096,
+  EAppTypeMusicAlbum = 8192,
+  EAppTypeSeries = 16384,
+  EAppTypeComic = 32768,
+  EAppTypeBeta = 65536,
+  EAppTypeShortcut = 1073741824,
+  EAppTypeDepotOnly = -2147483647 - 1
+};
+bool EProtoAppType_IsValid(int value);
+constexpr EProtoAppType EProtoAppType_MIN = EAppTypeDepotOnly;
+constexpr EProtoAppType EProtoAppType_MAX = EAppTypeShortcut;
+constexpr int EProtoAppType_ARRAYSIZE = EProtoAppType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProtoAppType_descriptor();
+template<typename T>
+inline const std::string& EProtoAppType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EProtoAppType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EProtoAppType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EProtoAppType_descriptor(), enum_t_value);
+}
+inline bool EProtoAppType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EProtoAppType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EProtoAppType>(
+    EProtoAppType_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -1816,6 +1883,16 @@ template <> struct is_proto_enum< ::EAsyncGameSessionUserVisibility> : ::std::tr
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EAsyncGameSessionUserVisibility>() {
   return ::EAsyncGameSessionUserVisibility_descriptor();
+}
+template <> struct is_proto_enum< ::EGameRecordingType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EGameRecordingType>() {
+  return ::EGameRecordingType_descriptor();
+}
+template <> struct is_proto_enum< ::EProtoAppType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EProtoAppType>() {
+  return ::EProtoAppType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

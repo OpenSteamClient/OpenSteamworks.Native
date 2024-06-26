@@ -3420,6 +3420,7 @@ class CPlayer_GetOwnedGames_Response_Game PROTOBUF_FINAL :
     kHasDlcFieldNumber = 16,
     kHasLeaderboardsFieldNumber = 17,
     kPlaytimeDisconnectedFieldNumber = 19,
+    kPlaytimeDecforeverFieldNumber = 20,
   };
   // repeated uint32 content_descriptorids = 18;
   int content_descriptorids_size() const;
@@ -3692,6 +3693,19 @@ class CPlayer_GetOwnedGames_Response_Game PROTOBUF_FINAL :
   void _internal_set_playtime_disconnected(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional int32 playtime_decforever = 20;
+  bool has_playtime_decforever() const;
+  private:
+  bool _internal_has_playtime_decforever() const;
+  public:
+  void clear_playtime_decforever();
+  ::PROTOBUF_NAMESPACE_ID::int32 playtime_decforever() const;
+  void set_playtime_decforever(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_playtime_decforever() const;
+  void _internal_set_playtime_decforever(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CPlayer_GetOwnedGames_Response.Game)
  private:
   class _Internal;
@@ -3719,6 +3733,7 @@ class CPlayer_GetOwnedGames_Response_Game PROTOBUF_FINAL :
   bool has_dlc_;
   bool has_leaderboards_;
   ::PROTOBUF_NAMESPACE_ID::int32 playtime_disconnected_;
+  ::PROTOBUF_NAMESPACE_ID::int32 playtime_decforever_;
   friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -18777,6 +18792,9 @@ class CPlayer_GetLastPlayedTimes_Response_Game PROTOBUF_FINAL :
     kLastMacPlaytimeFieldNumber = 13,
     kLastLinuxPlaytimeFieldNumber = 14,
     kPlaytimeDisconnectedFieldNumber = 15,
+    kPlaytimeDecforeverFieldNumber = 16,
+    kFirstDecplaytimeFieldNumber = 17,
+    kLastDecplaytimeFieldNumber = 18,
   };
   // optional int32 appid = 1;
   bool has_appid() const;
@@ -18973,6 +18991,45 @@ class CPlayer_GetLastPlayedTimes_Response_Game PROTOBUF_FINAL :
   void _internal_set_playtime_disconnected(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional int32 playtime_decforever = 16;
+  bool has_playtime_decforever() const;
+  private:
+  bool _internal_has_playtime_decforever() const;
+  public:
+  void clear_playtime_decforever();
+  ::PROTOBUF_NAMESPACE_ID::int32 playtime_decforever() const;
+  void set_playtime_decforever(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_playtime_decforever() const;
+  void _internal_set_playtime_decforever(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional uint32 first_decplaytime = 17;
+  bool has_first_decplaytime() const;
+  private:
+  bool _internal_has_first_decplaytime() const;
+  public:
+  void clear_first_decplaytime();
+  ::PROTOBUF_NAMESPACE_ID::uint32 first_decplaytime() const;
+  void set_first_decplaytime(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_first_decplaytime() const;
+  void _internal_set_first_decplaytime(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 last_decplaytime = 18;
+  bool has_last_decplaytime() const;
+  private:
+  bool _internal_has_last_decplaytime() const;
+  public:
+  void clear_last_decplaytime();
+  ::PROTOBUF_NAMESPACE_ID::uint32 last_decplaytime() const;
+  void set_last_decplaytime(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_last_decplaytime() const;
+  void _internal_set_last_decplaytime(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CPlayer_GetLastPlayedTimes_Response.Game)
  private:
   class _Internal;
@@ -18997,6 +19054,9 @@ class CPlayer_GetLastPlayedTimes_Response_Game PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 last_mac_playtime_;
   ::PROTOBUF_NAMESPACE_ID::uint32 last_linux_playtime_;
   ::PROTOBUF_NAMESPACE_ID::uint32 playtime_disconnected_;
+  ::PROTOBUF_NAMESPACE_ID::int32 playtime_decforever_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 first_decplaytime_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 last_decplaytime_;
   friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -29829,6 +29889,34 @@ inline void CPlayer_GetOwnedGames_Response_Game::set_playtime_linux_forever(::PR
   // @@protoc_insertion_point(field_set:CPlayer_GetOwnedGames_Response.Game.playtime_linux_forever)
 }
 
+// optional int32 playtime_decforever = 20;
+inline bool CPlayer_GetOwnedGames_Response_Game::_internal_has_playtime_decforever() const {
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  return value;
+}
+inline bool CPlayer_GetOwnedGames_Response_Game::has_playtime_decforever() const {
+  return _internal_has_playtime_decforever();
+}
+inline void CPlayer_GetOwnedGames_Response_Game::clear_playtime_decforever() {
+  playtime_decforever_ = 0;
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CPlayer_GetOwnedGames_Response_Game::_internal_playtime_decforever() const {
+  return playtime_decforever_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CPlayer_GetOwnedGames_Response_Game::playtime_decforever() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetOwnedGames_Response.Game.playtime_decforever)
+  return _internal_playtime_decforever();
+}
+inline void CPlayer_GetOwnedGames_Response_Game::_internal_set_playtime_decforever(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00020000u;
+  playtime_decforever_ = value;
+}
+inline void CPlayer_GetOwnedGames_Response_Game::set_playtime_decforever(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_playtime_decforever(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetOwnedGames_Response.Game.playtime_decforever)
+}
+
 // optional uint32 rtime_last_played = 11;
 inline bool CPlayer_GetOwnedGames_Response_Game::_internal_has_rtime_last_played() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
@@ -39419,6 +39507,34 @@ inline void CPlayer_GetLastPlayedTimes_Response_Game::set_playtime_linux_forever
   // @@protoc_insertion_point(field_set:CPlayer_GetLastPlayedTimes_Response.Game.playtime_linux_forever)
 }
 
+// optional int32 playtime_decforever = 16;
+inline bool CPlayer_GetLastPlayedTimes_Response_Game::_internal_has_playtime_decforever() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool CPlayer_GetLastPlayedTimes_Response_Game::has_playtime_decforever() const {
+  return _internal_has_playtime_decforever();
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::clear_playtime_decforever() {
+  playtime_decforever_ = 0;
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CPlayer_GetLastPlayedTimes_Response_Game::_internal_playtime_decforever() const {
+  return playtime_decforever_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CPlayer_GetLastPlayedTimes_Response_Game::playtime_decforever() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetLastPlayedTimes_Response.Game.playtime_decforever)
+  return _internal_playtime_decforever();
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::_internal_set_playtime_decforever(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00008000u;
+  playtime_decforever_ = value;
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::set_playtime_decforever(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_playtime_decforever(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetLastPlayedTimes_Response.Game.playtime_decforever)
+}
+
 // optional uint32 first_windows_playtime = 9;
 inline bool CPlayer_GetLastPlayedTimes_Response_Game::_internal_has_first_windows_playtime() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
@@ -39503,6 +39619,34 @@ inline void CPlayer_GetLastPlayedTimes_Response_Game::set_first_linux_playtime(:
   // @@protoc_insertion_point(field_set:CPlayer_GetLastPlayedTimes_Response.Game.first_linux_playtime)
 }
 
+// optional uint32 first_decplaytime = 17;
+inline bool CPlayer_GetLastPlayedTimes_Response_Game::_internal_has_first_decplaytime() const {
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  return value;
+}
+inline bool CPlayer_GetLastPlayedTimes_Response_Game::has_first_decplaytime() const {
+  return _internal_has_first_decplaytime();
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::clear_first_decplaytime() {
+  first_decplaytime_ = 0u;
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetLastPlayedTimes_Response_Game::_internal_first_decplaytime() const {
+  return first_decplaytime_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetLastPlayedTimes_Response_Game::first_decplaytime() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetLastPlayedTimes_Response.Game.first_decplaytime)
+  return _internal_first_decplaytime();
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::_internal_set_first_decplaytime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00010000u;
+  first_decplaytime_ = value;
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::set_first_decplaytime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_first_decplaytime(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetLastPlayedTimes_Response.Game.first_decplaytime)
+}
+
 // optional uint32 last_windows_playtime = 12;
 inline bool CPlayer_GetLastPlayedTimes_Response_Game::_internal_has_last_windows_playtime() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
@@ -39585,6 +39729,34 @@ inline void CPlayer_GetLastPlayedTimes_Response_Game::_internal_set_last_linux_p
 inline void CPlayer_GetLastPlayedTimes_Response_Game::set_last_linux_playtime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_last_linux_playtime(value);
   // @@protoc_insertion_point(field_set:CPlayer_GetLastPlayedTimes_Response.Game.last_linux_playtime)
+}
+
+// optional uint32 last_decplaytime = 18;
+inline bool CPlayer_GetLastPlayedTimes_Response_Game::_internal_has_last_decplaytime() const {
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  return value;
+}
+inline bool CPlayer_GetLastPlayedTimes_Response_Game::has_last_decplaytime() const {
+  return _internal_has_last_decplaytime();
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::clear_last_decplaytime() {
+  last_decplaytime_ = 0u;
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetLastPlayedTimes_Response_Game::_internal_last_decplaytime() const {
+  return last_decplaytime_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetLastPlayedTimes_Response_Game::last_decplaytime() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetLastPlayedTimes_Response.Game.last_decplaytime)
+  return _internal_last_decplaytime();
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::_internal_set_last_decplaytime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00020000u;
+  last_decplaytime_ = value;
+}
+inline void CPlayer_GetLastPlayedTimes_Response_Game::set_last_decplaytime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_last_decplaytime(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetLastPlayedTimes_Response.Game.last_decplaytime)
 }
 
 // optional uint32 playtime_disconnected = 15;

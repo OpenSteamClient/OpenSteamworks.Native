@@ -86,6 +86,14 @@ class RemoteClient : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CRemoteClient_Online_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
+  virtual void GetRecentClients(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CRemoteClient_GetRecentClients_Request* request,
+                       ::CRemoteClient_GetRecentClients_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void MarkTaskComplete(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CRemoteClient_MarkTaskComplete_Request* request,
+                       ::CRemoteClient_MarkTaskComplete_Response* response,
+                       ::google::protobuf::Closure* done);
   virtual void NotifyReplyPacket(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CRemoteClient_ReplyPacket_Notification* request,
                        ::NoResponse* response,
@@ -162,6 +170,14 @@ class RemoteClient_Stub : public RemoteClient {
   void NotifyOnline(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CRemoteClient_Online_Notification* request,
                        ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void GetRecentClients(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CRemoteClient_GetRecentClients_Request* request,
+                       ::CRemoteClient_GetRecentClients_Response* response,
+                       ::google::protobuf::Closure* done);
+  void MarkTaskComplete(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CRemoteClient_MarkTaskComplete_Request* request,
+                       ::CRemoteClient_MarkTaskComplete_Response* response,
                        ::google::protobuf::Closure* done);
   void NotifyReplyPacket(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CRemoteClient_ReplyPacket_Notification* request,
@@ -249,6 +265,10 @@ class RemoteClientSteamClient : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CRemotePlayTogether_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
+  virtual void NotifyTaskList(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CRemoteClient_TaskList_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
 
@@ -300,6 +320,10 @@ class RemoteClientSteamClient_Stub : public RemoteClientSteamClient {
                        ::google::protobuf::Closure* done);
   void NotifyRemotePlayTogetherPacket(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CRemotePlayTogether_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void NotifyTaskList(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CRemoteClient_TaskList_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
  private:

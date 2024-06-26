@@ -6,7 +6,7 @@
         <RepositoryUrl>https://github.com/OpenSteamClient/OpenSteamworks.Native</RepositoryUrl>
 
         <!-- Update the version here when you make changes -->
-        <VersionPrefix>1.0.8</VersionPrefix>
+        <VersionPrefix>1.0.9</VersionPrefix>
 
         <!-- Which arches to build for for a single RID, remove or delete if you want to build according to RID -->
         <CMakeBuildAllArches>x86;x64;arm64</CMakeBuildAllArches>

@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     if (dl_handle_tier0 == nullptr)
     {
         std::cerr << "dl_handle_tier0 == nullptr!!!" << std::endl;
-        return 1;
+        return 2;
     }
 
 // Create hooks on Windows
@@ -87,14 +87,14 @@ int main(int argc, char *argv[])
     if (dl_handle_chromehtml == nullptr)
     {
         std::cerr << "dl_handle_chromehtml == nullptr!!!" << std::endl;
-        return 1;
+        return 3;
     }
 
     createInterfaceFn createInterface = (createInterfaceFn)dlsym(dl_handle_chromehtml, "CreateInterface");
     if (createInterface == nullptr)
     {
         std::cerr << "createInterface == nullptr!!!" << std::endl;
-        return 1;
+        return 4;
     }
 
     int returnCode;
@@ -102,45 +102,47 @@ int main(int argc, char *argv[])
     if (controller == nullptr)
     {
         std::cerr << "controller == nullptr!!!" << std::endl;
-        return 1;
+        return 5;
     }
 
     if (returnCode != 0) {
         std::cerr << "returnCode != 0!!!" << std::endl;
-        return 1;
+        return 6;
     }
 
-    HTMLOptions* options = new HTMLOptions();
-    options->cacheDir = argv[1];
-    options->universe = std::stoi(argv[3]);
-    options->realm = std::stoi(argv[4]);
-    options->language = std::stoi(argv[5]);
-    options->uiMode = std::stoi(argv[6]);
-    options->enableGpuAcceleration = std::stoi(argv[7]);
-    options->enableSmoothScrolling = std::stoi(argv[8]);
-    options->enableGPUVideoDecode = std::stoi(argv[9]);
-    options->enableHighDPI = std::stoi(argv[10]);
-    options->proxyServer = argv[11];
-    options->bypassProxyForLocalhost = std::stoi(argv[12]);
-    options->padding1 = 0;
-    options->padding2 = 0;
-    options->padding3 = 0;
-    options->composerMode = std::stoi(argv[13]);
-    options->ignoreGPUBlocklist = std::stoi(argv[14]);
-    options->allowWorkarounds = std::stoi(argv[15]);
-    options->padding4 = 0;
-    options->padding5 = 0;
-    options->padding6 = 0;
+    HTMLOptions options;
+    options.cacheDir = argv[1];
+    options.universe = std::stoi(argv[3]);
+    options.realm = std::stoi(argv[4]);
+    options.language = std::stoi(argv[5]);
+    options.uiMode = std::stoi(argv[6]);
+    options.enableGpuAcceleration = std::stoi(argv[7]);
+    options.enableSmoothScrolling = std::stoi(argv[8]);
+    options.enableGPUVideoDecode = std::stoi(argv[9]);
+    options.enableHighDPI = std::stoi(argv[10]);
+    options.proxyServer = argv[11];
+    options.bypassProxyForLocalhost = std::stoi(argv[12]);
+    options.padding1 = 0;
+    options.padding2 = 0;
+    options.padding3 = 0;
+    options.composerMode = std::stoi(argv[13]);
+    options.ignoreGPUBlocklist = std::stoi(argv[14]);
+    options.allowWorkarounds = std::stoi(argv[15]);
+    options.padding4 = 0;
+    options.padding5 = 0;
+    options.padding6 = 0;
 
     // This isn't enough. Hooking is needed. Stupid.
     //controller->SetHostingProcessPID(std::stoi(getenv("OPENSTEAM_PID")));
     // controller->SetOptions(&options);
     // controller->StartThread();
     // controller->Start();
-    std::cout << "startwithoptions " << controller->StartWithOptions(options) << std::endl;
+    std::cout << "attempting StartWithOptions" << std::endl;
+    std::cout << "startwithoptions " << controller->StartWithOptions(&options) << std::endl;
     std::cout << "init " << controller->Init() << std::endl;
     // std::cout << "WTF " << std::endl;
     // std::cout << "FUN_10007400 " << controller->FUN_10007400() << std::endl;
+    std::cout << "attempting start" << std::endl;
     std::cout << "start " << controller->Start() << std::endl;
 
    

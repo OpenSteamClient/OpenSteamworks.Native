@@ -78,6 +78,7 @@ public:
 #endif
 	virtual undefined4 StartWithOptions(void* pOptions) = 0;
 	virtual unknown_ret Shutdown() = 0;
+    virtual unknown_ret Shutdown2() = 0;
 	virtual unknown_ret Start() = 0;
 	virtual unknown_ret Init() = 0;
     // Checks for SSE2 or ARM

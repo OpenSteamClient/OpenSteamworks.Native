@@ -1,0 +1,1 @@
+If this segment is missing, steamservice.so refuses to get loaded by steamclient.so. Content doesn't seem matter.

@@ -1,4 +1,4 @@
-<Project Sdk="MSBuildCMake.SDK/1.0.5">
+<Project Sdk="MSBuildCMake.SDK/1.0.8">
     <PropertyGroup>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageId>OpenSteamworks.Native</PackageId>
@@ -6,7 +6,7 @@
         <RepositoryUrl>https://github.com/OpenSteamClient/OpenSteamworks.Native</RepositoryUrl>
 
         <!-- Update the version here when you make changes -->
-        <VersionPrefix>1.1.0</VersionPrefix>
+        <VersionPrefix>1.1.1</VersionPrefix>
 
         <!-- Which arches to build for for a single RID, remove or delete if you want to build according to RID -->
         <CMakeBuildAllArches>x86;x64;arm64</CMakeBuildAllArches>
@@ -16,6 +16,8 @@
 
         <!-- The directory where CMakeLists.txt is located. Mandatory property. -->
         <CMakeListsDir>$(MSBuildThisFileDirectory)</CMakeListsDir>
+    
+        <CMakeBuildConfig>RelWithDebInfo</CMakeBuildConfig>
     </PropertyGroup>
     
     <ItemGroup>

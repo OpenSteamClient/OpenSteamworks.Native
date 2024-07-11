@@ -30,6 +30,15 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
 
         # 64-bit steam service stub
         add_library(steamservice SHARED ${PROJECT_SOURCE_DIR}/fakeservice/main.cpp)
+        execute_process(COMMAND objdump -s -j .valvesig ${CMAKE_BINARY_DIR}/CMakeFiles/steamservice.dir/fakeservice/main.cpp.o RESULT_VARIABLE ret)
+        if(ret EQUAL "1")
+            # Segment doesn't exist
+            add_custom_command(
+                TARGET steamservice 
+                PRE_LINK
+                COMMAND objcopy --add-section .valvesig=${PROJECT_SOURCE_DIR}/dummysig --set-section-flags .valvesig=readonly ${CMAKE_BINARY_DIR}/CMakeFiles/steamservice.dir/fakeservice/main.cpp.o ${CMAKE_BINARY_DIR}/CMakeFiles/steamservice.dir/fakeservice/main.cpp.o)
+        endif()
+        
         set_target_properties(steamservice PROPERTIES PREFIX "")
 
         add_library(bootstrappershim64 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
@@ -47,6 +56,21 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
         # Needed for VAC, Proton
         add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
         set_ide_32bit_build(steamserviced)
+
+        # Damn CMake is really powerful (said no-one ever)
+        # This is terrible and relies on internal CMake folder hierarchy
+        execute_process(COMMAND objdump -s -j .valvesig ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o RESULT_VARIABLE ret)
+        if(ret EQUAL "1")
+            # Segment doesn't exist
+            add_custom_command(
+                TARGET steamserviced 
+                PRE_LINK
+                COMMAND objcopy --add-section .valvesig=${PROJECT_SOURCE_DIR}/dummysig --set-section-flags .valvesig=readonly ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o)
+        endif()
+        # add_custom_command(
+        #     TARGET steamserviced 
+        #     PRE_LINK
+        #     COMMAND objcopy --add-section .valvesig=${PROJECT_SOURCE_DIR}/dummysig --set-section-flags .valvesig=readonly ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o)
 
         # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
         add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})

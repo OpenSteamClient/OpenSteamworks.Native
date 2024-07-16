@@ -10,8 +10,6 @@ file(GLOB_RECURSE audiostub_sources CONFIGURE_DEPENDS "audiostub/*.cpp")
 file(GLOB_RECURSE protobufhack_sources CONFIGURE_DEPENDS "protobufhack/*.cpp")
 file(GLOB protobufhack_include_cc CONFIGURE_DEPENDS "protobufhack/generated/*.cc")
 file(GLOB protobufhack_include_h CONFIGURE_DEPENDS "protobufhack/generated/*.h")
-file(GLOB_RECURSE miniutl_sources CONFIGURE_DEPENDS "MiniUTL/*.cpp")
-file(GLOB_RECURSE htmlhost_sources CONFIGURE_DEPENDS "htmlhost/*.cpp")
 
 # Stop .exp, .lib, .dll.a and various other unneeded files from manifesting
 # (Can't do this, it breaks the build due to MingW depending on a .lib existing even for a simple exe file. WTF?)
@@ -72,15 +70,6 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
         #     PRE_LINK
         #     COMMAND objcopy --add-section .valvesig=${PROJECT_SOURCE_DIR}/dummysig --set-section-flags .valvesig=readonly ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o)
 
-        # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
-        add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
-        target_include_directories(htmlhost PRIVATE "MiniUTL")
-        set_ide_32bit_build(htmlhost)
-
-        # We hook getpid for htmlhost (on linux with LD_PRELOAD) so it thinks our steam process is the steam process and not itself (not really meant to be hosted)
-        add_library(htmlhost_fakepid SHARED ${PROJECT_SOURCE_DIR}/htmlhost_fakepid/main.cpp)
-        set_ide_32bit_build(htmlhost_fakepid)
-
         add_library(bootstrappershim32 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
         set_ide_32bit_build(bootstrappershim32)
 
@@ -101,10 +90,6 @@ if (BUILD_PLATFORM_TARGET STREQUAL "win")
     if (BUILD_ARCH STREQUAL "x86" OR DEFINED IDE_BUILD)
         # Needed for VAC
         add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
-
-        # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
-        add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
-        target_include_directories(htmlhost PRIVATE "MiniUTL")
     endif()
 endif()
 

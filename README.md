@@ -5,7 +5,6 @@ Native components for OpenSteamworks.
 - libaudio.so stub for Linux
 - bootstrappershim for Linux
 - steamservice.so stub for Linux
-- htmlhost for Windows and Linux
 - launchwrapper and reaper for Linux
 - protobufhack for all platforms
 - steamserviced for Linux

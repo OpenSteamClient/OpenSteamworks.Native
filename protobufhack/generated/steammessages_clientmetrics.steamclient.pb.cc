@@ -243,7 +243,9 @@ constexpr CClientMetrics_DownloadRates_Notification::CClientMetrics_DownloadRate
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : stats_()
   , cell_id_(0u)
-  , throttling_kbps_(0u){}
+  , throttling_kbps_(0u)
+  , os_type_(0u)
+  , device_type_(0u){}
 struct CClientMetrics_DownloadRates_NotificationDefaultTypeInternal {
   constexpr CClientMetrics_DownloadRates_NotificationDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -606,9 +608,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientmetrics_
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_DownloadRates_Notification, cell_id_),
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_DownloadRates_Notification, stats_),
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_DownloadRates_Notification, throttling_kbps_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_DownloadRates_Notification, os_type_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_DownloadRates_Notification, device_type_),
   0,
   ~0u,
   1,
+  2,
+  3,
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_ContentValidation_Notification, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_ContentValidation_Notification, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -786,15 +792,15 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 140, 148, sizeof(::CClientMetrics_ReportClientError_Notification)},
   { 151, 157, sizeof(::CClientMetrics_ClientBootstrap_Notification)},
   { 158, 175, sizeof(::CClientMetrics_DownloadRates_Notification_StatsInfo)},
-  { 187, 195, sizeof(::CClientMetrics_DownloadRates_Notification)},
-  { 198, 213, sizeof(::CClientMetrics_ContentValidation_Notification)},
-  { 223, 249, sizeof(::CClientMetrics_CloudAppSyncStats_Notification)},
-  { 270, 277, sizeof(::CClientMetrics_ContentDownloadResponse_Counts_Notification)},
-  { 279, 294, sizeof(::CClientMetrics_ReportClientArgs_Notification)},
-  { 304, 314, sizeof(::CClientMetrics_ClipShare_Notification)},
-  { 319, 327, sizeof(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge)},
-  { 330, 340, sizeof(::CClientMetrics_ClipRange_Notification)},
-  { 345, 354, sizeof(::CClientMetrics_EndGameRecording_Notification)},
+  { 187, 197, sizeof(::CClientMetrics_DownloadRates_Notification)},
+  { 202, 217, sizeof(::CClientMetrics_ContentValidation_Notification)},
+  { 227, 253, sizeof(::CClientMetrics_CloudAppSyncStats_Notification)},
+  { 274, 281, sizeof(::CClientMetrics_ContentDownloadResponse_Counts_Notification)},
+  { 283, 298, sizeof(::CClientMetrics_ReportClientArgs_Notification)},
+  { 308, 318, sizeof(::CClientMetrics_ClipShare_Notification)},
+  { 323, 331, sizeof(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge)},
+  { 334, 344, sizeof(::CClientMetrics_ClipRange_Notification)},
+  { 349, 358, sizeof(::CClientMetrics_EndGameRecording_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -878,123 +884,124 @@ const char descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient
   "\022\017\n\007message\030\002 \001(\t\022\r\n\005count\030\003 \001(\r\"g\n+CCli"
   "entMetrics_ClientBootstrap_Notification\022"
   "8\n\007summary\030\001 \001(\0132\'.CClientMetrics_Client"
-  "Bootstrap_Summary\"\221\003\n)CClientMetrics_Dow"
+  "Bootstrap_Summary\"\267\003\n)CClientMetrics_Dow"
   "nloadRates_Notification\022\017\n\007cell_id\030\001 \001(\r"
   "\022C\n\005stats\030\002 \003(\01324.CClientMetrics_Downloa"
   "dRates_Notification.StatsInfo\022\027\n\017throttl"
-  "ing_kbps\030\003 \001(\r\032\364\001\n\tStatsInfo\022\023\n\013source_t"
-  "ype\030\001 \001(\r\022\021\n\tsource_id\030\002 \001(\r\022\r\n\005bytes\030\003 "
-  "\001(\004\022\021\n\thost_name\030\004 \001(\t\022\024\n\014microseconds\030\005"
-  " \001(\004\022\021\n\tused_ipv6\030\006 \001(\010\022\017\n\007proxied\030\007 \001(\010"
-  "\022\022\n\nused_http2\030\010 \001(\010\022\022\n\ncache_hits\030\t \001(\r"
-  "\022\024\n\014cache_misses\030\n \001(\r\022\021\n\thit_bytes\030\013 \001("
-  "\004\022\022\n\nmiss_bytes\030\014 \001(\004\"\236\002\n-CClientMetrics"
-  "_ContentValidation_Notification\022\031\n\021valid"
-  "ation_result\030\001 \001(\005\022\016\n\006app_id\030\002 \001(\r\022\024\n\014st"
-  "aged_files\030\003 \001(\010\022\026\n\016user_initiated\030\004 \001(\010"
-  "\022\021\n\tearly_out\030\005 \001(\010\022\026\n\016chunks_scanned\030\006 "
-  "\001(\r\022\026\n\016chunks_corrupt\030\007 \001(\r\022\025\n\rbytes_sca"
-  "nned\030\010 \001(\004\022\031\n\021chunbytes_corrupt\030\t \001(\004\022\037\n"
-  "\027total_file_size_corrupt\030\n \001(\004\"\340\004\n-CClie"
-  "ntMetrics_CloudAppSyncStats_Notification"
-  "\022\016\n\006app_id\030\001 \001(\r\022\025\n\rplatform_type\030\002 \001(\r\022"
-  "\017\n\007preload\030\003 \001(\010\022\033\n\023blocking_app_launch\030"
-  "\004 \001(\010\022\026\n\016files_uploaded\030\005 \001(\r\022\030\n\020files_d"
-  "ownloaded\030\006 \001(\r\022\025\n\rfiles_deleted\030\007 \001(\r\022\026"
-  "\n\016bytes_uploaded\030\010 \001(\004\022\030\n\020bytes_download"
-  "ed\030\t \001(\004\022\026\n\016microsec_total\030\n \001(\004\022\034\n\024micr"
-  "osec_init_caches\030\013 \001(\004\022\037\n\027microsec_valid"
-  "ate_state\030\014 \001(\004\022\032\n\022microsec_ac_launch\030\r "
-  "\001(\004\022#\n\033microsec_ac_prep_user_files\030\016 \001(\004"
-  "\022\030\n\020microsec_ac_exit\030\017 \001(\004\022 \n\030microsec_b"
-  "uild_sync_list\030\020 \001(\004\022\035\n\025microsec_delete_"
-  "files\030\021 \001(\004\022\037\n\027microsec_download_files\030\022"
-  " \001(\004\022\035\n\025microsec_upload_files\030\023 \001(\004\022\025\n\rh"
-  "ardware_type\030\024 \001(\r\022\025\n\rfiles_managed\030\025 \001("
-  "\r\"\212\001\n:CClientMetrics_ContentDownloadResp"
-  "onse_Counts_Notification\022\017\n\007cell_id\030\001 \001("
-  "\r\022;\n\004data\030\002 \001(\0132-.CClientMetrics_Content"
-  "DownloadResponse_Hosts\"\350\002\n,CClientMetric"
-  "s_ReportClientArgs_Notification\022\023\n\013clien"
-  "t_args\030\001 \003(\t\022#\n\033gpu_webview_regkey_disab"
-  "led\030\002 \001(\010\022\033\n\023suppress_gpu_chrome\030\003 \001(\010\022\035"
-  "\n\025browser_not_supported\030\004 \001(\010\022&\n\036hw_acce"
-  "l_video_regkey_disabled\030\005 \001(\010\022\031\n\021mini_mo"
-  "de_enabled\030\006 \001(\010\022\033\n\023fps_counter_enabled\030"
-  "\007 \001(\010\022*\n\"library_low_bandwidth_mode_enab"
-  "led\030\010 \001(\010\022%\n\035library_low_perf_mode_enabl"
-  "ed\030\t \001(\010\022\017\n\007gr_mode\030\n \001(\005\"\253\001\n%CClientMet"
-  "rics_ClipShare_Notification\022\022\n\007eresult\030\001"
-  " \001(\r:\0012\022>\n\014share_method\030\002 \001(\0162\021.EClipSha"
-  "reMethod:\025EClipShareMethod_Chat\022\017\n\007secon"
-  "ds\030\003 \001(\002\022\r\n\005bytes\030\004 \001(\004\022\016\n\006gameid\030\005 \001(\006\""
-  "\375\003\n%CClientMetrics_ClipRange_Notificatio"
-  "n\022S\n\025original_range_method\030\001 \001(\0162\021.EClip"
-  "RangeMethod:!EClipRangeMethod_CreateClip"
-  "Button\022G\n\005start\030\002 \001(\01328.CClientMetrics_C"
-  "lipRange_Notification.RelativeRangeEdge\022"
-  "E\n\003end\030\003 \001(\01328.CClientMetrics_ClipRange_"
-  "Notification.RelativeRangeEdge\022\017\n\007second"
-  "s\030\004 \001(\002\022\016\n\006gameid\030\005 \001(\006\032\315\001\n\021RelativeRang"
-  "eEdge\022S\n\025original_range_method\030\001 \001(\0162\021.E"
-  "ClipRangeMethod:!EClipRangeMethod_Create"
-  "ClipButton\022Q\n\023latest_range_method\030\002 \001(\0162"
-  "\021.EClipRangeMethod:!EClipRangeMethod_Cre"
-  "ateClipButton\022\020\n\010delta_ms\030\003 \001(\005\"\247\001\n,CCli"
-  "entMetrics_EndGameRecording_Notification"
-  "\022G\n\016recording_type\030\001 \001(\0162\023.EGameRecordin"
-  "gType:\032EGameRecordingType_Unknown\022\017\n\007sec"
-  "onds\030\002 \001(\002\022\r\n\005bytes\030\003 \001(\004\022\016\n\006gameid\030\004 \001("
-  "\006*m\n\022ESteamPipeWorkType\022$\n ESteamPipeCli"
-  "entWorkType_Invalid\020\000\0221\n-ESteamPipeClien"
-  "tWorkType_StageFromChunkStores\020\001*\263\001\n\027ESt"
-  "eamPipeOperationType\022#\n\037ESteamPipeOperat"
-  "ionType_Invalid\020\000\022&\n\"ESteamPipeOperation"
-  "Type_DecryptCPU\020\001\022$\n ESteamPipeOperation"
-  "Type_DiskRead\020\002\022%\n!ESteamPipeOperationTy"
-  "pe_DiskWrite\020\003*\312\001\n\020EClipShareMethod\022\031\n\025E"
-  "ClipShareMethod_Chat\020\001\022\036\n\032EClipShareMeth"
-  "od_Clipboard\020\002\022\031\n\025EClipShareMethod_File\020"
-  "\003\022\035\n\031EClipShareMethod_SendClip\020\004\022 \n\034ECli"
-  "pShareMethod_SaveToMedia\020\005\022\037\n\033EClipShare"
-  "Method_CreateLink\020\006*\335\001\n\020EClipRangeMethod"
-  "\022%\n!EClipRangeMethod_CreateClipButton\020\001\022"
-  "\036\n\032EClipRangeMethod_Highlight\020\002\022$\n EClip"
-  "RangeMethod_BeginEndButtons\020\003\022 \n\034EClipRa"
-  "ngeMethod_ContextMenu\020\004\022\031\n\025EClipRangeMet"
-  "hod_Drag\020\005\022\037\n\033EClipRangeMethod_EntireCli"
-  "p\020\0062\311\t\n\rClientMetrics\022\\\n\035ClientAppInterf"
-  "aceStatsReport\022..CClientMetrics_AppInter"
-  "faceStats_Notification\032\013.NoResponse\022Z\n\034C"
-  "lientIPv6ConnectivityReport\022-.CClientMet"
-  "rics_IPv6Connectivity_Notification\032\013.NoR"
-  "esponse\022X\n\030SteamPipeWorkStatsReport\022/.CC"
-  "lientMetrics_SteamPipeWorkStats_Notifica"
-  "tion\032\013.NoResponse\022N\n\020ReportReactUsage\022-."
-  "CClientMetrics_ReportReactUsage_Notifica"
-  "tion\032\013.NoResponse\022P\n\021ReportClientError\022."
-  ".CClientMetrics_ReportClientError_Notifi"
-  "cation\032\013.NoResponse\022R\n\025ClientBootstrapRe"
-  "port\022,.CClientMetrics_ClientBootstrap_No"
-  "tification\032\013.NoResponse\022T\n\031ClientDownloa"
-  "dRatesReport\022*.CClientMetrics_DownloadRa"
-  "tes_Notification\032\013.NoResponse\022\\\n\035ClientC"
-  "ontentValidationReport\022..CClientMetrics_"
-  "ContentValidation_Notification\032\013.NoRespo"
-  "nse\022V\n\027ClientCloudAppSyncStats\022..CClient"
-  "Metrics_CloudAppSyncStats_Notification\032\013"
-  ".NoResponse\022l\n ClientDownloadResponseCod"
-  "eCounts\022;.CClientMetrics_ContentDownload"
-  "Response_Counts_Notification\032\013.NoRespons"
-  "e\022N\n\020ReportClientArgs\022-.CClientMetrics_R"
-  "eportClientArgs_Notification\032\013.NoRespons"
-  "e\022F\n\017ReportClipShare\022&.CClientMetrics_Cl"
-  "ipShare_Notification\032\013.NoResponse\022F\n\017Rep"
-  "ortClipRange\022&.CClientMetrics_ClipRange_"
-  "Notification\032\013.NoResponse\022T\n\026ReportEndGa"
-  "meRecording\022-.CClientMetrics_EndGameReco"
-  "rding_Notification\032\013.NoResponseB\035\200\001\001\252\002\027O"
-  "penSteamworks.Protobuf"
+  "ing_kbps\030\003 \001(\r\022\017\n\007os_type\030\004 \001(\r\022\023\n\013devic"
+  "e_type\030\005 \001(\r\032\364\001\n\tStatsInfo\022\023\n\013source_typ"
+  "e\030\001 \001(\r\022\021\n\tsource_id\030\002 \001(\r\022\r\n\005bytes\030\003 \001("
+  "\004\022\021\n\thost_name\030\004 \001(\t\022\024\n\014microseconds\030\005 \001"
+  "(\004\022\021\n\tused_ipv6\030\006 \001(\010\022\017\n\007proxied\030\007 \001(\010\022\022"
+  "\n\nused_http2\030\010 \001(\010\022\022\n\ncache_hits\030\t \001(\r\022\024"
+  "\n\014cache_misses\030\n \001(\r\022\021\n\thit_bytes\030\013 \001(\004\022"
+  "\022\n\nmiss_bytes\030\014 \001(\004\"\236\002\n-CClientMetrics_C"
+  "ontentValidation_Notification\022\031\n\021validat"
+  "ion_result\030\001 \001(\005\022\016\n\006app_id\030\002 \001(\r\022\024\n\014stag"
+  "ed_files\030\003 \001(\010\022\026\n\016user_initiated\030\004 \001(\010\022\021"
+  "\n\tearly_out\030\005 \001(\010\022\026\n\016chunks_scanned\030\006 \001("
+  "\r\022\026\n\016chunks_corrupt\030\007 \001(\r\022\025\n\rbytes_scann"
+  "ed\030\010 \001(\004\022\031\n\021chunbytes_corrupt\030\t \001(\004\022\037\n\027t"
+  "otal_file_size_corrupt\030\n \001(\004\"\340\004\n-CClient"
+  "Metrics_CloudAppSyncStats_Notification\022\016"
+  "\n\006app_id\030\001 \001(\r\022\025\n\rplatform_type\030\002 \001(\r\022\017\n"
+  "\007preload\030\003 \001(\010\022\033\n\023blocking_app_launch\030\004 "
+  "\001(\010\022\026\n\016files_uploaded\030\005 \001(\r\022\030\n\020files_dow"
+  "nloaded\030\006 \001(\r\022\025\n\rfiles_deleted\030\007 \001(\r\022\026\n\016"
+  "bytes_uploaded\030\010 \001(\004\022\030\n\020bytes_downloaded"
+  "\030\t \001(\004\022\026\n\016microsec_total\030\n \001(\004\022\034\n\024micros"
+  "ec_init_caches\030\013 \001(\004\022\037\n\027microsec_validat"
+  "e_state\030\014 \001(\004\022\032\n\022microsec_ac_launch\030\r \001("
+  "\004\022#\n\033microsec_ac_prep_user_files\030\016 \001(\004\022\030"
+  "\n\020microsec_ac_exit\030\017 \001(\004\022 \n\030microsec_bui"
+  "ld_sync_list\030\020 \001(\004\022\035\n\025microsec_delete_fi"
+  "les\030\021 \001(\004\022\037\n\027microsec_download_files\030\022 \001"
+  "(\004\022\035\n\025microsec_upload_files\030\023 \001(\004\022\025\n\rhar"
+  "dware_type\030\024 \001(\r\022\025\n\rfiles_managed\030\025 \001(\r\""
+  "\212\001\n:CClientMetrics_ContentDownloadRespon"
+  "se_Counts_Notification\022\017\n\007cell_id\030\001 \001(\r\022"
+  ";\n\004data\030\002 \001(\0132-.CClientMetrics_ContentDo"
+  "wnloadResponse_Hosts\"\350\002\n,CClientMetrics_"
+  "ReportClientArgs_Notification\022\023\n\013client_"
+  "args\030\001 \003(\t\022#\n\033gpu_webview_regkey_disable"
+  "d\030\002 \001(\010\022\033\n\023suppress_gpu_chrome\030\003 \001(\010\022\035\n\025"
+  "browser_not_supported\030\004 \001(\010\022&\n\036hw_accel_"
+  "video_regkey_disabled\030\005 \001(\010\022\031\n\021mini_mode"
+  "_enabled\030\006 \001(\010\022\033\n\023fps_counter_enabled\030\007 "
+  "\001(\010\022*\n\"library_low_bandwidth_mode_enable"
+  "d\030\010 \001(\010\022%\n\035library_low_perf_mode_enabled"
+  "\030\t \001(\010\022\017\n\007gr_mode\030\n \001(\005\"\253\001\n%CClientMetri"
+  "cs_ClipShare_Notification\022\022\n\007eresult\030\001 \001"
+  "(\r:\0012\022>\n\014share_method\030\002 \001(\0162\021.EClipShare"
+  "Method:\025EClipShareMethod_Chat\022\017\n\007seconds"
+  "\030\003 \001(\002\022\r\n\005bytes\030\004 \001(\004\022\016\n\006gameid\030\005 \001(\006\"\375\003"
+  "\n%CClientMetrics_ClipRange_Notification\022"
+  "S\n\025original_range_method\030\001 \001(\0162\021.EClipRa"
+  "ngeMethod:!EClipRangeMethod_CreateClipBu"
+  "tton\022G\n\005start\030\002 \001(\01328.CClientMetrics_Cli"
+  "pRange_Notification.RelativeRangeEdge\022E\n"
+  "\003end\030\003 \001(\01328.CClientMetrics_ClipRange_No"
+  "tification.RelativeRangeEdge\022\017\n\007seconds\030"
+  "\004 \001(\002\022\016\n\006gameid\030\005 \001(\006\032\315\001\n\021RelativeRangeE"
+  "dge\022S\n\025original_range_method\030\001 \001(\0162\021.ECl"
+  "ipRangeMethod:!EClipRangeMethod_CreateCl"
+  "ipButton\022Q\n\023latest_range_method\030\002 \001(\0162\021."
+  "EClipRangeMethod:!EClipRangeMethod_Creat"
+  "eClipButton\022\020\n\010delta_ms\030\003 \001(\005\"\247\001\n,CClien"
+  "tMetrics_EndGameRecording_Notification\022G"
+  "\n\016recording_type\030\001 \001(\0162\023.EGameRecordingT"
+  "ype:\032EGameRecordingType_Unknown\022\017\n\007secon"
+  "ds\030\002 \001(\002\022\r\n\005bytes\030\003 \001(\004\022\016\n\006gameid\030\004 \001(\006*"
+  "m\n\022ESteamPipeWorkType\022$\n ESteamPipeClien"
+  "tWorkType_Invalid\020\000\0221\n-ESteamPipeClientW"
+  "orkType_StageFromChunkStores\020\001*\263\001\n\027EStea"
+  "mPipeOperationType\022#\n\037ESteamPipeOperatio"
+  "nType_Invalid\020\000\022&\n\"ESteamPipeOperationTy"
+  "pe_DecryptCPU\020\001\022$\n ESteamPipeOperationTy"
+  "pe_DiskRead\020\002\022%\n!ESteamPipeOperationType"
+  "_DiskWrite\020\003*\312\001\n\020EClipShareMethod\022\031\n\025ECl"
+  "ipShareMethod_Chat\020\001\022\036\n\032EClipShareMethod"
+  "_Clipboard\020\002\022\031\n\025EClipShareMethod_File\020\003\022"
+  "\035\n\031EClipShareMethod_SendClip\020\004\022 \n\034EClipS"
+  "hareMethod_SaveToMedia\020\005\022\037\n\033EClipShareMe"
+  "thod_CreateLink\020\006*\335\001\n\020EClipRangeMethod\022%"
+  "\n!EClipRangeMethod_CreateClipButton\020\001\022\036\n"
+  "\032EClipRangeMethod_Highlight\020\002\022$\n EClipRa"
+  "ngeMethod_BeginEndButtons\020\003\022 \n\034EClipRang"
+  "eMethod_ContextMenu\020\004\022\031\n\025EClipRangeMetho"
+  "d_Drag\020\005\022\037\n\033EClipRangeMethod_EntireClip\020"
+  "\0062\311\t\n\rClientMetrics\022\\\n\035ClientAppInterfac"
+  "eStatsReport\022..CClientMetrics_AppInterfa"
+  "ceStats_Notification\032\013.NoResponse\022Z\n\034Cli"
+  "entIPv6ConnectivityReport\022-.CClientMetri"
+  "cs_IPv6Connectivity_Notification\032\013.NoRes"
+  "ponse\022X\n\030SteamPipeWorkStatsReport\022/.CCli"
+  "entMetrics_SteamPipeWorkStats_Notificati"
+  "on\032\013.NoResponse\022N\n\020ReportReactUsage\022-.CC"
+  "lientMetrics_ReportReactUsage_Notificati"
+  "on\032\013.NoResponse\022P\n\021ReportClientError\022..C"
+  "ClientMetrics_ReportClientError_Notifica"
+  "tion\032\013.NoResponse\022R\n\025ClientBootstrapRepo"
+  "rt\022,.CClientMetrics_ClientBootstrap_Noti"
+  "fication\032\013.NoResponse\022T\n\031ClientDownloadR"
+  "atesReport\022*.CClientMetrics_DownloadRate"
+  "s_Notification\032\013.NoResponse\022\\\n\035ClientCon"
+  "tentValidationReport\022..CClientMetrics_Co"
+  "ntentValidation_Notification\032\013.NoRespons"
+  "e\022V\n\027ClientCloudAppSyncStats\022..CClientMe"
+  "trics_CloudAppSyncStats_Notification\032\013.N"
+  "oResponse\022l\n ClientDownloadResponseCodeC"
+  "ounts\022;.CClientMetrics_ContentDownloadRe"
+  "sponse_Counts_Notification\032\013.NoResponse\022"
+  "N\n\020ReportClientArgs\022-.CClientMetrics_Rep"
+  "ortClientArgs_Notification\032\013.NoResponse\022"
+  "F\n\017ReportClipShare\022&.CClientMetrics_Clip"
+  "Share_Notification\032\013.NoResponse\022F\n\017Repor"
+  "tClipRange\022&.CClientMetrics_ClipRange_No"
+  "tification\032\013.NoResponse\022T\n\026ReportEndGame"
+  "Recording\022-.CClientMetrics_EndGameRecord"
+  "ing_Notification\032\013.NoResponseB\035\200\001\001\252\002\027Ope"
+  "nSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_clientmetrics_2eproto,
@@ -1005,7 +1012,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto = {
-  false, false, 6782, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
+  false, false, 6820, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
   &descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once, descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps, 5, 24,
   schemas, file_default_instances, TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto,
@@ -5716,6 +5723,12 @@ class CClientMetrics_DownloadRates_Notification::_Internal {
   static void set_has_throttling_kbps(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_os_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_device_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
 };
 
 CClientMetrics_DownloadRates_Notification::CClientMetrics_DownloadRates_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -5731,16 +5744,16 @@ CClientMetrics_DownloadRates_Notification::CClientMetrics_DownloadRates_Notifica
       stats_(from.stats_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&cell_id_, &from.cell_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&throttling_kbps_) -
-    reinterpret_cast<char*>(&cell_id_)) + sizeof(throttling_kbps_));
+    static_cast<size_t>(reinterpret_cast<char*>(&device_type_) -
+    reinterpret_cast<char*>(&cell_id_)) + sizeof(device_type_));
   // @@protoc_insertion_point(copy_constructor:CClientMetrics_DownloadRates_Notification)
 }
 
 void CClientMetrics_DownloadRates_Notification::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&cell_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&throttling_kbps_) -
-    reinterpret_cast<char*>(&cell_id_)) + sizeof(throttling_kbps_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&device_type_) -
+    reinterpret_cast<char*>(&cell_id_)) + sizeof(device_type_));
 }
 
 CClientMetrics_DownloadRates_Notification::~CClientMetrics_DownloadRates_Notification() {
@@ -5771,10 +5784,10 @@ void CClientMetrics_DownloadRates_Notification::Clear() {
 
   stats_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&cell_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&throttling_kbps_) -
-        reinterpret_cast<char*>(&cell_id_)) + sizeof(throttling_kbps_));
+        reinterpret_cast<char*>(&device_type_) -
+        reinterpret_cast<char*>(&cell_id_)) + sizeof(device_type_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -5813,6 +5826,22 @@ const char* CClientMetrics_DownloadRates_Notification::_InternalParse(const char
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_throttling_kbps(&has_bits);
           throttling_kbps_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 os_type = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_os_type(&has_bits);
+          os_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 device_type = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_device_type(&has_bits);
+          device_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -5866,6 +5895,18 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_throttling_kbps(), target);
   }
 
+  // optional uint32 os_type = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_os_type(), target);
+  }
+
+  // optional uint32 device_type = 5;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_device_type(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5890,7 +5931,7 @@ size_t CClientMetrics_DownloadRates_Notification::ByteSizeLong() const {
   }
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     // optional uint32 cell_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -5903,6 +5944,20 @@ size_t CClientMetrics_DownloadRates_Notification::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_throttling_kbps());
+    }
+
+    // optional uint32 os_type = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_os_type());
+    }
+
+    // optional uint32 device_type = 5;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_device_type());
     }
 
   }
@@ -5939,12 +5994,18 @@ void CClientMetrics_DownloadRates_Notification::MergeFrom(const CClientMetrics_D
 
   stats_.MergeFrom(from.stats_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       cell_id_ = from.cell_id_;
     }
     if (cached_has_bits & 0x00000002u) {
       throttling_kbps_ = from.throttling_kbps_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      os_type_ = from.os_type_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      device_type_ = from.device_type_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -5974,8 +6035,8 @@ void CClientMetrics_DownloadRates_Notification::InternalSwap(CClientMetrics_Down
   swap(_has_bits_[0], other->_has_bits_[0]);
   stats_.InternalSwap(&other->stats_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CClientMetrics_DownloadRates_Notification, throttling_kbps_)
-      + sizeof(CClientMetrics_DownloadRates_Notification::throttling_kbps_)
+      PROTOBUF_FIELD_OFFSET(CClientMetrics_DownloadRates_Notification, device_type_)
+      + sizeof(CClientMetrics_DownloadRates_Notification::device_type_)
       - PROTOBUF_FIELD_OFFSET(CClientMetrics_DownloadRates_Notification, cell_id_)>(
           reinterpret_cast<char*>(&cell_id_),
           reinterpret_cast<char*>(&other->cell_id_));

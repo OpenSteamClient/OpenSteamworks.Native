@@ -780,7 +780,9 @@ constexpr CCloud_AppLaunchIntent_Request::CCloud_AppLaunchIntent_Request(
   : machine_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , client_id_(PROTOBUF_ULONGLONG(0))
   , appid_(0u)
-  , ignore_pending_operations_(false){}
+  , ignore_pending_operations_(false)
+  , os_type_(0)
+  , device_type_(0){}
 struct CCloud_AppLaunchIntent_RequestDefaultTypeInternal {
   constexpr CCloud_AppLaunchIntent_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1512,10 +1514,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fcloud_2esteamc
   PROTOBUF_FIELD_OFFSET(::CCloud_AppLaunchIntent_Request, client_id_),
   PROTOBUF_FIELD_OFFSET(::CCloud_AppLaunchIntent_Request, machine_name_),
   PROTOBUF_FIELD_OFFSET(::CCloud_AppLaunchIntent_Request, ignore_pending_operations_),
+  PROTOBUF_FIELD_OFFSET(::CCloud_AppLaunchIntent_Request, os_type_),
+  PROTOBUF_FIELD_OFFSET(::CCloud_AppLaunchIntent_Request, device_type_),
   2,
   1,
   0,
   3,
+  4,
+  5,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CCloud_AppLaunchIntent_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1625,13 +1631,13 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 610, -1, sizeof(::CCloud_AppSessionSuspend_Response)},
   { 615, 622, sizeof(::CCloud_AppSessionResume_Request)},
   { 624, -1, sizeof(::CCloud_AppSessionResume_Response)},
-  { 629, 638, sizeof(::CCloud_AppLaunchIntent_Request)},
-  { 642, -1, sizeof(::CCloud_AppLaunchIntent_Response)},
-  { 648, 657, sizeof(::CCloud_AppExitSyncDone_Notification)},
-  { 661, 667, sizeof(::CCloud_ClientGetAppQuotaUsage_Request)},
-  { 668, 677, sizeof(::CCloud_ClientGetAppQuotaUsage_Response)},
-  { 681, 688, sizeof(::CCloud_AppCloudStateChange_Notification)},
-  { 690, 696, sizeof(::CCloud_ClientLogUploadRequest_Notification)},
+  { 629, 640, sizeof(::CCloud_AppLaunchIntent_Request)},
+  { 646, -1, sizeof(::CCloud_AppLaunchIntent_Response)},
+  { 652, 661, sizeof(::CCloud_AppExitSyncDone_Notification)},
+  { 665, 671, sizeof(::CCloud_ClientGetAppQuotaUsage_Request)},
+  { 672, 681, sizeof(::CCloud_ClientGetAppQuotaUsage_Response)},
+  { 685, 692, sizeof(::CCloud_AppCloudStateChange_Notification)},
+  { 694, 700, sizeof(::CCloud_ClientLogUploadRequest_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1851,94 +1857,95 @@ const char descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto
   "mpleted\030\004 \001(\010\"#\n!CCloud_AppSessionSuspen"
   "d_Response\"C\n\037CCloud_AppSessionResume_Re"
   "quest\022\r\n\005appid\030\001 \001(\r\022\021\n\tclient_id\030\002 \001(\004\""
-  "\"\n CCloud_AppSessionResume_Response\"{\n\036C"
-  "Cloud_AppLaunchIntent_Request\022\r\n\005appid\030\001"
-  " \001(\r\022\021\n\tclient_id\030\002 \001(\004\022\024\n\014machine_name\030"
-  "\003 \001(\t\022!\n\031ignore_pending_operations\030\004 \001(\010"
-  "\"d\n\037CCloud_AppLaunchIntent_Response\022A\n\031p"
-  "ending_remote_operations\030\001 \003(\0132\036.CCloud_"
-  "PendingRemoteOperation\"|\n#CCloud_AppExit"
-  "SyncDone_Notification\022\r\n\005appid\030\001 \001(\r\022\021\n\t"
-  "client_id\030\002 \001(\004\022\031\n\021uploads_completed\030\003 \001"
-  "(\010\022\030\n\020uploads_required\030\004 \001(\010\"6\n%CCloud_C"
-  "lientGetAppQuotaUsage_Request\022\r\n\005appid\030\001"
-  " \001(\r\"\206\001\n&CCloud_ClientGetAppQuotaUsage_R"
-  "esponse\022\026\n\016existing_files\030\001 \001(\r\022\026\n\016exist"
-  "ing_bytes\030\002 \001(\004\022\025\n\rmax_num_files\030\003 \001(\r\022\025"
-  "\n\rmax_num_bytes\030\004 \001(\004\"S\n\'CCloud_AppCloud"
-  "StateChange_Notification\022\r\n\005appid\030\001 \001(\r\022"
-  "\031\n\021app_change_number\030\002 \001(\004\"@\n*CCloud_Cli"
-  "entLogUploadRequest_Notification\022\022\n\nrequ"
-  "est_id\030\001 \001(\0042\356\023\n\005Cloud\022L\n\024ClientLogUploa"
-  "dCheck\022\'.CCloud_ClientLogUploadChecNotif"
-  "ication\032\013.NoResponse\022T\n\027ClientLogUploadC"
-  "omplete\022,.CCloud_ClientLogUploadComplete"
-  "_Notification\032\013.NoResponse\022`\n\023GetUploadS"
-  "erverInfo\022#.CCloud_GetUploadServerInfo_R"
-  "equest\032$.CCloud_GetUploadServerInfo_Resp"
-  "onse\022T\n\017BeginHTTPUpload\022\037.CCloud_BeginHT"
-  "TPUpload_Request\032 .CCloud_BeginHTTPUploa"
-  "d_Response\022W\n\020CommitHTTPUpload\022 .CCloud_"
-  "CommitHTTPUpload_Request\032!.CCloud_Commit"
-  "HTTPUpload_Response\022Q\n\016BeginUGCUpload\022\036."
-  "CCloud_BeginUGCUpload_Request\032\037.CCloud_B"
-  "eginUGCUpload_Response\022T\n\017CommitUGCUploa"
-  "d\022\037.CCloud_CommitUGCUpload_Request\032 .CCl"
-  "oud_CommitUGCUpload_Response\022Q\n\016GetFileD"
-  "etails\022\036.CCloud_GetFileDetails_Request\032\037"
-  ".CCloud_GetFileDetails_Response\022]\n\022Enume"
-  "rateUserFiles\022\".CCloud_EnumerateUserFile"
-  "s_Request\032#.CCloud_EnumerateUserFiles_Re"
-  "sponse\0229\n\006Delete\022\026.CCloud_Delete_Request"
-  "\032\027.CCloud_Delete_Response\022i\n\026GetClientEn"
-  "cryptionKey\022&.CCloud_GetClientEncryption"
-  "Key_Request\032\'.CCloud_GetClientEncryption"
-  "Key_Response\0228\n\tCDNReport\022\036.CCloud_CDNRe"
-  "port_Notification\032\013.NoResponse\022`\n\035Extern"
-  "alStorageTransferReport\0222.CCloud_Externa"
-  "lStorageTransferReport_Notification\032\013.No"
-  "Response\022`\n\023BeginAppUploadBatch\022#.CCloud"
-  "_BeginAppUploadBatch_Request\032$.CCloud_Be"
-  "ginAppUploadBatch_Response\022R\n\026CompleteAp"
-  "pUploadBatch\022+.CCloud_CompleteAppUploadB"
-  "atch_Notification\032\013.NoResponse\022q\n\036Comple"
-  "teAppUploadBatchBlocking\022&.CCloud_Comple"
-  "teAppUploadBatch_Request\032\'.CCloud_Comple"
-  "teAppUploadBatch_Response\022f\n\025ClientBegin"
-  "FileUpload\022%.CCloud_ClientBeginFileUploa"
-  "d_Request\032&.CCloud_ClientBeginFileUpload"
-  "_Response\022i\n\026ClientCommitFileUpload\022&.CC"
-  "loud_ClientCommitFileUpload_Request\032\'.CC"
-  "loud_ClientCommitFileUpload_Response\022]\n\022"
-  "ClientFileDownload\022\".CCloud_ClientFileDo"
-  "wnload_Request\032#.CCloud_ClientFileDownlo"
-  "ad_Response\022W\n\020ClientDeleteFile\022 .CCloud"
-  "_ClientDeleteFile_Request\032!.CCloud_Clien"
-  "tDeleteFile_Response\022V\n\030ClientConflictRe"
-  "solution\022-.CCloud_ClientConflictResoluti"
-  "on_Notification\032\013.NoResponse\022Z\n\021Enumerat"
-  "eUserApps\022!.CCloud_EnumerateUserApps_Req"
-  "uest\032\".CCloud_EnumerateUserApps_Response"
-  "\022c\n\024GetAppFileChangelist\022$.CCloud_GetApp"
-  "FileChangelist_Request\032%.CCloud_GetAppFi"
-  "leChangelist_Response\022Z\n\021SuspendAppSessi"
-  "on\022!.CCloud_AppSessionSuspend_Request\032\"."
-  "CCloud_AppSessionSuspend_Response\022W\n\020Res"
-  "umeAppSession\022 .CCloud_AppSessionResume_"
-  "Request\032!.CCloud_AppSessionResume_Respon"
-  "se\022Z\n\025SignalAppLaunchIntent\022\037.CCloud_App"
-  "LaunchIntent_Request\032 .CCloud_AppLaunchI"
-  "ntent_Response\022J\n\025SignalAppExitSyncDone\022"
-  "$.CCloud_AppExitSyncDone_Notification\032\013."
-  "NoResponse\022i\n\026ClientGetAppQuotaUsage\022&.C"
-  "Cloud_ClientGetAppQuotaUsage_Request\032\'.C"
-  "Cloud_ClientGetAppQuotaUsage_Response2\266\001"
-  "\n\013CloudClient\022M\n\024NotifyAppStateChange\022(."
-  "CCloud_AppCloudStateChange_Notification\032"
-  "\013.NoResponse\022R\n\026ClientLogUploadRequest\022+"
-  ".CCloud_ClientLogUploadRequest_Notificat"
-  "ion\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamw"
-  "orks.Protobuf"
+  "\"\n CCloud_AppSessionResume_Response\"\241\001\n\036"
+  "CCloud_AppLaunchIntent_Request\022\r\n\005appid\030"
+  "\001 \001(\r\022\021\n\tclient_id\030\002 \001(\004\022\024\n\014machine_name"
+  "\030\003 \001(\t\022!\n\031ignore_pending_operations\030\004 \001("
+  "\010\022\017\n\007os_type\030\005 \001(\005\022\023\n\013device_type\030\006 \001(\005\""
+  "d\n\037CCloud_AppLaunchIntent_Response\022A\n\031pe"
+  "nding_remote_operations\030\001 \003(\0132\036.CCloud_P"
+  "endingRemoteOperation\"|\n#CCloud_AppExitS"
+  "yncDone_Notification\022\r\n\005appid\030\001 \001(\r\022\021\n\tc"
+  "lient_id\030\002 \001(\004\022\031\n\021uploads_completed\030\003 \001("
+  "\010\022\030\n\020uploads_required\030\004 \001(\010\"6\n%CCloud_Cl"
+  "ientGetAppQuotaUsage_Request\022\r\n\005appid\030\001 "
+  "\001(\r\"\206\001\n&CCloud_ClientGetAppQuotaUsage_Re"
+  "sponse\022\026\n\016existing_files\030\001 \001(\r\022\026\n\016existi"
+  "ng_bytes\030\002 \001(\004\022\025\n\rmax_num_files\030\003 \001(\r\022\025\n"
+  "\rmax_num_bytes\030\004 \001(\004\"S\n\'CCloud_AppCloudS"
+  "tateChange_Notification\022\r\n\005appid\030\001 \001(\r\022\031"
+  "\n\021app_change_number\030\002 \001(\004\"@\n*CCloud_Clie"
+  "ntLogUploadRequest_Notification\022\022\n\nreque"
+  "st_id\030\001 \001(\0042\356\023\n\005Cloud\022L\n\024ClientLogUpload"
+  "Check\022\'.CCloud_ClientLogUploadChecNotifi"
+  "cation\032\013.NoResponse\022T\n\027ClientLogUploadCo"
+  "mplete\022,.CCloud_ClientLogUploadComplete_"
+  "Notification\032\013.NoResponse\022`\n\023GetUploadSe"
+  "rverInfo\022#.CCloud_GetUploadServerInfo_Re"
+  "quest\032$.CCloud_GetUploadServerInfo_Respo"
+  "nse\022T\n\017BeginHTTPUpload\022\037.CCloud_BeginHTT"
+  "PUpload_Request\032 .CCloud_BeginHTTPUpload"
+  "_Response\022W\n\020CommitHTTPUpload\022 .CCloud_C"
+  "ommitHTTPUpload_Request\032!.CCloud_CommitH"
+  "TTPUpload_Response\022Q\n\016BeginUGCUpload\022\036.C"
+  "Cloud_BeginUGCUpload_Request\032\037.CCloud_Be"
+  "ginUGCUpload_Response\022T\n\017CommitUGCUpload"
+  "\022\037.CCloud_CommitUGCUpload_Request\032 .CClo"
+  "ud_CommitUGCUpload_Response\022Q\n\016GetFileDe"
+  "tails\022\036.CCloud_GetFileDetails_Request\032\037."
+  "CCloud_GetFileDetails_Response\022]\n\022Enumer"
+  "ateUserFiles\022\".CCloud_EnumerateUserFiles"
+  "_Request\032#.CCloud_EnumerateUserFiles_Res"
+  "ponse\0229\n\006Delete\022\026.CCloud_Delete_Request\032"
+  "\027.CCloud_Delete_Response\022i\n\026GetClientEnc"
+  "ryptionKey\022&.CCloud_GetClientEncryptionK"
+  "ey_Request\032\'.CCloud_GetClientEncryptionK"
+  "ey_Response\0228\n\tCDNReport\022\036.CCloud_CDNRep"
+  "ort_Notification\032\013.NoResponse\022`\n\035Externa"
+  "lStorageTransferReport\0222.CCloud_External"
+  "StorageTransferReport_Notification\032\013.NoR"
+  "esponse\022`\n\023BeginAppUploadBatch\022#.CCloud_"
+  "BeginAppUploadBatch_Request\032$.CCloud_Beg"
+  "inAppUploadBatch_Response\022R\n\026CompleteApp"
+  "UploadBatch\022+.CCloud_CompleteAppUploadBa"
+  "tch_Notification\032\013.NoResponse\022q\n\036Complet"
+  "eAppUploadBatchBlocking\022&.CCloud_Complet"
+  "eAppUploadBatch_Request\032\'.CCloud_Complet"
+  "eAppUploadBatch_Response\022f\n\025ClientBeginF"
+  "ileUpload\022%.CCloud_ClientBeginFileUpload"
+  "_Request\032&.CCloud_ClientBeginFileUpload_"
+  "Response\022i\n\026ClientCommitFileUpload\022&.CCl"
+  "oud_ClientCommitFileUpload_Request\032\'.CCl"
+  "oud_ClientCommitFileUpload_Response\022]\n\022C"
+  "lientFileDownload\022\".CCloud_ClientFileDow"
+  "nload_Request\032#.CCloud_ClientFileDownloa"
+  "d_Response\022W\n\020ClientDeleteFile\022 .CCloud_"
+  "ClientDeleteFile_Request\032!.CCloud_Client"
+  "DeleteFile_Response\022V\n\030ClientConflictRes"
+  "olution\022-.CCloud_ClientConflictResolutio"
+  "n_Notification\032\013.NoResponse\022Z\n\021Enumerate"
+  "UserApps\022!.CCloud_EnumerateUserApps_Requ"
+  "est\032\".CCloud_EnumerateUserApps_Response\022"
+  "c\n\024GetAppFileChangelist\022$.CCloud_GetAppF"
+  "ileChangelist_Request\032%.CCloud_GetAppFil"
+  "eChangelist_Response\022Z\n\021SuspendAppSessio"
+  "n\022!.CCloud_AppSessionSuspend_Request\032\".C"
+  "Cloud_AppSessionSuspend_Response\022W\n\020Resu"
+  "meAppSession\022 .CCloud_AppSessionResume_R"
+  "equest\032!.CCloud_AppSessionResume_Respons"
+  "e\022Z\n\025SignalAppLaunchIntent\022\037.CCloud_AppL"
+  "aunchIntent_Request\032 .CCloud_AppLaunchIn"
+  "tent_Response\022J\n\025SignalAppExitSyncDone\022$"
+  ".CCloud_AppExitSyncDone_Notification\032\013.N"
+  "oResponse\022i\n\026ClientGetAppQuotaUsage\022&.CC"
+  "loud_ClientGetAppQuotaUsage_Request\032\'.CC"
+  "loud_ClientGetAppQuotaUsage_Response2\266\001\n"
+  "\013CloudClient\022M\n\024NotifyAppStateChange\022(.C"
+  "Cloud_AppCloudStateChange_Notification\032\013"
+  ".NoResponse\022R\n\026ClientLogUploadRequest\022+."
+  "CCloud_ClientLogUploadRequest_Notificati"
+  "on\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamwo"
+  "rks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_enums_2eproto,
@@ -1949,7 +1956,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fcloud_2esteamclient_2eproto = {
-  false, false, 9653, descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto, "steammessages_cloud.steamclient.proto", 
+  false, false, 9692, descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto, "steammessages_cloud.steamclient.proto", 
   &descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_deps, 5, 59,
   schemas, file_default_instances, TableStruct_steammessages_5fcloud_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fcloud_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fcloud_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fcloud_2esteamclient_2eproto,
@@ -17437,6 +17444,12 @@ class CCloud_AppLaunchIntent_Request::_Internal {
   static void set_has_ignore_pending_operations(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
+  static void set_has_os_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_device_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
 };
 
 CCloud_AppLaunchIntent_Request::CCloud_AppLaunchIntent_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -17455,8 +17468,8 @@ CCloud_AppLaunchIntent_Request::CCloud_AppLaunchIntent_Request(const CCloud_AppL
       GetArena());
   }
   ::memcpy(&client_id_, &from.client_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&ignore_pending_operations_) -
-    reinterpret_cast<char*>(&client_id_)) + sizeof(ignore_pending_operations_));
+    static_cast<size_t>(reinterpret_cast<char*>(&device_type_) -
+    reinterpret_cast<char*>(&client_id_)) + sizeof(device_type_));
   // @@protoc_insertion_point(copy_constructor:CCloud_AppLaunchIntent_Request)
 }
 
@@ -17464,8 +17477,8 @@ void CCloud_AppLaunchIntent_Request::SharedCtor() {
 machine_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&client_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&ignore_pending_operations_) -
-    reinterpret_cast<char*>(&client_id_)) + sizeof(ignore_pending_operations_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&device_type_) -
+    reinterpret_cast<char*>(&client_id_)) + sizeof(device_type_));
 }
 
 CCloud_AppLaunchIntent_Request::~CCloud_AppLaunchIntent_Request() {
@@ -17499,10 +17512,10 @@ void CCloud_AppLaunchIntent_Request::Clear() {
   if (cached_has_bits & 0x00000001u) {
     machine_name_.ClearNonDefaultToEmpty();
   }
-  if (cached_has_bits & 0x0000000eu) {
+  if (cached_has_bits & 0x0000003eu) {
     ::memset(&client_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&ignore_pending_operations_) -
-        reinterpret_cast<char*>(&client_id_)) + sizeof(ignore_pending_operations_));
+        reinterpret_cast<char*>(&device_type_) -
+        reinterpret_cast<char*>(&client_id_)) + sizeof(device_type_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -17548,6 +17561,22 @@ const char* CCloud_AppLaunchIntent_Request::_InternalParse(const char* ptr, ::PR
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_ignore_pending_operations(&has_bits);
           ignore_pending_operations_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 os_type = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_os_type(&has_bits);
+          os_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 device_type = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_device_type(&has_bits);
+          device_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -17609,6 +17638,18 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_ignore_pending_operations(), target);
   }
 
+  // optional int32 os_type = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_os_type(), target);
+  }
+
+  // optional int32 device_type = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_device_type(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -17626,7 +17667,7 @@ size_t CCloud_AppLaunchIntent_Request::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional string machine_name = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -17651,6 +17692,20 @@ size_t CCloud_AppLaunchIntent_Request::ByteSizeLong() const {
     // optional bool ignore_pending_operations = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 os_type = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_os_type());
+    }
+
+    // optional int32 device_type = 6;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_device_type());
     }
 
   }
@@ -17686,7 +17741,7 @@ void CCloud_AppLaunchIntent_Request::MergeFrom(const CCloud_AppLaunchIntent_Requ
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_machine_name(from._internal_machine_name());
     }
@@ -17698,6 +17753,12 @@ void CCloud_AppLaunchIntent_Request::MergeFrom(const CCloud_AppLaunchIntent_Requ
     }
     if (cached_has_bits & 0x00000008u) {
       ignore_pending_operations_ = from.ignore_pending_operations_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      os_type_ = from.os_type_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      device_type_ = from.device_type_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -17727,8 +17788,8 @@ void CCloud_AppLaunchIntent_Request::InternalSwap(CCloud_AppLaunchIntent_Request
   swap(_has_bits_[0], other->_has_bits_[0]);
   machine_name_.Swap(&other->machine_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CCloud_AppLaunchIntent_Request, ignore_pending_operations_)
-      + sizeof(CCloud_AppLaunchIntent_Request::ignore_pending_operations_)
+      PROTOBUF_FIELD_OFFSET(CCloud_AppLaunchIntent_Request, device_type_)
+      + sizeof(CCloud_AppLaunchIntent_Request::device_type_)
       - PROTOBUF_FIELD_OFFSET(CCloud_AppLaunchIntent_Request, client_id_)>(
           reinterpret_cast<char*>(&client_id_),
           reinterpret_cast<char*>(&other->client_id_));

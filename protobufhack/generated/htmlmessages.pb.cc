@@ -1173,24 +1173,6 @@ struct CMsgNeedsSharedTexturePaintDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgNeedsSharedTexturePaintDefaultTypeInternal _CMsgNeedsSharedTexturePaint_default_instance_;
-constexpr CMsgGameOverlayTexturePaint::CMsgGameOverlayTexturePaint(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : browser_handle_(0u)
-  , width_(0u)
-  , height_(0u)
-  , scrollx_(0u)
-  , scrolly_(0u)
-  , pagescale_(0)
-  , pageserial_(0u){}
-struct CMsgGameOverlayTexturePaintDefaultTypeInternal {
-  constexpr CMsgGameOverlayTexturePaintDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgGameOverlayTexturePaintDefaultTypeInternal() {}
-  union {
-    CMsgGameOverlayTexturePaint _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgGameOverlayTexturePaintDefaultTypeInternal _CMsgGameOverlayTexturePaint_default_instance_;
 constexpr CMsgGetZoom::CMsgGetZoom(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : browser_handle_(0u){}
@@ -1945,40 +1927,14 @@ struct CMsgSetNetFakeLocalSystemStateDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSetNetFakeLocalSystemStateDefaultTypeInternal _CMsgSetNetFakeLocalSystemState_default_instance_;
-constexpr CMsgSetGameOverlayTargetPIDs::CMsgSetGameOverlayTargetPIDs(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : target_pid_()
-  , browser_handle_(0u){}
-struct CMsgSetGameOverlayTargetPIDsDefaultTypeInternal {
-  constexpr CMsgSetGameOverlayTargetPIDsDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgSetGameOverlayTargetPIDsDefaultTypeInternal() {}
-  union {
-    CMsgSetGameOverlayTargetPIDs _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSetGameOverlayTargetPIDsDefaultTypeInternal _CMsgSetGameOverlayTargetPIDs_default_instance_;
-constexpr CMsgGameOverlayTargetTextureID::CMsgGameOverlayTargetTextureID(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : browser_handle_(0u)
-  , target_pid_(0u)
-  , texture_handle_(0u){}
-struct CMsgGameOverlayTargetTextureIDDefaultTypeInternal {
-  constexpr CMsgGameOverlayTargetTextureIDDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgGameOverlayTargetTextureIDDefaultTypeInternal() {}
-  union {
-    CMsgGameOverlayTargetTextureID _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgGameOverlayTargetTextureIDDefaultTypeInternal _CMsgGameOverlayTargetTextureID_default_instance_;
 constexpr CMsgDraggableRegionsChanged_DraggableRects::CMsgDraggableRegionsChanged_DraggableRects(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : x_(0)
   , y_(0)
   , width_(0)
   , height_(0)
-  , draggable_(false){}
+  , draggable_(false)
+  , transparent_(false){}
 struct CMsgDraggableRegionsChanged_DraggableRectsDefaultTypeInternal {
   constexpr CMsgDraggableRegionsChanged_DraggableRectsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -2420,7 +2376,7 @@ struct CMsgRestartJSContextDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgRestartJSContextDefaultTypeInternal _CMsgRestartJSContext_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_htmlmessages_2eproto[171];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_htmlmessages_2eproto[168];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_htmlmessages_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_htmlmessages_2eproto = nullptr;
 
@@ -3379,25 +3335,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   5,
   6,
   7,
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, browser_handle_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, width_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, height_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, scrollx_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, scrolly_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, pagescale_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTexturePaint, pageserial_),
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
   PROTOBUF_FIELD_OFFSET(::CMsgGetZoom, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGetZoom, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3968,26 +3905,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMsgSetNetFakeLocalSystemState, state_),
   0,
-  PROTOBUF_FIELD_OFFSET(::CMsgSetGameOverlayTargetPIDs, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSetGameOverlayTargetPIDs, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgSetGameOverlayTargetPIDs, browser_handle_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSetGameOverlayTargetPIDs, target_pid_),
-  0,
-  ~0u,
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTargetTextureID, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTargetTextureID, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTargetTextureID, browser_handle_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTargetTextureID, target_pid_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameOverlayTargetTextureID, texture_handle_),
-  0,
-  1,
-  2,
   PROTOBUF_FIELD_OFFSET(::CMsgDraggableRegionsChanged_DraggableRects, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgDraggableRegionsChanged_DraggableRects, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3998,11 +3915,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   PROTOBUF_FIELD_OFFSET(::CMsgDraggableRegionsChanged_DraggableRects, width_),
   PROTOBUF_FIELD_OFFSET(::CMsgDraggableRegionsChanged_DraggableRects, height_),
   PROTOBUF_FIELD_OFFSET(::CMsgDraggableRegionsChanged_DraggableRects, draggable_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDraggableRegionsChanged_DraggableRects, transparent_),
   0,
   1,
   2,
   3,
   4,
+  5,
   PROTOBUF_FIELD_OFFSET(::CMsgDraggableRegionsChanged, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgDraggableRegionsChanged, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4405,97 +4324,94 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 895, 908, sizeof(::CMsgNeedsPaint)},
   { 916, 927, sizeof(::CMsgComboNeedsPaint)},
   { 933, 946, sizeof(::CMsgNeedsSharedTexturePaint)},
-  { 954, 966, sizeof(::CMsgGameOverlayTexturePaint)},
-  { 973, 979, sizeof(::CMsgGetZoom)},
-  { 980, 987, sizeof(::CMsgGetZoomResponse)},
-  { 989, 997, sizeof(::CMsgLinkAtPosition)},
-  { 1000, 1011, sizeof(::CMsgLinkAtPositionResponse)},
-  { 1017, 1025, sizeof(::CMsgZoomToElementAtPosition)},
-  { 1028, 1036, sizeof(::CMsgZoomToElementAtPositionResponse)},
-  { 1039, 1048, sizeof(::CMsgScalePageToValue)},
-  { 1052, 1059, sizeof(::CMsgForcePopupsToDirectHWND)},
-  { 1061, 1068, sizeof(::CMsgScalePageToValueResponse)},
-  { 1070, 1080, sizeof(::CMsgSavePageToJPEG)},
-  { 1085, 1093, sizeof(::CMsgSavePageToJPEGResponse)},
-  { 1096, 1103, sizeof(::CMsgJSAlert)},
-  { 1105, 1112, sizeof(::CMsgJSConfirm)},
-  { 1114, 1121, sizeof(::CMsgJSDialogResponse)},
-  { 1123, 1131, sizeof(::CMsgCanGoBackAndForward)},
-  { 1134, 1142, sizeof(::CMsgOpenSteamURL)},
-  { 1145, 1158, sizeof(::CMsgSetCookie)},
-  { 1166, 1173, sizeof(::CMsgSetTargetFrameRate)},
-  { 1175, 1181, sizeof(::CMsgPauseRepaint)},
-  { 1182, 1188, sizeof(::CMsgFullRepaint)},
-  { 1189, 1195, sizeof(::CMsgRequestFullScreen)},
-  { 1196, 1202, sizeof(::CMsgExitFullScreen)},
-  { 1203, 1209, sizeof(::CMsgToggleFindInPageDialog)},
-  { 1210, 1216, sizeof(::CMsgSetPIDShuttingDown)},
-  { 1217, 1223, sizeof(::CMsgDisableBackgroundThrottling)},
-  { 1224, 1230, sizeof(::CMsgAckPIDShuttingDown)},
-  { 1231, 1238, sizeof(::CMsgGetCookiesForURL)},
-  { 1240, 1249, sizeof(::CCookie)},
-  { 1253, 1261, sizeof(::CMsgGetCookiesForURLResponse)},
-  { 1264, 1277, sizeof(::CMsgNodeHasFocus)},
-  { 1285, 1291, sizeof(::CMsgZoomToFocusedElement)},
-  { 1292, 1298, sizeof(::CMsgFocusedNodeText)},
-  { 1299, 1306, sizeof(::CMsgFocusedNodeTextResponse)},
-  { 1308, 1314, sizeof(::CMsgBuildID)},
-  { 1315, 1321, sizeof(::CMsgOpenDevTools)},
-  { 1322, 1328, sizeof(::CMsgCloseDevTools)},
-  { 1329, 1336, sizeof(::CMsgUnlockH264)},
-  { 1338, 1354, sizeof(::CMsgScreenInformationChanged)},
-  { 1365, 1371, sizeof(::CMsgClearAllCookies)},
-  { 1372, 1379, sizeof(::CMsgScreenDPI)},
-  { 1381, 1387, sizeof(::CMsgAckScreenDPI)},
-  { 1388, -1, sizeof(::CMsgAuthedSteamDomains)},
-  { 1394, 1400, sizeof(::CMsgSteamAuthNeeded)},
-  { 1401, 1407, sizeof(::CMsgSteamAuthCookiesSet)},
-  { 1408, 1416, sizeof(::CMsgJSRegisterMethod)},
-  { 1419, 1426, sizeof(::CMsgJSValue_JSObjectProperty)},
-  { 1428, 1444, sizeof(::CMsgJSValue)},
-  { 1455, 1464, sizeof(::CMsgJSMethodCall)},
-  { 1468, 1477, sizeof(::CMsgJSExecuteCallback)},
-  { 1481, 1491, sizeof(::CMsgJSExecutePromise)},
-  { 1496, 1504, sizeof(::CMsgJSReleaseCallback)},
-  { 1507, 1515, sizeof(::CMsgJSRaiseException)},
-  { 1518, 1526, sizeof(::CMsgLoadLocalization)},
-  { 1529, 1535, sizeof(::CMsgNotifyUserActivation)},
-  { 1536, 1542, sizeof(::CMsgSetNetFakeLocalSystemState)},
-  { 1543, 1550, sizeof(::CMsgSetGameOverlayTargetPIDs)},
-  { 1552, 1560, sizeof(::CMsgGameOverlayTargetTextureID)},
-  { 1563, 1573, sizeof(::CMsgDraggableRegionsChanged_DraggableRects)},
-  { 1578, 1585, sizeof(::CMsgDraggableRegionsChanged)},
-  { 1587, 1595, sizeof(::CMsgResizeGripChanged)},
-  { 1598, 1612, sizeof(::CMsgSetWindowPosition)},
-  { 1621, 1627, sizeof(::CMsgShowWindow)},
-  { 1628, 1634, sizeof(::CMsgHideWindow)},
-  { 1635, 1641, sizeof(::CMsgBringWindowToFront)},
-  { 1642, 1648, sizeof(::CMsgSetForegroundWindow)},
-  { 1649, 1655, sizeof(::CMsgMaximizeRestoreWindow)},
-  { 1656, 1662, sizeof(::CMsgMinimizeWindow)},
-  { 1663, 1670, sizeof(::CMsgShowBrowserContextMenu_ContextCommand)},
-  { 1672, 1688, sizeof(::CMsgShowBrowserContextMenu)},
-  { 1699, 1706, sizeof(::CMsgHandleContextMenuCommand)},
-  { 1708, 1722, sizeof(::CMsgTouchGesture)},
-  { 1731, 1738, sizeof(::CMsgSetTouchGesturesToCancel)},
-  { 1740, 1747, sizeof(::CMsgImeSetComposition)},
-  { 1749, 1756, sizeof(::CMsgImeCommitText)},
-  { 1758, 1764, sizeof(::CMsgImeCancelComposition)},
-  { 1765, 1773, sizeof(::CMsgImeCompositionRangeChanged)},
-  { 1776, 1784, sizeof(::CMsgInspectElement)},
-  { 1787, 1794, sizeof(::CMsgDisableF5)},
-  { 1796, 1803, sizeof(::CMsgStartDownload)},
-  { 1805, 1812, sizeof(::CMsgSetWindowStackingOrder)},
-  { 1814, 1823, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
-  { 1827, 1834, sizeof(::CMsgBlockedRequest)},
-  { 1836, 1843, sizeof(::CMsgBrowserFocusChanged)},
-  { 1845, 1852, sizeof(::CMsgSetProtocolBlockList)},
-  { 1854, 1861, sizeof(::CMsgSetForceDeviceScaleFactors)},
-  { 1863, 1869, sizeof(::CMsgSetUIMode)},
-  { 1870, 1876, sizeof(::CMsgSetSteamBetaName)},
-  { 1877, 1883, sizeof(::CMsgPopupCreated)},
-  { 1884, 1891, sizeof(::CMsgSetVRKeyboardVisibility)},
-  { 1893, -1, sizeof(::CMsgRestartJSContext)},
+  { 954, 960, sizeof(::CMsgGetZoom)},
+  { 961, 968, sizeof(::CMsgGetZoomResponse)},
+  { 970, 978, sizeof(::CMsgLinkAtPosition)},
+  { 981, 992, sizeof(::CMsgLinkAtPositionResponse)},
+  { 998, 1006, sizeof(::CMsgZoomToElementAtPosition)},
+  { 1009, 1017, sizeof(::CMsgZoomToElementAtPositionResponse)},
+  { 1020, 1029, sizeof(::CMsgScalePageToValue)},
+  { 1033, 1040, sizeof(::CMsgForcePopupsToDirectHWND)},
+  { 1042, 1049, sizeof(::CMsgScalePageToValueResponse)},
+  { 1051, 1061, sizeof(::CMsgSavePageToJPEG)},
+  { 1066, 1074, sizeof(::CMsgSavePageToJPEGResponse)},
+  { 1077, 1084, sizeof(::CMsgJSAlert)},
+  { 1086, 1093, sizeof(::CMsgJSConfirm)},
+  { 1095, 1102, sizeof(::CMsgJSDialogResponse)},
+  { 1104, 1112, sizeof(::CMsgCanGoBackAndForward)},
+  { 1115, 1123, sizeof(::CMsgOpenSteamURL)},
+  { 1126, 1139, sizeof(::CMsgSetCookie)},
+  { 1147, 1154, sizeof(::CMsgSetTargetFrameRate)},
+  { 1156, 1162, sizeof(::CMsgPauseRepaint)},
+  { 1163, 1169, sizeof(::CMsgFullRepaint)},
+  { 1170, 1176, sizeof(::CMsgRequestFullScreen)},
+  { 1177, 1183, sizeof(::CMsgExitFullScreen)},
+  { 1184, 1190, sizeof(::CMsgToggleFindInPageDialog)},
+  { 1191, 1197, sizeof(::CMsgSetPIDShuttingDown)},
+  { 1198, 1204, sizeof(::CMsgDisableBackgroundThrottling)},
+  { 1205, 1211, sizeof(::CMsgAckPIDShuttingDown)},
+  { 1212, 1219, sizeof(::CMsgGetCookiesForURL)},
+  { 1221, 1230, sizeof(::CCookie)},
+  { 1234, 1242, sizeof(::CMsgGetCookiesForURLResponse)},
+  { 1245, 1258, sizeof(::CMsgNodeHasFocus)},
+  { 1266, 1272, sizeof(::CMsgZoomToFocusedElement)},
+  { 1273, 1279, sizeof(::CMsgFocusedNodeText)},
+  { 1280, 1287, sizeof(::CMsgFocusedNodeTextResponse)},
+  { 1289, 1295, sizeof(::CMsgBuildID)},
+  { 1296, 1302, sizeof(::CMsgOpenDevTools)},
+  { 1303, 1309, sizeof(::CMsgCloseDevTools)},
+  { 1310, 1317, sizeof(::CMsgUnlockH264)},
+  { 1319, 1335, sizeof(::CMsgScreenInformationChanged)},
+  { 1346, 1352, sizeof(::CMsgClearAllCookies)},
+  { 1353, 1360, sizeof(::CMsgScreenDPI)},
+  { 1362, 1368, sizeof(::CMsgAckScreenDPI)},
+  { 1369, -1, sizeof(::CMsgAuthedSteamDomains)},
+  { 1375, 1381, sizeof(::CMsgSteamAuthNeeded)},
+  { 1382, 1388, sizeof(::CMsgSteamAuthCookiesSet)},
+  { 1389, 1397, sizeof(::CMsgJSRegisterMethod)},
+  { 1400, 1407, sizeof(::CMsgJSValue_JSObjectProperty)},
+  { 1409, 1425, sizeof(::CMsgJSValue)},
+  { 1436, 1445, sizeof(::CMsgJSMethodCall)},
+  { 1449, 1458, sizeof(::CMsgJSExecuteCallback)},
+  { 1462, 1472, sizeof(::CMsgJSExecutePromise)},
+  { 1477, 1485, sizeof(::CMsgJSReleaseCallback)},
+  { 1488, 1496, sizeof(::CMsgJSRaiseException)},
+  { 1499, 1507, sizeof(::CMsgLoadLocalization)},
+  { 1510, 1516, sizeof(::CMsgNotifyUserActivation)},
+  { 1517, 1523, sizeof(::CMsgSetNetFakeLocalSystemState)},
+  { 1524, 1535, sizeof(::CMsgDraggableRegionsChanged_DraggableRects)},
+  { 1541, 1548, sizeof(::CMsgDraggableRegionsChanged)},
+  { 1550, 1558, sizeof(::CMsgResizeGripChanged)},
+  { 1561, 1575, sizeof(::CMsgSetWindowPosition)},
+  { 1584, 1590, sizeof(::CMsgShowWindow)},
+  { 1591, 1597, sizeof(::CMsgHideWindow)},
+  { 1598, 1604, sizeof(::CMsgBringWindowToFront)},
+  { 1605, 1611, sizeof(::CMsgSetForegroundWindow)},
+  { 1612, 1618, sizeof(::CMsgMaximizeRestoreWindow)},
+  { 1619, 1625, sizeof(::CMsgMinimizeWindow)},
+  { 1626, 1633, sizeof(::CMsgShowBrowserContextMenu_ContextCommand)},
+  { 1635, 1651, sizeof(::CMsgShowBrowserContextMenu)},
+  { 1662, 1669, sizeof(::CMsgHandleContextMenuCommand)},
+  { 1671, 1685, sizeof(::CMsgTouchGesture)},
+  { 1694, 1701, sizeof(::CMsgSetTouchGesturesToCancel)},
+  { 1703, 1710, sizeof(::CMsgImeSetComposition)},
+  { 1712, 1719, sizeof(::CMsgImeCommitText)},
+  { 1721, 1727, sizeof(::CMsgImeCancelComposition)},
+  { 1728, 1736, sizeof(::CMsgImeCompositionRangeChanged)},
+  { 1739, 1747, sizeof(::CMsgInspectElement)},
+  { 1750, 1757, sizeof(::CMsgDisableF5)},
+  { 1759, 1766, sizeof(::CMsgStartDownload)},
+  { 1768, 1775, sizeof(::CMsgSetWindowStackingOrder)},
+  { 1777, 1786, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
+  { 1790, 1797, sizeof(::CMsgBlockedRequest)},
+  { 1799, 1806, sizeof(::CMsgBrowserFocusChanged)},
+  { 1808, 1815, sizeof(::CMsgSetProtocolBlockList)},
+  { 1817, 1824, sizeof(::CMsgSetForceDeviceScaleFactors)},
+  { 1826, 1832, sizeof(::CMsgSetUIMode)},
+  { 1833, 1839, sizeof(::CMsgSetSteamBetaName)},
+  { 1840, 1846, sizeof(::CMsgPopupCreated)},
+  { 1847, 1854, sizeof(::CMsgSetVRKeyboardVisibility)},
+  { 1856, -1, sizeof(::CMsgRestartJSContext)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -4579,7 +4495,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgNeedsPaint_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgComboNeedsPaint_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgNeedsSharedTexturePaint_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgGameOverlayTexturePaint_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgGetZoom_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgGetZoomResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgLinkAtPosition_default_instance_),
@@ -4635,8 +4550,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgLoadLocalization_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgNotifyUserActivation_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetNetFakeLocalSystemState_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSetGameOverlayTargetPIDs_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgGameOverlayTargetTextureID_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgDraggableRegionsChanged_DraggableRects_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgDraggableRegionsChanged_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgResizeGripChanged_default_instance_),
@@ -4860,10 +4773,6 @@ const char descriptor_table_protodef_htmlmessages_2eproto[] PROTOBUF_SECTION_VAR
   "\001 \001(\r\022\024\n\014share_handle\030\002 \001(\r\022\r\n\005width\030\003 \001"
   "(\r\022\016\n\006height\030\004 \001(\r\022\017\n\007scrollx\030\005 \001(\r\022\017\n\007s"
   "crolly\030\006 \001(\r\022\021\n\tpagescale\030\007 \001(\002\022\022\n\npages"
-  "erial\030\010 \001(\r\"\235\001\n\033CMsgGameOverlayTexturePa"
-  "int\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005width\030\003 \001"
-  "(\r\022\016\n\006height\030\004 \001(\r\022\017\n\007scrollx\030\005 \001(\r\022\017\n\007s"
-  "crolly\030\006 \001(\r\022\021\n\tpagescale\030\007 \001(\002\022\022\n\npages"
   "erial\030\010 \001(\r\"%\n\013CMsgGetZoom\022\026\n\016browser_ha"
   "ndle\030\001 \001(\r\";\n\023CMsgGetZoomResponse\022\026\n\016bro"
   "wser_handle\030\001 \001(\r\022\014\n\004zoom\030\002 \001(\002\"B\n\022CMsgL"
@@ -4976,89 +4885,85 @@ const char descriptor_table_protodef_htmlmessages_2eproto[] PROTOBUF_SECTION_VAR
   "handle\030\001 \001(\r\022\031\n\021localization_path\030\002 \001(\t\022"
   "\020\n\010language\030\003 \001(\t\"2\n\030CMsgNotifyUserActiv"
   "ation\022\026\n\016browser_handle\030\001 \001(\r\"/\n\036CMsgSet"
-  "NetFakeLocalSystemState\022\r\n\005state\030\001 \001(\r\"J"
-  "\n\034CMsgSetGameOverlayTargetPIDs\022\026\n\016browse"
-  "r_handle\030\001 \001(\r\022\022\n\ntarget_pid\030\002 \003(\r\"d\n\036CM"
-  "sgGameOverlayTargetTextureID\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\022\n\ntarget_pid\030\002 \001(\r\022\026\n\016text"
-  "ure_handle\030\003 \001(\r\"\313\001\n\033CMsgDraggableRegion"
-  "sChanged\022\026\n\016browser_handle\030\001 \001(\r\022:\n\005rect"
-  "s\030\002 \003(\0132+.CMsgDraggableRegionsChanged.Dr"
-  "aggableRects\032X\n\016DraggableRects\022\t\n\001x\030\001 \001("
-  "\005\022\t\n\001y\030\002 \001(\005\022\r\n\005width\030\003 \001(\005\022\016\n\006height\030\004 "
-  "\001(\005\022\021\n\tdraggable\030\005 \001(\010\"N\n\025CMsgResizeGrip"
-  "Changed\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005width"
-  "\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\"\262\001\n\025CMsgSetWindow"
-  "Position\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 "
-  "\001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005width\030\004 \001(\001\022\016\n\006height\030"
-  "\005 \001(\001\022\021\n\tmin_width\030\006 \001(\001\022\022\n\nmin_height\030\007"
-  " \001(\001\022\021\n\tmax_width\030\010 \001(\001\022\022\n\nmax_height\030\t "
-  "\001(\001\"(\n\016CMsgShowWindow\022\026\n\016browser_handle\030"
-  "\001 \001(\r\"(\n\016CMsgHideWindow\022\026\n\016browser_handl"
-  "e\030\001 \001(\r\"0\n\026CMsgBringWindowToFront\022\026\n\016bro"
-  "wser_handle\030\001 \001(\r\"1\n\027CMsgSetForegroundWi"
-  "ndow\022\026\n\016browser_handle\030\001 \001(\r\"3\n\031CMsgMaxi"
-  "mizeRestoreWindow\022\026\n\016browser_handle\030\001 \001("
-  "\r\",\n\022CMsgMinimizeWindow\022\026\n\016browser_handl"
-  "e\030\001 \001(\r\"\344\002\n\032CMsgShowBrowserContextMenu\022\026"
-  "\n\016browser_handle\030\001 \001(\r\022C\n\017custom_command"
-  "s\030\002 \003(\0132*.CMsgShowBrowserContextMenu.Con"
-  "textCommand\022\022\n\ntype_flags\030\003 \001(\r\022\020\n\010page_"
-  "url\030\004 \001(\t\022\017\n\007coord_x\030\005 \001(\005\022\017\n\007coord_y\030\006 "
-  "\001(\005\022\016\n\006linurl\030\007 \001(\t\022\031\n\021unfiltered_linurl"
-  "\030\010 \001(\t\022\026\n\016selection_text\030\t \001(\t\022\027\n\017misspe"
-  "lled_word\030\n \001(\t\022\030\n\020edit_state_flags\030\013 \001("
-  "\r\032+\n\016ContextCommand\022\n\n\002id\030\001 \001(\005\022\r\n\005label"
-  "\030\002 \001(\t\"J\n\034CMsgHandleContextMenuCommand\022\026"
-  "\n\016browser_handle\030\001 \001(\r\022\022\n\ncommand_id\030\002 \001"
-  "(\005\"\244\001\n\020CMsgTouchGesture\022\026\n\016browser_handl"
-  "e\030\001 \001(\r\022\n\n\002id\030\002 \001(\005\022\017\n\007gesture\030\003 \001(\r\022\t\n\001"
-  "x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\r\n\005width\030\006 \001(\001\022\016\n\006hei"
-  "ght\030\007 \001(\001\022\021\n\ttap_count\030\010 \001(\r\022\023\n\013pinch_sc"
-  "ale\030\t \001(\001\"H\n\034CMsgSetTouchGesturesToCance"
-  "l\022\026\n\016browser_handle\030\001 \001(\r\022\020\n\010gestures\030\002 "
-  "\003(\r\"=\n\025CMsgImeSetComposition\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\"9\n\021CMsgImeCom"
-  "mitText\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004text\030"
-  "\002 \001(\t\"2\n\030CMsgImeCancelComposition\022\026\n\016bro"
-  "wser_handle\030\001 \001(\r\"N\n\036CMsgImeCompositionR"
-  "angeChanged\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x"
-  "\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"B\n\022CMsgInspectElement\022"
-  "\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030"
-  "\003 \001(\r\"8\n\rCMsgDisableF5\022\026\n\016browser_handle"
-  "\030\001 \001(\r\022\017\n\007disable\030\002 \001(\010\"8\n\021CMsgStartDown"
-  "load\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001("
-  "\t\"L\n\032CMsgSetWindowStackingOrder\022\026\n\016brows"
-  "er_handle\030\001 \001(\r\022\026\n\016estackingorder\030\002 \001(\r\""
-  "z\n)CMsgBrowserViewPostMessageToParentReq"
-  "uest\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007message\030"
-  "\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016requesting_url\030\004 "
-  "\001(\t\"9\n\022CMsgBlockedRequest\022\026\n\016browser_han"
-  "dle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"B\n\027CMsgBrowserFoc"
-  "usChanged\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007foc"
-  "used\030\002 \001(\010\"@\n\030CMsgSetProtocolBlockList\022\026"
-  "\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 \001(\t\"J\n\036"
-  "CMsgSetForceDeviceScaleFactors\022\021\n\tdpi_sc"
-  "ale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\" \n\rCMsg"
-  "SetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"/\n\024CMsgSetSte"
-  "amBetaName\022\027\n\017steam_beta_name\030\001 \001(\t\"*\n\020C"
-  "MsgPopupCreated\022\026\n\016browser_handle\030\001 \001(\r\""
-  "F\n\033CMsgSetVRKeyboardVisibility\022\026\n\016browse"
-  "r_handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n\024CMsgR"
-  "estartJSContext*\245\001\n\025EJSRegisterMethodTyp"
-  "e\022!\n\035EJSRegisterMethodType_Invalid\020\000\022\"\n\036"
-  "EJSRegisterMethodType_Function\020\001\022\"\n\036EJSR"
-  "egisterMethodType_Callback\020\002\022!\n\035EJSRegis"
-  "terMethodType_Promise\020\003B\037H\001\200\001\000\252\002\027OpenSte"
-  "amworks.Protobuf"
+  "NetFakeLocalSystemState\022\r\n\005state\030\001 \001(\r\"\340"
+  "\001\n\033CMsgDraggableRegionsChanged\022\026\n\016browse"
+  "r_handle\030\001 \001(\r\022:\n\005rects\030\002 \003(\0132+.CMsgDrag"
+  "gableRegionsChanged.DraggableRects\032m\n\016Dr"
+  "aggableRects\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\r\n\005wi"
+  "dth\030\003 \001(\005\022\016\n\006height\030\004 \001(\005\022\021\n\tdraggable\030\005"
+  " \001(\010\022\023\n\013transparent\030\006 \001(\010\"N\n\025CMsgResizeG"
+  "ripChanged\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005wi"
+  "dth\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\"\262\001\n\025CMsgSetWin"
+  "dowPosition\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x"
+  "\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005width\030\004 \001(\001\022\016\n\006heig"
+  "ht\030\005 \001(\001\022\021\n\tmin_width\030\006 \001(\001\022\022\n\nmin_heigh"
+  "t\030\007 \001(\001\022\021\n\tmax_width\030\010 \001(\001\022\022\n\nmax_height"
+  "\030\t \001(\001\"(\n\016CMsgShowWindow\022\026\n\016browser_hand"
+  "le\030\001 \001(\r\"(\n\016CMsgHideWindow\022\026\n\016browser_ha"
+  "ndle\030\001 \001(\r\"0\n\026CMsgBringWindowToFront\022\026\n\016"
+  "browser_handle\030\001 \001(\r\"1\n\027CMsgSetForegroun"
+  "dWindow\022\026\n\016browser_handle\030\001 \001(\r\"3\n\031CMsgM"
+  "aximizeRestoreWindow\022\026\n\016browser_handle\030\001"
+  " \001(\r\",\n\022CMsgMinimizeWindow\022\026\n\016browser_ha"
+  "ndle\030\001 \001(\r\"\344\002\n\032CMsgShowBrowserContextMen"
+  "u\022\026\n\016browser_handle\030\001 \001(\r\022C\n\017custom_comm"
+  "ands\030\002 \003(\0132*.CMsgShowBrowserContextMenu."
+  "ContextCommand\022\022\n\ntype_flags\030\003 \001(\r\022\020\n\010pa"
+  "ge_url\030\004 \001(\t\022\017\n\007coord_x\030\005 \001(\005\022\017\n\007coord_y"
+  "\030\006 \001(\005\022\016\n\006linurl\030\007 \001(\t\022\031\n\021unfiltered_lin"
+  "url\030\010 \001(\t\022\026\n\016selection_text\030\t \001(\t\022\027\n\017mis"
+  "spelled_word\030\n \001(\t\022\030\n\020edit_state_flags\030\013"
+  " \001(\r\032+\n\016ContextCommand\022\n\n\002id\030\001 \001(\005\022\r\n\005la"
+  "bel\030\002 \001(\t\"J\n\034CMsgHandleContextMenuComman"
+  "d\022\026\n\016browser_handle\030\001 \001(\r\022\022\n\ncommand_id\030"
+  "\002 \001(\005\"\244\001\n\020CMsgTouchGesture\022\026\n\016browser_ha"
+  "ndle\030\001 \001(\r\022\n\n\002id\030\002 \001(\005\022\017\n\007gesture\030\003 \001(\r\022"
+  "\t\n\001x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\r\n\005width\030\006 \001(\001\022\016\n\006"
+  "height\030\007 \001(\001\022\021\n\ttap_count\030\010 \001(\r\022\023\n\013pinch"
+  "_scale\030\t \001(\001\"H\n\034CMsgSetTouchGesturesToCa"
+  "ncel\022\026\n\016browser_handle\030\001 \001(\r\022\020\n\010gestures"
+  "\030\002 \003(\r\"=\n\025CMsgImeSetComposition\022\026\n\016brows"
+  "er_handle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\"9\n\021CMsgIme"
+  "CommitText\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004te"
+  "xt\030\002 \001(\t\"2\n\030CMsgImeCancelComposition\022\026\n\016"
+  "browser_handle\030\001 \001(\r\"N\n\036CMsgImeCompositi"
+  "onRangeChanged\022\026\n\016browser_handle\030\001 \001(\r\022\t"
+  "\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"B\n\022CMsgInspectEleme"
+  "nt\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n"
+  "\001y\030\003 \001(\r\"8\n\rCMsgDisableF5\022\026\n\016browser_han"
+  "dle\030\001 \001(\r\022\017\n\007disable\030\002 \001(\010\"8\n\021CMsgStartD"
+  "ownload\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002"
+  " \001(\t\"L\n\032CMsgSetWindowStackingOrder\022\026\n\016br"
+  "owser_handle\030\001 \001(\r\022\026\n\016estackingorder\030\002 \001"
+  "(\r\"z\n)CMsgBrowserViewPostMessageToParent"
+  "Request\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007messa"
+  "ge\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016requesting_url"
+  "\030\004 \001(\t\"9\n\022CMsgBlockedRequest\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"B\n\027CMsgBrowser"
+  "FocusChanged\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007"
+  "focused\030\002 \001(\010\"@\n\030CMsgSetProtocolBlockLis"
+  "t\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 \001(\t\""
+  "J\n\036CMsgSetForceDeviceScaleFactors\022\021\n\tdpi"
+  "_scale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\" \n\rC"
+  "MsgSetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"/\n\024CMsgSet"
+  "SteamBetaName\022\027\n\017steam_beta_name\030\001 \001(\t\"*"
+  "\n\020CMsgPopupCreated\022\026\n\016browser_handle\030\001 \001"
+  "(\r\"F\n\033CMsgSetVRKeyboardVisibility\022\026\n\016bro"
+  "wser_handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n\024CM"
+  "sgRestartJSContext*\245\001\n\025EJSRegisterMethod"
+  "Type\022!\n\035EJSRegisterMethodType_Invalid\020\000\022"
+  "\"\n\036EJSRegisterMethodType_Function\020\001\022\"\n\036E"
+  "JSRegisterMethodType_Callback\020\002\022!\n\035EJSRe"
+  "gisterMethodType_Promise\020\003B\037H\001\200\001\000\252\002\027Open"
+  "Steamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_htmlmessages_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_htmlmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_htmlmessages_2eproto = {
-  false, false, 15096, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
-  &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 171,
+  false, false, 14779, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
+  &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 168,
   schemas, file_default_instances, TableStruct_htmlmessages_2eproto::offsets,
   file_level_metadata_htmlmessages_2eproto, file_level_enum_descriptors_htmlmessages_2eproto, file_level_service_descriptors_htmlmessages_2eproto,
 };
@@ -28556,388 +28461,6 @@ void CMsgNeedsSharedTexturePaint::InternalSwap(CMsgNeedsSharedTexturePaint* othe
 
 // ===================================================================
 
-class CMsgGameOverlayTexturePaint::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgGameOverlayTexturePaint>()._has_bits_);
-  static void set_has_browser_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_width(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_height(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_scrollx(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_scrolly(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_pagescale(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_pageserial(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-};
-
-CMsgGameOverlayTexturePaint::CMsgGameOverlayTexturePaint(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgGameOverlayTexturePaint)
-}
-CMsgGameOverlayTexturePaint::CMsgGameOverlayTexturePaint(const CMsgGameOverlayTexturePaint& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&browser_handle_, &from.browser_handle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&pageserial_) -
-    reinterpret_cast<char*>(&browser_handle_)) + sizeof(pageserial_));
-  // @@protoc_insertion_point(copy_constructor:CMsgGameOverlayTexturePaint)
-}
-
-void CMsgGameOverlayTexturePaint::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&browser_handle_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&pageserial_) -
-    reinterpret_cast<char*>(&browser_handle_)) + sizeof(pageserial_));
-}
-
-CMsgGameOverlayTexturePaint::~CMsgGameOverlayTexturePaint() {
-  // @@protoc_insertion_point(destructor:CMsgGameOverlayTexturePaint)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgGameOverlayTexturePaint::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CMsgGameOverlayTexturePaint::ArenaDtor(void* object) {
-  CMsgGameOverlayTexturePaint* _this = reinterpret_cast< CMsgGameOverlayTexturePaint* >(object);
-  (void)_this;
-}
-void CMsgGameOverlayTexturePaint::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgGameOverlayTexturePaint::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgGameOverlayTexturePaint::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgGameOverlayTexturePaint)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    ::memset(&browser_handle_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&pageserial_) -
-        reinterpret_cast<char*>(&browser_handle_)) + sizeof(pageserial_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgGameOverlayTexturePaint::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 browser_handle = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_browser_handle(&has_bits);
-          browser_handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 width = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_width(&has_bits);
-          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 height = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          _Internal::set_has_height(&has_bits);
-          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 scrollx = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          _Internal::set_has_scrollx(&has_bits);
-          scrollx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 scrolly = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          _Internal::set_has_scrolly(&has_bits);
-          scrolly_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional float pagescale = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 61)) {
-          _Internal::set_has_pagescale(&has_bits);
-          pagescale_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 pageserial = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          _Internal::set_has_pageserial(&has_bits);
-          pageserial_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgGameOverlayTexturePaint::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgGameOverlayTexturePaint)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 browser_handle = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_browser_handle(), target);
-  }
-
-  // optional uint32 width = 3;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_width(), target);
-  }
-
-  // optional uint32 height = 4;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_height(), target);
-  }
-
-  // optional uint32 scrollx = 5;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_scrollx(), target);
-  }
-
-  // optional uint32 scrolly = 6;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_scrolly(), target);
-  }
-
-  // optional float pagescale = 7;
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(7, this->_internal_pagescale(), target);
-  }
-
-  // optional uint32 pageserial = 8;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_pageserial(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgGameOverlayTexturePaint)
-  return target;
-}
-
-size_t CMsgGameOverlayTexturePaint::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgGameOverlayTexturePaint)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    // optional uint32 browser_handle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_browser_handle());
-    }
-
-    // optional uint32 width = 3;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_width());
-    }
-
-    // optional uint32 height = 4;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_height());
-    }
-
-    // optional uint32 scrollx = 5;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_scrollx());
-    }
-
-    // optional uint32 scrolly = 6;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_scrolly());
-    }
-
-    // optional float pagescale = 7;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 + 4;
-    }
-
-    // optional uint32 pageserial = 8;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_pageserial());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgGameOverlayTexturePaint::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgGameOverlayTexturePaint)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgGameOverlayTexturePaint* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgGameOverlayTexturePaint>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgGameOverlayTexturePaint)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgGameOverlayTexturePaint)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgGameOverlayTexturePaint::MergeFrom(const CMsgGameOverlayTexturePaint& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgGameOverlayTexturePaint)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    if (cached_has_bits & 0x00000001u) {
-      browser_handle_ = from.browser_handle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      width_ = from.width_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      height_ = from.height_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      scrollx_ = from.scrollx_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      scrolly_ = from.scrolly_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      pagescale_ = from.pagescale_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      pageserial_ = from.pageserial_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgGameOverlayTexturePaint::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgGameOverlayTexturePaint)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgGameOverlayTexturePaint::CopyFrom(const CMsgGameOverlayTexturePaint& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgGameOverlayTexturePaint)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgGameOverlayTexturePaint::IsInitialized() const {
-  return true;
-}
-
-void CMsgGameOverlayTexturePaint::InternalSwap(CMsgGameOverlayTexturePaint* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgGameOverlayTexturePaint, pageserial_)
-      + sizeof(CMsgGameOverlayTexturePaint::pageserial_)
-      - PROTOBUF_FIELD_OFFSET(CMsgGameOverlayTexturePaint, browser_handle_)>(
-          reinterpret_cast<char*>(&browser_handle_),
-          reinterpret_cast<char*>(&other->browser_handle_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameOverlayTexturePaint::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 class CMsgGetZoom::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgGetZoom>()._has_bits_);
@@ -43703,518 +43226,6 @@ void CMsgSetNetFakeLocalSystemState::InternalSwap(CMsgSetNetFakeLocalSystemState
 
 // ===================================================================
 
-class CMsgSetGameOverlayTargetPIDs::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgSetGameOverlayTargetPIDs>()._has_bits_);
-  static void set_has_browser_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-};
-
-CMsgSetGameOverlayTargetPIDs::CMsgSetGameOverlayTargetPIDs(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  target_pid_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgSetGameOverlayTargetPIDs)
-}
-CMsgSetGameOverlayTargetPIDs::CMsgSetGameOverlayTargetPIDs(const CMsgSetGameOverlayTargetPIDs& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
-      target_pid_(from.target_pid_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  browser_handle_ = from.browser_handle_;
-  // @@protoc_insertion_point(copy_constructor:CMsgSetGameOverlayTargetPIDs)
-}
-
-void CMsgSetGameOverlayTargetPIDs::SharedCtor() {
-browser_handle_ = 0u;
-}
-
-CMsgSetGameOverlayTargetPIDs::~CMsgSetGameOverlayTargetPIDs() {
-  // @@protoc_insertion_point(destructor:CMsgSetGameOverlayTargetPIDs)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgSetGameOverlayTargetPIDs::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CMsgSetGameOverlayTargetPIDs::ArenaDtor(void* object) {
-  CMsgSetGameOverlayTargetPIDs* _this = reinterpret_cast< CMsgSetGameOverlayTargetPIDs* >(object);
-  (void)_this;
-}
-void CMsgSetGameOverlayTargetPIDs::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgSetGameOverlayTargetPIDs::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgSetGameOverlayTargetPIDs::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgSetGameOverlayTargetPIDs)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  target_pid_.Clear();
-  browser_handle_ = 0u;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgSetGameOverlayTargetPIDs::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 browser_handle = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_browser_handle(&has_bits);
-          browser_handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated uint32 target_pid = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_target_pid(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<16>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_target_pid(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgSetGameOverlayTargetPIDs::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgSetGameOverlayTargetPIDs)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 browser_handle = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_browser_handle(), target);
-  }
-
-  // repeated uint32 target_pid = 2;
-  for (int i = 0, n = this->_internal_target_pid_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target_pid(i), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgSetGameOverlayTargetPIDs)
-  return target;
-}
-
-size_t CMsgSetGameOverlayTargetPIDs::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgSetGameOverlayTargetPIDs)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated uint32 target_pid = 2;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->target_pid_);
-    total_size += 1 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_target_pid_size());
-    total_size += data_size;
-  }
-
-  // optional uint32 browser_handle = 1;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_browser_handle());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgSetGameOverlayTargetPIDs::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgSetGameOverlayTargetPIDs)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgSetGameOverlayTargetPIDs* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgSetGameOverlayTargetPIDs>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgSetGameOverlayTargetPIDs)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgSetGameOverlayTargetPIDs)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgSetGameOverlayTargetPIDs::MergeFrom(const CMsgSetGameOverlayTargetPIDs& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgSetGameOverlayTargetPIDs)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  target_pid_.MergeFrom(from.target_pid_);
-  if (from._internal_has_browser_handle()) {
-    _internal_set_browser_handle(from._internal_browser_handle());
-  }
-}
-
-void CMsgSetGameOverlayTargetPIDs::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgSetGameOverlayTargetPIDs)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgSetGameOverlayTargetPIDs::CopyFrom(const CMsgSetGameOverlayTargetPIDs& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSetGameOverlayTargetPIDs)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgSetGameOverlayTargetPIDs::IsInitialized() const {
-  return true;
-}
-
-void CMsgSetGameOverlayTargetPIDs::InternalSwap(CMsgSetGameOverlayTargetPIDs* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  target_pid_.InternalSwap(&other->target_pid_);
-  swap(browser_handle_, other->browser_handle_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgSetGameOverlayTargetPIDs::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgGameOverlayTargetTextureID::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgGameOverlayTargetTextureID>()._has_bits_);
-  static void set_has_browser_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_pid(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_texture_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-};
-
-CMsgGameOverlayTargetTextureID::CMsgGameOverlayTargetTextureID(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgGameOverlayTargetTextureID)
-}
-CMsgGameOverlayTargetTextureID::CMsgGameOverlayTargetTextureID(const CMsgGameOverlayTargetTextureID& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&browser_handle_, &from.browser_handle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&texture_handle_) -
-    reinterpret_cast<char*>(&browser_handle_)) + sizeof(texture_handle_));
-  // @@protoc_insertion_point(copy_constructor:CMsgGameOverlayTargetTextureID)
-}
-
-void CMsgGameOverlayTargetTextureID::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&browser_handle_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&texture_handle_) -
-    reinterpret_cast<char*>(&browser_handle_)) + sizeof(texture_handle_));
-}
-
-CMsgGameOverlayTargetTextureID::~CMsgGameOverlayTargetTextureID() {
-  // @@protoc_insertion_point(destructor:CMsgGameOverlayTargetTextureID)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgGameOverlayTargetTextureID::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CMsgGameOverlayTargetTextureID::ArenaDtor(void* object) {
-  CMsgGameOverlayTargetTextureID* _this = reinterpret_cast< CMsgGameOverlayTargetTextureID* >(object);
-  (void)_this;
-}
-void CMsgGameOverlayTargetTextureID::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgGameOverlayTargetTextureID::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgGameOverlayTargetTextureID::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgGameOverlayTargetTextureID)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    ::memset(&browser_handle_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&texture_handle_) -
-        reinterpret_cast<char*>(&browser_handle_)) + sizeof(texture_handle_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgGameOverlayTargetTextureID::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 browser_handle = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_browser_handle(&has_bits);
-          browser_handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 target_pid = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_target_pid(&has_bits);
-          target_pid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 texture_handle = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_texture_handle(&has_bits);
-          texture_handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgGameOverlayTargetTextureID::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgGameOverlayTargetTextureID)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 browser_handle = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_browser_handle(), target);
-  }
-
-  // optional uint32 target_pid = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target_pid(), target);
-  }
-
-  // optional uint32 texture_handle = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_texture_handle(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgGameOverlayTargetTextureID)
-  return target;
-}
-
-size_t CMsgGameOverlayTargetTextureID::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgGameOverlayTargetTextureID)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional uint32 browser_handle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_browser_handle());
-    }
-
-    // optional uint32 target_pid = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_target_pid());
-    }
-
-    // optional uint32 texture_handle = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_texture_handle());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgGameOverlayTargetTextureID::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgGameOverlayTargetTextureID)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgGameOverlayTargetTextureID* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgGameOverlayTargetTextureID>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgGameOverlayTargetTextureID)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgGameOverlayTargetTextureID)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgGameOverlayTargetTextureID::MergeFrom(const CMsgGameOverlayTargetTextureID& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgGameOverlayTargetTextureID)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      browser_handle_ = from.browser_handle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      target_pid_ = from.target_pid_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      texture_handle_ = from.texture_handle_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgGameOverlayTargetTextureID::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgGameOverlayTargetTextureID)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgGameOverlayTargetTextureID::CopyFrom(const CMsgGameOverlayTargetTextureID& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgGameOverlayTargetTextureID)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgGameOverlayTargetTextureID::IsInitialized() const {
-  return true;
-}
-
-void CMsgGameOverlayTargetTextureID::InternalSwap(CMsgGameOverlayTargetTextureID* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgGameOverlayTargetTextureID, texture_handle_)
-      + sizeof(CMsgGameOverlayTargetTextureID::texture_handle_)
-      - PROTOBUF_FIELD_OFFSET(CMsgGameOverlayTargetTextureID, browser_handle_)>(
-          reinterpret_cast<char*>(&browser_handle_),
-          reinterpret_cast<char*>(&other->browser_handle_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameOverlayTargetTextureID::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 class CMsgDraggableRegionsChanged_DraggableRects::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgDraggableRegionsChanged_DraggableRects>()._has_bits_);
@@ -44233,6 +43244,9 @@ class CMsgDraggableRegionsChanged_DraggableRects::_Internal {
   static void set_has_draggable(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
+  static void set_has_transparent(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
 };
 
 CMsgDraggableRegionsChanged_DraggableRects::CMsgDraggableRegionsChanged_DraggableRects(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -44246,16 +43260,16 @@ CMsgDraggableRegionsChanged_DraggableRects::CMsgDraggableRegionsChanged_Draggabl
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&x_, &from.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&draggable_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(draggable_));
+    static_cast<size_t>(reinterpret_cast<char*>(&transparent_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(transparent_));
   // @@protoc_insertion_point(copy_constructor:CMsgDraggableRegionsChanged.DraggableRects)
 }
 
 void CMsgDraggableRegionsChanged_DraggableRects::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&draggable_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(draggable_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&transparent_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(transparent_));
 }
 
 CMsgDraggableRegionsChanged_DraggableRects::~CMsgDraggableRegionsChanged_DraggableRects() {
@@ -44285,10 +43299,10 @@ void CMsgDraggableRegionsChanged_DraggableRects::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     ::memset(&x_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&draggable_) -
-        reinterpret_cast<char*>(&x_)) + sizeof(draggable_));
+        reinterpret_cast<char*>(&transparent_) -
+        reinterpret_cast<char*>(&x_)) + sizeof(transparent_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -44339,6 +43353,14 @@ const char* CMsgDraggableRegionsChanged_DraggableRects::_InternalParse(const cha
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_draggable(&has_bits);
           draggable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool transparent = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_transparent(&has_bits);
+          transparent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -44402,6 +43424,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_draggable(), target);
   }
 
+  // optional bool transparent = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_transparent(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -44419,7 +43447,7 @@ size_t CMsgDraggableRegionsChanged_DraggableRects::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional int32 x = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -44450,6 +43478,11 @@ size_t CMsgDraggableRegionsChanged_DraggableRects::ByteSizeLong() const {
 
     // optional bool draggable = 5;
     if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool transparent = 6;
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
@@ -44486,7 +43519,7 @@ void CMsgDraggableRegionsChanged_DraggableRects::MergeFrom(const CMsgDraggableRe
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       x_ = from.x_;
     }
@@ -44501,6 +43534,9 @@ void CMsgDraggableRegionsChanged_DraggableRects::MergeFrom(const CMsgDraggableRe
     }
     if (cached_has_bits & 0x00000010u) {
       draggable_ = from.draggable_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      transparent_ = from.transparent_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -44529,8 +43565,8 @@ void CMsgDraggableRegionsChanged_DraggableRects::InternalSwap(CMsgDraggableRegio
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgDraggableRegionsChanged_DraggableRects, draggable_)
-      + sizeof(CMsgDraggableRegionsChanged_DraggableRects::draggable_)
+      PROTOBUF_FIELD_OFFSET(CMsgDraggableRegionsChanged_DraggableRects, transparent_)
+      + sizeof(CMsgDraggableRegionsChanged_DraggableRects::transparent_)
       - PROTOBUF_FIELD_OFFSET(CMsgDraggableRegionsChanged_DraggableRects, x_)>(
           reinterpret_cast<char*>(&x_),
           reinterpret_cast<char*>(&other->x_));
@@ -53060,9 +52096,6 @@ template<> PROTOBUF_NOINLINE ::CMsgComboNeedsPaint* Arena::CreateMaybeMessage< :
 template<> PROTOBUF_NOINLINE ::CMsgNeedsSharedTexturePaint* Arena::CreateMaybeMessage< ::CMsgNeedsSharedTexturePaint >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgNeedsSharedTexturePaint >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CMsgGameOverlayTexturePaint* Arena::CreateMaybeMessage< ::CMsgGameOverlayTexturePaint >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgGameOverlayTexturePaint >(arena);
-}
 template<> PROTOBUF_NOINLINE ::CMsgGetZoom* Arena::CreateMaybeMessage< ::CMsgGetZoom >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgGetZoom >(arena);
 }
@@ -53227,12 +52260,6 @@ template<> PROTOBUF_NOINLINE ::CMsgNotifyUserActivation* Arena::CreateMaybeMessa
 }
 template<> PROTOBUF_NOINLINE ::CMsgSetNetFakeLocalSystemState* Arena::CreateMaybeMessage< ::CMsgSetNetFakeLocalSystemState >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSetNetFakeLocalSystemState >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgSetGameOverlayTargetPIDs* Arena::CreateMaybeMessage< ::CMsgSetGameOverlayTargetPIDs >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgSetGameOverlayTargetPIDs >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgGameOverlayTargetTextureID* Arena::CreateMaybeMessage< ::CMsgGameOverlayTargetTextureID >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgGameOverlayTargetTextureID >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgDraggableRegionsChanged_DraggableRects* Arena::CreateMaybeMessage< ::CMsgDraggableRegionsChanged_DraggableRects >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgDraggableRegionsChanged_DraggableRects >(arena);

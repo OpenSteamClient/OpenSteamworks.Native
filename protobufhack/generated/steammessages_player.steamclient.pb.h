@@ -12310,6 +12310,7 @@ class CPlayer_GetAchievementsProgress_Request PROTOBUF_FINAL :
     kAppidsFieldNumber = 3,
     kLanguageFieldNumber = 2,
     kSteamidFieldNumber = 1,
+    kIncludeUnvettedAppsFieldNumber = 4,
   };
   // repeated uint32 appids = 3;
   int appids_size() const;
@@ -12366,6 +12367,19 @@ class CPlayer_GetAchievementsProgress_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional bool include_unvetted_apps = 4;
+  bool has_include_unvetted_apps() const;
+  private:
+  bool _internal_has_include_unvetted_apps() const;
+  public:
+  void clear_include_unvetted_apps();
+  bool include_unvetted_apps() const;
+  void set_include_unvetted_apps(bool value);
+  private:
+  bool _internal_include_unvetted_apps() const;
+  void _internal_set_include_unvetted_apps(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CPlayer_GetAchievementsProgress_Request)
  private:
   class _Internal;
@@ -12378,6 +12392,7 @@ class CPlayer_GetAchievementsProgress_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > appids_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr language_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steamid_;
+  bool include_unvetted_apps_;
   friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -12506,8 +12521,9 @@ class CPlayer_GetAchievementsProgress_Response_AchievementProgress PROTOBUF_FINA
     kUnlockedFieldNumber = 2,
     kTotalFieldNumber = 3,
     kPercentageFieldNumber = 4,
-    kAllUnlockedFieldNumber = 5,
     kCacheTimeFieldNumber = 6,
+    kAllUnlockedFieldNumber = 5,
+    kVettedFieldNumber = 7,
   };
   // optional uint32 appid = 1;
   bool has_appid() const;
@@ -12561,6 +12577,19 @@ class CPlayer_GetAchievementsProgress_Response_AchievementProgress PROTOBUF_FINA
   void _internal_set_percentage(float value);
   public:
 
+  // optional uint32 cache_time = 6;
+  bool has_cache_time() const;
+  private:
+  bool _internal_has_cache_time() const;
+  public:
+  void clear_cache_time();
+  ::PROTOBUF_NAMESPACE_ID::uint32 cache_time() const;
+  void set_cache_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cache_time() const;
+  void _internal_set_cache_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // optional bool all_unlocked = 5;
   bool has_all_unlocked() const;
   private:
@@ -12574,17 +12603,17 @@ class CPlayer_GetAchievementsProgress_Response_AchievementProgress PROTOBUF_FINA
   void _internal_set_all_unlocked(bool value);
   public:
 
-  // optional uint32 cache_time = 6;
-  bool has_cache_time() const;
+  // optional bool vetted = 7;
+  bool has_vetted() const;
   private:
-  bool _internal_has_cache_time() const;
+  bool _internal_has_vetted() const;
   public:
-  void clear_cache_time();
-  ::PROTOBUF_NAMESPACE_ID::uint32 cache_time() const;
-  void set_cache_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void clear_vetted();
+  bool vetted() const;
+  void set_vetted(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cache_time() const;
-  void _internal_set_cache_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  bool _internal_vetted() const;
+  void _internal_set_vetted(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:CPlayer_GetAchievementsProgress_Response.AchievementProgress)
@@ -12600,8 +12629,9 @@ class CPlayer_GetAchievementsProgress_Response_AchievementProgress PROTOBUF_FINA
   ::PROTOBUF_NAMESPACE_ID::uint32 unlocked_;
   ::PROTOBUF_NAMESPACE_ID::uint32 total_;
   float percentage_;
-  bool all_unlocked_;
   ::PROTOBUF_NAMESPACE_ID::uint32 cache_time_;
+  bool all_unlocked_;
+  bool vetted_;
   friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -35798,6 +35828,34 @@ CPlayer_GetAchievementsProgress_Request::mutable_appids() {
   return _internal_mutable_appids();
 }
 
+// optional bool include_unvetted_apps = 4;
+inline bool CPlayer_GetAchievementsProgress_Request::_internal_has_include_unvetted_apps() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CPlayer_GetAchievementsProgress_Request::has_include_unvetted_apps() const {
+  return _internal_has_include_unvetted_apps();
+}
+inline void CPlayer_GetAchievementsProgress_Request::clear_include_unvetted_apps() {
+  include_unvetted_apps_ = false;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline bool CPlayer_GetAchievementsProgress_Request::_internal_include_unvetted_apps() const {
+  return include_unvetted_apps_;
+}
+inline bool CPlayer_GetAchievementsProgress_Request::include_unvetted_apps() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetAchievementsProgress_Request.include_unvetted_apps)
+  return _internal_include_unvetted_apps();
+}
+inline void CPlayer_GetAchievementsProgress_Request::_internal_set_include_unvetted_apps(bool value) {
+  _has_bits_[0] |= 0x00000004u;
+  include_unvetted_apps_ = value;
+}
+inline void CPlayer_GetAchievementsProgress_Request::set_include_unvetted_apps(bool value) {
+  _internal_set_include_unvetted_apps(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetAchievementsProgress_Request.include_unvetted_apps)
+}
+
 // -------------------------------------------------------------------
 
 // CPlayer_GetAchievementsProgress_Response_AchievementProgress
@@ -35916,7 +35974,7 @@ inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::set_pe
 
 // optional bool all_unlocked = 5;
 inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_has_all_unlocked() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::has_all_unlocked() const {
@@ -35924,7 +35982,7 @@ inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::has_al
 }
 inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::clear_all_unlocked() {
   all_unlocked_ = false;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_all_unlocked() const {
   return all_unlocked_;
@@ -35934,7 +35992,7 @@ inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::all_un
   return _internal_all_unlocked();
 }
 inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_set_all_unlocked(bool value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   all_unlocked_ = value;
 }
 inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::set_all_unlocked(bool value) {
@@ -35944,7 +36002,7 @@ inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::set_al
 
 // optional uint32 cache_time = 6;
 inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_has_cache_time() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::has_cache_time() const {
@@ -35952,7 +36010,7 @@ inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::has_ca
 }
 inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::clear_cache_time() {
   cache_time_ = 0u;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_cache_time() const {
   return cache_time_;
@@ -35962,12 +36020,40 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CPlayer_GetAchievementsProgress_Response_
   return _internal_cache_time();
 }
 inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_set_cache_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
   cache_time_ = value;
 }
 inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::set_cache_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_cache_time(value);
   // @@protoc_insertion_point(field_set:CPlayer_GetAchievementsProgress_Response.AchievementProgress.cache_time)
+}
+
+// optional bool vetted = 7;
+inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_has_vetted() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::has_vetted() const {
+  return _internal_has_vetted();
+}
+inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::clear_vetted() {
+  vetted_ = false;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_vetted() const {
+  return vetted_;
+}
+inline bool CPlayer_GetAchievementsProgress_Response_AchievementProgress::vetted() const {
+  // @@protoc_insertion_point(field_get:CPlayer_GetAchievementsProgress_Response.AchievementProgress.vetted)
+  return _internal_vetted();
+}
+inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::_internal_set_vetted(bool value) {
+  _has_bits_[0] |= 0x00000040u;
+  vetted_ = value;
+}
+inline void CPlayer_GetAchievementsProgress_Response_AchievementProgress::set_vetted(bool value) {
+  _internal_set_vetted(value);
+  // @@protoc_insertion_point(field_set:CPlayer_GetAchievementsProgress_Response.AchievementProgress.vetted)
 }
 
 // -------------------------------------------------------------------

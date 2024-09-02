@@ -81,6 +81,7 @@ constexpr CAppOverview::CAppOverview(
   , rt_custom_image_mtime_(0u)
   , optional_parent_app_id_(0u)
   , owner_account_id_(0u)
+  , steam_hw_compat_category_packed_(0u)
   , review_score_with_bombs_(0u)
   , review_percentage_with_bombs_(0u)
   , review_score_without_bombs_(0u)
@@ -91,8 +92,7 @@ constexpr CAppOverview::CAppOverview(
   , rt_last_time_locally_played_(0u)
   , rt_purchased_time_(0u)
   , local_cache_version_(0u)
-  , number_of_copies_(0u)
-  , steam_hw_compat_category_packed_(0u){}
+  , number_of_copies_(1u){}
 struct CAppOverviewDefaultTypeInternal {
   constexpr CAppOverviewDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -264,22 +264,22 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fappoverview_2e
   30,
   31,
   32,
-  33,
   34,
   35,
   36,
-  7,
   37,
+  7,
   38,
+  39,
   8,
   9,
-  39,
   40,
   41,
-  10,
   42,
+  10,
   43,
   44,
+  33,
   PROTOBUF_FIELD_OFFSET(::CAppOverview_Change, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CAppOverview_Change, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -340,7 +340,7 @@ const char descriptor_table_protodef_steammessages_5fappoverview_2eproto[] PROTO
   "al_client\030\t \001(\010\022(\n is_available_on_curre"
   "nt_platform\030\n \001(\010\022\032\n\022is_invalid_os_type\030"
   "\013 \001(\010\022\025\n\rplaytime_left\030\014 \001(\r\022,\n$update_a"
-  "vailable_but_disabled_by_app\030\016 \001(\010\"\325\013\n\014C"
+  "vailable_but_disabled_by_app\030\016 \001(\010\"\347\013\n\014C"
   "AppOverview\022\r\n\005appid\030\001 \001(\r\022\024\n\014display_na"
   "me\030\002 \001(\t\022\034\n\024visible_in_game_list\030\004 \001(\010\022\025"
   "\n\rsubscribed_to\030\005 \001(\010\022\017\n\007sort_as\030\006 \001(\t\0221"
@@ -365,82 +365,82 @@ const char descriptor_table_protodef_steammessages_5fappoverview_2eproto[] PROTO
   "\004:\0010\022\034\n\021selected_clientid\030- \001(\004:\0010\022\034\n\024rt"
   "_store_asset_mtime\030. \001(\r\022\035\n\025rt_custom_im"
   "age_mtime\030/ \001(\r\022\036\n\026optional_parent_app_i"
-  "d\0300 \001(\r\022\030\n\020owner_account_id\0301 \001(\r\022\037\n\027rev"
-  "iew_score_with_bombs\0305 \001(\r\022$\n\034review_per"
-  "centage_with_bombs\0306 \001(\r\022\"\n\032review_score"
-  "_without_bombs\0307 \001(\r\022\'\n\037review_percentag"
-  "e_without_bombs\0308 \001(\r\022\022\n\nlibrary_id\0309 \001("
-  "\t\022\017\n\007vr_only\030: \001(\010\022\027\n\017mastersub_appid\030; "
-  "\001(\r\022#\n\033mastersub_includedwith_logo\030< \001(\t"
-  "\022\036\n\026site_license_site_name\030> \001(\t\022\037\n\027shor"
-  "tcut_override_appid\030\? \001(\r\022#\n\033rt_last_tim"
-  "e_locally_played\030A \001(\r\022\031\n\021rt_purchased_t"
-  "ime\030B \001(\r\022\027\n\017header_filename\030C \001(\t\022\033\n\023lo"
-  "cal_cache_version\030D \001(\r\022\030\n\020number_of_cop"
-  "ies\030H \001(\r\022\'\n\037steam_hw_compat_category_pa"
-  "cked\030I \001(\r\"\177\n\023CAppOverview_Change\022#\n\014app"
-  "_overview\030\001 \003(\0132\r.CAppOverview\022\025\n\rremove"
-  "d_appid\030\002 \003(\r\022\023\n\013full_update\030\003 \001(\010\022\027\n\017up"
-  "date_complete\030\004 \001(\010\"D\n\021CAppBootstrapData"
-  "\022\r\n\005appid\030\001 \001(\r\022\016\n\006hidden\030\002 \001(\010\022\020\n\010user_"
-  "tag\030\003 \003(\t\"=\n\025CLibraryBootstrapData\022$\n\010ap"
-  "p_data\030\001 \003(\0132\022.CAppBootstrapData*\376\t\n\016EDi"
-  "splayStatus\022\031\n\025EDisplayStatusInvalid\020\000\022\033"
-  "\n\027EDisplayStatusLaunching\020\001\022\036\n\032EDisplayS"
-  "tatusUninstalling\020\002\022\034\n\030EDisplayStatusIns"
-  "talling\020\003\022\031\n\025EDisplayStatusRunning\020\004\022\034\n\030"
-  "EDisplayStatusValidating\020\005\022\032\n\026EDisplaySt"
-  "atusUpdating\020\006\022\035\n\031EDisplayStatusDownload"
-  "ing\020\007\022\037\n\033EDisplayStatusSynchronizing\020\010\022 "
-  "\n\034EDisplayStatusReadyToInstall\020\t\022 \n\034EDis"
-  "playStatusReadyToPreload\020\n\022\037\n\033EDisplaySt"
-  "atusReadyToLaunch\020\013\022\"\n\036EDisplayStatusReg"
-  "ionRestricted\020\014\022\035\n\031EDisplayStatusPresale"
-  "Only\020\r\022!\n\035EDisplayStatusInvalidPlatform\020"
-  "\016\022!\n\035EDisplayStatusPreloadComplete\020\020\022 \n\034"
-  "EDisplayStatusBorrowerLocked\020\021\022\036\n\032EDispl"
-  "ayStatusUpdatePaused\020\022\022\036\n\032EDisplayStatus"
-  "UpdateQueued\020\023\022 \n\034EDisplayStatusUpdateRe"
-  "quired\020\024\022 \n\034EDisplayStatusUpdateDisabled"
-  "\020\025\022 \n\034EDisplayStatusDownloadPaused\020\026\022 \n\034"
-  "EDisplayStatusDownloadQueued\020\027\022\"\n\036EDispl"
-  "ayStatusDownloadRequired\020\030\022\"\n\036EDisplaySt"
-  "atusDownloadDisabled\020\031\022 \n\034EDisplayStatus"
-  "LicensePending\020\032\022 \n\034EDisplayStatusLicens"
-  "eExpired\020\033\022\036\n\032EDisplayStatusAvailForFree"
-  "\020\034\022\037\n\033EDisplayStatusAvailToBorrow\020\035\022 \n\034E"
-  "DisplayStatusAvailGuestPass\020\036\022\032\n\026EDispla"
-  "yStatusPurchase\020\037\022\035\n\031EDisplayStatusUnava"
-  "ilable\020 \022\037\n\033EDisplayStatusNotLaunchable\020"
-  "!\022\034\n\030EDisplayStatusCloudError\020\"\022 \n\034EDisp"
-  "layStatusCloudOutOfDate\020#\022\035\n\031EDisplaySta"
-  "tusTerminating\020$\022\035\n\031EDisplayStatusOwnerL"
-  "ocked\020%\022 \n\034EDisplayStatusDownloadFailed\020"
-  "&\022\036\n\032EDisplayStatusUpdateFailed\020\'*\341\002\n\017EA"
-  "ppCloudStatus\022\032\n\026EAppCloudStatusInvalid\020"
-  "\000\022\033\n\027EAppCloudStatusDisabled\020\001\022\032\n\026EAppCl"
-  "oudStatusUnknown\020\002\022\037\n\033EAppCloudStatusSyn"
-  "chronized\020\003\022\033\n\027EAppCloudStatusChecking\020\004"
-  "\022\034\n\030EAppCloudStatusOutOfSync\020\005\022\034\n\030EAppCl"
-  "oudStatusUploading\020\006\022\036\n\032EAppCloudStatusD"
-  "ownloading\020\007\022\035\n\031EAppCloudStatusSyncFaile"
-  "d\020\010\022\033\n\027EAppCloudStatusConflict\020\t\022#\n\037EApp"
-  "CloudStatusPendingElsewhere\020\n*\213\001\n\032EAppCo"
-  "ntrollerSupportLevel\022\"\n\036EAppControllerSu"
-  "pportLevelNone\020\000\022%\n!EAppControllerSuppor"
-  "tLevelPartial\020\001\022\"\n\036EAppControllerSupport"
-  "LevelFull\020\002*\365\001\n#EAppGamepadGyroTrackpadS"
-  "upportLevel\0227\n*EAppGamepadGyroTrackpadSu"
-  "pportLevelUnknown\020\377\377\377\377\377\377\377\377\377\001\0220\n,EAppGame"
-  "padGyroTrackpadSupportLevelNoGamepad\020\000\022."
-  "\n*EAppGamepadGyroTrackpadSupportLevelGam"
-  "epad\020\001\0223\n/EAppGamepadGyroTrackpadSupport"
-  "LevelSimultaneous\020\002*\227\001\n\016EAppHDRSupport\022\027"
-  "\n\023EHDRSupport_Unknown\020\000\022\023\n\017EHDRSupport_S"
-  "DR\020\001\022\023\n\017EHDRSupport_HDR\020\002\022\032\n\026EHDRSupport"
-  "_HDR_Broken\020\003\022&\n\"EHDRSupport_HDR_Require"
-  "sUserAction\020\004B\037H\001\200\001\001\252\002\027OpenSteamworks.Pr"
-  "otobuf"
+  "d\0300 \001(\r\022\030\n\020owner_account_id\0301 \001(\r\022\"\n\027rev"
+  "iew_score_with_bombs\0305 \001(\r:\0010\022\'\n\034review_"
+  "percentage_with_bombs\0306 \001(\r:\0010\022%\n\032review"
+  "_score_without_bombs\0307 \001(\r:\0010\022*\n\037review_"
+  "percentage_without_bombs\0308 \001(\r:\0010\022\022\n\nlib"
+  "rary_id\0309 \001(\t\022\017\n\007vr_only\030: \001(\010\022\027\n\017master"
+  "sub_appid\030; \001(\r\022#\n\033mastersub_includedwit"
+  "h_logo\030< \001(\t\022\036\n\026site_license_site_name\030>"
+  " \001(\t\022\037\n\027shortcut_override_appid\030\? \001(\r\022#\n"
+  "\033rt_last_time_locally_played\030A \001(\r\022\031\n\021rt"
+  "_purchased_time\030B \001(\r\022\027\n\017header_filename"
+  "\030C \001(\t\022\033\n\023local_cache_version\030D \001(\r\022\033\n\020n"
+  "umber_of_copies\030H \001(\r:\0011\022*\n\037steam_hw_com"
+  "pat_category_packed\030I \001(\r:\0010\"\177\n\023CAppOver"
+  "view_Change\022#\n\014app_overview\030\001 \003(\0132\r.CApp"
+  "Overview\022\025\n\rremoved_appid\030\002 \003(\r\022\023\n\013full_"
+  "update\030\003 \001(\010\022\027\n\017update_complete\030\004 \001(\010\"D\n"
+  "\021CAppBootstrapData\022\r\n\005appid\030\001 \001(\r\022\016\n\006hid"
+  "den\030\002 \001(\010\022\020\n\010user_tag\030\003 \003(\t\"=\n\025CLibraryB"
+  "ootstrapData\022$\n\010app_data\030\001 \003(\0132\022.CAppBoo"
+  "tstrapData*\376\t\n\016EDisplayStatus\022\031\n\025EDispla"
+  "yStatusInvalid\020\000\022\033\n\027EDisplayStatusLaunch"
+  "ing\020\001\022\036\n\032EDisplayStatusUninstalling\020\002\022\034\n"
+  "\030EDisplayStatusInstalling\020\003\022\031\n\025EDisplayS"
+  "tatusRunning\020\004\022\034\n\030EDisplayStatusValidati"
+  "ng\020\005\022\032\n\026EDisplayStatusUpdating\020\006\022\035\n\031EDis"
+  "playStatusDownloading\020\007\022\037\n\033EDisplayStatu"
+  "sSynchronizing\020\010\022 \n\034EDisplayStatusReadyT"
+  "oInstall\020\t\022 \n\034EDisplayStatusReadyToPrelo"
+  "ad\020\n\022\037\n\033EDisplayStatusReadyToLaunch\020\013\022\"\n"
+  "\036EDisplayStatusRegionRestricted\020\014\022\035\n\031EDi"
+  "splayStatusPresaleOnly\020\r\022!\n\035EDisplayStat"
+  "usInvalidPlatform\020\016\022!\n\035EDisplayStatusPre"
+  "loadComplete\020\020\022 \n\034EDisplayStatusBorrower"
+  "Locked\020\021\022\036\n\032EDisplayStatusUpdatePaused\020\022"
+  "\022\036\n\032EDisplayStatusUpdateQueued\020\023\022 \n\034EDis"
+  "playStatusUpdateRequired\020\024\022 \n\034EDisplaySt"
+  "atusUpdateDisabled\020\025\022 \n\034EDisplayStatusDo"
+  "wnloadPaused\020\026\022 \n\034EDisplayStatusDownload"
+  "Queued\020\027\022\"\n\036EDisplayStatusDownloadRequir"
+  "ed\020\030\022\"\n\036EDisplayStatusDownloadDisabled\020\031"
+  "\022 \n\034EDisplayStatusLicensePending\020\032\022 \n\034ED"
+  "isplayStatusLicenseExpired\020\033\022\036\n\032EDisplay"
+  "StatusAvailForFree\020\034\022\037\n\033EDisplayStatusAv"
+  "ailToBorrow\020\035\022 \n\034EDisplayStatusAvailGues"
+  "tPass\020\036\022\032\n\026EDisplayStatusPurchase\020\037\022\035\n\031E"
+  "DisplayStatusUnavailable\020 \022\037\n\033EDisplaySt"
+  "atusNotLaunchable\020!\022\034\n\030EDisplayStatusClo"
+  "udError\020\"\022 \n\034EDisplayStatusCloudOutOfDat"
+  "e\020#\022\035\n\031EDisplayStatusTerminating\020$\022\035\n\031ED"
+  "isplayStatusOwnerLocked\020%\022 \n\034EDisplaySta"
+  "tusDownloadFailed\020&\022\036\n\032EDisplayStatusUpd"
+  "ateFailed\020\'*\341\002\n\017EAppCloudStatus\022\032\n\026EAppC"
+  "loudStatusInvalid\020\000\022\033\n\027EAppCloudStatusDi"
+  "sabled\020\001\022\032\n\026EAppCloudStatusUnknown\020\002\022\037\n\033"
+  "EAppCloudStatusSynchronized\020\003\022\033\n\027EAppClo"
+  "udStatusChecking\020\004\022\034\n\030EAppCloudStatusOut"
+  "OfSync\020\005\022\034\n\030EAppCloudStatusUploading\020\006\022\036"
+  "\n\032EAppCloudStatusDownloading\020\007\022\035\n\031EAppCl"
+  "oudStatusSyncFailed\020\010\022\033\n\027EAppCloudStatus"
+  "Conflict\020\t\022#\n\037EAppCloudStatusPendingElse"
+  "where\020\n*\213\001\n\032EAppControllerSupportLevel\022\""
+  "\n\036EAppControllerSupportLevelNone\020\000\022%\n!EA"
+  "ppControllerSupportLevelPartial\020\001\022\"\n\036EAp"
+  "pControllerSupportLevelFull\020\002*\365\001\n#EAppGa"
+  "mepadGyroTrackpadSupportLevel\0227\n*EAppGam"
+  "epadGyroTrackpadSupportLevelUnknown\020\377\377\377\377"
+  "\377\377\377\377\377\001\0220\n,EAppGamepadGyroTrackpadSupport"
+  "LevelNoGamepad\020\000\022.\n*EAppGamepadGyroTrack"
+  "padSupportLevelGamepad\020\001\0223\n/EAppGamepadG"
+  "yroTrackpadSupportLevelSimultaneous\020\002*\227\001"
+  "\n\016EAppHDRSupport\022\027\n\023EHDRSupport_Unknown\020"
+  "\000\022\023\n\017EHDRSupport_SDR\020\001\022\023\n\017EHDRSupport_HD"
+  "R\020\002\022\032\n\026EHDRSupport_HDR_Broken\020\003\022&\n\"EHDRS"
+  "upport_HDR_RequiresUserAction\020\004B\037H\001\200\001\001\252\002"
+  "\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fappoverview_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -448,7 +448,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fappoverview_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fappoverview_2eproto = {
-  false, false, 4486, descriptor_table_protodef_steammessages_5fappoverview_2eproto, "steammessages_appoverview.proto", 
+  false, false, 4504, descriptor_table_protodef_steammessages_5fappoverview_2eproto, "steammessages_appoverview.proto", 
   &descriptor_table_steammessages_5fappoverview_2eproto_once, descriptor_table_steammessages_5fappoverview_2eproto_deps, 2, 5,
   schemas, file_default_instances, TableStruct_steammessages_5fappoverview_2eproto::offsets,
   file_level_metadata_steammessages_5fappoverview_2eproto, file_level_enum_descriptors_steammessages_5fappoverview_2eproto, file_level_service_descriptors_steammessages_5fappoverview_2eproto,
@@ -1265,25 +1265,25 @@ class CAppOverview::_Internal {
     (*has_bits)[1] |= 1u;
   }
   static void set_has_review_score_with_bombs(HasBits* has_bits) {
-    (*has_bits)[1] |= 2u;
-  }
-  static void set_has_review_percentage_with_bombs(HasBits* has_bits) {
     (*has_bits)[1] |= 4u;
   }
-  static void set_has_review_score_without_bombs(HasBits* has_bits) {
+  static void set_has_review_percentage_with_bombs(HasBits* has_bits) {
     (*has_bits)[1] |= 8u;
   }
-  static void set_has_review_percentage_without_bombs(HasBits* has_bits) {
+  static void set_has_review_score_without_bombs(HasBits* has_bits) {
     (*has_bits)[1] |= 16u;
+  }
+  static void set_has_review_percentage_without_bombs(HasBits* has_bits) {
+    (*has_bits)[1] |= 32u;
   }
   static void set_has_library_id(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
   static void set_has_vr_only(HasBits* has_bits) {
-    (*has_bits)[1] |= 32u;
+    (*has_bits)[1] |= 64u;
   }
   static void set_has_mastersub_appid(HasBits* has_bits) {
-    (*has_bits)[1] |= 64u;
+    (*has_bits)[1] |= 128u;
   }
   static void set_has_mastersub_includedwith_logo(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
@@ -1292,25 +1292,25 @@ class CAppOverview::_Internal {
     (*has_bits)[0] |= 512u;
   }
   static void set_has_shortcut_override_appid(HasBits* has_bits) {
-    (*has_bits)[1] |= 128u;
-  }
-  static void set_has_rt_last_time_locally_played(HasBits* has_bits) {
     (*has_bits)[1] |= 256u;
   }
-  static void set_has_rt_purchased_time(HasBits* has_bits) {
+  static void set_has_rt_last_time_locally_played(HasBits* has_bits) {
     (*has_bits)[1] |= 512u;
+  }
+  static void set_has_rt_purchased_time(HasBits* has_bits) {
+    (*has_bits)[1] |= 1024u;
   }
   static void set_has_header_filename(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
   static void set_has_local_cache_version(HasBits* has_bits) {
-    (*has_bits)[1] |= 1024u;
-  }
-  static void set_has_number_of_copies(HasBits* has_bits) {
     (*has_bits)[1] |= 2048u;
   }
-  static void set_has_steam_hw_compat_category_packed(HasBits* has_bits) {
+  static void set_has_number_of_copies(HasBits* has_bits) {
     (*has_bits)[1] |= 4096u;
+  }
+  static void set_has_steam_hw_compat_category_packed(HasBits* has_bits) {
+    (*has_bits)[1] |= 2u;
   }
 };
 
@@ -1386,8 +1386,8 @@ CAppOverview::CAppOverview(const CAppOverview& from)
       GetArena());
   }
   ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&steam_hw_compat_category_packed_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(steam_hw_compat_category_packed_));
+    static_cast<size_t>(reinterpret_cast<char*>(&number_of_copies_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(number_of_copies_));
   // @@protoc_insertion_point(copy_constructor:CAppOverview)
 }
 
@@ -1405,8 +1405,9 @@ site_license_site_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::Get
 header_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&steam_hw_compat_category_packed_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(steam_hw_compat_category_packed_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&local_cache_version_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(local_cache_version_));
+number_of_copies_ = 1u;
 }
 
 CAppOverview::~CAppOverview() {
@@ -1505,13 +1506,14 @@ void CAppOverview::Clear() {
   cached_has_bits = _has_bits_[1];
   if (cached_has_bits & 0x000000ffu) {
     ::memset(&owner_account_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&shortcut_override_appid_) -
-        reinterpret_cast<char*>(&owner_account_id_)) + sizeof(shortcut_override_appid_));
+        reinterpret_cast<char*>(&mastersub_appid_) -
+        reinterpret_cast<char*>(&owner_account_id_)) + sizeof(mastersub_appid_));
   }
   if (cached_has_bits & 0x00001f00u) {
-    ::memset(&rt_last_time_locally_played_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&steam_hw_compat_category_packed_) -
-        reinterpret_cast<char*>(&rt_last_time_locally_played_)) + sizeof(steam_hw_compat_category_packed_));
+    ::memset(&shortcut_override_appid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&local_cache_version_) -
+        reinterpret_cast<char*>(&shortcut_override_appid_)) + sizeof(local_cache_version_));
+    number_of_copies_ = 1u;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1827,7 +1829,7 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 review_score_with_bombs = 53;
+      // optional uint32 review_score_with_bombs = 53 [default = 0];
       case 53:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 168)) {
           _Internal::set_has_review_score_with_bombs(&_has_bits_);
@@ -1835,7 +1837,7 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 review_percentage_with_bombs = 54;
+      // optional uint32 review_percentage_with_bombs = 54 [default = 0];
       case 54:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 176)) {
           _Internal::set_has_review_percentage_with_bombs(&_has_bits_);
@@ -1843,7 +1845,7 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 review_score_without_bombs = 55;
+      // optional uint32 review_score_without_bombs = 55 [default = 0];
       case 55:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 184)) {
           _Internal::set_has_review_score_without_bombs(&_has_bits_);
@@ -1851,7 +1853,7 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 review_percentage_without_bombs = 56;
+      // optional uint32 review_percentage_without_bombs = 56 [default = 0];
       case 56:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 192)) {
           _Internal::set_has_review_percentage_without_bombs(&_has_bits_);
@@ -1951,7 +1953,7 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 number_of_copies = 72;
+      // optional uint32 number_of_copies = 72 [default = 1];
       case 72:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_number_of_copies(&_has_bits_);
@@ -1959,7 +1961,7 @@ const char* CAppOverview::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 steam_hw_compat_category_packed = 73;
+      // optional uint32 steam_hw_compat_category_packed = 73 [default = 0];
       case 73:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_steam_hw_compat_category_packed(&_has_bits_);
@@ -2221,26 +2223,26 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(49, this->_internal_owner_account_id(), target);
   }
 
-  // optional uint32 review_score_with_bombs = 53;
-  if (cached_has_bits & 0x00000002u) {
+  // optional uint32 review_score_with_bombs = 53 [default = 0];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(53, this->_internal_review_score_with_bombs(), target);
   }
 
-  // optional uint32 review_percentage_with_bombs = 54;
-  if (cached_has_bits & 0x00000004u) {
+  // optional uint32 review_percentage_with_bombs = 54 [default = 0];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(54, this->_internal_review_percentage_with_bombs(), target);
   }
 
-  // optional uint32 review_score_without_bombs = 55;
-  if (cached_has_bits & 0x00000008u) {
+  // optional uint32 review_score_without_bombs = 55 [default = 0];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(55, this->_internal_review_score_without_bombs(), target);
   }
 
-  // optional uint32 review_percentage_without_bombs = 56;
-  if (cached_has_bits & 0x00000010u) {
+  // optional uint32 review_percentage_without_bombs = 56 [default = 0];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(56, this->_internal_review_percentage_without_bombs(), target);
   }
@@ -2258,13 +2260,13 @@ failure:
 
   cached_has_bits = _has_bits_[1];
   // optional bool vr_only = 58;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(58, this->_internal_vr_only(), target);
   }
 
   // optional uint32 mastersub_appid = 59;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(59, this->_internal_mastersub_appid(), target);
   }
@@ -2292,19 +2294,19 @@ failure:
 
   cached_has_bits = _has_bits_[1];
   // optional uint32 shortcut_override_appid = 63;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(63, this->_internal_shortcut_override_appid(), target);
   }
 
   // optional uint32 rt_last_time_locally_played = 65;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(65, this->_internal_rt_last_time_locally_played(), target);
   }
 
   // optional uint32 rt_purchased_time = 66;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(66, this->_internal_rt_purchased_time(), target);
   }
@@ -2322,19 +2324,19 @@ failure:
 
   cached_has_bits = _has_bits_[1];
   // optional uint32 local_cache_version = 68;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(68, this->_internal_local_cache_version(), target);
   }
 
-  // optional uint32 number_of_copies = 72;
-  if (cached_has_bits & 0x00000800u) {
+  // optional uint32 number_of_copies = 72 [default = 1];
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(72, this->_internal_number_of_copies(), target);
   }
 
-  // optional uint32 steam_hw_compat_category_packed = 73;
-  if (cached_has_bits & 0x00001000u) {
+  // optional uint32 steam_hw_compat_category_packed = 73 [default = 0];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(73, this->_internal_steam_hw_compat_category_packed(), target);
   }
@@ -2612,88 +2614,88 @@ size_t CAppOverview::ByteSizeLong() const {
           this->_internal_owner_account_id());
     }
 
-    // optional uint32 review_score_with_bombs = 53;
+    // optional uint32 steam_hw_compat_category_packed = 73 [default = 0];
     if (cached_has_bits & 0x00000002u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_steam_hw_compat_category_packed());
+    }
+
+    // optional uint32 review_score_with_bombs = 53 [default = 0];
+    if (cached_has_bits & 0x00000004u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_review_score_with_bombs());
     }
 
-    // optional uint32 review_percentage_with_bombs = 54;
-    if (cached_has_bits & 0x00000004u) {
+    // optional uint32 review_percentage_with_bombs = 54 [default = 0];
+    if (cached_has_bits & 0x00000008u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_review_percentage_with_bombs());
     }
 
-    // optional uint32 review_score_without_bombs = 55;
-    if (cached_has_bits & 0x00000008u) {
+    // optional uint32 review_score_without_bombs = 55 [default = 0];
+    if (cached_has_bits & 0x00000010u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_review_score_without_bombs());
     }
 
-    // optional uint32 review_percentage_without_bombs = 56;
-    if (cached_has_bits & 0x00000010u) {
+    // optional uint32 review_percentage_without_bombs = 56 [default = 0];
+    if (cached_has_bits & 0x00000020u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_review_percentage_without_bombs());
     }
 
     // optional bool vr_only = 58;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 2 + 1;
     }
 
     // optional uint32 mastersub_appid = 59;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_mastersub_appid());
     }
 
+  }
+  if (cached_has_bits & 0x00001f00u) {
     // optional uint32 shortcut_override_appid = 63;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_shortcut_override_appid());
     }
 
-  }
-  if (cached_has_bits & 0x00001f00u) {
     // optional uint32 rt_last_time_locally_played = 65;
-    if (cached_has_bits & 0x00000100u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rt_last_time_locally_played());
     }
 
     // optional uint32 rt_purchased_time = 66;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rt_purchased_time());
     }
 
     // optional uint32 local_cache_version = 68;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_local_cache_version());
     }
 
-    // optional uint32 number_of_copies = 72;
-    if (cached_has_bits & 0x00000800u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_number_of_copies());
-    }
-
-    // optional uint32 steam_hw_compat_category_packed = 73;
+    // optional uint32 number_of_copies = 72 [default = 1];
     if (cached_has_bits & 0x00001000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_steam_hw_compat_category_packed());
+          this->_internal_number_of_copies());
     }
 
   }
@@ -2845,43 +2847,43 @@ void CAppOverview::MergeFrom(const CAppOverview& from) {
       owner_account_id_ = from.owner_account_id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      review_score_with_bombs_ = from.review_score_with_bombs_;
+      steam_hw_compat_category_packed_ = from.steam_hw_compat_category_packed_;
     }
     if (cached_has_bits & 0x00000004u) {
-      review_percentage_with_bombs_ = from.review_percentage_with_bombs_;
+      review_score_with_bombs_ = from.review_score_with_bombs_;
     }
     if (cached_has_bits & 0x00000008u) {
-      review_score_without_bombs_ = from.review_score_without_bombs_;
+      review_percentage_with_bombs_ = from.review_percentage_with_bombs_;
     }
     if (cached_has_bits & 0x00000010u) {
-      review_percentage_without_bombs_ = from.review_percentage_without_bombs_;
+      review_score_without_bombs_ = from.review_score_without_bombs_;
     }
     if (cached_has_bits & 0x00000020u) {
-      vr_only_ = from.vr_only_;
+      review_percentage_without_bombs_ = from.review_percentage_without_bombs_;
     }
     if (cached_has_bits & 0x00000040u) {
-      mastersub_appid_ = from.mastersub_appid_;
+      vr_only_ = from.vr_only_;
     }
     if (cached_has_bits & 0x00000080u) {
-      shortcut_override_appid_ = from.shortcut_override_appid_;
+      mastersub_appid_ = from.mastersub_appid_;
     }
     _has_bits_[1] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
-      rt_last_time_locally_played_ = from.rt_last_time_locally_played_;
+      shortcut_override_appid_ = from.shortcut_override_appid_;
     }
     if (cached_has_bits & 0x00000200u) {
-      rt_purchased_time_ = from.rt_purchased_time_;
+      rt_last_time_locally_played_ = from.rt_last_time_locally_played_;
     }
     if (cached_has_bits & 0x00000400u) {
-      local_cache_version_ = from.local_cache_version_;
+      rt_purchased_time_ = from.rt_purchased_time_;
     }
     if (cached_has_bits & 0x00000800u) {
-      number_of_copies_ = from.number_of_copies_;
+      local_cache_version_ = from.local_cache_version_;
     }
     if (cached_has_bits & 0x00001000u) {
-      steam_hw_compat_category_packed_ = from.steam_hw_compat_category_packed_;
+      number_of_copies_ = from.number_of_copies_;
     }
     _has_bits_[1] |= cached_has_bits;
   }
@@ -2925,11 +2927,12 @@ void CAppOverview::InternalSwap(CAppOverview* other) {
   site_license_site_name_.Swap(&other->site_license_site_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   header_filename_.Swap(&other->header_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CAppOverview, steam_hw_compat_category_packed_)
-      + sizeof(CAppOverview::steam_hw_compat_category_packed_)
+      PROTOBUF_FIELD_OFFSET(CAppOverview, local_cache_version_)
+      + sizeof(CAppOverview::local_cache_version_)
       - PROTOBUF_FIELD_OFFSET(CAppOverview, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));
+  swap(number_of_copies_, other->number_of_copies_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CAppOverview::GetMetadata() const {

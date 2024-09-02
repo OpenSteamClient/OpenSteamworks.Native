@@ -875,7 +875,8 @@ constexpr CPlayer_GetAchievementsProgress_Request::CPlayer_GetAchievementsProgre
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : appids_()
   , language_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , steamid_(PROTOBUF_ULONGLONG(0)){}
+  , steamid_(PROTOBUF_ULONGLONG(0))
+  , include_unvetted_apps_(false){}
 struct CPlayer_GetAchievementsProgress_RequestDefaultTypeInternal {
   constexpr CPlayer_GetAchievementsProgress_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -891,8 +892,9 @@ constexpr CPlayer_GetAchievementsProgress_Response_AchievementProgress::CPlayer_
   , unlocked_(0u)
   , total_(0u)
   , percentage_(0)
+  , cache_time_(0u)
   , all_unlocked_(false)
-  , cache_time_(0u){}
+  , vetted_(false){}
 struct CPlayer_GetAchievementsProgress_Response_AchievementProgressDefaultTypeInternal {
   constexpr CPlayer_GetAchievementsProgress_Response_AchievementProgressDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -2691,9 +2693,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fplayer_2esteam
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Request, steamid_),
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Request, language_),
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Request, appids_),
+  PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Request, include_unvetted_apps_),
   1,
   0,
   ~0u,
+  2,
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Response_AchievementProgress, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Response_AchievementProgress, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2705,12 +2709,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fplayer_2esteam
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Response_AchievementProgress, percentage_),
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Response_AchievementProgress, all_unlocked_),
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Response_AchievementProgress, cache_time_),
+  PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Response_AchievementProgress, vetted_),
   0,
   1,
   2,
   3,
-  4,
   5,
+  4,
+  6,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CPlayer_GetAchievementsProgress_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3550,91 +3556,91 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 621, 634, sizeof(::CPlayer_GetTopAchievementsForGames_Response_Achievement)},
   { 642, 650, sizeof(::CPlayer_GetTopAchievementsForGames_Response_Game)},
   { 653, -1, sizeof(::CPlayer_GetTopAchievementsForGames_Response)},
-  { 659, 667, sizeof(::CPlayer_GetAchievementsProgress_Request)},
-  { 670, 681, sizeof(::CPlayer_GetAchievementsProgress_Response_AchievementProgress)},
-  { 687, -1, sizeof(::CPlayer_GetAchievementsProgress_Response)},
-  { 693, 700, sizeof(::CPlayer_GetGameAchievements_Request)},
-  { 702, 714, sizeof(::CPlayer_GetGameAchievements_Response_Achievement)},
-  { 721, -1, sizeof(::CPlayer_GetGameAchievements_Response)},
-  { 727, 733, sizeof(::CPlayer_GetFavoriteBadge_Request)},
-  { 734, 746, sizeof(::CPlayer_GetFavoriteBadge_Response)},
-  { 753, 760, sizeof(::CPlayer_SetFavoriteBadge_Request)},
-  { 762, -1, sizeof(::CPlayer_SetFavoriteBadge_Response)},
-  { 767, 775, sizeof(::CPlayer_GetProfileCustomization_Request)},
-  { 778, 797, sizeof(::ProfileCustomizationSlot)},
-  { 811, 823, sizeof(::ProfileCustomization)},
-  { 830, 837, sizeof(::ProfileTheme)},
-  { 839, 845, sizeof(::ProfilePreferences)},
-  { 846, 854, sizeof(::CPlayer_GetProfileCustomization_Response_PurchasedCustomization)},
-  { 857, 867, sizeof(::CPlayer_GetProfileCustomization_Response)},
-  { 872, 878, sizeof(::CPlayer_GetPurchasedProfileCustomizations_Request)},
-  { 879, 886, sizeof(::CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization)},
-  { 888, -1, sizeof(::CPlayer_GetPurchasedProfileCustomizations_Response)},
-  { 894, 900, sizeof(::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request)},
-  { 901, 908, sizeof(::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization)},
-  { 910, 917, sizeof(::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization)},
-  { 919, -1, sizeof(::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response)},
-  { 926, -1, sizeof(::CPlayer_GetProfileThemesAvailable_Request)},
-  { 931, -1, sizeof(::CPlayer_GetProfileThemesAvailable_Response)},
-  { 937, 943, sizeof(::CPlayer_SetProfileTheme_Request)},
-  { 944, -1, sizeof(::CPlayer_SetProfileTheme_Response)},
-  { 949, 955, sizeof(::CPlayer_SetProfilePreferences_Request)},
-  { 956, -1, sizeof(::CPlayer_SetProfilePreferences_Response)},
-  { 961, 968, sizeof(::CPlayer_PostStatusToFriends_Request)},
-  { 970, -1, sizeof(::CPlayer_PostStatusToFriends_Response)},
-  { 975, 982, sizeof(::CPlayer_GetPostedStatus_Request)},
-  { 984, 994, sizeof(::CPlayer_GetPostedStatus_Response)},
-  { 999, 1005, sizeof(::CPlayer_DeletePostedStatus_Request)},
-  { 1006, -1, sizeof(::CPlayer_DeletePostedStatus_Response)},
-  { 1011, 1017, sizeof(::CPlayer_GetLastPlayedTimes_Request)},
-  { 1018, 1041, sizeof(::CPlayer_GetLastPlayedTimes_Response_Game)},
-  { 1059, -1, sizeof(::CPlayer_GetLastPlayedTimes_Response)},
-  { 1065, -1, sizeof(::CPlayer_GetTimeSSAAccepted_Request)},
-  { 1070, 1078, sizeof(::CPlayer_GetTimeSSAAccepted_Response)},
-  { 1081, 1088, sizeof(::CPlayer_AcceptSSA_Request)},
-  { 1090, -1, sizeof(::CPlayer_AcceptSSA_Response)},
-  { 1095, -1, sizeof(::CPlayer_GetNicknameList_Request)},
-  { 1100, 1107, sizeof(::CPlayer_GetNicknameList_Response_PlayerNickname)},
-  { 1109, -1, sizeof(::CPlayer_GetNicknameList_Response)},
-  { 1115, -1, sizeof(::CPlayer_GetPerFriendPreferences_Request)},
-  { 1120, 1134, sizeof(::PerFriendPreferences)},
-  { 1143, -1, sizeof(::CPlayer_GetPerFriendPreferences_Response)},
-  { 1149, 1155, sizeof(::CPlayer_SetPerFriendPreferences_Request)},
-  { 1156, -1, sizeof(::CPlayer_SetPerFriendPreferences_Response)},
-  { 1161, 1167, sizeof(::CPlayer_AddFriend_Request)},
-  { 1168, 1176, sizeof(::CPlayer_AddFriend_Response)},
-  { 1179, 1185, sizeof(::CPlayer_RemoveFriend_Request)},
-  { 1186, 1192, sizeof(::CPlayer_RemoveFriend_Response)},
-  { 1193, 1200, sizeof(::CPlayer_IgnoreFriend_Request)},
-  { 1202, 1208, sizeof(::CPlayer_IgnoreFriend_Response)},
-  { 1209, -1, sizeof(::CPlayer_GetCommunityPreferences_Request)},
-  { 1214, 1224, sizeof(::CPlayer_CommunityPreferences)},
-  { 1229, 1236, sizeof(::CPlayer_GetCommunityPreferences_Response)},
-  { 1238, 1244, sizeof(::CPlayer_SetCommunityPreferences_Request)},
-  { 1245, -1, sizeof(::CPlayer_SetCommunityPreferences_Response)},
-  { 1250, -1, sizeof(::CPlayer_GetTextFilterWords_Request)},
-  { 1255, 1263, sizeof(::CPlayer_TextFilterWords)},
-  { 1266, 1272, sizeof(::CPlayer_GetTextFilterWords_Response)},
-  { 1273, 1279, sizeof(::CPlayer_GetNewSteamAnnouncementState_Request)},
-  { 1280, 1290, sizeof(::CPlayer_GetNewSteamAnnouncementState_Response)},
-  { 1295, 1302, sizeof(::CPlayer_UpdateSteamAnnouncementLastRead_Request)},
-  { 1304, -1, sizeof(::CPlayer_UpdateSteamAnnouncementLastRead_Response)},
-  { 1309, -1, sizeof(::CPlayer_GetPrivacySettings_Request)},
-  { 1314, 1325, sizeof(::CPrivacySettings)},
-  { 1331, 1337, sizeof(::CPlayer_GetPrivacySettings_Response)},
-  { 1338, 1344, sizeof(::CPlayer_GetDurationControl_Request)},
-  { 1345, 1358, sizeof(::CPlayer_GetDurationControl_Response)},
-  { 1366, 1376, sizeof(::CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory)},
-  { 1381, -1, sizeof(::CPlayer_RecordDisconnectedPlaytime_Request)},
-  { 1387, -1, sizeof(::CPlayer_RecordDisconnectedPlaytime_Response)},
-  { 1392, -1, sizeof(::CPlayer_LastPlayedTimes_Notification)},
-  { 1398, 1406, sizeof(::CPlayer_FriendNicknameChanged_Notification)},
-  { 1409, 1415, sizeof(::CPlayer_FriendEquippedProfileItemsChanged_Notification)},
-  { 1416, 1426, sizeof(::CPlayer_NewSteamAnnouncementState_Notification)},
-  { 1431, 1438, sizeof(::CPlayer_CommunityPreferencesChanged_Notification)},
-  { 1440, 1446, sizeof(::CPlayer_TextFilterWordsChanged_Notification)},
-  { 1447, 1454, sizeof(::CPlayer_PerFriendPreferencesChanged_Notification)},
-  { 1456, 1462, sizeof(::CPlayer_PrivacySettingsChanged_Notification)},
+  { 659, 668, sizeof(::CPlayer_GetAchievementsProgress_Request)},
+  { 672, 684, sizeof(::CPlayer_GetAchievementsProgress_Response_AchievementProgress)},
+  { 691, -1, sizeof(::CPlayer_GetAchievementsProgress_Response)},
+  { 697, 704, sizeof(::CPlayer_GetGameAchievements_Request)},
+  { 706, 718, sizeof(::CPlayer_GetGameAchievements_Response_Achievement)},
+  { 725, -1, sizeof(::CPlayer_GetGameAchievements_Response)},
+  { 731, 737, sizeof(::CPlayer_GetFavoriteBadge_Request)},
+  { 738, 750, sizeof(::CPlayer_GetFavoriteBadge_Response)},
+  { 757, 764, sizeof(::CPlayer_SetFavoriteBadge_Request)},
+  { 766, -1, sizeof(::CPlayer_SetFavoriteBadge_Response)},
+  { 771, 779, sizeof(::CPlayer_GetProfileCustomization_Request)},
+  { 782, 801, sizeof(::ProfileCustomizationSlot)},
+  { 815, 827, sizeof(::ProfileCustomization)},
+  { 834, 841, sizeof(::ProfileTheme)},
+  { 843, 849, sizeof(::ProfilePreferences)},
+  { 850, 858, sizeof(::CPlayer_GetProfileCustomization_Response_PurchasedCustomization)},
+  { 861, 871, sizeof(::CPlayer_GetProfileCustomization_Response)},
+  { 876, 882, sizeof(::CPlayer_GetPurchasedProfileCustomizations_Request)},
+  { 883, 890, sizeof(::CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization)},
+  { 892, -1, sizeof(::CPlayer_GetPurchasedProfileCustomizations_Response)},
+  { 898, 904, sizeof(::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request)},
+  { 905, 912, sizeof(::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization)},
+  { 914, 921, sizeof(::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization)},
+  { 923, -1, sizeof(::CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response)},
+  { 930, -1, sizeof(::CPlayer_GetProfileThemesAvailable_Request)},
+  { 935, -1, sizeof(::CPlayer_GetProfileThemesAvailable_Response)},
+  { 941, 947, sizeof(::CPlayer_SetProfileTheme_Request)},
+  { 948, -1, sizeof(::CPlayer_SetProfileTheme_Response)},
+  { 953, 959, sizeof(::CPlayer_SetProfilePreferences_Request)},
+  { 960, -1, sizeof(::CPlayer_SetProfilePreferences_Response)},
+  { 965, 972, sizeof(::CPlayer_PostStatusToFriends_Request)},
+  { 974, -1, sizeof(::CPlayer_PostStatusToFriends_Response)},
+  { 979, 986, sizeof(::CPlayer_GetPostedStatus_Request)},
+  { 988, 998, sizeof(::CPlayer_GetPostedStatus_Response)},
+  { 1003, 1009, sizeof(::CPlayer_DeletePostedStatus_Request)},
+  { 1010, -1, sizeof(::CPlayer_DeletePostedStatus_Response)},
+  { 1015, 1021, sizeof(::CPlayer_GetLastPlayedTimes_Request)},
+  { 1022, 1045, sizeof(::CPlayer_GetLastPlayedTimes_Response_Game)},
+  { 1063, -1, sizeof(::CPlayer_GetLastPlayedTimes_Response)},
+  { 1069, -1, sizeof(::CPlayer_GetTimeSSAAccepted_Request)},
+  { 1074, 1082, sizeof(::CPlayer_GetTimeSSAAccepted_Response)},
+  { 1085, 1092, sizeof(::CPlayer_AcceptSSA_Request)},
+  { 1094, -1, sizeof(::CPlayer_AcceptSSA_Response)},
+  { 1099, -1, sizeof(::CPlayer_GetNicknameList_Request)},
+  { 1104, 1111, sizeof(::CPlayer_GetNicknameList_Response_PlayerNickname)},
+  { 1113, -1, sizeof(::CPlayer_GetNicknameList_Response)},
+  { 1119, -1, sizeof(::CPlayer_GetPerFriendPreferences_Request)},
+  { 1124, 1138, sizeof(::PerFriendPreferences)},
+  { 1147, -1, sizeof(::CPlayer_GetPerFriendPreferences_Response)},
+  { 1153, 1159, sizeof(::CPlayer_SetPerFriendPreferences_Request)},
+  { 1160, -1, sizeof(::CPlayer_SetPerFriendPreferences_Response)},
+  { 1165, 1171, sizeof(::CPlayer_AddFriend_Request)},
+  { 1172, 1180, sizeof(::CPlayer_AddFriend_Response)},
+  { 1183, 1189, sizeof(::CPlayer_RemoveFriend_Request)},
+  { 1190, 1196, sizeof(::CPlayer_RemoveFriend_Response)},
+  { 1197, 1204, sizeof(::CPlayer_IgnoreFriend_Request)},
+  { 1206, 1212, sizeof(::CPlayer_IgnoreFriend_Response)},
+  { 1213, -1, sizeof(::CPlayer_GetCommunityPreferences_Request)},
+  { 1218, 1228, sizeof(::CPlayer_CommunityPreferences)},
+  { 1233, 1240, sizeof(::CPlayer_GetCommunityPreferences_Response)},
+  { 1242, 1248, sizeof(::CPlayer_SetCommunityPreferences_Request)},
+  { 1249, -1, sizeof(::CPlayer_SetCommunityPreferences_Response)},
+  { 1254, -1, sizeof(::CPlayer_GetTextFilterWords_Request)},
+  { 1259, 1267, sizeof(::CPlayer_TextFilterWords)},
+  { 1270, 1276, sizeof(::CPlayer_GetTextFilterWords_Response)},
+  { 1277, 1283, sizeof(::CPlayer_GetNewSteamAnnouncementState_Request)},
+  { 1284, 1294, sizeof(::CPlayer_GetNewSteamAnnouncementState_Response)},
+  { 1299, 1306, sizeof(::CPlayer_UpdateSteamAnnouncementLastRead_Request)},
+  { 1308, -1, sizeof(::CPlayer_UpdateSteamAnnouncementLastRead_Response)},
+  { 1313, -1, sizeof(::CPlayer_GetPrivacySettings_Request)},
+  { 1318, 1329, sizeof(::CPrivacySettings)},
+  { 1335, 1341, sizeof(::CPlayer_GetPrivacySettings_Response)},
+  { 1342, 1348, sizeof(::CPlayer_GetDurationControl_Request)},
+  { 1349, 1362, sizeof(::CPlayer_GetDurationControl_Response)},
+  { 1370, 1380, sizeof(::CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory)},
+  { 1385, -1, sizeof(::CPlayer_RecordDisconnectedPlaytime_Request)},
+  { 1391, -1, sizeof(::CPlayer_RecordDisconnectedPlaytime_Response)},
+  { 1396, -1, sizeof(::CPlayer_LastPlayedTimes_Notification)},
+  { 1402, 1410, sizeof(::CPlayer_FriendNicknameChanged_Notification)},
+  { 1413, 1419, sizeof(::CPlayer_FriendEquippedProfileItemsChanged_Notification)},
+  { 1420, 1430, sizeof(::CPlayer_NewSteamAnnouncementState_Notification)},
+  { 1435, 1442, sizeof(::CPlayer_CommunityPreferencesChanged_Notification)},
+  { 1444, 1450, sizeof(::CPlayer_TextFilterWordsChanged_Notification)},
+  { 1451, 1458, sizeof(::CPlayer_PerFriendPreferencesChanged_Notification)},
+  { 1460, 1466, sizeof(::CPlayer_PrivacySettingsChanged_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -3981,434 +3987,435 @@ const char descriptor_table_protodef_steammessages_5fplayer_2esteamclient_2eprot
   "_unlocked\030\010 \001(\t\032\201\001\n\004Game\022\r\n\005appid\030\001 \001(\r\022"
   "\032\n\022total_achievements\030\002 \001(\r\022N\n\014achieveme"
   "nts\030\003 \003(\01328.CPlayer_GetTopAchievementsFo"
-  "rGames_Response.Achievement\"\\\n\'CPlayer_G"
+  "rGames_Response.Achievement\"{\n\'CPlayer_G"
   "etAchievementsProgress_Request\022\017\n\007steami"
   "d\030\001 \001(\004\022\020\n\010language\030\002 \001(\t\022\016\n\006appids\030\003 \003("
-  "\r\"\215\002\n(CPlayer_GetAchievementsProgress_Re"
-  "sponse\022[\n\024achievement_progress\030\001 \003(\0132=.C"
-  "Player_GetAchievementsProgress_Response."
-  "AchievementProgress\032\203\001\n\023AchievementProgr"
-  "ess\022\r\n\005appid\030\001 \001(\r\022\020\n\010unlocked\030\002 \001(\r\022\r\n\005"
-  "total\030\003 \001(\r\022\022\n\npercentage\030\004 \001(\002\022\024\n\014all_u"
-  "nlocked\030\005 \001(\010\022\022\n\ncache_time\030\006 \001(\r\"F\n#CPl"
-  "ayer_GetGameAchievements_Request\022\r\n\005appi"
-  "d\030\001 \001(\r\022\020\n\010language\030\002 \001(\t\"\230\002\n$CPlayer_Ge"
-  "tGameAchievements_Response\022G\n\014achievemen"
-  "ts\030\001 \003(\01321.CPlayer_GetGameAchievements_R"
-  "esponse.Achievement\032\246\001\n\013Achievement\022\025\n\ri"
-  "nternal_name\030\001 \001(\t\022\026\n\016localized_name\030\002 \001"
-  "(\t\022\026\n\016localized_desc\030\003 \001(\t\022\014\n\004icon\030\004 \001(\t"
-  "\022\021\n\ticon_gray\030\005 \001(\t\022\016\n\006hidden\030\006 \001(\010\022\037\n\027p"
-  "layer_percent_unlocked\030\007 \001(\t\"3\n CPlayer_"
-  "GetFavoriteBadge_Request\022\017\n\007steamid\030\001 \001("
-  "\004\"\260\001\n!CPlayer_GetFavoriteBadge_Response\022"
-  "\032\n\022has_favorite_badge\030\001 \001(\010\022\017\n\007badgeid\030\002"
-  " \001(\r\022\027\n\017communityitemid\030\003 \001(\004\022\021\n\titem_ty"
-  "pe\030\004 \001(\r\022\024\n\014border_color\030\005 \001(\r\022\r\n\005appid\030"
-  "\006 \001(\r\022\r\n\005level\030\007 \001(\r\"L\n CPlayer_SetFavor"
-  "iteBadge_Request\022\027\n\017communityitemid\030\001 \001("
-  "\004\022\017\n\007badgeid\030\002 \001(\r\"#\n!CPlayer_SetFavorit"
-  "eBadge_Response\"\215\001\n\'CPlayer_GetProfileCu"
-  "stomization_Request\022\017\n\007steamid\030\001 \001(\006\022\'\n\037"
-  "include_inactive_customizations\030\002 \001(\010\022(\n"
-  " include_purchased_customizations\030\003 \001(\010\""
-  "\356\002\n\030ProfileCustomizationSlot\022\014\n\004slot\030\001 \001"
-  "(\r\022\r\n\005appid\030\002 \001(\r\022\027\n\017publishedfileid\030\003 \001"
-  "(\004\022\024\n\014item_assetid\030\004 \001(\004\022\026\n\016item_context"
-  "id\030\005 \001(\004\022\r\n\005notes\030\006 \001(\t\022\r\n\005title\030\007 \001(\t\022\021"
-  "\n\taccountid\030\010 \001(\r\022\017\n\007badgeid\030\t \001(\r\022\024\n\014bo"
-  "rder_color\030\n \001(\r\022\024\n\014item_classid\030\013 \001(\004\022\027"
-  "\n\017item_instanceid\030\014 \001(\004\022R\n\016ban_checresul"
-  "t\030\r \001(\0162\027.EBanContentCheckResult:!EBanCo"
-  "ntentCheckResult_NotScanned\022\023\n\013replay_ye"
-  "ar\030\016 \001(\r\"\271\002\n\024ProfileCustomization\022X\n\022cus"
-  "tomization_type\030\001 \001(\0162\032.EProfileCustomiz"
-  "ationType: EProfileCustomizationTypeInva"
-  "lid\022\r\n\005large\030\002 \001(\010\022(\n\005slots\030\003 \003(\0132\031.Prof"
-  "ileCustomizationSlot\022\016\n\006active\030\004 \001(\010\022[\n\023"
-  "customization_style\030\005 \001(\0162\033.EProfileCust"
-  "omizationStyle:!EProfileCustomizationSty"
-  "leDefault\022\022\n\npurchaseid\030\006 \001(\004\022\r\n\005level\030\007"
-  " \001(\r\"/\n\014ProfileTheme\022\020\n\010theme_id\030\001 \001(\t\022\r"
-  "\n\005title\030\002 \001(\t\"1\n\022ProfilePreferences\022\033\n\023h"
-  "ide_profile_awards\030\001 \001(\010\"\306\003\n(CPlayer_Get"
-  "ProfileCustomization_Response\022-\n\016customi"
-  "zations\030\001 \003(\0132\025.ProfileCustomization\022\027\n\017"
-  "slots_available\030\002 \001(\r\022$\n\rprofile_theme\030\003"
-  " \001(\0132\r.ProfileTheme\022b\n\030purchased_customi"
-  "zations\030\004 \003(\0132@.CPlayer_GetProfileCustom"
-  "ization_Response.PurchasedCustomization\022"
-  "0\n\023profile_preferences\030\005 \001(\0132\023.ProfilePr"
-  "eferences\032\225\001\n\026PurchasedCustomization\022\022\n\n"
-  "purchaseid\030\001 \001(\004\022X\n\022customization_type\030\002"
-  " \001(\0162\032.EProfileCustomizationType: EProfi"
-  "leCustomizationTypeInvalid\022\r\n\005level\030\003 \001("
-  "\r\"D\n1CPlayer_GetPurchasedProfileCustomiz"
-  "ations_Request\022\017\n\007steamid\030\001 \001(\006\"\253\002\n2CPla"
-  "yer_GetPurchasedProfileCustomizations_Re"
-  "sponse\022l\n\030purchased_customizations\030\001 \003(\013"
-  "2J.CPlayer_GetPurchasedProfileCustomizat"
-  "ions_Response.PurchasedCustomization\032\206\001\n"
-  "\026PurchasedCustomization\022\022\n\npurchaseid\030\001 "
-  "\001(\004\022X\n\022customization_type\030\002 \001(\0162\032.EProfi"
-  "leCustomizationType: EProfileCustomizati"
-  "onTypeInvalid\"O\n<CPlayer_GetPurchasedAnd"
-  "UpgradedProfileCustomizations_Request\022\017\n"
-  "\007steamid\030\001 \001(\006\"\266\004\n=CPlayer_GetPurchasedA"
-  "ndUpgradedProfileCustomizations_Response"
-  "\022w\n\030purchased_customizations\030\001 \003(\0132U.CPl"
-  "ayer_GetPurchasedAndUpgradedProfileCusto"
-  "mizations_Response.PurchasedCustomizatio"
-  "n\022u\n\027upgraded_customizations\030\002 \003(\0132T.CPl"
-  "ayer_GetPurchasedAndUpgradedProfileCusto"
-  "mizations_Response.UpgradedCustomization"
-  "\032\201\001\n\026PurchasedCustomization\022X\n\022customiza"
-  "tion_type\030\001 \001(\0162\032.EProfileCustomizationT"
-  "ype: EProfileCustomizationTypeInvalid\022\r\n"
-  "\005count\030\002 \001(\r\032\200\001\n\025UpgradedCustomization\022X"
-  "\n\022customization_type\030\001 \001(\0162\032.EProfileCus"
-  "tomizationType: EProfileCustomizationTyp"
-  "eInvalid\022\r\n\005level\030\002 \001(\r\"+\n)CPlayer_GetPr"
-  "ofileThemesAvailable_Request\"S\n*CPlayer_"
-  "GetProfileThemesAvailable_Response\022%\n\016pr"
-  "ofile_themes\030\001 \003(\0132\r.ProfileTheme\"3\n\037CPl"
-  "ayer_SetProfileTheme_Request\022\020\n\010theme_id"
-  "\030\001 \001(\t\"\"\n CPlayer_SetProfileTheme_Respon"
-  "se\"Y\n%CPlayer_SetProfilePreferences_Requ"
-  "est\0220\n\023profile_preferences\030\001 \001(\0132\023.Profi"
-  "lePreferences\"(\n&CPlayer_SetProfilePrefe"
-  "rences_Response\"I\n#CPlayer_PostStatusToF"
-  "riends_Request\022\r\n\005appid\030\001 \001(\r\022\023\n\013status_"
-  "text\030\002 \001(\t\"&\n$CPlayer_PostStatusToFriend"
-  "s_Response\"B\n\037CPlayer_GetPostedStatus_Re"
-  "quest\022\017\n\007steamid\030\001 \001(\004\022\016\n\006postid\030\002 \001(\004\"z"
-  "\n CPlayer_GetPostedStatus_Response\022\021\n\tac"
-  "countid\030\001 \001(\r\022\016\n\006postid\030\002 \001(\004\022\023\n\013status_"
-  "text\030\003 \001(\t\022\017\n\007deleted\030\004 \001(\010\022\r\n\005appid\030\005 \001"
-  "(\r\"4\n\"CPlayer_DeletePostedStatus_Request"
-  "\022\016\n\006postid\030\001 \001(\004\"%\n#CPlayer_DeletePosted"
-  "Status_Response\"=\n\"CPlayer_GetLastPlayed"
-  "Times_Request\022\027\n\017min_last_played\030\001 \001(\r\"\333"
-  "\004\n#CPlayer_GetLastPlayedTimes_Response\0228"
-  "\n\005games\030\001 \003(\0132).CPlayer_GetLastPlayedTim"
-  "es_Response.Game\032\371\003\n\004Game\022\r\n\005appid\030\001 \001(\005"
-  "\022\025\n\rlast_playtime\030\002 \001(\r\022\027\n\017playtime_2wee"
-  "ks\030\003 \001(\005\022\030\n\020playtime_forever\030\004 \001(\005\022\026\n\016fi"
-  "rst_playtime\030\005 \001(\r\022 \n\030playtime_windows_f"
-  "orever\030\006 \001(\005\022\034\n\024playtime_mac_forever\030\007 \001"
-  "(\005\022\036\n\026playtime_linux_forever\030\010 \001(\005\022\033\n\023pl"
-  "aytime_decforever\030\020 \001(\005\022\036\n\026first_windows"
-  "_playtime\030\t \001(\r\022\032\n\022first_mac_playtime\030\n "
-  "\001(\r\022\034\n\024first_linux_playtime\030\013 \001(\r\022\031\n\021fir"
-  "st_decplaytime\030\021 \001(\r\022\035\n\025last_windows_pla"
-  "ytime\030\014 \001(\r\022\031\n\021last_mac_playtime\030\r \001(\r\022\033"
-  "\n\023last_linux_playtime\030\016 \001(\r\022\030\n\020last_decp"
-  "laytime\030\022 \001(\r\022\035\n\025playtime_disconnected\030\017"
-  " \001(\r\"$\n\"CPlayer_GetTimeSSAAccepted_Reque"
-  "st\"z\n#CPlayer_GetTimeSSAAccepted_Respons"
-  "e\022\031\n\021time_ssa_accepted\030\001 \001(\r\022\030\n\020time_ssa"
-  "_updated\030\002 \001(\r\022\036\n\026time_chinassa_accepted"
-  "\030\003 \001(\r\"u\n\031CPlayer_AcceptSSA_Request\022\?\n\016a"
-  "greement_type\030\001 \001(\0162\017.EAgreementType:\026EA"
-  "greementType_Invalid\022\027\n\017time_signed_utc\030"
-  "\002 \001(\r\"\034\n\032CPlayer_AcceptSSA_Response\"!\n\037C"
-  "Player_GetNicknameList_Request\"\236\001\n CPlay"
-  "er_GetNicknameList_Response\022C\n\tnicknames"
-  "\030\001 \003(\01320.CPlayer_GetNicknameList_Respons"
-  "e.PlayerNickname\0325\n\016PlayerNickname\022\021\n\tac"
-  "countid\030\001 \001(\007\022\020\n\010nickname\030\002 \001(\t\")\n\'CPlay"
-  "er_GetPerFriendPreferences_Request\"\303\005\n\024P"
-  "erFriendPreferences\022\021\n\taccountid\030\001 \001(\007\022\020"
-  "\n\010nickname\030\002 \001(\t\022]\n\030notifications_showin"
-  "game\030\003 \001(\0162\025.ENotificationSetting:$ENoti"
-  "ficationSettingNotifyUseDefault\022]\n\030notif"
-  "ications_showonline\030\004 \001(\0162\025.ENotificatio"
+  "\r\022\035\n\025include_unvetted_apps\030\004 \001(\010\"\235\002\n(CPl"
+  "ayer_GetAchievementsProgress_Response\022[\n"
+  "\024achievement_progress\030\001 \003(\0132=.CPlayer_Ge"
+  "tAchievementsProgress_Response.Achieveme"
+  "ntProgress\032\223\001\n\023AchievementProgress\022\r\n\005ap"
+  "pid\030\001 \001(\r\022\020\n\010unlocked\030\002 \001(\r\022\r\n\005total\030\003 \001"
+  "(\r\022\022\n\npercentage\030\004 \001(\002\022\024\n\014all_unlocked\030\005"
+  " \001(\010\022\022\n\ncache_time\030\006 \001(\r\022\016\n\006vetted\030\007 \001(\010"
+  "\"F\n#CPlayer_GetGameAchievements_Request\022"
+  "\r\n\005appid\030\001 \001(\r\022\020\n\010language\030\002 \001(\t\"\230\002\n$CPl"
+  "ayer_GetGameAchievements_Response\022G\n\014ach"
+  "ievements\030\001 \003(\01321.CPlayer_GetGameAchieve"
+  "ments_Response.Achievement\032\246\001\n\013Achieveme"
+  "nt\022\025\n\rinternal_name\030\001 \001(\t\022\026\n\016localized_n"
+  "ame\030\002 \001(\t\022\026\n\016localized_desc\030\003 \001(\t\022\014\n\004ico"
+  "n\030\004 \001(\t\022\021\n\ticon_gray\030\005 \001(\t\022\016\n\006hidden\030\006 \001"
+  "(\010\022\037\n\027player_percent_unlocked\030\007 \001(\t\"3\n C"
+  "Player_GetFavoriteBadge_Request\022\017\n\007steam"
+  "id\030\001 \001(\004\"\260\001\n!CPlayer_GetFavoriteBadge_Re"
+  "sponse\022\032\n\022has_favorite_badge\030\001 \001(\010\022\017\n\007ba"
+  "dgeid\030\002 \001(\r\022\027\n\017communityitemid\030\003 \001(\004\022\021\n\t"
+  "item_type\030\004 \001(\r\022\024\n\014border_color\030\005 \001(\r\022\r\n"
+  "\005appid\030\006 \001(\r\022\r\n\005level\030\007 \001(\r\"L\n CPlayer_S"
+  "etFavoriteBadge_Request\022\027\n\017communityitem"
+  "id\030\001 \001(\004\022\017\n\007badgeid\030\002 \001(\r\"#\n!CPlayer_Set"
+  "FavoriteBadge_Response\"\215\001\n\'CPlayer_GetPr"
+  "ofileCustomization_Request\022\017\n\007steamid\030\001 "
+  "\001(\006\022\'\n\037include_inactive_customizations\030\002"
+  " \001(\010\022(\n include_purchased_customizations"
+  "\030\003 \001(\010\"\356\002\n\030ProfileCustomizationSlot\022\014\n\004s"
+  "lot\030\001 \001(\r\022\r\n\005appid\030\002 \001(\r\022\027\n\017publishedfil"
+  "eid\030\003 \001(\004\022\024\n\014item_assetid\030\004 \001(\004\022\026\n\016item_"
+  "contextid\030\005 \001(\004\022\r\n\005notes\030\006 \001(\t\022\r\n\005title\030"
+  "\007 \001(\t\022\021\n\taccountid\030\010 \001(\r\022\017\n\007badgeid\030\t \001("
+  "\r\022\024\n\014border_color\030\n \001(\r\022\024\n\014item_classid\030"
+  "\013 \001(\004\022\027\n\017item_instanceid\030\014 \001(\004\022R\n\016ban_ch"
+  "ecresult\030\r \001(\0162\027.EBanContentCheckResult:"
+  "!EBanContentCheckResult_NotScanned\022\023\n\013re"
+  "play_year\030\016 \001(\r\"\271\002\n\024ProfileCustomization"
+  "\022X\n\022customization_type\030\001 \001(\0162\032.EProfileC"
+  "ustomizationType: EProfileCustomizationT"
+  "ypeInvalid\022\r\n\005large\030\002 \001(\010\022(\n\005slots\030\003 \003(\013"
+  "2\031.ProfileCustomizationSlot\022\016\n\006active\030\004 "
+  "\001(\010\022[\n\023customization_style\030\005 \001(\0162\033.EProf"
+  "ileCustomizationStyle:!EProfileCustomiza"
+  "tionStyleDefault\022\022\n\npurchaseid\030\006 \001(\004\022\r\n\005"
+  "level\030\007 \001(\r\"/\n\014ProfileTheme\022\020\n\010theme_id\030"
+  "\001 \001(\t\022\r\n\005title\030\002 \001(\t\"1\n\022ProfilePreferenc"
+  "es\022\033\n\023hide_profile_awards\030\001 \001(\010\"\306\003\n(CPla"
+  "yer_GetProfileCustomization_Response\022-\n\016"
+  "customizations\030\001 \003(\0132\025.ProfileCustomizat"
+  "ion\022\027\n\017slots_available\030\002 \001(\r\022$\n\rprofile_"
+  "theme\030\003 \001(\0132\r.ProfileTheme\022b\n\030purchased_"
+  "customizations\030\004 \003(\0132@.CPlayer_GetProfil"
+  "eCustomization_Response.PurchasedCustomi"
+  "zation\0220\n\023profile_preferences\030\005 \001(\0132\023.Pr"
+  "ofilePreferences\032\225\001\n\026PurchasedCustomizat"
+  "ion\022\022\n\npurchaseid\030\001 \001(\004\022X\n\022customization"
+  "_type\030\002 \001(\0162\032.EProfileCustomizationType:"
+  " EProfileCustomizationTypeInvalid\022\r\n\005lev"
+  "el\030\003 \001(\r\"D\n1CPlayer_GetPurchasedProfileC"
+  "ustomizations_Request\022\017\n\007steamid\030\001 \001(\006\"\253"
+  "\002\n2CPlayer_GetPurchasedProfileCustomizat"
+  "ions_Response\022l\n\030purchased_customization"
+  "s\030\001 \003(\0132J.CPlayer_GetPurchasedProfileCus"
+  "tomizations_Response.PurchasedCustomizat"
+  "ion\032\206\001\n\026PurchasedCustomization\022\022\n\npurcha"
+  "seid\030\001 \001(\004\022X\n\022customization_type\030\002 \001(\0162\032"
+  ".EProfileCustomizationType: EProfileCust"
+  "omizationTypeInvalid\"O\n<CPlayer_GetPurch"
+  "asedAndUpgradedProfileCustomizations_Req"
+  "uest\022\017\n\007steamid\030\001 \001(\006\"\266\004\n=CPlayer_GetPur"
+  "chasedAndUpgradedProfileCustomizations_R"
+  "esponse\022w\n\030purchased_customizations\030\001 \003("
+  "\0132U.CPlayer_GetPurchasedAndUpgradedProfi"
+  "leCustomizations_Response.PurchasedCusto"
+  "mization\022u\n\027upgraded_customizations\030\002 \003("
+  "\0132T.CPlayer_GetPurchasedAndUpgradedProfi"
+  "leCustomizations_Response.UpgradedCustom"
+  "ization\032\201\001\n\026PurchasedCustomization\022X\n\022cu"
+  "stomization_type\030\001 \001(\0162\032.EProfileCustomi"
+  "zationType: EProfileCustomizationTypeInv"
+  "alid\022\r\n\005count\030\002 \001(\r\032\200\001\n\025UpgradedCustomiz"
+  "ation\022X\n\022customization_type\030\001 \001(\0162\032.EPro"
+  "fileCustomizationType: EProfileCustomiza"
+  "tionTypeInvalid\022\r\n\005level\030\002 \001(\r\"+\n)CPlaye"
+  "r_GetProfileThemesAvailable_Request\"S\n*C"
+  "Player_GetProfileThemesAvailable_Respons"
+  "e\022%\n\016profile_themes\030\001 \003(\0132\r.ProfileTheme"
+  "\"3\n\037CPlayer_SetProfileTheme_Request\022\020\n\010t"
+  "heme_id\030\001 \001(\t\"\"\n CPlayer_SetProfileTheme"
+  "_Response\"Y\n%CPlayer_SetProfilePreferenc"
+  "es_Request\0220\n\023profile_preferences\030\001 \001(\0132"
+  "\023.ProfilePreferences\"(\n&CPlayer_SetProfi"
+  "lePreferences_Response\"I\n#CPlayer_PostSt"
+  "atusToFriends_Request\022\r\n\005appid\030\001 \001(\r\022\023\n\013"
+  "status_text\030\002 \001(\t\"&\n$CPlayer_PostStatusT"
+  "oFriends_Response\"B\n\037CPlayer_GetPostedSt"
+  "atus_Request\022\017\n\007steamid\030\001 \001(\004\022\016\n\006postid\030"
+  "\002 \001(\004\"z\n CPlayer_GetPostedStatus_Respons"
+  "e\022\021\n\taccountid\030\001 \001(\r\022\016\n\006postid\030\002 \001(\004\022\023\n\013"
+  "status_text\030\003 \001(\t\022\017\n\007deleted\030\004 \001(\010\022\r\n\005ap"
+  "pid\030\005 \001(\r\"4\n\"CPlayer_DeletePostedStatus_"
+  "Request\022\016\n\006postid\030\001 \001(\004\"%\n#CPlayer_Delet"
+  "ePostedStatus_Response\"=\n\"CPlayer_GetLas"
+  "tPlayedTimes_Request\022\027\n\017min_last_played\030"
+  "\001 \001(\r\"\333\004\n#CPlayer_GetLastPlayedTimes_Res"
+  "ponse\0228\n\005games\030\001 \003(\0132).CPlayer_GetLastPl"
+  "ayedTimes_Response.Game\032\371\003\n\004Game\022\r\n\005appi"
+  "d\030\001 \001(\005\022\025\n\rlast_playtime\030\002 \001(\r\022\027\n\017playti"
+  "me_2weeks\030\003 \001(\005\022\030\n\020playtime_forever\030\004 \001("
+  "\005\022\026\n\016first_playtime\030\005 \001(\r\022 \n\030playtime_wi"
+  "ndows_forever\030\006 \001(\005\022\034\n\024playtime_mac_fore"
+  "ver\030\007 \001(\005\022\036\n\026playtime_linux_forever\030\010 \001("
+  "\005\022\033\n\023playtime_decforever\030\020 \001(\005\022\036\n\026first_"
+  "windows_playtime\030\t \001(\r\022\032\n\022first_mac_play"
+  "time\030\n \001(\r\022\034\n\024first_linux_playtime\030\013 \001(\r"
+  "\022\031\n\021first_decplaytime\030\021 \001(\r\022\035\n\025last_wind"
+  "ows_playtime\030\014 \001(\r\022\031\n\021last_mac_playtime\030"
+  "\r \001(\r\022\033\n\023last_linux_playtime\030\016 \001(\r\022\030\n\020la"
+  "st_decplaytime\030\022 \001(\r\022\035\n\025playtime_disconn"
+  "ected\030\017 \001(\r\"$\n\"CPlayer_GetTimeSSAAccepte"
+  "d_Request\"z\n#CPlayer_GetTimeSSAAccepted_"
+  "Response\022\031\n\021time_ssa_accepted\030\001 \001(\r\022\030\n\020t"
+  "ime_ssa_updated\030\002 \001(\r\022\036\n\026time_chinassa_a"
+  "ccepted\030\003 \001(\r\"u\n\031CPlayer_AcceptSSA_Reque"
+  "st\022\?\n\016agreement_type\030\001 \001(\0162\017.EAgreementT"
+  "ype:\026EAgreementType_Invalid\022\027\n\017time_sign"
+  "ed_utc\030\002 \001(\r\"\034\n\032CPlayer_AcceptSSA_Respon"
+  "se\"!\n\037CPlayer_GetNicknameList_Request\"\236\001"
+  "\n CPlayer_GetNicknameList_Response\022C\n\tni"
+  "cknames\030\001 \003(\01320.CPlayer_GetNicknameList_"
+  "Response.PlayerNickname\0325\n\016PlayerNicknam"
+  "e\022\021\n\taccountid\030\001 \001(\007\022\020\n\010nickname\030\002 \001(\t\")"
+  "\n\'CPlayer_GetPerFriendPreferences_Reques"
+  "t\"\303\005\n\024PerFriendPreferences\022\021\n\taccountid\030"
+  "\001 \001(\007\022\020\n\010nickname\030\002 \001(\t\022]\n\030notifications"
+  "_showingame\030\003 \001(\0162\025.ENotificationSetting"
+  ":$ENotificationSettingNotifyUseDefault\022]"
+  "\n\030notifications_showonline\030\004 \001(\0162\025.ENoti"
+  "ficationSetting:$ENotificationSettingNot"
+  "ifyUseDefault\022_\n\032notifications_showmessa"
+  "ges\030\005 \001(\0162\025.ENotificationSetting:$ENotif"
+  "icationSettingNotifyUseDefault\022V\n\021sounds"
+  "_showingame\030\006 \001(\0162\025.ENotificationSetting"
+  ":$ENotificationSettingNotifyUseDefault\022V"
+  "\n\021sounds_showonline\030\007 \001(\0162\025.ENotificatio"
   "nSetting:$ENotificationSettingNotifyUseD"
-  "efault\022_\n\032notifications_showmessages\030\005 \001"
-  "(\0162\025.ENotificationSetting:$ENotification"
-  "SettingNotifyUseDefault\022V\n\021sounds_showin"
-  "game\030\006 \001(\0162\025.ENotificationSetting:$ENoti"
-  "ficationSettingNotifyUseDefault\022V\n\021sound"
-  "s_showonline\030\007 \001(\0162\025.ENotificationSettin"
-  "g:$ENotificationSettingNotifyUseDefault\022"
-  "X\n\023sounds_showmessages\030\010 \001(\0162\025.ENotifica"
-  "tionSetting:$ENotificationSettingNotifyU"
-  "seDefault\022]\n\030notifications_sendmobile\030\t "
-  "\001(\0162\025.ENotificationSetting:$ENotificatio"
-  "nSettingNotifyUseDefault\"V\n(CPlayer_GetP"
-  "erFriendPreferences_Response\022*\n\013preferen"
-  "ces\030\001 \003(\0132\025.PerFriendPreferences\"U\n\'CPla"
-  "yer_SetPerFriendPreferences_Request\022*\n\013p"
-  "references\030\001 \001(\0132\025.PerFriendPreferences\""
-  "*\n(CPlayer_SetPerFriendPreferences_Respo"
-  "nse\",\n\031CPlayer_AddFriend_Request\022\017\n\007stea"
-  "mid\030\001 \001(\006\"^\n\032CPlayer_AddFriend_Response\022"
-  "\023\n\013invite_sent\030\001 \001(\010\022\033\n\023friend_relations"
-  "hip\030\002 \001(\r\022\016\n\006result\030\003 \001(\005\"/\n\034CPlayer_Rem"
-  "oveFriend_Request\022\017\n\007steamid\030\001 \001(\006\"<\n\035CP"
-  "layer_RemoveFriend_Response\022\033\n\023friend_re"
-  "lationship\030\001 \001(\r\"A\n\034CPlayer_IgnoreFriend"
-  "_Request\022\017\n\007steamid\030\001 \001(\006\022\020\n\010unignore\030\002 "
-  "\001(\010\"<\n\035CPlayer_IgnoreFriend_Response\022\033\n\023"
-  "friend_relationship\030\001 \001(\r\")\n\'CPlayer_Get"
-  "CommunityPreferences_Request\"\204\002\n\034CPlayer"
-  "_CommunityPreferences\022%\n\026parenthesize_ni"
-  "cknames\030\004 \001(\010:\005false\022T\n\023text_filter_sett"
-  "ing\030\005 \001(\0162\023.ETextFilterSetting:\"ETextFil"
-  "terSettingSteamLabOptedOut\022(\n\032text_filte"
-  "r_ignore_friends\030\006 \001(\010:\004true\022\"\n\032text_fil"
-  "ter_words_revision\030\007 \001(\r\022\031\n\021timestamp_up"
-  "dated\030\003 \001(\r\"\251\001\n(CPlayer_GetCommunityPref"
-  "erences_Response\0222\n\013preferences\030\001 \001(\0132\035."
-  "CPlayer_CommunityPreferences\022I\n\036content_"
-  "descriptor_preferences\030\002 \001(\0132!.UserConte"
-  "ntDescriptorPreferences\"]\n\'CPlayer_SetCo"
-  "mmunityPreferences_Request\0222\n\013preference"
-  "s\030\001 \001(\0132\035.CPlayer_CommunityPreferences\"*"
-  "\n(CPlayer_SetCommunityPreferences_Respon"
-  "se\"$\n\"CPlayer_GetTextFilterWords_Request"
-  "\"\216\001\n\027CPlayer_TextFilterWords\022\'\n\037text_fil"
-  "ter_custom_banned_words\030\001 \003(\t\022&\n\036text_fi"
-  "lter_custom_clean_words\030\002 \003(\t\022\"\n\032text_fi"
-  "lter_words_revision\030\003 \001(\r\"N\n#CPlayer_Get"
-  "TextFilterWords_Response\022\'\n\005words\030\001 \001(\0132"
-  "\030.CPlayer_TextFilterWords\"@\n,CPlayer_Get"
-  "NewSteamAnnouncementState_Request\022\020\n\010lan"
-  "guage\030\001 \001(\005\"\347\001\n-CPlayer_GetNewSteamAnnou"
-  "ncementState_Response\022N\n\005state\030\001 \001(\0162\033.E"
-  "NewSteamAnnouncementState:\"ENewSteamAnno"
-  "uncementState_Invalid\022\035\n\025announcement_he"
-  "adline\030\002 \001(\t\022\030\n\020announcement_url\030\003 \001(\t\022\023"
-  "\n\013time_posted\030\004 \001(\r\022\030\n\020announcement_gid\030"
-  "\005 \001(\004\"`\n/CPlayer_UpdateSteamAnnouncement"
-  "LastRead_Request\022\030\n\020announcement_gid\030\001 \001"
-  "(\004\022\023\n\013time_posted\030\002 \001(\r\"2\n0CPlayer_Updat"
-  "eSteamAnnouncementLastRead_Response\"$\n\"C"
-  "Player_GetPrivacySettings_Request\"\314\001\n\020CP"
-  "rivacySettings\022\025\n\rprivacy_state\030\001 \001(\005\022\037\n"
-  "\027privacy_state_inventory\030\002 \001(\005\022\033\n\023privac"
-  "y_state_gifts\030\003 \001(\005\022 \n\030privacy_state_own"
-  "edgames\030\004 \001(\005\022\036\n\026privacy_state_playtime\030"
-  "\005 \001(\005\022!\n\031privacy_state_friendslist\030\006 \001(\005"
-  "\"R\n#CPlayer_GetPrivacySettings_Response\022"
-  "+\n\020privacy_settings\030\001 \001(\0132\021.CPrivacySett"
-  "ings\"3\n\"CPlayer_GetDurationControl_Reque"
-  "st\022\r\n\005appid\030\001 \001(\r\"\356\001\n#CPlayer_GetDuratio"
-  "nControl_Response\022\022\n\nis_enabled\030\001 \001(\010\022\017\n"
-  "\007seconds\030\002 \001(\005\022\025\n\rseconds_today\030\003 \001(\005\022\035\n"
-  "\025is_steamchina_account\030\004 \001(\010\022\027\n\017is_age_v"
-  "erified\030\005 \001(\010\022\035\n\025seconds_allowed_today\030\006"
-  " \001(\r\022 \n\030age_verification_pending\030\007 \001(\010\022\022"
-  "\n\nblocminors\030\010 \001(\010\"\347\001\n*CPlayer_RecordDis"
-  "connectedPlaytime_Request\022N\n\rplay_sessio"
-  "ns\030\003 \003(\01327.CPlayer_RecordDisconnectedPla"
-  "ytime_Request.PlayHistory\032i\n\013PlayHistory"
-  "\022\r\n\005appid\030\001 \001(\r\022\032\n\022session_time_start\030\002 "
-  "\001(\r\022\017\n\007seconds\030\003 \001(\r\022\017\n\007offline\030\004 \001(\010\022\r\n"
-  "\005owner\030\005 \001(\r\"-\n+CPlayer_RecordDisconnect"
-  "edPlaytime_Response\"`\n$CPlayer_LastPlaye"
-  "dTimes_Notification\0228\n\005games\030\001 \003(\0132).CPl"
-  "ayer_GetLastPlayedTimes_Response.Game\"j\n"
-  "*CPlayer_FriendNicknameChanged_Notificat"
-  "ion\022\021\n\taccountid\030\001 \001(\007\022\020\n\010nickname\030\002 \001(\t"
-  "\022\027\n\017is_echo_to_self\030\003 \001(\010\"K\n6CPlayer_Fri"
-  "endEquippedProfileItemsChanged_Notificat"
-  "ion\022\021\n\taccountid\030\001 \001(\007\"\350\001\n.CPlayer_NewSt"
-  "eamAnnouncementState_Notification\022N\n\005sta"
-  "te\030\001 \001(\0162\033.ENewSteamAnnouncementState:\"E"
-  "NewSteamAnnouncementState_Invalid\022\035\n\025ann"
-  "ouncement_headline\030\002 \001(\t\022\030\n\020announcement"
-  "_url\030\003 \001(\t\022\023\n\013time_posted\030\004 \001(\r\022\030\n\020annou"
-  "ncement_gid\030\005 \001(\004\"\261\001\n0CPlayer_CommunityP"
-  "referencesChanged_Notification\0222\n\013prefer"
-  "ences\030\001 \001(\0132\035.CPlayer_CommunityPreferenc"
-  "es\022I\n\036content_descriptor_preferences\030\002 \001"
-  "(\0132!.UserContentDescriptorPreferences\"V\n"
-  "+CPlayer_TextFilterWordsChanged_Notifica"
-  "tion\022\'\n\005words\030\001 \001(\0132\030.CPlayer_TextFilter"
-  "Words\"q\n0CPlayer_PerFriendPreferencesCha"
-  "nged_Notification\022\021\n\taccountid\030\001 \001(\007\022*\n\013"
-  "preferences\030\002 \001(\0132\025.PerFriendPreferences"
-  "\"Z\n+CPlayer_PrivacySettingsChanged_Notif"
-  "ication\022+\n\020privacy_settings\030\001 \001(\0132\021.CPri"
-  "vacySettings*\215\002\n\032EProfileCustomizationSt"
-  "yle\022%\n!EProfileCustomizationStyleDefault"
-  "\020\000\022&\n\"EProfileCustomizationStyleSelected"
-  "\020\001\022$\n EProfileCustomizationStyleRarest\020\002"
-  "\022(\n$EProfileCustomizationStyleMostRecent"
-  "\020\003\022$\n EProfileCustomizationStyleRandom\020\004"
-  "\022*\n&EProfileCustomizationStyleHighestRat"
-  "ed\020\005*p\n\016EAgreementType\022#\n\026EAgreementType"
-  "_Invalid\020\377\377\377\377\377\377\377\377\377\001\022\034\n\030EAgreementType_Gl"
-  "obalSSA\020\000\022\033\n\027EAgreementType_ChinaSSA\020\001*\177"
-  "\n\024ENotificationSetting\022(\n$ENotificationS"
-  "ettingNotifyUseDefault\020\000\022\036\n\032ENotificatio"
-  "nSettingAlways\020\001\022\035\n\031ENotificationSetting"
-  "Never\020\002*\250\001\n\022ETextFilterSetting\022&\n\"ETextF"
-  "ilterSettingSteamLabOptedOut\020\000\022\035\n\031ETextF"
-  "ilterSettingEnabled\020\001\022+\n\'ETextFilterSett"
-  "ingEnabledAllowProfanity\020\002\022\036\n\032ETextFilte"
-  "rSettingDisabled\020\0032\322+\n\006Player\022\214\001\n!GetRec"
-  "entPlaytimeSessionsForChild\0222.CPlayer_Ge"
-  "tRecentPlaytimeSessionsForChild_Request\032"
-  "3.CPlayer_GetRecentPlaytimeSessionsForCh"
-  "ild_Response\022e\n\024GetPlayerLinkDetails\022%.C"
-  "Player_GetPlayerLinkDetails_Request\032&.CP"
-  "layer_GetPlayerLinkDetails_Response\022\217\001\n\""
-  "GetMutualFriendsForIncomingInvites\0223.CPl"
-  "ayer_GetMutualFriendsForIncomingInvites_"
-  "Request\0324.CPlayer_GetMutualFriendsForInc"
-  "omingInvites_Response\022P\n\rGetOwnedGames\022\036"
-  ".CPlayer_GetOwnedGames_Request\032\037.CPlayer"
-  "_GetOwnedGames_Response\022J\n\013GetPlayNext\022\034"
-  ".CPlayer_GetPlayNext_Request\032\035.CPlayer_G"
-  "etPlayNext_Response\022k\n\026GetFriendsGamepla"
-  "yInfo\022\'.CPlayer_GetFriendsGameplayInfo_R"
-  "equest\032(.CPlayer_GetFriendsGameplayInfo_"
-  "Response\022_\n\022GetGameBadgeLevels\022#.CPlayer"
-  "_GetGameBadgeLevels_Request\032$.CPlayer_Ge"
-  "tGameBadgeLevels_Response\022e\n\024GetProfileB"
-  "ackground\022%.CPlayer_GetProfileBackground"
-  "_Request\032&.CPlayer_GetProfileBackground_"
-  "Response\022e\n\024SetProfileBackground\022%.CPlay"
-  "er_SetProfileBackground_Request\032&.CPlaye"
-  "r_SetProfileBackground_Response\022q\n\030GetMi"
-  "niProfileBackground\022).CPlayer_GetMiniPro"
-  "fileBackground_Request\032*.CPlayer_GetMini"
-  "ProfileBackground_Response\022q\n\030SetMiniPro"
-  "fileBackground\022).CPlayer_SetMiniProfileB"
-  "ackground_Request\032*.CPlayer_SetMiniProfi"
-  "leBackground_Response\022S\n\016GetAvatarFrame\022"
-  "\037.CPlayer_GetAvatarFrame_Request\032 .CPlay"
-  "er_GetAvatarFrame_Response\022S\n\016SetAvatarF"
-  "rame\022\037.CPlayer_SetAvatarFrame_Request\032 ."
-  "CPlayer_SetAvatarFrame_Response\022\\\n\021GetAn"
-  "imatedAvatar\022\".CPlayer_GetAnimatedAvatar"
-  "_Request\032#.CPlayer_GetAnimatedAvatar_Res"
-  "ponse\022\\\n\021SetAnimatedAvatar\022\".CPlayer_Set"
-  "AnimatedAvatar_Request\032#.CPlayer_SetAnim"
-  "atedAvatar_Response\022q\n\030GetSteamDeckKeybo"
-  "ardSkin\022).CPlayer_GetSteamDeckKeyboardSk"
-  "in_Request\032*.CPlayer_GetSteamDeckKeyboar"
-  "dSkin_Response\022q\n\030SetSteamDeckKeyboardSk"
-  "in\022).CPlayer_SetSteamDeckKeyboardSkin_Re"
-  "quest\032*.CPlayer_SetSteamDeckKeyboardSkin"
-  "_Response\022e\n\024GetProfileItemsOwned\022%.CPla"
-  "yer_GetProfileItemsOwned_Request\032&.CPlay"
-  "er_GetProfileItemsOwned_Response\022n\n\027GetP"
-  "rofileItemsEquipped\022(.CPlayer_GetProfile"
-  "ItemsEquipped_Request\032).CPlayer_GetProfi"
-  "leItemsEquipped_Response\022z\n\033SetEquippedP"
-  "rofileItemFlags\022,.CPlayer_SetEquippedPro"
-  "fileItemFlags_Request\032-.CPlayer_SetEquip"
-  "pedProfileItemFlags_Response\022V\n\017GetEmoti"
-  "conList\022 .CPlayer_GetEmoticonList_Reques"
-  "t\032!.CPlayer_GetEmoticonList_Response\022t\n\031"
-  "GetCommunityBadgeProgress\022*.CPlayer_GetC"
-  "ommunityBadgeProgress_Request\032+.CPlayer_"
-  "GetCommunityBadgeProgress_Response\022w\n\032Ge"
-  "tTopAchievementsForGames\022+.CPlayer_GetTo"
-  "pAchievementsForGames_Request\032,.CPlayer_"
-  "GetTopAchievementsForGames_Response\022n\n\027G"
-  "etAchievementsProgress\022(.CPlayer_GetAchi"
-  "evementsProgress_Request\032).CPlayer_GetAc"
-  "hievementsProgress_Response\022b\n\023GetGameAc"
-  "hievements\022$.CPlayer_GetGameAchievements"
-  "_Request\032%.CPlayer_GetGameAchievements_R"
-  "esponse\022Y\n\020GetFavoriteBadge\022!.CPlayer_Ge"
-  "tFavoriteBadge_Request\032\".CPlayer_GetFavo"
-  "riteBadge_Response\022Y\n\020SetFavoriteBadge\022!"
-  ".CPlayer_SetFavoriteBadge_Request\032\".CPla"
-  "yer_SetFavoriteBadge_Response\022n\n\027GetProf"
-  "ileCustomization\022(.CPlayer_GetProfileCus"
-  "tomization_Request\032).CPlayer_GetProfileC"
-  "ustomization_Response\022\214\001\n!GetPurchasedPr"
-  "ofileCustomizations\0222.CPlayer_GetPurchas"
-  "edProfileCustomizations_Request\0323.CPlaye"
-  "r_GetPurchasedProfileCustomizations_Resp"
-  "onse\022\255\001\n,GetPurchasedAndUpgradedProfileC"
-  "ustomizations\022=.CPlayer_GetPurchasedAndU"
-  "pgradedProfileCustomizations_Request\032>.C"
-  "Player_GetPurchasedAndUpgradedProfileCus"
-  "tomizations_Response\022t\n\031GetProfileThemes"
-  "Available\022*.CPlayer_GetProfileThemesAvai"
-  "lable_Request\032+.CPlayer_GetProfileThemes"
-  "Available_Response\022V\n\017SetProfileTheme\022 ."
-  "CPlayer_SetProfileTheme_Request\032!.CPlaye"
-  "r_SetProfileTheme_Response\022h\n\025SetProfile"
-  "Preferences\022&.CPlayer_SetProfilePreferen"
-  "ces_Request\032\'.CPlayer_SetProfilePreferen"
-  "ces_Response\022b\n\023PostStatusToFriends\022$.CP"
-  "layer_PostStatusToFriends_Request\032%.CPla"
-  "yer_PostStatusToFriends_Response\022V\n\017GetP"
-  "ostedStatus\022 .CPlayer_GetPostedStatus_Re"
-  "quest\032!.CPlayer_GetPostedStatus_Response"
-  "\022_\n\022DeletePostedStatus\022#.CPlayer_DeleteP"
-  "ostedStatus_Request\032$.CPlayer_DeletePost"
-  "edStatus_Response\022e\n\030ClientGetLastPlayed"
-  "Times\022#.CPlayer_GetLastPlayedTimes_Reque"
-  "st\032$.CPlayer_GetLastPlayedTimes_Response"
-  "\022_\n\022GetTimeSSAAccepted\022#.CPlayer_GetTime"
-  "SSAAccepted_Request\032$.CPlayer_GetTimeSSA"
-  "Accepted_Response\022D\n\tAcceptSSA\022\032.CPlayer"
-  "_AcceptSSA_Request\032\033.CPlayer_AcceptSSA_R"
-  "esponse\022V\n\017GetNicknameList\022 .CPlayer_Get"
-  "NicknameList_Request\032!.CPlayer_GetNickna"
-  "meList_Response\022n\n\027GetPerFriendPreferenc"
-  "es\022(.CPlayer_GetPerFriendPreferences_Req"
-  "uest\032).CPlayer_GetPerFriendPreferences_R"
-  "esponse\022n\n\027SetPerFriendPreferences\022(.CPl"
-  "ayer_SetPerFriendPreferences_Request\032).C"
-  "Player_SetPerFriendPreferences_Response\022"
-  "D\n\tAddFriend\022\032.CPlayer_AddFriend_Request"
-  "\032\033.CPlayer_AddFriend_Response\022M\n\014RemoveF"
-  "riend\022\035.CPlayer_RemoveFriend_Request\032\036.C"
-  "Player_RemoveFriend_Response\022M\n\014IgnoreFr"
-  "iend\022\035.CPlayer_IgnoreFriend_Request\032\036.CP"
-  "layer_IgnoreFriend_Response\022n\n\027GetCommun"
-  "ityPreferences\022(.CPlayer_GetCommunityPre"
-  "ferences_Request\032).CPlayer_GetCommunityP"
-  "references_Response\022n\n\027SetCommunityPrefe"
-  "rences\022(.CPlayer_SetCommunityPreferences"
-  "_Request\032).CPlayer_SetCommunityPreferenc"
-  "es_Response\022_\n\022GetTextFilterWords\022#.CPla"
-  "yer_GetTextFilterWords_Request\032$.CPlayer"
-  "_GetTextFilterWords_Response\022}\n\034GetNewSt"
-  "eamAnnouncementState\022-.CPlayer_GetNewSte"
-  "amAnnouncementState_Request\032..CPlayer_Ge"
-  "tNewSteamAnnouncementState_Response\022\206\001\n\037"
-  "UpdateSteamAnnouncementLastRead\0220.CPlaye"
-  "r_UpdateSteamAnnouncementLastRead_Reques"
-  "t\0321.CPlayer_UpdateSteamAnnouncementLastR"
-  "ead_Response\022_\n\022GetPrivacySettings\022#.CPl"
-  "ayer_GetPrivacySettings_Request\032$.CPlaye"
-  "r_GetPrivacySettings_Response\022_\n\022GetDura"
-  "tionControl\022#.CPlayer_GetDurationControl"
-  "_Request\032$.CPlayer_GetDurationControl_Re"
-  "sponse\022w\n\032RecordDisconnectedPlaytime\022+.C"
-  "Player_RecordDisconnectedPlaytime_Reques"
-  "t\032,.CPlayer_RecordDisconnectedPlaytime_R"
-  "esponse2\223\006\n\014PlayerClient\022K\n\025NotifyLastPl"
-  "ayedTimes\022%.CPlayer_LastPlayedTimes_Noti"
-  "fication\032\013.NoResponse\022W\n\033NotifyFriendNic"
-  "knameChanged\022+.CPlayer_FriendNicknameCha"
-  "nged_Notification\032\013.NoResponse\022o\n\'Notify"
-  "FriendEquippedProfileItemsChanged\0227.CPla"
+  "efault\022X\n\023sounds_showmessages\030\010 \001(\0162\025.EN"
+  "otificationSetting:$ENotificationSetting"
+  "NotifyUseDefault\022]\n\030notifications_sendmo"
+  "bile\030\t \001(\0162\025.ENotificationSetting:$ENoti"
+  "ficationSettingNotifyUseDefault\"V\n(CPlay"
+  "er_GetPerFriendPreferences_Response\022*\n\013p"
+  "references\030\001 \003(\0132\025.PerFriendPreferences\""
+  "U\n\'CPlayer_SetPerFriendPreferences_Reque"
+  "st\022*\n\013preferences\030\001 \001(\0132\025.PerFriendPrefe"
+  "rences\"*\n(CPlayer_SetPerFriendPreference"
+  "s_Response\",\n\031CPlayer_AddFriend_Request\022"
+  "\017\n\007steamid\030\001 \001(\006\"^\n\032CPlayer_AddFriend_Re"
+  "sponse\022\023\n\013invite_sent\030\001 \001(\010\022\033\n\023friend_re"
+  "lationship\030\002 \001(\r\022\016\n\006result\030\003 \001(\005\"/\n\034CPla"
+  "yer_RemoveFriend_Request\022\017\n\007steamid\030\001 \001("
+  "\006\"<\n\035CPlayer_RemoveFriend_Response\022\033\n\023fr"
+  "iend_relationship\030\001 \001(\r\"A\n\034CPlayer_Ignor"
+  "eFriend_Request\022\017\n\007steamid\030\001 \001(\006\022\020\n\010unig"
+  "nore\030\002 \001(\010\"<\n\035CPlayer_IgnoreFriend_Respo"
+  "nse\022\033\n\023friend_relationship\030\001 \001(\r\")\n\'CPla"
+  "yer_GetCommunityPreferences_Request\"\204\002\n\034"
+  "CPlayer_CommunityPreferences\022%\n\026parenthe"
+  "size_nicknames\030\004 \001(\010:\005false\022T\n\023text_filt"
+  "er_setting\030\005 \001(\0162\023.ETextFilterSetting:\"E"
+  "TextFilterSettingSteamLabOptedOut\022(\n\032tex"
+  "t_filter_ignore_friends\030\006 \001(\010:\004true\022\"\n\032t"
+  "ext_filter_words_revision\030\007 \001(\r\022\031\n\021times"
+  "tamp_updated\030\003 \001(\r\"\251\001\n(CPlayer_GetCommun"
+  "ityPreferences_Response\0222\n\013preferences\030\001"
+  " \001(\0132\035.CPlayer_CommunityPreferences\022I\n\036c"
+  "ontent_descriptor_preferences\030\002 \001(\0132!.Us"
+  "erContentDescriptorPreferences\"]\n\'CPlaye"
+  "r_SetCommunityPreferences_Request\0222\n\013pre"
+  "ferences\030\001 \001(\0132\035.CPlayer_CommunityPrefer"
+  "ences\"*\n(CPlayer_SetCommunityPreferences"
+  "_Response\"$\n\"CPlayer_GetTextFilterWords_"
+  "Request\"\216\001\n\027CPlayer_TextFilterWords\022\'\n\037t"
+  "ext_filter_custom_banned_words\030\001 \003(\t\022&\n\036"
+  "text_filter_custom_clean_words\030\002 \003(\t\022\"\n\032"
+  "text_filter_words_revision\030\003 \001(\r\"N\n#CPla"
+  "yer_GetTextFilterWords_Response\022\'\n\005words"
+  "\030\001 \001(\0132\030.CPlayer_TextFilterWords\"@\n,CPla"
+  "yer_GetNewSteamAnnouncementState_Request"
+  "\022\020\n\010language\030\001 \001(\005\"\347\001\n-CPlayer_GetNewSte"
+  "amAnnouncementState_Response\022N\n\005state\030\001 "
+  "\001(\0162\033.ENewSteamAnnouncementState:\"ENewSt"
+  "eamAnnouncementState_Invalid\022\035\n\025announce"
+  "ment_headline\030\002 \001(\t\022\030\n\020announcement_url\030"
+  "\003 \001(\t\022\023\n\013time_posted\030\004 \001(\r\022\030\n\020announceme"
+  "nt_gid\030\005 \001(\004\"`\n/CPlayer_UpdateSteamAnnou"
+  "ncementLastRead_Request\022\030\n\020announcement_"
+  "gid\030\001 \001(\004\022\023\n\013time_posted\030\002 \001(\r\"2\n0CPlaye"
+  "r_UpdateSteamAnnouncementLastRead_Respon"
+  "se\"$\n\"CPlayer_GetPrivacySettings_Request"
+  "\"\314\001\n\020CPrivacySettings\022\025\n\rprivacy_state\030\001"
+  " \001(\005\022\037\n\027privacy_state_inventory\030\002 \001(\005\022\033\n"
+  "\023privacy_state_gifts\030\003 \001(\005\022 \n\030privacy_st"
+  "ate_ownedgames\030\004 \001(\005\022\036\n\026privacy_state_pl"
+  "aytime\030\005 \001(\005\022!\n\031privacy_state_friendslis"
+  "t\030\006 \001(\005\"R\n#CPlayer_GetPrivacySettings_Re"
+  "sponse\022+\n\020privacy_settings\030\001 \001(\0132\021.CPriv"
+  "acySettings\"3\n\"CPlayer_GetDurationContro"
+  "l_Request\022\r\n\005appid\030\001 \001(\r\"\356\001\n#CPlayer_Get"
+  "DurationControl_Response\022\022\n\nis_enabled\030\001"
+  " \001(\010\022\017\n\007seconds\030\002 \001(\005\022\025\n\rseconds_today\030\003"
+  " \001(\005\022\035\n\025is_steamchina_account\030\004 \001(\010\022\027\n\017i"
+  "s_age_verified\030\005 \001(\010\022\035\n\025seconds_allowed_"
+  "today\030\006 \001(\r\022 \n\030age_verification_pending\030"
+  "\007 \001(\010\022\022\n\nblocminors\030\010 \001(\010\"\347\001\n*CPlayer_Re"
+  "cordDisconnectedPlaytime_Request\022N\n\rplay"
+  "_sessions\030\003 \003(\01327.CPlayer_RecordDisconne"
+  "ctedPlaytime_Request.PlayHistory\032i\n\013Play"
+  "History\022\r\n\005appid\030\001 \001(\r\022\032\n\022session_time_s"
+  "tart\030\002 \001(\r\022\017\n\007seconds\030\003 \001(\r\022\017\n\007offline\030\004"
+  " \001(\010\022\r\n\005owner\030\005 \001(\r\"-\n+CPlayer_RecordDis"
+  "connectedPlaytime_Response\"`\n$CPlayer_La"
+  "stPlayedTimes_Notification\0228\n\005games\030\001 \003("
+  "\0132).CPlayer_GetLastPlayedTimes_Response."
+  "Game\"j\n*CPlayer_FriendNicknameChanged_No"
+  "tification\022\021\n\taccountid\030\001 \001(\007\022\020\n\010nicknam"
+  "e\030\002 \001(\t\022\027\n\017is_echo_to_self\030\003 \001(\010\"K\n6CPla"
   "yer_FriendEquippedProfileItemsChanged_No"
-  "tification\032\013.NoResponse\022_\n\037NotifyNewStea"
-  "mAnnouncementState\022/.CPlayer_NewSteamAnn"
-  "ouncementState_Notification\032\013.NoResponse"
-  "\022c\n!NotifyCommunityPreferencesChanged\0221."
-  "CPlayer_CommunityPreferencesChanged_Noti"
-  "fication\032\013.NoResponse\022Y\n\034NotifyTextFilte"
-  "rWordsChanged\022,.CPlayer_TextFilterWordsC"
-  "hanged_Notification\032\013.NoResponse\022c\n!Noti"
-  "fyPerFriendPreferencesChanged\0221.CPlayer_"
-  "PerFriendPreferencesChanged_Notification"
-  "\032\013.NoResponse\022`\n#NotifyPrivacyPrivacySet"
-  "tingsChanged\022,.CPlayer_PrivacySettingsCh"
-  "anged_Notification\032\013.NoResponse\032\004\300\265\030\002B\035\200"
-  "\001\001\252\002\027OpenSteamworks.Protobuf"
+  "tification\022\021\n\taccountid\030\001 \001(\007\"\350\001\n.CPlaye"
+  "r_NewSteamAnnouncementState_Notification"
+  "\022N\n\005state\030\001 \001(\0162\033.ENewSteamAnnouncementS"
+  "tate:\"ENewSteamAnnouncementState_Invalid"
+  "\022\035\n\025announcement_headline\030\002 \001(\t\022\030\n\020annou"
+  "ncement_url\030\003 \001(\t\022\023\n\013time_posted\030\004 \001(\r\022\030"
+  "\n\020announcement_gid\030\005 \001(\004\"\261\001\n0CPlayer_Com"
+  "munityPreferencesChanged_Notification\0222\n"
+  "\013preferences\030\001 \001(\0132\035.CPlayer_CommunityPr"
+  "eferences\022I\n\036content_descriptor_preferen"
+  "ces\030\002 \001(\0132!.UserContentDescriptorPrefere"
+  "nces\"V\n+CPlayer_TextFilterWordsChanged_N"
+  "otification\022\'\n\005words\030\001 \001(\0132\030.CPlayer_Tex"
+  "tFilterWords\"q\n0CPlayer_PerFriendPrefere"
+  "ncesChanged_Notification\022\021\n\taccountid\030\001 "
+  "\001(\007\022*\n\013preferences\030\002 \001(\0132\025.PerFriendPref"
+  "erences\"Z\n+CPlayer_PrivacySettingsChange"
+  "d_Notification\022+\n\020privacy_settings\030\001 \001(\013"
+  "2\021.CPrivacySettings*\215\002\n\032EProfileCustomiz"
+  "ationStyle\022%\n!EProfileCustomizationStyle"
+  "Default\020\000\022&\n\"EProfileCustomizationStyleS"
+  "elected\020\001\022$\n EProfileCustomizationStyleR"
+  "arest\020\002\022(\n$EProfileCustomizationStyleMos"
+  "tRecent\020\003\022$\n EProfileCustomizationStyleR"
+  "andom\020\004\022*\n&EProfileCustomizationStyleHig"
+  "hestRated\020\005*p\n\016EAgreementType\022#\n\026EAgreem"
+  "entType_Invalid\020\377\377\377\377\377\377\377\377\377\001\022\034\n\030EAgreement"
+  "Type_GlobalSSA\020\000\022\033\n\027EAgreementType_China"
+  "SSA\020\001*\177\n\024ENotificationSetting\022(\n$ENotifi"
+  "cationSettingNotifyUseDefault\020\000\022\036\n\032ENoti"
+  "ficationSettingAlways\020\001\022\035\n\031ENotification"
+  "SettingNever\020\002*\250\001\n\022ETextFilterSetting\022&\n"
+  "\"ETextFilterSettingSteamLabOptedOut\020\000\022\035\n"
+  "\031ETextFilterSettingEnabled\020\001\022+\n\'ETextFil"
+  "terSettingEnabledAllowProfanity\020\002\022\036\n\032ETe"
+  "xtFilterSettingDisabled\020\0032\322+\n\006Player\022\214\001\n"
+  "!GetRecentPlaytimeSessionsForChild\0222.CPl"
+  "ayer_GetRecentPlaytimeSessionsForChild_R"
+  "equest\0323.CPlayer_GetRecentPlaytimeSessio"
+  "nsForChild_Response\022e\n\024GetPlayerLinkDeta"
+  "ils\022%.CPlayer_GetPlayerLinkDetails_Reque"
+  "st\032&.CPlayer_GetPlayerLinkDetails_Respon"
+  "se\022\217\001\n\"GetMutualFriendsForIncomingInvite"
+  "s\0223.CPlayer_GetMutualFriendsForIncomingI"
+  "nvites_Request\0324.CPlayer_GetMutualFriend"
+  "sForIncomingInvites_Response\022P\n\rGetOwned"
+  "Games\022\036.CPlayer_GetOwnedGames_Request\032\037."
+  "CPlayer_GetOwnedGames_Response\022J\n\013GetPla"
+  "yNext\022\034.CPlayer_GetPlayNext_Request\032\035.CP"
+  "layer_GetPlayNext_Response\022k\n\026GetFriends"
+  "GameplayInfo\022\'.CPlayer_GetFriendsGamepla"
+  "yInfo_Request\032(.CPlayer_GetFriendsGamepl"
+  "ayInfo_Response\022_\n\022GetGameBadgeLevels\022#."
+  "CPlayer_GetGameBadgeLevels_Request\032$.CPl"
+  "ayer_GetGameBadgeLevels_Response\022e\n\024GetP"
+  "rofileBackground\022%.CPlayer_GetProfileBac"
+  "kground_Request\032&.CPlayer_GetProfileBack"
+  "ground_Response\022e\n\024SetProfileBackground\022"
+  "%.CPlayer_SetProfileBackground_Request\032&"
+  ".CPlayer_SetProfileBackground_Response\022q"
+  "\n\030GetMiniProfileBackground\022).CPlayer_Get"
+  "MiniProfileBackground_Request\032*.CPlayer_"
+  "GetMiniProfileBackground_Response\022q\n\030Set"
+  "MiniProfileBackground\022).CPlayer_SetMiniP"
+  "rofileBackground_Request\032*.CPlayer_SetMi"
+  "niProfileBackground_Response\022S\n\016GetAvata"
+  "rFrame\022\037.CPlayer_GetAvatarFrame_Request\032"
+  " .CPlayer_GetAvatarFrame_Response\022S\n\016Set"
+  "AvatarFrame\022\037.CPlayer_SetAvatarFrame_Req"
+  "uest\032 .CPlayer_SetAvatarFrame_Response\022\\"
+  "\n\021GetAnimatedAvatar\022\".CPlayer_GetAnimate"
+  "dAvatar_Request\032#.CPlayer_GetAnimatedAva"
+  "tar_Response\022\\\n\021SetAnimatedAvatar\022\".CPla"
+  "yer_SetAnimatedAvatar_Request\032#.CPlayer_"
+  "SetAnimatedAvatar_Response\022q\n\030GetSteamDe"
+  "ckKeyboardSkin\022).CPlayer_GetSteamDeckKey"
+  "boardSkin_Request\032*.CPlayer_GetSteamDeck"
+  "KeyboardSkin_Response\022q\n\030SetSteamDeckKey"
+  "boardSkin\022).CPlayer_SetSteamDeckKeyboard"
+  "Skin_Request\032*.CPlayer_SetSteamDeckKeybo"
+  "ardSkin_Response\022e\n\024GetProfileItemsOwned"
+  "\022%.CPlayer_GetProfileItemsOwned_Request\032"
+  "&.CPlayer_GetProfileItemsOwned_Response\022"
+  "n\n\027GetProfileItemsEquipped\022(.CPlayer_Get"
+  "ProfileItemsEquipped_Request\032).CPlayer_G"
+  "etProfileItemsEquipped_Response\022z\n\033SetEq"
+  "uippedProfileItemFlags\022,.CPlayer_SetEqui"
+  "ppedProfileItemFlags_Request\032-.CPlayer_S"
+  "etEquippedProfileItemFlags_Response\022V\n\017G"
+  "etEmoticonList\022 .CPlayer_GetEmoticonList"
+  "_Request\032!.CPlayer_GetEmoticonList_Respo"
+  "nse\022t\n\031GetCommunityBadgeProgress\022*.CPlay"
+  "er_GetCommunityBadgeProgress_Request\032+.C"
+  "Player_GetCommunityBadgeProgress_Respons"
+  "e\022w\n\032GetTopAchievementsForGames\022+.CPlaye"
+  "r_GetTopAchievementsForGames_Request\032,.C"
+  "Player_GetTopAchievementsForGames_Respon"
+  "se\022n\n\027GetAchievementsProgress\022(.CPlayer_"
+  "GetAchievementsProgress_Request\032).CPlaye"
+  "r_GetAchievementsProgress_Response\022b\n\023Ge"
+  "tGameAchievements\022$.CPlayer_GetGameAchie"
+  "vements_Request\032%.CPlayer_GetGameAchieve"
+  "ments_Response\022Y\n\020GetFavoriteBadge\022!.CPl"
+  "ayer_GetFavoriteBadge_Request\032\".CPlayer_"
+  "GetFavoriteBadge_Response\022Y\n\020SetFavorite"
+  "Badge\022!.CPlayer_SetFavoriteBadge_Request"
+  "\032\".CPlayer_SetFavoriteBadge_Response\022n\n\027"
+  "GetProfileCustomization\022(.CPlayer_GetPro"
+  "fileCustomization_Request\032).CPlayer_GetP"
+  "rofileCustomization_Response\022\214\001\n!GetPurc"
+  "hasedProfileCustomizations\0222.CPlayer_Get"
+  "PurchasedProfileCustomizations_Request\0323"
+  ".CPlayer_GetPurchasedProfileCustomizatio"
+  "ns_Response\022\255\001\n,GetPurchasedAndUpgradedP"
+  "rofileCustomizations\022=.CPlayer_GetPurcha"
+  "sedAndUpgradedProfileCustomizations_Requ"
+  "est\032>.CPlayer_GetPurchasedAndUpgradedPro"
+  "fileCustomizations_Response\022t\n\031GetProfil"
+  "eThemesAvailable\022*.CPlayer_GetProfileThe"
+  "mesAvailable_Request\032+.CPlayer_GetProfil"
+  "eThemesAvailable_Response\022V\n\017SetProfileT"
+  "heme\022 .CPlayer_SetProfileTheme_Request\032!"
+  ".CPlayer_SetProfileTheme_Response\022h\n\025Set"
+  "ProfilePreferences\022&.CPlayer_SetProfileP"
+  "references_Request\032\'.CPlayer_SetProfileP"
+  "references_Response\022b\n\023PostStatusToFrien"
+  "ds\022$.CPlayer_PostStatusToFriends_Request"
+  "\032%.CPlayer_PostStatusToFriends_Response\022"
+  "V\n\017GetPostedStatus\022 .CPlayer_GetPostedSt"
+  "atus_Request\032!.CPlayer_GetPostedStatus_R"
+  "esponse\022_\n\022DeletePostedStatus\022#.CPlayer_"
+  "DeletePostedStatus_Request\032$.CPlayer_Del"
+  "etePostedStatus_Response\022e\n\030ClientGetLas"
+  "tPlayedTimes\022#.CPlayer_GetLastPlayedTime"
+  "s_Request\032$.CPlayer_GetLastPlayedTimes_R"
+  "esponse\022_\n\022GetTimeSSAAccepted\022#.CPlayer_"
+  "GetTimeSSAAccepted_Request\032$.CPlayer_Get"
+  "TimeSSAAccepted_Response\022D\n\tAcceptSSA\022\032."
+  "CPlayer_AcceptSSA_Request\032\033.CPlayer_Acce"
+  "ptSSA_Response\022V\n\017GetNicknameList\022 .CPla"
+  "yer_GetNicknameList_Request\032!.CPlayer_Ge"
+  "tNicknameList_Response\022n\n\027GetPerFriendPr"
+  "eferences\022(.CPlayer_GetPerFriendPreferen"
+  "ces_Request\032).CPlayer_GetPerFriendPrefer"
+  "ences_Response\022n\n\027SetPerFriendPreference"
+  "s\022(.CPlayer_SetPerFriendPreferences_Requ"
+  "est\032).CPlayer_SetPerFriendPreferences_Re"
+  "sponse\022D\n\tAddFriend\022\032.CPlayer_AddFriend_"
+  "Request\032\033.CPlayer_AddFriend_Response\022M\n\014"
+  "RemoveFriend\022\035.CPlayer_RemoveFriend_Requ"
+  "est\032\036.CPlayer_RemoveFriend_Response\022M\n\014I"
+  "gnoreFriend\022\035.CPlayer_IgnoreFriend_Reque"
+  "st\032\036.CPlayer_IgnoreFriend_Response\022n\n\027Ge"
+  "tCommunityPreferences\022(.CPlayer_GetCommu"
+  "nityPreferences_Request\032).CPlayer_GetCom"
+  "munityPreferences_Response\022n\n\027SetCommuni"
+  "tyPreferences\022(.CPlayer_SetCommunityPref"
+  "erences_Request\032).CPlayer_SetCommunityPr"
+  "eferences_Response\022_\n\022GetTextFilterWords"
+  "\022#.CPlayer_GetTextFilterWords_Request\032$."
+  "CPlayer_GetTextFilterWords_Response\022}\n\034G"
+  "etNewSteamAnnouncementState\022-.CPlayer_Ge"
+  "tNewSteamAnnouncementState_Request\032..CPl"
+  "ayer_GetNewSteamAnnouncementState_Respon"
+  "se\022\206\001\n\037UpdateSteamAnnouncementLastRead\0220"
+  ".CPlayer_UpdateSteamAnnouncementLastRead"
+  "_Request\0321.CPlayer_UpdateSteamAnnounceme"
+  "ntLastRead_Response\022_\n\022GetPrivacySetting"
+  "s\022#.CPlayer_GetPrivacySettings_Request\032$"
+  ".CPlayer_GetPrivacySettings_Response\022_\n\022"
+  "GetDurationControl\022#.CPlayer_GetDuration"
+  "Control_Request\032$.CPlayer_GetDurationCon"
+  "trol_Response\022w\n\032RecordDisconnectedPlayt"
+  "ime\022+.CPlayer_RecordDisconnectedPlaytime"
+  "_Request\032,.CPlayer_RecordDisconnectedPla"
+  "ytime_Response2\223\006\n\014PlayerClient\022K\n\025Notif"
+  "yLastPlayedTimes\022%.CPlayer_LastPlayedTim"
+  "es_Notification\032\013.NoResponse\022W\n\033NotifyFr"
+  "iendNicknameChanged\022+.CPlayer_FriendNick"
+  "nameChanged_Notification\032\013.NoResponse\022o\n"
+  "\'NotifyFriendEquippedProfileItemsChanged"
+  "\0227.CPlayer_FriendEquippedProfileItemsCha"
+  "nged_Notification\032\013.NoResponse\022_\n\037Notify"
+  "NewSteamAnnouncementState\022/.CPlayer_NewS"
+  "teamAnnouncementState_Notification\032\013.NoR"
+  "esponse\022c\n!NotifyCommunityPreferencesCha"
+  "nged\0221.CPlayer_CommunityPreferencesChang"
+  "ed_Notification\032\013.NoResponse\022Y\n\034NotifyTe"
+  "xtFilterWordsChanged\022,.CPlayer_TextFilte"
+  "rWordsChanged_Notification\032\013.NoResponse\022"
+  "c\n!NotifyPerFriendPreferencesChanged\0221.C"
+  "Player_PerFriendPreferencesChanged_Notif"
+  "ication\032\013.NoResponse\022`\n#NotifyPrivacyPri"
+  "vacySettingsChanged\022,.CPlayer_PrivacySet"
+  "tingsChanged_Notification\032\013.NoResponse\032\004"
+  "\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -4418,7 +4425,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fplayer_2esteamclient_2eproto = {
-  false, false, 24868, descriptor_table_protodef_steammessages_5fplayer_2esteamclient_2eproto, "steammessages_player.steamclient.proto", 
+  false, false, 24915, descriptor_table_protodef_steammessages_5fplayer_2esteamclient_2eproto, "steammessages_player.steamclient.proto", 
   &descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_once, descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_deps, 4, 146,
   schemas, file_default_instances, TableStruct_steammessages_5fplayer_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fplayer_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fplayer_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fplayer_2esteamclient_2eproto,
@@ -21354,6 +21361,9 @@ class CPlayer_GetAchievementsProgress_Request::_Internal {
   static void set_has_language(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_include_unvetted_apps(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 CPlayer_GetAchievementsProgress_Request::CPlayer_GetAchievementsProgress_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -21373,13 +21383,18 @@ CPlayer_GetAchievementsProgress_Request::CPlayer_GetAchievementsProgress_Request
     language_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_language(), 
       GetArena());
   }
-  steamid_ = from.steamid_;
+  ::memcpy(&steamid_, &from.steamid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&include_unvetted_apps_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(include_unvetted_apps_));
   // @@protoc_insertion_point(copy_constructor:CPlayer_GetAchievementsProgress_Request)
 }
 
 void CPlayer_GetAchievementsProgress_Request::SharedCtor() {
 language_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-steamid_ = PROTOBUF_ULONGLONG(0);
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&steamid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&include_unvetted_apps_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(include_unvetted_apps_));
 }
 
 CPlayer_GetAchievementsProgress_Request::~CPlayer_GetAchievementsProgress_Request() {
@@ -21414,7 +21429,11 @@ void CPlayer_GetAchievementsProgress_Request::Clear() {
   if (cached_has_bits & 0x00000001u) {
     language_.ClearNonDefaultToEmpty();
   }
-  steamid_ = PROTOBUF_ULONGLONG(0);
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&steamid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&include_unvetted_apps_) -
+        reinterpret_cast<char*>(&steamid_)) + sizeof(include_unvetted_apps_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -21458,6 +21477,14 @@ const char* CPlayer_GetAchievementsProgress_Request::_InternalParse(const char* 
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<24>(ptr));
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_appids(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool include_unvetted_apps = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_include_unvetted_apps(&has_bits);
+          include_unvetted_apps_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -21513,6 +21540,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_appids(i), target);
   }
 
+  // optional bool include_unvetted_apps = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_include_unvetted_apps(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -21539,7 +21572,7 @@ size_t CPlayer_GetAchievementsProgress_Request::ByteSizeLong() const {
   }
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     // optional string language = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -21552,6 +21585,11 @@ size_t CPlayer_GetAchievementsProgress_Request::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_steamid());
+    }
+
+    // optional bool include_unvetted_apps = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -21588,12 +21626,15 @@ void CPlayer_GetAchievementsProgress_Request::MergeFrom(const CPlayer_GetAchieve
 
   appids_.MergeFrom(from.appids_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_language(from._internal_language());
     }
     if (cached_has_bits & 0x00000002u) {
       steamid_ = from.steamid_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      include_unvetted_apps_ = from.include_unvetted_apps_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -21623,7 +21664,12 @@ void CPlayer_GetAchievementsProgress_Request::InternalSwap(CPlayer_GetAchievemen
   swap(_has_bits_[0], other->_has_bits_[0]);
   appids_.InternalSwap(&other->appids_);
   language_.Swap(&other->language_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(steamid_, other->steamid_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CPlayer_GetAchievementsProgress_Request, include_unvetted_apps_)
+      + sizeof(CPlayer_GetAchievementsProgress_Request::include_unvetted_apps_)
+      - PROTOBUF_FIELD_OFFSET(CPlayer_GetAchievementsProgress_Request, steamid_)>(
+          reinterpret_cast<char*>(&steamid_),
+          reinterpret_cast<char*>(&other->steamid_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CPlayer_GetAchievementsProgress_Request::GetMetadata() const {
@@ -21649,10 +21695,13 @@ class CPlayer_GetAchievementsProgress_Response_AchievementProgress::_Internal {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_all_unlocked(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_cache_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_vetted(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
   }
 };
 
@@ -21667,16 +21716,16 @@ CPlayer_GetAchievementsProgress_Response_AchievementProgress::CPlayer_GetAchieve
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&cache_time_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(cache_time_));
+    static_cast<size_t>(reinterpret_cast<char*>(&vetted_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(vetted_));
   // @@protoc_insertion_point(copy_constructor:CPlayer_GetAchievementsProgress_Response.AchievementProgress)
 }
 
 void CPlayer_GetAchievementsProgress_Response_AchievementProgress::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&cache_time_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(cache_time_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&vetted_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(vetted_));
 }
 
 CPlayer_GetAchievementsProgress_Response_AchievementProgress::~CPlayer_GetAchievementsProgress_Response_AchievementProgress() {
@@ -21706,10 +21755,10 @@ void CPlayer_GetAchievementsProgress_Response_AchievementProgress::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000007fu) {
     ::memset(&appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&cache_time_) -
-        reinterpret_cast<char*>(&appid_)) + sizeof(cache_time_));
+        reinterpret_cast<char*>(&vetted_) -
+        reinterpret_cast<char*>(&appid_)) + sizeof(vetted_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -21771,6 +21820,14 @@ const char* CPlayer_GetAchievementsProgress_Response_AchievementProgress::_Inter
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool vetted = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          _Internal::set_has_vetted(&has_bits);
+          vetted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -21826,15 +21883,21 @@ failure:
   }
 
   // optional bool all_unlocked = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_all_unlocked(), target);
   }
 
   // optional uint32 cache_time = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_cache_time(), target);
+  }
+
+  // optional bool vetted = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_vetted(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -21854,7 +21917,7 @@ size_t CPlayer_GetAchievementsProgress_Response_AchievementProgress::ByteSizeLon
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000007fu) {
     // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -21881,16 +21944,21 @@ size_t CPlayer_GetAchievementsProgress_Response_AchievementProgress::ByteSizeLon
       total_size += 1 + 4;
     }
 
-    // optional bool all_unlocked = 5;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 + 1;
-    }
-
     // optional uint32 cache_time = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cache_time());
+    }
+
+    // optional bool all_unlocked = 5;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool vetted = 7;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -21926,7 +21994,7 @@ void CPlayer_GetAchievementsProgress_Response_AchievementProgress::MergeFrom(con
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
       appid_ = from.appid_;
     }
@@ -21940,10 +22008,13 @@ void CPlayer_GetAchievementsProgress_Response_AchievementProgress::MergeFrom(con
       percentage_ = from.percentage_;
     }
     if (cached_has_bits & 0x00000010u) {
-      all_unlocked_ = from.all_unlocked_;
+      cache_time_ = from.cache_time_;
     }
     if (cached_has_bits & 0x00000020u) {
-      cache_time_ = from.cache_time_;
+      all_unlocked_ = from.all_unlocked_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      vetted_ = from.vetted_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -21972,8 +22043,8 @@ void CPlayer_GetAchievementsProgress_Response_AchievementProgress::InternalSwap(
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CPlayer_GetAchievementsProgress_Response_AchievementProgress, cache_time_)
-      + sizeof(CPlayer_GetAchievementsProgress_Response_AchievementProgress::cache_time_)
+      PROTOBUF_FIELD_OFFSET(CPlayer_GetAchievementsProgress_Response_AchievementProgress, vetted_)
+      + sizeof(CPlayer_GetAchievementsProgress_Response_AchievementProgress::vetted_)
       - PROTOBUF_FIELD_OFFSET(CPlayer_GetAchievementsProgress_Response_AchievementProgress, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));

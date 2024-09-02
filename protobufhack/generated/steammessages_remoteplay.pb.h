@@ -4351,13 +4351,14 @@ class CStreamingServerConfig PROTOBUF_FINAL :
 
   enum : int {
     kChangeDesktopResolutionFieldNumber = 1,
-    kDynamicallyAdjustResolutionFieldNumber = 2,
+    kDynamicallyAdjustResolutionOBSOLETEFieldNumber = 2,
     kEnableCaptureNvfbcFieldNumber = 3,
-    kEnableHardwareEncodingNvidiaFieldNumber = 4,
-    kEnableHardwareEncodingAmdFieldNumber = 5,
-    kEnableHardwareEncodingIntelFieldNumber = 6,
-    kEnableTrafficPriorityFieldNumber = 8,
+    kEnableHardwareEncodingNvidiaOBSOLETEFieldNumber = 4,
     kSoftwareEncodingThreadsFieldNumber = 7,
+    kEnableHardwareEncodingAmdOBSOLETEFieldNumber = 5,
+    kEnableHardwareEncodingIntelOBSOLETEFieldNumber = 6,
+    kEnableTrafficPriorityFieldNumber = 8,
+    kEnableHardwareEncodingFieldNumber = 10,
     kHostPlayAudioFieldNumber = 9,
   };
   // optional bool change_desktop_resolution = 1;
@@ -4373,17 +4374,17 @@ class CStreamingServerConfig PROTOBUF_FINAL :
   void _internal_set_change_desktop_resolution(bool value);
   public:
 
-  // optional bool dynamically_adjust_resolution = 2;
-  bool has_dynamically_adjust_resolution() const;
+  // optional bool dynamically_adjust_resolution_OBSOLETE = 2;
+  bool has_dynamically_adjust_resolution_obsolete() const;
   private:
-  bool _internal_has_dynamically_adjust_resolution() const;
+  bool _internal_has_dynamically_adjust_resolution_obsolete() const;
   public:
-  void clear_dynamically_adjust_resolution();
-  bool dynamically_adjust_resolution() const;
-  void set_dynamically_adjust_resolution(bool value);
+  void clear_dynamically_adjust_resolution_obsolete();
+  bool dynamically_adjust_resolution_obsolete() const;
+  void set_dynamically_adjust_resolution_obsolete(bool value);
   private:
-  bool _internal_dynamically_adjust_resolution() const;
-  void _internal_set_dynamically_adjust_resolution(bool value);
+  bool _internal_dynamically_adjust_resolution_obsolete() const;
+  void _internal_set_dynamically_adjust_resolution_obsolete(bool value);
   public:
 
   // optional bool enable_capture_nvfbc = 3;
@@ -4399,43 +4400,56 @@ class CStreamingServerConfig PROTOBUF_FINAL :
   void _internal_set_enable_capture_nvfbc(bool value);
   public:
 
-  // optional bool enable_hardware_encoding_nvidia = 4;
-  bool has_enable_hardware_encoding_nvidia() const;
+  // optional bool enable_hardware_encoding_nvidia_OBSOLETE = 4;
+  bool has_enable_hardware_encoding_nvidia_obsolete() const;
   private:
-  bool _internal_has_enable_hardware_encoding_nvidia() const;
+  bool _internal_has_enable_hardware_encoding_nvidia_obsolete() const;
   public:
-  void clear_enable_hardware_encoding_nvidia();
-  bool enable_hardware_encoding_nvidia() const;
-  void set_enable_hardware_encoding_nvidia(bool value);
+  void clear_enable_hardware_encoding_nvidia_obsolete();
+  bool enable_hardware_encoding_nvidia_obsolete() const;
+  void set_enable_hardware_encoding_nvidia_obsolete(bool value);
   private:
-  bool _internal_enable_hardware_encoding_nvidia() const;
-  void _internal_set_enable_hardware_encoding_nvidia(bool value);
-  public:
-
-  // optional bool enable_hardware_encoding_amd = 5;
-  bool has_enable_hardware_encoding_amd() const;
-  private:
-  bool _internal_has_enable_hardware_encoding_amd() const;
-  public:
-  void clear_enable_hardware_encoding_amd();
-  bool enable_hardware_encoding_amd() const;
-  void set_enable_hardware_encoding_amd(bool value);
-  private:
-  bool _internal_enable_hardware_encoding_amd() const;
-  void _internal_set_enable_hardware_encoding_amd(bool value);
+  bool _internal_enable_hardware_encoding_nvidia_obsolete() const;
+  void _internal_set_enable_hardware_encoding_nvidia_obsolete(bool value);
   public:
 
-  // optional bool enable_hardware_encoding_intel = 6;
-  bool has_enable_hardware_encoding_intel() const;
+  // optional int32 software_encoding_threads = 7;
+  bool has_software_encoding_threads() const;
   private:
-  bool _internal_has_enable_hardware_encoding_intel() const;
+  bool _internal_has_software_encoding_threads() const;
   public:
-  void clear_enable_hardware_encoding_intel();
-  bool enable_hardware_encoding_intel() const;
-  void set_enable_hardware_encoding_intel(bool value);
+  void clear_software_encoding_threads();
+  ::PROTOBUF_NAMESPACE_ID::int32 software_encoding_threads() const;
+  void set_software_encoding_threads(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  bool _internal_enable_hardware_encoding_intel() const;
-  void _internal_set_enable_hardware_encoding_intel(bool value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_software_encoding_threads() const;
+  void _internal_set_software_encoding_threads(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool enable_hardware_encoding_amd_OBSOLETE = 5;
+  bool has_enable_hardware_encoding_amd_obsolete() const;
+  private:
+  bool _internal_has_enable_hardware_encoding_amd_obsolete() const;
+  public:
+  void clear_enable_hardware_encoding_amd_obsolete();
+  bool enable_hardware_encoding_amd_obsolete() const;
+  void set_enable_hardware_encoding_amd_obsolete(bool value);
+  private:
+  bool _internal_enable_hardware_encoding_amd_obsolete() const;
+  void _internal_set_enable_hardware_encoding_amd_obsolete(bool value);
+  public:
+
+  // optional bool enable_hardware_encoding_intel_OBSOLETE = 6;
+  bool has_enable_hardware_encoding_intel_obsolete() const;
+  private:
+  bool _internal_has_enable_hardware_encoding_intel_obsolete() const;
+  public:
+  void clear_enable_hardware_encoding_intel_obsolete();
+  bool enable_hardware_encoding_intel_obsolete() const;
+  void set_enable_hardware_encoding_intel_obsolete(bool value);
+  private:
+  bool _internal_enable_hardware_encoding_intel_obsolete() const;
+  void _internal_set_enable_hardware_encoding_intel_obsolete(bool value);
   public:
 
   // optional bool enable_traffic_priority = 8;
@@ -4451,17 +4465,17 @@ class CStreamingServerConfig PROTOBUF_FINAL :
   void _internal_set_enable_traffic_priority(bool value);
   public:
 
-  // optional int32 software_encoding_threads = 7;
-  bool has_software_encoding_threads() const;
+  // optional bool enable_hardware_encoding = 10;
+  bool has_enable_hardware_encoding() const;
   private:
-  bool _internal_has_software_encoding_threads() const;
+  bool _internal_has_enable_hardware_encoding() const;
   public:
-  void clear_software_encoding_threads();
-  ::PROTOBUF_NAMESPACE_ID::int32 software_encoding_threads() const;
-  void set_software_encoding_threads(::PROTOBUF_NAMESPACE_ID::int32 value);
+  void clear_enable_hardware_encoding();
+  bool enable_hardware_encoding() const;
+  void set_enable_hardware_encoding(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_software_encoding_threads() const;
-  void _internal_set_software_encoding_threads(::PROTOBUF_NAMESPACE_ID::int32 value);
+  bool _internal_enable_hardware_encoding() const;
+  void _internal_set_enable_hardware_encoding(bool value);
   public:
 
   // optional .EStreamHostPlayAudioPreference host_play_audio = 9 [default = EStreamHostPlayAudioDefault];
@@ -4487,13 +4501,14 @@ class CStreamingServerConfig PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   bool change_desktop_resolution_;
-  bool dynamically_adjust_resolution_;
+  bool dynamically_adjust_resolution_obsolete_;
   bool enable_capture_nvfbc_;
-  bool enable_hardware_encoding_nvidia_;
-  bool enable_hardware_encoding_amd_;
-  bool enable_hardware_encoding_intel_;
-  bool enable_traffic_priority_;
+  bool enable_hardware_encoding_nvidia_obsolete_;
   ::PROTOBUF_NAMESPACE_ID::int32 software_encoding_threads_;
+  bool enable_hardware_encoding_amd_obsolete_;
+  bool enable_hardware_encoding_intel_obsolete_;
+  bool enable_traffic_priority_;
+  bool enable_hardware_encoding_;
   int host_play_audio_;
   friend struct ::TableStruct_steammessages_5fremoteplay_2eproto;
 };
@@ -24319,32 +24334,32 @@ inline void CStreamingServerConfig::set_change_desktop_resolution(bool value) {
   // @@protoc_insertion_point(field_set:CStreamingServerConfig.change_desktop_resolution)
 }
 
-// optional bool dynamically_adjust_resolution = 2;
-inline bool CStreamingServerConfig::_internal_has_dynamically_adjust_resolution() const {
+// optional bool dynamically_adjust_resolution_OBSOLETE = 2;
+inline bool CStreamingServerConfig::_internal_has_dynamically_adjust_resolution_obsolete() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CStreamingServerConfig::has_dynamically_adjust_resolution() const {
-  return _internal_has_dynamically_adjust_resolution();
+inline bool CStreamingServerConfig::has_dynamically_adjust_resolution_obsolete() const {
+  return _internal_has_dynamically_adjust_resolution_obsolete();
 }
-inline void CStreamingServerConfig::clear_dynamically_adjust_resolution() {
-  dynamically_adjust_resolution_ = false;
+inline void CStreamingServerConfig::clear_dynamically_adjust_resolution_obsolete() {
+  dynamically_adjust_resolution_obsolete_ = false;
   _has_bits_[0] &= ~0x00000002u;
 }
-inline bool CStreamingServerConfig::_internal_dynamically_adjust_resolution() const {
-  return dynamically_adjust_resolution_;
+inline bool CStreamingServerConfig::_internal_dynamically_adjust_resolution_obsolete() const {
+  return dynamically_adjust_resolution_obsolete_;
 }
-inline bool CStreamingServerConfig::dynamically_adjust_resolution() const {
-  // @@protoc_insertion_point(field_get:CStreamingServerConfig.dynamically_adjust_resolution)
-  return _internal_dynamically_adjust_resolution();
+inline bool CStreamingServerConfig::dynamically_adjust_resolution_obsolete() const {
+  // @@protoc_insertion_point(field_get:CStreamingServerConfig.dynamically_adjust_resolution_OBSOLETE)
+  return _internal_dynamically_adjust_resolution_obsolete();
 }
-inline void CStreamingServerConfig::_internal_set_dynamically_adjust_resolution(bool value) {
+inline void CStreamingServerConfig::_internal_set_dynamically_adjust_resolution_obsolete(bool value) {
   _has_bits_[0] |= 0x00000002u;
-  dynamically_adjust_resolution_ = value;
+  dynamically_adjust_resolution_obsolete_ = value;
 }
-inline void CStreamingServerConfig::set_dynamically_adjust_resolution(bool value) {
-  _internal_set_dynamically_adjust_resolution(value);
-  // @@protoc_insertion_point(field_set:CStreamingServerConfig.dynamically_adjust_resolution)
+inline void CStreamingServerConfig::set_dynamically_adjust_resolution_obsolete(bool value) {
+  _internal_set_dynamically_adjust_resolution_obsolete(value);
+  // @@protoc_insertion_point(field_set:CStreamingServerConfig.dynamically_adjust_resolution_OBSOLETE)
 }
 
 // optional bool enable_capture_nvfbc = 3;
@@ -24375,93 +24390,93 @@ inline void CStreamingServerConfig::set_enable_capture_nvfbc(bool value) {
   // @@protoc_insertion_point(field_set:CStreamingServerConfig.enable_capture_nvfbc)
 }
 
-// optional bool enable_hardware_encoding_nvidia = 4;
-inline bool CStreamingServerConfig::_internal_has_enable_hardware_encoding_nvidia() const {
+// optional bool enable_hardware_encoding_nvidia_OBSOLETE = 4;
+inline bool CStreamingServerConfig::_internal_has_enable_hardware_encoding_nvidia_obsolete() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool CStreamingServerConfig::has_enable_hardware_encoding_nvidia() const {
-  return _internal_has_enable_hardware_encoding_nvidia();
+inline bool CStreamingServerConfig::has_enable_hardware_encoding_nvidia_obsolete() const {
+  return _internal_has_enable_hardware_encoding_nvidia_obsolete();
 }
-inline void CStreamingServerConfig::clear_enable_hardware_encoding_nvidia() {
-  enable_hardware_encoding_nvidia_ = false;
+inline void CStreamingServerConfig::clear_enable_hardware_encoding_nvidia_obsolete() {
+  enable_hardware_encoding_nvidia_obsolete_ = false;
   _has_bits_[0] &= ~0x00000008u;
 }
-inline bool CStreamingServerConfig::_internal_enable_hardware_encoding_nvidia() const {
-  return enable_hardware_encoding_nvidia_;
+inline bool CStreamingServerConfig::_internal_enable_hardware_encoding_nvidia_obsolete() const {
+  return enable_hardware_encoding_nvidia_obsolete_;
 }
-inline bool CStreamingServerConfig::enable_hardware_encoding_nvidia() const {
-  // @@protoc_insertion_point(field_get:CStreamingServerConfig.enable_hardware_encoding_nvidia)
-  return _internal_enable_hardware_encoding_nvidia();
+inline bool CStreamingServerConfig::enable_hardware_encoding_nvidia_obsolete() const {
+  // @@protoc_insertion_point(field_get:CStreamingServerConfig.enable_hardware_encoding_nvidia_OBSOLETE)
+  return _internal_enable_hardware_encoding_nvidia_obsolete();
 }
-inline void CStreamingServerConfig::_internal_set_enable_hardware_encoding_nvidia(bool value) {
+inline void CStreamingServerConfig::_internal_set_enable_hardware_encoding_nvidia_obsolete(bool value) {
   _has_bits_[0] |= 0x00000008u;
-  enable_hardware_encoding_nvidia_ = value;
+  enable_hardware_encoding_nvidia_obsolete_ = value;
 }
-inline void CStreamingServerConfig::set_enable_hardware_encoding_nvidia(bool value) {
-  _internal_set_enable_hardware_encoding_nvidia(value);
-  // @@protoc_insertion_point(field_set:CStreamingServerConfig.enable_hardware_encoding_nvidia)
-}
-
-// optional bool enable_hardware_encoding_amd = 5;
-inline bool CStreamingServerConfig::_internal_has_enable_hardware_encoding_amd() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CStreamingServerConfig::has_enable_hardware_encoding_amd() const {
-  return _internal_has_enable_hardware_encoding_amd();
-}
-inline void CStreamingServerConfig::clear_enable_hardware_encoding_amd() {
-  enable_hardware_encoding_amd_ = false;
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline bool CStreamingServerConfig::_internal_enable_hardware_encoding_amd() const {
-  return enable_hardware_encoding_amd_;
-}
-inline bool CStreamingServerConfig::enable_hardware_encoding_amd() const {
-  // @@protoc_insertion_point(field_get:CStreamingServerConfig.enable_hardware_encoding_amd)
-  return _internal_enable_hardware_encoding_amd();
-}
-inline void CStreamingServerConfig::_internal_set_enable_hardware_encoding_amd(bool value) {
-  _has_bits_[0] |= 0x00000010u;
-  enable_hardware_encoding_amd_ = value;
-}
-inline void CStreamingServerConfig::set_enable_hardware_encoding_amd(bool value) {
-  _internal_set_enable_hardware_encoding_amd(value);
-  // @@protoc_insertion_point(field_set:CStreamingServerConfig.enable_hardware_encoding_amd)
+inline void CStreamingServerConfig::set_enable_hardware_encoding_nvidia_obsolete(bool value) {
+  _internal_set_enable_hardware_encoding_nvidia_obsolete(value);
+  // @@protoc_insertion_point(field_set:CStreamingServerConfig.enable_hardware_encoding_nvidia_OBSOLETE)
 }
 
-// optional bool enable_hardware_encoding_intel = 6;
-inline bool CStreamingServerConfig::_internal_has_enable_hardware_encoding_intel() const {
+// optional bool enable_hardware_encoding_amd_OBSOLETE = 5;
+inline bool CStreamingServerConfig::_internal_has_enable_hardware_encoding_amd_obsolete() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
-inline bool CStreamingServerConfig::has_enable_hardware_encoding_intel() const {
-  return _internal_has_enable_hardware_encoding_intel();
+inline bool CStreamingServerConfig::has_enable_hardware_encoding_amd_obsolete() const {
+  return _internal_has_enable_hardware_encoding_amd_obsolete();
 }
-inline void CStreamingServerConfig::clear_enable_hardware_encoding_intel() {
-  enable_hardware_encoding_intel_ = false;
+inline void CStreamingServerConfig::clear_enable_hardware_encoding_amd_obsolete() {
+  enable_hardware_encoding_amd_obsolete_ = false;
   _has_bits_[0] &= ~0x00000020u;
 }
-inline bool CStreamingServerConfig::_internal_enable_hardware_encoding_intel() const {
-  return enable_hardware_encoding_intel_;
+inline bool CStreamingServerConfig::_internal_enable_hardware_encoding_amd_obsolete() const {
+  return enable_hardware_encoding_amd_obsolete_;
 }
-inline bool CStreamingServerConfig::enable_hardware_encoding_intel() const {
-  // @@protoc_insertion_point(field_get:CStreamingServerConfig.enable_hardware_encoding_intel)
-  return _internal_enable_hardware_encoding_intel();
+inline bool CStreamingServerConfig::enable_hardware_encoding_amd_obsolete() const {
+  // @@protoc_insertion_point(field_get:CStreamingServerConfig.enable_hardware_encoding_amd_OBSOLETE)
+  return _internal_enable_hardware_encoding_amd_obsolete();
 }
-inline void CStreamingServerConfig::_internal_set_enable_hardware_encoding_intel(bool value) {
+inline void CStreamingServerConfig::_internal_set_enable_hardware_encoding_amd_obsolete(bool value) {
   _has_bits_[0] |= 0x00000020u;
-  enable_hardware_encoding_intel_ = value;
+  enable_hardware_encoding_amd_obsolete_ = value;
 }
-inline void CStreamingServerConfig::set_enable_hardware_encoding_intel(bool value) {
-  _internal_set_enable_hardware_encoding_intel(value);
-  // @@protoc_insertion_point(field_set:CStreamingServerConfig.enable_hardware_encoding_intel)
+inline void CStreamingServerConfig::set_enable_hardware_encoding_amd_obsolete(bool value) {
+  _internal_set_enable_hardware_encoding_amd_obsolete(value);
+  // @@protoc_insertion_point(field_set:CStreamingServerConfig.enable_hardware_encoding_amd_OBSOLETE)
+}
+
+// optional bool enable_hardware_encoding_intel_OBSOLETE = 6;
+inline bool CStreamingServerConfig::_internal_has_enable_hardware_encoding_intel_obsolete() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CStreamingServerConfig::has_enable_hardware_encoding_intel_obsolete() const {
+  return _internal_has_enable_hardware_encoding_intel_obsolete();
+}
+inline void CStreamingServerConfig::clear_enable_hardware_encoding_intel_obsolete() {
+  enable_hardware_encoding_intel_obsolete_ = false;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline bool CStreamingServerConfig::_internal_enable_hardware_encoding_intel_obsolete() const {
+  return enable_hardware_encoding_intel_obsolete_;
+}
+inline bool CStreamingServerConfig::enable_hardware_encoding_intel_obsolete() const {
+  // @@protoc_insertion_point(field_get:CStreamingServerConfig.enable_hardware_encoding_intel_OBSOLETE)
+  return _internal_enable_hardware_encoding_intel_obsolete();
+}
+inline void CStreamingServerConfig::_internal_set_enable_hardware_encoding_intel_obsolete(bool value) {
+  _has_bits_[0] |= 0x00000040u;
+  enable_hardware_encoding_intel_obsolete_ = value;
+}
+inline void CStreamingServerConfig::set_enable_hardware_encoding_intel_obsolete(bool value) {
+  _internal_set_enable_hardware_encoding_intel_obsolete(value);
+  // @@protoc_insertion_point(field_set:CStreamingServerConfig.enable_hardware_encoding_intel_OBSOLETE)
 }
 
 // optional int32 software_encoding_threads = 7;
 inline bool CStreamingServerConfig::_internal_has_software_encoding_threads() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CStreamingServerConfig::has_software_encoding_threads() const {
@@ -24469,7 +24484,7 @@ inline bool CStreamingServerConfig::has_software_encoding_threads() const {
 }
 inline void CStreamingServerConfig::clear_software_encoding_threads() {
   software_encoding_threads_ = 0;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CStreamingServerConfig::_internal_software_encoding_threads() const {
   return software_encoding_threads_;
@@ -24479,7 +24494,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CStreamingServerConfig::software_encoding_
   return _internal_software_encoding_threads();
 }
 inline void CStreamingServerConfig::_internal_set_software_encoding_threads(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000010u;
   software_encoding_threads_ = value;
 }
 inline void CStreamingServerConfig::set_software_encoding_threads(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -24489,7 +24504,7 @@ inline void CStreamingServerConfig::set_software_encoding_threads(::PROTOBUF_NAM
 
 // optional bool enable_traffic_priority = 8;
 inline bool CStreamingServerConfig::_internal_has_enable_traffic_priority() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CStreamingServerConfig::has_enable_traffic_priority() const {
@@ -24497,7 +24512,7 @@ inline bool CStreamingServerConfig::has_enable_traffic_priority() const {
 }
 inline void CStreamingServerConfig::clear_enable_traffic_priority() {
   enable_traffic_priority_ = false;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline bool CStreamingServerConfig::_internal_enable_traffic_priority() const {
   return enable_traffic_priority_;
@@ -24507,7 +24522,7 @@ inline bool CStreamingServerConfig::enable_traffic_priority() const {
   return _internal_enable_traffic_priority();
 }
 inline void CStreamingServerConfig::_internal_set_enable_traffic_priority(bool value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   enable_traffic_priority_ = value;
 }
 inline void CStreamingServerConfig::set_enable_traffic_priority(bool value) {
@@ -24517,7 +24532,7 @@ inline void CStreamingServerConfig::set_enable_traffic_priority(bool value) {
 
 // optional .EStreamHostPlayAudioPreference host_play_audio = 9 [default = EStreamHostPlayAudioDefault];
 inline bool CStreamingServerConfig::_internal_has_host_play_audio() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CStreamingServerConfig::has_host_play_audio() const {
@@ -24525,7 +24540,7 @@ inline bool CStreamingServerConfig::has_host_play_audio() const {
 }
 inline void CStreamingServerConfig::clear_host_play_audio() {
   host_play_audio_ = 0;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::EStreamHostPlayAudioPreference CStreamingServerConfig::_internal_host_play_audio() const {
   return static_cast< ::EStreamHostPlayAudioPreference >(host_play_audio_);
@@ -24536,12 +24551,40 @@ inline ::EStreamHostPlayAudioPreference CStreamingServerConfig::host_play_audio(
 }
 inline void CStreamingServerConfig::_internal_set_host_play_audio(::EStreamHostPlayAudioPreference value) {
   assert(::EStreamHostPlayAudioPreference_IsValid(value));
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
   host_play_audio_ = value;
 }
 inline void CStreamingServerConfig::set_host_play_audio(::EStreamHostPlayAudioPreference value) {
   _internal_set_host_play_audio(value);
   // @@protoc_insertion_point(field_set:CStreamingServerConfig.host_play_audio)
+}
+
+// optional bool enable_hardware_encoding = 10;
+inline bool CStreamingServerConfig::_internal_has_enable_hardware_encoding() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CStreamingServerConfig::has_enable_hardware_encoding() const {
+  return _internal_has_enable_hardware_encoding();
+}
+inline void CStreamingServerConfig::clear_enable_hardware_encoding() {
+  enable_hardware_encoding_ = false;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline bool CStreamingServerConfig::_internal_enable_hardware_encoding() const {
+  return enable_hardware_encoding_;
+}
+inline bool CStreamingServerConfig::enable_hardware_encoding() const {
+  // @@protoc_insertion_point(field_get:CStreamingServerConfig.enable_hardware_encoding)
+  return _internal_enable_hardware_encoding();
+}
+inline void CStreamingServerConfig::_internal_set_enable_hardware_encoding(bool value) {
+  _has_bits_[0] |= 0x00000100u;
+  enable_hardware_encoding_ = value;
+}
+inline void CStreamingServerConfig::set_enable_hardware_encoding(bool value) {
+  _internal_set_enable_hardware_encoding(value);
+  // @@protoc_insertion_point(field_set:CStreamingServerConfig.enable_hardware_encoding)
 }
 
 // -------------------------------------------------------------------

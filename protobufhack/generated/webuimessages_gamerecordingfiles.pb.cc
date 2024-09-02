@@ -20,7 +20,8 @@ constexpr CGameRecordingFile::CGameRecordingFile(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : timelines_()
   , postgame_events_()
-  , temporary_clips_(){}
+  , temporary_clips_()
+  , tags_(){}
 struct CGameRecordingFileDefaultTypeInternal {
   constexpr CGameRecordingFileDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -33,6 +34,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGameRecordingFileDefaultTypeIn
 constexpr CGameRecordingClipFile::CGameRecordingClipFile(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : timelines_()
+  , tags_()
+  , phases_()
   , name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , original_device_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , first_timeline_start_offset_ms_(PROTOBUF_ULONGLONG(0))
@@ -79,6 +82,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGameRecordingTimelineMetadata_
 constexpr CGameRecordingTimelineMetadata::CGameRecordingTimelineMetadata(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : recordings_()
+  , phases_()
+  , significant_events_()
   , timeline_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , game_id_(PROTOBUF_ULONGLONG(0))
   , duration_ms_(PROTOBUF_ULONGLONG(0))
@@ -126,7 +131,97 @@ struct CGameRecordingTimelineEventDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGameRecordingTimelineEventDefaultTypeInternal _CGameRecordingTimelineEvent_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fgamerecordingfiles_2eproto[6];
+constexpr CGameRecordingTag_Timeline::CGameRecordingTag_Timeline(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : clip_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , timeline_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , offset_ms_(PROTOBUF_ULONGLONG(0)){}
+struct CGameRecordingTag_TimelineDefaultTypeInternal {
+  constexpr CGameRecordingTag_TimelineDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CGameRecordingTag_TimelineDefaultTypeInternal() {}
+  union {
+    CGameRecordingTag_Timeline _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGameRecordingTag_TimelineDefaultTypeInternal _CGameRecordingTag_Timeline_default_instance_;
+constexpr CGameRecordingTag::CGameRecordingTag(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : references_()
+  , tag_(nullptr)
+  , game_id_(PROTOBUF_ULONGLONG(0)){}
+struct CGameRecordingTagDefaultTypeInternal {
+  constexpr CGameRecordingTagDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CGameRecordingTagDefaultTypeInternal() {}
+  union {
+    CGameRecordingTag _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGameRecordingTagDefaultTypeInternal _CGameRecordingTag_default_instance_;
+constexpr CGameRecordingTagInstance::CGameRecordingTagInstance(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : timeline_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , entry_id_(PROTOBUF_ULONGLONG(0))
+  , timeline_offset_ms_(PROTOBUF_ULONGLONG(0))
+  , duration_ms_(PROTOBUF_ULONGLONG(0)){}
+struct CGameRecordingTagInstanceDefaultTypeInternal {
+  constexpr CGameRecordingTagInstanceDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CGameRecordingTagInstanceDefaultTypeInternal() {}
+  union {
+    CGameRecordingTagInstance _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGameRecordingTagInstanceDefaultTypeInternal _CGameRecordingTagInstance_default_instance_;
+constexpr CGameRecordingPhase_Tag::CGameRecordingPhase_Tag(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , group_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct CGameRecordingPhase_TagDefaultTypeInternal {
+  constexpr CGameRecordingPhase_TagDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CGameRecordingPhase_TagDefaultTypeInternal() {}
+  union {
+    CGameRecordingPhase_Tag _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGameRecordingPhase_TagDefaultTypeInternal _CGameRecordingPhase_Tag_default_instance_;
+constexpr CGameRecordingPhase::CGameRecordingPhase(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : tags_()
+  , contained_tags_()
+  , title_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , desc_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , icon_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , phase_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , duration_ms_(PROTOBUF_ULONGLONG(0))
+  , background_timeline_offset_(PROTOBUF_ULONGLONG(0)){}
+struct CGameRecordingPhaseDefaultTypeInternal {
+  constexpr CGameRecordingPhaseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CGameRecordingPhaseDefaultTypeInternal() {}
+  union {
+    CGameRecordingPhase _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGameRecordingPhaseDefaultTypeInternal _CGameRecordingPhase_default_instance_;
+constexpr CTimelineTag::CTimelineTag(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , group_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , icon_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , priority_(0u){}
+struct CTimelineTagDefaultTypeInternal {
+  constexpr CTimelineTagDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CTimelineTagDefaultTypeInternal() {}
+  union {
+    CTimelineTag _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CTimelineTagDefaultTypeInternal _CTimelineTag_default_instance_;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fgamerecordingfiles_2eproto[12];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_webuimessages_5fgamerecordingfiles_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_webuimessages_5fgamerecordingfiles_2eproto = nullptr;
 
@@ -139,6 +234,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamerecordingf
   PROTOBUF_FIELD_OFFSET(::CGameRecordingFile, timelines_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingFile, postgame_events_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingFile, temporary_clips_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingFile, tags_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingClipFile, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingClipFile, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -157,6 +253,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamerecordingf
   PROTOBUF_FIELD_OFFSET(::CGameRecordingClipFile, date_downloaded_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingClipFile, thumbnail_width_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingClipFile, thumbnail_height_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingClipFile, tags_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingClipFile, phases_),
   ~0u,
   2,
   5,
@@ -170,6 +268,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamerecordingf
   9,
   10,
   11,
+  ~0u,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CGameRecordingTimelineMetadata_Recording, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingTimelineMetadata_Recording, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -205,10 +305,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamerecordingf
   PROTOBUF_FIELD_OFFSET(::CGameRecordingTimelineMetadata, date_recorded_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingTimelineMetadata, duration_ms_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingTimelineMetadata, recordings_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTimelineMetadata, phases_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTimelineMetadata, significant_events_),
   0,
   1,
   3,
   2,
+  ~0u,
+  ~0u,
   ~0u,
   PROTOBUF_FIELD_OFFSET(::CGameRecordingPostGameSummary, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CGameRecordingPostGameSummary, _internal_metadata_),
@@ -244,14 +348,98 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamerecordingf
   1,
   2,
   9,
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag_Timeline, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag_Timeline, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag_Timeline, clip_id_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag_Timeline, timeline_id_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag_Timeline, offset_ms_),
+  0,
+  1,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag, game_id_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag, tag_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTag, references_),
+  1,
+  0,
+  ~0u,
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTagInstance, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTagInstance, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTagInstance, timeline_id_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTagInstance, entry_id_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTagInstance, timeline_offset_ms_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingTagInstance, duration_ms_),
+  0,
+  1,
+  2,
+  3,
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase_Tag, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase_Tag, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase_Tag, name_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase_Tag, group_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, title_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, desc_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, icon_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, phase_id_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, duration_ms_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, tags_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, contained_tags_),
+  PROTOBUF_FIELD_OFFSET(::CGameRecordingPhase, background_timeline_offset_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  ~0u,
+  ~0u,
+  5,
+  PROTOBUF_FIELD_OFFSET(::CTimelineTag, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CTimelineTag, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CTimelineTag, name_),
+  PROTOBUF_FIELD_OFFSET(::CTimelineTag, group_),
+  PROTOBUF_FIELD_OFFSET(::CTimelineTag, icon_),
+  PROTOBUF_FIELD_OFFSET(::CTimelineTag, priority_),
+  0,
+  1,
+  2,
+  3,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::CGameRecordingFile)},
-  { 8, 26, sizeof(::CGameRecordingClipFile)},
-  { 39, 54, sizeof(::CGameRecordingTimelineMetadata_Recording)},
-  { 64, 74, sizeof(::CGameRecordingTimelineMetadata)},
-  { 79, 86, sizeof(::CGameRecordingPostGameSummary)},
-  { 88, 103, sizeof(::CGameRecordingTimelineEvent)},
+  { 9, 29, sizeof(::CGameRecordingClipFile)},
+  { 44, 59, sizeof(::CGameRecordingTimelineMetadata_Recording)},
+  { 69, 81, sizeof(::CGameRecordingTimelineMetadata)},
+  { 88, 95, sizeof(::CGameRecordingPostGameSummary)},
+  { 97, 112, sizeof(::CGameRecordingTimelineEvent)},
+  { 122, 130, sizeof(::CGameRecordingTag_Timeline)},
+  { 133, 141, sizeof(::CGameRecordingTag)},
+  { 144, 153, sizeof(::CGameRecordingTagInstance)},
+  { 157, 164, sizeof(::CGameRecordingPhase_Tag)},
+  { 166, 179, sizeof(::CGameRecordingPhase)},
+  { 187, 196, sizeof(::CTimelineTag)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -261,49 +449,76 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGameRecordingTimelineMetadata_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGameRecordingPostGameSummary_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGameRecordingTimelineEvent_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGameRecordingTag_Timeline_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGameRecordingTag_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGameRecordingTagInstance_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGameRecordingPhase_Tag_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGameRecordingPhase_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CTimelineTag_default_instance_),
 };
 
 const char descriptor_table_protodef_webuimessages_5fgamerecordingfiles_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n&webuimessages_gamerecordingfiles.proto"
   "\032 google/protobuf/descriptor.proto\032\013enum"
   "s.proto\032\030steammessages_base.proto\032\030webui"
-  "messages_base.proto\"\232\001\n\022CGameRecordingFi"
+  "messages_base.proto\"\274\001\n\022CGameRecordingFi"
   "le\0222\n\ttimelines\030\001 \003(\0132\037.CGameRecordingTi"
   "melineMetadata\0227\n\017postgame_events\030\002 \003(\0132"
   "\036.CGameRecordingPostGameSummary\022\027\n\017tempo"
-  "rary_clips\030\003 \003(\t\"\371\002\n\026CGameRecordingClipF"
-  "ile\0222\n\ttimelines\030\001 \003(\0132\037.CGameRecordingT"
-  "imelineMetadata\022&\n\036first_timeline_start_"
-  "offset_ms\030\002 \001(\004\022\025\n\rdate_recorded\030\003 \001(\r\022\017"
-  "\n\007game_id\030\004 \001(\004\022\031\n\021published_file_id\030\005 \001"
-  "(\006\022\025\n\rsize_in_bytes\030\006 \001(\004\022\014\n\004name\030\007 \001(\t\022"
-  "\021\n\ttemporary\030\010 \001(\010\022\027\n\017original_device\030\t "
-  "\001(\t\022#\n\033original_gaming_device_type\030\n \001(\r"
-  "\022\027\n\017date_downloaded\030\013 \001(\r\022\027\n\017thumbnail_w"
-  "idth\030\014 \001(\r\022\030\n\020thumbnail_height\030\r \001(\r\"\376\003\n"
-  "\036CGameRecordingTimelineMetadata\022\023\n\013timel"
-  "ine_id\030\001 \001(\t\022\017\n\007game_id\030\002 \001(\004\022\025\n\rdate_re"
-  "corded\030\003 \001(\r\022\023\n\013duration_ms\030\004 \001(\004\022=\n\nrec"
-  "ordings\030\005 \003(\0132).CGameRecordingTimelineMe"
-  "tadata.Recording\032\312\002\n\tRecording\022\024\n\014record"
-  "ing_id\030\001 \001(\t\022\027\n\017start_offset_ms\030\002 \001(\004\022\023\n"
-  "\013duration_ms\030\003 \001(\004\022G\n\016recording_type\030\004 \001"
-  "(\0162\023.EGameRecordingType:\032EGameRecordingT"
-  "ype_Unknown\022\031\n\021delete_on_cleanup\030\005 \001(\010\022\035"
-  "\n\025video_manager_clip_id\030\006 \001(\004\022\036\n\026video_m"
-  "anager_video_id\030\007 \001(\004\022\030\n\020cdn_manifest_ur"
-  "l\030\010 \001(\t\022\021\n\tfile_size\030\t \001(\004\022)\n!recording_"
-  "zero_timeline_offset_ms\030\n \001(\004\"^\n\035CGameRe"
-  "cordingPostGameSummary\022\017\n\007game_id\030\001 \001(\004\022"
-  ",\n\006events\030\002 \003(\0132\034.CGameRecordingTimeline"
-  "Event\"\361\001\n\033CGameRecordingTimelineEvent\022\017\n"
-  "\007game_id\030\001 \001(\004\022\022\n\nrt_created\030\002 \001(\r\022\025\n\rpo"
-  "ssible_clip\030\003 \001(\005\022\023\n\013timeline_id\030\004 \001(\t\022\020"
-  "\n\010entry_id\030\005 \001(\004\022\032\n\022timeline_offset_ms\030\006"
-  " \001(\004\022\023\n\013duration_ms\030\007 \001(\004\022\023\n\013marker_icon"
-  "\030\010 \001(\t\022\024\n\014marker_title\030\t \001(\t\022\023\n\013user_mar"
-  "ker\030\n \001(\010B\037H\001\200\001\001\252\002\027OpenSteamworks.Protob"
-  "uf"
+  "rary_clips\030\003 \003(\t\022 \n\004tags\030\004 \003(\0132\022.CGameRe"
+  "cordingTag\"\301\003\n\026CGameRecordingClipFile\0222\n"
+  "\ttimelines\030\001 \003(\0132\037.CGameRecordingTimelin"
+  "eMetadata\022&\n\036first_timeline_start_offset"
+  "_ms\030\002 \001(\004\022\025\n\rdate_recorded\030\003 \001(\r\022\017\n\007game"
+  "_id\030\004 \001(\004\022\031\n\021published_file_id\030\005 \001(\006\022\025\n\r"
+  "size_in_bytes\030\006 \001(\004\022\014\n\004name\030\007 \001(\t\022\021\n\ttem"
+  "porary\030\010 \001(\010\022\027\n\017original_device\030\t \001(\t\022#\n"
+  "\033original_gaming_device_type\030\n \001(\r\022\027\n\017da"
+  "te_downloaded\030\013 \001(\r\022\027\n\017thumbnail_width\030\014"
+  " \001(\r\022\030\n\020thumbnail_height\030\r \001(\r\022 \n\004tags\030\016"
+  " \003(\0132\022.CGameRecordingTag\022$\n\006phases\030\017 \003(\013"
+  "2\024.CGameRecordingPhase\"\336\004\n\036CGameRecordin"
+  "gTimelineMetadata\022\023\n\013timeline_id\030\001 \001(\t\022\017"
+  "\n\007game_id\030\002 \001(\004\022\025\n\rdate_recorded\030\003 \001(\r\022\023"
+  "\n\013duration_ms\030\004 \001(\004\022=\n\nrecordings\030\005 \003(\0132"
+  ").CGameRecordingTimelineMetadata.Recordi"
+  "ng\022$\n\006phases\030\006 \003(\0132\024.CGameRecordingPhase"
+  "\0228\n\022significant_events\030\007 \003(\0132\034.CGameReco"
+  "rdingTimelineEvent\032\312\002\n\tRecording\022\024\n\014reco"
+  "rding_id\030\001 \001(\t\022\027\n\017start_offset_ms\030\002 \001(\004\022"
+  "\023\n\013duration_ms\030\003 \001(\004\022G\n\016recording_type\030\004"
+  " \001(\0162\023.EGameRecordingType:\032EGameRecordin"
+  "gType_Unknown\022\031\n\021delete_on_cleanup\030\005 \001(\010"
+  "\022\035\n\025video_manager_clip_id\030\006 \001(\004\022\036\n\026video"
+  "_manager_video_id\030\007 \001(\004\022\030\n\020cdn_manifest_"
+  "url\030\010 \001(\t\022\021\n\tfile_size\030\t \001(\004\022)\n!recordin"
+  "g_zero_timeline_offset_ms\030\n \001(\004\"^\n\035CGame"
+  "RecordingPostGameSummary\022\017\n\007game_id\030\001 \001("
+  "\004\022,\n\006events\030\002 \003(\0132\034.CGameRecordingTimeli"
+  "neEvent\"\361\001\n\033CGameRecordingTimelineEvent\022"
+  "\017\n\007game_id\030\001 \001(\004\022\022\n\nrt_created\030\002 \001(\r\022\025\n\r"
+  "possible_clip\030\003 \001(\005\022\023\n\013timeline_id\030\004 \001(\t"
+  "\022\020\n\010entry_id\030\005 \001(\004\022\032\n\022timeline_offset_ms"
+  "\030\006 \001(\004\022\023\n\013duration_ms\030\007 \001(\004\022\023\n\013marker_ic"
+  "on\030\010 \001(\t\022\024\n\014marker_title\030\t \001(\t\022\023\n\013user_m"
+  "arker\030\n \001(\010\"\266\001\n\021CGameRecordingTag\022\017\n\007gam"
+  "e_id\030\001 \001(\004\022\032\n\003tag\030\002 \001(\0132\r.CTimelineTag\022/"
+  "\n\nreferences\030\003 \003(\0132\033.CGameRecordingTag.T"
+  "imeline\032C\n\010Timeline\022\017\n\007clip_id\030\001 \001(\t\022\023\n\013"
+  "timeline_id\030\002 \001(\t\022\021\n\toffset_ms\030\003 \001(\004\"s\n\031"
+  "CGameRecordingTagInstance\022\023\n\013timeline_id"
+  "\030\001 \001(\t\022\020\n\010entry_id\030\002 \001(\004\022\032\n\022timeline_off"
+  "set_ms\030\003 \001(\004\022\023\n\013duration_ms\030\004 \001(\004\"\211\002\n\023CG"
+  "ameRecordingPhase\022\r\n\005title\030\001 \001(\t\022\014\n\004desc"
+  "\030\002 \001(\t\022\014\n\004icon\030\003 \001(\t\022\020\n\010phase_id\030\004 \001(\t\022\023"
+  "\n\013duration_ms\030\005 \001(\004\022&\n\004tags\030\006 \003(\0132\030.CGam"
+  "eRecordingPhase.Tag\0220\n\016contained_tags\030\007 "
+  "\003(\0132\030.CGameRecordingPhase.Tag\022\"\n\032backgro"
+  "und_timeline_offset\030\010 \001(\004\032\"\n\003Tag\022\014\n\004name"
+  "\030\001 \001(\t\022\r\n\005group\030\002 \001(\t\"K\n\014CTimelineTag\022\014\n"
+  "\004name\030\001 \001(\t\022\r\n\005group\030\002 \001(\t\022\014\n\004icon\030\003 \001(\t"
+  "\022\020\n\010priority\030\004 \001(\rB\037H\001\200\001\001\252\002\027OpenSteamwor"
+  "ks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fgamerecordingfiles_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -313,8 +528,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fgamerecordingfiles_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fgamerecordingfiles_2eproto = {
-  false, false, 1562, descriptor_table_protodef_webuimessages_5fgamerecordingfiles_2eproto, "webuimessages_gamerecordingfiles.proto", 
-  &descriptor_table_webuimessages_5fgamerecordingfiles_2eproto_once, descriptor_table_webuimessages_5fgamerecordingfiles_2eproto_deps, 4, 6,
+  false, false, 2411, descriptor_table_protodef_webuimessages_5fgamerecordingfiles_2eproto, "webuimessages_gamerecordingfiles.proto", 
+  &descriptor_table_webuimessages_5fgamerecordingfiles_2eproto_once, descriptor_table_webuimessages_5fgamerecordingfiles_2eproto_deps, 4, 12,
   schemas, file_default_instances, TableStruct_webuimessages_5fgamerecordingfiles_2eproto::offsets,
   file_level_metadata_webuimessages_5fgamerecordingfiles_2eproto, file_level_enum_descriptors_webuimessages_5fgamerecordingfiles_2eproto, file_level_service_descriptors_webuimessages_5fgamerecordingfiles_2eproto,
 };
@@ -337,7 +552,8 @@ CGameRecordingFile::CGameRecordingFile(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   timelines_(arena),
   postgame_events_(arena),
-  temporary_clips_(arena) {
+  temporary_clips_(arena),
+  tags_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CGameRecordingFile)
@@ -346,7 +562,8 @@ CGameRecordingFile::CGameRecordingFile(const CGameRecordingFile& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       timelines_(from.timelines_),
       postgame_events_(from.postgame_events_),
-      temporary_clips_(from.temporary_clips_) {
+      temporary_clips_(from.temporary_clips_),
+      tags_(from.tags_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:CGameRecordingFile)
 }
@@ -383,6 +600,7 @@ void CGameRecordingFile::Clear() {
   timelines_.Clear();
   postgame_events_.Clear();
   temporary_clips_.Clear();
+  tags_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -431,6 +649,18 @@ const char* CGameRecordingFile::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated .CGameRecordingTag tags = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_tags(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -487,6 +717,14 @@ failure:
     target = stream->WriteString(3, s, target);
   }
 
+  // repeated .CGameRecordingTag tags = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_tags_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, this->_internal_tags(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -525,6 +763,13 @@ size_t CGameRecordingFile::ByteSizeLong() const {
       temporary_clips_.Get(i));
   }
 
+  // repeated .CGameRecordingTag tags = 4;
+  total_size += 1UL * this->_internal_tags_size();
+  for (const auto& msg : this->tags_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -559,6 +804,7 @@ void CGameRecordingFile::MergeFrom(const CGameRecordingFile& from) {
   timelines_.MergeFrom(from.timelines_);
   postgame_events_.MergeFrom(from.postgame_events_);
   temporary_clips_.MergeFrom(from.temporary_clips_);
+  tags_.MergeFrom(from.tags_);
 }
 
 void CGameRecordingFile::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -585,6 +831,7 @@ void CGameRecordingFile::InternalSwap(CGameRecordingFile* other) {
   timelines_.InternalSwap(&other->timelines_);
   postgame_events_.InternalSwap(&other->postgame_events_);
   temporary_clips_.InternalSwap(&other->temporary_clips_);
+  tags_.InternalSwap(&other->tags_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CGameRecordingFile::GetMetadata() const {
@@ -637,7 +884,9 @@ class CGameRecordingClipFile::_Internal {
 
 CGameRecordingClipFile::CGameRecordingClipFile(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  timelines_(arena) {
+  timelines_(arena),
+  tags_(arena),
+  phases_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CGameRecordingClipFile)
@@ -645,7 +894,9 @@ CGameRecordingClipFile::CGameRecordingClipFile(::PROTOBUF_NAMESPACE_ID::Arena* a
 CGameRecordingClipFile::CGameRecordingClipFile(const CGameRecordingClipFile& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
-      timelines_(from.timelines_) {
+      timelines_(from.timelines_),
+      tags_(from.tags_),
+      phases_(from.phases_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_name()) {
@@ -701,6 +952,8 @@ void CGameRecordingClipFile::Clear() {
   (void) cached_has_bits;
 
   timelines_.Clear();
+  tags_.Clear();
+  phases_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
@@ -846,6 +1099,30 @@ const char* CGameRecordingClipFile::_InternalParse(const char* ptr, ::PROTOBUF_N
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // repeated .CGameRecordingTag tags = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_tags(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<114>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated .CGameRecordingPhase phases = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_phases(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<122>(ptr));
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -964,6 +1241,22 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_thumbnail_height(), target);
   }
 
+  // repeated .CGameRecordingTag tags = 14;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_tags_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(14, this->_internal_tags(i), target, stream);
+  }
+
+  // repeated .CGameRecordingPhase phases = 15;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_phases_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(15, this->_internal_phases(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -983,6 +1276,20 @@ size_t CGameRecordingClipFile::ByteSizeLong() const {
   // repeated .CGameRecordingTimelineMetadata timelines = 1;
   total_size += 1UL * this->_internal_timelines_size();
   for (const auto& msg : this->timelines_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .CGameRecordingTag tags = 14;
+  total_size += 1UL * this->_internal_tags_size();
+  for (const auto& msg : this->tags_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .CGameRecordingPhase phases = 15;
+  total_size += 1UL * this->_internal_phases_size();
+  for (const auto& msg : this->phases_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -1104,6 +1411,8 @@ void CGameRecordingClipFile::MergeFrom(const CGameRecordingClipFile& from) {
   (void) cached_has_bits;
 
   timelines_.MergeFrom(from.timelines_);
+  tags_.MergeFrom(from.tags_);
+  phases_.MergeFrom(from.phases_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -1172,6 +1481,8 @@ void CGameRecordingClipFile::InternalSwap(CGameRecordingClipFile* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   timelines_.InternalSwap(&other->timelines_);
+  tags_.InternalSwap(&other->tags_);
+  phases_.InternalSwap(&other->phases_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   original_device_.Swap(&other->original_device_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
@@ -1723,7 +2034,9 @@ class CGameRecordingTimelineMetadata::_Internal {
 
 CGameRecordingTimelineMetadata::CGameRecordingTimelineMetadata(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  recordings_(arena) {
+  recordings_(arena),
+  phases_(arena),
+  significant_events_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CGameRecordingTimelineMetadata)
@@ -1731,7 +2044,9 @@ CGameRecordingTimelineMetadata::CGameRecordingTimelineMetadata(::PROTOBUF_NAMESP
 CGameRecordingTimelineMetadata::CGameRecordingTimelineMetadata(const CGameRecordingTimelineMetadata& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
-      recordings_(from.recordings_) {
+      recordings_(from.recordings_),
+      phases_(from.phases_),
+      significant_events_(from.significant_events_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   timeline_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_timeline_id()) {
@@ -1780,6 +2095,8 @@ void CGameRecordingTimelineMetadata::Clear() {
   (void) cached_has_bits;
 
   recordings_.Clear();
+  phases_.Clear();
+  significant_events_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     timeline_id_.ClearNonDefaultToEmpty();
@@ -1848,6 +2165,30 @@ const char* CGameRecordingTimelineMetadata::_InternalParse(const char* ptr, ::PR
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
+      // repeated .CGameRecordingPhase phases = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_phases(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated .CGameRecordingTimelineEvent significant_events = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_significant_events(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -1914,6 +2255,22 @@ failure:
       InternalWriteMessage(5, this->_internal_recordings(i), target, stream);
   }
 
+  // repeated .CGameRecordingPhase phases = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_phases_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(6, this->_internal_phases(i), target, stream);
+  }
+
+  // repeated .CGameRecordingTimelineEvent significant_events = 7;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_significant_events_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, this->_internal_significant_events(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1933,6 +2290,20 @@ size_t CGameRecordingTimelineMetadata::ByteSizeLong() const {
   // repeated .CGameRecordingTimelineMetadata.Recording recordings = 5;
   total_size += 1UL * this->_internal_recordings_size();
   for (const auto& msg : this->recordings_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .CGameRecordingPhase phases = 6;
+  total_size += 1UL * this->_internal_phases_size();
+  for (const auto& msg : this->phases_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .CGameRecordingTimelineEvent significant_events = 7;
+  total_size += 1UL * this->_internal_significant_events_size();
+  for (const auto& msg : this->significant_events_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -2000,6 +2371,8 @@ void CGameRecordingTimelineMetadata::MergeFrom(const CGameRecordingTimelineMetad
   (void) cached_has_bits;
 
   recordings_.MergeFrom(from.recordings_);
+  phases_.MergeFrom(from.phases_);
+  significant_events_.MergeFrom(from.significant_events_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2041,6 +2414,8 @@ void CGameRecordingTimelineMetadata::InternalSwap(CGameRecordingTimelineMetadata
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   recordings_.InternalSwap(&other->recordings_);
+  phases_.InternalSwap(&other->phases_);
+  significant_events_.InternalSwap(&other->significant_events_);
   timeline_id_.Swap(&other->timeline_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CGameRecordingTimelineMetadata, date_recorded_)
@@ -2817,6 +3192,2026 @@ void CGameRecordingTimelineEvent::InternalSwap(CGameRecordingTimelineEvent* othe
 }
 
 
+// ===================================================================
+
+class CGameRecordingTag_Timeline::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CGameRecordingTag_Timeline>()._has_bits_);
+  static void set_has_clip_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_timeline_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_offset_ms(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CGameRecordingTag_Timeline::CGameRecordingTag_Timeline(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CGameRecordingTag.Timeline)
+}
+CGameRecordingTag_Timeline::CGameRecordingTag_Timeline(const CGameRecordingTag_Timeline& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  clip_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_clip_id()) {
+    clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_clip_id(), 
+      GetArena());
+  }
+  timeline_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_timeline_id()) {
+    timeline_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_timeline_id(), 
+      GetArena());
+  }
+  offset_ms_ = from.offset_ms_;
+  // @@protoc_insertion_point(copy_constructor:CGameRecordingTag.Timeline)
+}
+
+void CGameRecordingTag_Timeline::SharedCtor() {
+clip_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+timeline_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+offset_ms_ = PROTOBUF_ULONGLONG(0);
+}
+
+CGameRecordingTag_Timeline::~CGameRecordingTag_Timeline() {
+  // @@protoc_insertion_point(destructor:CGameRecordingTag.Timeline)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CGameRecordingTag_Timeline::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  clip_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  timeline_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CGameRecordingTag_Timeline::ArenaDtor(void* object) {
+  CGameRecordingTag_Timeline* _this = reinterpret_cast< CGameRecordingTag_Timeline* >(object);
+  (void)_this;
+}
+void CGameRecordingTag_Timeline::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CGameRecordingTag_Timeline::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CGameRecordingTag_Timeline::Clear() {
+// @@protoc_insertion_point(message_clear_start:CGameRecordingTag.Timeline)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      clip_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      timeline_id_.ClearNonDefaultToEmpty();
+    }
+  }
+  offset_ms_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CGameRecordingTag_Timeline::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string clip_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_clip_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingTag.Timeline.clip_id");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string timeline_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_timeline_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingTag.Timeline.timeline_id");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 offset_ms = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_offset_ms(&has_bits);
+          offset_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CGameRecordingTag_Timeline::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CGameRecordingTag.Timeline)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string clip_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_clip_id().data(), static_cast<int>(this->_internal_clip_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingTag.Timeline.clip_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_clip_id(), target);
+  }
+
+  // optional string timeline_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_timeline_id().data(), static_cast<int>(this->_internal_timeline_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingTag.Timeline.timeline_id");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_timeline_id(), target);
+  }
+
+  // optional uint64 offset_ms = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_offset_ms(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CGameRecordingTag.Timeline)
+  return target;
+}
+
+size_t CGameRecordingTag_Timeline::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CGameRecordingTag.Timeline)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional string clip_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_clip_id());
+    }
+
+    // optional string timeline_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_timeline_id());
+    }
+
+    // optional uint64 offset_ms = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_offset_ms());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CGameRecordingTag_Timeline::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CGameRecordingTag.Timeline)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CGameRecordingTag_Timeline* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CGameRecordingTag_Timeline>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CGameRecordingTag.Timeline)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CGameRecordingTag.Timeline)
+    MergeFrom(*source);
+  }
+}
+
+void CGameRecordingTag_Timeline::MergeFrom(const CGameRecordingTag_Timeline& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CGameRecordingTag.Timeline)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_clip_id(from._internal_clip_id());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_timeline_id(from._internal_timeline_id());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      offset_ms_ = from.offset_ms_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CGameRecordingTag_Timeline::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CGameRecordingTag.Timeline)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGameRecordingTag_Timeline::CopyFrom(const CGameRecordingTag_Timeline& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CGameRecordingTag.Timeline)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGameRecordingTag_Timeline::IsInitialized() const {
+  return true;
+}
+
+void CGameRecordingTag_Timeline::InternalSwap(CGameRecordingTag_Timeline* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  clip_id_.Swap(&other->clip_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  timeline_id_.Swap(&other->timeline_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(offset_ms_, other->offset_ms_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CGameRecordingTag_Timeline::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CGameRecordingTag::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CGameRecordingTag>()._has_bits_);
+  static void set_has_game_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::CTimelineTag& tag(const CGameRecordingTag* msg);
+  static void set_has_tag(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CTimelineTag&
+CGameRecordingTag::_Internal::tag(const CGameRecordingTag* msg) {
+  return *msg->tag_;
+}
+CGameRecordingTag::CGameRecordingTag(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  references_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CGameRecordingTag)
+}
+CGameRecordingTag::CGameRecordingTag(const CGameRecordingTag& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      references_(from.references_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_tag()) {
+    tag_ = new ::CTimelineTag(*from.tag_);
+  } else {
+    tag_ = nullptr;
+  }
+  game_id_ = from.game_id_;
+  // @@protoc_insertion_point(copy_constructor:CGameRecordingTag)
+}
+
+void CGameRecordingTag::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&tag_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&game_id_) -
+    reinterpret_cast<char*>(&tag_)) + sizeof(game_id_));
+}
+
+CGameRecordingTag::~CGameRecordingTag() {
+  // @@protoc_insertion_point(destructor:CGameRecordingTag)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CGameRecordingTag::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete tag_;
+}
+
+void CGameRecordingTag::ArenaDtor(void* object) {
+  CGameRecordingTag* _this = reinterpret_cast< CGameRecordingTag* >(object);
+  (void)_this;
+}
+void CGameRecordingTag::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CGameRecordingTag::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CGameRecordingTag::Clear() {
+// @@protoc_insertion_point(message_clear_start:CGameRecordingTag)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  references_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(tag_ != nullptr);
+    tag_->Clear();
+  }
+  game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CGameRecordingTag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 game_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_game_id(&has_bits);
+          game_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .CTimelineTag tag = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_tag(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .CGameRecordingTag.Timeline references = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_references(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CGameRecordingTag::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CGameRecordingTag)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 game_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_game_id(), target);
+  }
+
+  // optional .CTimelineTag tag = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::tag(this), target, stream);
+  }
+
+  // repeated .CGameRecordingTag.Timeline references = 3;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_references_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, this->_internal_references(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CGameRecordingTag)
+  return target;
+}
+
+size_t CGameRecordingTag::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CGameRecordingTag)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CGameRecordingTag.Timeline references = 3;
+  total_size += 1UL * this->_internal_references_size();
+  for (const auto& msg : this->references_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CTimelineTag tag = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *tag_);
+    }
+
+    // optional uint64 game_id = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_game_id());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CGameRecordingTag::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CGameRecordingTag)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CGameRecordingTag* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CGameRecordingTag>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CGameRecordingTag)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CGameRecordingTag)
+    MergeFrom(*source);
+  }
+}
+
+void CGameRecordingTag::MergeFrom(const CGameRecordingTag& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CGameRecordingTag)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  references_.MergeFrom(from.references_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_tag()->::CTimelineTag::MergeFrom(from._internal_tag());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      game_id_ = from.game_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CGameRecordingTag::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CGameRecordingTag)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGameRecordingTag::CopyFrom(const CGameRecordingTag& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CGameRecordingTag)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGameRecordingTag::IsInitialized() const {
+  return true;
+}
+
+void CGameRecordingTag::InternalSwap(CGameRecordingTag* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  references_.InternalSwap(&other->references_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CGameRecordingTag, game_id_)
+      + sizeof(CGameRecordingTag::game_id_)
+      - PROTOBUF_FIELD_OFFSET(CGameRecordingTag, tag_)>(
+          reinterpret_cast<char*>(&tag_),
+          reinterpret_cast<char*>(&other->tag_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CGameRecordingTag::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CGameRecordingTagInstance::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CGameRecordingTagInstance>()._has_bits_);
+  static void set_has_timeline_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_entry_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_timeline_offset_ms(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_duration_ms(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CGameRecordingTagInstance::CGameRecordingTagInstance(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CGameRecordingTagInstance)
+}
+CGameRecordingTagInstance::CGameRecordingTagInstance(const CGameRecordingTagInstance& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  timeline_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_timeline_id()) {
+    timeline_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_timeline_id(), 
+      GetArena());
+  }
+  ::memcpy(&entry_id_, &from.entry_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&duration_ms_) -
+    reinterpret_cast<char*>(&entry_id_)) + sizeof(duration_ms_));
+  // @@protoc_insertion_point(copy_constructor:CGameRecordingTagInstance)
+}
+
+void CGameRecordingTagInstance::SharedCtor() {
+timeline_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&entry_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&duration_ms_) -
+    reinterpret_cast<char*>(&entry_id_)) + sizeof(duration_ms_));
+}
+
+CGameRecordingTagInstance::~CGameRecordingTagInstance() {
+  // @@protoc_insertion_point(destructor:CGameRecordingTagInstance)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CGameRecordingTagInstance::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  timeline_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CGameRecordingTagInstance::ArenaDtor(void* object) {
+  CGameRecordingTagInstance* _this = reinterpret_cast< CGameRecordingTagInstance* >(object);
+  (void)_this;
+}
+void CGameRecordingTagInstance::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CGameRecordingTagInstance::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CGameRecordingTagInstance::Clear() {
+// @@protoc_insertion_point(message_clear_start:CGameRecordingTagInstance)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    timeline_id_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x0000000eu) {
+    ::memset(&entry_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&duration_ms_) -
+        reinterpret_cast<char*>(&entry_id_)) + sizeof(duration_ms_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CGameRecordingTagInstance::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string timeline_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_timeline_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingTagInstance.timeline_id");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 entry_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_entry_id(&has_bits);
+          entry_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 timeline_offset_ms = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_timeline_offset_ms(&has_bits);
+          timeline_offset_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 duration_ms = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_duration_ms(&has_bits);
+          duration_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CGameRecordingTagInstance::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CGameRecordingTagInstance)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string timeline_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_timeline_id().data(), static_cast<int>(this->_internal_timeline_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingTagInstance.timeline_id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_timeline_id(), target);
+  }
+
+  // optional uint64 entry_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_entry_id(), target);
+  }
+
+  // optional uint64 timeline_offset_ms = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_timeline_offset_ms(), target);
+  }
+
+  // optional uint64 duration_ms = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_duration_ms(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CGameRecordingTagInstance)
+  return target;
+}
+
+size_t CGameRecordingTagInstance::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CGameRecordingTagInstance)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional string timeline_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_timeline_id());
+    }
+
+    // optional uint64 entry_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_entry_id());
+    }
+
+    // optional uint64 timeline_offset_ms = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_timeline_offset_ms());
+    }
+
+    // optional uint64 duration_ms = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_duration_ms());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CGameRecordingTagInstance::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CGameRecordingTagInstance)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CGameRecordingTagInstance* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CGameRecordingTagInstance>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CGameRecordingTagInstance)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CGameRecordingTagInstance)
+    MergeFrom(*source);
+  }
+}
+
+void CGameRecordingTagInstance::MergeFrom(const CGameRecordingTagInstance& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CGameRecordingTagInstance)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_timeline_id(from._internal_timeline_id());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      entry_id_ = from.entry_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      timeline_offset_ms_ = from.timeline_offset_ms_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      duration_ms_ = from.duration_ms_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CGameRecordingTagInstance::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CGameRecordingTagInstance)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGameRecordingTagInstance::CopyFrom(const CGameRecordingTagInstance& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CGameRecordingTagInstance)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGameRecordingTagInstance::IsInitialized() const {
+  return true;
+}
+
+void CGameRecordingTagInstance::InternalSwap(CGameRecordingTagInstance* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  timeline_id_.Swap(&other->timeline_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CGameRecordingTagInstance, duration_ms_)
+      + sizeof(CGameRecordingTagInstance::duration_ms_)
+      - PROTOBUF_FIELD_OFFSET(CGameRecordingTagInstance, entry_id_)>(
+          reinterpret_cast<char*>(&entry_id_),
+          reinterpret_cast<char*>(&other->entry_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CGameRecordingTagInstance::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CGameRecordingPhase_Tag::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CGameRecordingPhase_Tag>()._has_bits_);
+  static void set_has_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_group(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CGameRecordingPhase_Tag::CGameRecordingPhase_Tag(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CGameRecordingPhase.Tag)
+}
+CGameRecordingPhase_Tag::CGameRecordingPhase_Tag(const CGameRecordingPhase_Tag& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_name()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
+  group_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_group()) {
+    group_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_group(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:CGameRecordingPhase.Tag)
+}
+
+void CGameRecordingPhase_Tag::SharedCtor() {
+name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+group_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+CGameRecordingPhase_Tag::~CGameRecordingPhase_Tag() {
+  // @@protoc_insertion_point(destructor:CGameRecordingPhase.Tag)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CGameRecordingPhase_Tag::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  group_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CGameRecordingPhase_Tag::ArenaDtor(void* object) {
+  CGameRecordingPhase_Tag* _this = reinterpret_cast< CGameRecordingPhase_Tag* >(object);
+  (void)_this;
+}
+void CGameRecordingPhase_Tag::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CGameRecordingPhase_Tag::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CGameRecordingPhase_Tag::Clear() {
+// @@protoc_insertion_point(message_clear_start:CGameRecordingPhase.Tag)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      name_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      group_.ClearNonDefaultToEmpty();
+    }
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CGameRecordingPhase_Tag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingPhase.Tag.name");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string group = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_group();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingPhase.Tag.group");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CGameRecordingPhase_Tag::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CGameRecordingPhase.Tag)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string name = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingPhase.Tag.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // optional string group = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_group().data(), static_cast<int>(this->_internal_group().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingPhase.Tag.group");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_group(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CGameRecordingPhase.Tag)
+  return target;
+}
+
+size_t CGameRecordingPhase_Tag::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CGameRecordingPhase.Tag)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional string name = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_name());
+    }
+
+    // optional string group = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_group());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CGameRecordingPhase_Tag::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CGameRecordingPhase.Tag)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CGameRecordingPhase_Tag* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CGameRecordingPhase_Tag>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CGameRecordingPhase.Tag)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CGameRecordingPhase.Tag)
+    MergeFrom(*source);
+  }
+}
+
+void CGameRecordingPhase_Tag::MergeFrom(const CGameRecordingPhase_Tag& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CGameRecordingPhase.Tag)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_name(from._internal_name());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_group(from._internal_group());
+    }
+  }
+}
+
+void CGameRecordingPhase_Tag::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CGameRecordingPhase.Tag)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGameRecordingPhase_Tag::CopyFrom(const CGameRecordingPhase_Tag& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CGameRecordingPhase.Tag)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGameRecordingPhase_Tag::IsInitialized() const {
+  return true;
+}
+
+void CGameRecordingPhase_Tag::InternalSwap(CGameRecordingPhase_Tag* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  group_.Swap(&other->group_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CGameRecordingPhase_Tag::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CGameRecordingPhase::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CGameRecordingPhase>()._has_bits_);
+  static void set_has_title(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_desc(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_icon(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_phase_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_duration_ms(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_background_timeline_offset(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+};
+
+CGameRecordingPhase::CGameRecordingPhase(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  tags_(arena),
+  contained_tags_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CGameRecordingPhase)
+}
+CGameRecordingPhase::CGameRecordingPhase(const CGameRecordingPhase& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      tags_(from.tags_),
+      contained_tags_(from.contained_tags_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  title_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_title()) {
+    title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_title(), 
+      GetArena());
+  }
+  desc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_desc()) {
+    desc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_desc(), 
+      GetArena());
+  }
+  icon_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_icon()) {
+    icon_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_icon(), 
+      GetArena());
+  }
+  phase_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_phase_id()) {
+    phase_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_phase_id(), 
+      GetArena());
+  }
+  ::memcpy(&duration_ms_, &from.duration_ms_,
+    static_cast<size_t>(reinterpret_cast<char*>(&background_timeline_offset_) -
+    reinterpret_cast<char*>(&duration_ms_)) + sizeof(background_timeline_offset_));
+  // @@protoc_insertion_point(copy_constructor:CGameRecordingPhase)
+}
+
+void CGameRecordingPhase::SharedCtor() {
+title_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+desc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+icon_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+phase_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&duration_ms_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&background_timeline_offset_) -
+    reinterpret_cast<char*>(&duration_ms_)) + sizeof(background_timeline_offset_));
+}
+
+CGameRecordingPhase::~CGameRecordingPhase() {
+  // @@protoc_insertion_point(destructor:CGameRecordingPhase)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CGameRecordingPhase::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  title_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  desc_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  icon_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  phase_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CGameRecordingPhase::ArenaDtor(void* object) {
+  CGameRecordingPhase* _this = reinterpret_cast< CGameRecordingPhase* >(object);
+  (void)_this;
+}
+void CGameRecordingPhase::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CGameRecordingPhase::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CGameRecordingPhase::Clear() {
+// @@protoc_insertion_point(message_clear_start:CGameRecordingPhase)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  tags_.Clear();
+  contained_tags_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      title_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      desc_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      icon_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000008u) {
+      phase_id_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (cached_has_bits & 0x00000030u) {
+    ::memset(&duration_ms_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&background_timeline_offset_) -
+        reinterpret_cast<char*>(&duration_ms_)) + sizeof(background_timeline_offset_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CGameRecordingPhase::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string title = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_title();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingPhase.title");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string desc = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_desc();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingPhase.desc");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string icon = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_icon();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingPhase.icon");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string phase_id = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_phase_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CGameRecordingPhase.phase_id");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 duration_ms = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_duration_ms(&has_bits);
+          duration_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .CGameRecordingPhase.Tag tags = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_tags(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated .CGameRecordingPhase.Tag contained_tags = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_contained_tags(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 background_timeline_offset = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          _Internal::set_has_background_timeline_offset(&has_bits);
+          background_timeline_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CGameRecordingPhase::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CGameRecordingPhase)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string title = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_title().data(), static_cast<int>(this->_internal_title().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingPhase.title");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_title(), target);
+  }
+
+  // optional string desc = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_desc().data(), static_cast<int>(this->_internal_desc().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingPhase.desc");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_desc(), target);
+  }
+
+  // optional string icon = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_icon().data(), static_cast<int>(this->_internal_icon().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingPhase.icon");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_icon(), target);
+  }
+
+  // optional string phase_id = 4;
+  if (cached_has_bits & 0x00000008u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_phase_id().data(), static_cast<int>(this->_internal_phase_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CGameRecordingPhase.phase_id");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_phase_id(), target);
+  }
+
+  // optional uint64 duration_ms = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_duration_ms(), target);
+  }
+
+  // repeated .CGameRecordingPhase.Tag tags = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_tags_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(6, this->_internal_tags(i), target, stream);
+  }
+
+  // repeated .CGameRecordingPhase.Tag contained_tags = 7;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_contained_tags_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, this->_internal_contained_tags(i), target, stream);
+  }
+
+  // optional uint64 background_timeline_offset = 8;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(8, this->_internal_background_timeline_offset(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CGameRecordingPhase)
+  return target;
+}
+
+size_t CGameRecordingPhase::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CGameRecordingPhase)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CGameRecordingPhase.Tag tags = 6;
+  total_size += 1UL * this->_internal_tags_size();
+  for (const auto& msg : this->tags_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .CGameRecordingPhase.Tag contained_tags = 7;
+  total_size += 1UL * this->_internal_contained_tags_size();
+  for (const auto& msg : this->contained_tags_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    // optional string title = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_title());
+    }
+
+    // optional string desc = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_desc());
+    }
+
+    // optional string icon = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_icon());
+    }
+
+    // optional string phase_id = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_phase_id());
+    }
+
+    // optional uint64 duration_ms = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_duration_ms());
+    }
+
+    // optional uint64 background_timeline_offset = 8;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_background_timeline_offset());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CGameRecordingPhase::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CGameRecordingPhase)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CGameRecordingPhase* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CGameRecordingPhase>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CGameRecordingPhase)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CGameRecordingPhase)
+    MergeFrom(*source);
+  }
+}
+
+void CGameRecordingPhase::MergeFrom(const CGameRecordingPhase& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CGameRecordingPhase)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  tags_.MergeFrom(from.tags_);
+  contained_tags_.MergeFrom(from.contained_tags_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_title(from._internal_title());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_desc(from._internal_desc());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _internal_set_icon(from._internal_icon());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _internal_set_phase_id(from._internal_phase_id());
+    }
+    if (cached_has_bits & 0x00000010u) {
+      duration_ms_ = from.duration_ms_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      background_timeline_offset_ = from.background_timeline_offset_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CGameRecordingPhase::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CGameRecordingPhase)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGameRecordingPhase::CopyFrom(const CGameRecordingPhase& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CGameRecordingPhase)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGameRecordingPhase::IsInitialized() const {
+  return true;
+}
+
+void CGameRecordingPhase::InternalSwap(CGameRecordingPhase* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  tags_.InternalSwap(&other->tags_);
+  contained_tags_.InternalSwap(&other->contained_tags_);
+  title_.Swap(&other->title_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  desc_.Swap(&other->desc_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  icon_.Swap(&other->icon_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  phase_id_.Swap(&other->phase_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CGameRecordingPhase, background_timeline_offset_)
+      + sizeof(CGameRecordingPhase::background_timeline_offset_)
+      - PROTOBUF_FIELD_OFFSET(CGameRecordingPhase, duration_ms_)>(
+          reinterpret_cast<char*>(&duration_ms_),
+          reinterpret_cast<char*>(&other->duration_ms_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CGameRecordingPhase::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CTimelineTag::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CTimelineTag>()._has_bits_);
+  static void set_has_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_group(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_icon(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_priority(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CTimelineTag::CTimelineTag(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CTimelineTag)
+}
+CTimelineTag::CTimelineTag(const CTimelineTag& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_name()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
+  group_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_group()) {
+    group_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_group(), 
+      GetArena());
+  }
+  icon_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_icon()) {
+    icon_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_icon(), 
+      GetArena());
+  }
+  priority_ = from.priority_;
+  // @@protoc_insertion_point(copy_constructor:CTimelineTag)
+}
+
+void CTimelineTag::SharedCtor() {
+name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+group_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+icon_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+priority_ = 0u;
+}
+
+CTimelineTag::~CTimelineTag() {
+  // @@protoc_insertion_point(destructor:CTimelineTag)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CTimelineTag::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  group_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  icon_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CTimelineTag::ArenaDtor(void* object) {
+  CTimelineTag* _this = reinterpret_cast< CTimelineTag* >(object);
+  (void)_this;
+}
+void CTimelineTag::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CTimelineTag::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CTimelineTag::Clear() {
+// @@protoc_insertion_point(message_clear_start:CTimelineTag)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      name_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      group_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      icon_.ClearNonDefaultToEmpty();
+    }
+  }
+  priority_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CTimelineTag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CTimelineTag.name");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string group = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_group();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CTimelineTag.group");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string icon = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_icon();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CTimelineTag.icon");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 priority = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_priority(&has_bits);
+          priority_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CTimelineTag::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CTimelineTag)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string name = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CTimelineTag.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // optional string group = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_group().data(), static_cast<int>(this->_internal_group().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CTimelineTag.group");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_group(), target);
+  }
+
+  // optional string icon = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_icon().data(), static_cast<int>(this->_internal_icon().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CTimelineTag.icon");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_icon(), target);
+  }
+
+  // optional uint32 priority = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_priority(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CTimelineTag)
+  return target;
+}
+
+size_t CTimelineTag::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CTimelineTag)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional string name = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_name());
+    }
+
+    // optional string group = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_group());
+    }
+
+    // optional string icon = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_icon());
+    }
+
+    // optional uint32 priority = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_priority());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CTimelineTag::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CTimelineTag)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CTimelineTag* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CTimelineTag>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CTimelineTag)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CTimelineTag)
+    MergeFrom(*source);
+  }
+}
+
+void CTimelineTag::MergeFrom(const CTimelineTag& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CTimelineTag)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_name(from._internal_name());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_group(from._internal_group());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _internal_set_icon(from._internal_icon());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      priority_ = from.priority_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CTimelineTag::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CTimelineTag)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CTimelineTag::CopyFrom(const CTimelineTag& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CTimelineTag)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CTimelineTag::IsInitialized() const {
+  return true;
+}
+
+void CTimelineTag::InternalSwap(CTimelineTag* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  group_.Swap(&other->group_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  icon_.Swap(&other->icon_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(priority_, other->priority_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CTimelineTag::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::CGameRecordingFile* Arena::CreateMaybeMessage< ::CGameRecordingFile >(Arena* arena) {
@@ -2836,6 +5231,24 @@ template<> PROTOBUF_NOINLINE ::CGameRecordingPostGameSummary* Arena::CreateMaybe
 }
 template<> PROTOBUF_NOINLINE ::CGameRecordingTimelineEvent* Arena::CreateMaybeMessage< ::CGameRecordingTimelineEvent >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CGameRecordingTimelineEvent >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CGameRecordingTag_Timeline* Arena::CreateMaybeMessage< ::CGameRecordingTag_Timeline >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CGameRecordingTag_Timeline >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CGameRecordingTag* Arena::CreateMaybeMessage< ::CGameRecordingTag >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CGameRecordingTag >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CGameRecordingTagInstance* Arena::CreateMaybeMessage< ::CGameRecordingTagInstance >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CGameRecordingTagInstance >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CGameRecordingPhase_Tag* Arena::CreateMaybeMessage< ::CGameRecordingPhase_Tag >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CGameRecordingPhase_Tag >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CGameRecordingPhase* Arena::CreateMaybeMessage< ::CGameRecordingPhase >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CGameRecordingPhase >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CTimelineTag* Arena::CreateMaybeMessage< ::CTimelineTag >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CTimelineTag >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

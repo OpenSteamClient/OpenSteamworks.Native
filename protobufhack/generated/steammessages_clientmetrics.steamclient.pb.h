@@ -3388,6 +3388,8 @@ class CClientMetrics_DownloadRates_Notification PROTOBUF_FINAL :
     kStatsFieldNumber = 2,
     kCellIdFieldNumber = 1,
     kThrottlingKbpsFieldNumber = 3,
+    kOsTypeFieldNumber = 4,
+    kDeviceTypeFieldNumber = 5,
   };
   // repeated .CClientMetrics_DownloadRates_Notification.StatsInfo stats = 2;
   int stats_size() const;
@@ -3433,6 +3435,32 @@ class CClientMetrics_DownloadRates_Notification PROTOBUF_FINAL :
   void _internal_set_throttling_kbps(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 os_type = 4;
+  bool has_os_type() const;
+  private:
+  bool _internal_has_os_type() const;
+  public:
+  void clear_os_type();
+  ::PROTOBUF_NAMESPACE_ID::uint32 os_type() const;
+  void set_os_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_os_type() const;
+  void _internal_set_os_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 device_type = 5;
+  bool has_device_type() const;
+  private:
+  bool _internal_has_device_type() const;
+  public:
+  void clear_device_type();
+  ::PROTOBUF_NAMESPACE_ID::uint32 device_type() const;
+  void set_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_device_type() const;
+  void _internal_set_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CClientMetrics_DownloadRates_Notification)
  private:
   class _Internal;
@@ -3445,6 +3473,8 @@ class CClientMetrics_DownloadRates_Notification PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CClientMetrics_DownloadRates_Notification_StatsInfo > stats_;
   ::PROTOBUF_NAMESPACE_ID::uint32 cell_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 throttling_kbps_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 os_type_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 device_type_;
   friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -8113,6 +8143,62 @@ inline void CClientMetrics_DownloadRates_Notification::_internal_set_throttling_
 inline void CClientMetrics_DownloadRates_Notification::set_throttling_kbps(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_throttling_kbps(value);
   // @@protoc_insertion_point(field_set:CClientMetrics_DownloadRates_Notification.throttling_kbps)
+}
+
+// optional uint32 os_type = 4;
+inline bool CClientMetrics_DownloadRates_Notification::_internal_has_os_type() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientMetrics_DownloadRates_Notification::has_os_type() const {
+  return _internal_has_os_type();
+}
+inline void CClientMetrics_DownloadRates_Notification::clear_os_type() {
+  os_type_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_DownloadRates_Notification::_internal_os_type() const {
+  return os_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_DownloadRates_Notification::os_type() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_DownloadRates_Notification.os_type)
+  return _internal_os_type();
+}
+inline void CClientMetrics_DownloadRates_Notification::_internal_set_os_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  os_type_ = value;
+}
+inline void CClientMetrics_DownloadRates_Notification::set_os_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_os_type(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_DownloadRates_Notification.os_type)
+}
+
+// optional uint32 device_type = 5;
+inline bool CClientMetrics_DownloadRates_Notification::_internal_has_device_type() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CClientMetrics_DownloadRates_Notification::has_device_type() const {
+  return _internal_has_device_type();
+}
+inline void CClientMetrics_DownloadRates_Notification::clear_device_type() {
+  device_type_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_DownloadRates_Notification::_internal_device_type() const {
+  return device_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_DownloadRates_Notification::device_type() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_DownloadRates_Notification.device_type)
+  return _internal_device_type();
+}
+inline void CClientMetrics_DownloadRates_Notification::_internal_set_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  device_type_ = value;
+}
+inline void CClientMetrics_DownloadRates_Notification::set_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_device_type(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_DownloadRates_Notification.device_type)
 }
 
 // -------------------------------------------------------------------

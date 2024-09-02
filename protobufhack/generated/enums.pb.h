@@ -912,11 +912,12 @@ enum EUpdaterState : int {
   EUpdaterState_Available = 4,
   EUpdaterState_Applying = 5,
   EUpdaterState_ClientRestartPending = 6,
-  EUpdaterState_SystemRestartPending = 7
+  EUpdaterState_SystemRestartPending = 7,
+  EUpdaterState_RollBack = 8
 };
 bool EUpdaterState_IsValid(int value);
 constexpr EUpdaterState EUpdaterState_MIN = EUpdaterState_Invalid;
-constexpr EUpdaterState EUpdaterState_MAX = EUpdaterState_SystemRestartPending;
+constexpr EUpdaterState EUpdaterState_MAX = EUpdaterState_RollBack;
 constexpr int EUpdaterState_ARRAYSIZE = EUpdaterState_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EUpdaterState_descriptor();
@@ -1512,11 +1513,12 @@ inline bool ECloudGamingPlatform_Parse(
 enum ECompromiseDetectionType : int {
   ECompromiseDetectionType_None = 0,
   ECompromiseDetectionType_TradeEvent = 1,
-  ECompromiseDetectionType_ApiCallRate = 2
+  ECompromiseDetectionType_ApiCallRate = 2,
+  ECompromiseDetectionType_Manual = 3
 };
 bool ECompromiseDetectionType_IsValid(int value);
 constexpr ECompromiseDetectionType ECompromiseDetectionType_MIN = ECompromiseDetectionType_None;
-constexpr ECompromiseDetectionType ECompromiseDetectionType_MAX = ECompromiseDetectionType_ApiCallRate;
+constexpr ECompromiseDetectionType ECompromiseDetectionType_MAX = ECompromiseDetectionType_Manual;
 constexpr int ECompromiseDetectionType_ARRAYSIZE = ECompromiseDetectionType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECompromiseDetectionType_descriptor();
@@ -1704,11 +1706,12 @@ enum EExternalSaleEventType : int {
   EExternalSaleEventType_Publisher = 1,
   EExternalSaleEventType_Showcase = 2,
   EExternalSaleEventType_Region = 3,
-  EExternalSaleEventType_Theme = 4
+  EExternalSaleEventType_Theme = 4,
+  EExternalSaleEventType_Franchise = 5
 };
 bool EExternalSaleEventType_IsValid(int value);
 constexpr EExternalSaleEventType EExternalSaleEventType_MIN = EExternalSaleEventType_Unknown;
-constexpr EExternalSaleEventType EExternalSaleEventType_MAX = EExternalSaleEventType_Theme;
+constexpr EExternalSaleEventType EExternalSaleEventType_MAX = EExternalSaleEventType_Franchise;
 constexpr int EExternalSaleEventType_ARRAYSIZE = EExternalSaleEventType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EExternalSaleEventType_descriptor();

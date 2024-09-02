@@ -4004,7 +4004,6 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
     kPersonaStateFlagsFieldNumber = 6,
     kOnlineSessionInstancesFieldNumber = 7,
     kSteamidSourceFieldNumber = 25,
-    kWatchingBroadcastViewersFieldNumber = 76,
     kQueryPortFieldNumber = 20,
     kLastLogoffFieldNumber = 45,
     kLastLogonFieldNumber = 46,
@@ -4019,6 +4018,8 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
     kGameLobbyIdFieldNumber = 73,
     kWatchingBroadcastAccountidFieldNumber = 74,
     kWatchingBroadcastAppidFieldNumber = 75,
+    kWatchingBroadcastViewersFieldNumber = 76,
+    kOnSteamDeckFieldNumber = 81,
   };
   // repeated .CMsgClientPersonaState.Friend.KV rich_presence = 71;
   int rich_presence_size() const;
@@ -4280,19 +4281,6 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
   void _internal_set_steamid_source(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 watching_broadcast_viewers = 76;
-  bool has_watching_broadcast_viewers() const;
-  private:
-  bool _internal_has_watching_broadcast_viewers() const;
-  public:
-  void clear_watching_broadcast_viewers();
-  ::PROTOBUF_NAMESPACE_ID::uint32 watching_broadcast_viewers() const;
-  void set_watching_broadcast_viewers(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_watching_broadcast_viewers() const;
-  void _internal_set_watching_broadcast_viewers(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
   // optional uint32 query_port = 20;
   bool has_query_port() const;
   private:
@@ -4475,6 +4463,32 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
   void _internal_set_watching_broadcast_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 watching_broadcast_viewers = 76;
+  bool has_watching_broadcast_viewers() const;
+  private:
+  bool _internal_has_watching_broadcast_viewers() const;
+  public:
+  void clear_watching_broadcast_viewers();
+  ::PROTOBUF_NAMESPACE_ID::uint32 watching_broadcast_viewers() const;
+  void set_watching_broadcast_viewers(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_watching_broadcast_viewers() const;
+  void _internal_set_watching_broadcast_viewers(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional bool on_steam_deck = 81;
+  bool has_on_steam_deck() const;
+  private:
+  bool _internal_has_on_steam_deck() const;
+  public:
+  void clear_on_steam_deck();
+  bool on_steam_deck() const;
+  void set_on_steam_deck(bool value);
+  private:
+  bool _internal_on_steam_deck() const;
+  void _internal_set_on_steam_deck(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientPersonaState.Friend)
  private:
   class _Internal;
@@ -4500,7 +4514,6 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 persona_state_flags_;
   ::PROTOBUF_NAMESPACE_ID::uint32 online_session_instances_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steamid_source_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 watching_broadcast_viewers_;
   ::PROTOBUF_NAMESPACE_ID::uint32 query_port_;
   ::PROTOBUF_NAMESPACE_ID::uint32 last_logoff_;
   ::PROTOBUF_NAMESPACE_ID::uint32 last_logon_;
@@ -4515,6 +4528,8 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 game_lobby_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 watching_broadcast_accountid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 watching_broadcast_appid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 watching_broadcast_viewers_;
+  bool on_steam_deck_;
   friend struct ::TableStruct_steammessages_5fclientserver_5ffriends_2eproto;
 };
 // -------------------------------------------------------------------
@@ -10263,7 +10278,7 @@ inline void CMsgClientPersonaState_Friend::set_online_session_instances(::PROTOB
 
 // optional bool persona_set_by_user = 10;
 inline bool CMsgClientPersonaState_Friend::_internal_has_persona_set_by_user() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_persona_set_by_user() const {
@@ -10271,7 +10286,7 @@ inline bool CMsgClientPersonaState_Friend::has_persona_set_by_user() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_persona_set_by_user() {
   persona_set_by_user_ = false;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline bool CMsgClientPersonaState_Friend::_internal_persona_set_by_user() const {
   return persona_set_by_user_;
@@ -10281,7 +10296,7 @@ inline bool CMsgClientPersonaState_Friend::persona_set_by_user() const {
   return _internal_persona_set_by_user();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_persona_set_by_user(bool value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00200000u;
   persona_set_by_user_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_persona_set_by_user(bool value) {
@@ -10364,7 +10379,7 @@ inline void CMsgClientPersonaState_Friend::set_allocated_player_name(std::string
 
 // optional uint32 query_port = 20;
 inline bool CMsgClientPersonaState_Friend::_internal_has_query_port() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_query_port() const {
@@ -10372,7 +10387,7 @@ inline bool CMsgClientPersonaState_Friend::has_query_port() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_query_port() {
   query_port_ = 0u;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::_internal_query_port() const {
   return query_port_;
@@ -10382,7 +10397,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::query_port
   return _internal_query_port();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_query_port(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00008000u;
   query_port_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_query_port(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -10493,7 +10508,7 @@ inline void CMsgClientPersonaState_Friend::set_allocated_avatar_hash(std::string
 
 // optional uint32 last_logoff = 45;
 inline bool CMsgClientPersonaState_Friend::_internal_has_last_logoff() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_last_logoff() const {
@@ -10501,7 +10516,7 @@ inline bool CMsgClientPersonaState_Friend::has_last_logoff() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_last_logoff() {
   last_logoff_ = 0u;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::_internal_last_logoff() const {
   return last_logoff_;
@@ -10511,7 +10526,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::last_logof
   return _internal_last_logoff();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_last_logoff(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00010000u;
   last_logoff_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_last_logoff(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -10521,7 +10536,7 @@ inline void CMsgClientPersonaState_Friend::set_last_logoff(::PROTOBUF_NAMESPACE_
 
 // optional uint32 last_logon = 46;
 inline bool CMsgClientPersonaState_Friend::_internal_has_last_logon() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_last_logon() const {
@@ -10529,7 +10544,7 @@ inline bool CMsgClientPersonaState_Friend::has_last_logon() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_last_logon() {
   last_logon_ = 0u;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::_internal_last_logon() const {
   return last_logon_;
@@ -10539,7 +10554,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::last_logon
   return _internal_last_logon();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_last_logon(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00020000u;
   last_logon_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_last_logon(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -10549,7 +10564,7 @@ inline void CMsgClientPersonaState_Friend::set_last_logon(::PROTOBUF_NAMESPACE_I
 
 // optional uint32 last_seen_online = 47;
 inline bool CMsgClientPersonaState_Friend::_internal_has_last_seen_online() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_last_seen_online() const {
@@ -10557,7 +10572,7 @@ inline bool CMsgClientPersonaState_Friend::has_last_seen_online() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_last_seen_online() {
   last_seen_online_ = 0u;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::_internal_last_seen_online() const {
   return last_seen_online_;
@@ -10567,7 +10582,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::last_seen_
   return _internal_last_seen_online();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_last_seen_online(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00040000u;
   last_seen_online_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_last_seen_online(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -10577,7 +10592,7 @@ inline void CMsgClientPersonaState_Friend::set_last_seen_online(::PROTOBUF_NAMES
 
 // optional uint32 clan_rank = 50;
 inline bool CMsgClientPersonaState_Friend::_internal_has_clan_rank() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_clan_rank() const {
@@ -10585,7 +10600,7 @@ inline bool CMsgClientPersonaState_Friend::has_clan_rank() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_clan_rank() {
   clan_rank_ = 0u;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::_internal_clan_rank() const {
   return clan_rank_;
@@ -10595,7 +10610,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::clan_rank(
   return _internal_clan_rank();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_clan_rank(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00100000u;
   clan_rank_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_clan_rank(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -10678,7 +10693,7 @@ inline void CMsgClientPersonaState_Friend::set_allocated_game_name(std::string* 
 
 // optional fixed64 gameid = 56;
 inline bool CMsgClientPersonaState_Friend::_internal_has_gameid() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_gameid() const {
@@ -10686,7 +10701,7 @@ inline bool CMsgClientPersonaState_Friend::has_gameid() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_gameid() {
   gameid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPersonaState_Friend::_internal_gameid() const {
   return gameid_;
@@ -10696,7 +10711,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPersonaState_Friend::gameid() c
   return _internal_gameid();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00080000u;
   gameid_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -10974,7 +10989,7 @@ CMsgClientPersonaState_Friend::rich_presence() const {
 
 // optional fixed64 broadcast_id = 72;
 inline bool CMsgClientPersonaState_Friend::_internal_has_broadcast_id() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_broadcast_id() const {
@@ -10982,7 +10997,7 @@ inline bool CMsgClientPersonaState_Friend::has_broadcast_id() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_broadcast_id() {
   broadcast_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPersonaState_Friend::_internal_broadcast_id() const {
   return broadcast_id_;
@@ -10992,7 +11007,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPersonaState_Friend::broadcast_
   return _internal_broadcast_id();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_broadcast_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x02000000u;
   broadcast_id_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_broadcast_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -11002,7 +11017,7 @@ inline void CMsgClientPersonaState_Friend::set_broadcast_id(::PROTOBUF_NAMESPACE
 
 // optional fixed64 game_lobby_id = 73;
 inline bool CMsgClientPersonaState_Friend::_internal_has_game_lobby_id() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_game_lobby_id() const {
@@ -11010,7 +11025,7 @@ inline bool CMsgClientPersonaState_Friend::has_game_lobby_id() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_game_lobby_id() {
   game_lobby_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPersonaState_Friend::_internal_game_lobby_id() const {
   return game_lobby_id_;
@@ -11020,7 +11035,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPersonaState_Friend::game_lobby
   return _internal_game_lobby_id();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_game_lobby_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x04000000u;
   game_lobby_id_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_game_lobby_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -11030,7 +11045,7 @@ inline void CMsgClientPersonaState_Friend::set_game_lobby_id(::PROTOBUF_NAMESPAC
 
 // optional uint32 watching_broadcast_accountid = 74;
 inline bool CMsgClientPersonaState_Friend::_internal_has_watching_broadcast_accountid() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_watching_broadcast_accountid() const {
@@ -11038,7 +11053,7 @@ inline bool CMsgClientPersonaState_Friend::has_watching_broadcast_accountid() co
 }
 inline void CMsgClientPersonaState_Friend::clear_watching_broadcast_accountid() {
   watching_broadcast_accountid_ = 0u;
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::_internal_watching_broadcast_accountid() const {
   return watching_broadcast_accountid_;
@@ -11048,7 +11063,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::watching_b
   return _internal_watching_broadcast_accountid();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_watching_broadcast_accountid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x08000000u;
   watching_broadcast_accountid_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_watching_broadcast_accountid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -11058,7 +11073,7 @@ inline void CMsgClientPersonaState_Friend::set_watching_broadcast_accountid(::PR
 
 // optional uint32 watching_broadcast_appid = 75;
 inline bool CMsgClientPersonaState_Friend::_internal_has_watching_broadcast_appid() const {
-  bool value = (_has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_watching_broadcast_appid() const {
@@ -11066,7 +11081,7 @@ inline bool CMsgClientPersonaState_Friend::has_watching_broadcast_appid() const 
 }
 inline void CMsgClientPersonaState_Friend::clear_watching_broadcast_appid() {
   watching_broadcast_appid_ = 0u;
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::_internal_watching_broadcast_appid() const {
   return watching_broadcast_appid_;
@@ -11076,7 +11091,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::watching_b
   return _internal_watching_broadcast_appid();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_watching_broadcast_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x10000000u;
   watching_broadcast_appid_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_watching_broadcast_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -11086,7 +11101,7 @@ inline void CMsgClientPersonaState_Friend::set_watching_broadcast_appid(::PROTOB
 
 // optional uint32 watching_broadcast_viewers = 76;
 inline bool CMsgClientPersonaState_Friend::_internal_has_watching_broadcast_viewers() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_watching_broadcast_viewers() const {
@@ -11094,7 +11109,7 @@ inline bool CMsgClientPersonaState_Friend::has_watching_broadcast_viewers() cons
 }
 inline void CMsgClientPersonaState_Friend::clear_watching_broadcast_viewers() {
   watching_broadcast_viewers_ = 0u;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::_internal_watching_broadcast_viewers() const {
   return watching_broadcast_viewers_;
@@ -11104,7 +11119,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPersonaState_Friend::watching_b
   return _internal_watching_broadcast_viewers();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_watching_broadcast_viewers(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x20000000u;
   watching_broadcast_viewers_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_watching_broadcast_viewers(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -11187,7 +11202,7 @@ inline void CMsgClientPersonaState_Friend::set_allocated_watching_broadcast_titl
 
 // optional bool is_community_banned = 78;
 inline bool CMsgClientPersonaState_Friend::_internal_has_is_community_banned() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_is_community_banned() const {
@@ -11195,7 +11210,7 @@ inline bool CMsgClientPersonaState_Friend::has_is_community_banned() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_is_community_banned() {
   is_community_banned_ = false;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline bool CMsgClientPersonaState_Friend::_internal_is_community_banned() const {
   return is_community_banned_;
@@ -11205,7 +11220,7 @@ inline bool CMsgClientPersonaState_Friend::is_community_banned() const {
   return _internal_is_community_banned();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_is_community_banned(bool value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x00400000u;
   is_community_banned_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_is_community_banned(bool value) {
@@ -11215,7 +11230,7 @@ inline void CMsgClientPersonaState_Friend::set_is_community_banned(bool value) {
 
 // optional bool player_name_pending_review = 79;
 inline bool CMsgClientPersonaState_Friend::_internal_has_player_name_pending_review() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_player_name_pending_review() const {
@@ -11223,7 +11238,7 @@ inline bool CMsgClientPersonaState_Friend::has_player_name_pending_review() cons
 }
 inline void CMsgClientPersonaState_Friend::clear_player_name_pending_review() {
   player_name_pending_review_ = false;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline bool CMsgClientPersonaState_Friend::_internal_player_name_pending_review() const {
   return player_name_pending_review_;
@@ -11233,7 +11248,7 @@ inline bool CMsgClientPersonaState_Friend::player_name_pending_review() const {
   return _internal_player_name_pending_review();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_player_name_pending_review(bool value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x00800000u;
   player_name_pending_review_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_player_name_pending_review(bool value) {
@@ -11243,7 +11258,7 @@ inline void CMsgClientPersonaState_Friend::set_player_name_pending_review(bool v
 
 // optional bool avatar_pending_review = 80;
 inline bool CMsgClientPersonaState_Friend::_internal_has_avatar_pending_review() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgClientPersonaState_Friend::has_avatar_pending_review() const {
@@ -11251,7 +11266,7 @@ inline bool CMsgClientPersonaState_Friend::has_avatar_pending_review() const {
 }
 inline void CMsgClientPersonaState_Friend::clear_avatar_pending_review() {
   avatar_pending_review_ = false;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline bool CMsgClientPersonaState_Friend::_internal_avatar_pending_review() const {
   return avatar_pending_review_;
@@ -11261,12 +11276,40 @@ inline bool CMsgClientPersonaState_Friend::avatar_pending_review() const {
   return _internal_avatar_pending_review();
 }
 inline void CMsgClientPersonaState_Friend::_internal_set_avatar_pending_review(bool value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x01000000u;
   avatar_pending_review_ = value;
 }
 inline void CMsgClientPersonaState_Friend::set_avatar_pending_review(bool value) {
   _internal_set_avatar_pending_review(value);
   // @@protoc_insertion_point(field_set:CMsgClientPersonaState.Friend.avatar_pending_review)
+}
+
+// optional bool on_steam_deck = 81;
+inline bool CMsgClientPersonaState_Friend::_internal_has_on_steam_deck() const {
+  bool value = (_has_bits_[0] & 0x40000000u) != 0;
+  return value;
+}
+inline bool CMsgClientPersonaState_Friend::has_on_steam_deck() const {
+  return _internal_has_on_steam_deck();
+}
+inline void CMsgClientPersonaState_Friend::clear_on_steam_deck() {
+  on_steam_deck_ = false;
+  _has_bits_[0] &= ~0x40000000u;
+}
+inline bool CMsgClientPersonaState_Friend::_internal_on_steam_deck() const {
+  return on_steam_deck_;
+}
+inline bool CMsgClientPersonaState_Friend::on_steam_deck() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPersonaState.Friend.on_steam_deck)
+  return _internal_on_steam_deck();
+}
+inline void CMsgClientPersonaState_Friend::_internal_set_on_steam_deck(bool value) {
+  _has_bits_[0] |= 0x40000000u;
+  on_steam_deck_ = value;
+}
+inline void CMsgClientPersonaState_Friend::set_on_steam_deck(bool value) {
+  _internal_set_on_steam_deck(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPersonaState.Friend.on_steam_deck)
 }
 
 // -------------------------------------------------------------------

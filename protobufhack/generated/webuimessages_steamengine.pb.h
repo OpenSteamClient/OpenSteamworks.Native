@@ -50,7 +50,7 @@ struct TableStruct_webuimessages_5fsteamengine_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -70,6 +70,9 @@ extern CSteamEngine_GetTextFilterDictionary_RequestDefaultTypeInternal _CSteamEn
 class CSteamEngine_GetTextFilterDictionary_Response;
 struct CSteamEngine_GetTextFilterDictionary_ResponseDefaultTypeInternal;
 extern CSteamEngine_GetTextFilterDictionary_ResponseDefaultTypeInternal _CSteamEngine_GetTextFilterDictionary_Response_default_instance_;
+class CSteamEngine_SetOverlayEscapeKeyHandling_Notification;
+struct CSteamEngine_SetOverlayEscapeKeyHandling_NotificationDefaultTypeInternal;
+extern CSteamEngine_SetOverlayEscapeKeyHandling_NotificationDefaultTypeInternal _CSteamEngine_SetOverlayEscapeKeyHandling_Notification_default_instance_;
 class CSteamEngine_TextFilterDictionaryChanged_Notification;
 struct CSteamEngine_TextFilterDictionaryChanged_NotificationDefaultTypeInternal;
 extern CSteamEngine_TextFilterDictionaryChanged_NotificationDefaultTypeInternal _CSteamEngine_TextFilterDictionaryChanged_Notification_default_instance_;
@@ -81,6 +84,7 @@ template<> ::CSteamEngine_GetGameIDForPID_Request* Arena::CreateMaybeMessage<::C
 template<> ::CSteamEngine_GetGameIDForPID_Response* Arena::CreateMaybeMessage<::CSteamEngine_GetGameIDForPID_Response>(Arena*);
 template<> ::CSteamEngine_GetTextFilterDictionary_Request* Arena::CreateMaybeMessage<::CSteamEngine_GetTextFilterDictionary_Request>(Arena*);
 template<> ::CSteamEngine_GetTextFilterDictionary_Response* Arena::CreateMaybeMessage<::CSteamEngine_GetTextFilterDictionary_Response>(Arena*);
+template<> ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification* Arena::CreateMaybeMessage<::CSteamEngine_SetOverlayEscapeKeyHandling_Notification>(Arena*);
 template<> ::CSteamEngine_TextFilterDictionaryChanged_Notification* Arena::CreateMaybeMessage<::CSteamEngine_TextFilterDictionaryChanged_Notification>(Arena*);
 template<> ::CSteamEngine_UpdateTextFilterDictionary_Notification* Arena::CreateMaybeMessage<::CSteamEngine_UpdateTextFilterDictionary_Notification>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -1082,6 +1086,173 @@ class CSteamEngine_GetGameIDForPID_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
   friend struct ::TableStruct_webuimessages_5fsteamengine_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CSteamEngine_SetOverlayEscapeKeyHandling_Notification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CSteamEngine_SetOverlayEscapeKeyHandling_Notification) */ {
+ public:
+  inline CSteamEngine_SetOverlayEscapeKeyHandling_Notification() : CSteamEngine_SetOverlayEscapeKeyHandling_Notification(nullptr) {}
+  virtual ~CSteamEngine_SetOverlayEscapeKeyHandling_Notification();
+  explicit constexpr CSteamEngine_SetOverlayEscapeKeyHandling_Notification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CSteamEngine_SetOverlayEscapeKeyHandling_Notification(const CSteamEngine_SetOverlayEscapeKeyHandling_Notification& from);
+  CSteamEngine_SetOverlayEscapeKeyHandling_Notification(CSteamEngine_SetOverlayEscapeKeyHandling_Notification&& from) noexcept
+    : CSteamEngine_SetOverlayEscapeKeyHandling_Notification() {
+    *this = ::std::move(from);
+  }
+
+  inline CSteamEngine_SetOverlayEscapeKeyHandling_Notification& operator=(const CSteamEngine_SetOverlayEscapeKeyHandling_Notification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CSteamEngine_SetOverlayEscapeKeyHandling_Notification& operator=(CSteamEngine_SetOverlayEscapeKeyHandling_Notification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CSteamEngine_SetOverlayEscapeKeyHandling_Notification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CSteamEngine_SetOverlayEscapeKeyHandling_Notification* internal_default_instance() {
+    return reinterpret_cast<const CSteamEngine_SetOverlayEscapeKeyHandling_Notification*>(
+               &_CSteamEngine_SetOverlayEscapeKeyHandling_Notification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(CSteamEngine_SetOverlayEscapeKeyHandling_Notification& a, CSteamEngine_SetOverlayEscapeKeyHandling_Notification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CSteamEngine_SetOverlayEscapeKeyHandling_Notification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CSteamEngine_SetOverlayEscapeKeyHandling_Notification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CSteamEngine_SetOverlayEscapeKeyHandling_Notification* New() const final {
+    return CreateMaybeMessage<CSteamEngine_SetOverlayEscapeKeyHandling_Notification>(nullptr);
+  }
+
+  CSteamEngine_SetOverlayEscapeKeyHandling_Notification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CSteamEngine_SetOverlayEscapeKeyHandling_Notification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CSteamEngine_SetOverlayEscapeKeyHandling_Notification& from);
+  void MergeFrom(const CSteamEngine_SetOverlayEscapeKeyHandling_Notification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CSteamEngine_SetOverlayEscapeKeyHandling_Notification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CSteamEngine_SetOverlayEscapeKeyHandling_Notification";
+  }
+  protected:
+  explicit CSteamEngine_SetOverlayEscapeKeyHandling_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_webuimessages_5fsteamengine_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGameidFieldNumber = 1,
+    kShouldHandleFieldNumber = 2,
+  };
+  // required uint64 gameid = 1;
+  bool has_gameid() const;
+  private:
+  bool _internal_has_gameid() const;
+  public:
+  void clear_gameid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid() const;
+  void set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gameid() const;
+  void _internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // required bool should_handle = 2;
+  bool has_should_handle() const;
+  private:
+  bool _internal_has_should_handle() const;
+  public:
+  void clear_should_handle();
+  bool should_handle() const;
+  void set_should_handle(bool value);
+  private:
+  bool _internal_should_handle() const;
+  void _internal_set_should_handle(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CSteamEngine_SetOverlayEscapeKeyHandling_Notification)
+ private:
+  class _Internal;
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
+  bool should_handle_;
+  friend struct ::TableStruct_webuimessages_5fsteamengine_2eproto;
+};
 // ===================================================================
 
 class SteamEngine_Stub;
@@ -1112,6 +1283,10 @@ class SteamEngine : public ::PROTOBUF_NAMESPACE_ID::Service {
   virtual void GetGameIDForPID(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CSteamEngine_GetGameIDForPID_Request* request,
                        ::CSteamEngine_GetGameIDForPID_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void SetOverlayEscapeKeyHandling(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification* request,
+                       ::WebUINoResponse* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -1157,6 +1332,10 @@ class SteamEngine_Stub : public SteamEngine {
   void GetGameIDForPID(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CSteamEngine_GetGameIDForPID_Request* request,
                        ::CSteamEngine_GetGameIDForPID_Response* response,
+                       ::google::protobuf::Closure* done);
+  void SetOverlayEscapeKeyHandling(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification* request,
+                       ::WebUINoResponse* response,
                        ::google::protobuf::Closure* done);
  private:
   ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
@@ -1763,9 +1942,71 @@ inline void CSteamEngine_GetGameIDForPID_Response::set_gameid(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CSteamEngine_GetGameIDForPID_Response.gameid)
 }
 
+// -------------------------------------------------------------------
+
+// CSteamEngine_SetOverlayEscapeKeyHandling_Notification
+
+// required uint64 gameid = 1;
+inline bool CSteamEngine_SetOverlayEscapeKeyHandling_Notification::_internal_has_gameid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CSteamEngine_SetOverlayEscapeKeyHandling_Notification::has_gameid() const {
+  return _internal_has_gameid();
+}
+inline void CSteamEngine_SetOverlayEscapeKeyHandling_Notification::clear_gameid() {
+  gameid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CSteamEngine_SetOverlayEscapeKeyHandling_Notification::_internal_gameid() const {
+  return gameid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CSteamEngine_SetOverlayEscapeKeyHandling_Notification::gameid() const {
+  // @@protoc_insertion_point(field_get:CSteamEngine_SetOverlayEscapeKeyHandling_Notification.gameid)
+  return _internal_gameid();
+}
+inline void CSteamEngine_SetOverlayEscapeKeyHandling_Notification::_internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  gameid_ = value;
+}
+inline void CSteamEngine_SetOverlayEscapeKeyHandling_Notification::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_gameid(value);
+  // @@protoc_insertion_point(field_set:CSteamEngine_SetOverlayEscapeKeyHandling_Notification.gameid)
+}
+
+// required bool should_handle = 2;
+inline bool CSteamEngine_SetOverlayEscapeKeyHandling_Notification::_internal_has_should_handle() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CSteamEngine_SetOverlayEscapeKeyHandling_Notification::has_should_handle() const {
+  return _internal_has_should_handle();
+}
+inline void CSteamEngine_SetOverlayEscapeKeyHandling_Notification::clear_should_handle() {
+  should_handle_ = false;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline bool CSteamEngine_SetOverlayEscapeKeyHandling_Notification::_internal_should_handle() const {
+  return should_handle_;
+}
+inline bool CSteamEngine_SetOverlayEscapeKeyHandling_Notification::should_handle() const {
+  // @@protoc_insertion_point(field_get:CSteamEngine_SetOverlayEscapeKeyHandling_Notification.should_handle)
+  return _internal_should_handle();
+}
+inline void CSteamEngine_SetOverlayEscapeKeyHandling_Notification::_internal_set_should_handle(bool value) {
+  _has_bits_[0] |= 0x00000002u;
+  should_handle_ = value;
+}
+inline void CSteamEngine_SetOverlayEscapeKeyHandling_Notification::set_should_handle(bool value) {
+  _internal_set_should_handle(value);
+  // @@protoc_insertion_point(field_set:CSteamEngine_SetOverlayEscapeKeyHandling_Notification.should_handle)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

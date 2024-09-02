@@ -48,7 +48,7 @@ struct TableStruct_htmlmessages_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[171]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[168]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -200,12 +200,6 @@ extern CMsgForcePopupsToDirectHWNDDefaultTypeInternal _CMsgForcePopupsToDirectHW
 class CMsgFullRepaint;
 struct CMsgFullRepaintDefaultTypeInternal;
 extern CMsgFullRepaintDefaultTypeInternal _CMsgFullRepaint_default_instance_;
-class CMsgGameOverlayTargetTextureID;
-struct CMsgGameOverlayTargetTextureIDDefaultTypeInternal;
-extern CMsgGameOverlayTargetTextureIDDefaultTypeInternal _CMsgGameOverlayTargetTextureID_default_instance_;
-class CMsgGameOverlayTexturePaint;
-struct CMsgGameOverlayTexturePaintDefaultTypeInternal;
-extern CMsgGameOverlayTexturePaintDefaultTypeInternal _CMsgGameOverlayTexturePaint_default_instance_;
 class CMsgGetCookiesForURL;
 struct CMsgGetCookiesForURLDefaultTypeInternal;
 extern CMsgGetCookiesForURLDefaultTypeInternal _CMsgGetCookiesForURL_default_instance_;
@@ -434,9 +428,6 @@ extern CMsgSetForceDeviceScaleFactorsDefaultTypeInternal _CMsgSetForceDeviceScal
 class CMsgSetForegroundWindow;
 struct CMsgSetForegroundWindowDefaultTypeInternal;
 extern CMsgSetForegroundWindowDefaultTypeInternal _CMsgSetForegroundWindow_default_instance_;
-class CMsgSetGameOverlayTargetPIDs;
-struct CMsgSetGameOverlayTargetPIDsDefaultTypeInternal;
-extern CMsgSetGameOverlayTargetPIDsDefaultTypeInternal _CMsgSetGameOverlayTargetPIDs_default_instance_;
 class CMsgSetHTMLTitle;
 struct CMsgSetHTMLTitleDefaultTypeInternal;
 extern CMsgSetHTMLTitleDefaultTypeInternal _CMsgSetHTMLTitle_default_instance_;
@@ -618,8 +609,6 @@ template<> ::CMsgFocusedNodeText* Arena::CreateMaybeMessage<::CMsgFocusedNodeTex
 template<> ::CMsgFocusedNodeTextResponse* Arena::CreateMaybeMessage<::CMsgFocusedNodeTextResponse>(Arena*);
 template<> ::CMsgForcePopupsToDirectHWND* Arena::CreateMaybeMessage<::CMsgForcePopupsToDirectHWND>(Arena*);
 template<> ::CMsgFullRepaint* Arena::CreateMaybeMessage<::CMsgFullRepaint>(Arena*);
-template<> ::CMsgGameOverlayTargetTextureID* Arena::CreateMaybeMessage<::CMsgGameOverlayTargetTextureID>(Arena*);
-template<> ::CMsgGameOverlayTexturePaint* Arena::CreateMaybeMessage<::CMsgGameOverlayTexturePaint>(Arena*);
 template<> ::CMsgGetCookiesForURL* Arena::CreateMaybeMessage<::CMsgGetCookiesForURL>(Arena*);
 template<> ::CMsgGetCookiesForURLResponse* Arena::CreateMaybeMessage<::CMsgGetCookiesForURLResponse>(Arena*);
 template<> ::CMsgGetZoom* Arena::CreateMaybeMessage<::CMsgGetZoom>(Arena*);
@@ -696,7 +685,6 @@ template<> ::CMsgSetCursor* Arena::CreateMaybeMessage<::CMsgSetCursor>(Arena*);
 template<> ::CMsgSetFocus* Arena::CreateMaybeMessage<::CMsgSetFocus>(Arena*);
 template<> ::CMsgSetForceDeviceScaleFactors* Arena::CreateMaybeMessage<::CMsgSetForceDeviceScaleFactors>(Arena*);
 template<> ::CMsgSetForegroundWindow* Arena::CreateMaybeMessage<::CMsgSetForegroundWindow>(Arena*);
-template<> ::CMsgSetGameOverlayTargetPIDs* Arena::CreateMaybeMessage<::CMsgSetGameOverlayTargetPIDs>(Arena*);
 template<> ::CMsgSetHTMLTitle* Arena::CreateMaybeMessage<::CMsgSetHTMLTitle>(Arena*);
 template<> ::CMsgSetHorizontalScroll* Arena::CreateMaybeMessage<::CMsgSetHorizontalScroll>(Arena*);
 template<> ::CMsgSetLocalFileRequestMapping* Arena::CreateMaybeMessage<::CMsgSetLocalFileRequestMapping>(Arena*);
@@ -16110,245 +16098,6 @@ class CMsgNeedsSharedTexturePaint PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CMsgGameOverlayTexturePaint PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGameOverlayTexturePaint) */ {
- public:
-  inline CMsgGameOverlayTexturePaint() : CMsgGameOverlayTexturePaint(nullptr) {}
-  virtual ~CMsgGameOverlayTexturePaint();
-  explicit constexpr CMsgGameOverlayTexturePaint(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGameOverlayTexturePaint(const CMsgGameOverlayTexturePaint& from);
-  CMsgGameOverlayTexturePaint(CMsgGameOverlayTexturePaint&& from) noexcept
-    : CMsgGameOverlayTexturePaint() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGameOverlayTexturePaint& operator=(const CMsgGameOverlayTexturePaint& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGameOverlayTexturePaint& operator=(CMsgGameOverlayTexturePaint&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CMsgGameOverlayTexturePaint& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGameOverlayTexturePaint* internal_default_instance() {
-    return reinterpret_cast<const CMsgGameOverlayTexturePaint*>(
-               &_CMsgGameOverlayTexturePaint_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    80;
-
-  friend void swap(CMsgGameOverlayTexturePaint& a, CMsgGameOverlayTexturePaint& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGameOverlayTexturePaint* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGameOverlayTexturePaint* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CMsgGameOverlayTexturePaint* New() const final {
-    return CreateMaybeMessage<CMsgGameOverlayTexturePaint>(nullptr);
-  }
-
-  CMsgGameOverlayTexturePaint* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CMsgGameOverlayTexturePaint>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CMsgGameOverlayTexturePaint& from);
-  void MergeFrom(const CMsgGameOverlayTexturePaint& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGameOverlayTexturePaint* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGameOverlayTexturePaint";
-  }
-  protected:
-  explicit CMsgGameOverlayTexturePaint(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_htmlmessages_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kBrowserHandleFieldNumber = 1,
-    kWidthFieldNumber = 3,
-    kHeightFieldNumber = 4,
-    kScrollxFieldNumber = 5,
-    kScrollyFieldNumber = 6,
-    kPagescaleFieldNumber = 7,
-    kPageserialFieldNumber = 8,
-  };
-  // optional uint32 browser_handle = 1;
-  bool has_browser_handle() const;
-  private:
-  bool _internal_has_browser_handle() const;
-  public:
-  void clear_browser_handle();
-  ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle() const;
-  void set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_browser_handle() const;
-  void _internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 width = 3;
-  bool has_width() const;
-  private:
-  bool _internal_has_width() const;
-  public:
-  void clear_width();
-  ::PROTOBUF_NAMESPACE_ID::uint32 width() const;
-  void set_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_width() const;
-  void _internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 height = 4;
-  bool has_height() const;
-  private:
-  bool _internal_has_height() const;
-  public:
-  void clear_height();
-  ::PROTOBUF_NAMESPACE_ID::uint32 height() const;
-  void set_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_height() const;
-  void _internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 scrollx = 5;
-  bool has_scrollx() const;
-  private:
-  bool _internal_has_scrollx() const;
-  public:
-  void clear_scrollx();
-  ::PROTOBUF_NAMESPACE_ID::uint32 scrollx() const;
-  void set_scrollx(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_scrollx() const;
-  void _internal_set_scrollx(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 scrolly = 6;
-  bool has_scrolly() const;
-  private:
-  bool _internal_has_scrolly() const;
-  public:
-  void clear_scrolly();
-  ::PROTOBUF_NAMESPACE_ID::uint32 scrolly() const;
-  void set_scrolly(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_scrolly() const;
-  void _internal_set_scrolly(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional float pagescale = 7;
-  bool has_pagescale() const;
-  private:
-  bool _internal_has_pagescale() const;
-  public:
-  void clear_pagescale();
-  float pagescale() const;
-  void set_pagescale(float value);
-  private:
-  float _internal_pagescale() const;
-  void _internal_set_pagescale(float value);
-  public:
-
-  // optional uint32 pageserial = 8;
-  bool has_pageserial() const;
-  private:
-  bool _internal_has_pageserial() const;
-  public:
-  void clear_pageserial();
-  ::PROTOBUF_NAMESPACE_ID::uint32 pageserial() const;
-  void set_pageserial(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_pageserial() const;
-  void _internal_set_pageserial(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGameOverlayTexturePaint)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 width_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 height_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 scrollx_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 scrolly_;
-  float pagescale_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 pageserial_;
-  friend struct ::TableStruct_htmlmessages_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgGetZoom PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGetZoom) */ {
  public:
@@ -16399,7 +16148,7 @@ class CMsgGetZoom PROTOBUF_FINAL :
                &_CMsgGetZoom_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    80;
 
   friend void swap(CMsgGetZoom& a, CMsgGetZoom& b) {
     a.Swap(&b);
@@ -16548,7 +16297,7 @@ class CMsgGetZoomResponse PROTOBUF_FINAL :
                &_CMsgGetZoomResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    81;
 
   friend void swap(CMsgGetZoomResponse& a, CMsgGetZoomResponse& b) {
     a.Swap(&b);
@@ -16712,7 +16461,7 @@ class CMsgLinkAtPosition PROTOBUF_FINAL :
                &_CMsgLinkAtPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    82;
 
   friend void swap(CMsgLinkAtPosition& a, CMsgLinkAtPosition& b) {
     a.Swap(&b);
@@ -16891,7 +16640,7 @@ class CMsgLinkAtPositionResponse PROTOBUF_FINAL :
                &_CMsgLinkAtPositionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    83;
 
   friend void swap(CMsgLinkAtPositionResponse& a, CMsgLinkAtPositionResponse& b) {
     a.Swap(&b);
@@ -17122,7 +16871,7 @@ class CMsgZoomToElementAtPosition PROTOBUF_FINAL :
                &_CMsgZoomToElementAtPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    84;
 
   friend void swap(CMsgZoomToElementAtPosition& a, CMsgZoomToElementAtPosition& b) {
     a.Swap(&b);
@@ -17301,7 +17050,7 @@ class CMsgZoomToElementAtPositionResponse PROTOBUF_FINAL :
                &_CMsgZoomToElementAtPositionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    85;
 
   friend void swap(CMsgZoomToElementAtPositionResponse& a, CMsgZoomToElementAtPositionResponse& b) {
     a.Swap(&b);
@@ -17480,7 +17229,7 @@ class CMsgScalePageToValue PROTOBUF_FINAL :
                &_CMsgScalePageToValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    86;
 
   friend void swap(CMsgScalePageToValue& a, CMsgScalePageToValue& b) {
     a.Swap(&b);
@@ -17674,7 +17423,7 @@ class CMsgForcePopupsToDirectHWND PROTOBUF_FINAL :
                &_CMsgForcePopupsToDirectHWND_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    87;
 
   friend void swap(CMsgForcePopupsToDirectHWND& a, CMsgForcePopupsToDirectHWND& b) {
     a.Swap(&b);
@@ -17838,7 +17587,7 @@ class CMsgScalePageToValueResponse PROTOBUF_FINAL :
                &_CMsgScalePageToValueResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    88;
 
   friend void swap(CMsgScalePageToValueResponse& a, CMsgScalePageToValueResponse& b) {
     a.Swap(&b);
@@ -18002,7 +17751,7 @@ class CMsgSavePageToJPEG PROTOBUF_FINAL :
                &_CMsgSavePageToJPEG_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    89;
 
   friend void swap(CMsgSavePageToJPEG& a, CMsgSavePageToJPEG& b) {
     a.Swap(&b);
@@ -18225,7 +17974,7 @@ class CMsgSavePageToJPEGResponse PROTOBUF_FINAL :
                &_CMsgSavePageToJPEGResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    90;
 
   friend void swap(CMsgSavePageToJPEGResponse& a, CMsgSavePageToJPEGResponse& b) {
     a.Swap(&b);
@@ -18418,7 +18167,7 @@ class CMsgJSAlert PROTOBUF_FINAL :
                &_CMsgJSAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    91;
 
   friend void swap(CMsgJSAlert& a, CMsgJSAlert& b) {
     a.Swap(&b);
@@ -18589,7 +18338,7 @@ class CMsgJSConfirm PROTOBUF_FINAL :
                &_CMsgJSConfirm_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    92;
 
   friend void swap(CMsgJSConfirm& a, CMsgJSConfirm& b) {
     a.Swap(&b);
@@ -18760,7 +18509,7 @@ class CMsgJSDialogResponse PROTOBUF_FINAL :
                &_CMsgJSDialogResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    93;
 
   friend void swap(CMsgJSDialogResponse& a, CMsgJSDialogResponse& b) {
     a.Swap(&b);
@@ -18924,7 +18673,7 @@ class CMsgCanGoBackAndForward PROTOBUF_FINAL :
                &_CMsgCanGoBackAndForward_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    94;
 
   friend void swap(CMsgCanGoBackAndForward& a, CMsgCanGoBackAndForward& b) {
     a.Swap(&b);
@@ -19103,7 +18852,7 @@ class CMsgOpenSteamURL PROTOBUF_FINAL :
                &_CMsgOpenSteamURL_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    96;
+    95;
 
   friend void swap(CMsgOpenSteamURL& a, CMsgOpenSteamURL& b) {
     a.Swap(&b);
@@ -19296,7 +19045,7 @@ class CMsgSetCookie PROTOBUF_FINAL :
                &_CMsgSetCookie_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    96;
 
   friend void swap(CMsgSetCookie& a, CMsgSetCookie& b) {
     a.Swap(&b);
@@ -19578,7 +19327,7 @@ class CMsgSetTargetFrameRate PROTOBUF_FINAL :
                &_CMsgSetTargetFrameRate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    97;
 
   friend void swap(CMsgSetTargetFrameRate& a, CMsgSetTargetFrameRate& b) {
     a.Swap(&b);
@@ -19742,7 +19491,7 @@ class CMsgPauseRepaint PROTOBUF_FINAL :
                &_CMsgPauseRepaint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    98;
 
   friend void swap(CMsgPauseRepaint& a, CMsgPauseRepaint& b) {
     a.Swap(&b);
@@ -19891,7 +19640,7 @@ class CMsgFullRepaint PROTOBUF_FINAL :
                &_CMsgFullRepaint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    99;
 
   friend void swap(CMsgFullRepaint& a, CMsgFullRepaint& b) {
     a.Swap(&b);
@@ -20040,7 +19789,7 @@ class CMsgRequestFullScreen PROTOBUF_FINAL :
                &_CMsgRequestFullScreen_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    100;
 
   friend void swap(CMsgRequestFullScreen& a, CMsgRequestFullScreen& b) {
     a.Swap(&b);
@@ -20189,7 +19938,7 @@ class CMsgExitFullScreen PROTOBUF_FINAL :
                &_CMsgExitFullScreen_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    101;
 
   friend void swap(CMsgExitFullScreen& a, CMsgExitFullScreen& b) {
     a.Swap(&b);
@@ -20338,7 +20087,7 @@ class CMsgToggleFindInPageDialog PROTOBUF_FINAL :
                &_CMsgToggleFindInPageDialog_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    102;
 
   friend void swap(CMsgToggleFindInPageDialog& a, CMsgToggleFindInPageDialog& b) {
     a.Swap(&b);
@@ -20487,7 +20236,7 @@ class CMsgSetPIDShuttingDown PROTOBUF_FINAL :
                &_CMsgSetPIDShuttingDown_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    103;
 
   friend void swap(CMsgSetPIDShuttingDown& a, CMsgSetPIDShuttingDown& b) {
     a.Swap(&b);
@@ -20636,7 +20385,7 @@ class CMsgDisableBackgroundThrottling PROTOBUF_FINAL :
                &_CMsgDisableBackgroundThrottling_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    105;
+    104;
 
   friend void swap(CMsgDisableBackgroundThrottling& a, CMsgDisableBackgroundThrottling& b) {
     a.Swap(&b);
@@ -20785,7 +20534,7 @@ class CMsgAckPIDShuttingDown PROTOBUF_FINAL :
                &_CMsgAckPIDShuttingDown_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    106;
+    105;
 
   friend void swap(CMsgAckPIDShuttingDown& a, CMsgAckPIDShuttingDown& b) {
     a.Swap(&b);
@@ -20934,7 +20683,7 @@ class CMsgGetCookiesForURL PROTOBUF_FINAL :
                &_CMsgGetCookiesForURL_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    107;
+    106;
 
   friend void swap(CMsgGetCookiesForURL& a, CMsgGetCookiesForURL& b) {
     a.Swap(&b);
@@ -21105,7 +20854,7 @@ class CCookie PROTOBUF_FINAL :
                &_CCookie_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    108;
+    107;
 
   friend void swap(CCookie& a, CCookie& b) {
     a.Swap(&b);
@@ -21327,7 +21076,7 @@ class CMsgGetCookiesForURLResponse PROTOBUF_FINAL :
                &_CMsgGetCookiesForURLResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    109;
+    108;
 
   friend void swap(CMsgGetCookiesForURLResponse& a, CMsgGetCookiesForURLResponse& b) {
     a.Swap(&b);
@@ -21518,7 +21267,7 @@ class CMsgNodeHasFocus PROTOBUF_FINAL :
                &_CMsgNodeHasFocus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    110;
+    109;
 
   friend void swap(CMsgNodeHasFocus& a, CMsgNodeHasFocus& b) {
     a.Swap(&b);
@@ -21800,7 +21549,7 @@ class CMsgZoomToFocusedElement PROTOBUF_FINAL :
                &_CMsgZoomToFocusedElement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    111;
+    110;
 
   friend void swap(CMsgZoomToFocusedElement& a, CMsgZoomToFocusedElement& b) {
     a.Swap(&b);
@@ -21949,7 +21698,7 @@ class CMsgFocusedNodeText PROTOBUF_FINAL :
                &_CMsgFocusedNodeText_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    112;
+    111;
 
   friend void swap(CMsgFocusedNodeText& a, CMsgFocusedNodeText& b) {
     a.Swap(&b);
@@ -22098,7 +21847,7 @@ class CMsgFocusedNodeTextResponse PROTOBUF_FINAL :
                &_CMsgFocusedNodeTextResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    113;
+    112;
 
   friend void swap(CMsgFocusedNodeTextResponse& a, CMsgFocusedNodeTextResponse& b) {
     a.Swap(&b);
@@ -22269,7 +22018,7 @@ class CMsgBuildID PROTOBUF_FINAL :
                &_CMsgBuildID_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    114;
+    113;
 
   friend void swap(CMsgBuildID& a, CMsgBuildID& b) {
     a.Swap(&b);
@@ -22418,7 +22167,7 @@ class CMsgOpenDevTools PROTOBUF_FINAL :
                &_CMsgOpenDevTools_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    115;
+    114;
 
   friend void swap(CMsgOpenDevTools& a, CMsgOpenDevTools& b) {
     a.Swap(&b);
@@ -22567,7 +22316,7 @@ class CMsgCloseDevTools PROTOBUF_FINAL :
                &_CMsgCloseDevTools_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    116;
+    115;
 
   friend void swap(CMsgCloseDevTools& a, CMsgCloseDevTools& b) {
     a.Swap(&b);
@@ -22716,7 +22465,7 @@ class CMsgUnlockH264 PROTOBUF_FINAL :
                &_CMsgUnlockH264_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    117;
+    116;
 
   friend void swap(CMsgUnlockH264& a, CMsgUnlockH264& b) {
     a.Swap(&b);
@@ -22887,7 +22636,7 @@ class CMsgScreenInformationChanged PROTOBUF_FINAL :
                &_CMsgScreenInformationChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    118;
+    117;
 
   friend void swap(CMsgScreenInformationChanged& a, CMsgScreenInformationChanged& b) {
     a.Swap(&b);
@@ -23186,7 +22935,7 @@ class CMsgClearAllCookies PROTOBUF_FINAL :
                &_CMsgClearAllCookies_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    119;
+    118;
 
   friend void swap(CMsgClearAllCookies& a, CMsgClearAllCookies& b) {
     a.Swap(&b);
@@ -23335,7 +23084,7 @@ class CMsgScreenDPI PROTOBUF_FINAL :
                &_CMsgScreenDPI_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    120;
+    119;
 
   friend void swap(CMsgScreenDPI& a, CMsgScreenDPI& b) {
     a.Swap(&b);
@@ -23499,7 +23248,7 @@ class CMsgAckScreenDPI PROTOBUF_FINAL :
                &_CMsgAckScreenDPI_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    121;
+    120;
 
   friend void swap(CMsgAckScreenDPI& a, CMsgAckScreenDPI& b) {
     a.Swap(&b);
@@ -23648,7 +23397,7 @@ class CMsgAuthedSteamDomains PROTOBUF_FINAL :
                &_CMsgAuthedSteamDomains_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    122;
+    121;
 
   friend void swap(CMsgAuthedSteamDomains& a, CMsgAuthedSteamDomains& b) {
     a.Swap(&b);
@@ -23807,7 +23556,7 @@ class CMsgSteamAuthNeeded PROTOBUF_FINAL :
                &_CMsgSteamAuthNeeded_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    123;
+    122;
 
   friend void swap(CMsgSteamAuthNeeded& a, CMsgSteamAuthNeeded& b) {
     a.Swap(&b);
@@ -23956,7 +23705,7 @@ class CMsgSteamAuthCookiesSet PROTOBUF_FINAL :
                &_CMsgSteamAuthCookiesSet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    124;
+    123;
 
   friend void swap(CMsgSteamAuthCookiesSet& a, CMsgSteamAuthCookiesSet& b) {
     a.Swap(&b);
@@ -24105,7 +23854,7 @@ class CMsgJSRegisterMethod PROTOBUF_FINAL :
                &_CMsgJSRegisterMethod_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    125;
+    124;
 
   friend void swap(CMsgJSRegisterMethod& a, CMsgJSRegisterMethod& b) {
     a.Swap(&b);
@@ -24291,7 +24040,7 @@ class CMsgJSValue_JSObjectProperty PROTOBUF_FINAL :
                &_CMsgJSValue_JSObjectProperty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    126;
+    125;
 
   friend void swap(CMsgJSValue_JSObjectProperty& a, CMsgJSValue_JSObjectProperty& b) {
     a.Swap(&b);
@@ -24467,7 +24216,7 @@ class CMsgJSValue PROTOBUF_FINAL :
                &_CMsgJSValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    127;
+    126;
 
   friend void swap(CMsgJSValue& a, CMsgJSValue& b) {
     a.Swap(&b);
@@ -24792,7 +24541,7 @@ class CMsgJSMethodCall PROTOBUF_FINAL :
                &_CMsgJSMethodCall_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    128;
+    127;
 
   friend void swap(CMsgJSMethodCall& a, CMsgJSMethodCall& b) {
     a.Swap(&b);
@@ -24998,7 +24747,7 @@ class CMsgJSExecuteCallback PROTOBUF_FINAL :
                &_CMsgJSExecuteCallback_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    129;
+    128;
 
   friend void swap(CMsgJSExecuteCallback& a, CMsgJSExecuteCallback& b) {
     a.Swap(&b);
@@ -25197,7 +24946,7 @@ class CMsgJSExecutePromise PROTOBUF_FINAL :
                &_CMsgJSExecutePromise_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    130;
+    129;
 
   friend void swap(CMsgJSExecutePromise& a, CMsgJSExecutePromise& b) {
     a.Swap(&b);
@@ -25418,7 +25167,7 @@ class CMsgJSReleaseCallback PROTOBUF_FINAL :
                &_CMsgJSReleaseCallback_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    131;
+    130;
 
   friend void swap(CMsgJSReleaseCallback& a, CMsgJSReleaseCallback& b) {
     a.Swap(&b);
@@ -25597,7 +25346,7 @@ class CMsgJSRaiseException PROTOBUF_FINAL :
                &_CMsgJSRaiseException_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    132;
+    131;
 
   friend void swap(CMsgJSRaiseException& a, CMsgJSRaiseException& b) {
     a.Swap(&b);
@@ -25783,7 +25532,7 @@ class CMsgLoadLocalization PROTOBUF_FINAL :
                &_CMsgLoadLocalization_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    133;
+    132;
 
   friend void swap(CMsgLoadLocalization& a, CMsgLoadLocalization& b) {
     a.Swap(&b);
@@ -25976,7 +25725,7 @@ class CMsgNotifyUserActivation PROTOBUF_FINAL :
                &_CMsgNotifyUserActivation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    134;
+    133;
 
   friend void swap(CMsgNotifyUserActivation& a, CMsgNotifyUserActivation& b) {
     a.Swap(&b);
@@ -26125,7 +25874,7 @@ class CMsgSetNetFakeLocalSystemState PROTOBUF_FINAL :
                &_CMsgSetNetFakeLocalSystemState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    135;
+    134;
 
   friend void swap(CMsgSetNetFakeLocalSystemState& a, CMsgSetNetFakeLocalSystemState& b) {
     a.Swap(&b);
@@ -26224,358 +25973,6 @@ class CMsgSetNetFakeLocalSystemState PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CMsgSetGameOverlayTargetPIDs PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSetGameOverlayTargetPIDs) */ {
- public:
-  inline CMsgSetGameOverlayTargetPIDs() : CMsgSetGameOverlayTargetPIDs(nullptr) {}
-  virtual ~CMsgSetGameOverlayTargetPIDs();
-  explicit constexpr CMsgSetGameOverlayTargetPIDs(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgSetGameOverlayTargetPIDs(const CMsgSetGameOverlayTargetPIDs& from);
-  CMsgSetGameOverlayTargetPIDs(CMsgSetGameOverlayTargetPIDs&& from) noexcept
-    : CMsgSetGameOverlayTargetPIDs() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgSetGameOverlayTargetPIDs& operator=(const CMsgSetGameOverlayTargetPIDs& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgSetGameOverlayTargetPIDs& operator=(CMsgSetGameOverlayTargetPIDs&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CMsgSetGameOverlayTargetPIDs& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgSetGameOverlayTargetPIDs* internal_default_instance() {
-    return reinterpret_cast<const CMsgSetGameOverlayTargetPIDs*>(
-               &_CMsgSetGameOverlayTargetPIDs_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    136;
-
-  friend void swap(CMsgSetGameOverlayTargetPIDs& a, CMsgSetGameOverlayTargetPIDs& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgSetGameOverlayTargetPIDs* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgSetGameOverlayTargetPIDs* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CMsgSetGameOverlayTargetPIDs* New() const final {
-    return CreateMaybeMessage<CMsgSetGameOverlayTargetPIDs>(nullptr);
-  }
-
-  CMsgSetGameOverlayTargetPIDs* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CMsgSetGameOverlayTargetPIDs>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CMsgSetGameOverlayTargetPIDs& from);
-  void MergeFrom(const CMsgSetGameOverlayTargetPIDs& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSetGameOverlayTargetPIDs* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSetGameOverlayTargetPIDs";
-  }
-  protected:
-  explicit CMsgSetGameOverlayTargetPIDs(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_htmlmessages_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTargetPidFieldNumber = 2,
-    kBrowserHandleFieldNumber = 1,
-  };
-  // repeated uint32 target_pid = 2;
-  int target_pid_size() const;
-  private:
-  int _internal_target_pid_size() const;
-  public:
-  void clear_target_pid();
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_target_pid(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      _internal_target_pid() const;
-  void _internal_add_target_pid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      _internal_mutable_target_pid();
-  public:
-  ::PROTOBUF_NAMESPACE_ID::uint32 target_pid(int index) const;
-  void set_target_pid(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
-  void add_target_pid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      target_pid() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      mutable_target_pid();
-
-  // optional uint32 browser_handle = 1;
-  bool has_browser_handle() const;
-  private:
-  bool _internal_has_browser_handle() const;
-  public:
-  void clear_browser_handle();
-  ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle() const;
-  void set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_browser_handle() const;
-  void _internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgSetGameOverlayTargetPIDs)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > target_pid_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle_;
-  friend struct ::TableStruct_htmlmessages_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgGameOverlayTargetTextureID PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGameOverlayTargetTextureID) */ {
- public:
-  inline CMsgGameOverlayTargetTextureID() : CMsgGameOverlayTargetTextureID(nullptr) {}
-  virtual ~CMsgGameOverlayTargetTextureID();
-  explicit constexpr CMsgGameOverlayTargetTextureID(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGameOverlayTargetTextureID(const CMsgGameOverlayTargetTextureID& from);
-  CMsgGameOverlayTargetTextureID(CMsgGameOverlayTargetTextureID&& from) noexcept
-    : CMsgGameOverlayTargetTextureID() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGameOverlayTargetTextureID& operator=(const CMsgGameOverlayTargetTextureID& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGameOverlayTargetTextureID& operator=(CMsgGameOverlayTargetTextureID&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CMsgGameOverlayTargetTextureID& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGameOverlayTargetTextureID* internal_default_instance() {
-    return reinterpret_cast<const CMsgGameOverlayTargetTextureID*>(
-               &_CMsgGameOverlayTargetTextureID_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    137;
-
-  friend void swap(CMsgGameOverlayTargetTextureID& a, CMsgGameOverlayTargetTextureID& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGameOverlayTargetTextureID* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGameOverlayTargetTextureID* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CMsgGameOverlayTargetTextureID* New() const final {
-    return CreateMaybeMessage<CMsgGameOverlayTargetTextureID>(nullptr);
-  }
-
-  CMsgGameOverlayTargetTextureID* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CMsgGameOverlayTargetTextureID>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CMsgGameOverlayTargetTextureID& from);
-  void MergeFrom(const CMsgGameOverlayTargetTextureID& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGameOverlayTargetTextureID* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGameOverlayTargetTextureID";
-  }
-  protected:
-  explicit CMsgGameOverlayTargetTextureID(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_htmlmessages_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kBrowserHandleFieldNumber = 1,
-    kTargetPidFieldNumber = 2,
-    kTextureHandleFieldNumber = 3,
-  };
-  // optional uint32 browser_handle = 1;
-  bool has_browser_handle() const;
-  private:
-  bool _internal_has_browser_handle() const;
-  public:
-  void clear_browser_handle();
-  ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle() const;
-  void set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_browser_handle() const;
-  void _internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 target_pid = 2;
-  bool has_target_pid() const;
-  private:
-  bool _internal_has_target_pid() const;
-  public:
-  void clear_target_pid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 target_pid() const;
-  void set_target_pid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_target_pid() const;
-  void _internal_set_target_pid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 texture_handle = 3;
-  bool has_texture_handle() const;
-  private:
-  bool _internal_has_texture_handle() const;
-  public:
-  void clear_texture_handle();
-  ::PROTOBUF_NAMESPACE_ID::uint32 texture_handle() const;
-  void set_texture_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_texture_handle() const;
-  void _internal_set_texture_handle(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGameOverlayTargetTextureID)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 browser_handle_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 target_pid_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 texture_handle_;
-  friend struct ::TableStruct_htmlmessages_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgDraggableRegionsChanged_DraggableRects PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgDraggableRegionsChanged.DraggableRects) */ {
  public:
@@ -26626,7 +26023,7 @@ class CMsgDraggableRegionsChanged_DraggableRects PROTOBUF_FINAL :
                &_CMsgDraggableRegionsChanged_DraggableRects_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    138;
+    135;
 
   friend void swap(CMsgDraggableRegionsChanged_DraggableRects& a, CMsgDraggableRegionsChanged_DraggableRects& b) {
     a.Swap(&b);
@@ -26701,6 +26098,7 @@ class CMsgDraggableRegionsChanged_DraggableRects PROTOBUF_FINAL :
     kWidthFieldNumber = 3,
     kHeightFieldNumber = 4,
     kDraggableFieldNumber = 5,
+    kTransparentFieldNumber = 6,
   };
   // optional int32 x = 1;
   bool has_x() const;
@@ -26767,6 +26165,19 @@ class CMsgDraggableRegionsChanged_DraggableRects PROTOBUF_FINAL :
   void _internal_set_draggable(bool value);
   public:
 
+  // optional bool transparent = 6;
+  bool has_transparent() const;
+  private:
+  bool _internal_has_transparent() const;
+  public:
+  void clear_transparent();
+  bool transparent() const;
+  void set_transparent(bool value);
+  private:
+  bool _internal_transparent() const;
+  void _internal_set_transparent(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgDraggableRegionsChanged.DraggableRects)
  private:
   class _Internal;
@@ -26781,6 +26192,7 @@ class CMsgDraggableRegionsChanged_DraggableRects PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 width_;
   ::PROTOBUF_NAMESPACE_ID::int32 height_;
   bool draggable_;
+  bool transparent_;
   friend struct ::TableStruct_htmlmessages_2eproto;
 };
 // -------------------------------------------------------------------
@@ -26835,7 +26247,7 @@ class CMsgDraggableRegionsChanged PROTOBUF_FINAL :
                &_CMsgDraggableRegionsChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    139;
+    136;
 
   friend void swap(CMsgDraggableRegionsChanged& a, CMsgDraggableRegionsChanged& b) {
     a.Swap(&b);
@@ -27006,7 +26418,7 @@ class CMsgResizeGripChanged PROTOBUF_FINAL :
                &_CMsgResizeGripChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    140;
+    137;
 
   friend void swap(CMsgResizeGripChanged& a, CMsgResizeGripChanged& b) {
     a.Swap(&b);
@@ -27185,7 +26597,7 @@ class CMsgSetWindowPosition PROTOBUF_FINAL :
                &_CMsgSetWindowPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    141;
+    138;
 
   friend void swap(CMsgSetWindowPosition& a, CMsgSetWindowPosition& b) {
     a.Swap(&b);
@@ -27454,7 +26866,7 @@ class CMsgShowWindow PROTOBUF_FINAL :
                &_CMsgShowWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    142;
+    139;
 
   friend void swap(CMsgShowWindow& a, CMsgShowWindow& b) {
     a.Swap(&b);
@@ -27603,7 +27015,7 @@ class CMsgHideWindow PROTOBUF_FINAL :
                &_CMsgHideWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    143;
+    140;
 
   friend void swap(CMsgHideWindow& a, CMsgHideWindow& b) {
     a.Swap(&b);
@@ -27752,7 +27164,7 @@ class CMsgBringWindowToFront PROTOBUF_FINAL :
                &_CMsgBringWindowToFront_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    144;
+    141;
 
   friend void swap(CMsgBringWindowToFront& a, CMsgBringWindowToFront& b) {
     a.Swap(&b);
@@ -27901,7 +27313,7 @@ class CMsgSetForegroundWindow PROTOBUF_FINAL :
                &_CMsgSetForegroundWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    145;
+    142;
 
   friend void swap(CMsgSetForegroundWindow& a, CMsgSetForegroundWindow& b) {
     a.Swap(&b);
@@ -28050,7 +27462,7 @@ class CMsgMaximizeRestoreWindow PROTOBUF_FINAL :
                &_CMsgMaximizeRestoreWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    146;
+    143;
 
   friend void swap(CMsgMaximizeRestoreWindow& a, CMsgMaximizeRestoreWindow& b) {
     a.Swap(&b);
@@ -28199,7 +27611,7 @@ class CMsgMinimizeWindow PROTOBUF_FINAL :
                &_CMsgMinimizeWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    147;
+    144;
 
   friend void swap(CMsgMinimizeWindow& a, CMsgMinimizeWindow& b) {
     a.Swap(&b);
@@ -28348,7 +27760,7 @@ class CMsgShowBrowserContextMenu_ContextCommand PROTOBUF_FINAL :
                &_CMsgShowBrowserContextMenu_ContextCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    148;
+    145;
 
   friend void swap(CMsgShowBrowserContextMenu_ContextCommand& a, CMsgShowBrowserContextMenu_ContextCommand& b) {
     a.Swap(&b);
@@ -28519,7 +27931,7 @@ class CMsgShowBrowserContextMenu PROTOBUF_FINAL :
                &_CMsgShowBrowserContextMenu_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    149;
+    146;
 
   friend void swap(CMsgShowBrowserContextMenu& a, CMsgShowBrowserContextMenu& b) {
     a.Swap(&b);
@@ -28860,7 +28272,7 @@ class CMsgHandleContextMenuCommand PROTOBUF_FINAL :
                &_CMsgHandleContextMenuCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    150;
+    147;
 
   friend void swap(CMsgHandleContextMenuCommand& a, CMsgHandleContextMenuCommand& b) {
     a.Swap(&b);
@@ -29024,7 +28436,7 @@ class CMsgTouchGesture PROTOBUF_FINAL :
                &_CMsgTouchGesture_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    151;
+    148;
 
   friend void swap(CMsgTouchGesture& a, CMsgTouchGesture& b) {
     a.Swap(&b);
@@ -29293,7 +28705,7 @@ class CMsgSetTouchGesturesToCancel PROTOBUF_FINAL :
                &_CMsgSetTouchGesturesToCancel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    152;
+    149;
 
   friend void swap(CMsgSetTouchGesturesToCancel& a, CMsgSetTouchGesturesToCancel& b) {
     a.Swap(&b);
@@ -29466,7 +28878,7 @@ class CMsgImeSetComposition PROTOBUF_FINAL :
                &_CMsgImeSetComposition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    153;
+    150;
 
   friend void swap(CMsgImeSetComposition& a, CMsgImeSetComposition& b) {
     a.Swap(&b);
@@ -29637,7 +29049,7 @@ class CMsgImeCommitText PROTOBUF_FINAL :
                &_CMsgImeCommitText_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    154;
+    151;
 
   friend void swap(CMsgImeCommitText& a, CMsgImeCommitText& b) {
     a.Swap(&b);
@@ -29808,7 +29220,7 @@ class CMsgImeCancelComposition PROTOBUF_FINAL :
                &_CMsgImeCancelComposition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    155;
+    152;
 
   friend void swap(CMsgImeCancelComposition& a, CMsgImeCancelComposition& b) {
     a.Swap(&b);
@@ -29957,7 +29369,7 @@ class CMsgImeCompositionRangeChanged PROTOBUF_FINAL :
                &_CMsgImeCompositionRangeChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    156;
+    153;
 
   friend void swap(CMsgImeCompositionRangeChanged& a, CMsgImeCompositionRangeChanged& b) {
     a.Swap(&b);
@@ -30136,7 +29548,7 @@ class CMsgInspectElement PROTOBUF_FINAL :
                &_CMsgInspectElement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    157;
+    154;
 
   friend void swap(CMsgInspectElement& a, CMsgInspectElement& b) {
     a.Swap(&b);
@@ -30315,7 +29727,7 @@ class CMsgDisableF5 PROTOBUF_FINAL :
                &_CMsgDisableF5_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    158;
+    155;
 
   friend void swap(CMsgDisableF5& a, CMsgDisableF5& b) {
     a.Swap(&b);
@@ -30479,7 +29891,7 @@ class CMsgStartDownload PROTOBUF_FINAL :
                &_CMsgStartDownload_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    159;
+    156;
 
   friend void swap(CMsgStartDownload& a, CMsgStartDownload& b) {
     a.Swap(&b);
@@ -30650,7 +30062,7 @@ class CMsgSetWindowStackingOrder PROTOBUF_FINAL :
                &_CMsgSetWindowStackingOrder_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    160;
+    157;
 
   friend void swap(CMsgSetWindowStackingOrder& a, CMsgSetWindowStackingOrder& b) {
     a.Swap(&b);
@@ -30814,7 +30226,7 @@ class CMsgBrowserViewPostMessageToParentRequest PROTOBUF_FINAL :
                &_CMsgBrowserViewPostMessageToParentRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    161;
+    158;
 
   friend void swap(CMsgBrowserViewPostMessageToParentRequest& a, CMsgBrowserViewPostMessageToParentRequest& b) {
     a.Swap(&b);
@@ -31029,7 +30441,7 @@ class CMsgBlockedRequest PROTOBUF_FINAL :
                &_CMsgBlockedRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    162;
+    159;
 
   friend void swap(CMsgBlockedRequest& a, CMsgBlockedRequest& b) {
     a.Swap(&b);
@@ -31200,7 +30612,7 @@ class CMsgBrowserFocusChanged PROTOBUF_FINAL :
                &_CMsgBrowserFocusChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    163;
+    160;
 
   friend void swap(CMsgBrowserFocusChanged& a, CMsgBrowserFocusChanged& b) {
     a.Swap(&b);
@@ -31364,7 +30776,7 @@ class CMsgSetProtocolBlockList PROTOBUF_FINAL :
                &_CMsgSetProtocolBlockList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    164;
+    161;
 
   friend void swap(CMsgSetProtocolBlockList& a, CMsgSetProtocolBlockList& b) {
     a.Swap(&b);
@@ -31535,7 +30947,7 @@ class CMsgSetForceDeviceScaleFactors PROTOBUF_FINAL :
                &_CMsgSetForceDeviceScaleFactors_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    165;
+    162;
 
   friend void swap(CMsgSetForceDeviceScaleFactors& a, CMsgSetForceDeviceScaleFactors& b) {
     a.Swap(&b);
@@ -31699,7 +31111,7 @@ class CMsgSetUIMode PROTOBUF_FINAL :
                &_CMsgSetUIMode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    166;
+    163;
 
   friend void swap(CMsgSetUIMode& a, CMsgSetUIMode& b) {
     a.Swap(&b);
@@ -31848,7 +31260,7 @@ class CMsgSetSteamBetaName PROTOBUF_FINAL :
                &_CMsgSetSteamBetaName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    167;
+    164;
 
   friend void swap(CMsgSetSteamBetaName& a, CMsgSetSteamBetaName& b) {
     a.Swap(&b);
@@ -32004,7 +31416,7 @@ class CMsgPopupCreated PROTOBUF_FINAL :
                &_CMsgPopupCreated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    168;
+    165;
 
   friend void swap(CMsgPopupCreated& a, CMsgPopupCreated& b) {
     a.Swap(&b);
@@ -32153,7 +31565,7 @@ class CMsgSetVRKeyboardVisibility PROTOBUF_FINAL :
                &_CMsgSetVRKeyboardVisibility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    169;
+    166;
 
   friend void swap(CMsgSetVRKeyboardVisibility& a, CMsgSetVRKeyboardVisibility& b) {
     a.Swap(&b);
@@ -32317,7 +31729,7 @@ class CMsgRestartJSContext PROTOBUF_FINAL :
                &_CMsgRestartJSContext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    170;
+    167;
 
   friend void swap(CMsgRestartJSContext& a, CMsgRestartJSContext& b) {
     a.Swap(&b);
@@ -43284,206 +42696,6 @@ inline void CMsgNeedsSharedTexturePaint::set_pageserial(::PROTOBUF_NAMESPACE_ID:
 
 // -------------------------------------------------------------------
 
-// CMsgGameOverlayTexturePaint
-
-// optional uint32 browser_handle = 1;
-inline bool CMsgGameOverlayTexturePaint::_internal_has_browser_handle() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTexturePaint::has_browser_handle() const {
-  return _internal_has_browser_handle();
-}
-inline void CMsgGameOverlayTexturePaint::clear_browser_handle() {
-  browser_handle_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::_internal_browser_handle() const {
-  return browser_handle_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::browser_handle() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTexturePaint.browser_handle)
-  return _internal_browser_handle();
-}
-inline void CMsgGameOverlayTexturePaint::_internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000001u;
-  browser_handle_ = value;
-}
-inline void CMsgGameOverlayTexturePaint::set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_browser_handle(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTexturePaint.browser_handle)
-}
-
-// optional uint32 width = 3;
-inline bool CMsgGameOverlayTexturePaint::_internal_has_width() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTexturePaint::has_width() const {
-  return _internal_has_width();
-}
-inline void CMsgGameOverlayTexturePaint::clear_width() {
-  width_ = 0u;
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::_internal_width() const {
-  return width_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::width() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTexturePaint.width)
-  return _internal_width();
-}
-inline void CMsgGameOverlayTexturePaint::_internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000002u;
-  width_ = value;
-}
-inline void CMsgGameOverlayTexturePaint::set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_width(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTexturePaint.width)
-}
-
-// optional uint32 height = 4;
-inline bool CMsgGameOverlayTexturePaint::_internal_has_height() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTexturePaint::has_height() const {
-  return _internal_has_height();
-}
-inline void CMsgGameOverlayTexturePaint::clear_height() {
-  height_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::_internal_height() const {
-  return height_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::height() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTexturePaint.height)
-  return _internal_height();
-}
-inline void CMsgGameOverlayTexturePaint::_internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
-  height_ = value;
-}
-inline void CMsgGameOverlayTexturePaint::set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_height(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTexturePaint.height)
-}
-
-// optional uint32 scrollx = 5;
-inline bool CMsgGameOverlayTexturePaint::_internal_has_scrollx() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTexturePaint::has_scrollx() const {
-  return _internal_has_scrollx();
-}
-inline void CMsgGameOverlayTexturePaint::clear_scrollx() {
-  scrollx_ = 0u;
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::_internal_scrollx() const {
-  return scrollx_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::scrollx() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTexturePaint.scrollx)
-  return _internal_scrollx();
-}
-inline void CMsgGameOverlayTexturePaint::_internal_set_scrollx(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000008u;
-  scrollx_ = value;
-}
-inline void CMsgGameOverlayTexturePaint::set_scrollx(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_scrollx(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTexturePaint.scrollx)
-}
-
-// optional uint32 scrolly = 6;
-inline bool CMsgGameOverlayTexturePaint::_internal_has_scrolly() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTexturePaint::has_scrolly() const {
-  return _internal_has_scrolly();
-}
-inline void CMsgGameOverlayTexturePaint::clear_scrolly() {
-  scrolly_ = 0u;
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::_internal_scrolly() const {
-  return scrolly_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::scrolly() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTexturePaint.scrolly)
-  return _internal_scrolly();
-}
-inline void CMsgGameOverlayTexturePaint::_internal_set_scrolly(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000010u;
-  scrolly_ = value;
-}
-inline void CMsgGameOverlayTexturePaint::set_scrolly(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_scrolly(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTexturePaint.scrolly)
-}
-
-// optional float pagescale = 7;
-inline bool CMsgGameOverlayTexturePaint::_internal_has_pagescale() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTexturePaint::has_pagescale() const {
-  return _internal_has_pagescale();
-}
-inline void CMsgGameOverlayTexturePaint::clear_pagescale() {
-  pagescale_ = 0;
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline float CMsgGameOverlayTexturePaint::_internal_pagescale() const {
-  return pagescale_;
-}
-inline float CMsgGameOverlayTexturePaint::pagescale() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTexturePaint.pagescale)
-  return _internal_pagescale();
-}
-inline void CMsgGameOverlayTexturePaint::_internal_set_pagescale(float value) {
-  _has_bits_[0] |= 0x00000020u;
-  pagescale_ = value;
-}
-inline void CMsgGameOverlayTexturePaint::set_pagescale(float value) {
-  _internal_set_pagescale(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTexturePaint.pagescale)
-}
-
-// optional uint32 pageserial = 8;
-inline bool CMsgGameOverlayTexturePaint::_internal_has_pageserial() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTexturePaint::has_pageserial() const {
-  return _internal_has_pageserial();
-}
-inline void CMsgGameOverlayTexturePaint::clear_pageserial() {
-  pageserial_ = 0u;
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::_internal_pageserial() const {
-  return pageserial_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTexturePaint::pageserial() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTexturePaint.pageserial)
-  return _internal_pageserial();
-}
-inline void CMsgGameOverlayTexturePaint::_internal_set_pageserial(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000040u;
-  pageserial_ = value;
-}
-inline void CMsgGameOverlayTexturePaint::set_pageserial(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_pageserial(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTexturePaint.pageserial)
-}
-
-// -------------------------------------------------------------------
-
 // CMsgGetZoom
 
 // optional uint32 browser_handle = 1;
@@ -49590,173 +48802,6 @@ inline void CMsgSetNetFakeLocalSystemState::set_state(::PROTOBUF_NAMESPACE_ID::u
 
 // -------------------------------------------------------------------
 
-// CMsgSetGameOverlayTargetPIDs
-
-// optional uint32 browser_handle = 1;
-inline bool CMsgSetGameOverlayTargetPIDs::_internal_has_browser_handle() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgSetGameOverlayTargetPIDs::has_browser_handle() const {
-  return _internal_has_browser_handle();
-}
-inline void CMsgSetGameOverlayTargetPIDs::clear_browser_handle() {
-  browser_handle_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetGameOverlayTargetPIDs::_internal_browser_handle() const {
-  return browser_handle_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetGameOverlayTargetPIDs::browser_handle() const {
-  // @@protoc_insertion_point(field_get:CMsgSetGameOverlayTargetPIDs.browser_handle)
-  return _internal_browser_handle();
-}
-inline void CMsgSetGameOverlayTargetPIDs::_internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000001u;
-  browser_handle_ = value;
-}
-inline void CMsgSetGameOverlayTargetPIDs::set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_browser_handle(value);
-  // @@protoc_insertion_point(field_set:CMsgSetGameOverlayTargetPIDs.browser_handle)
-}
-
-// repeated uint32 target_pid = 2;
-inline int CMsgSetGameOverlayTargetPIDs::_internal_target_pid_size() const {
-  return target_pid_.size();
-}
-inline int CMsgSetGameOverlayTargetPIDs::target_pid_size() const {
-  return _internal_target_pid_size();
-}
-inline void CMsgSetGameOverlayTargetPIDs::clear_target_pid() {
-  target_pid_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetGameOverlayTargetPIDs::_internal_target_pid(int index) const {
-  return target_pid_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgSetGameOverlayTargetPIDs::target_pid(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSetGameOverlayTargetPIDs.target_pid)
-  return _internal_target_pid(index);
-}
-inline void CMsgSetGameOverlayTargetPIDs::set_target_pid(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  target_pid_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSetGameOverlayTargetPIDs.target_pid)
-}
-inline void CMsgSetGameOverlayTargetPIDs::_internal_add_target_pid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  target_pid_.Add(value);
-}
-inline void CMsgSetGameOverlayTargetPIDs::add_target_pid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_add_target_pid(value);
-  // @@protoc_insertion_point(field_add:CMsgSetGameOverlayTargetPIDs.target_pid)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-CMsgSetGameOverlayTargetPIDs::_internal_target_pid() const {
-  return target_pid_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-CMsgSetGameOverlayTargetPIDs::target_pid() const {
-  // @@protoc_insertion_point(field_list:CMsgSetGameOverlayTargetPIDs.target_pid)
-  return _internal_target_pid();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-CMsgSetGameOverlayTargetPIDs::_internal_mutable_target_pid() {
-  return &target_pid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-CMsgSetGameOverlayTargetPIDs::mutable_target_pid() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSetGameOverlayTargetPIDs.target_pid)
-  return _internal_mutable_target_pid();
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGameOverlayTargetTextureID
-
-// optional uint32 browser_handle = 1;
-inline bool CMsgGameOverlayTargetTextureID::_internal_has_browser_handle() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTargetTextureID::has_browser_handle() const {
-  return _internal_has_browser_handle();
-}
-inline void CMsgGameOverlayTargetTextureID::clear_browser_handle() {
-  browser_handle_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTargetTextureID::_internal_browser_handle() const {
-  return browser_handle_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTargetTextureID::browser_handle() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTargetTextureID.browser_handle)
-  return _internal_browser_handle();
-}
-inline void CMsgGameOverlayTargetTextureID::_internal_set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000001u;
-  browser_handle_ = value;
-}
-inline void CMsgGameOverlayTargetTextureID::set_browser_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_browser_handle(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTargetTextureID.browser_handle)
-}
-
-// optional uint32 target_pid = 2;
-inline bool CMsgGameOverlayTargetTextureID::_internal_has_target_pid() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTargetTextureID::has_target_pid() const {
-  return _internal_has_target_pid();
-}
-inline void CMsgGameOverlayTargetTextureID::clear_target_pid() {
-  target_pid_ = 0u;
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTargetTextureID::_internal_target_pid() const {
-  return target_pid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTargetTextureID::target_pid() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTargetTextureID.target_pid)
-  return _internal_target_pid();
-}
-inline void CMsgGameOverlayTargetTextureID::_internal_set_target_pid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000002u;
-  target_pid_ = value;
-}
-inline void CMsgGameOverlayTargetTextureID::set_target_pid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_target_pid(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTargetTextureID.target_pid)
-}
-
-// optional uint32 texture_handle = 3;
-inline bool CMsgGameOverlayTargetTextureID::_internal_has_texture_handle() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgGameOverlayTargetTextureID::has_texture_handle() const {
-  return _internal_has_texture_handle();
-}
-inline void CMsgGameOverlayTargetTextureID::clear_texture_handle() {
-  texture_handle_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTargetTextureID::_internal_texture_handle() const {
-  return texture_handle_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgGameOverlayTargetTextureID::texture_handle() const {
-  // @@protoc_insertion_point(field_get:CMsgGameOverlayTargetTextureID.texture_handle)
-  return _internal_texture_handle();
-}
-inline void CMsgGameOverlayTargetTextureID::_internal_set_texture_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
-  texture_handle_ = value;
-}
-inline void CMsgGameOverlayTargetTextureID::set_texture_handle(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_texture_handle(value);
-  // @@protoc_insertion_point(field_set:CMsgGameOverlayTargetTextureID.texture_handle)
-}
-
-// -------------------------------------------------------------------
-
 // CMsgDraggableRegionsChanged_DraggableRects
 
 // optional int32 x = 1;
@@ -49897,6 +48942,34 @@ inline void CMsgDraggableRegionsChanged_DraggableRects::_internal_set_draggable(
 inline void CMsgDraggableRegionsChanged_DraggableRects::set_draggable(bool value) {
   _internal_set_draggable(value);
   // @@protoc_insertion_point(field_set:CMsgDraggableRegionsChanged.DraggableRects.draggable)
+}
+
+// optional bool transparent = 6;
+inline bool CMsgDraggableRegionsChanged_DraggableRects::_internal_has_transparent() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgDraggableRegionsChanged_DraggableRects::has_transparent() const {
+  return _internal_has_transparent();
+}
+inline void CMsgDraggableRegionsChanged_DraggableRects::clear_transparent() {
+  transparent_ = false;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline bool CMsgDraggableRegionsChanged_DraggableRects::_internal_transparent() const {
+  return transparent_;
+}
+inline bool CMsgDraggableRegionsChanged_DraggableRects::transparent() const {
+  // @@protoc_insertion_point(field_get:CMsgDraggableRegionsChanged.DraggableRects.transparent)
+  return _internal_transparent();
+}
+inline void CMsgDraggableRegionsChanged_DraggableRects::_internal_set_transparent(bool value) {
+  _has_bits_[0] |= 0x00000020u;
+  transparent_ = value;
+}
+inline void CMsgDraggableRegionsChanged_DraggableRects::set_transparent(bool value) {
+  _internal_set_transparent(value);
+  // @@protoc_insertion_point(field_set:CMsgDraggableRegionsChanged.DraggableRects.transparent)
 }
 
 // -------------------------------------------------------------------
@@ -52986,12 +52059,6 @@ inline void CMsgSetVRKeyboardVisibility::set_visible(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -185,7 +185,9 @@ constexpr CMsgClientMMSGetLobbyListResponse_Lobby::CMsgClientMMSGetLobbyListResp
   , lobby_flags_(0)
   , num_members_(0)
   , weight_(PROTOBUF_LONGLONG(0))
-  , distance_(0){}
+  , distance_(0)
+  , ping_(0)
+  , missing_ping_(0){}
 struct CMsgClientMMSGetLobbyListResponse_LobbyDefaultTypeInternal {
   constexpr CMsgClientMMSGetLobbyListResponse_LobbyDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -641,6 +643,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientMMSGetLobbyListResponse_Lobby, num_members_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientMMSGetLobbyListResponse_Lobby, distance_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientMMSGetLobbyListResponse_Lobby, weight_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientMMSGetLobbyListResponse_Lobby, ping_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientMMSGetLobbyListResponse_Lobby, missing_ping_),
   1,
   2,
   3,
@@ -649,6 +653,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   5,
   7,
   6,
+  8,
+  9,
   PROTOBUF_FIELD_OFFSET(::CMsgClientMMSGetLobbyListResponse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientMMSGetLobbyListResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -909,25 +915,25 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 107, 115, sizeof(::CMsgClientMMSLeaveLobbyResponse)},
   { 118, 127, sizeof(::CMsgClientMMSGetLobbyList_Filter)},
   { 131, 143, sizeof(::CMsgClientMMSGetLobbyList)},
-  { 150, 163, sizeof(::CMsgClientMMSGetLobbyListResponse_Lobby)},
-  { 171, 179, sizeof(::CMsgClientMMSGetLobbyListResponse)},
-  { 182, 195, sizeof(::CMsgClientMMSSetLobbyData)},
-  { 203, 211, sizeof(::CMsgClientMMSSetLobbyDataResponse)},
-  { 214, 221, sizeof(::CMsgClientMMSGetLobbyData)},
-  { 223, 232, sizeof(::CMsgClientMMSLobbyData_Member)},
-  { 236, 252, sizeof(::CMsgClientMMSLobbyData)},
-  { 263, 272, sizeof(::CMsgClientMMSSendLobbyChatMsg)},
-  { 276, 285, sizeof(::CMsgClientMMSLobbyChatMsg)},
-  { 289, 297, sizeof(::CMsgClientMMSSetLobbyOwner)},
-  { 300, 308, sizeof(::CMsgClientMMSSetLobbyOwnerResponse)},
-  { 311, 319, sizeof(::CMsgClientMMSSetLobbyLinked)},
-  { 322, 334, sizeof(::CMsgClientMMSSetLobbyGameServer)},
-  { 341, 352, sizeof(::CMsgClientMMSLobbyGameServerSet)},
-  { 358, 367, sizeof(::CMsgClientMMSUserJoinedLobby)},
-  { 371, 380, sizeof(::CMsgClientMMSUserLeftLobby)},
-  { 384, 392, sizeof(::CMsgClientMMSInviteToLobby)},
-  { 395, 404, sizeof(::CMsgClientMMSGetLobbyStatus)},
-  { 408, 416, sizeof(::CMsgClientMMSGetLobbyStatusResponse)},
+  { 150, 165, sizeof(::CMsgClientMMSGetLobbyListResponse_Lobby)},
+  { 175, 183, sizeof(::CMsgClientMMSGetLobbyListResponse)},
+  { 186, 199, sizeof(::CMsgClientMMSSetLobbyData)},
+  { 207, 215, sizeof(::CMsgClientMMSSetLobbyDataResponse)},
+  { 218, 225, sizeof(::CMsgClientMMSGetLobbyData)},
+  { 227, 236, sizeof(::CMsgClientMMSLobbyData_Member)},
+  { 240, 256, sizeof(::CMsgClientMMSLobbyData)},
+  { 267, 276, sizeof(::CMsgClientMMSSendLobbyChatMsg)},
+  { 280, 289, sizeof(::CMsgClientMMSLobbyChatMsg)},
+  { 293, 301, sizeof(::CMsgClientMMSSetLobbyOwner)},
+  { 304, 312, sizeof(::CMsgClientMMSSetLobbyOwnerResponse)},
+  { 315, 323, sizeof(::CMsgClientMMSSetLobbyLinked)},
+  { 326, 338, sizeof(::CMsgClientMMSSetLobbyGameServer)},
+  { 345, 356, sizeof(::CMsgClientMMSLobbyGameServerSet)},
+  { 362, 371, sizeof(::CMsgClientMMSUserJoinedLobby)},
+  { 375, 384, sizeof(::CMsgClientMMSUserLeftLobby)},
+  { 388, 396, sizeof(::CMsgClientMMSInviteToLobby)},
+  { 399, 408, sizeof(::CMsgClientMMSGetLobbyStatus)},
+  { 412, 420, sizeof(::CMsgClientMMSGetLobbyStatusResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1002,77 +1008,78 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5fmms_2eproto[
   "\001(\0132\016.CMsgIPAddress\022\033\n\023networping_locati"
   "on\030\010 \001(\t\032N\n\006Filter\022\013\n\003key\030\001 \001(\t\022\r\n\005value"
   "\030\002 \001(\t\022\023\n\013comparision\030\003 \001(\005\022\023\n\013filter_ty"
-  "pe\030\004 \001(\005\"\245\002\n!CMsgClientMMSGetLobbyListRe"
+  "pe\030\004 \001(\005\"\311\002\n!CMsgClientMMSGetLobbyListRe"
   "sponse\022\016\n\006app_id\030\001 \001(\r\022\022\n\007eresult\030\003 \001(\005:"
   "\0012\0229\n\007lobbies\030\004 \003(\0132(.CMsgClientMMSGetLo"
-  "bbyListResponse.Lobby\032\240\001\n\005Lobby\022\020\n\010steam"
+  "bbyListResponse.Lobby\032\304\001\n\005Lobby\022\020\n\010steam"
   "_id\030\001 \001(\006\022\023\n\013max_members\030\002 \001(\005\022\022\n\nlobby_"
   "type\030\003 \001(\005\022\023\n\013lobby_flags\030\004 \001(\005\022\020\n\010metad"
   "ata\030\005 \001(\014\022\023\n\013num_members\030\006 \001(\005\022\020\n\010distan"
-  "ce\030\007 \001(\002\022\016\n\006weight\030\010 \001(\003\"\311\001\n\031CMsgClientM"
-  "MSSetLobbyData\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_"
-  "id_lobby\030\002 \001(\006\022\027\n\017steam_id_member\030\003 \001(\006\022"
-  "\023\n\013max_members\030\004 \001(\005\022\022\n\nlobby_type\030\005 \001(\005"
-  "\022\023\n\013lobby_flags\030\006 \001(\005\022\020\n\010metadata\030\007 \001(\014\022"
-  "\033\n\023networping_location\030\010 \001(\t\"_\n!CMsgClie"
-  "ntMMSSetLobbyDataResponse\022\016\n\006app_id\030\001 \001("
-  "\r\022\026\n\016steam_id_lobby\030\002 \001(\006\022\022\n\007eresult\030\003 \001"
-  "(\005:\0012\"C\n\031CMsgClientMMSGetLobbyData\022\016\n\006ap"
-  "p_id\030\001 \001(\r\022\026\n\016steam_id_lobby\030\002 \001(\006\"\200\003\n\026C"
-  "MsgClientMMSLobbyData\022\016\n\006app_id\030\001 \001(\r\022\026\n"
-  "\016steam_id_lobby\030\002 \001(\006\022\023\n\013num_members\030\003 \001"
-  "(\005\022\023\n\013max_members\030\004 \001(\005\022\022\n\nlobby_type\030\005 "
-  "\001(\005\022\023\n\013lobby_flags\030\006 \001(\005\022\026\n\016steam_id_own"
-  "er\030\007 \001(\006\022\020\n\010metadata\030\010 \001(\014\022/\n\007members\030\t "
-  "\003(\0132\036.CMsgClientMMSLobbyData.Member\022\024\n\014l"
-  "obby_cellid\030\n \001(\r\022#\n\033owner_should_accept"
-  "_changes\030\013 \001(\010\032U\n\006Member\022\020\n\010steam_id\030\001 \001"
-  "(\006\022\024\n\014persona_name\030\002 \001(\t\022\020\n\010metadata\030\003 \001"
-  "(\014\022\021\n\tping_data\030\004 \001(\t\"w\n\035CMsgClientMMSSe"
-  "ndLobbyChatMsg\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_"
-  "id_lobby\030\002 \001(\006\022\027\n\017steam_id_target\030\003 \001(\006\022"
-  "\025\n\rlobby_message\030\004 \001(\014\"s\n\031CMsgClientMMSL"
-  "obbyChatMsg\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_"
-  "lobby\030\002 \001(\006\022\027\n\017steam_id_sender\030\003 \001(\006\022\025\n\r"
-  "lobby_message\030\004 \001(\014\"`\n\032CMsgClientMMSSetL"
-  "obbyOwner\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_lo"
-  "bby\030\002 \001(\006\022\032\n\022steam_id_new_owner\030\003 \001(\006\"`\n"
-  "\"CMsgClientMMSSetLobbyOwnerResponse\022\016\n\006a"
-  "pp_id\030\001 \001(\r\022\026\n\016steam_id_lobby\030\002 \001(\006\022\022\n\007e"
-  "result\030\003 \001(\005:\0012\"^\n\033CMsgClientMMSSetLobby"
-  "Linked\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_lobby"
-  "\030\002 \001(\006\022\027\n\017steam_id_lobby2\030\003 \001(\006\"\351\001\n\037CMsg"
-  "ClientMMSSetLobbyGameServer\022\016\n\006app_id\030\001 "
-  "\001(\r\022\026\n\016steam_id_lobby\030\002 \001(\006\022!\n\031deprecate"
-  "d_game_server_ip\030\003 \001(\r\022\030\n\020game_server_po"
-  "rt\030\004 \001(\r\022\034\n\024game_server_steam_id\030\005 \001(\006\022&"
-  "\n\016game_server_ip\030\006 \001(\0132\016.CMsgIPAddress\022\033"
-  "\n\023networping_location\030\007 \001(\t\"\314\001\n\037CMsgClie"
-  "ntMMSLobbyGameServerSet\022\016\n\006app_id\030\001 \001(\r\022"
+  "ce\030\007 \001(\002\022\016\n\006weight\030\010 \001(\003\022\014\n\004ping\030\t \001(\005\022\024"
+  "\n\014missing_ping\030\n \001(\005\"\311\001\n\031CMsgClientMMSSe"
+  "tLobbyData\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_l"
+  "obby\030\002 \001(\006\022\027\n\017steam_id_member\030\003 \001(\006\022\023\n\013m"
+  "ax_members\030\004 \001(\005\022\022\n\nlobby_type\030\005 \001(\005\022\023\n\013"
+  "lobby_flags\030\006 \001(\005\022\020\n\010metadata\030\007 \001(\014\022\033\n\023n"
+  "etworping_location\030\010 \001(\t\"_\n!CMsgClientMM"
+  "SSetLobbyDataResponse\022\016\n\006app_id\030\001 \001(\r\022\026\n"
+  "\016steam_id_lobby\030\002 \001(\006\022\022\n\007eresult\030\003 \001(\005:\001"
+  "2\"C\n\031CMsgClientMMSGetLobbyData\022\016\n\006app_id"
+  "\030\001 \001(\r\022\026\n\016steam_id_lobby\030\002 \001(\006\"\200\003\n\026CMsgC"
+  "lientMMSLobbyData\022\016\n\006app_id\030\001 \001(\r\022\026\n\016ste"
+  "am_id_lobby\030\002 \001(\006\022\023\n\013num_members\030\003 \001(\005\022\023"
+  "\n\013max_members\030\004 \001(\005\022\022\n\nlobby_type\030\005 \001(\005\022"
+  "\023\n\013lobby_flags\030\006 \001(\005\022\026\n\016steam_id_owner\030\007"
+  " \001(\006\022\020\n\010metadata\030\010 \001(\014\022/\n\007members\030\t \003(\0132"
+  "\036.CMsgClientMMSLobbyData.Member\022\024\n\014lobby"
+  "_cellid\030\n \001(\r\022#\n\033owner_should_accept_cha"
+  "nges\030\013 \001(\010\032U\n\006Member\022\020\n\010steam_id\030\001 \001(\006\022\024"
+  "\n\014persona_name\030\002 \001(\t\022\020\n\010metadata\030\003 \001(\014\022\021"
+  "\n\tping_data\030\004 \001(\t\"w\n\035CMsgClientMMSSendLo"
+  "bbyChatMsg\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_l"
+  "obby\030\002 \001(\006\022\027\n\017steam_id_target\030\003 \001(\006\022\025\n\rl"
+  "obby_message\030\004 \001(\014\"s\n\031CMsgClientMMSLobby"
+  "ChatMsg\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_lobb"
+  "y\030\002 \001(\006\022\027\n\017steam_id_sender\030\003 \001(\006\022\025\n\rlobb"
+  "y_message\030\004 \001(\014\"`\n\032CMsgClientMMSSetLobby"
+  "Owner\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_lobby\030"
+  "\002 \001(\006\022\032\n\022steam_id_new_owner\030\003 \001(\006\"`\n\"CMs"
+  "gClientMMSSetLobbyOwnerResponse\022\016\n\006app_i"
+  "d\030\001 \001(\r\022\026\n\016steam_id_lobby\030\002 \001(\006\022\022\n\007eresu"
+  "lt\030\003 \001(\005:\0012\"^\n\033CMsgClientMMSSetLobbyLink"
+  "ed\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_lobby\030\002 \001"
+  "(\006\022\027\n\017steam_id_lobby2\030\003 \001(\006\"\351\001\n\037CMsgClie"
+  "ntMMSSetLobbyGameServer\022\016\n\006app_id\030\001 \001(\r\022"
   "\026\n\016steam_id_lobby\030\002 \001(\006\022!\n\031deprecated_ga"
   "me_server_ip\030\003 \001(\r\022\030\n\020game_server_port\030\004"
   " \001(\r\022\034\n\024game_server_steam_id\030\005 \001(\006\022&\n\016ga"
-  "me_server_ip\030\006 \001(\0132\016.CMsgIPAddress\"s\n\034CM"
-  "sgClientMMSUserJoinedLobby\022\016\n\006app_id\030\001 \001"
-  "(\r\022\026\n\016steam_id_lobby\030\002 \001(\006\022\025\n\rsteam_id_u"
-  "ser\030\003 \001(\006\022\024\n\014persona_name\030\004 \001(\t\"q\n\032CMsgC"
-  "lientMMSUserLeftLobby\022\016\n\006app_id\030\001 \001(\r\022\026\n"
-  "\016steam_id_lobby\030\002 \001(\006\022\025\n\rsteam_id_user\030\003"
-  " \001(\006\022\024\n\014persona_name\030\004 \001(\t\"c\n\032CMsgClient"
-  "MMSInviteToLobby\022\016\n\006app_id\030\001 \001(\r\022\026\n\016stea"
-  "m_id_lobby\030\002 \001(\006\022\035\n\025steam_id_user_invite"
-  "d\030\003 \001(\006\"x\n\033CMsgClientMMSGetLobbyStatus\022\016"
-  "\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_lobby\030\002 \001(\006\022\030"
-  "\n\020claim_membership\030\003 \001(\010\022\027\n\017claim_owners"
-  "hip\030\004 \001(\010\"\215\001\n#CMsgClientMMSGetLobbyStatu"
-  "sResponse\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_lo"
-  "bby\030\002 \001(\006\022>\n\014lobby_status\030\003 \001(\0162\020.EMMSLo"
-  "bbyStatus:\026EMMSLobbyStatusInvalid*\210\001\n\017EM"
-  "MSLobbyStatus\022\032\n\026EMMSLobbyStatusInvalid\020"
-  "\000\022\031\n\025EMMSLobbyStatusExists\020\001\022\037\n\033EMMSLobb"
-  "yStatusDoesNotExist\020\002\022\035\n\031EMMSLobbyStatus"
-  "NotAMember\020\003B\037H\001\200\001\000\252\002\027OpenSteamworks.Pro"
-  "tobuf"
+  "me_server_ip\030\006 \001(\0132\016.CMsgIPAddress\022\033\n\023ne"
+  "tworping_location\030\007 \001(\t\"\314\001\n\037CMsgClientMM"
+  "SLobbyGameServerSet\022\016\n\006app_id\030\001 \001(\r\022\026\n\016s"
+  "team_id_lobby\030\002 \001(\006\022!\n\031deprecated_game_s"
+  "erver_ip\030\003 \001(\r\022\030\n\020game_server_port\030\004 \001(\r"
+  "\022\034\n\024game_server_steam_id\030\005 \001(\006\022&\n\016game_s"
+  "erver_ip\030\006 \001(\0132\016.CMsgIPAddress\"s\n\034CMsgCl"
+  "ientMMSUserJoinedLobby\022\016\n\006app_id\030\001 \001(\r\022\026"
+  "\n\016steam_id_lobby\030\002 \001(\006\022\025\n\rsteam_id_user\030"
+  "\003 \001(\006\022\024\n\014persona_name\030\004 \001(\t\"q\n\032CMsgClien"
+  "tMMSUserLeftLobby\022\016\n\006app_id\030\001 \001(\r\022\026\n\016ste"
+  "am_id_lobby\030\002 \001(\006\022\025\n\rsteam_id_user\030\003 \001(\006"
+  "\022\024\n\014persona_name\030\004 \001(\t\"c\n\032CMsgClientMMSI"
+  "nviteToLobby\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id"
+  "_lobby\030\002 \001(\006\022\035\n\025steam_id_user_invited\030\003 "
+  "\001(\006\"x\n\033CMsgClientMMSGetLobbyStatus\022\016\n\006ap"
+  "p_id\030\001 \001(\r\022\026\n\016steam_id_lobby\030\002 \001(\006\022\030\n\020cl"
+  "aim_membership\030\003 \001(\010\022\027\n\017claim_ownership\030"
+  "\004 \001(\010\"\215\001\n#CMsgClientMMSGetLobbyStatusRes"
+  "ponse\022\016\n\006app_id\030\001 \001(\r\022\026\n\016steam_id_lobby\030"
+  "\002 \001(\006\022>\n\014lobby_status\030\003 \001(\0162\020.EMMSLobbyS"
+  "tatus:\026EMMSLobbyStatusInvalid*\210\001\n\017EMMSLo"
+  "bbyStatus\022\032\n\026EMMSLobbyStatusInvalid\020\000\022\031\n"
+  "\025EMMSLobbyStatusExists\020\001\022\037\n\033EMMSLobbySta"
+  "tusDoesNotExist\020\002\022\035\n\031EMMSLobbyStatusNotA"
+  "Member\020\003B\037H\001\200\001\000\252\002\027OpenSteamworks.Protobu"
+  "f"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_5fmms_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -1080,7 +1087,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5fmms_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5fmms_2eproto = {
-  false, false, 4365, descriptor_table_protodef_steammessages_5fclientserver_5fmms_2eproto, "steammessages_clientserver_mms.proto", 
+  false, false, 4401, descriptor_table_protodef_steammessages_5fclientserver_5fmms_2eproto, "steammessages_clientserver_mms.proto", 
   &descriptor_table_steammessages_5fclientserver_5fmms_2eproto_once, descriptor_table_steammessages_5fclientserver_5fmms_2eproto_deps, 2, 29,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5fmms_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5fmms_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5fmms_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5fmms_2eproto,
@@ -4662,6 +4669,12 @@ class CMsgClientMMSGetLobbyListResponse_Lobby::_Internal {
   static void set_has_weight(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
+  static void set_has_ping(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_missing_ping(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
+  }
 };
 
 CMsgClientMMSGetLobbyListResponse_Lobby::CMsgClientMMSGetLobbyListResponse_Lobby(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -4680,8 +4693,8 @@ CMsgClientMMSGetLobbyListResponse_Lobby::CMsgClientMMSGetLobbyListResponse_Lobby
       GetArena());
   }
   ::memcpy(&steam_id_, &from.steam_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&distance_) -
-    reinterpret_cast<char*>(&steam_id_)) + sizeof(distance_));
+    static_cast<size_t>(reinterpret_cast<char*>(&missing_ping_) -
+    reinterpret_cast<char*>(&steam_id_)) + sizeof(missing_ping_));
   // @@protoc_insertion_point(copy_constructor:CMsgClientMMSGetLobbyListResponse.Lobby)
 }
 
@@ -4689,8 +4702,8 @@ void CMsgClientMMSGetLobbyListResponse_Lobby::SharedCtor() {
 metadata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&steam_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&distance_) -
-    reinterpret_cast<char*>(&steam_id_)) + sizeof(distance_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&missing_ping_) -
+    reinterpret_cast<char*>(&steam_id_)) + sizeof(missing_ping_));
 }
 
 CMsgClientMMSGetLobbyListResponse_Lobby::~CMsgClientMMSGetLobbyListResponse_Lobby() {
@@ -4728,6 +4741,11 @@ void CMsgClientMMSGetLobbyListResponse_Lobby::Clear() {
     ::memset(&steam_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&distance_) -
         reinterpret_cast<char*>(&steam_id_)) + sizeof(distance_));
+  }
+  if (cached_has_bits & 0x00000300u) {
+    ::memset(&ping_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&missing_ping_) -
+        reinterpret_cast<char*>(&ping_)) + sizeof(missing_ping_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -4802,6 +4820,22 @@ const char* CMsgClientMMSGetLobbyListResponse_Lobby::_InternalParse(const char* 
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_weight(&has_bits);
           weight_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 ping = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          _Internal::set_has_ping(&has_bits);
+          ping_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int32 missing_ping = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          _Internal::set_has_missing_ping(&has_bits);
+          missing_ping_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4883,6 +4917,18 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(8, this->_internal_weight(), target);
   }
 
+  // optional int32 ping = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(9, this->_internal_ping(), target);
+  }
+
+  // optional int32 missing_ping = 10;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(10, this->_internal_missing_ping(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4954,6 +5000,22 @@ size_t CMsgClientMMSGetLobbyListResponse_Lobby::ByteSizeLong() const {
     }
 
   }
+  if (cached_has_bits & 0x00000300u) {
+    // optional int32 ping = 9;
+    if (cached_has_bits & 0x00000100u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_ping());
+    }
+
+    // optional int32 missing_ping = 10;
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_missing_ping());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -5013,6 +5075,15 @@ void CMsgClientMMSGetLobbyListResponse_Lobby::MergeFrom(const CMsgClientMMSGetLo
     }
     _has_bits_[0] |= cached_has_bits;
   }
+  if (cached_has_bits & 0x00000300u) {
+    if (cached_has_bits & 0x00000100u) {
+      ping_ = from.ping_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      missing_ping_ = from.missing_ping_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
 }
 
 void CMsgClientMMSGetLobbyListResponse_Lobby::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -5039,8 +5110,8 @@ void CMsgClientMMSGetLobbyListResponse_Lobby::InternalSwap(CMsgClientMMSGetLobby
   swap(_has_bits_[0], other->_has_bits_[0]);
   metadata_.Swap(&other->metadata_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientMMSGetLobbyListResponse_Lobby, distance_)
-      + sizeof(CMsgClientMMSGetLobbyListResponse_Lobby::distance_)
+      PROTOBUF_FIELD_OFFSET(CMsgClientMMSGetLobbyListResponse_Lobby, missing_ping_)
+      + sizeof(CMsgClientMMSGetLobbyListResponse_Lobby::missing_ping_)
       - PROTOBUF_FIELD_OFFSET(CMsgClientMMSGetLobbyListResponse_Lobby, steam_id_)>(
           reinterpret_cast<char*>(&steam_id_),
           reinterpret_cast<char*>(&other->steam_id_));

@@ -311,7 +311,6 @@ constexpr CMsgClientPersonaState_Friend::CMsgClientPersonaState_Friend(
   , persona_state_flags_(0u)
   , online_session_instances_(0u)
   , steamid_source_(PROTOBUF_ULONGLONG(0))
-  , watching_broadcast_viewers_(0u)
   , query_port_(0u)
   , last_logoff_(0u)
   , last_logon_(0u)
@@ -325,7 +324,9 @@ constexpr CMsgClientPersonaState_Friend::CMsgClientPersonaState_Friend(
   , broadcast_id_(PROTOBUF_ULONGLONG(0))
   , game_lobby_id_(PROTOBUF_ULONGLONG(0))
   , watching_broadcast_accountid_(0u)
-  , watching_broadcast_appid_(0u){}
+  , watching_broadcast_appid_(0u)
+  , watching_broadcast_viewers_(0u)
+  , on_steam_deck_(false){}
 struct CMsgClientPersonaState_FriendDefaultTypeInternal {
   constexpr CMsgClientPersonaState_FriendDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -839,6 +840,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientPersonaState_Friend, is_community_banned_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientPersonaState_Friend, player_name_pending_review_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientPersonaState_Friend, avatar_pending_review_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientPersonaState_Friend, on_steam_deck_),
   7,
   8,
   9,
@@ -846,30 +848,31 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   11,
   12,
   13,
-  22,
+  21,
   0,
-  16,
+  15,
   14,
   1,
+  16,
   17,
   18,
-  19,
-  21,
-  2,
   20,
+  2,
+  19,
   3,
   6,
   4,
   ~0u,
+  25,
   26,
   27,
   28,
   29,
-  15,
   5,
+  22,
   23,
   24,
-  25,
+  30,
   PROTOBUF_FIELD_OFFSET(::CMsgClientPersonaState, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientPersonaState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1081,25 +1084,25 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 187, 194, sizeof(::CMsgPersonaChangeResponse)},
   { 196, 203, sizeof(::CMsgClientPersonaState_Friend_ClanData)},
   { 205, 212, sizeof(::CMsgClientPersonaState_Friend_KV)},
-  { 214, 250, sizeof(::CMsgClientPersonaState_Friend)},
-  { 281, 288, sizeof(::CMsgClientPersonaState)},
-  { 290, 296, sizeof(::CMsgClientFriendProfileInfo)},
-  { 297, 311, sizeof(::CMsgClientFriendProfileInfoResponse)},
-  { 320, 328, sizeof(::CMsgClientCreateFriendsGroup)},
-  { 331, 338, sizeof(::CMsgClientCreateFriendsGroupResponse)},
-  { 340, 347, sizeof(::CMsgClientDeleteFriendsGroup)},
-  { 349, 355, sizeof(::CMsgClientDeleteFriendsGroupResponse)},
-  { 356, 365, sizeof(::CMsgClientManageFriendsGroup)},
-  { 369, 375, sizeof(::CMsgClientManageFriendsGroupResponse)},
-  { 376, 383, sizeof(::CMsgClientAddFriendToGroup)},
-  { 385, 391, sizeof(::CMsgClientAddFriendToGroupResponse)},
-  { 392, 399, sizeof(::CMsgClientRemoveFriendFromGroup)},
-  { 401, 407, sizeof(::CMsgClientRemoveFriendFromGroupResponse)},
-  { 408, -1, sizeof(::CMsgClientGetEmoticonList)},
-  { 413, 424, sizeof(::CMsgClientEmoticonList_Emoticon)},
-  { 430, 441, sizeof(::CMsgClientEmoticonList_Sticker)},
-  { 447, 457, sizeof(::CMsgClientEmoticonList_Effect)},
-  { 462, -1, sizeof(::CMsgClientEmoticonList)},
+  { 214, 251, sizeof(::CMsgClientPersonaState_Friend)},
+  { 283, 290, sizeof(::CMsgClientPersonaState)},
+  { 292, 298, sizeof(::CMsgClientFriendProfileInfo)},
+  { 299, 313, sizeof(::CMsgClientFriendProfileInfoResponse)},
+  { 322, 330, sizeof(::CMsgClientCreateFriendsGroup)},
+  { 333, 340, sizeof(::CMsgClientCreateFriendsGroupResponse)},
+  { 342, 349, sizeof(::CMsgClientDeleteFriendsGroup)},
+  { 351, 357, sizeof(::CMsgClientDeleteFriendsGroupResponse)},
+  { 358, 367, sizeof(::CMsgClientManageFriendsGroup)},
+  { 371, 377, sizeof(::CMsgClientManageFriendsGroupResponse)},
+  { 378, 385, sizeof(::CMsgClientAddFriendToGroup)},
+  { 387, 393, sizeof(::CMsgClientAddFriendToGroupResponse)},
+  { 394, 401, sizeof(::CMsgClientRemoveFriendFromGroup)},
+  { 403, 409, sizeof(::CMsgClientRemoveFriendFromGroupResponse)},
+  { 410, -1, sizeof(::CMsgClientGetEmoticonList)},
+  { 415, 426, sizeof(::CMsgClientEmoticonList_Emoticon)},
+  { 432, 443, sizeof(::CMsgClientEmoticonList_Sticker)},
+  { 449, 459, sizeof(::CMsgClientEmoticonList_Effect)},
+  { 464, -1, sizeof(::CMsgClientEmoticonList)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1193,10 +1196,10 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5ffriends_2epr
   "(\010\022\036\n\023persona_state_flags\030\006 \001(\r:\0010\022\035\n\025ne"
   "ed_persona_response\030\007 \001(\010\022\026\n\016is_client_i"
   "dle\030\010 \001(\010\"@\n\031CMsgPersonaChangeResponse\022\016"
-  "\n\006result\030\001 \001(\r\022\023\n\013player_name\030\002 \001(\t\"\240\010\n\026"
+  "\n\006result\030\001 \001(\r\022\023\n\013player_name\030\002 \001(\t\"\267\010\n\026"
   "CMsgClientPersonaState\022\024\n\014status_flags\030\001"
   " \001(\r\022/\n\007friends\030\002 \003(\0132\036.CMsgClientPerson"
-  "aState.Friend\032\276\007\n\006Friend\022\020\n\010friendid\030\001 \001"
+  "aState.Friend\032\325\007\n\006Friend\022\020\n\010friendid\030\001 \001"
   "(\006\022\025\n\rpersona_state\030\002 \001(\r\022\032\n\022game_played"
   "_app_id\030\003 \001(\r\022\026\n\016game_server_ip\030\004 \001(\r\022\030\n"
   "\020game_server_port\030\005 \001(\r\022\033\n\023persona_state"
@@ -1218,49 +1221,49 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5ffriends_2epr
   "atching_broadcast_title\030M \001(\t\022\033\n\023is_comm"
   "unity_banned\030N \001(\010\022\"\n\032player_name_pendin"
   "g_review\030O \001(\010\022\035\n\025avatar_pending_review\030"
-  "P \001(\010\0325\n\010ClanData\022\022\n\nogg_app_id\030\001 \001(\r\022\025\n"
-  "\rchat_group_id\030\002 \001(\004\032 \n\002KV\022\013\n\003key\030\001 \001(\t\022"
-  "\r\n\005value\030\002 \001(\t\"5\n\033CMsgClientFriendProfil"
-  "eInfo\022\026\n\016steamid_friend\030\001 \001(\006\"\332\001\n#CMsgCl"
-  "ientFriendProfileInfoResponse\022\022\n\007eresult"
-  "\030\001 \001(\005:\0012\022\026\n\016steamid_friend\030\002 \001(\006\022\024\n\014tim"
-  "e_created\030\003 \001(\r\022\021\n\treal_name\030\004 \001(\t\022\021\n\tci"
-  "ty_name\030\005 \001(\t\022\022\n\nstate_name\030\006 \001(\t\022\024\n\014cou"
-  "ntry_name\030\007 \001(\t\022\020\n\010headline\030\010 \001(\t\022\017\n\007sum"
-  "mary\030\t \001(\t\"[\n\034CMsgClientCreateFriendsGro"
-  "up\022\017\n\007steamid\030\001 \001(\006\022\021\n\tgroupname\030\002 \001(\t\022\027"
-  "\n\017steamid_friends\030\003 \003(\006\"H\n$CMsgClientCre"
-  "ateFriendsGroupResponse\022\017\n\007eresult\030\001 \001(\r"
-  "\022\017\n\007groupid\030\002 \001(\005\"@\n\034CMsgClientDeleteFri"
-  "endsGroup\022\017\n\007steamid\030\001 \001(\006\022\017\n\007groupid\030\002 "
-  "\001(\005\"7\n$CMsgClientDeleteFriendsGroupRespo"
-  "nse\022\017\n\007eresult\030\001 \001(\r\"\202\001\n\034CMsgClientManag"
-  "eFriendsGroup\022\017\n\007groupid\030\001 \001(\005\022\021\n\tgroupn"
-  "ame\030\002 \001(\t\022\035\n\025steamid_friends_added\030\003 \003(\006"
-  "\022\037\n\027steamid_friends_removed\030\004 \003(\006\"7\n$CMs"
-  "gClientManageFriendsGroupResponse\022\017\n\007ere"
-  "sult\030\001 \001(\r\"B\n\032CMsgClientAddFriendToGroup"
-  "\022\017\n\007groupid\030\001 \001(\005\022\023\n\013steamiduser\030\002 \001(\006\"5"
-  "\n\"CMsgClientAddFriendToGroupResponse\022\017\n\007"
-  "eresult\030\001 \001(\r\"G\n\037CMsgClientRemoveFriendF"
-  "romGroup\022\017\n\007groupid\030\001 \001(\005\022\023\n\013steamiduser"
-  "\030\002 \001(\006\":\n\'CMsgClientRemoveFriendFromGrou"
-  "pResponse\022\017\n\007eresult\030\001 \001(\r\"\033\n\031CMsgClient"
-  "GetEmoticonList\"\207\004\n\026CMsgClientEmoticonLi"
-  "st\0223\n\temoticons\030\001 \003(\0132 .CMsgClientEmotic"
-  "onList.Emoticon\0221\n\010stickers\030\002 \003(\0132\037.CMsg"
-  "ClientEmoticonList.Sticker\022/\n\007effects\030\003 "
-  "\003(\0132\036.CMsgClientEmoticonList.Effect\032x\n\010E"
-  "moticon\022\014\n\004name\030\001 \001(\t\022\r\n\005count\030\002 \001(\005\022\026\n\016"
-  "time_last_used\030\003 \001(\r\022\021\n\tuse_count\030\004 \001(\r\022"
-  "\025\n\rtime_received\030\005 \001(\r\022\r\n\005appid\030\006 \001(\r\032w\n"
-  "\007Sticker\022\014\n\004name\030\001 \001(\t\022\r\n\005count\030\002 \001(\005\022\025\n"
-  "\rtime_received\030\003 \001(\r\022\r\n\005appid\030\004 \001(\r\022\026\n\016t"
-  "ime_last_used\030\005 \001(\r\022\021\n\tuse_count\030\006 \001(\r\032a"
-  "\n\006Effect\022\014\n\004name\030\001 \001(\t\022\r\n\005count\030\002 \001(\005\022\025\n"
-  "\rtime_received\030\003 \001(\r\022\024\n\014infinite_use\030\004 \001"
-  "(\010\022\r\n\005appid\030\005 \001(\rB\037H\001\200\001\000\252\002\027OpenSteamwork"
-  "s.Protobuf"
+  "P \001(\010\022\025\n\ron_steam_deck\030Q \001(\010\0325\n\010ClanData"
+  "\022\022\n\nogg_app_id\030\001 \001(\r\022\025\n\rchat_group_id\030\002 "
+  "\001(\004\032 \n\002KV\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"5\n"
+  "\033CMsgClientFriendProfileInfo\022\026\n\016steamid_"
+  "friend\030\001 \001(\006\"\332\001\n#CMsgClientFriendProfile"
+  "InfoResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022\026\n\016stea"
+  "mid_friend\030\002 \001(\006\022\024\n\014time_created\030\003 \001(\r\022\021"
+  "\n\treal_name\030\004 \001(\t\022\021\n\tcity_name\030\005 \001(\t\022\022\n\n"
+  "state_name\030\006 \001(\t\022\024\n\014country_name\030\007 \001(\t\022\020"
+  "\n\010headline\030\010 \001(\t\022\017\n\007summary\030\t \001(\t\"[\n\034CMs"
+  "gClientCreateFriendsGroup\022\017\n\007steamid\030\001 \001"
+  "(\006\022\021\n\tgroupname\030\002 \001(\t\022\027\n\017steamid_friends"
+  "\030\003 \003(\006\"H\n$CMsgClientCreateFriendsGroupRe"
+  "sponse\022\017\n\007eresult\030\001 \001(\r\022\017\n\007groupid\030\002 \001(\005"
+  "\"@\n\034CMsgClientDeleteFriendsGroup\022\017\n\007stea"
+  "mid\030\001 \001(\006\022\017\n\007groupid\030\002 \001(\005\"7\n$CMsgClient"
+  "DeleteFriendsGroupResponse\022\017\n\007eresult\030\001 "
+  "\001(\r\"\202\001\n\034CMsgClientManageFriendsGroup\022\017\n\007"
+  "groupid\030\001 \001(\005\022\021\n\tgroupname\030\002 \001(\t\022\035\n\025stea"
+  "mid_friends_added\030\003 \003(\006\022\037\n\027steamid_frien"
+  "ds_removed\030\004 \003(\006\"7\n$CMsgClientManageFrie"
+  "ndsGroupResponse\022\017\n\007eresult\030\001 \001(\r\"B\n\032CMs"
+  "gClientAddFriendToGroup\022\017\n\007groupid\030\001 \001(\005"
+  "\022\023\n\013steamiduser\030\002 \001(\006\"5\n\"CMsgClientAddFr"
+  "iendToGroupResponse\022\017\n\007eresult\030\001 \001(\r\"G\n\037"
+  "CMsgClientRemoveFriendFromGroup\022\017\n\007group"
+  "id\030\001 \001(\005\022\023\n\013steamiduser\030\002 \001(\006\":\n\'CMsgCli"
+  "entRemoveFriendFromGroupResponse\022\017\n\007eres"
+  "ult\030\001 \001(\r\"\033\n\031CMsgClientGetEmoticonList\"\207"
+  "\004\n\026CMsgClientEmoticonList\0223\n\temoticons\030\001"
+  " \003(\0132 .CMsgClientEmoticonList.Emoticon\0221"
+  "\n\010stickers\030\002 \003(\0132\037.CMsgClientEmoticonLis"
+  "t.Sticker\022/\n\007effects\030\003 \003(\0132\036.CMsgClientE"
+  "moticonList.Effect\032x\n\010Emoticon\022\014\n\004name\030\001"
+  " \001(\t\022\r\n\005count\030\002 \001(\005\022\026\n\016time_last_used\030\003 "
+  "\001(\r\022\021\n\tuse_count\030\004 \001(\r\022\025\n\rtime_received\030"
+  "\005 \001(\r\022\r\n\005appid\030\006 \001(\r\032w\n\007Sticker\022\014\n\004name\030"
+  "\001 \001(\t\022\r\n\005count\030\002 \001(\005\022\025\n\rtime_received\030\003 "
+  "\001(\r\022\r\n\005appid\030\004 \001(\r\022\026\n\016time_last_used\030\005 \001"
+  "(\r\022\021\n\tuse_count\030\006 \001(\r\032a\n\006Effect\022\014\n\004name\030"
+  "\001 \001(\t\022\r\n\005count\030\002 \001(\005\022\025\n\rtime_received\030\003 "
+  "\001(\r\022\024\n\014infinite_use\030\004 \001(\010\022\r\n\005appid\030\005 \001(\r"
+  "B\037H\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_5ffriends_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -1268,7 +1271,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5ffriends_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5ffriends_2eproto = {
-  false, false, 4610, descriptor_table_protodef_steammessages_5fclientserver_5ffriends_2eproto, "steammessages_clientserver_friends.proto", 
+  false, false, 4633, descriptor_table_protodef_steammessages_5fclientserver_5ffriends_2eproto, "steammessages_clientserver_friends.proto", 
   &descriptor_table_steammessages_5fclientserver_5ffriends_2eproto_once, descriptor_table_steammessages_5fclientserver_5ffriends_2eproto_deps, 2, 39,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5ffriends_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5ffriends_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5ffriends_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5ffriends_2eproto,
@@ -6745,13 +6748,13 @@ class CMsgClientPersonaState_Friend::_Internal {
     (*has_bits)[0] |= 8192u;
   }
   static void set_has_persona_set_by_user(HasBits* has_bits) {
-    (*has_bits)[0] |= 4194304u;
+    (*has_bits)[0] |= 2097152u;
   }
   static void set_has_player_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_query_port(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_steamid_source(HasBits* has_bits) {
     (*has_bits)[0] |= 16384u;
@@ -6760,22 +6763,22 @@ class CMsgClientPersonaState_Friend::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_last_logoff(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 65536u;
   }
   static void set_has_last_logon(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 131072u;
   }
   static void set_has_last_seen_online(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_clan_rank(HasBits* has_bits) {
-    (*has_bits)[0] |= 2097152u;
+    (*has_bits)[0] |= 1048576u;
   }
   static void set_has_game_name(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_gameid(HasBits* has_bits) {
-    (*has_bits)[0] |= 1048576u;
+    (*has_bits)[0] |= 524288u;
   }
   static void set_has_game_data_blob(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
@@ -6788,31 +6791,34 @@ class CMsgClientPersonaState_Friend::_Internal {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_broadcast_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 67108864u;
+    (*has_bits)[0] |= 33554432u;
   }
   static void set_has_game_lobby_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 134217728u;
+    (*has_bits)[0] |= 67108864u;
   }
   static void set_has_watching_broadcast_accountid(HasBits* has_bits) {
-    (*has_bits)[0] |= 268435456u;
+    (*has_bits)[0] |= 134217728u;
   }
   static void set_has_watching_broadcast_appid(HasBits* has_bits) {
-    (*has_bits)[0] |= 536870912u;
+    (*has_bits)[0] |= 268435456u;
   }
   static void set_has_watching_broadcast_viewers(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
+    (*has_bits)[0] |= 536870912u;
   }
   static void set_has_watching_broadcast_title(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_is_community_banned(HasBits* has_bits) {
-    (*has_bits)[0] |= 8388608u;
+    (*has_bits)[0] |= 4194304u;
   }
   static void set_has_player_name_pending_review(HasBits* has_bits) {
-    (*has_bits)[0] |= 16777216u;
+    (*has_bits)[0] |= 8388608u;
   }
   static void set_has_avatar_pending_review(HasBits* has_bits) {
-    (*has_bits)[0] |= 33554432u;
+    (*has_bits)[0] |= 16777216u;
+  }
+  static void set_has_on_steam_deck(HasBits* has_bits) {
+    (*has_bits)[0] |= 1073741824u;
   }
 };
 
@@ -6868,8 +6874,8 @@ CMsgClientPersonaState_Friend::CMsgClientPersonaState_Friend(const CMsgClientPer
     clan_data_ = nullptr;
   }
   ::memcpy(&friendid_, &from.friendid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&watching_broadcast_appid_) -
-    reinterpret_cast<char*>(&friendid_)) + sizeof(watching_broadcast_appid_));
+    static_cast<size_t>(reinterpret_cast<char*>(&on_steam_deck_) -
+    reinterpret_cast<char*>(&friendid_)) + sizeof(on_steam_deck_));
   // @@protoc_insertion_point(copy_constructor:CMsgClientPersonaState.Friend)
 }
 
@@ -6882,8 +6888,8 @@ clan_tag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlr
 watching_broadcast_title_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&clan_data_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&watching_broadcast_appid_) -
-    reinterpret_cast<char*>(&clan_data_)) + sizeof(watching_broadcast_appid_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&on_steam_deck_) -
+    reinterpret_cast<char*>(&clan_data_)) + sizeof(on_steam_deck_));
 }
 
 CMsgClientPersonaState_Friend::~CMsgClientPersonaState_Friend() {
@@ -6948,18 +6954,18 @@ void CMsgClientPersonaState_Friend::Clear() {
   friendid_ = PROTOBUF_ULONGLONG(0);
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&persona_state_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&watching_broadcast_viewers_) -
-        reinterpret_cast<char*>(&persona_state_)) + sizeof(watching_broadcast_viewers_));
+        reinterpret_cast<char*>(&query_port_) -
+        reinterpret_cast<char*>(&persona_state_)) + sizeof(query_port_));
   }
   if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&query_port_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&is_community_banned_) -
-        reinterpret_cast<char*>(&query_port_)) + sizeof(is_community_banned_));
+    ::memset(&last_logoff_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&player_name_pending_review_) -
+        reinterpret_cast<char*>(&last_logoff_)) + sizeof(player_name_pending_review_));
   }
-  if (cached_has_bits & 0x3f000000u) {
-    ::memset(&player_name_pending_review_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&watching_broadcast_appid_) -
-        reinterpret_cast<char*>(&player_name_pending_review_)) + sizeof(watching_broadcast_appid_));
+  if (cached_has_bits & 0x7f000000u) {
+    ::memset(&avatar_pending_review_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&on_steam_deck_) -
+        reinterpret_cast<char*>(&avatar_pending_review_)) + sizeof(on_steam_deck_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -7236,6 +7242,14 @@ const char* CMsgClientPersonaState_Friend::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool on_steam_deck = 81;
+      case 81:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
+          _Internal::set_has_on_steam_deck(&has_bits);
+          on_steam_deck_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -7309,7 +7323,7 @@ failure:
   }
 
   // optional bool persona_set_by_user = 10;
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_persona_set_by_user(), target);
   }
@@ -7325,7 +7339,7 @@ failure:
   }
 
   // optional uint32 query_port = 20;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(20, this->_internal_query_port(), target);
   }
@@ -7343,25 +7357,25 @@ failure:
   }
 
   // optional uint32 last_logoff = 45;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(45, this->_internal_last_logoff(), target);
   }
 
   // optional uint32 last_logon = 46;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(46, this->_internal_last_logon(), target);
   }
 
   // optional uint32 last_seen_online = 47;
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(47, this->_internal_last_seen_online(), target);
   }
 
   // optional uint32 clan_rank = 50;
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(50, this->_internal_clan_rank(), target);
   }
@@ -7377,7 +7391,7 @@ failure:
   }
 
   // optional fixed64 gameid = 56;
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(56, this->_internal_gameid(), target);
   }
@@ -7415,31 +7429,31 @@ failure:
   }
 
   // optional fixed64 broadcast_id = 72;
-  if (cached_has_bits & 0x04000000u) {
+  if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(72, this->_internal_broadcast_id(), target);
   }
 
   // optional fixed64 game_lobby_id = 73;
-  if (cached_has_bits & 0x08000000u) {
+  if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(73, this->_internal_game_lobby_id(), target);
   }
 
   // optional uint32 watching_broadcast_accountid = 74;
-  if (cached_has_bits & 0x10000000u) {
+  if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(74, this->_internal_watching_broadcast_accountid(), target);
   }
 
   // optional uint32 watching_broadcast_appid = 75;
-  if (cached_has_bits & 0x20000000u) {
+  if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(75, this->_internal_watching_broadcast_appid(), target);
   }
 
   // optional uint32 watching_broadcast_viewers = 76;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x20000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(76, this->_internal_watching_broadcast_viewers(), target);
   }
@@ -7455,21 +7469,27 @@ failure:
   }
 
   // optional bool is_community_banned = 78;
-  if (cached_has_bits & 0x00800000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(78, this->_internal_is_community_banned(), target);
   }
 
   // optional bool player_name_pending_review = 79;
-  if (cached_has_bits & 0x01000000u) {
+  if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(79, this->_internal_player_name_pending_review(), target);
   }
 
   // optional bool avatar_pending_review = 80;
-  if (cached_has_bits & 0x02000000u) {
+  if (cached_has_bits & 0x01000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(80, this->_internal_avatar_pending_review(), target);
+  }
+
+  // optional bool on_steam_deck = 81;
+  if (cached_has_bits & 0x40000000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(81, this->_internal_on_steam_deck(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7600,99 +7620,104 @@ size_t CMsgClientPersonaState_Friend::ByteSizeLong() const {
       total_size += 2 + 8;
     }
 
-    // optional uint32 watching_broadcast_viewers = 76;
-    if (cached_has_bits & 0x00008000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_watching_broadcast_viewers());
-    }
-
-  }
-  if (cached_has_bits & 0x00ff0000u) {
     // optional uint32 query_port = 20;
-    if (cached_has_bits & 0x00010000u) {
+    if (cached_has_bits & 0x00008000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_query_port());
     }
 
+  }
+  if (cached_has_bits & 0x00ff0000u) {
     // optional uint32 last_logoff = 45;
-    if (cached_has_bits & 0x00020000u) {
+    if (cached_has_bits & 0x00010000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_last_logoff());
     }
 
     // optional uint32 last_logon = 46;
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00020000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_last_logon());
     }
 
     // optional uint32 last_seen_online = 47;
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00040000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_last_seen_online());
     }
 
     // optional fixed64 gameid = 56;
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00080000u) {
       total_size += 2 + 8;
     }
 
     // optional uint32 clan_rank = 50;
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00100000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_clan_rank());
     }
 
     // optional bool persona_set_by_user = 10;
-    if (cached_has_bits & 0x00400000u) {
+    if (cached_has_bits & 0x00200000u) {
       total_size += 1 + 1;
     }
 
     // optional bool is_community_banned = 78;
+    if (cached_has_bits & 0x00400000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool player_name_pending_review = 79;
     if (cached_has_bits & 0x00800000u) {
       total_size += 2 + 1;
     }
 
   }
-  if (cached_has_bits & 0x3f000000u) {
-    // optional bool player_name_pending_review = 79;
+  if (cached_has_bits & 0x7f000000u) {
+    // optional bool avatar_pending_review = 80;
     if (cached_has_bits & 0x01000000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool avatar_pending_review = 80;
-    if (cached_has_bits & 0x02000000u) {
-      total_size += 2 + 1;
-    }
-
     // optional fixed64 broadcast_id = 72;
-    if (cached_has_bits & 0x04000000u) {
+    if (cached_has_bits & 0x02000000u) {
       total_size += 2 + 8;
     }
 
     // optional fixed64 game_lobby_id = 73;
-    if (cached_has_bits & 0x08000000u) {
+    if (cached_has_bits & 0x04000000u) {
       total_size += 2 + 8;
     }
 
     // optional uint32 watching_broadcast_accountid = 74;
-    if (cached_has_bits & 0x10000000u) {
+    if (cached_has_bits & 0x08000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_watching_broadcast_accountid());
     }
 
     // optional uint32 watching_broadcast_appid = 75;
-    if (cached_has_bits & 0x20000000u) {
+    if (cached_has_bits & 0x10000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_watching_broadcast_appid());
+    }
+
+    // optional uint32 watching_broadcast_viewers = 76;
+    if (cached_has_bits & 0x20000000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_watching_broadcast_viewers());
+    }
+
+    // optional bool on_steam_deck = 81;
+    if (cached_has_bits & 0x40000000u) {
+      total_size += 2 + 1;
     }
 
   }
@@ -7779,55 +7804,58 @@ void CMsgClientPersonaState_Friend::MergeFrom(const CMsgClientPersonaState_Frien
       steamid_source_ = from.steamid_source_;
     }
     if (cached_has_bits & 0x00008000u) {
-      watching_broadcast_viewers_ = from.watching_broadcast_viewers_;
+      query_port_ = from.query_port_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      query_port_ = from.query_port_;
-    }
-    if (cached_has_bits & 0x00020000u) {
       last_logoff_ = from.last_logoff_;
     }
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00020000u) {
       last_logon_ = from.last_logon_;
     }
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00040000u) {
       last_seen_online_ = from.last_seen_online_;
     }
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00080000u) {
       gameid_ = from.gameid_;
     }
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00100000u) {
       clan_rank_ = from.clan_rank_;
     }
-    if (cached_has_bits & 0x00400000u) {
+    if (cached_has_bits & 0x00200000u) {
       persona_set_by_user_ = from.persona_set_by_user_;
     }
-    if (cached_has_bits & 0x00800000u) {
+    if (cached_has_bits & 0x00400000u) {
       is_community_banned_ = from.is_community_banned_;
+    }
+    if (cached_has_bits & 0x00800000u) {
+      player_name_pending_review_ = from.player_name_pending_review_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x3f000000u) {
+  if (cached_has_bits & 0x7f000000u) {
     if (cached_has_bits & 0x01000000u) {
-      player_name_pending_review_ = from.player_name_pending_review_;
-    }
-    if (cached_has_bits & 0x02000000u) {
       avatar_pending_review_ = from.avatar_pending_review_;
     }
-    if (cached_has_bits & 0x04000000u) {
+    if (cached_has_bits & 0x02000000u) {
       broadcast_id_ = from.broadcast_id_;
     }
-    if (cached_has_bits & 0x08000000u) {
+    if (cached_has_bits & 0x04000000u) {
       game_lobby_id_ = from.game_lobby_id_;
     }
-    if (cached_has_bits & 0x10000000u) {
+    if (cached_has_bits & 0x08000000u) {
       watching_broadcast_accountid_ = from.watching_broadcast_accountid_;
     }
-    if (cached_has_bits & 0x20000000u) {
+    if (cached_has_bits & 0x10000000u) {
       watching_broadcast_appid_ = from.watching_broadcast_appid_;
+    }
+    if (cached_has_bits & 0x20000000u) {
+      watching_broadcast_viewers_ = from.watching_broadcast_viewers_;
+    }
+    if (cached_has_bits & 0x40000000u) {
+      on_steam_deck_ = from.on_steam_deck_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -7863,8 +7891,8 @@ void CMsgClientPersonaState_Friend::InternalSwap(CMsgClientPersonaState_Friend* 
   clan_tag_.Swap(&other->clan_tag_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   watching_broadcast_title_.Swap(&other->watching_broadcast_title_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientPersonaState_Friend, watching_broadcast_appid_)
-      + sizeof(CMsgClientPersonaState_Friend::watching_broadcast_appid_)
+      PROTOBUF_FIELD_OFFSET(CMsgClientPersonaState_Friend, on_steam_deck_)
+      + sizeof(CMsgClientPersonaState_Friend::on_steam_deck_)
       - PROTOBUF_FIELD_OFFSET(CMsgClientPersonaState_Friend, clan_data_)>(
           reinterpret_cast<char*>(&clan_data_),
           reinterpret_cast<char*>(&other->clan_data_));

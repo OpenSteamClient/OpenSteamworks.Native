@@ -4307,6 +4307,8 @@ class CCloud_PendingRemoteOperation PROTOBUF_FINAL :
     kOperationFieldNumber = 1,
     kTimeLastUpdatedFieldNumber = 4,
     kClientIdFieldNumber = 3,
+    kOsTypeFieldNumber = 5,
+    kDeviceTypeFieldNumber = 6,
   };
   // optional string machine_name = 2;
   bool has_machine_name() const;
@@ -4367,6 +4369,32 @@ class CCloud_PendingRemoteOperation PROTOBUF_FINAL :
   void _internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional int32 os_type = 5;
+  bool has_os_type() const;
+  private:
+  bool _internal_has_os_type() const;
+  public:
+  void clear_os_type();
+  ::PROTOBUF_NAMESPACE_ID::int32 os_type() const;
+  void set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_os_type() const;
+  void _internal_set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 device_type = 6;
+  bool has_device_type() const;
+  private:
+  bool _internal_has_device_type() const;
+  public:
+  void clear_device_type();
+  ::PROTOBUF_NAMESPACE_ID::int32 device_type() const;
+  void set_device_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_device_type() const;
+  void _internal_set_device_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CCloud_PendingRemoteOperation)
  private:
   class _Internal;
@@ -4380,6 +4408,8 @@ class CCloud_PendingRemoteOperation PROTOBUF_FINAL :
   int operation_;
   ::PROTOBUF_NAMESPACE_ID::uint32 time_last_updated_;
   ::PROTOBUF_NAMESPACE_ID::uint64 client_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 os_type_;
+  ::PROTOBUF_NAMESPACE_ID::int32 device_type_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
 };
 // -------------------------------------------------------------------
@@ -7161,8 +7191,6 @@ class CMsgSystemPerfSettingsPerApp PROTOBUF_FINAL :
     kIsVrrEnabledFieldNumber = 20,
     kDisplayExternalRefreshManualHzFieldNumber = 17,
     kFpsLimitExternalFieldNumber = 18,
-    kIsCompositeDebugEnabledFieldNumber = 21,
-    kForceCompositeFieldNumber = 22,
     kUseDynamicRefreshRateInSteamFieldNumber = 23,
     kSplitScalingFilterFieldNumber = 24,
     kSplitScalingScalerFieldNumber = 25,
@@ -7427,32 +7455,6 @@ class CMsgSystemPerfSettingsPerApp PROTOBUF_FINAL :
   void _internal_set_fps_limit_external(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional bool is_composite_debug_enabled = 21;
-  bool has_is_composite_debug_enabled() const;
-  private:
-  bool _internal_has_is_composite_debug_enabled() const;
-  public:
-  void clear_is_composite_debug_enabled();
-  bool is_composite_debug_enabled() const;
-  void set_is_composite_debug_enabled(bool value);
-  private:
-  bool _internal_is_composite_debug_enabled() const;
-  void _internal_set_is_composite_debug_enabled(bool value);
-  public:
-
-  // optional bool force_composite = 22;
-  bool has_force_composite() const;
-  private:
-  bool _internal_has_force_composite() const;
-  public:
-  void clear_force_composite();
-  bool force_composite() const;
-  void set_force_composite(bool value);
-  private:
-  bool _internal_force_composite() const;
-  void _internal_set_force_composite(bool value);
-  public:
-
   // optional bool use_dynamic_refresh_rate_in_steam = 23;
   bool has_use_dynamic_refresh_rate_in_steam() const;
   private:
@@ -7521,8 +7523,6 @@ class CMsgSystemPerfSettingsPerApp PROTOBUF_FINAL :
   bool is_vrr_enabled_;
   ::PROTOBUF_NAMESPACE_ID::int32 display_external_refresh_manual_hz_;
   ::PROTOBUF_NAMESPACE_ID::int32 fps_limit_external_;
-  bool is_composite_debug_enabled_;
-  bool force_composite_;
   bool use_dynamic_refresh_rate_in_steam_;
   int split_scaling_filter_;
   int split_scaling_scaler_;
@@ -20648,6 +20648,62 @@ inline void CCloud_PendingRemoteOperation::set_time_last_updated(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CCloud_PendingRemoteOperation.time_last_updated)
 }
 
+// optional int32 os_type = 5;
+inline bool CCloud_PendingRemoteOperation::_internal_has_os_type() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CCloud_PendingRemoteOperation::has_os_type() const {
+  return _internal_has_os_type();
+}
+inline void CCloud_PendingRemoteOperation::clear_os_type() {
+  os_type_ = 0;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_PendingRemoteOperation::_internal_os_type() const {
+  return os_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_PendingRemoteOperation::os_type() const {
+  // @@protoc_insertion_point(field_get:CCloud_PendingRemoteOperation.os_type)
+  return _internal_os_type();
+}
+inline void CCloud_PendingRemoteOperation::_internal_set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  os_type_ = value;
+}
+inline void CCloud_PendingRemoteOperation::set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_os_type(value);
+  // @@protoc_insertion_point(field_set:CCloud_PendingRemoteOperation.os_type)
+}
+
+// optional int32 device_type = 6;
+inline bool CCloud_PendingRemoteOperation::_internal_has_device_type() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CCloud_PendingRemoteOperation::has_device_type() const {
+  return _internal_has_device_type();
+}
+inline void CCloud_PendingRemoteOperation::clear_device_type() {
+  device_type_ = 0;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_PendingRemoteOperation::_internal_device_type() const {
+  return device_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_PendingRemoteOperation::device_type() const {
+  // @@protoc_insertion_point(field_get:CCloud_PendingRemoteOperation.device_type)
+  return _internal_device_type();
+}
+inline void CCloud_PendingRemoteOperation::_internal_set_device_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000020u;
+  device_type_ = value;
+}
+inline void CCloud_PendingRemoteOperation::set_device_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_device_type(value);
+  // @@protoc_insertion_point(field_set:CCloud_PendingRemoteOperation.device_type)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgCloudPendingRemoteOperations
@@ -23986,65 +24042,9 @@ inline void CMsgSystemPerfSettingsPerApp::set_is_vrr_enabled(bool value) {
   // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsPerApp.is_vrr_enabled)
 }
 
-// optional bool is_composite_debug_enabled = 21;
-inline bool CMsgSystemPerfSettingsPerApp::_internal_has_is_composite_debug_enabled() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfSettingsPerApp::has_is_composite_debug_enabled() const {
-  return _internal_has_is_composite_debug_enabled();
-}
-inline void CMsgSystemPerfSettingsPerApp::clear_is_composite_debug_enabled() {
-  is_composite_debug_enabled_ = false;
-  _has_bits_[0] &= ~0x00100000u;
-}
-inline bool CMsgSystemPerfSettingsPerApp::_internal_is_composite_debug_enabled() const {
-  return is_composite_debug_enabled_;
-}
-inline bool CMsgSystemPerfSettingsPerApp::is_composite_debug_enabled() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfSettingsPerApp.is_composite_debug_enabled)
-  return _internal_is_composite_debug_enabled();
-}
-inline void CMsgSystemPerfSettingsPerApp::_internal_set_is_composite_debug_enabled(bool value) {
-  _has_bits_[0] |= 0x00100000u;
-  is_composite_debug_enabled_ = value;
-}
-inline void CMsgSystemPerfSettingsPerApp::set_is_composite_debug_enabled(bool value) {
-  _internal_set_is_composite_debug_enabled(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsPerApp.is_composite_debug_enabled)
-}
-
-// optional bool force_composite = 22;
-inline bool CMsgSystemPerfSettingsPerApp::_internal_has_force_composite() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfSettingsPerApp::has_force_composite() const {
-  return _internal_has_force_composite();
-}
-inline void CMsgSystemPerfSettingsPerApp::clear_force_composite() {
-  force_composite_ = false;
-  _has_bits_[0] &= ~0x00200000u;
-}
-inline bool CMsgSystemPerfSettingsPerApp::_internal_force_composite() const {
-  return force_composite_;
-}
-inline bool CMsgSystemPerfSettingsPerApp::force_composite() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfSettingsPerApp.force_composite)
-  return _internal_force_composite();
-}
-inline void CMsgSystemPerfSettingsPerApp::_internal_set_force_composite(bool value) {
-  _has_bits_[0] |= 0x00200000u;
-  force_composite_ = value;
-}
-inline void CMsgSystemPerfSettingsPerApp::set_force_composite(bool value) {
-  _internal_set_force_composite(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsPerApp.force_composite)
-}
-
 // optional bool use_dynamic_refresh_rate_in_steam = 23;
 inline bool CMsgSystemPerfSettingsPerApp::_internal_has_use_dynamic_refresh_rate_in_steam() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfSettingsPerApp::has_use_dynamic_refresh_rate_in_steam() const {
@@ -24052,7 +24052,7 @@ inline bool CMsgSystemPerfSettingsPerApp::has_use_dynamic_refresh_rate_in_steam(
 }
 inline void CMsgSystemPerfSettingsPerApp::clear_use_dynamic_refresh_rate_in_steam() {
   use_dynamic_refresh_rate_in_steam_ = false;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline bool CMsgSystemPerfSettingsPerApp::_internal_use_dynamic_refresh_rate_in_steam() const {
   return use_dynamic_refresh_rate_in_steam_;
@@ -24062,7 +24062,7 @@ inline bool CMsgSystemPerfSettingsPerApp::use_dynamic_refresh_rate_in_steam() co
   return _internal_use_dynamic_refresh_rate_in_steam();
 }
 inline void CMsgSystemPerfSettingsPerApp::_internal_set_use_dynamic_refresh_rate_in_steam(bool value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00100000u;
   use_dynamic_refresh_rate_in_steam_ = value;
 }
 inline void CMsgSystemPerfSettingsPerApp::set_use_dynamic_refresh_rate_in_steam(bool value) {
@@ -24072,7 +24072,7 @@ inline void CMsgSystemPerfSettingsPerApp::set_use_dynamic_refresh_rate_in_steam(
 
 // optional .ESplitScalingFilter split_scaling_filter = 24 [default = ESplitScalingFilter_Invalid];
 inline bool CMsgSystemPerfSettingsPerApp::_internal_has_split_scaling_filter() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfSettingsPerApp::has_split_scaling_filter() const {
@@ -24080,7 +24080,7 @@ inline bool CMsgSystemPerfSettingsPerApp::has_split_scaling_filter() const {
 }
 inline void CMsgSystemPerfSettingsPerApp::clear_split_scaling_filter() {
   split_scaling_filter_ = 0;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline ::ESplitScalingFilter CMsgSystemPerfSettingsPerApp::_internal_split_scaling_filter() const {
   return static_cast< ::ESplitScalingFilter >(split_scaling_filter_);
@@ -24091,7 +24091,7 @@ inline ::ESplitScalingFilter CMsgSystemPerfSettingsPerApp::split_scaling_filter(
 }
 inline void CMsgSystemPerfSettingsPerApp::_internal_set_split_scaling_filter(::ESplitScalingFilter value) {
   assert(::ESplitScalingFilter_IsValid(value));
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x00200000u;
   split_scaling_filter_ = value;
 }
 inline void CMsgSystemPerfSettingsPerApp::set_split_scaling_filter(::ESplitScalingFilter value) {
@@ -24101,7 +24101,7 @@ inline void CMsgSystemPerfSettingsPerApp::set_split_scaling_filter(::ESplitScali
 
 // optional .ESplitScalingScaler split_scaling_scaler = 25 [default = ESplitScalingScaler_Invalid];
 inline bool CMsgSystemPerfSettingsPerApp::_internal_has_split_scaling_scaler() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfSettingsPerApp::has_split_scaling_scaler() const {
@@ -24109,7 +24109,7 @@ inline bool CMsgSystemPerfSettingsPerApp::has_split_scaling_scaler() const {
 }
 inline void CMsgSystemPerfSettingsPerApp::clear_split_scaling_scaler() {
   split_scaling_scaler_ = 0;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline ::ESplitScalingScaler CMsgSystemPerfSettingsPerApp::_internal_split_scaling_scaler() const {
   return static_cast< ::ESplitScalingScaler >(split_scaling_scaler_);
@@ -24120,7 +24120,7 @@ inline ::ESplitScalingScaler CMsgSystemPerfSettingsPerApp::split_scaling_scaler(
 }
 inline void CMsgSystemPerfSettingsPerApp::_internal_set_split_scaling_scaler(::ESplitScalingScaler value) {
   assert(::ESplitScalingScaler_IsValid(value));
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x00400000u;
   split_scaling_scaler_ = value;
 }
 inline void CMsgSystemPerfSettingsPerApp::set_split_scaling_scaler(::ESplitScalingScaler value) {

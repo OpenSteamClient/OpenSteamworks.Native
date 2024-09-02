@@ -10597,6 +10597,8 @@ class CCloud_AppLaunchIntent_Request PROTOBUF_FINAL :
     kClientIdFieldNumber = 2,
     kAppidFieldNumber = 1,
     kIgnorePendingOperationsFieldNumber = 4,
+    kOsTypeFieldNumber = 5,
+    kDeviceTypeFieldNumber = 6,
   };
   // optional string machine_name = 3;
   bool has_machine_name() const;
@@ -10657,6 +10659,32 @@ class CCloud_AppLaunchIntent_Request PROTOBUF_FINAL :
   void _internal_set_ignore_pending_operations(bool value);
   public:
 
+  // optional int32 os_type = 5;
+  bool has_os_type() const;
+  private:
+  bool _internal_has_os_type() const;
+  public:
+  void clear_os_type();
+  ::PROTOBUF_NAMESPACE_ID::int32 os_type() const;
+  void set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_os_type() const;
+  void _internal_set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 device_type = 6;
+  bool has_device_type() const;
+  private:
+  bool _internal_has_device_type() const;
+  public:
+  void clear_device_type();
+  ::PROTOBUF_NAMESPACE_ID::int32 device_type() const;
+  void set_device_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_device_type() const;
+  void _internal_set_device_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CCloud_AppLaunchIntent_Request)
  private:
   class _Internal;
@@ -10670,6 +10698,8 @@ class CCloud_AppLaunchIntent_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 client_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   bool ignore_pending_operations_;
+  ::PROTOBUF_NAMESPACE_ID::int32 os_type_;
+  ::PROTOBUF_NAMESPACE_ID::int32 device_type_;
   friend struct ::TableStruct_steammessages_5fcloud_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -20064,6 +20094,62 @@ inline void CCloud_AppLaunchIntent_Request::_internal_set_ignore_pending_operati
 inline void CCloud_AppLaunchIntent_Request::set_ignore_pending_operations(bool value) {
   _internal_set_ignore_pending_operations(value);
   // @@protoc_insertion_point(field_set:CCloud_AppLaunchIntent_Request.ignore_pending_operations)
+}
+
+// optional int32 os_type = 5;
+inline bool CCloud_AppLaunchIntent_Request::_internal_has_os_type() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CCloud_AppLaunchIntent_Request::has_os_type() const {
+  return _internal_has_os_type();
+}
+inline void CCloud_AppLaunchIntent_Request::clear_os_type() {
+  os_type_ = 0;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_AppLaunchIntent_Request::_internal_os_type() const {
+  return os_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_AppLaunchIntent_Request::os_type() const {
+  // @@protoc_insertion_point(field_get:CCloud_AppLaunchIntent_Request.os_type)
+  return _internal_os_type();
+}
+inline void CCloud_AppLaunchIntent_Request::_internal_set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  os_type_ = value;
+}
+inline void CCloud_AppLaunchIntent_Request::set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_os_type(value);
+  // @@protoc_insertion_point(field_set:CCloud_AppLaunchIntent_Request.os_type)
+}
+
+// optional int32 device_type = 6;
+inline bool CCloud_AppLaunchIntent_Request::_internal_has_device_type() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CCloud_AppLaunchIntent_Request::has_device_type() const {
+  return _internal_has_device_type();
+}
+inline void CCloud_AppLaunchIntent_Request::clear_device_type() {
+  device_type_ = 0;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_AppLaunchIntent_Request::_internal_device_type() const {
+  return device_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_AppLaunchIntent_Request::device_type() const {
+  // @@protoc_insertion_point(field_get:CCloud_AppLaunchIntent_Request.device_type)
+  return _internal_device_type();
+}
+inline void CCloud_AppLaunchIntent_Request::_internal_set_device_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000020u;
+  device_type_ = value;
+}
+inline void CCloud_AppLaunchIntent_Request::set_device_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_device_type(value);
+  // @@protoc_insertion_point(field_set:CCloud_AppLaunchIntent_Request.device_type)
 }
 
 // -------------------------------------------------------------------

@@ -2522,6 +2522,8 @@ class CMsgClientMMSGetLobbyListResponse_Lobby PROTOBUF_FINAL :
     kNumMembersFieldNumber = 6,
     kWeightFieldNumber = 8,
     kDistanceFieldNumber = 7,
+    kPingFieldNumber = 9,
+    kMissingPingFieldNumber = 10,
   };
   // optional bytes metadata = 5;
   bool has_metadata() const;
@@ -2634,6 +2636,32 @@ class CMsgClientMMSGetLobbyListResponse_Lobby PROTOBUF_FINAL :
   void _internal_set_distance(float value);
   public:
 
+  // optional int32 ping = 9;
+  bool has_ping() const;
+  private:
+  bool _internal_has_ping() const;
+  public:
+  void clear_ping();
+  ::PROTOBUF_NAMESPACE_ID::int32 ping() const;
+  void set_ping(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_ping() const;
+  void _internal_set_ping(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 missing_ping = 10;
+  bool has_missing_ping() const;
+  private:
+  bool _internal_has_missing_ping() const;
+  public:
+  void clear_missing_ping();
+  ::PROTOBUF_NAMESPACE_ID::int32 missing_ping() const;
+  void set_missing_ping(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_missing_ping() const;
+  void _internal_set_missing_ping(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientMMSGetLobbyListResponse.Lobby)
  private:
   class _Internal;
@@ -2651,6 +2679,8 @@ class CMsgClientMMSGetLobbyListResponse_Lobby PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 num_members_;
   ::PROTOBUF_NAMESPACE_ID::int64 weight_;
   float distance_;
+  ::PROTOBUF_NAMESPACE_ID::int32 ping_;
+  ::PROTOBUF_NAMESPACE_ID::int32 missing_ping_;
   friend struct ::TableStruct_steammessages_5fclientserver_5fmms_2eproto;
 };
 // -------------------------------------------------------------------
@@ -8688,6 +8718,62 @@ inline void CMsgClientMMSGetLobbyListResponse_Lobby::_internal_set_weight(::PROT
 inline void CMsgClientMMSGetLobbyListResponse_Lobby::set_weight(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_weight(value);
   // @@protoc_insertion_point(field_set:CMsgClientMMSGetLobbyListResponse.Lobby.weight)
+}
+
+// optional int32 ping = 9;
+inline bool CMsgClientMMSGetLobbyListResponse_Lobby::_internal_has_ping() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSGetLobbyListResponse_Lobby::has_ping() const {
+  return _internal_has_ping();
+}
+inline void CMsgClientMMSGetLobbyListResponse_Lobby::clear_ping() {
+  ping_ = 0;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSGetLobbyListResponse_Lobby::_internal_ping() const {
+  return ping_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSGetLobbyListResponse_Lobby::ping() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSGetLobbyListResponse.Lobby.ping)
+  return _internal_ping();
+}
+inline void CMsgClientMMSGetLobbyListResponse_Lobby::_internal_set_ping(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000100u;
+  ping_ = value;
+}
+inline void CMsgClientMMSGetLobbyListResponse_Lobby::set_ping(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_ping(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSGetLobbyListResponse.Lobby.ping)
+}
+
+// optional int32 missing_ping = 10;
+inline bool CMsgClientMMSGetLobbyListResponse_Lobby::_internal_has_missing_ping() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgClientMMSGetLobbyListResponse_Lobby::has_missing_ping() const {
+  return _internal_has_missing_ping();
+}
+inline void CMsgClientMMSGetLobbyListResponse_Lobby::clear_missing_ping() {
+  missing_ping_ = 0;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSGetLobbyListResponse_Lobby::_internal_missing_ping() const {
+  return missing_ping_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientMMSGetLobbyListResponse_Lobby::missing_ping() const {
+  // @@protoc_insertion_point(field_get:CMsgClientMMSGetLobbyListResponse.Lobby.missing_ping)
+  return _internal_missing_ping();
+}
+inline void CMsgClientMMSGetLobbyListResponse_Lobby::_internal_set_missing_ping(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000200u;
+  missing_ping_ = value;
+}
+inline void CMsgClientMMSGetLobbyListResponse_Lobby::set_missing_ping(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_missing_ping(value);
+  // @@protoc_insertion_point(field_set:CMsgClientMMSGetLobbyListResponse.Lobby.missing_ping)
 }
 
 // -------------------------------------------------------------------

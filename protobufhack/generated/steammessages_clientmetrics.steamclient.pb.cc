@@ -398,7 +398,8 @@ constexpr CClientMetrics_EndGameRecording_Notification::CClientMetrics_EndGameRe
 
   , seconds_(0)
   , bytes_(PROTOBUF_ULONGLONG(0))
-  , gameid_(PROTOBUF_ULONGLONG(0)){}
+  , gameid_(PROTOBUF_ULONGLONG(0))
+  , instant_clip_(false){}
 struct CClientMetrics_EndGameRecording_NotificationDefaultTypeInternal {
   constexpr CClientMetrics_EndGameRecording_NotificationDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -771,10 +772,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientmetrics_
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_EndGameRecording_Notification, seconds_),
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_EndGameRecording_Notification, bytes_),
   PROTOBUF_FIELD_OFFSET(::CClientMetrics_EndGameRecording_Notification, gameid_),
+  PROTOBUF_FIELD_OFFSET(::CClientMetrics_EndGameRecording_Notification, instant_clip_),
   0,
   1,
   2,
   3,
+  4,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::CClientMetrics_AppInterfaceCreation)},
@@ -800,7 +803,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 308, 318, sizeof(::CClientMetrics_ClipShare_Notification)},
   { 323, 331, sizeof(::CClientMetrics_ClipRange_Notification_RelativeRangeEdge)},
   { 334, 344, sizeof(::CClientMetrics_ClipRange_Notification)},
-  { 349, 358, sizeof(::CClientMetrics_EndGameRecording_Notification)},
+  { 349, 359, sizeof(::CClientMetrics_EndGameRecording_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -947,61 +950,62 @@ const char descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient
   "ipRangeMethod:!EClipRangeMethod_CreateCl"
   "ipButton\022Q\n\023latest_range_method\030\002 \001(\0162\021."
   "EClipRangeMethod:!EClipRangeMethod_Creat"
-  "eClipButton\022\020\n\010delta_ms\030\003 \001(\005\"\247\001\n,CClien"
+  "eClipButton\022\020\n\010delta_ms\030\003 \001(\005\"\275\001\n,CClien"
   "tMetrics_EndGameRecording_Notification\022G"
   "\n\016recording_type\030\001 \001(\0162\023.EGameRecordingT"
   "ype:\032EGameRecordingType_Unknown\022\017\n\007secon"
-  "ds\030\002 \001(\002\022\r\n\005bytes\030\003 \001(\004\022\016\n\006gameid\030\004 \001(\006*"
-  "m\n\022ESteamPipeWorkType\022$\n ESteamPipeClien"
-  "tWorkType_Invalid\020\000\0221\n-ESteamPipeClientW"
-  "orkType_StageFromChunkStores\020\001*\263\001\n\027EStea"
-  "mPipeOperationType\022#\n\037ESteamPipeOperatio"
-  "nType_Invalid\020\000\022&\n\"ESteamPipeOperationTy"
-  "pe_DecryptCPU\020\001\022$\n ESteamPipeOperationTy"
-  "pe_DiskRead\020\002\022%\n!ESteamPipeOperationType"
-  "_DiskWrite\020\003*\312\001\n\020EClipShareMethod\022\031\n\025ECl"
-  "ipShareMethod_Chat\020\001\022\036\n\032EClipShareMethod"
-  "_Clipboard\020\002\022\031\n\025EClipShareMethod_File\020\003\022"
-  "\035\n\031EClipShareMethod_SendClip\020\004\022 \n\034EClipS"
-  "hareMethod_SaveToMedia\020\005\022\037\n\033EClipShareMe"
-  "thod_CreateLink\020\006*\335\001\n\020EClipRangeMethod\022%"
-  "\n!EClipRangeMethod_CreateClipButton\020\001\022\036\n"
-  "\032EClipRangeMethod_Highlight\020\002\022$\n EClipRa"
-  "ngeMethod_BeginEndButtons\020\003\022 \n\034EClipRang"
-  "eMethod_ContextMenu\020\004\022\031\n\025EClipRangeMetho"
-  "d_Drag\020\005\022\037\n\033EClipRangeMethod_EntireClip\020"
-  "\0062\311\t\n\rClientMetrics\022\\\n\035ClientAppInterfac"
-  "eStatsReport\022..CClientMetrics_AppInterfa"
-  "ceStats_Notification\032\013.NoResponse\022Z\n\034Cli"
-  "entIPv6ConnectivityReport\022-.CClientMetri"
-  "cs_IPv6Connectivity_Notification\032\013.NoRes"
-  "ponse\022X\n\030SteamPipeWorkStatsReport\022/.CCli"
-  "entMetrics_SteamPipeWorkStats_Notificati"
-  "on\032\013.NoResponse\022N\n\020ReportReactUsage\022-.CC"
-  "lientMetrics_ReportReactUsage_Notificati"
-  "on\032\013.NoResponse\022P\n\021ReportClientError\022..C"
-  "ClientMetrics_ReportClientError_Notifica"
-  "tion\032\013.NoResponse\022R\n\025ClientBootstrapRepo"
-  "rt\022,.CClientMetrics_ClientBootstrap_Noti"
-  "fication\032\013.NoResponse\022T\n\031ClientDownloadR"
-  "atesReport\022*.CClientMetrics_DownloadRate"
-  "s_Notification\032\013.NoResponse\022\\\n\035ClientCon"
-  "tentValidationReport\022..CClientMetrics_Co"
-  "ntentValidation_Notification\032\013.NoRespons"
-  "e\022V\n\027ClientCloudAppSyncStats\022..CClientMe"
-  "trics_CloudAppSyncStats_Notification\032\013.N"
-  "oResponse\022l\n ClientDownloadResponseCodeC"
-  "ounts\022;.CClientMetrics_ContentDownloadRe"
-  "sponse_Counts_Notification\032\013.NoResponse\022"
-  "N\n\020ReportClientArgs\022-.CClientMetrics_Rep"
-  "ortClientArgs_Notification\032\013.NoResponse\022"
-  "F\n\017ReportClipShare\022&.CClientMetrics_Clip"
-  "Share_Notification\032\013.NoResponse\022F\n\017Repor"
-  "tClipRange\022&.CClientMetrics_ClipRange_No"
-  "tification\032\013.NoResponse\022T\n\026ReportEndGame"
-  "Recording\022-.CClientMetrics_EndGameRecord"
-  "ing_Notification\032\013.NoResponseB\035\200\001\001\252\002\027Ope"
-  "nSteamworks.Protobuf"
+  "ds\030\002 \001(\002\022\r\n\005bytes\030\003 \001(\004\022\016\n\006gameid\030\004 \001(\006\022"
+  "\024\n\014instant_clip\030\005 \001(\010*m\n\022ESteamPipeWorkT"
+  "ype\022$\n ESteamPipeClientWorkType_Invalid\020"
+  "\000\0221\n-ESteamPipeClientWorkType_StageFromC"
+  "hunkStores\020\001*\263\001\n\027ESteamPipeOperationType"
+  "\022#\n\037ESteamPipeOperationType_Invalid\020\000\022&\n"
+  "\"ESteamPipeOperationType_DecryptCPU\020\001\022$\n"
+  " ESteamPipeOperationType_DiskRead\020\002\022%\n!E"
+  "SteamPipeOperationType_DiskWrite\020\003*\312\001\n\020E"
+  "ClipShareMethod\022\031\n\025EClipShareMethod_Chat"
+  "\020\001\022\036\n\032EClipShareMethod_Clipboard\020\002\022\031\n\025EC"
+  "lipShareMethod_File\020\003\022\035\n\031EClipShareMetho"
+  "d_SendClip\020\004\022 \n\034EClipShareMethod_SaveToM"
+  "edia\020\005\022\037\n\033EClipShareMethod_CreateLink\020\006*"
+  "\335\001\n\020EClipRangeMethod\022%\n!EClipRangeMethod"
+  "_CreateClipButton\020\001\022\036\n\032EClipRangeMethod_"
+  "Highlight\020\002\022$\n EClipRangeMethod_BeginEnd"
+  "Buttons\020\003\022 \n\034EClipRangeMethod_ContextMen"
+  "u\020\004\022\031\n\025EClipRangeMethod_Drag\020\005\022\037\n\033EClipR"
+  "angeMethod_EntireClip\020\0062\311\t\n\rClientMetric"
+  "s\022\\\n\035ClientAppInterfaceStatsReport\022..CCl"
+  "ientMetrics_AppInterfaceStats_Notificati"
+  "on\032\013.NoResponse\022Z\n\034ClientIPv6Connectivit"
+  "yReport\022-.CClientMetrics_IPv6Connectivit"
+  "y_Notification\032\013.NoResponse\022X\n\030SteamPipe"
+  "WorkStatsReport\022/.CClientMetrics_SteamPi"
+  "peWorkStats_Notification\032\013.NoResponse\022N\n"
+  "\020ReportReactUsage\022-.CClientMetrics_Repor"
+  "tReactUsage_Notification\032\013.NoResponse\022P\n"
+  "\021ReportClientError\022..CClientMetrics_Repo"
+  "rtClientError_Notification\032\013.NoResponse\022"
+  "R\n\025ClientBootstrapReport\022,.CClientMetric"
+  "s_ClientBootstrap_Notification\032\013.NoRespo"
+  "nse\022T\n\031ClientDownloadRatesReport\022*.CClie"
+  "ntMetrics_DownloadRates_Notification\032\013.N"
+  "oResponse\022\\\n\035ClientContentValidationRepo"
+  "rt\022..CClientMetrics_ContentValidation_No"
+  "tification\032\013.NoResponse\022V\n\027ClientCloudAp"
+  "pSyncStats\022..CClientMetrics_CloudAppSync"
+  "Stats_Notification\032\013.NoResponse\022l\n Clien"
+  "tDownloadResponseCodeCounts\022;.CClientMet"
+  "rics_ContentDownloadResponse_Counts_Noti"
+  "fication\032\013.NoResponse\022N\n\020ReportClientArg"
+  "s\022-.CClientMetrics_ReportClientArgs_Noti"
+  "fication\032\013.NoResponse\022F\n\017ReportClipShare"
+  "\022&.CClientMetrics_ClipShare_Notification"
+  "\032\013.NoResponse\022F\n\017ReportClipRange\022&.CClie"
+  "ntMetrics_ClipRange_Notification\032\013.NoRes"
+  "ponse\022T\n\026ReportEndGameRecording\022-.CClien"
+  "tMetrics_EndGameRecording_Notification\032\013"
+  ".NoResponseB\035\200\001\001\252\002\027OpenSteamworks.Protob"
+  "uf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_clientmetrics_2eproto,
@@ -1012,7 +1016,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto = {
-  false, false, 6820, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
+  false, false, 6842, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
   &descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once, descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps, 5, 24,
   schemas, file_default_instances, TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto,
@@ -9019,6 +9023,9 @@ class CClientMetrics_EndGameRecording_Notification::_Internal {
   static void set_has_gameid(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
+  static void set_has_instant_clip(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
 };
 
 CClientMetrics_EndGameRecording_Notification::CClientMetrics_EndGameRecording_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -9032,16 +9039,16 @@ CClientMetrics_EndGameRecording_Notification::CClientMetrics_EndGameRecording_No
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&recording_type_, &from.recording_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&gameid_) -
-    reinterpret_cast<char*>(&recording_type_)) + sizeof(gameid_));
+    static_cast<size_t>(reinterpret_cast<char*>(&instant_clip_) -
+    reinterpret_cast<char*>(&recording_type_)) + sizeof(instant_clip_));
   // @@protoc_insertion_point(copy_constructor:CClientMetrics_EndGameRecording_Notification)
 }
 
 void CClientMetrics_EndGameRecording_Notification::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&recording_type_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&gameid_) -
-    reinterpret_cast<char*>(&recording_type_)) + sizeof(gameid_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&instant_clip_) -
+    reinterpret_cast<char*>(&recording_type_)) + sizeof(instant_clip_));
 }
 
 CClientMetrics_EndGameRecording_Notification::~CClientMetrics_EndGameRecording_Notification() {
@@ -9071,10 +9078,10 @@ void CClientMetrics_EndGameRecording_Notification::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     ::memset(&recording_type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&gameid_) -
-        reinterpret_cast<char*>(&recording_type_)) + sizeof(gameid_));
+        reinterpret_cast<char*>(&instant_clip_) -
+        reinterpret_cast<char*>(&recording_type_)) + sizeof(instant_clip_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -9122,6 +9129,14 @@ const char* CClientMetrics_EndGameRecording_Notification::_InternalParse(const c
           _Internal::set_has_gameid(&has_bits);
           gameid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional bool instant_clip = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_instant_clip(&has_bits);
+          instant_clip_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -9179,6 +9194,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(4, this->_internal_gameid(), target);
   }
 
+  // optional bool instant_clip = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_instant_clip(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -9196,7 +9217,7 @@ size_t CClientMetrics_EndGameRecording_Notification::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     // optional .EGameRecordingType recording_type = 1 [default = EGameRecordingType_Unknown];
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -9218,6 +9239,11 @@ size_t CClientMetrics_EndGameRecording_Notification::ByteSizeLong() const {
     // optional fixed64 gameid = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 8;
+    }
+
+    // optional bool instant_clip = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -9253,7 +9279,7 @@ void CClientMetrics_EndGameRecording_Notification::MergeFrom(const CClientMetric
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       recording_type_ = from.recording_type_;
     }
@@ -9265,6 +9291,9 @@ void CClientMetrics_EndGameRecording_Notification::MergeFrom(const CClientMetric
     }
     if (cached_has_bits & 0x00000008u) {
       gameid_ = from.gameid_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      instant_clip_ = from.instant_clip_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -9293,8 +9322,8 @@ void CClientMetrics_EndGameRecording_Notification::InternalSwap(CClientMetrics_E
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CClientMetrics_EndGameRecording_Notification, gameid_)
-      + sizeof(CClientMetrics_EndGameRecording_Notification::gameid_)
+      PROTOBUF_FIELD_OFFSET(CClientMetrics_EndGameRecording_Notification, instant_clip_)
+      + sizeof(CClientMetrics_EndGameRecording_Notification::instant_clip_)
       - PROTOBUF_FIELD_OFFSET(CClientMetrics_EndGameRecording_Notification, recording_type_)>(
           reinterpret_cast<char*>(&recording_type_),
           reinterpret_cast<char*>(&other->recording_type_));

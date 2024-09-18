@@ -5409,6 +5409,7 @@ class CClientMetrics_EndGameRecording_Notification PROTOBUF_FINAL :
     kSecondsFieldNumber = 2,
     kBytesFieldNumber = 3,
     kGameidFieldNumber = 4,
+    kInstantClipFieldNumber = 5,
   };
   // optional .EGameRecordingType recording_type = 1 [default = EGameRecordingType_Unknown];
   bool has_recording_type() const;
@@ -5462,6 +5463,19 @@ class CClientMetrics_EndGameRecording_Notification PROTOBUF_FINAL :
   void _internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional bool instant_clip = 5;
+  bool has_instant_clip() const;
+  private:
+  bool _internal_has_instant_clip() const;
+  public:
+  void clear_instant_clip();
+  bool instant_clip() const;
+  void set_instant_clip(bool value);
+  private:
+  bool _internal_instant_clip() const;
+  void _internal_set_instant_clip(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CClientMetrics_EndGameRecording_Notification)
  private:
   class _Internal;
@@ -5475,6 +5489,7 @@ class CClientMetrics_EndGameRecording_Notification PROTOBUF_FINAL :
   float seconds_;
   ::PROTOBUF_NAMESPACE_ID::uint64 bytes_;
   ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
+  bool instant_clip_;
   friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
 };
 // ===================================================================
@@ -10123,6 +10138,34 @@ inline void CClientMetrics_EndGameRecording_Notification::_internal_set_gameid(:
 inline void CClientMetrics_EndGameRecording_Notification::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_gameid(value);
   // @@protoc_insertion_point(field_set:CClientMetrics_EndGameRecording_Notification.gameid)
+}
+
+// optional bool instant_clip = 5;
+inline bool CClientMetrics_EndGameRecording_Notification::_internal_has_instant_clip() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CClientMetrics_EndGameRecording_Notification::has_instant_clip() const {
+  return _internal_has_instant_clip();
+}
+inline void CClientMetrics_EndGameRecording_Notification::clear_instant_clip() {
+  instant_clip_ = false;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline bool CClientMetrics_EndGameRecording_Notification::_internal_instant_clip() const {
+  return instant_clip_;
+}
+inline bool CClientMetrics_EndGameRecording_Notification::instant_clip() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_EndGameRecording_Notification.instant_clip)
+  return _internal_instant_clip();
+}
+inline void CClientMetrics_EndGameRecording_Notification::_internal_set_instant_clip(bool value) {
+  _has_bits_[0] |= 0x00000010u;
+  instant_clip_ = value;
+}
+inline void CClientMetrics_EndGameRecording_Notification::set_instant_clip(bool value) {
+  _internal_set_instant_clip(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_EndGameRecording_Notification.instant_clip)
 }
 
 #ifdef __GNUC__

@@ -846,6 +846,7 @@ class CMsgClientSettings PROTOBUF_FINAL :
     kVoicePushToTalkeyFieldNumber = 4018,
     kGBackgroundMkFieldNumber = 18207,
     kGBackgroundTgFieldNumber = 18208,
+    kGamerecordingHotkeyIcFieldNumber = 18215,
     kNoSavePersonalInfoFieldNumber = 1,
     kOobeTestModeEnabledFieldNumber = 2,
     kInClientBetaFieldNumber = 3,
@@ -858,26 +859,26 @@ class CMsgClientSettings PROTOBUF_FINAL :
     kMinScaleFactorFieldNumber = 12,
     kMaxScaleFactorFieldNumber = 13,
     kAutoScaleFactorFieldNumber = 14,
-    kSystemBluetoothEnabledFieldNumber = 24000,
     kSmallModeFieldNumber = 16,
     kSkipSteamvrInstallDialogFieldNumber = 19,
     kAlwaysShowUserChooserFieldNumber = 20,
+    kOsVersionUnsupportedFieldNumber = 21,
     kShowFamilySharingNotificationsFieldNumber = 3000,
     kShowCopyCountInLibraryFieldNumber = 3001,
     kOverlayFpsCounterHighContrastFieldNumber = 4001,
     kEnableOverlayFieldNumber = 4004,
-    kEnableScreenshotNotificationFieldNumber = 4006,
     kOverlayFpsCounterCornerFieldNumber = 4000,
     kDefaultPingRateFieldNumber = 4010,
-    kServerPingRateFieldNumber = 4011,
-    kSteamNetworkingShareIpFieldNumber = 4012,
+    kEnableScreenshotNotificationFieldNumber = 4006,
     kEnableScreenshotSoundFieldNumber = 4007,
     kSaveUncompressedScreenshotsFieldNumber = 4008,
     kOverlayToolbarListViewFieldNumber = 4019,
-    kAlwaysUseGamepaduiOverlayFieldNumber = 4020,
+    kServerPingRateFieldNumber = 4011,
+    kSteamNetworkingShareIpFieldNumber = 4012,
     kVoiceMicInputGainFieldNumber = 4015,
     kVoiceSpeakerOutputGainFieldNumber = 4016,
     kVoicePushToTalsettingFieldNumber = 4017,
+    kAlwaysUseGamepaduiOverlayFieldNumber = 4020,
     kOverlayScaleInterfaceFieldNumber = 4022,
     kOverlayRestoreBrowserTabsFieldNumber = 4023,
     kEnableAvifScreenshotsFieldNumber = 4024,
@@ -886,16 +887,16 @@ class CMsgClientSettings PROTOBUF_FINAL :
     kEnableHardwareVideoDecodingFieldNumber = 5003,
     kRunAtStartupFieldNumber = 5004,
     kEnableDpiScalingFieldNumber = 5005,
-    kJumplistFlagsFieldNumber = 5008,
     kEnableMarketingMessagesFieldNumber = 5006,
     kStartInBigPictureModeFieldNumber = 5007,
     kEnableUiSoundsFieldNumber = 5009,
+    kJumplistFlagsFieldNumber = 5008,
     kDisableAllToastsFieldNumber = 6000,
     kDisableToastsInGameFieldNumber = 6001,
     kPlaySoundOnToastFieldNumber = 6002,
     kLibraryWhatsNewShowOnlyProductUpdatesFieldNumber = 7001,
-    kShowStoreContentOnHomeFieldNumber = 7002,
     kLibraryDisplaySizeFieldNumber = 7000,
+    kShowStoreContentOnHomeFieldNumber = 7002,
     kLibraryLowBandwidthModeFieldNumber = 7004,
     kLibraryLowPerfModeFieldNumber = 7005,
     kLibraryDisableCommunityContentFieldNumber = 7006,
@@ -903,62 +904,63 @@ class CMsgClientSettings PROTOBUF_FINAL :
     kReadyToPlayIncludesStreamingFieldNumber = 7008,
     kShowSteamDecinfoFieldNumber = 7009,
     kEnableShaderPrecacheFieldNumber = 8000,
-    kEnableShaderBackgroundProcessingFieldNumber = 8001,
     kShaderPrecachedSizeFieldNumber = 8002,
-    kDownloadPeerContentFieldNumber = 8004,
+    kEnableShaderBackgroundProcessingFieldNumber = 8001,
     kNeedsSteamServiceRepairFieldNumber = 8003,
     kDownloadRateBitsPerSFieldNumber = 8005,
     kRestrictAutoUpdatesFieldNumber = 8006,
-    kDownloadWhileAppRunningFieldNumber = 8010,
+    kDownloadPeerContentFieldNumber = 8004,
     kRestrictAutoUpdatesStartFieldNumber = 8007,
     kRestrictAutoUpdatesEndFieldNumber = 8008,
     kDownloadRegionFieldNumber = 8009,
     kDownloadThrottleRateFieldNumber = 8012,
+    kDownloadWhileAppRunningFieldNumber = 8010,
     kDownloadThrottleWhileStreamingFieldNumber = 8011,
     kCloudEnabledFieldNumber = 10000,
     kShowScreenshotManagerFieldNumber = 10001,
-    kMusicPauseOnAppStartFieldNumber = 11001,
     kMusicVolumeFieldNumber = 11000,
+    kMusicPauseOnAppStartFieldNumber = 11001,
     kMusicPauseOnVoiceChatFieldNumber = 11002,
     kMusicDownloadHighQualityFieldNumber = 11003,
     kMusicPlaylistNotificationFieldNumber = 11004,
-    kBroadcastRecordAllVideoFieldNumber = 12005,
     kBroadcastPermissionsFieldNumber = 12000,
     kBroadcastOutputWidthFieldNumber = 12001,
     kBroadcastOutputHeightFieldNumber = 12002,
     kBroadcastBitrateFieldNumber = 12003,
     kBroadcastEncodingOptionFieldNumber = 12004,
+    kBroadcastRecordAllVideoFieldNumber = 12005,
     kBroadcastRecordAllAudioFieldNumber = 12006,
     kBroadcastRecordMicrophoneFieldNumber = 12007,
     kBroadcastShowUploadStatsFieldNumber = 12008,
-    kBroadcastShowLiveReminderFieldNumber = 12009,
     kBroadcastChatCornerFieldNumber = 12010,
+    kBroadcastShowLiveReminderFieldNumber = 12009,
     kGamestreamHardwareVideoEncodeFieldNumber = 13000,
     kSteamInputConfiguratorErrorMsgEnableFieldNumber = 14001,
     kControllerGuideButtonFocusSteamFieldNumber = 14002,
-    kControllerXboxSupportFieldNumber = 14004,
     kControllerPsSupportFieldNumber = 14003,
+    kControllerXboxSupportFieldNumber = 14004,
     kControllerXboxDriverFieldNumber = 14005,
     kControllerSwitchSupportFieldNumber = 14006,
     kControllerGenericSupportFieldNumber = 14007,
-    kTurnOffControllerOnExitFieldNumber = 14009,
     kControllerPowerOffTimeoutFieldNumber = 14008,
-    kStartupMovieIdFieldNumber = 16000,
+    kTurnOffControllerOnExitFieldNumber = 14009,
     kControllerCombineNintendoJoyconsFieldNumber = 14010,
     kStartupMovieShuffleFieldNumber = 16002,
     kStartupMovieUsedForResumeFieldNumber = 16003,
-    kGameNotesEnableSpellcheckFieldNumber = 17001,
     kScreenshotItemsPerRowFieldNumber = 18000,
+    kStartupMovieIdFieldNumber = 16000,
     kGBackgroundTimeResolutionFieldNumber = 18203,
     kGBackgroundBrFieldNumber = 18210,
     kGBackgroundModeFieldNumber = 18212,
     kGBackgroundAudioFieldNumber = 18213,
     kGMaxFpsFieldNumber = 18214,
+    kGamerecordingIcSecondsFieldNumber = 18216,
+    kGameNotesEnableSpellcheckFieldNumber = 17001,
     kGBackgroundAMFieldNumber = 18209,
     kGBackgroundASFieldNumber = 18211,
     kShowTimestampsInConsoleFieldNumber = 20000,
-    kForceOobeFieldNumber = 20001,
     kOverrideBrowserComposerModeFieldNumber = 20002,
+    kForceOobeFieldNumber = 20001,
     kCefRemoteDebuggingEnabledFieldNumber = 20003,
     kForceDecperfTabFieldNumber = 20004,
     kForceFakeMandatoryUpdateFieldNumber = 20005,
@@ -966,10 +968,10 @@ class CMsgClientSettings PROTOBUF_FINAL :
     kDeveloperModeEnabledFieldNumber = 20007,
     kShowAdvancedUpdateChannelsFieldNumber = 20008,
     kGamescopeEnableAppTargetFramerateFieldNumber = 21003,
-    kGamescopeDisableFramelimitFieldNumber = 21004,
     kGamescopeHdrVisualizationFieldNumber = 21001,
     kGamescopeAppTargetFramerateFieldNumber = 21002,
     kGamescopeDisplayRefreshRateFieldNumber = 21005,
+    kGamescopeDisableFramelimitFieldNumber = 21004,
     kGamescopeUseGameRefreshRateInSteamFieldNumber = 21006,
     kGamescopeDisableMuraCorrectionFieldNumber = 21007,
     kGamescopeIncludeSteamuiInScreenshotsFieldNumber = 21008,
@@ -977,19 +979,20 @@ class CMsgClientSettings PROTOBUF_FINAL :
     kGamescopeCompositeDebugFieldNumber = 21010,
     kGamescopeForceCompositeFieldNumber = 21011,
     kSteamosTdpLimitEnabledFieldNumber = 22001,
-    kSteamosCecEnabledFieldNumber = 22003,
     kSteamosStatusLedBrightnessFieldNumber = 22000,
     kSteamosTdpLimitFieldNumber = 22002,
-    kSteamosMagnifierScaleFieldNumber = 22007,
+    kSteamosCecEnabledFieldNumber = 22003,
     kSteamosCecWakeOnResumeFieldNumber = 22004,
     kSteamosWifiDebugFieldNumber = 22005,
     kSteamosWifiForceWpaSupplicantFieldNumber = 22006,
-    kSettingValidationBoolFieldNumber = 23001,
+    kSteamosMagnifierScaleFieldNumber = 22007,
     kSettingValidationEnumFieldNumber = 23002,
     kSettingValidationInt32FieldNumber = 23003,
-    kSettingValidationUint64FieldNumber = 23005,
     kSettingValidationUint32FieldNumber = 23004,
+    kSettingValidationUint64FieldNumber = 23005,
     kSettingValidationFloatFieldNumber = 23006,
+    kSettingValidationBoolFieldNumber = 23001,
+    kSystemBluetoothEnabledFieldNumber = 24000,
   };
   // optional string preferred_monitor = 5 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "BigPicture/Monitor"];
   bool has_preferred_monitor() const;
@@ -1321,6 +1324,24 @@ class CMsgClientSettings PROTOBUF_FINAL :
       ::CMsgHotkey* g_background_tg);
   ::CMsgHotkey* unsafe_arena_release_g_background_tg();
 
+  // optional .CMsgHotkey gamerecording_hotkey_ic = 18215 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "GameRecording\\InstantClipKey", (.setting_default_string) = "None"];
+  bool has_gamerecording_hotkey_ic() const;
+  private:
+  bool _internal_has_gamerecording_hotkey_ic() const;
+  public:
+  void clear_gamerecording_hotkey_ic();
+  const ::CMsgHotkey& gamerecording_hotkey_ic() const;
+  ::CMsgHotkey* release_gamerecording_hotkey_ic();
+  ::CMsgHotkey* mutable_gamerecording_hotkey_ic();
+  void set_allocated_gamerecording_hotkey_ic(::CMsgHotkey* gamerecording_hotkey_ic);
+  private:
+  const ::CMsgHotkey& _internal_gamerecording_hotkey_ic() const;
+  ::CMsgHotkey* _internal_mutable_gamerecording_hotkey_ic();
+  public:
+  void unsafe_arena_set_allocated_gamerecording_hotkey_ic(
+      ::CMsgHotkey* gamerecording_hotkey_ic);
+  ::CMsgHotkey* unsafe_arena_release_gamerecording_hotkey_ic();
+
   // optional bool no_save_personal_info = 1 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Software\\Valve\\Steam\\NoSavePersonalInfo"];
   bool has_no_save_personal_info() const;
   private:
@@ -1477,19 +1498,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_auto_scale_factor(float value);
   public:
 
-  // optional bool system_bluetooth_enabled = 24000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "System/Bluetooth/Enabled", (.setting_default_bool) = false];
-  bool has_system_bluetooth_enabled() const;
-  private:
-  bool _internal_has_system_bluetooth_enabled() const;
-  public:
-  void clear_system_bluetooth_enabled();
-  bool system_bluetooth_enabled() const;
-  void set_system_bluetooth_enabled(bool value);
-  private:
-  bool _internal_system_bluetooth_enabled() const;
-  void _internal_set_system_bluetooth_enabled(bool value);
-  public:
-
   // optional bool small_mode = 16 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Software\\Valve\\Steam\\SmallMode"];
   bool has_small_mode() const;
   private:
@@ -1527,6 +1535,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   bool _internal_always_show_user_chooser() const;
   void _internal_set_always_show_user_chooser(bool value);
+  public:
+
+  // optional bool os_version_unsupported = 21 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\OSVersionUnsupported"];
+  bool has_os_version_unsupported() const;
+  private:
+  bool _internal_has_os_version_unsupported() const;
+  public:
+  void clear_os_version_unsupported();
+  bool os_version_unsupported() const;
+  void set_os_version_unsupported(bool value);
+  private:
+  bool _internal_os_version_unsupported() const;
+  void _internal_set_os_version_unsupported(bool value);
   public:
 
   // optional bool show_family_sharing_notifications = 3000 [(.setting_store) = EClientSettingStore_CustomFunc];
@@ -1581,19 +1602,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_enable_overlay(bool value);
   public:
 
-  // optional bool enable_screenshot_notification = 4006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayScreenshotNotification", (.setting_default_bool) = true];
-  bool has_enable_screenshot_notification() const;
-  private:
-  bool _internal_has_enable_screenshot_notification() const;
-  public:
-  void clear_enable_screenshot_notification();
-  bool enable_screenshot_notification() const;
-  void set_enable_screenshot_notification(bool value);
-  private:
-  bool _internal_enable_screenshot_notification() const;
-  void _internal_set_enable_screenshot_notification(bool value);
-  public:
-
   // optional int32 overlay_fps_counter_corner = 4000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayShowFPSCorner"];
   bool has_overlay_fps_counter_corner() const;
   private:
@@ -1620,30 +1628,17 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_default_ping_rate(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 server_ping_rate = 4011 [(.setting_store) = EClientSettingStore_CustomFunc];
-  bool has_server_ping_rate() const;
+  // optional bool enable_screenshot_notification = 4006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayScreenshotNotification", (.setting_default_bool) = true];
+  bool has_enable_screenshot_notification() const;
   private:
-  bool _internal_has_server_ping_rate() const;
+  bool _internal_has_enable_screenshot_notification() const;
   public:
-  void clear_server_ping_rate();
-  ::PROTOBUF_NAMESPACE_ID::int32 server_ping_rate() const;
-  void set_server_ping_rate(::PROTOBUF_NAMESPACE_ID::int32 value);
+  void clear_enable_screenshot_notification();
+  bool enable_screenshot_notification() const;
+  void set_enable_screenshot_notification(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_server_ping_rate() const;
-  void _internal_set_server_ping_rate(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // optional int32 steam_networking_share_ip = 4012 [(.setting_store) = EClientSettingStore_CustomFunc];
-  bool has_steam_networking_share_ip() const;
-  private:
-  bool _internal_has_steam_networking_share_ip() const;
-  public:
-  void clear_steam_networking_share_ip();
-  ::PROTOBUF_NAMESPACE_ID::int32 steam_networking_share_ip() const;
-  void set_steam_networking_share_ip(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_steam_networking_share_ip() const;
-  void _internal_set_steam_networking_share_ip(::PROTOBUF_NAMESPACE_ID::int32 value);
+  bool _internal_enable_screenshot_notification() const;
+  void _internal_set_enable_screenshot_notification(bool value);
   public:
 
   // optional bool enable_screenshot_sound = 4007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayScreenshotPlaySound", (.setting_default_bool) = true];
@@ -1685,17 +1680,30 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_overlay_toolbar_list_view(bool value);
   public:
 
-  // optional bool always_use_gamepadui_overlay = 4020 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\EnableSCTenFootOverlayCheckNew"];
-  bool has_always_use_gamepadui_overlay() const;
+  // optional int32 server_ping_rate = 4011 [(.setting_store) = EClientSettingStore_CustomFunc];
+  bool has_server_ping_rate() const;
   private:
-  bool _internal_has_always_use_gamepadui_overlay() const;
+  bool _internal_has_server_ping_rate() const;
   public:
-  void clear_always_use_gamepadui_overlay();
-  bool always_use_gamepadui_overlay() const;
-  void set_always_use_gamepadui_overlay(bool value);
+  void clear_server_ping_rate();
+  ::PROTOBUF_NAMESPACE_ID::int32 server_ping_rate() const;
+  void set_server_ping_rate(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  bool _internal_always_use_gamepadui_overlay() const;
-  void _internal_set_always_use_gamepadui_overlay(bool value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_server_ping_rate() const;
+  void _internal_set_server_ping_rate(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 steam_networking_share_ip = 4012 [(.setting_store) = EClientSettingStore_CustomFunc];
+  bool has_steam_networking_share_ip() const;
+  private:
+  bool _internal_has_steam_networking_share_ip() const;
+  public:
+  void clear_steam_networking_share_ip();
+  ::PROTOBUF_NAMESPACE_ID::int32 steam_networking_share_ip() const;
+  void set_steam_networking_share_ip(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_steam_networking_share_ip() const;
+  void _internal_set_steam_networking_share_ip(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional float voice_mic_input_gain = 4015 [(.setting_store) = EClientSettingStore_CustomFunc];
@@ -1735,6 +1743,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_voice_push_to_talsetting() const;
   void _internal_set_voice_push_to_talsetting(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool always_use_gamepadui_overlay = 4020 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\EnableSCTenFootOverlayCheckNew"];
+  bool has_always_use_gamepadui_overlay() const;
+  private:
+  bool _internal_has_always_use_gamepadui_overlay() const;
+  public:
+  void clear_always_use_gamepadui_overlay();
+  bool always_use_gamepadui_overlay() const;
+  void set_always_use_gamepadui_overlay(bool value);
+  private:
+  bool _internal_always_use_gamepadui_overlay() const;
+  void _internal_set_always_use_gamepadui_overlay(bool value);
   public:
 
   // optional bool overlay_scale_interface = 4022 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\OverlayScaleInterface", (.setting_default_bool) = true];
@@ -1841,19 +1862,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_enable_dpi_scaling(bool value);
   public:
 
-  // optional uint32 jumplist_flags = 5008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\JumplistSettings", (.setting_default_uint) = 77680];
-  bool has_jumplist_flags() const;
-  private:
-  bool _internal_has_jumplist_flags() const;
-  public:
-  void clear_jumplist_flags();
-  ::PROTOBUF_NAMESPACE_ID::uint32 jumplist_flags() const;
-  void set_jumplist_flags(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_jumplist_flags() const;
-  void _internal_set_jumplist_flags(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
   // optional bool enable_marketing_messages = 5006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "news\\NotifyAvailableGames", (.setting_default_bool) = true];
   bool has_enable_marketing_messages() const;
   private:
@@ -1891,6 +1899,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   bool _internal_enable_ui_sounds() const;
   void _internal_set_enable_ui_sounds(bool value);
+  public:
+
+  // optional uint32 jumplist_flags = 5008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\JumplistSettings", (.setting_default_uint) = 77680];
+  bool has_jumplist_flags() const;
+  private:
+  bool _internal_has_jumplist_flags() const;
+  public:
+  void clear_jumplist_flags();
+  ::PROTOBUF_NAMESPACE_ID::uint32 jumplist_flags() const;
+  void set_jumplist_flags(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_jumplist_flags() const;
+  void _internal_set_jumplist_flags(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // optional bool disable_all_toasts = 6000 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "DisableAllToasts"];
@@ -1945,19 +1966,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_library_whats_new_show_only_product_updates(bool value);
   public:
 
-  // optional bool show_store_content_on_home = 7002 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "ShowStoreContentOnHome", (.setting_default_bool) = true];
-  bool has_show_store_content_on_home() const;
-  private:
-  bool _internal_has_show_store_content_on_home() const;
-  public:
-  void clear_show_store_content_on_home();
-  bool show_store_content_on_home() const;
-  void set_show_store_content_on_home(bool value);
-  private:
-  bool _internal_show_store_content_on_home() const;
-  void _internal_set_show_store_content_on_home(bool value);
-  public:
-
   // optional int32 library_display_size = 7000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "LibraryDisplaySize"];
   bool has_library_display_size() const;
   private:
@@ -1969,6 +1977,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_library_display_size() const;
   void _internal_set_library_display_size(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool show_store_content_on_home = 7002 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "ShowStoreContentOnHome", (.setting_default_bool) = true];
+  bool has_show_store_content_on_home() const;
+  private:
+  bool _internal_has_show_store_content_on_home() const;
+  public:
+  void clear_show_store_content_on_home();
+  bool show_store_content_on_home() const;
+  void set_show_store_content_on_home(bool value);
+  private:
+  bool _internal_show_store_content_on_home() const;
+  void _internal_set_show_store_content_on_home(bool value);
   public:
 
   // optional bool library_low_bandwidth_mode = 7004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "LibraryLowBandwidthMode"];
@@ -2062,19 +2083,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_enable_shader_precache(bool value);
   public:
 
-  // optional bool enable_shader_background_processing = 8001 [(.setting_store) = EClientSettingStore_CustomFunc];
-  bool has_enable_shader_background_processing() const;
-  private:
-  bool _internal_has_enable_shader_background_processing() const;
-  public:
-  void clear_enable_shader_background_processing();
-  bool enable_shader_background_processing() const;
-  void set_enable_shader_background_processing(bool value);
-  private:
-  bool _internal_enable_shader_background_processing() const;
-  void _internal_set_enable_shader_background_processing(bool value);
-  public:
-
   // optional uint64 shader_precached_size = 8002 [(.setting_store) = EClientSettingStore_CustomFunc, (.setting_readonly) = true];
   bool has_shader_precached_size() const;
   private:
@@ -2088,17 +2096,17 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_shader_precached_size(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional int32 download_peer_content = 8004 [(.setting_store) = EClientSettingStore_CustomFunc];
-  bool has_download_peer_content() const;
+  // optional bool enable_shader_background_processing = 8001 [(.setting_store) = EClientSettingStore_CustomFunc];
+  bool has_enable_shader_background_processing() const;
   private:
-  bool _internal_has_download_peer_content() const;
+  bool _internal_has_enable_shader_background_processing() const;
   public:
-  void clear_download_peer_content();
-  ::PROTOBUF_NAMESPACE_ID::int32 download_peer_content() const;
-  void set_download_peer_content(::PROTOBUF_NAMESPACE_ID::int32 value);
+  void clear_enable_shader_background_processing();
+  bool enable_shader_background_processing() const;
+  void set_enable_shader_background_processing(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_download_peer_content() const;
-  void _internal_set_download_peer_content(::PROTOBUF_NAMESPACE_ID::int32 value);
+  bool _internal_enable_shader_background_processing() const;
+  void _internal_set_enable_shader_background_processing(bool value);
   public:
 
   // optional bool needs_steam_service_repair = 8003 [(.setting_store) = EClientSettingStore_CustomFunc, (.setting_readonly) = true];
@@ -2140,17 +2148,17 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_restrict_auto_updates(bool value);
   public:
 
-  // optional bool download_while_app_running = 8010 [(.setting_store) = EClientSettingStore_CustomFunc];
-  bool has_download_while_app_running() const;
+  // optional int32 download_peer_content = 8004 [(.setting_store) = EClientSettingStore_CustomFunc];
+  bool has_download_peer_content() const;
   private:
-  bool _internal_has_download_while_app_running() const;
+  bool _internal_has_download_peer_content() const;
   public:
-  void clear_download_while_app_running();
-  bool download_while_app_running() const;
-  void set_download_while_app_running(bool value);
+  void clear_download_peer_content();
+  ::PROTOBUF_NAMESPACE_ID::int32 download_peer_content() const;
+  void set_download_peer_content(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  bool _internal_download_while_app_running() const;
-  void _internal_set_download_while_app_running(bool value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_download_peer_content() const;
+  void _internal_set_download_peer_content(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional int32 restrict_auto_updates_start = 8007 [(.setting_store) = EClientSettingStore_CustomFunc];
@@ -2205,6 +2213,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_download_throttle_rate(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional bool download_while_app_running = 8010 [(.setting_store) = EClientSettingStore_CustomFunc];
+  bool has_download_while_app_running() const;
+  private:
+  bool _internal_has_download_while_app_running() const;
+  public:
+  void clear_download_while_app_running();
+  bool download_while_app_running() const;
+  void set_download_while_app_running(bool value);
+  private:
+  bool _internal_download_while_app_running() const;
+  void _internal_set_download_while_app_running(bool value);
+  public:
+
   // optional bool download_throttle_while_streaming = 8011 [(.setting_store) = EClientSettingStore_CustomFunc];
   bool has_download_throttle_while_streaming() const;
   private:
@@ -2244,19 +2265,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_show_screenshot_manager(bool value);
   public:
 
-  // optional bool music_pause_on_app_start = 11001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Music\\PauseOnAppStartedProcess"];
-  bool has_music_pause_on_app_start() const;
-  private:
-  bool _internal_has_music_pause_on_app_start() const;
-  public:
-  void clear_music_pause_on_app_start();
-  bool music_pause_on_app_start() const;
-  void set_music_pause_on_app_start(bool value);
-  private:
-  bool _internal_music_pause_on_app_start() const;
-  void _internal_set_music_pause_on_app_start(bool value);
-  public:
-
   // optional int32 music_volume = 11000 [(.setting_store) = EClientSettingStore_CustomFunc];
   bool has_music_volume() const;
   private:
@@ -2268,6 +2276,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_music_volume() const;
   void _internal_set_music_volume(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool music_pause_on_app_start = 11001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Music\\PauseOnAppStartedProcess"];
+  bool has_music_pause_on_app_start() const;
+  private:
+  bool _internal_has_music_pause_on_app_start() const;
+  public:
+  void clear_music_pause_on_app_start();
+  bool music_pause_on_app_start() const;
+  void set_music_pause_on_app_start(bool value);
+  private:
+  bool _internal_music_pause_on_app_start() const;
+  void _internal_set_music_pause_on_app_start(bool value);
   public:
 
   // optional bool music_pause_on_voice_chat = 11002 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Music\\PauseOnVoiceChat"];
@@ -2307,19 +2328,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   bool _internal_music_playlist_notification() const;
   void _internal_set_music_playlist_notification(bool value);
-  public:
-
-  // optional bool broadcast_record_all_video = 12005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\IncludeDesktop"];
-  bool has_broadcast_record_all_video() const;
-  private:
-  bool _internal_has_broadcast_record_all_video() const;
-  public:
-  void clear_broadcast_record_all_video();
-  bool broadcast_record_all_video() const;
-  void set_broadcast_record_all_video(bool value);
-  private:
-  bool _internal_broadcast_record_all_video() const;
-  void _internal_set_broadcast_record_all_video(bool value);
   public:
 
   // optional .EBroadcastPermission broadcast_permissions = 12000 [default = EBroadcastPermissionDisabled, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\Permissions", (.setting_default_int) = 1];
@@ -2387,6 +2395,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_broadcast_encoding_option(::EBroadcastEncoderSetting value);
   public:
 
+  // optional bool broadcast_record_all_video = 12005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\IncludeDesktop"];
+  bool has_broadcast_record_all_video() const;
+  private:
+  bool _internal_has_broadcast_record_all_video() const;
+  public:
+  void clear_broadcast_record_all_video();
+  bool broadcast_record_all_video() const;
+  void set_broadcast_record_all_video(bool value);
+  private:
+  bool _internal_broadcast_record_all_video() const;
+  void _internal_set_broadcast_record_all_video(bool value);
+  public:
+
   // optional bool broadcast_record_all_audio = 12006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\RecordSystemAudio"];
   bool has_broadcast_record_all_audio() const;
   private:
@@ -2426,19 +2447,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_broadcast_show_upload_stats(bool value);
   public:
 
-  // optional bool broadcast_show_live_reminder = 12009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\ShowReminder", (.setting_default_bool) = true];
-  bool has_broadcast_show_live_reminder() const;
-  private:
-  bool _internal_has_broadcast_show_live_reminder() const;
-  public:
-  void clear_broadcast_show_live_reminder();
-  bool broadcast_show_live_reminder() const;
-  void set_broadcast_show_live_reminder(bool value);
-  private:
-  bool _internal_broadcast_show_live_reminder() const;
-  void _internal_set_broadcast_show_live_reminder(bool value);
-  public:
-
   // optional int32 broadcast_chat_corner = 12010 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\ShowChat", (.setting_default_int) = 1];
   bool has_broadcast_chat_corner() const;
   private:
@@ -2450,6 +2458,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_broadcast_chat_corner() const;
   void _internal_set_broadcast_chat_corner(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool broadcast_show_live_reminder = 12009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\ShowReminder", (.setting_default_bool) = true];
+  bool has_broadcast_show_live_reminder() const;
+  private:
+  bool _internal_has_broadcast_show_live_reminder() const;
+  public:
+  void clear_broadcast_show_live_reminder();
+  bool broadcast_show_live_reminder() const;
+  void set_broadcast_show_live_reminder(bool value);
+  private:
+  bool _internal_broadcast_show_live_reminder() const;
+  void _internal_set_broadcast_show_live_reminder(bool value);
   public:
 
   // optional bool gamestream_hardware_video_encode = 13000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "GameStream\\HardwareVideoEncode", (.setting_default_bool) = true];
@@ -2491,19 +2512,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_controller_guide_button_focus_steam(bool value);
   public:
 
-  // optional bool controller_xbox_support = 14004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamController_XBoxSupport"];
-  bool has_controller_xbox_support() const;
-  private:
-  bool _internal_has_controller_xbox_support() const;
-  public:
-  void clear_controller_xbox_support();
-  bool controller_xbox_support() const;
-  void set_controller_xbox_support(bool value);
-  private:
-  bool _internal_controller_xbox_support() const;
-  void _internal_set_controller_xbox_support(bool value);
-  public:
-
   // optional int32 controller_ps_support = 14003 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamController_PSSupport", (.setting_default_int) = 1];
   bool has_controller_ps_support() const;
   private:
@@ -2515,6 +2523,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_controller_ps_support() const;
   void _internal_set_controller_ps_support(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool controller_xbox_support = 14004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamController_XBoxSupport"];
+  bool has_controller_xbox_support() const;
+  private:
+  bool _internal_has_controller_xbox_support() const;
+  public:
+  void clear_controller_xbox_support();
+  bool controller_xbox_support() const;
+  void set_controller_xbox_support(bool value);
+  private:
+  bool _internal_controller_xbox_support() const;
+  void _internal_set_controller_xbox_support(bool value);
   public:
 
   // optional bool controller_xbox_driver = 14005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamController_XBoxDriver"];
@@ -2556,19 +2577,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_controller_generic_support(bool value);
   public:
 
-  // optional bool turn_off_controller_on_exit = 14009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "CSettingsPanelGameController.TurnOff"];
-  bool has_turn_off_controller_on_exit() const;
-  private:
-  bool _internal_has_turn_off_controller_on_exit() const;
-  public:
-  void clear_turn_off_controller_on_exit();
-  bool turn_off_controller_on_exit() const;
-  void set_turn_off_controller_on_exit(bool value);
-  private:
-  bool _internal_turn_off_controller_on_exit() const;
-  void _internal_set_turn_off_controller_on_exit(bool value);
-  public:
-
   // optional int32 controller_power_off_timeout = 14008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "CSettingsPanelGameController.Timeout", (.setting_default_int) = 15];
   bool has_controller_power_off_timeout() const;
   private:
@@ -2582,17 +2590,17 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_controller_power_off_timeout(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint64 startup_movie_id = 16000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Customization/StartupMovie/MovieID", (.setting_pre_login) = true];
-  bool has_startup_movie_id() const;
+  // optional bool turn_off_controller_on_exit = 14009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "CSettingsPanelGameController.TurnOff"];
+  bool has_turn_off_controller_on_exit() const;
   private:
-  bool _internal_has_startup_movie_id() const;
+  bool _internal_has_turn_off_controller_on_exit() const;
   public:
-  void clear_startup_movie_id();
-  ::PROTOBUF_NAMESPACE_ID::uint64 startup_movie_id() const;
-  void set_startup_movie_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void clear_turn_off_controller_on_exit();
+  bool turn_off_controller_on_exit() const;
+  void set_turn_off_controller_on_exit(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_startup_movie_id() const;
-  void _internal_set_startup_movie_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  bool _internal_turn_off_controller_on_exit() const;
+  void _internal_set_turn_off_controller_on_exit(bool value);
   public:
 
   // optional bool controller_combine_nintendo_joycons = 14010 [(.setting_store) = EClientSettingStore_CustomFunc];
@@ -2634,19 +2642,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_startup_movie_used_for_resume(bool value);
   public:
 
-  // optional bool game_notes_enable_spellcheck = 17001 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "GameNotesEnableSpellcheck", (.setting_default_bool) = true];
-  bool has_game_notes_enable_spellcheck() const;
-  private:
-  bool _internal_has_game_notes_enable_spellcheck() const;
-  public:
-  void clear_game_notes_enable_spellcheck();
-  bool game_notes_enable_spellcheck() const;
-  void set_game_notes_enable_spellcheck(bool value);
-  private:
-  bool _internal_game_notes_enable_spellcheck() const;
-  void _internal_set_game_notes_enable_spellcheck(bool value);
-  public:
-
   // optional int32 screenshot_items_per_row = 18000 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "ScreenshotViewItemsPerRow", (.setting_default_int) = 1];
   bool has_screenshot_items_per_row() const;
   private:
@@ -2658,6 +2653,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_screenshot_items_per_row() const;
   void _internal_set_screenshot_items_per_row(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional uint64 startup_movie_id = 16000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Customization/StartupMovie/MovieID", (.setting_pre_login) = true];
+  bool has_startup_movie_id() const;
+  private:
+  bool _internal_has_startup_movie_id() const;
+  public:
+  void clear_startup_movie_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 startup_movie_id() const;
+  void set_startup_movie_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_startup_movie_id() const;
+  void _internal_set_startup_movie_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // optional int32 g_background_time_resolution = 18203 [(.setting_store) = EClientSettingStore_CustomFunc];
@@ -2725,6 +2733,32 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_g_max_fps(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional float gamerecording_ic_seconds = 18216 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "GameRecording\\InstantClipDuration", (.setting_default_float) = 10];
+  bool has_gamerecording_ic_seconds() const;
+  private:
+  bool _internal_has_gamerecording_ic_seconds() const;
+  public:
+  void clear_gamerecording_ic_seconds();
+  float gamerecording_ic_seconds() const;
+  void set_gamerecording_ic_seconds(float value);
+  private:
+  float _internal_gamerecording_ic_seconds() const;
+  void _internal_set_gamerecording_ic_seconds(float value);
+  public:
+
+  // optional bool game_notes_enable_spellcheck = 17001 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "GameNotesEnableSpellcheck", (.setting_default_bool) = true];
+  bool has_game_notes_enable_spellcheck() const;
+  private:
+  bool _internal_has_game_notes_enable_spellcheck() const;
+  public:
+  void clear_game_notes_enable_spellcheck();
+  bool game_notes_enable_spellcheck() const;
+  void set_game_notes_enable_spellcheck(bool value);
+  private:
+  bool _internal_game_notes_enable_spellcheck() const;
+  void _internal_set_game_notes_enable_spellcheck(bool value);
+  public:
+
   // optional bool g_background_a_m = 18209 [(.setting_store) = EClientSettingStore_CustomFunc];
   bool has_g_background_a_m() const;
   private:
@@ -2764,19 +2798,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_show_timestamps_in_console(bool value);
   public:
 
-  // optional bool force_oobe = 20001 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBE"];
-  bool has_force_oobe() const;
-  private:
-  bool _internal_has_force_oobe() const;
-  public:
-  void clear_force_oobe();
-  bool force_oobe() const;
-  void set_force_oobe(bool value);
-  private:
-  bool _internal_force_oobe() const;
-  void _internal_set_force_oobe(bool value);
-  public:
-
   // optional int32 override_browser_composer_mode = 20002 [(.setting_store) = EClientSettingStore_CustomFunc];
   bool has_override_browser_composer_mode() const;
   private:
@@ -2788,6 +2809,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_override_browser_composer_mode() const;
   void _internal_set_override_browser_composer_mode(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool force_oobe = 20001 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBE"];
+  bool has_force_oobe() const;
+  private:
+  bool _internal_has_force_oobe() const;
+  public:
+  void clear_force_oobe();
+  bool force_oobe() const;
+  void set_force_oobe(bool value);
+  private:
+  bool _internal_force_oobe() const;
+  void _internal_set_force_oobe(bool value);
   public:
 
   // optional bool cef_remote_debugging_enabled = 20003 [(.setting_store) = EClientSettingStore_CustomFunc];
@@ -2881,19 +2915,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_gamescope_enable_app_target_framerate(bool value);
   public:
 
-  // optional bool gamescope_disable_framelimit = 21004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/DisableFrameLimit", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
-  bool has_gamescope_disable_framelimit() const;
-  private:
-  bool _internal_has_gamescope_disable_framelimit() const;
-  public:
-  void clear_gamescope_disable_framelimit();
-  bool gamescope_disable_framelimit() const;
-  void set_gamescope_disable_framelimit(bool value);
-  private:
-  bool _internal_gamescope_disable_framelimit() const;
-  void _internal_set_gamescope_disable_framelimit(bool value);
-  public:
-
   // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
   bool has_gamescope_hdr_visualization() const;
   private:
@@ -2931,6 +2952,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_gamescope_display_refresh_rate() const;
   void _internal_set_gamescope_display_refresh_rate(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional bool gamescope_disable_framelimit = 21004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/DisableFrameLimit", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
+  bool has_gamescope_disable_framelimit() const;
+  private:
+  bool _internal_has_gamescope_disable_framelimit() const;
+  public:
+  void clear_gamescope_disable_framelimit();
+  bool gamescope_disable_framelimit() const;
+  void set_gamescope_disable_framelimit(bool value);
+  private:
+  bool _internal_gamescope_disable_framelimit() const;
+  void _internal_set_gamescope_disable_framelimit(bool value);
   public:
 
   // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
@@ -3024,19 +3058,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_steamos_tdp_limit_enabled(bool value);
   public:
 
-  // optional bool steamos_cec_enabled = 22003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/CECEnabled", (.setting_default_bool) = true];
-  bool has_steamos_cec_enabled() const;
-  private:
-  bool _internal_has_steamos_cec_enabled() const;
-  public:
-  void clear_steamos_cec_enabled();
-  bool steamos_cec_enabled() const;
-  void set_steamos_cec_enabled(bool value);
-  private:
-  bool _internal_steamos_cec_enabled() const;
-  void _internal_set_steamos_cec_enabled(bool value);
-  public:
-
   // optional int32 steamos_status_led_brightness = 22000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/StatusLEDBrightness", (.setting_default_int) = 100];
   bool has_steamos_status_led_brightness() const;
   private:
@@ -3063,17 +3084,17 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_steamos_tdp_limit(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 steamos_magnifier_scale = 22007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/MagnifierScale", (.setting_default_int) = 150];
-  bool has_steamos_magnifier_scale() const;
+  // optional bool steamos_cec_enabled = 22003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/CECEnabled", (.setting_default_bool) = true];
+  bool has_steamos_cec_enabled() const;
   private:
-  bool _internal_has_steamos_magnifier_scale() const;
+  bool _internal_has_steamos_cec_enabled() const;
   public:
-  void clear_steamos_magnifier_scale();
-  ::PROTOBUF_NAMESPACE_ID::int32 steamos_magnifier_scale() const;
-  void set_steamos_magnifier_scale(::PROTOBUF_NAMESPACE_ID::int32 value);
+  void clear_steamos_cec_enabled();
+  bool steamos_cec_enabled() const;
+  void set_steamos_cec_enabled(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_steamos_magnifier_scale() const;
-  void _internal_set_steamos_magnifier_scale(::PROTOBUF_NAMESPACE_ID::int32 value);
+  bool _internal_steamos_cec_enabled() const;
+  void _internal_set_steamos_cec_enabled(bool value);
   public:
 
   // optional bool steamos_cec_wake_on_resume = 22004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WakeOnResume", (.setting_default_bool) = true];
@@ -3115,17 +3136,17 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_steamos_wifi_force_wpa_supplicant(bool value);
   public:
 
-  // optional bool setting_validation_bool = 23001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyBool"];
-  bool has_setting_validation_bool() const;
+  // optional int32 steamos_magnifier_scale = 22007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/MagnifierScale", (.setting_default_int) = 150];
+  bool has_steamos_magnifier_scale() const;
   private:
-  bool _internal_has_setting_validation_bool() const;
+  bool _internal_has_steamos_magnifier_scale() const;
   public:
-  void clear_setting_validation_bool();
-  bool setting_validation_bool() const;
-  void set_setting_validation_bool(bool value);
+  void clear_steamos_magnifier_scale();
+  ::PROTOBUF_NAMESPACE_ID::int32 steamos_magnifier_scale() const;
+  void set_steamos_magnifier_scale(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  bool _internal_setting_validation_bool() const;
-  void _internal_set_setting_validation_bool(bool value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_steamos_magnifier_scale() const;
+  void _internal_set_steamos_magnifier_scale(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional .EHDRVisualization setting_validation_enum = 23002 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyEnum"];
@@ -3154,19 +3175,6 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_setting_validation_int32(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint64 setting_validation_uint64 = 23005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyUInt64"];
-  bool has_setting_validation_uint64() const;
-  private:
-  bool _internal_has_setting_validation_uint64() const;
-  public:
-  void clear_setting_validation_uint64();
-  ::PROTOBUF_NAMESPACE_ID::uint64 setting_validation_uint64() const;
-  void set_setting_validation_uint64(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_setting_validation_uint64() const;
-  void _internal_set_setting_validation_uint64(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
   // optional uint32 setting_validation_uint32 = 23004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyUInt32"];
   bool has_setting_validation_uint32() const;
   private:
@@ -3180,6 +3188,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_setting_validation_uint32(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint64 setting_validation_uint64 = 23005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyUInt64"];
+  bool has_setting_validation_uint64() const;
+  private:
+  bool _internal_has_setting_validation_uint64() const;
+  public:
+  void clear_setting_validation_uint64();
+  ::PROTOBUF_NAMESPACE_ID::uint64 setting_validation_uint64() const;
+  void set_setting_validation_uint64(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_setting_validation_uint64() const;
+  void _internal_set_setting_validation_uint64(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // optional float setting_validation_float = 23006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyFloat"];
   bool has_setting_validation_float() const;
   private:
@@ -3191,6 +3212,32 @@ class CMsgClientSettings PROTOBUF_FINAL :
   private:
   float _internal_setting_validation_float() const;
   void _internal_set_setting_validation_float(float value);
+  public:
+
+  // optional bool setting_validation_bool = 23001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyBool"];
+  bool has_setting_validation_bool() const;
+  private:
+  bool _internal_has_setting_validation_bool() const;
+  public:
+  void clear_setting_validation_bool();
+  bool setting_validation_bool() const;
+  void set_setting_validation_bool(bool value);
+  private:
+  bool _internal_setting_validation_bool() const;
+  void _internal_set_setting_validation_bool(bool value);
+  public:
+
+  // optional bool system_bluetooth_enabled = 24000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "System/Bluetooth/Enabled", (.setting_default_bool) = false];
+  bool has_system_bluetooth_enabled() const;
+  private:
+  bool _internal_has_system_bluetooth_enabled() const;
+  public:
+  void clear_system_bluetooth_enabled();
+  bool system_bluetooth_enabled() const;
+  void set_system_bluetooth_enabled(bool value);
+  private:
+  bool _internal_system_bluetooth_enabled() const;
+  void _internal_set_system_bluetooth_enabled(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgClientSettings)
@@ -3219,6 +3266,7 @@ class CMsgClientSettings PROTOBUF_FINAL :
   ::CMsgHotkey* voice_push_to_talkey_;
   ::CMsgHotkey* g_background_mk_;
   ::CMsgHotkey* g_background_tg_;
+  ::CMsgHotkey* gamerecording_hotkey_ic_;
   bool no_save_personal_info_;
   bool oobe_test_mode_enabled_;
   bool in_client_beta_;
@@ -3231,26 +3279,26 @@ class CMsgClientSettings PROTOBUF_FINAL :
   float min_scale_factor_;
   float max_scale_factor_;
   float auto_scale_factor_;
-  bool system_bluetooth_enabled_;
   bool small_mode_;
   bool skip_steamvr_install_dialog_;
   bool always_show_user_chooser_;
+  bool os_version_unsupported_;
   bool show_family_sharing_notifications_;
   bool show_copy_count_in_library_;
   bool overlay_fps_counter_high_contrast_;
   bool enable_overlay_;
-  bool enable_screenshot_notification_;
   ::PROTOBUF_NAMESPACE_ID::int32 overlay_fps_counter_corner_;
   ::PROTOBUF_NAMESPACE_ID::int32 default_ping_rate_;
-  ::PROTOBUF_NAMESPACE_ID::int32 server_ping_rate_;
-  ::PROTOBUF_NAMESPACE_ID::int32 steam_networking_share_ip_;
+  bool enable_screenshot_notification_;
   bool enable_screenshot_sound_;
   bool save_uncompressed_screenshots_;
   bool overlay_toolbar_list_view_;
-  bool always_use_gamepadui_overlay_;
+  ::PROTOBUF_NAMESPACE_ID::int32 server_ping_rate_;
+  ::PROTOBUF_NAMESPACE_ID::int32 steam_networking_share_ip_;
   float voice_mic_input_gain_;
   float voice_speaker_output_gain_;
   ::PROTOBUF_NAMESPACE_ID::int32 voice_push_to_talsetting_;
+  bool always_use_gamepadui_overlay_;
   bool overlay_scale_interface_;
   bool overlay_restore_browser_tabs_;
   bool enable_avif_screenshots_;
@@ -3259,16 +3307,16 @@ class CMsgClientSettings PROTOBUF_FINAL :
   bool enable_hardware_video_decoding_;
   bool run_at_startup_;
   bool enable_dpi_scaling_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 jumplist_flags_;
   bool enable_marketing_messages_;
   bool start_in_big_picture_mode_;
   bool enable_ui_sounds_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 jumplist_flags_;
   bool disable_all_toasts_;
   bool disable_toasts_in_game_;
   bool play_sound_on_toast_;
   bool library_whats_new_show_only_product_updates_;
-  bool show_store_content_on_home_;
   ::PROTOBUF_NAMESPACE_ID::int32 library_display_size_;
+  bool show_store_content_on_home_;
   bool library_low_bandwidth_mode_;
   bool library_low_perf_mode_;
   bool library_disable_community_content_;
@@ -3276,62 +3324,63 @@ class CMsgClientSettings PROTOBUF_FINAL :
   bool ready_to_play_includes_streaming_;
   bool show_steam_decinfo_;
   bool enable_shader_precache_;
-  bool enable_shader_background_processing_;
   ::PROTOBUF_NAMESPACE_ID::uint64 shader_precached_size_;
-  ::PROTOBUF_NAMESPACE_ID::int32 download_peer_content_;
+  bool enable_shader_background_processing_;
   bool needs_steam_service_repair_;
   bool download_rate_bits_per_s_;
   bool restrict_auto_updates_;
-  bool download_while_app_running_;
+  ::PROTOBUF_NAMESPACE_ID::int32 download_peer_content_;
   ::PROTOBUF_NAMESPACE_ID::int32 restrict_auto_updates_start_;
   ::PROTOBUF_NAMESPACE_ID::int32 restrict_auto_updates_end_;
   ::PROTOBUF_NAMESPACE_ID::int32 download_region_;
   ::PROTOBUF_NAMESPACE_ID::int32 download_throttle_rate_;
+  bool download_while_app_running_;
   bool download_throttle_while_streaming_;
   bool cloud_enabled_;
   bool show_screenshot_manager_;
-  bool music_pause_on_app_start_;
   ::PROTOBUF_NAMESPACE_ID::int32 music_volume_;
+  bool music_pause_on_app_start_;
   bool music_pause_on_voice_chat_;
   bool music_download_high_quality_;
   bool music_playlist_notification_;
-  bool broadcast_record_all_video_;
   int broadcast_permissions_;
   ::PROTOBUF_NAMESPACE_ID::int32 broadcast_output_width_;
   ::PROTOBUF_NAMESPACE_ID::int32 broadcast_output_height_;
   ::PROTOBUF_NAMESPACE_ID::int32 broadcast_bitrate_;
   int broadcast_encoding_option_;
+  bool broadcast_record_all_video_;
   bool broadcast_record_all_audio_;
   bool broadcast_record_microphone_;
   bool broadcast_show_upload_stats_;
-  bool broadcast_show_live_reminder_;
   ::PROTOBUF_NAMESPACE_ID::int32 broadcast_chat_corner_;
+  bool broadcast_show_live_reminder_;
   bool gamestream_hardware_video_encode_;
   bool steam_input_configurator_error_msg_enable_;
   bool controller_guide_button_focus_steam_;
-  bool controller_xbox_support_;
   ::PROTOBUF_NAMESPACE_ID::int32 controller_ps_support_;
+  bool controller_xbox_support_;
   bool controller_xbox_driver_;
   bool controller_switch_support_;
   bool controller_generic_support_;
-  bool turn_off_controller_on_exit_;
   ::PROTOBUF_NAMESPACE_ID::int32 controller_power_off_timeout_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 startup_movie_id_;
+  bool turn_off_controller_on_exit_;
   bool controller_combine_nintendo_joycons_;
   bool startup_movie_shuffle_;
   bool startup_movie_used_for_resume_;
-  bool game_notes_enable_spellcheck_;
   ::PROTOBUF_NAMESPACE_ID::int32 screenshot_items_per_row_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 startup_movie_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 g_background_time_resolution_;
   ::PROTOBUF_NAMESPACE_ID::int32 g_background_br_;
   int g_background_mode_;
   int g_background_audio_;
   ::PROTOBUF_NAMESPACE_ID::int32 g_max_fps_;
+  float gamerecording_ic_seconds_;
+  bool game_notes_enable_spellcheck_;
   bool g_background_a_m_;
   bool g_background_a_s_;
   bool show_timestamps_in_console_;
-  bool force_oobe_;
   ::PROTOBUF_NAMESPACE_ID::int32 override_browser_composer_mode_;
+  bool force_oobe_;
   bool cef_remote_debugging_enabled_;
   bool force_decperf_tab_;
   bool force_fake_mandatory_update_;
@@ -3339,10 +3388,10 @@ class CMsgClientSettings PROTOBUF_FINAL :
   bool developer_mode_enabled_;
   bool show_advanced_update_channels_;
   bool gamescope_enable_app_target_framerate_;
-  bool gamescope_disable_framelimit_;
   int gamescope_hdr_visualization_;
   ::PROTOBUF_NAMESPACE_ID::int32 gamescope_app_target_framerate_;
   ::PROTOBUF_NAMESPACE_ID::int32 gamescope_display_refresh_rate_;
+  bool gamescope_disable_framelimit_;
   bool gamescope_use_game_refresh_rate_in_steam_;
   bool gamescope_disable_mura_correction_;
   bool gamescope_include_steamui_in_screenshots_;
@@ -3350,19 +3399,20 @@ class CMsgClientSettings PROTOBUF_FINAL :
   bool gamescope_composite_debug_;
   bool gamescope_force_composite_;
   bool steamos_tdp_limit_enabled_;
-  bool steamos_cec_enabled_;
   ::PROTOBUF_NAMESPACE_ID::int32 steamos_status_led_brightness_;
   ::PROTOBUF_NAMESPACE_ID::int32 steamos_tdp_limit_;
-  ::PROTOBUF_NAMESPACE_ID::int32 steamos_magnifier_scale_;
+  bool steamos_cec_enabled_;
   bool steamos_cec_wake_on_resume_;
   bool steamos_wifi_debug_;
   bool steamos_wifi_force_wpa_supplicant_;
-  bool setting_validation_bool_;
+  ::PROTOBUF_NAMESPACE_ID::int32 steamos_magnifier_scale_;
   int setting_validation_enum_;
   ::PROTOBUF_NAMESPACE_ID::int32 setting_validation_int32_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 setting_validation_uint64_;
   ::PROTOBUF_NAMESPACE_ID::uint32 setting_validation_uint32_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 setting_validation_uint64_;
   float setting_validation_float_;
+  bool setting_validation_bool_;
+  bool system_bluetooth_enabled_;
   friend struct ::TableStruct_steammessages_5fclientsettings_2eproto;
 };
 // ===================================================================
@@ -4033,7 +4083,7 @@ inline CMsgSettingVariant::ValueCase CMsgSettingVariant::value_case() const {
 
 // optional bool no_save_personal_info = 1 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Software\\Valve\\Steam\\NoSavePersonalInfo"];
 inline bool CMsgClientSettings::_internal_has_no_save_personal_info() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_no_save_personal_info() const {
@@ -4041,7 +4091,7 @@ inline bool CMsgClientSettings::has_no_save_personal_info() const {
 }
 inline void CMsgClientSettings::clear_no_save_personal_info() {
   no_save_personal_info_ = false;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline bool CMsgClientSettings::_internal_no_save_personal_info() const {
   return no_save_personal_info_;
@@ -4051,7 +4101,7 @@ inline bool CMsgClientSettings::no_save_personal_info() const {
   return _internal_no_save_personal_info();
 }
 inline void CMsgClientSettings::_internal_set_no_save_personal_info(bool value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
   no_save_personal_info_ = value;
 }
 inline void CMsgClientSettings::set_no_save_personal_info(bool value) {
@@ -4061,7 +4111,7 @@ inline void CMsgClientSettings::set_no_save_personal_info(bool value) {
 
 // optional bool oobe_test_mode_enabled = 2 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Software\\Valve\\Steam\\OOBETestModeEnabled"];
 inline bool CMsgClientSettings::_internal_has_oobe_test_mode_enabled() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_oobe_test_mode_enabled() const {
@@ -4069,7 +4119,7 @@ inline bool CMsgClientSettings::has_oobe_test_mode_enabled() const {
 }
 inline void CMsgClientSettings::clear_oobe_test_mode_enabled() {
   oobe_test_mode_enabled_ = false;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline bool CMsgClientSettings::_internal_oobe_test_mode_enabled() const {
   return oobe_test_mode_enabled_;
@@ -4079,7 +4129,7 @@ inline bool CMsgClientSettings::oobe_test_mode_enabled() const {
   return _internal_oobe_test_mode_enabled();
 }
 inline void CMsgClientSettings::_internal_set_oobe_test_mode_enabled(bool value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
   oobe_test_mode_enabled_ = value;
 }
 inline void CMsgClientSettings::set_oobe_test_mode_enabled(bool value) {
@@ -4089,7 +4139,7 @@ inline void CMsgClientSettings::set_oobe_test_mode_enabled(bool value) {
 
 // optional bool in_client_beta = 3 [(.setting_store) = EClientSettingStore_CustomFunc, (.setting_pre_login) = true];
 inline bool CMsgClientSettings::_internal_has_in_client_beta() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_in_client_beta() const {
@@ -4097,7 +4147,7 @@ inline bool CMsgClientSettings::has_in_client_beta() const {
 }
 inline void CMsgClientSettings::clear_in_client_beta() {
   in_client_beta_ = false;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline bool CMsgClientSettings::_internal_in_client_beta() const {
   return in_client_beta_;
@@ -4107,7 +4157,7 @@ inline bool CMsgClientSettings::in_client_beta() const {
   return _internal_in_client_beta();
 }
 inline void CMsgClientSettings::_internal_set_in_client_beta(bool value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
   in_client_beta_ = value;
 }
 inline void CMsgClientSettings::set_in_client_beta(bool value) {
@@ -4117,7 +4167,7 @@ inline void CMsgClientSettings::set_in_client_beta(bool value) {
 
 // optional bool is_steam_sideloaded = 4 [(.setting_store) = EClientSettingStore_CustomFunc, (.setting_pre_login) = true];
 inline bool CMsgClientSettings::_internal_has_is_steam_sideloaded() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_is_steam_sideloaded() const {
@@ -4125,7 +4175,7 @@ inline bool CMsgClientSettings::has_is_steam_sideloaded() const {
 }
 inline void CMsgClientSettings::clear_is_steam_sideloaded() {
   is_steam_sideloaded_ = false;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline bool CMsgClientSettings::_internal_is_steam_sideloaded() const {
   return is_steam_sideloaded_;
@@ -4135,7 +4185,7 @@ inline bool CMsgClientSettings::is_steam_sideloaded() const {
   return _internal_is_steam_sideloaded();
 }
 inline void CMsgClientSettings::_internal_set_is_steam_sideloaded(bool value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
   is_steam_sideloaded_ = value;
 }
 inline void CMsgClientSettings::set_is_steam_sideloaded(bool value) {
@@ -4218,7 +4268,7 @@ inline void CMsgClientSettings::set_allocated_preferred_monitor(std::string* pre
 
 // optional bool steam_cef_gpu_blocklist_disabled = 6 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\CEFGPUBlocklistDisabled"];
 inline bool CMsgClientSettings::_internal_has_steam_cef_gpu_blocklist_disabled() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steam_cef_gpu_blocklist_disabled() const {
@@ -4226,7 +4276,7 @@ inline bool CMsgClientSettings::has_steam_cef_gpu_blocklist_disabled() const {
 }
 inline void CMsgClientSettings::clear_steam_cef_gpu_blocklist_disabled() {
   steam_cef_gpu_blocklist_disabled_ = false;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline bool CMsgClientSettings::_internal_steam_cef_gpu_blocklist_disabled() const {
   return steam_cef_gpu_blocklist_disabled_;
@@ -4236,7 +4286,7 @@ inline bool CMsgClientSettings::steam_cef_gpu_blocklist_disabled() const {
   return _internal_steam_cef_gpu_blocklist_disabled();
 }
 inline void CMsgClientSettings::_internal_set_steam_cef_gpu_blocklist_disabled(bool value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
   steam_cef_gpu_blocklist_disabled_ = value;
 }
 inline void CMsgClientSettings::set_steam_cef_gpu_blocklist_disabled(bool value) {
@@ -4246,7 +4296,7 @@ inline void CMsgClientSettings::set_steam_cef_gpu_blocklist_disabled(bool value)
 
 // optional bool bigpicture_windowed = 7 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "BigPicture/Windowed", (.setting_pre_login) = true];
 inline bool CMsgClientSettings::_internal_has_bigpicture_windowed() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_bigpicture_windowed() const {
@@ -4254,7 +4304,7 @@ inline bool CMsgClientSettings::has_bigpicture_windowed() const {
 }
 inline void CMsgClientSettings::clear_bigpicture_windowed() {
   bigpicture_windowed_ = false;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline bool CMsgClientSettings::_internal_bigpicture_windowed() const {
   return bigpicture_windowed_;
@@ -4264,7 +4314,7 @@ inline bool CMsgClientSettings::bigpicture_windowed() const {
   return _internal_bigpicture_windowed();
 }
 inline void CMsgClientSettings::_internal_set_bigpicture_windowed(bool value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
   bigpicture_windowed_ = value;
 }
 inline void CMsgClientSettings::set_bigpicture_windowed(bool value) {
@@ -4347,7 +4397,7 @@ inline void CMsgClientSettings::set_allocated_display_name(std::string* display_
 
 // optional bool is_external_display = 9 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "UI/Display/Current/IsExternalDisplay"];
 inline bool CMsgClientSettings::_internal_has_is_external_display() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_is_external_display() const {
@@ -4355,7 +4405,7 @@ inline bool CMsgClientSettings::has_is_external_display() const {
 }
 inline void CMsgClientSettings::clear_is_external_display() {
   is_external_display_ = false;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline bool CMsgClientSettings::_internal_is_external_display() const {
   return is_external_display_;
@@ -4365,7 +4415,7 @@ inline bool CMsgClientSettings::is_external_display() const {
   return _internal_is_external_display();
 }
 inline void CMsgClientSettings::_internal_set_is_external_display(bool value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
   is_external_display_ = value;
 }
 inline void CMsgClientSettings::set_is_external_display(bool value) {
@@ -4375,7 +4425,7 @@ inline void CMsgClientSettings::set_is_external_display(bool value) {
 
 // optional float steam_os_underscan_level = 10 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOSScreenUnderscanLevel"];
 inline bool CMsgClientSettings::_internal_has_steam_os_underscan_level() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steam_os_underscan_level() const {
@@ -4383,7 +4433,7 @@ inline bool CMsgClientSettings::has_steam_os_underscan_level() const {
 }
 inline void CMsgClientSettings::clear_steam_os_underscan_level() {
   steam_os_underscan_level_ = 0;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline float CMsgClientSettings::_internal_steam_os_underscan_level() const {
   return steam_os_underscan_level_;
@@ -4393,7 +4443,7 @@ inline float CMsgClientSettings::steam_os_underscan_level() const {
   return _internal_steam_os_underscan_level();
 }
 inline void CMsgClientSettings::_internal_set_steam_os_underscan_level(float value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
   steam_os_underscan_level_ = value;
 }
 inline void CMsgClientSettings::set_steam_os_underscan_level(float value) {
@@ -4403,7 +4453,7 @@ inline void CMsgClientSettings::set_steam_os_underscan_level(float value) {
 
 // optional bool steam_os_underscan_enabled = 11 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOSScreenUnderscanEnabled"];
 inline bool CMsgClientSettings::_internal_has_steam_os_underscan_enabled() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steam_os_underscan_enabled() const {
@@ -4411,7 +4461,7 @@ inline bool CMsgClientSettings::has_steam_os_underscan_enabled() const {
 }
 inline void CMsgClientSettings::clear_steam_os_underscan_enabled() {
   steam_os_underscan_enabled_ = false;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline bool CMsgClientSettings::_internal_steam_os_underscan_enabled() const {
   return steam_os_underscan_enabled_;
@@ -4421,7 +4471,7 @@ inline bool CMsgClientSettings::steam_os_underscan_enabled() const {
   return _internal_steam_os_underscan_enabled();
 }
 inline void CMsgClientSettings::_internal_set_steam_os_underscan_enabled(bool value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
   steam_os_underscan_enabled_ = value;
 }
 inline void CMsgClientSettings::set_steam_os_underscan_enabled(bool value) {
@@ -4431,7 +4481,7 @@ inline void CMsgClientSettings::set_steam_os_underscan_enabled(bool value) {
 
 // optional float min_scale_factor = 12 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "UI/Display/Current/MinScaleFactor"];
 inline bool CMsgClientSettings::_internal_has_min_scale_factor() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_min_scale_factor() const {
@@ -4439,7 +4489,7 @@ inline bool CMsgClientSettings::has_min_scale_factor() const {
 }
 inline void CMsgClientSettings::clear_min_scale_factor() {
   min_scale_factor_ = 0;
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline float CMsgClientSettings::_internal_min_scale_factor() const {
   return min_scale_factor_;
@@ -4449,7 +4499,7 @@ inline float CMsgClientSettings::min_scale_factor() const {
   return _internal_min_scale_factor();
 }
 inline void CMsgClientSettings::_internal_set_min_scale_factor(float value) {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
   min_scale_factor_ = value;
 }
 inline void CMsgClientSettings::set_min_scale_factor(float value) {
@@ -4459,7 +4509,7 @@ inline void CMsgClientSettings::set_min_scale_factor(float value) {
 
 // optional float max_scale_factor = 13 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "UI/Display/Current/MaxScaleFactor"];
 inline bool CMsgClientSettings::_internal_has_max_scale_factor() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_max_scale_factor() const {
@@ -4467,7 +4517,7 @@ inline bool CMsgClientSettings::has_max_scale_factor() const {
 }
 inline void CMsgClientSettings::clear_max_scale_factor() {
   max_scale_factor_ = 0;
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline float CMsgClientSettings::_internal_max_scale_factor() const {
   return max_scale_factor_;
@@ -4477,7 +4527,7 @@ inline float CMsgClientSettings::max_scale_factor() const {
   return _internal_max_scale_factor();
 }
 inline void CMsgClientSettings::_internal_set_max_scale_factor(float value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
   max_scale_factor_ = value;
 }
 inline void CMsgClientSettings::set_max_scale_factor(float value) {
@@ -4487,7 +4537,7 @@ inline void CMsgClientSettings::set_max_scale_factor(float value) {
 
 // optional float auto_scale_factor = 14 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "UI/Display/Current/AutoScaleFactor"];
 inline bool CMsgClientSettings::_internal_has_auto_scale_factor() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_auto_scale_factor() const {
@@ -4495,7 +4545,7 @@ inline bool CMsgClientSettings::has_auto_scale_factor() const {
 }
 inline void CMsgClientSettings::clear_auto_scale_factor() {
   auto_scale_factor_ = 0;
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline float CMsgClientSettings::_internal_auto_scale_factor() const {
   return auto_scale_factor_;
@@ -4505,7 +4555,7 @@ inline float CMsgClientSettings::auto_scale_factor() const {
   return _internal_auto_scale_factor();
 }
 inline void CMsgClientSettings::_internal_set_auto_scale_factor(float value) {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
   auto_scale_factor_ = value;
 }
 inline void CMsgClientSettings::set_auto_scale_factor(float value) {
@@ -4597,9 +4647,37 @@ inline void CMsgClientSettings::set_always_show_user_chooser(bool value) {
   // @@protoc_insertion_point(field_set:CMsgClientSettings.always_show_user_chooser)
 }
 
+// optional bool os_version_unsupported = 21 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\OSVersionUnsupported"];
+inline bool CMsgClientSettings::_internal_has_os_version_unsupported() const {
+  bool value = (_has_bits_[1] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientSettings::has_os_version_unsupported() const {
+  return _internal_has_os_version_unsupported();
+}
+inline void CMsgClientSettings::clear_os_version_unsupported() {
+  os_version_unsupported_ = false;
+  _has_bits_[1] &= ~0x00000002u;
+}
+inline bool CMsgClientSettings::_internal_os_version_unsupported() const {
+  return os_version_unsupported_;
+}
+inline bool CMsgClientSettings::os_version_unsupported() const {
+  // @@protoc_insertion_point(field_get:CMsgClientSettings.os_version_unsupported)
+  return _internal_os_version_unsupported();
+}
+inline void CMsgClientSettings::_internal_set_os_version_unsupported(bool value) {
+  _has_bits_[1] |= 0x00000002u;
+  os_version_unsupported_ = value;
+}
+inline void CMsgClientSettings::set_os_version_unsupported(bool value) {
+  _internal_set_os_version_unsupported(value);
+  // @@protoc_insertion_point(field_set:CMsgClientSettings.os_version_unsupported)
+}
+
 // optional bool show_family_sharing_notifications = 3000 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_show_family_sharing_notifications() const {
-  bool value = (_has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_show_family_sharing_notifications() const {
@@ -4607,7 +4685,7 @@ inline bool CMsgClientSettings::has_show_family_sharing_notifications() const {
 }
 inline void CMsgClientSettings::clear_show_family_sharing_notifications() {
   show_family_sharing_notifications_ = false;
-  _has_bits_[1] &= ~0x00000002u;
+  _has_bits_[1] &= ~0x00000004u;
 }
 inline bool CMsgClientSettings::_internal_show_family_sharing_notifications() const {
   return show_family_sharing_notifications_;
@@ -4617,7 +4695,7 @@ inline bool CMsgClientSettings::show_family_sharing_notifications() const {
   return _internal_show_family_sharing_notifications();
 }
 inline void CMsgClientSettings::_internal_set_show_family_sharing_notifications(bool value) {
-  _has_bits_[1] |= 0x00000002u;
+  _has_bits_[1] |= 0x00000004u;
   show_family_sharing_notifications_ = value;
 }
 inline void CMsgClientSettings::set_show_family_sharing_notifications(bool value) {
@@ -4627,7 +4705,7 @@ inline void CMsgClientSettings::set_show_family_sharing_notifications(bool value
 
 // optional bool show_copy_count_in_library = 3001 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "ShowCopyCountInLibrary", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_show_copy_count_in_library() const {
-  bool value = (_has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_show_copy_count_in_library() const {
@@ -4635,7 +4713,7 @@ inline bool CMsgClientSettings::has_show_copy_count_in_library() const {
 }
 inline void CMsgClientSettings::clear_show_copy_count_in_library() {
   show_copy_count_in_library_ = false;
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[1] &= ~0x00000008u;
 }
 inline bool CMsgClientSettings::_internal_show_copy_count_in_library() const {
   return show_copy_count_in_library_;
@@ -4645,7 +4723,7 @@ inline bool CMsgClientSettings::show_copy_count_in_library() const {
   return _internal_show_copy_count_in_library();
 }
 inline void CMsgClientSettings::_internal_set_show_copy_count_in_library(bool value) {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[1] |= 0x00000008u;
   show_copy_count_in_library_ = value;
 }
 inline void CMsgClientSettings::set_show_copy_count_in_library(bool value) {
@@ -4683,7 +4761,7 @@ inline void CMsgClientSettings::set_overlay_fps_counter_corner(::PROTOBUF_NAMESP
 
 // optional bool overlay_fps_counter_high_contrast = 4001 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayShowFPSContrast"];
 inline bool CMsgClientSettings::_internal_has_overlay_fps_counter_high_contrast() const {
-  bool value = (_has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_overlay_fps_counter_high_contrast() const {
@@ -4691,7 +4769,7 @@ inline bool CMsgClientSettings::has_overlay_fps_counter_high_contrast() const {
 }
 inline void CMsgClientSettings::clear_overlay_fps_counter_high_contrast() {
   overlay_fps_counter_high_contrast_ = false;
-  _has_bits_[1] &= ~0x00000008u;
+  _has_bits_[1] &= ~0x00000010u;
 }
 inline bool CMsgClientSettings::_internal_overlay_fps_counter_high_contrast() const {
   return overlay_fps_counter_high_contrast_;
@@ -4701,7 +4779,7 @@ inline bool CMsgClientSettings::overlay_fps_counter_high_contrast() const {
   return _internal_overlay_fps_counter_high_contrast();
 }
 inline void CMsgClientSettings::_internal_set_overlay_fps_counter_high_contrast(bool value) {
-  _has_bits_[1] |= 0x00000008u;
+  _has_bits_[1] |= 0x00000010u;
   overlay_fps_counter_high_contrast_ = value;
 }
 inline void CMsgClientSettings::set_overlay_fps_counter_high_contrast(bool value) {
@@ -4877,7 +4955,7 @@ inline void CMsgClientSettings::set_allocated_screenshot_key(::CMsgHotkey* scree
 
 // optional bool enable_overlay = 4004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\EnableGameOverlay", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_enable_overlay() const {
-  bool value = (_has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_overlay() const {
@@ -4885,7 +4963,7 @@ inline bool CMsgClientSettings::has_enable_overlay() const {
 }
 inline void CMsgClientSettings::clear_enable_overlay() {
   enable_overlay_ = false;
-  _has_bits_[1] &= ~0x00000010u;
+  _has_bits_[1] &= ~0x00000020u;
 }
 inline bool CMsgClientSettings::_internal_enable_overlay() const {
   return enable_overlay_;
@@ -4895,7 +4973,7 @@ inline bool CMsgClientSettings::enable_overlay() const {
   return _internal_enable_overlay();
 }
 inline void CMsgClientSettings::_internal_set_enable_overlay(bool value) {
-  _has_bits_[1] |= 0x00000010u;
+  _has_bits_[1] |= 0x00000020u;
   enable_overlay_ = value;
 }
 inline void CMsgClientSettings::set_enable_overlay(bool value) {
@@ -4905,7 +4983,7 @@ inline void CMsgClientSettings::set_enable_overlay(bool value) {
 
 // optional bool enable_screenshot_notification = 4006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayScreenshotNotification", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_enable_screenshot_notification() const {
-  bool value = (_has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_screenshot_notification() const {
@@ -4913,7 +4991,7 @@ inline bool CMsgClientSettings::has_enable_screenshot_notification() const {
 }
 inline void CMsgClientSettings::clear_enable_screenshot_notification() {
   enable_screenshot_notification_ = false;
-  _has_bits_[1] &= ~0x00000020u;
+  _has_bits_[1] &= ~0x00000100u;
 }
 inline bool CMsgClientSettings::_internal_enable_screenshot_notification() const {
   return enable_screenshot_notification_;
@@ -4923,7 +5001,7 @@ inline bool CMsgClientSettings::enable_screenshot_notification() const {
   return _internal_enable_screenshot_notification();
 }
 inline void CMsgClientSettings::_internal_set_enable_screenshot_notification(bool value) {
-  _has_bits_[1] |= 0x00000020u;
+  _has_bits_[1] |= 0x00000100u;
   enable_screenshot_notification_ = value;
 }
 inline void CMsgClientSettings::set_enable_screenshot_notification(bool value) {
@@ -4933,7 +5011,7 @@ inline void CMsgClientSettings::set_enable_screenshot_notification(bool value) {
 
 // optional bool enable_screenshot_sound = 4007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayScreenshotPlaySound", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_enable_screenshot_sound() const {
-  bool value = (_has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_screenshot_sound() const {
@@ -4941,7 +5019,7 @@ inline bool CMsgClientSettings::has_enable_screenshot_sound() const {
 }
 inline void CMsgClientSettings::clear_enable_screenshot_sound() {
   enable_screenshot_sound_ = false;
-  _has_bits_[1] &= ~0x00000400u;
+  _has_bits_[1] &= ~0x00000200u;
 }
 inline bool CMsgClientSettings::_internal_enable_screenshot_sound() const {
   return enable_screenshot_sound_;
@@ -4951,7 +5029,7 @@ inline bool CMsgClientSettings::enable_screenshot_sound() const {
   return _internal_enable_screenshot_sound();
 }
 inline void CMsgClientSettings::_internal_set_enable_screenshot_sound(bool value) {
-  _has_bits_[1] |= 0x00000400u;
+  _has_bits_[1] |= 0x00000200u;
   enable_screenshot_sound_ = value;
 }
 inline void CMsgClientSettings::set_enable_screenshot_sound(bool value) {
@@ -4961,7 +5039,7 @@ inline void CMsgClientSettings::set_enable_screenshot_sound(bool value) {
 
 // optional bool save_uncompressed_screenshots = 4008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayScreenshotSaveUncompressed"];
 inline bool CMsgClientSettings::_internal_has_save_uncompressed_screenshots() const {
-  bool value = (_has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_save_uncompressed_screenshots() const {
@@ -4969,7 +5047,7 @@ inline bool CMsgClientSettings::has_save_uncompressed_screenshots() const {
 }
 inline void CMsgClientSettings::clear_save_uncompressed_screenshots() {
   save_uncompressed_screenshots_ = false;
-  _has_bits_[1] &= ~0x00000800u;
+  _has_bits_[1] &= ~0x00000400u;
 }
 inline bool CMsgClientSettings::_internal_save_uncompressed_screenshots() const {
   return save_uncompressed_screenshots_;
@@ -4979,7 +5057,7 @@ inline bool CMsgClientSettings::save_uncompressed_screenshots() const {
   return _internal_save_uncompressed_screenshots();
 }
 inline void CMsgClientSettings::_internal_set_save_uncompressed_screenshots(bool value) {
-  _has_bits_[1] |= 0x00000800u;
+  _has_bits_[1] |= 0x00000400u;
   save_uncompressed_screenshots_ = value;
 }
 inline void CMsgClientSettings::set_save_uncompressed_screenshots(bool value) {
@@ -5090,7 +5168,7 @@ inline void CMsgClientSettings::set_default_ping_rate(::PROTOBUF_NAMESPACE_ID::i
 
 // optional int32 server_ping_rate = 4011 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_server_ping_rate() const {
-  bool value = (_has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_server_ping_rate() const {
@@ -5098,7 +5176,7 @@ inline bool CMsgClientSettings::has_server_ping_rate() const {
 }
 inline void CMsgClientSettings::clear_server_ping_rate() {
   server_ping_rate_ = 0;
-  _has_bits_[1] &= ~0x00000100u;
+  _has_bits_[1] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_server_ping_rate() const {
   return server_ping_rate_;
@@ -5108,7 +5186,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::server_ping_rate() con
   return _internal_server_ping_rate();
 }
 inline void CMsgClientSettings::_internal_set_server_ping_rate(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[1] |= 0x00000100u;
+  _has_bits_[1] |= 0x00001000u;
   server_ping_rate_ = value;
 }
 inline void CMsgClientSettings::set_server_ping_rate(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -5118,7 +5196,7 @@ inline void CMsgClientSettings::set_server_ping_rate(::PROTOBUF_NAMESPACE_ID::in
 
 // optional int32 steam_networking_share_ip = 4012 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_steam_networking_share_ip() const {
-  bool value = (_has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steam_networking_share_ip() const {
@@ -5126,7 +5204,7 @@ inline bool CMsgClientSettings::has_steam_networking_share_ip() const {
 }
 inline void CMsgClientSettings::clear_steam_networking_share_ip() {
   steam_networking_share_ip_ = 0;
-  _has_bits_[1] &= ~0x00000200u;
+  _has_bits_[1] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_steam_networking_share_ip() const {
   return steam_networking_share_ip_;
@@ -5136,7 +5214,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::steam_networking_share
   return _internal_steam_networking_share_ip();
 }
 inline void CMsgClientSettings::_internal_set_steam_networking_share_ip(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[1] |= 0x00000200u;
+  _has_bits_[1] |= 0x00002000u;
   steam_networking_share_ip_ = value;
 }
 inline void CMsgClientSettings::set_steam_networking_share_ip(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -5459,7 +5537,7 @@ inline void CMsgClientSettings::set_allocated_voice_push_to_talkey(::CMsgHotkey*
 
 // optional bool overlay_toolbar_list_view = 4019 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "OverlayToolBarListView"];
 inline bool CMsgClientSettings::_internal_has_overlay_toolbar_list_view() const {
-  bool value = (_has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_overlay_toolbar_list_view() const {
@@ -5467,7 +5545,7 @@ inline bool CMsgClientSettings::has_overlay_toolbar_list_view() const {
 }
 inline void CMsgClientSettings::clear_overlay_toolbar_list_view() {
   overlay_toolbar_list_view_ = false;
-  _has_bits_[1] &= ~0x00001000u;
+  _has_bits_[1] &= ~0x00000800u;
 }
 inline bool CMsgClientSettings::_internal_overlay_toolbar_list_view() const {
   return overlay_toolbar_list_view_;
@@ -5477,7 +5555,7 @@ inline bool CMsgClientSettings::overlay_toolbar_list_view() const {
   return _internal_overlay_toolbar_list_view();
 }
 inline void CMsgClientSettings::_internal_set_overlay_toolbar_list_view(bool value) {
-  _has_bits_[1] |= 0x00001000u;
+  _has_bits_[1] |= 0x00000800u;
   overlay_toolbar_list_view_ = value;
 }
 inline void CMsgClientSettings::set_overlay_toolbar_list_view(bool value) {
@@ -5487,7 +5565,7 @@ inline void CMsgClientSettings::set_overlay_toolbar_list_view(bool value) {
 
 // optional bool always_use_gamepadui_overlay = 4020 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\EnableSCTenFootOverlayCheckNew"];
 inline bool CMsgClientSettings::_internal_has_always_use_gamepadui_overlay() const {
-  bool value = (_has_bits_[1] & 0x00002000u) != 0;
+  bool value = (_has_bits_[1] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_always_use_gamepadui_overlay() const {
@@ -5495,7 +5573,7 @@ inline bool CMsgClientSettings::has_always_use_gamepadui_overlay() const {
 }
 inline void CMsgClientSettings::clear_always_use_gamepadui_overlay() {
   always_use_gamepadui_overlay_ = false;
-  _has_bits_[1] &= ~0x00002000u;
+  _has_bits_[1] &= ~0x00020000u;
 }
 inline bool CMsgClientSettings::_internal_always_use_gamepadui_overlay() const {
   return always_use_gamepadui_overlay_;
@@ -5505,7 +5583,7 @@ inline bool CMsgClientSettings::always_use_gamepadui_overlay() const {
   return _internal_always_use_gamepadui_overlay();
 }
 inline void CMsgClientSettings::_internal_set_always_use_gamepadui_overlay(bool value) {
-  _has_bits_[1] |= 0x00002000u;
+  _has_bits_[1] |= 0x00020000u;
   always_use_gamepadui_overlay_ = value;
 }
 inline void CMsgClientSettings::set_always_use_gamepadui_overlay(bool value) {
@@ -5588,7 +5666,7 @@ inline void CMsgClientSettings::set_allocated_overlay_tabs(std::string* overlay_
 
 // optional bool overlay_scale_interface = 4022 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\OverlayScaleInterface", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_overlay_scale_interface() const {
-  bool value = (_has_bits_[1] & 0x00020000u) != 0;
+  bool value = (_has_bits_[1] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_overlay_scale_interface() const {
@@ -5596,7 +5674,7 @@ inline bool CMsgClientSettings::has_overlay_scale_interface() const {
 }
 inline void CMsgClientSettings::clear_overlay_scale_interface() {
   overlay_scale_interface_ = false;
-  _has_bits_[1] &= ~0x00020000u;
+  _has_bits_[1] &= ~0x00040000u;
 }
 inline bool CMsgClientSettings::_internal_overlay_scale_interface() const {
   return overlay_scale_interface_;
@@ -5606,7 +5684,7 @@ inline bool CMsgClientSettings::overlay_scale_interface() const {
   return _internal_overlay_scale_interface();
 }
 inline void CMsgClientSettings::_internal_set_overlay_scale_interface(bool value) {
-  _has_bits_[1] |= 0x00020000u;
+  _has_bits_[1] |= 0x00040000u;
   overlay_scale_interface_ = value;
 }
 inline void CMsgClientSettings::set_overlay_scale_interface(bool value) {
@@ -5616,7 +5694,7 @@ inline void CMsgClientSettings::set_overlay_scale_interface(bool value) {
 
 // optional bool overlay_restore_browser_tabs = 4023 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayRestoreBrowserTabs", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_overlay_restore_browser_tabs() const {
-  bool value = (_has_bits_[1] & 0x00040000u) != 0;
+  bool value = (_has_bits_[1] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_overlay_restore_browser_tabs() const {
@@ -5624,7 +5702,7 @@ inline bool CMsgClientSettings::has_overlay_restore_browser_tabs() const {
 }
 inline void CMsgClientSettings::clear_overlay_restore_browser_tabs() {
   overlay_restore_browser_tabs_ = false;
-  _has_bits_[1] &= ~0x00040000u;
+  _has_bits_[1] &= ~0x00080000u;
 }
 inline bool CMsgClientSettings::_internal_overlay_restore_browser_tabs() const {
   return overlay_restore_browser_tabs_;
@@ -5634,7 +5712,7 @@ inline bool CMsgClientSettings::overlay_restore_browser_tabs() const {
   return _internal_overlay_restore_browser_tabs();
 }
 inline void CMsgClientSettings::_internal_set_overlay_restore_browser_tabs(bool value) {
-  _has_bits_[1] |= 0x00040000u;
+  _has_bits_[1] |= 0x00080000u;
   overlay_restore_browser_tabs_ = value;
 }
 inline void CMsgClientSettings::set_overlay_restore_browser_tabs(bool value) {
@@ -5644,7 +5722,7 @@ inline void CMsgClientSettings::set_overlay_restore_browser_tabs(bool value) {
 
 // optional bool enable_avif_screenshots = 4024 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\InGameOverlayScreenshotEnableAVIF"];
 inline bool CMsgClientSettings::_internal_has_enable_avif_screenshots() const {
-  bool value = (_has_bits_[1] & 0x00080000u) != 0;
+  bool value = (_has_bits_[1] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_avif_screenshots() const {
@@ -5652,7 +5730,7 @@ inline bool CMsgClientSettings::has_enable_avif_screenshots() const {
 }
 inline void CMsgClientSettings::clear_enable_avif_screenshots() {
   enable_avif_screenshots_ = false;
-  _has_bits_[1] &= ~0x00080000u;
+  _has_bits_[1] &= ~0x00100000u;
 }
 inline bool CMsgClientSettings::_internal_enable_avif_screenshots() const {
   return enable_avif_screenshots_;
@@ -5662,7 +5740,7 @@ inline bool CMsgClientSettings::enable_avif_screenshots() const {
   return _internal_enable_avif_screenshots();
 }
 inline void CMsgClientSettings::_internal_set_enable_avif_screenshots(bool value) {
-  _has_bits_[1] |= 0x00080000u;
+  _has_bits_[1] |= 0x00100000u;
   enable_avif_screenshots_ = value;
 }
 inline void CMsgClientSettings::set_enable_avif_screenshots(bool value) {
@@ -5672,7 +5750,7 @@ inline void CMsgClientSettings::set_enable_avif_screenshots(bool value) {
 
 // optional bool smooth_scroll_webviews = 5000 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\SmoothScrollWebViews", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_smooth_scroll_webviews() const {
-  bool value = (_has_bits_[1] & 0x00100000u) != 0;
+  bool value = (_has_bits_[1] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_smooth_scroll_webviews() const {
@@ -5680,7 +5758,7 @@ inline bool CMsgClientSettings::has_smooth_scroll_webviews() const {
 }
 inline void CMsgClientSettings::clear_smooth_scroll_webviews() {
   smooth_scroll_webviews_ = false;
-  _has_bits_[1] &= ~0x00100000u;
+  _has_bits_[1] &= ~0x00200000u;
 }
 inline bool CMsgClientSettings::_internal_smooth_scroll_webviews() const {
   return smooth_scroll_webviews_;
@@ -5690,7 +5768,7 @@ inline bool CMsgClientSettings::smooth_scroll_webviews() const {
   return _internal_smooth_scroll_webviews();
 }
 inline void CMsgClientSettings::_internal_set_smooth_scroll_webviews(bool value) {
-  _has_bits_[1] |= 0x00100000u;
+  _has_bits_[1] |= 0x00200000u;
   smooth_scroll_webviews_ = value;
 }
 inline void CMsgClientSettings::set_smooth_scroll_webviews(bool value) {
@@ -5700,7 +5778,7 @@ inline void CMsgClientSettings::set_smooth_scroll_webviews(bool value) {
 
 // optional bool enable_gpu_accelerated_webviews = 5001 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_enable_gpu_accelerated_webviews() const {
-  bool value = (_has_bits_[1] & 0x00200000u) != 0;
+  bool value = (_has_bits_[1] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_gpu_accelerated_webviews() const {
@@ -5708,7 +5786,7 @@ inline bool CMsgClientSettings::has_enable_gpu_accelerated_webviews() const {
 }
 inline void CMsgClientSettings::clear_enable_gpu_accelerated_webviews() {
   enable_gpu_accelerated_webviews_ = false;
-  _has_bits_[1] &= ~0x00200000u;
+  _has_bits_[1] &= ~0x00400000u;
 }
 inline bool CMsgClientSettings::_internal_enable_gpu_accelerated_webviews() const {
   return enable_gpu_accelerated_webviews_;
@@ -5718,7 +5796,7 @@ inline bool CMsgClientSettings::enable_gpu_accelerated_webviews() const {
   return _internal_enable_gpu_accelerated_webviews();
 }
 inline void CMsgClientSettings::_internal_set_enable_gpu_accelerated_webviews(bool value) {
-  _has_bits_[1] |= 0x00200000u;
+  _has_bits_[1] |= 0x00400000u;
   enable_gpu_accelerated_webviews_ = value;
 }
 inline void CMsgClientSettings::set_enable_gpu_accelerated_webviews(bool value) {
@@ -5728,7 +5806,7 @@ inline void CMsgClientSettings::set_enable_gpu_accelerated_webviews(bool value) 
 
 // optional bool enable_hardware_video_decoding = 5003 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_enable_hardware_video_decoding() const {
-  bool value = (_has_bits_[1] & 0x00400000u) != 0;
+  bool value = (_has_bits_[1] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_hardware_video_decoding() const {
@@ -5736,7 +5814,7 @@ inline bool CMsgClientSettings::has_enable_hardware_video_decoding() const {
 }
 inline void CMsgClientSettings::clear_enable_hardware_video_decoding() {
   enable_hardware_video_decoding_ = false;
-  _has_bits_[1] &= ~0x00400000u;
+  _has_bits_[1] &= ~0x00800000u;
 }
 inline bool CMsgClientSettings::_internal_enable_hardware_video_decoding() const {
   return enable_hardware_video_decoding_;
@@ -5746,7 +5824,7 @@ inline bool CMsgClientSettings::enable_hardware_video_decoding() const {
   return _internal_enable_hardware_video_decoding();
 }
 inline void CMsgClientSettings::_internal_set_enable_hardware_video_decoding(bool value) {
-  _has_bits_[1] |= 0x00400000u;
+  _has_bits_[1] |= 0x00800000u;
   enable_hardware_video_decoding_ = value;
 }
 inline void CMsgClientSettings::set_enable_hardware_video_decoding(bool value) {
@@ -5756,7 +5834,7 @@ inline void CMsgClientSettings::set_enable_hardware_video_decoding(bool value) {
 
 // optional bool run_at_startup = 5004 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_run_at_startup() const {
-  bool value = (_has_bits_[1] & 0x00800000u) != 0;
+  bool value = (_has_bits_[1] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_run_at_startup() const {
@@ -5764,7 +5842,7 @@ inline bool CMsgClientSettings::has_run_at_startup() const {
 }
 inline void CMsgClientSettings::clear_run_at_startup() {
   run_at_startup_ = false;
-  _has_bits_[1] &= ~0x00800000u;
+  _has_bits_[1] &= ~0x01000000u;
 }
 inline bool CMsgClientSettings::_internal_run_at_startup() const {
   return run_at_startup_;
@@ -5774,7 +5852,7 @@ inline bool CMsgClientSettings::run_at_startup() const {
   return _internal_run_at_startup();
 }
 inline void CMsgClientSettings::_internal_set_run_at_startup(bool value) {
-  _has_bits_[1] |= 0x00800000u;
+  _has_bits_[1] |= 0x01000000u;
   run_at_startup_ = value;
 }
 inline void CMsgClientSettings::set_run_at_startup(bool value) {
@@ -5784,7 +5862,7 @@ inline void CMsgClientSettings::set_run_at_startup(bool value) {
 
 // optional bool enable_dpi_scaling = 5005 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_enable_dpi_scaling() const {
-  bool value = (_has_bits_[1] & 0x01000000u) != 0;
+  bool value = (_has_bits_[1] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_dpi_scaling() const {
@@ -5792,7 +5870,7 @@ inline bool CMsgClientSettings::has_enable_dpi_scaling() const {
 }
 inline void CMsgClientSettings::clear_enable_dpi_scaling() {
   enable_dpi_scaling_ = false;
-  _has_bits_[1] &= ~0x01000000u;
+  _has_bits_[1] &= ~0x02000000u;
 }
 inline bool CMsgClientSettings::_internal_enable_dpi_scaling() const {
   return enable_dpi_scaling_;
@@ -5802,7 +5880,7 @@ inline bool CMsgClientSettings::enable_dpi_scaling() const {
   return _internal_enable_dpi_scaling();
 }
 inline void CMsgClientSettings::_internal_set_enable_dpi_scaling(bool value) {
-  _has_bits_[1] |= 0x01000000u;
+  _has_bits_[1] |= 0x02000000u;
   enable_dpi_scaling_ = value;
 }
 inline void CMsgClientSettings::set_enable_dpi_scaling(bool value) {
@@ -5868,7 +5946,7 @@ inline void CMsgClientSettings::set_start_in_big_picture_mode(bool value) {
 
 // optional uint32 jumplist_flags = 5008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "system\\JumplistSettings", (.setting_default_uint) = 77680];
 inline bool CMsgClientSettings::_internal_has_jumplist_flags() const {
-  bool value = (_has_bits_[1] & 0x02000000u) != 0;
+  bool value = (_has_bits_[1] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_jumplist_flags() const {
@@ -5876,7 +5954,7 @@ inline bool CMsgClientSettings::has_jumplist_flags() const {
 }
 inline void CMsgClientSettings::clear_jumplist_flags() {
   jumplist_flags_ = 0u;
-  _has_bits_[1] &= ~0x02000000u;
+  _has_bits_[1] &= ~0x20000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientSettings::_internal_jumplist_flags() const {
   return jumplist_flags_;
@@ -5886,7 +5964,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientSettings::jumplist_flags() cons
   return _internal_jumplist_flags();
 }
 inline void CMsgClientSettings::_internal_set_jumplist_flags(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x02000000u;
+  _has_bits_[1] |= 0x20000000u;
   jumplist_flags_ = value;
 }
 inline void CMsgClientSettings::set_jumplist_flags(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -5924,7 +6002,7 @@ inline void CMsgClientSettings::set_enable_ui_sounds(bool value) {
 
 // optional bool disable_all_toasts = 6000 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "DisableAllToasts"];
 inline bool CMsgClientSettings::_internal_has_disable_all_toasts() const {
-  bool value = (_has_bits_[1] & 0x20000000u) != 0;
+  bool value = (_has_bits_[1] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_disable_all_toasts() const {
@@ -5932,7 +6010,7 @@ inline bool CMsgClientSettings::has_disable_all_toasts() const {
 }
 inline void CMsgClientSettings::clear_disable_all_toasts() {
   disable_all_toasts_ = false;
-  _has_bits_[1] &= ~0x20000000u;
+  _has_bits_[1] &= ~0x40000000u;
 }
 inline bool CMsgClientSettings::_internal_disable_all_toasts() const {
   return disable_all_toasts_;
@@ -5942,7 +6020,7 @@ inline bool CMsgClientSettings::disable_all_toasts() const {
   return _internal_disable_all_toasts();
 }
 inline void CMsgClientSettings::_internal_set_disable_all_toasts(bool value) {
-  _has_bits_[1] |= 0x20000000u;
+  _has_bits_[1] |= 0x40000000u;
   disable_all_toasts_ = value;
 }
 inline void CMsgClientSettings::set_disable_all_toasts(bool value) {
@@ -5952,7 +6030,7 @@ inline void CMsgClientSettings::set_disable_all_toasts(bool value) {
 
 // optional bool disable_toasts_in_game = 6001 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "DisableToastsInGame"];
 inline bool CMsgClientSettings::_internal_has_disable_toasts_in_game() const {
-  bool value = (_has_bits_[1] & 0x40000000u) != 0;
+  bool value = (_has_bits_[1] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_disable_toasts_in_game() const {
@@ -5960,7 +6038,7 @@ inline bool CMsgClientSettings::has_disable_toasts_in_game() const {
 }
 inline void CMsgClientSettings::clear_disable_toasts_in_game() {
   disable_toasts_in_game_ = false;
-  _has_bits_[1] &= ~0x40000000u;
+  _has_bits_[1] &= ~0x80000000u;
 }
 inline bool CMsgClientSettings::_internal_disable_toasts_in_game() const {
   return disable_toasts_in_game_;
@@ -5970,7 +6048,7 @@ inline bool CMsgClientSettings::disable_toasts_in_game() const {
   return _internal_disable_toasts_in_game();
 }
 inline void CMsgClientSettings::_internal_set_disable_toasts_in_game(bool value) {
-  _has_bits_[1] |= 0x40000000u;
+  _has_bits_[1] |= 0x80000000u;
   disable_toasts_in_game_ = value;
 }
 inline void CMsgClientSettings::set_disable_toasts_in_game(bool value) {
@@ -5980,7 +6058,7 @@ inline void CMsgClientSettings::set_disable_toasts_in_game(bool value) {
 
 // optional bool play_sound_on_toast = 6002 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "PlaySoundOnToast", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_play_sound_on_toast() const {
-  bool value = (_has_bits_[1] & 0x80000000u) != 0;
+  bool value = (_has_bits_[2] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_play_sound_on_toast() const {
@@ -5988,7 +6066,7 @@ inline bool CMsgClientSettings::has_play_sound_on_toast() const {
 }
 inline void CMsgClientSettings::clear_play_sound_on_toast() {
   play_sound_on_toast_ = false;
-  _has_bits_[1] &= ~0x80000000u;
+  _has_bits_[2] &= ~0x00000001u;
 }
 inline bool CMsgClientSettings::_internal_play_sound_on_toast() const {
   return play_sound_on_toast_;
@@ -5998,7 +6076,7 @@ inline bool CMsgClientSettings::play_sound_on_toast() const {
   return _internal_play_sound_on_toast();
 }
 inline void CMsgClientSettings::_internal_set_play_sound_on_toast(bool value) {
-  _has_bits_[1] |= 0x80000000u;
+  _has_bits_[2] |= 0x00000001u;
   play_sound_on_toast_ = value;
 }
 inline void CMsgClientSettings::set_play_sound_on_toast(bool value) {
@@ -6036,7 +6114,7 @@ inline void CMsgClientSettings::set_library_display_size(::PROTOBUF_NAMESPACE_ID
 
 // optional bool library_whats_new_show_only_product_updates = 7001 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "LibraryWhatsNewShowOnlyProductUpdates"];
 inline bool CMsgClientSettings::_internal_has_library_whats_new_show_only_product_updates() const {
-  bool value = (_has_bits_[2] & 0x00000001u) != 0;
+  bool value = (_has_bits_[2] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_library_whats_new_show_only_product_updates() const {
@@ -6044,7 +6122,7 @@ inline bool CMsgClientSettings::has_library_whats_new_show_only_product_updates(
 }
 inline void CMsgClientSettings::clear_library_whats_new_show_only_product_updates() {
   library_whats_new_show_only_product_updates_ = false;
-  _has_bits_[2] &= ~0x00000001u;
+  _has_bits_[2] &= ~0x00000002u;
 }
 inline bool CMsgClientSettings::_internal_library_whats_new_show_only_product_updates() const {
   return library_whats_new_show_only_product_updates_;
@@ -6054,7 +6132,7 @@ inline bool CMsgClientSettings::library_whats_new_show_only_product_updates() co
   return _internal_library_whats_new_show_only_product_updates();
 }
 inline void CMsgClientSettings::_internal_set_library_whats_new_show_only_product_updates(bool value) {
-  _has_bits_[2] |= 0x00000001u;
+  _has_bits_[2] |= 0x00000002u;
   library_whats_new_show_only_product_updates_ = value;
 }
 inline void CMsgClientSettings::set_library_whats_new_show_only_product_updates(bool value) {
@@ -6064,7 +6142,7 @@ inline void CMsgClientSettings::set_library_whats_new_show_only_product_updates(
 
 // optional bool show_store_content_on_home = 7002 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "ShowStoreContentOnHome", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_show_store_content_on_home() const {
-  bool value = (_has_bits_[2] & 0x00000002u) != 0;
+  bool value = (_has_bits_[2] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_show_store_content_on_home() const {
@@ -6072,7 +6150,7 @@ inline bool CMsgClientSettings::has_show_store_content_on_home() const {
 }
 inline void CMsgClientSettings::clear_show_store_content_on_home() {
   show_store_content_on_home_ = false;
-  _has_bits_[2] &= ~0x00000002u;
+  _has_bits_[2] &= ~0x00000008u;
 }
 inline bool CMsgClientSettings::_internal_show_store_content_on_home() const {
   return show_store_content_on_home_;
@@ -6082,7 +6160,7 @@ inline bool CMsgClientSettings::show_store_content_on_home() const {
   return _internal_show_store_content_on_home();
 }
 inline void CMsgClientSettings::_internal_set_show_store_content_on_home(bool value) {
-  _has_bits_[2] |= 0x00000002u;
+  _has_bits_[2] |= 0x00000008u;
   show_store_content_on_home_ = value;
 }
 inline void CMsgClientSettings::set_show_store_content_on_home(bool value) {
@@ -6165,7 +6243,7 @@ inline void CMsgClientSettings::set_allocated_start_page(std::string* start_page
 
 // optional bool library_low_bandwidth_mode = 7004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "LibraryLowBandwidthMode"];
 inline bool CMsgClientSettings::_internal_has_library_low_bandwidth_mode() const {
-  bool value = (_has_bits_[2] & 0x00000008u) != 0;
+  bool value = (_has_bits_[2] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_library_low_bandwidth_mode() const {
@@ -6173,7 +6251,7 @@ inline bool CMsgClientSettings::has_library_low_bandwidth_mode() const {
 }
 inline void CMsgClientSettings::clear_library_low_bandwidth_mode() {
   library_low_bandwidth_mode_ = false;
-  _has_bits_[2] &= ~0x00000008u;
+  _has_bits_[2] &= ~0x00000010u;
 }
 inline bool CMsgClientSettings::_internal_library_low_bandwidth_mode() const {
   return library_low_bandwidth_mode_;
@@ -6183,7 +6261,7 @@ inline bool CMsgClientSettings::library_low_bandwidth_mode() const {
   return _internal_library_low_bandwidth_mode();
 }
 inline void CMsgClientSettings::_internal_set_library_low_bandwidth_mode(bool value) {
-  _has_bits_[2] |= 0x00000008u;
+  _has_bits_[2] |= 0x00000010u;
   library_low_bandwidth_mode_ = value;
 }
 inline void CMsgClientSettings::set_library_low_bandwidth_mode(bool value) {
@@ -6193,7 +6271,7 @@ inline void CMsgClientSettings::set_library_low_bandwidth_mode(bool value) {
 
 // optional bool library_low_perf_mode = 7005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "LibraryLowPerfMode"];
 inline bool CMsgClientSettings::_internal_has_library_low_perf_mode() const {
-  bool value = (_has_bits_[2] & 0x00000010u) != 0;
+  bool value = (_has_bits_[2] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_library_low_perf_mode() const {
@@ -6201,7 +6279,7 @@ inline bool CMsgClientSettings::has_library_low_perf_mode() const {
 }
 inline void CMsgClientSettings::clear_library_low_perf_mode() {
   library_low_perf_mode_ = false;
-  _has_bits_[2] &= ~0x00000010u;
+  _has_bits_[2] &= ~0x00000020u;
 }
 inline bool CMsgClientSettings::_internal_library_low_perf_mode() const {
   return library_low_perf_mode_;
@@ -6211,7 +6289,7 @@ inline bool CMsgClientSettings::library_low_perf_mode() const {
   return _internal_library_low_perf_mode();
 }
 inline void CMsgClientSettings::_internal_set_library_low_perf_mode(bool value) {
-  _has_bits_[2] |= 0x00000010u;
+  _has_bits_[2] |= 0x00000020u;
   library_low_perf_mode_ = value;
 }
 inline void CMsgClientSettings::set_library_low_perf_mode(bool value) {
@@ -6221,7 +6299,7 @@ inline void CMsgClientSettings::set_library_low_perf_mode(bool value) {
 
 // optional bool library_disable_community_content = 7006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "LibraryDisableCommunityContent"];
 inline bool CMsgClientSettings::_internal_has_library_disable_community_content() const {
-  bool value = (_has_bits_[2] & 0x00000020u) != 0;
+  bool value = (_has_bits_[2] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_library_disable_community_content() const {
@@ -6229,7 +6307,7 @@ inline bool CMsgClientSettings::has_library_disable_community_content() const {
 }
 inline void CMsgClientSettings::clear_library_disable_community_content() {
   library_disable_community_content_ = false;
-  _has_bits_[2] &= ~0x00000020u;
+  _has_bits_[2] &= ~0x00000040u;
 }
 inline bool CMsgClientSettings::_internal_library_disable_community_content() const {
   return library_disable_community_content_;
@@ -6239,7 +6317,7 @@ inline bool CMsgClientSettings::library_disable_community_content() const {
   return _internal_library_disable_community_content();
 }
 inline void CMsgClientSettings::_internal_set_library_disable_community_content(bool value) {
-  _has_bits_[2] |= 0x00000020u;
+  _has_bits_[2] |= 0x00000040u;
   library_disable_community_content_ = value;
 }
 inline void CMsgClientSettings::set_library_disable_community_content(bool value) {
@@ -6249,7 +6327,7 @@ inline void CMsgClientSettings::set_library_disable_community_content(bool value
 
 // optional bool library_display_icon_in_game_list = 7007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "LibraryDisplayIconInGameList", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_library_display_icon_in_game_list() const {
-  bool value = (_has_bits_[2] & 0x00000040u) != 0;
+  bool value = (_has_bits_[2] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_library_display_icon_in_game_list() const {
@@ -6257,7 +6335,7 @@ inline bool CMsgClientSettings::has_library_display_icon_in_game_list() const {
 }
 inline void CMsgClientSettings::clear_library_display_icon_in_game_list() {
   library_display_icon_in_game_list_ = false;
-  _has_bits_[2] &= ~0x00000040u;
+  _has_bits_[2] &= ~0x00000080u;
 }
 inline bool CMsgClientSettings::_internal_library_display_icon_in_game_list() const {
   return library_display_icon_in_game_list_;
@@ -6267,7 +6345,7 @@ inline bool CMsgClientSettings::library_display_icon_in_game_list() const {
   return _internal_library_display_icon_in_game_list();
 }
 inline void CMsgClientSettings::_internal_set_library_display_icon_in_game_list(bool value) {
-  _has_bits_[2] |= 0x00000040u;
+  _has_bits_[2] |= 0x00000080u;
   library_display_icon_in_game_list_ = value;
 }
 inline void CMsgClientSettings::set_library_display_icon_in_game_list(bool value) {
@@ -6277,7 +6355,7 @@ inline void CMsgClientSettings::set_library_display_icon_in_game_list(bool value
 
 // optional bool ready_to_play_includes_streaming = 7008 [(.setting_store) = EClientSettingStore_CustomFunc, (.setting_name) = "ReadyToPlayIncludesStreaming"];
 inline bool CMsgClientSettings::_internal_has_ready_to_play_includes_streaming() const {
-  bool value = (_has_bits_[2] & 0x00000080u) != 0;
+  bool value = (_has_bits_[2] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_ready_to_play_includes_streaming() const {
@@ -6285,7 +6363,7 @@ inline bool CMsgClientSettings::has_ready_to_play_includes_streaming() const {
 }
 inline void CMsgClientSettings::clear_ready_to_play_includes_streaming() {
   ready_to_play_includes_streaming_ = false;
-  _has_bits_[2] &= ~0x00000080u;
+  _has_bits_[2] &= ~0x00000100u;
 }
 inline bool CMsgClientSettings::_internal_ready_to_play_includes_streaming() const {
   return ready_to_play_includes_streaming_;
@@ -6295,7 +6373,7 @@ inline bool CMsgClientSettings::ready_to_play_includes_streaming() const {
   return _internal_ready_to_play_includes_streaming();
 }
 inline void CMsgClientSettings::_internal_set_ready_to_play_includes_streaming(bool value) {
-  _has_bits_[2] |= 0x00000080u;
+  _has_bits_[2] |= 0x00000100u;
   ready_to_play_includes_streaming_ = value;
 }
 inline void CMsgClientSettings::set_ready_to_play_includes_streaming(bool value) {
@@ -6305,7 +6383,7 @@ inline void CMsgClientSettings::set_ready_to_play_includes_streaming(bool value)
 
 // optional bool show_steam_decinfo = 7009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "ShowSteamDeckInfoInLibrary"];
 inline bool CMsgClientSettings::_internal_has_show_steam_decinfo() const {
-  bool value = (_has_bits_[2] & 0x00000100u) != 0;
+  bool value = (_has_bits_[2] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_show_steam_decinfo() const {
@@ -6313,7 +6391,7 @@ inline bool CMsgClientSettings::has_show_steam_decinfo() const {
 }
 inline void CMsgClientSettings::clear_show_steam_decinfo() {
   show_steam_decinfo_ = false;
-  _has_bits_[2] &= ~0x00000100u;
+  _has_bits_[2] &= ~0x00000200u;
 }
 inline bool CMsgClientSettings::_internal_show_steam_decinfo() const {
   return show_steam_decinfo_;
@@ -6323,7 +6401,7 @@ inline bool CMsgClientSettings::show_steam_decinfo() const {
   return _internal_show_steam_decinfo();
 }
 inline void CMsgClientSettings::_internal_set_show_steam_decinfo(bool value) {
-  _has_bits_[2] |= 0x00000100u;
+  _has_bits_[2] |= 0x00000200u;
   show_steam_decinfo_ = value;
 }
 inline void CMsgClientSettings::set_show_steam_decinfo(bool value) {
@@ -6333,7 +6411,7 @@ inline void CMsgClientSettings::set_show_steam_decinfo(bool value) {
 
 // optional bool enable_shader_precache = 8000 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_enable_shader_precache() const {
-  bool value = (_has_bits_[2] & 0x00000200u) != 0;
+  bool value = (_has_bits_[2] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_shader_precache() const {
@@ -6341,7 +6419,7 @@ inline bool CMsgClientSettings::has_enable_shader_precache() const {
 }
 inline void CMsgClientSettings::clear_enable_shader_precache() {
   enable_shader_precache_ = false;
-  _has_bits_[2] &= ~0x00000200u;
+  _has_bits_[2] &= ~0x00000400u;
 }
 inline bool CMsgClientSettings::_internal_enable_shader_precache() const {
   return enable_shader_precache_;
@@ -6351,7 +6429,7 @@ inline bool CMsgClientSettings::enable_shader_precache() const {
   return _internal_enable_shader_precache();
 }
 inline void CMsgClientSettings::_internal_set_enable_shader_precache(bool value) {
-  _has_bits_[2] |= 0x00000200u;
+  _has_bits_[2] |= 0x00000400u;
   enable_shader_precache_ = value;
 }
 inline void CMsgClientSettings::set_enable_shader_precache(bool value) {
@@ -6361,7 +6439,7 @@ inline void CMsgClientSettings::set_enable_shader_precache(bool value) {
 
 // optional bool enable_shader_background_processing = 8001 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_enable_shader_background_processing() const {
-  bool value = (_has_bits_[2] & 0x00000400u) != 0;
+  bool value = (_has_bits_[2] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_enable_shader_background_processing() const {
@@ -6369,7 +6447,7 @@ inline bool CMsgClientSettings::has_enable_shader_background_processing() const 
 }
 inline void CMsgClientSettings::clear_enable_shader_background_processing() {
   enable_shader_background_processing_ = false;
-  _has_bits_[2] &= ~0x00000400u;
+  _has_bits_[2] &= ~0x00001000u;
 }
 inline bool CMsgClientSettings::_internal_enable_shader_background_processing() const {
   return enable_shader_background_processing_;
@@ -6379,7 +6457,7 @@ inline bool CMsgClientSettings::enable_shader_background_processing() const {
   return _internal_enable_shader_background_processing();
 }
 inline void CMsgClientSettings::_internal_set_enable_shader_background_processing(bool value) {
-  _has_bits_[2] |= 0x00000400u;
+  _has_bits_[2] |= 0x00001000u;
   enable_shader_background_processing_ = value;
 }
 inline void CMsgClientSettings::set_enable_shader_background_processing(bool value) {
@@ -6445,7 +6523,7 @@ inline void CMsgClientSettings::set_needs_steam_service_repair(bool value) {
 
 // optional int32 download_peer_content = 8004 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_download_peer_content() const {
-  bool value = (_has_bits_[2] & 0x00001000u) != 0;
+  bool value = (_has_bits_[2] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_download_peer_content() const {
@@ -6453,7 +6531,7 @@ inline bool CMsgClientSettings::has_download_peer_content() const {
 }
 inline void CMsgClientSettings::clear_download_peer_content() {
   download_peer_content_ = 0;
-  _has_bits_[2] &= ~0x00001000u;
+  _has_bits_[2] &= ~0x00010000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_download_peer_content() const {
   return download_peer_content_;
@@ -6463,7 +6541,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::download_peer_content(
   return _internal_download_peer_content();
 }
 inline void CMsgClientSettings::_internal_set_download_peer_content(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[2] |= 0x00001000u;
+  _has_bits_[2] |= 0x00010000u;
   download_peer_content_ = value;
 }
 inline void CMsgClientSettings::set_download_peer_content(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -6613,7 +6691,7 @@ inline void CMsgClientSettings::set_download_region(::PROTOBUF_NAMESPACE_ID::int
 
 // optional bool download_while_app_running = 8010 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_download_while_app_running() const {
-  bool value = (_has_bits_[2] & 0x00010000u) != 0;
+  bool value = (_has_bits_[2] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_download_while_app_running() const {
@@ -6621,7 +6699,7 @@ inline bool CMsgClientSettings::has_download_while_app_running() const {
 }
 inline void CMsgClientSettings::clear_download_while_app_running() {
   download_while_app_running_ = false;
-  _has_bits_[2] &= ~0x00010000u;
+  _has_bits_[2] &= ~0x00200000u;
 }
 inline bool CMsgClientSettings::_internal_download_while_app_running() const {
   return download_while_app_running_;
@@ -6631,7 +6709,7 @@ inline bool CMsgClientSettings::download_while_app_running() const {
   return _internal_download_while_app_running();
 }
 inline void CMsgClientSettings::_internal_set_download_while_app_running(bool value) {
-  _has_bits_[2] |= 0x00010000u;
+  _has_bits_[2] |= 0x00200000u;
   download_while_app_running_ = value;
 }
 inline void CMsgClientSettings::set_download_while_app_running(bool value) {
@@ -6641,7 +6719,7 @@ inline void CMsgClientSettings::set_download_while_app_running(bool value) {
 
 // optional bool download_throttle_while_streaming = 8011 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_download_throttle_while_streaming() const {
-  bool value = (_has_bits_[2] & 0x00200000u) != 0;
+  bool value = (_has_bits_[2] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_download_throttle_while_streaming() const {
@@ -6649,7 +6727,7 @@ inline bool CMsgClientSettings::has_download_throttle_while_streaming() const {
 }
 inline void CMsgClientSettings::clear_download_throttle_while_streaming() {
   download_throttle_while_streaming_ = false;
-  _has_bits_[2] &= ~0x00200000u;
+  _has_bits_[2] &= ~0x00400000u;
 }
 inline bool CMsgClientSettings::_internal_download_throttle_while_streaming() const {
   return download_throttle_while_streaming_;
@@ -6659,7 +6737,7 @@ inline bool CMsgClientSettings::download_throttle_while_streaming() const {
   return _internal_download_throttle_while_streaming();
 }
 inline void CMsgClientSettings::_internal_set_download_throttle_while_streaming(bool value) {
-  _has_bits_[2] |= 0x00200000u;
+  _has_bits_[2] |= 0x00400000u;
   download_throttle_while_streaming_ = value;
 }
 inline void CMsgClientSettings::set_download_throttle_while_streaming(bool value) {
@@ -6697,7 +6775,7 @@ inline void CMsgClientSettings::set_download_throttle_rate(::PROTOBUF_NAMESPACE_
 
 // optional bool cloud_enabled = 10000 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_cloud_enabled() const {
-  bool value = (_has_bits_[2] & 0x00400000u) != 0;
+  bool value = (_has_bits_[2] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_cloud_enabled() const {
@@ -6705,7 +6783,7 @@ inline bool CMsgClientSettings::has_cloud_enabled() const {
 }
 inline void CMsgClientSettings::clear_cloud_enabled() {
   cloud_enabled_ = false;
-  _has_bits_[2] &= ~0x00400000u;
+  _has_bits_[2] &= ~0x00800000u;
 }
 inline bool CMsgClientSettings::_internal_cloud_enabled() const {
   return cloud_enabled_;
@@ -6715,7 +6793,7 @@ inline bool CMsgClientSettings::cloud_enabled() const {
   return _internal_cloud_enabled();
 }
 inline void CMsgClientSettings::_internal_set_cloud_enabled(bool value) {
-  _has_bits_[2] |= 0x00400000u;
+  _has_bits_[2] |= 0x00800000u;
   cloud_enabled_ = value;
 }
 inline void CMsgClientSettings::set_cloud_enabled(bool value) {
@@ -6725,7 +6803,7 @@ inline void CMsgClientSettings::set_cloud_enabled(bool value) {
 
 // optional bool show_screenshot_manager = 10001 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "Software\\Valve\\Steam\\ShowScreenshotManager"];
 inline bool CMsgClientSettings::_internal_has_show_screenshot_manager() const {
-  bool value = (_has_bits_[2] & 0x00800000u) != 0;
+  bool value = (_has_bits_[2] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_show_screenshot_manager() const {
@@ -6733,7 +6811,7 @@ inline bool CMsgClientSettings::has_show_screenshot_manager() const {
 }
 inline void CMsgClientSettings::clear_show_screenshot_manager() {
   show_screenshot_manager_ = false;
-  _has_bits_[2] &= ~0x00800000u;
+  _has_bits_[2] &= ~0x01000000u;
 }
 inline bool CMsgClientSettings::_internal_show_screenshot_manager() const {
   return show_screenshot_manager_;
@@ -6743,7 +6821,7 @@ inline bool CMsgClientSettings::show_screenshot_manager() const {
   return _internal_show_screenshot_manager();
 }
 inline void CMsgClientSettings::_internal_set_show_screenshot_manager(bool value) {
-  _has_bits_[2] |= 0x00800000u;
+  _has_bits_[2] |= 0x01000000u;
   show_screenshot_manager_ = value;
 }
 inline void CMsgClientSettings::set_show_screenshot_manager(bool value) {
@@ -6781,7 +6859,7 @@ inline void CMsgClientSettings::set_music_volume(::PROTOBUF_NAMESPACE_ID::int32 
 
 // optional bool music_pause_on_app_start = 11001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Music\\PauseOnAppStartedProcess"];
 inline bool CMsgClientSettings::_internal_has_music_pause_on_app_start() const {
-  bool value = (_has_bits_[2] & 0x01000000u) != 0;
+  bool value = (_has_bits_[2] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_music_pause_on_app_start() const {
@@ -6789,7 +6867,7 @@ inline bool CMsgClientSettings::has_music_pause_on_app_start() const {
 }
 inline void CMsgClientSettings::clear_music_pause_on_app_start() {
   music_pause_on_app_start_ = false;
-  _has_bits_[2] &= ~0x01000000u;
+  _has_bits_[2] &= ~0x04000000u;
 }
 inline bool CMsgClientSettings::_internal_music_pause_on_app_start() const {
   return music_pause_on_app_start_;
@@ -6799,7 +6877,7 @@ inline bool CMsgClientSettings::music_pause_on_app_start() const {
   return _internal_music_pause_on_app_start();
 }
 inline void CMsgClientSettings::_internal_set_music_pause_on_app_start(bool value) {
-  _has_bits_[2] |= 0x01000000u;
+  _has_bits_[2] |= 0x04000000u;
   music_pause_on_app_start_ = value;
 }
 inline void CMsgClientSettings::set_music_pause_on_app_start(bool value) {
@@ -6809,7 +6887,7 @@ inline void CMsgClientSettings::set_music_pause_on_app_start(bool value) {
 
 // optional bool music_pause_on_voice_chat = 11002 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Music\\PauseOnVoiceChat"];
 inline bool CMsgClientSettings::_internal_has_music_pause_on_voice_chat() const {
-  bool value = (_has_bits_[2] & 0x04000000u) != 0;
+  bool value = (_has_bits_[2] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_music_pause_on_voice_chat() const {
@@ -6817,7 +6895,7 @@ inline bool CMsgClientSettings::has_music_pause_on_voice_chat() const {
 }
 inline void CMsgClientSettings::clear_music_pause_on_voice_chat() {
   music_pause_on_voice_chat_ = false;
-  _has_bits_[2] &= ~0x04000000u;
+  _has_bits_[2] &= ~0x08000000u;
 }
 inline bool CMsgClientSettings::_internal_music_pause_on_voice_chat() const {
   return music_pause_on_voice_chat_;
@@ -6827,7 +6905,7 @@ inline bool CMsgClientSettings::music_pause_on_voice_chat() const {
   return _internal_music_pause_on_voice_chat();
 }
 inline void CMsgClientSettings::_internal_set_music_pause_on_voice_chat(bool value) {
-  _has_bits_[2] |= 0x04000000u;
+  _has_bits_[2] |= 0x08000000u;
   music_pause_on_voice_chat_ = value;
 }
 inline void CMsgClientSettings::set_music_pause_on_voice_chat(bool value) {
@@ -6837,7 +6915,7 @@ inline void CMsgClientSettings::set_music_pause_on_voice_chat(bool value) {
 
 // optional bool music_download_high_quality = 11003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Music\\DownloadHighQualityAudioSoundtracks"];
 inline bool CMsgClientSettings::_internal_has_music_download_high_quality() const {
-  bool value = (_has_bits_[2] & 0x08000000u) != 0;
+  bool value = (_has_bits_[2] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_music_download_high_quality() const {
@@ -6845,7 +6923,7 @@ inline bool CMsgClientSettings::has_music_download_high_quality() const {
 }
 inline void CMsgClientSettings::clear_music_download_high_quality() {
   music_download_high_quality_ = false;
-  _has_bits_[2] &= ~0x08000000u;
+  _has_bits_[2] &= ~0x10000000u;
 }
 inline bool CMsgClientSettings::_internal_music_download_high_quality() const {
   return music_download_high_quality_;
@@ -6855,7 +6933,7 @@ inline bool CMsgClientSettings::music_download_high_quality() const {
   return _internal_music_download_high_quality();
 }
 inline void CMsgClientSettings::_internal_set_music_download_high_quality(bool value) {
-  _has_bits_[2] |= 0x08000000u;
+  _has_bits_[2] |= 0x10000000u;
   music_download_high_quality_ = value;
 }
 inline void CMsgClientSettings::set_music_download_high_quality(bool value) {
@@ -6865,7 +6943,7 @@ inline void CMsgClientSettings::set_music_download_high_quality(bool value) {
 
 // optional bool music_playlist_notification = 11004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Music\\PlaylistNowPlayingNotification"];
 inline bool CMsgClientSettings::_internal_has_music_playlist_notification() const {
-  bool value = (_has_bits_[2] & 0x10000000u) != 0;
+  bool value = (_has_bits_[2] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_music_playlist_notification() const {
@@ -6873,7 +6951,7 @@ inline bool CMsgClientSettings::has_music_playlist_notification() const {
 }
 inline void CMsgClientSettings::clear_music_playlist_notification() {
   music_playlist_notification_ = false;
-  _has_bits_[2] &= ~0x10000000u;
+  _has_bits_[2] &= ~0x20000000u;
 }
 inline bool CMsgClientSettings::_internal_music_playlist_notification() const {
   return music_playlist_notification_;
@@ -6883,7 +6961,7 @@ inline bool CMsgClientSettings::music_playlist_notification() const {
   return _internal_music_playlist_notification();
 }
 inline void CMsgClientSettings::_internal_set_music_playlist_notification(bool value) {
-  _has_bits_[2] |= 0x10000000u;
+  _has_bits_[2] |= 0x20000000u;
   music_playlist_notification_ = value;
 }
 inline void CMsgClientSettings::set_music_playlist_notification(bool value) {
@@ -7035,7 +7113,7 @@ inline void CMsgClientSettings::set_broadcast_encoding_option(::EBroadcastEncode
 
 // optional bool broadcast_record_all_video = 12005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\IncludeDesktop"];
 inline bool CMsgClientSettings::_internal_has_broadcast_record_all_video() const {
-  bool value = (_has_bits_[2] & 0x20000000u) != 0;
+  bool value = (_has_bits_[3] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_broadcast_record_all_video() const {
@@ -7043,7 +7121,7 @@ inline bool CMsgClientSettings::has_broadcast_record_all_video() const {
 }
 inline void CMsgClientSettings::clear_broadcast_record_all_video() {
   broadcast_record_all_video_ = false;
-  _has_bits_[2] &= ~0x20000000u;
+  _has_bits_[3] &= ~0x00000008u;
 }
 inline bool CMsgClientSettings::_internal_broadcast_record_all_video() const {
   return broadcast_record_all_video_;
@@ -7053,7 +7131,7 @@ inline bool CMsgClientSettings::broadcast_record_all_video() const {
   return _internal_broadcast_record_all_video();
 }
 inline void CMsgClientSettings::_internal_set_broadcast_record_all_video(bool value) {
-  _has_bits_[2] |= 0x20000000u;
+  _has_bits_[3] |= 0x00000008u;
   broadcast_record_all_video_ = value;
 }
 inline void CMsgClientSettings::set_broadcast_record_all_video(bool value) {
@@ -7063,7 +7141,7 @@ inline void CMsgClientSettings::set_broadcast_record_all_video(bool value) {
 
 // optional bool broadcast_record_all_audio = 12006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\RecordSystemAudio"];
 inline bool CMsgClientSettings::_internal_has_broadcast_record_all_audio() const {
-  bool value = (_has_bits_[3] & 0x00000008u) != 0;
+  bool value = (_has_bits_[3] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_broadcast_record_all_audio() const {
@@ -7071,7 +7149,7 @@ inline bool CMsgClientSettings::has_broadcast_record_all_audio() const {
 }
 inline void CMsgClientSettings::clear_broadcast_record_all_audio() {
   broadcast_record_all_audio_ = false;
-  _has_bits_[3] &= ~0x00000008u;
+  _has_bits_[3] &= ~0x00000010u;
 }
 inline bool CMsgClientSettings::_internal_broadcast_record_all_audio() const {
   return broadcast_record_all_audio_;
@@ -7081,7 +7159,7 @@ inline bool CMsgClientSettings::broadcast_record_all_audio() const {
   return _internal_broadcast_record_all_audio();
 }
 inline void CMsgClientSettings::_internal_set_broadcast_record_all_audio(bool value) {
-  _has_bits_[3] |= 0x00000008u;
+  _has_bits_[3] |= 0x00000010u;
   broadcast_record_all_audio_ = value;
 }
 inline void CMsgClientSettings::set_broadcast_record_all_audio(bool value) {
@@ -7091,7 +7169,7 @@ inline void CMsgClientSettings::set_broadcast_record_all_audio(bool value) {
 
 // optional bool broadcast_record_microphone = 12007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\RecordMic"];
 inline bool CMsgClientSettings::_internal_has_broadcast_record_microphone() const {
-  bool value = (_has_bits_[3] & 0x00000010u) != 0;
+  bool value = (_has_bits_[3] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_broadcast_record_microphone() const {
@@ -7099,7 +7177,7 @@ inline bool CMsgClientSettings::has_broadcast_record_microphone() const {
 }
 inline void CMsgClientSettings::clear_broadcast_record_microphone() {
   broadcast_record_microphone_ = false;
-  _has_bits_[3] &= ~0x00000010u;
+  _has_bits_[3] &= ~0x00000020u;
 }
 inline bool CMsgClientSettings::_internal_broadcast_record_microphone() const {
   return broadcast_record_microphone_;
@@ -7109,7 +7187,7 @@ inline bool CMsgClientSettings::broadcast_record_microphone() const {
   return _internal_broadcast_record_microphone();
 }
 inline void CMsgClientSettings::_internal_set_broadcast_record_microphone(bool value) {
-  _has_bits_[3] |= 0x00000010u;
+  _has_bits_[3] |= 0x00000020u;
   broadcast_record_microphone_ = value;
 }
 inline void CMsgClientSettings::set_broadcast_record_microphone(bool value) {
@@ -7119,7 +7197,7 @@ inline void CMsgClientSettings::set_broadcast_record_microphone(bool value) {
 
 // optional bool broadcast_show_upload_stats = 12008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\ShowDebugInfo"];
 inline bool CMsgClientSettings::_internal_has_broadcast_show_upload_stats() const {
-  bool value = (_has_bits_[3] & 0x00000020u) != 0;
+  bool value = (_has_bits_[3] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_broadcast_show_upload_stats() const {
@@ -7127,7 +7205,7 @@ inline bool CMsgClientSettings::has_broadcast_show_upload_stats() const {
 }
 inline void CMsgClientSettings::clear_broadcast_show_upload_stats() {
   broadcast_show_upload_stats_ = false;
-  _has_bits_[3] &= ~0x00000020u;
+  _has_bits_[3] &= ~0x00000040u;
 }
 inline bool CMsgClientSettings::_internal_broadcast_show_upload_stats() const {
   return broadcast_show_upload_stats_;
@@ -7137,7 +7215,7 @@ inline bool CMsgClientSettings::broadcast_show_upload_stats() const {
   return _internal_broadcast_show_upload_stats();
 }
 inline void CMsgClientSettings::_internal_set_broadcast_show_upload_stats(bool value) {
-  _has_bits_[3] |= 0x00000020u;
+  _has_bits_[3] |= 0x00000040u;
   broadcast_show_upload_stats_ = value;
 }
 inline void CMsgClientSettings::set_broadcast_show_upload_stats(bool value) {
@@ -7147,7 +7225,7 @@ inline void CMsgClientSettings::set_broadcast_show_upload_stats(bool value) {
 
 // optional bool broadcast_show_live_reminder = 12009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Broadcast\\ShowReminder", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_broadcast_show_live_reminder() const {
-  bool value = (_has_bits_[3] & 0x00000040u) != 0;
+  bool value = (_has_bits_[3] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_broadcast_show_live_reminder() const {
@@ -7155,7 +7233,7 @@ inline bool CMsgClientSettings::has_broadcast_show_live_reminder() const {
 }
 inline void CMsgClientSettings::clear_broadcast_show_live_reminder() {
   broadcast_show_live_reminder_ = false;
-  _has_bits_[3] &= ~0x00000040u;
+  _has_bits_[3] &= ~0x00000100u;
 }
 inline bool CMsgClientSettings::_internal_broadcast_show_live_reminder() const {
   return broadcast_show_live_reminder_;
@@ -7165,7 +7243,7 @@ inline bool CMsgClientSettings::broadcast_show_live_reminder() const {
   return _internal_broadcast_show_live_reminder();
 }
 inline void CMsgClientSettings::_internal_set_broadcast_show_live_reminder(bool value) {
-  _has_bits_[3] |= 0x00000040u;
+  _has_bits_[3] |= 0x00000100u;
   broadcast_show_live_reminder_ = value;
 }
 inline void CMsgClientSettings::set_broadcast_show_live_reminder(bool value) {
@@ -7203,7 +7281,7 @@ inline void CMsgClientSettings::set_broadcast_chat_corner(::PROTOBUF_NAMESPACE_I
 
 // optional bool gamestream_hardware_video_encode = 13000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "GameStream\\HardwareVideoEncode", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_gamestream_hardware_video_encode() const {
-  bool value = (_has_bits_[3] & 0x00000100u) != 0;
+  bool value = (_has_bits_[3] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamestream_hardware_video_encode() const {
@@ -7211,7 +7289,7 @@ inline bool CMsgClientSettings::has_gamestream_hardware_video_encode() const {
 }
 inline void CMsgClientSettings::clear_gamestream_hardware_video_encode() {
   gamestream_hardware_video_encode_ = false;
-  _has_bits_[3] &= ~0x00000100u;
+  _has_bits_[3] &= ~0x00000200u;
 }
 inline bool CMsgClientSettings::_internal_gamestream_hardware_video_encode() const {
   return gamestream_hardware_video_encode_;
@@ -7221,7 +7299,7 @@ inline bool CMsgClientSettings::gamestream_hardware_video_encode() const {
   return _internal_gamestream_hardware_video_encode();
 }
 inline void CMsgClientSettings::_internal_set_gamestream_hardware_video_encode(bool value) {
-  _has_bits_[3] |= 0x00000100u;
+  _has_bits_[3] |= 0x00000200u;
   gamestream_hardware_video_encode_ = value;
 }
 inline void CMsgClientSettings::set_gamestream_hardware_video_encode(bool value) {
@@ -7231,7 +7309,7 @@ inline void CMsgClientSettings::set_gamestream_hardware_video_encode(bool value)
 
 // optional bool steam_input_configurator_error_msg_enable = 14001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamInput/Configurator/ErrorMsgEnabled"];
 inline bool CMsgClientSettings::_internal_has_steam_input_configurator_error_msg_enable() const {
-  bool value = (_has_bits_[3] & 0x00000200u) != 0;
+  bool value = (_has_bits_[3] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steam_input_configurator_error_msg_enable() const {
@@ -7239,7 +7317,7 @@ inline bool CMsgClientSettings::has_steam_input_configurator_error_msg_enable() 
 }
 inline void CMsgClientSettings::clear_steam_input_configurator_error_msg_enable() {
   steam_input_configurator_error_msg_enable_ = false;
-  _has_bits_[3] &= ~0x00000200u;
+  _has_bits_[3] &= ~0x00000400u;
 }
 inline bool CMsgClientSettings::_internal_steam_input_configurator_error_msg_enable() const {
   return steam_input_configurator_error_msg_enable_;
@@ -7249,7 +7327,7 @@ inline bool CMsgClientSettings::steam_input_configurator_error_msg_enable() cons
   return _internal_steam_input_configurator_error_msg_enable();
 }
 inline void CMsgClientSettings::_internal_set_steam_input_configurator_error_msg_enable(bool value) {
-  _has_bits_[3] |= 0x00000200u;
+  _has_bits_[3] |= 0x00000400u;
   steam_input_configurator_error_msg_enable_ = value;
 }
 inline void CMsgClientSettings::set_steam_input_configurator_error_msg_enable(bool value) {
@@ -7259,7 +7337,7 @@ inline void CMsgClientSettings::set_steam_input_configurator_error_msg_enable(bo
 
 // optional bool controller_guide_button_focus_steam = 14002 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Controller_CheckGuideButton", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_controller_guide_button_focus_steam() const {
-  bool value = (_has_bits_[3] & 0x00000400u) != 0;
+  bool value = (_has_bits_[3] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_controller_guide_button_focus_steam() const {
@@ -7267,7 +7345,7 @@ inline bool CMsgClientSettings::has_controller_guide_button_focus_steam() const 
 }
 inline void CMsgClientSettings::clear_controller_guide_button_focus_steam() {
   controller_guide_button_focus_steam_ = false;
-  _has_bits_[3] &= ~0x00000400u;
+  _has_bits_[3] &= ~0x00000800u;
 }
 inline bool CMsgClientSettings::_internal_controller_guide_button_focus_steam() const {
   return controller_guide_button_focus_steam_;
@@ -7277,7 +7355,7 @@ inline bool CMsgClientSettings::controller_guide_button_focus_steam() const {
   return _internal_controller_guide_button_focus_steam();
 }
 inline void CMsgClientSettings::_internal_set_controller_guide_button_focus_steam(bool value) {
-  _has_bits_[3] |= 0x00000400u;
+  _has_bits_[3] |= 0x00000800u;
   controller_guide_button_focus_steam_ = value;
 }
 inline void CMsgClientSettings::set_controller_guide_button_focus_steam(bool value) {
@@ -7315,7 +7393,7 @@ inline void CMsgClientSettings::set_controller_ps_support(::PROTOBUF_NAMESPACE_I
 
 // optional bool controller_xbox_support = 14004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamController_XBoxSupport"];
 inline bool CMsgClientSettings::_internal_has_controller_xbox_support() const {
-  bool value = (_has_bits_[3] & 0x00000800u) != 0;
+  bool value = (_has_bits_[3] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_controller_xbox_support() const {
@@ -7323,7 +7401,7 @@ inline bool CMsgClientSettings::has_controller_xbox_support() const {
 }
 inline void CMsgClientSettings::clear_controller_xbox_support() {
   controller_xbox_support_ = false;
-  _has_bits_[3] &= ~0x00000800u;
+  _has_bits_[3] &= ~0x00002000u;
 }
 inline bool CMsgClientSettings::_internal_controller_xbox_support() const {
   return controller_xbox_support_;
@@ -7333,7 +7411,7 @@ inline bool CMsgClientSettings::controller_xbox_support() const {
   return _internal_controller_xbox_support();
 }
 inline void CMsgClientSettings::_internal_set_controller_xbox_support(bool value) {
-  _has_bits_[3] |= 0x00000800u;
+  _has_bits_[3] |= 0x00002000u;
   controller_xbox_support_ = value;
 }
 inline void CMsgClientSettings::set_controller_xbox_support(bool value) {
@@ -7343,7 +7421,7 @@ inline void CMsgClientSettings::set_controller_xbox_support(bool value) {
 
 // optional bool controller_xbox_driver = 14005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamController_XBoxDriver"];
 inline bool CMsgClientSettings::_internal_has_controller_xbox_driver() const {
-  bool value = (_has_bits_[3] & 0x00002000u) != 0;
+  bool value = (_has_bits_[3] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_controller_xbox_driver() const {
@@ -7351,7 +7429,7 @@ inline bool CMsgClientSettings::has_controller_xbox_driver() const {
 }
 inline void CMsgClientSettings::clear_controller_xbox_driver() {
   controller_xbox_driver_ = false;
-  _has_bits_[3] &= ~0x00002000u;
+  _has_bits_[3] &= ~0x00004000u;
 }
 inline bool CMsgClientSettings::_internal_controller_xbox_driver() const {
   return controller_xbox_driver_;
@@ -7361,7 +7439,7 @@ inline bool CMsgClientSettings::controller_xbox_driver() const {
   return _internal_controller_xbox_driver();
 }
 inline void CMsgClientSettings::_internal_set_controller_xbox_driver(bool value) {
-  _has_bits_[3] |= 0x00002000u;
+  _has_bits_[3] |= 0x00004000u;
   controller_xbox_driver_ = value;
 }
 inline void CMsgClientSettings::set_controller_xbox_driver(bool value) {
@@ -7371,7 +7449,7 @@ inline void CMsgClientSettings::set_controller_xbox_driver(bool value) {
 
 // optional bool controller_switch_support = 14006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamController_SwitchSupport"];
 inline bool CMsgClientSettings::_internal_has_controller_switch_support() const {
-  bool value = (_has_bits_[3] & 0x00004000u) != 0;
+  bool value = (_has_bits_[3] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_controller_switch_support() const {
@@ -7379,7 +7457,7 @@ inline bool CMsgClientSettings::has_controller_switch_support() const {
 }
 inline void CMsgClientSettings::clear_controller_switch_support() {
   controller_switch_support_ = false;
-  _has_bits_[3] &= ~0x00004000u;
+  _has_bits_[3] &= ~0x00008000u;
 }
 inline bool CMsgClientSettings::_internal_controller_switch_support() const {
   return controller_switch_support_;
@@ -7389,7 +7467,7 @@ inline bool CMsgClientSettings::controller_switch_support() const {
   return _internal_controller_switch_support();
 }
 inline void CMsgClientSettings::_internal_set_controller_switch_support(bool value) {
-  _has_bits_[3] |= 0x00004000u;
+  _has_bits_[3] |= 0x00008000u;
   controller_switch_support_ = value;
 }
 inline void CMsgClientSettings::set_controller_switch_support(bool value) {
@@ -7399,7 +7477,7 @@ inline void CMsgClientSettings::set_controller_switch_support(bool value) {
 
 // optional bool controller_generic_support = 14007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamController_GenericGamepadSupport"];
 inline bool CMsgClientSettings::_internal_has_controller_generic_support() const {
-  bool value = (_has_bits_[3] & 0x00008000u) != 0;
+  bool value = (_has_bits_[3] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_controller_generic_support() const {
@@ -7407,7 +7485,7 @@ inline bool CMsgClientSettings::has_controller_generic_support() const {
 }
 inline void CMsgClientSettings::clear_controller_generic_support() {
   controller_generic_support_ = false;
-  _has_bits_[3] &= ~0x00008000u;
+  _has_bits_[3] &= ~0x00010000u;
 }
 inline bool CMsgClientSettings::_internal_controller_generic_support() const {
   return controller_generic_support_;
@@ -7417,7 +7495,7 @@ inline bool CMsgClientSettings::controller_generic_support() const {
   return _internal_controller_generic_support();
 }
 inline void CMsgClientSettings::_internal_set_controller_generic_support(bool value) {
-  _has_bits_[3] |= 0x00008000u;
+  _has_bits_[3] |= 0x00010000u;
   controller_generic_support_ = value;
 }
 inline void CMsgClientSettings::set_controller_generic_support(bool value) {
@@ -7455,7 +7533,7 @@ inline void CMsgClientSettings::set_controller_power_off_timeout(::PROTOBUF_NAME
 
 // optional bool turn_off_controller_on_exit = 14009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "CSettingsPanelGameController.TurnOff"];
 inline bool CMsgClientSettings::_internal_has_turn_off_controller_on_exit() const {
-  bool value = (_has_bits_[3] & 0x00010000u) != 0;
+  bool value = (_has_bits_[3] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_turn_off_controller_on_exit() const {
@@ -7463,7 +7541,7 @@ inline bool CMsgClientSettings::has_turn_off_controller_on_exit() const {
 }
 inline void CMsgClientSettings::clear_turn_off_controller_on_exit() {
   turn_off_controller_on_exit_ = false;
-  _has_bits_[3] &= ~0x00010000u;
+  _has_bits_[3] &= ~0x00040000u;
 }
 inline bool CMsgClientSettings::_internal_turn_off_controller_on_exit() const {
   return turn_off_controller_on_exit_;
@@ -7473,7 +7551,7 @@ inline bool CMsgClientSettings::turn_off_controller_on_exit() const {
   return _internal_turn_off_controller_on_exit();
 }
 inline void CMsgClientSettings::_internal_set_turn_off_controller_on_exit(bool value) {
-  _has_bits_[3] |= 0x00010000u;
+  _has_bits_[3] |= 0x00040000u;
   turn_off_controller_on_exit_ = value;
 }
 inline void CMsgClientSettings::set_turn_off_controller_on_exit(bool value) {
@@ -7511,7 +7589,7 @@ inline void CMsgClientSettings::set_controller_combine_nintendo_joycons(bool val
 
 // optional uint64 startup_movie_id = 16000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Customization/StartupMovie/MovieID", (.setting_pre_login) = true];
 inline bool CMsgClientSettings::_internal_has_startup_movie_id() const {
-  bool value = (_has_bits_[3] & 0x00040000u) != 0;
+  bool value = (_has_bits_[3] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_startup_movie_id() const {
@@ -7519,7 +7597,7 @@ inline bool CMsgClientSettings::has_startup_movie_id() const {
 }
 inline void CMsgClientSettings::clear_startup_movie_id() {
   startup_movie_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[3] &= ~0x00040000u;
+  _has_bits_[3] &= ~0x00800000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientSettings::_internal_startup_movie_id() const {
   return startup_movie_id_;
@@ -7529,7 +7607,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientSettings::startup_movie_id() co
   return _internal_startup_movie_id();
 }
 inline void CMsgClientSettings::_internal_set_startup_movie_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[3] |= 0x00040000u;
+  _has_bits_[3] |= 0x00800000u;
   startup_movie_id_ = value;
 }
 inline void CMsgClientSettings::set_startup_movie_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -7668,7 +7746,7 @@ inline void CMsgClientSettings::set_startup_movie_used_for_resume(bool value) {
 
 // optional bool game_notes_enable_spellcheck = 17001 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "GameNotesEnableSpellcheck", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_game_notes_enable_spellcheck() const {
-  bool value = (_has_bits_[3] & 0x00400000u) != 0;
+  bool value = (_has_bits_[3] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_game_notes_enable_spellcheck() const {
@@ -7676,7 +7754,7 @@ inline bool CMsgClientSettings::has_game_notes_enable_spellcheck() const {
 }
 inline void CMsgClientSettings::clear_game_notes_enable_spellcheck() {
   game_notes_enable_spellcheck_ = false;
-  _has_bits_[3] &= ~0x00400000u;
+  _has_bits_[3] &= ~0x40000000u;
 }
 inline bool CMsgClientSettings::_internal_game_notes_enable_spellcheck() const {
   return game_notes_enable_spellcheck_;
@@ -7686,7 +7764,7 @@ inline bool CMsgClientSettings::game_notes_enable_spellcheck() const {
   return _internal_game_notes_enable_spellcheck();
 }
 inline void CMsgClientSettings::_internal_set_game_notes_enable_spellcheck(bool value) {
-  _has_bits_[3] |= 0x00400000u;
+  _has_bits_[3] |= 0x40000000u;
   game_notes_enable_spellcheck_ = value;
 }
 inline void CMsgClientSettings::set_game_notes_enable_spellcheck(bool value) {
@@ -7696,7 +7774,7 @@ inline void CMsgClientSettings::set_game_notes_enable_spellcheck(bool value) {
 
 // optional int32 screenshot_items_per_row = 18000 [(.setting_store) = EClientSettingStore_ConfigStore_UserRoaming, (.setting_name) = "ScreenshotViewItemsPerRow", (.setting_default_int) = 1];
 inline bool CMsgClientSettings::_internal_has_screenshot_items_per_row() const {
-  bool value = (_has_bits_[3] & 0x00800000u) != 0;
+  bool value = (_has_bits_[3] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_screenshot_items_per_row() const {
@@ -7704,7 +7782,7 @@ inline bool CMsgClientSettings::has_screenshot_items_per_row() const {
 }
 inline void CMsgClientSettings::clear_screenshot_items_per_row() {
   screenshot_items_per_row_ = 0;
-  _has_bits_[3] &= ~0x00800000u;
+  _has_bits_[3] &= ~0x00400000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_screenshot_items_per_row() const {
   return screenshot_items_per_row_;
@@ -7714,7 +7792,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::screenshot_items_per_r
   return _internal_screenshot_items_per_row();
 }
 inline void CMsgClientSettings::_internal_set_screenshot_items_per_row(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[3] |= 0x00800000u;
+  _has_bits_[3] |= 0x00400000u;
   screenshot_items_per_row_ = value;
 }
 inline void CMsgClientSettings::set_screenshot_items_per_row(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8064,7 +8142,7 @@ inline void CMsgClientSettings::set_allocated_g_background_tg(::CMsgHotkey* g_ba
 
 // optional bool g_background_a_m = 18209 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_g_background_a_m() const {
-  bool value = (_has_bits_[3] & 0x20000000u) != 0;
+  bool value = (_has_bits_[3] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_g_background_a_m() const {
@@ -8072,7 +8150,7 @@ inline bool CMsgClientSettings::has_g_background_a_m() const {
 }
 inline void CMsgClientSettings::clear_g_background_a_m() {
   g_background_a_m_ = false;
-  _has_bits_[3] &= ~0x20000000u;
+  _has_bits_[3] &= ~0x80000000u;
 }
 inline bool CMsgClientSettings::_internal_g_background_a_m() const {
   return g_background_a_m_;
@@ -8082,7 +8160,7 @@ inline bool CMsgClientSettings::g_background_a_m() const {
   return _internal_g_background_a_m();
 }
 inline void CMsgClientSettings::_internal_set_g_background_a_m(bool value) {
-  _has_bits_[3] |= 0x20000000u;
+  _has_bits_[3] |= 0x80000000u;
   g_background_a_m_ = value;
 }
 inline void CMsgClientSettings::set_g_background_a_m(bool value) {
@@ -8120,7 +8198,7 @@ inline void CMsgClientSettings::set_g_background_br(::PROTOBUF_NAMESPACE_ID::int
 
 // optional bool g_background_a_s = 18211 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_g_background_a_s() const {
-  bool value = (_has_bits_[3] & 0x40000000u) != 0;
+  bool value = (_has_bits_[4] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_g_background_a_s() const {
@@ -8128,7 +8206,7 @@ inline bool CMsgClientSettings::has_g_background_a_s() const {
 }
 inline void CMsgClientSettings::clear_g_background_a_s() {
   g_background_a_s_ = false;
-  _has_bits_[3] &= ~0x40000000u;
+  _has_bits_[4] &= ~0x00000001u;
 }
 inline bool CMsgClientSettings::_internal_g_background_a_s() const {
   return g_background_a_s_;
@@ -8138,7 +8216,7 @@ inline bool CMsgClientSettings::g_background_a_s() const {
   return _internal_g_background_a_s();
 }
 inline void CMsgClientSettings::_internal_set_g_background_a_s(bool value) {
-  _has_bits_[3] |= 0x40000000u;
+  _has_bits_[4] |= 0x00000001u;
   g_background_a_s_ = value;
 }
 inline void CMsgClientSettings::set_g_background_a_s(bool value) {
@@ -8232,9 +8310,120 @@ inline void CMsgClientSettings::set_g_max_fps(::PROTOBUF_NAMESPACE_ID::int32 val
   // @@protoc_insertion_point(field_set:CMsgClientSettings.g_max_fps)
 }
 
+// optional .CMsgHotkey gamerecording_hotkey_ic = 18215 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "GameRecording\\InstantClipKey", (.setting_default_string) = "None"];
+inline bool CMsgClientSettings::_internal_has_gamerecording_hotkey_ic() const {
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  PROTOBUF_ASSUME(!value || gamerecording_hotkey_ic_ != nullptr);
+  return value;
+}
+inline bool CMsgClientSettings::has_gamerecording_hotkey_ic() const {
+  return _internal_has_gamerecording_hotkey_ic();
+}
+inline void CMsgClientSettings::clear_gamerecording_hotkey_ic() {
+  if (gamerecording_hotkey_ic_ != nullptr) gamerecording_hotkey_ic_->Clear();
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline const ::CMsgHotkey& CMsgClientSettings::_internal_gamerecording_hotkey_ic() const {
+  const ::CMsgHotkey* p = gamerecording_hotkey_ic_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgHotkey&>(
+      ::_CMsgHotkey_default_instance_);
+}
+inline const ::CMsgHotkey& CMsgClientSettings::gamerecording_hotkey_ic() const {
+  // @@protoc_insertion_point(field_get:CMsgClientSettings.gamerecording_hotkey_ic)
+  return _internal_gamerecording_hotkey_ic();
+}
+inline void CMsgClientSettings::unsafe_arena_set_allocated_gamerecording_hotkey_ic(
+    ::CMsgHotkey* gamerecording_hotkey_ic) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(gamerecording_hotkey_ic_);
+  }
+  gamerecording_hotkey_ic_ = gamerecording_hotkey_ic;
+  if (gamerecording_hotkey_ic) {
+    _has_bits_[0] |= 0x00020000u;
+  } else {
+    _has_bits_[0] &= ~0x00020000u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgClientSettings.gamerecording_hotkey_ic)
+}
+inline ::CMsgHotkey* CMsgClientSettings::release_gamerecording_hotkey_ic() {
+  _has_bits_[0] &= ~0x00020000u;
+  ::CMsgHotkey* temp = gamerecording_hotkey_ic_;
+  gamerecording_hotkey_ic_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CMsgHotkey* CMsgClientSettings::unsafe_arena_release_gamerecording_hotkey_ic() {
+  // @@protoc_insertion_point(field_release:CMsgClientSettings.gamerecording_hotkey_ic)
+  _has_bits_[0] &= ~0x00020000u;
+  ::CMsgHotkey* temp = gamerecording_hotkey_ic_;
+  gamerecording_hotkey_ic_ = nullptr;
+  return temp;
+}
+inline ::CMsgHotkey* CMsgClientSettings::_internal_mutable_gamerecording_hotkey_ic() {
+  _has_bits_[0] |= 0x00020000u;
+  if (gamerecording_hotkey_ic_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgHotkey>(GetArena());
+    gamerecording_hotkey_ic_ = p;
+  }
+  return gamerecording_hotkey_ic_;
+}
+inline ::CMsgHotkey* CMsgClientSettings::mutable_gamerecording_hotkey_ic() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientSettings.gamerecording_hotkey_ic)
+  return _internal_mutable_gamerecording_hotkey_ic();
+}
+inline void CMsgClientSettings::set_allocated_gamerecording_hotkey_ic(::CMsgHotkey* gamerecording_hotkey_ic) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete gamerecording_hotkey_ic_;
+  }
+  if (gamerecording_hotkey_ic) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(gamerecording_hotkey_ic);
+    if (message_arena != submessage_arena) {
+      gamerecording_hotkey_ic = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, gamerecording_hotkey_ic, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00020000u;
+  } else {
+    _has_bits_[0] &= ~0x00020000u;
+  }
+  gamerecording_hotkey_ic_ = gamerecording_hotkey_ic;
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientSettings.gamerecording_hotkey_ic)
+}
+
+// optional float gamerecording_ic_seconds = 18216 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "GameRecording\\InstantClipDuration", (.setting_default_float) = 10];
+inline bool CMsgClientSettings::_internal_has_gamerecording_ic_seconds() const {
+  bool value = (_has_bits_[3] & 0x20000000u) != 0;
+  return value;
+}
+inline bool CMsgClientSettings::has_gamerecording_ic_seconds() const {
+  return _internal_has_gamerecording_ic_seconds();
+}
+inline void CMsgClientSettings::clear_gamerecording_ic_seconds() {
+  gamerecording_ic_seconds_ = 0;
+  _has_bits_[3] &= ~0x20000000u;
+}
+inline float CMsgClientSettings::_internal_gamerecording_ic_seconds() const {
+  return gamerecording_ic_seconds_;
+}
+inline float CMsgClientSettings::gamerecording_ic_seconds() const {
+  // @@protoc_insertion_point(field_get:CMsgClientSettings.gamerecording_ic_seconds)
+  return _internal_gamerecording_ic_seconds();
+}
+inline void CMsgClientSettings::_internal_set_gamerecording_ic_seconds(float value) {
+  _has_bits_[3] |= 0x20000000u;
+  gamerecording_ic_seconds_ = value;
+}
+inline void CMsgClientSettings::set_gamerecording_ic_seconds(float value) {
+  _internal_set_gamerecording_ic_seconds(value);
+  // @@protoc_insertion_point(field_set:CMsgClientSettings.gamerecording_ic_seconds)
+}
+
 // optional bool show_timestamps_in_console = 20000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer\\ShowTimestampsInConsole"];
 inline bool CMsgClientSettings::_internal_has_show_timestamps_in_console() const {
-  bool value = (_has_bits_[3] & 0x80000000u) != 0;
+  bool value = (_has_bits_[4] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_show_timestamps_in_console() const {
@@ -8242,7 +8431,7 @@ inline bool CMsgClientSettings::has_show_timestamps_in_console() const {
 }
 inline void CMsgClientSettings::clear_show_timestamps_in_console() {
   show_timestamps_in_console_ = false;
-  _has_bits_[3] &= ~0x80000000u;
+  _has_bits_[4] &= ~0x00000002u;
 }
 inline bool CMsgClientSettings::_internal_show_timestamps_in_console() const {
   return show_timestamps_in_console_;
@@ -8252,7 +8441,7 @@ inline bool CMsgClientSettings::show_timestamps_in_console() const {
   return _internal_show_timestamps_in_console();
 }
 inline void CMsgClientSettings::_internal_set_show_timestamps_in_console(bool value) {
-  _has_bits_[3] |= 0x80000000u;
+  _has_bits_[4] |= 0x00000002u;
   show_timestamps_in_console_ = value;
 }
 inline void CMsgClientSettings::set_show_timestamps_in_console(bool value) {
@@ -8262,7 +8451,7 @@ inline void CMsgClientSettings::set_show_timestamps_in_console(bool value) {
 
 // optional bool force_oobe = 20001 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBE"];
 inline bool CMsgClientSettings::_internal_has_force_oobe() const {
-  bool value = (_has_bits_[4] & 0x00000001u) != 0;
+  bool value = (_has_bits_[4] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_force_oobe() const {
@@ -8270,7 +8459,7 @@ inline bool CMsgClientSettings::has_force_oobe() const {
 }
 inline void CMsgClientSettings::clear_force_oobe() {
   force_oobe_ = false;
-  _has_bits_[4] &= ~0x00000001u;
+  _has_bits_[4] &= ~0x00000008u;
 }
 inline bool CMsgClientSettings::_internal_force_oobe() const {
   return force_oobe_;
@@ -8280,7 +8469,7 @@ inline bool CMsgClientSettings::force_oobe() const {
   return _internal_force_oobe();
 }
 inline void CMsgClientSettings::_internal_set_force_oobe(bool value) {
-  _has_bits_[4] |= 0x00000001u;
+  _has_bits_[4] |= 0x00000008u;
   force_oobe_ = value;
 }
 inline void CMsgClientSettings::set_force_oobe(bool value) {
@@ -8290,7 +8479,7 @@ inline void CMsgClientSettings::set_force_oobe(bool value) {
 
 // optional int32 override_browser_composer_mode = 20002 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_override_browser_composer_mode() const {
-  bool value = (_has_bits_[4] & 0x00000002u) != 0;
+  bool value = (_has_bits_[4] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_override_browser_composer_mode() const {
@@ -8298,7 +8487,7 @@ inline bool CMsgClientSettings::has_override_browser_composer_mode() const {
 }
 inline void CMsgClientSettings::clear_override_browser_composer_mode() {
   override_browser_composer_mode_ = 0;
-  _has_bits_[4] &= ~0x00000002u;
+  _has_bits_[4] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_override_browser_composer_mode() const {
   return override_browser_composer_mode_;
@@ -8308,7 +8497,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::override_browser_compo
   return _internal_override_browser_composer_mode();
 }
 inline void CMsgClientSettings::_internal_set_override_browser_composer_mode(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[4] |= 0x00000002u;
+  _has_bits_[4] |= 0x00000004u;
   override_browser_composer_mode_ = value;
 }
 inline void CMsgClientSettings::set_override_browser_composer_mode(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8318,7 +8507,7 @@ inline void CMsgClientSettings::set_override_browser_composer_mode(::PROTOBUF_NA
 
 // optional bool cef_remote_debugging_enabled = 20003 [(.setting_store) = EClientSettingStore_CustomFunc];
 inline bool CMsgClientSettings::_internal_has_cef_remote_debugging_enabled() const {
-  bool value = (_has_bits_[4] & 0x00000004u) != 0;
+  bool value = (_has_bits_[4] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_cef_remote_debugging_enabled() const {
@@ -8326,7 +8515,7 @@ inline bool CMsgClientSettings::has_cef_remote_debugging_enabled() const {
 }
 inline void CMsgClientSettings::clear_cef_remote_debugging_enabled() {
   cef_remote_debugging_enabled_ = false;
-  _has_bits_[4] &= ~0x00000004u;
+  _has_bits_[4] &= ~0x00000010u;
 }
 inline bool CMsgClientSettings::_internal_cef_remote_debugging_enabled() const {
   return cef_remote_debugging_enabled_;
@@ -8336,7 +8525,7 @@ inline bool CMsgClientSettings::cef_remote_debugging_enabled() const {
   return _internal_cef_remote_debugging_enabled();
 }
 inline void CMsgClientSettings::_internal_set_cef_remote_debugging_enabled(bool value) {
-  _has_bits_[4] |= 0x00000004u;
+  _has_bits_[4] |= 0x00000010u;
   cef_remote_debugging_enabled_ = value;
 }
 inline void CMsgClientSettings::set_cef_remote_debugging_enabled(bool value) {
@@ -8346,7 +8535,7 @@ inline void CMsgClientSettings::set_cef_remote_debugging_enabled(bool value) {
 
 // optional bool force_decperf_tab = 20004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/ForceDeckPerfTab"];
 inline bool CMsgClientSettings::_internal_has_force_decperf_tab() const {
-  bool value = (_has_bits_[4] & 0x00000008u) != 0;
+  bool value = (_has_bits_[4] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_force_decperf_tab() const {
@@ -8354,7 +8543,7 @@ inline bool CMsgClientSettings::has_force_decperf_tab() const {
 }
 inline void CMsgClientSettings::clear_force_decperf_tab() {
   force_decperf_tab_ = false;
-  _has_bits_[4] &= ~0x00000008u;
+  _has_bits_[4] &= ~0x00000020u;
 }
 inline bool CMsgClientSettings::_internal_force_decperf_tab() const {
   return force_decperf_tab_;
@@ -8364,7 +8553,7 @@ inline bool CMsgClientSettings::force_decperf_tab() const {
   return _internal_force_decperf_tab();
 }
 inline void CMsgClientSettings::_internal_set_force_decperf_tab(bool value) {
-  _has_bits_[4] |= 0x00000008u;
+  _has_bits_[4] |= 0x00000020u;
   force_decperf_tab_ = value;
 }
 inline void CMsgClientSettings::set_force_decperf_tab(bool value) {
@@ -8374,7 +8563,7 @@ inline void CMsgClientSettings::set_force_decperf_tab(bool value) {
 
 // optional bool force_fake_mandatory_update = 20005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/FakeMandatoryUpdate"];
 inline bool CMsgClientSettings::_internal_has_force_fake_mandatory_update() const {
-  bool value = (_has_bits_[4] & 0x00000010u) != 0;
+  bool value = (_has_bits_[4] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_force_fake_mandatory_update() const {
@@ -8382,7 +8571,7 @@ inline bool CMsgClientSettings::has_force_fake_mandatory_update() const {
 }
 inline void CMsgClientSettings::clear_force_fake_mandatory_update() {
   force_fake_mandatory_update_ = false;
-  _has_bits_[4] &= ~0x00000010u;
+  _has_bits_[4] &= ~0x00000040u;
 }
 inline bool CMsgClientSettings::_internal_force_fake_mandatory_update() const {
   return force_fake_mandatory_update_;
@@ -8392,7 +8581,7 @@ inline bool CMsgClientSettings::force_fake_mandatory_update() const {
   return _internal_force_fake_mandatory_update();
 }
 inline void CMsgClientSettings::_internal_set_force_fake_mandatory_update(bool value) {
-  _has_bits_[4] |= 0x00000010u;
+  _has_bits_[4] |= 0x00000040u;
   force_fake_mandatory_update_ = value;
 }
 inline void CMsgClientSettings::set_force_fake_mandatory_update(bool value) {
@@ -8402,7 +8591,7 @@ inline void CMsgClientSettings::set_force_fake_mandatory_update(bool value) {
 
 // optional bool hdr_compat_testing = 20006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/HDRCompatTesting"];
 inline bool CMsgClientSettings::_internal_has_hdr_compat_testing() const {
-  bool value = (_has_bits_[4] & 0x00000020u) != 0;
+  bool value = (_has_bits_[4] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_hdr_compat_testing() const {
@@ -8410,7 +8599,7 @@ inline bool CMsgClientSettings::has_hdr_compat_testing() const {
 }
 inline void CMsgClientSettings::clear_hdr_compat_testing() {
   hdr_compat_testing_ = false;
-  _has_bits_[4] &= ~0x00000020u;
+  _has_bits_[4] &= ~0x00000080u;
 }
 inline bool CMsgClientSettings::_internal_hdr_compat_testing() const {
   return hdr_compat_testing_;
@@ -8420,7 +8609,7 @@ inline bool CMsgClientSettings::hdr_compat_testing() const {
   return _internal_hdr_compat_testing();
 }
 inline void CMsgClientSettings::_internal_set_hdr_compat_testing(bool value) {
-  _has_bits_[4] |= 0x00000020u;
+  _has_bits_[4] |= 0x00000080u;
   hdr_compat_testing_ = value;
 }
 inline void CMsgClientSettings::set_hdr_compat_testing(bool value) {
@@ -8430,7 +8619,7 @@ inline void CMsgClientSettings::set_hdr_compat_testing(bool value) {
 
 // optional bool developer_mode_enabled = 20007 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/DevModeEnabled"];
 inline bool CMsgClientSettings::_internal_has_developer_mode_enabled() const {
-  bool value = (_has_bits_[4] & 0x00000040u) != 0;
+  bool value = (_has_bits_[4] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_developer_mode_enabled() const {
@@ -8438,7 +8627,7 @@ inline bool CMsgClientSettings::has_developer_mode_enabled() const {
 }
 inline void CMsgClientSettings::clear_developer_mode_enabled() {
   developer_mode_enabled_ = false;
-  _has_bits_[4] &= ~0x00000040u;
+  _has_bits_[4] &= ~0x00000100u;
 }
 inline bool CMsgClientSettings::_internal_developer_mode_enabled() const {
   return developer_mode_enabled_;
@@ -8448,7 +8637,7 @@ inline bool CMsgClientSettings::developer_mode_enabled() const {
   return _internal_developer_mode_enabled();
 }
 inline void CMsgClientSettings::_internal_set_developer_mode_enabled(bool value) {
-  _has_bits_[4] |= 0x00000040u;
+  _has_bits_[4] |= 0x00000100u;
   developer_mode_enabled_ = value;
 }
 inline void CMsgClientSettings::set_developer_mode_enabled(bool value) {
@@ -8458,7 +8647,7 @@ inline void CMsgClientSettings::set_developer_mode_enabled(bool value) {
 
 // optional bool show_advanced_update_channels = 20008 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "Developer/ShowAdvancedUpdateChannels"];
 inline bool CMsgClientSettings::_internal_has_show_advanced_update_channels() const {
-  bool value = (_has_bits_[4] & 0x00000080u) != 0;
+  bool value = (_has_bits_[4] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_show_advanced_update_channels() const {
@@ -8466,7 +8655,7 @@ inline bool CMsgClientSettings::has_show_advanced_update_channels() const {
 }
 inline void CMsgClientSettings::clear_show_advanced_update_channels() {
   show_advanced_update_channels_ = false;
-  _has_bits_[4] &= ~0x00000080u;
+  _has_bits_[4] &= ~0x00000200u;
 }
 inline bool CMsgClientSettings::_internal_show_advanced_update_channels() const {
   return show_advanced_update_channels_;
@@ -8476,7 +8665,7 @@ inline bool CMsgClientSettings::show_advanced_update_channels() const {
   return _internal_show_advanced_update_channels();
 }
 inline void CMsgClientSettings::_internal_set_show_advanced_update_channels(bool value) {
-  _has_bits_[4] |= 0x00000080u;
+  _has_bits_[4] |= 0x00000200u;
   show_advanced_update_channels_ = value;
 }
 inline void CMsgClientSettings::set_show_advanced_update_channels(bool value) {
@@ -8486,7 +8675,7 @@ inline void CMsgClientSettings::set_show_advanced_update_channels(bool value) {
 
 // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
 inline bool CMsgClientSettings::_internal_has_gamescope_hdr_visualization() const {
-  bool value = (_has_bits_[4] & 0x00000400u) != 0;
+  bool value = (_has_bits_[4] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_hdr_visualization() const {
@@ -8494,7 +8683,7 @@ inline bool CMsgClientSettings::has_gamescope_hdr_visualization() const {
 }
 inline void CMsgClientSettings::clear_gamescope_hdr_visualization() {
   gamescope_hdr_visualization_ = 0;
-  _has_bits_[4] &= ~0x00000400u;
+  _has_bits_[4] &= ~0x00000800u;
 }
 inline ::EHDRVisualization CMsgClientSettings::_internal_gamescope_hdr_visualization() const {
   return static_cast< ::EHDRVisualization >(gamescope_hdr_visualization_);
@@ -8505,7 +8694,7 @@ inline ::EHDRVisualization CMsgClientSettings::gamescope_hdr_visualization() con
 }
 inline void CMsgClientSettings::_internal_set_gamescope_hdr_visualization(::EHDRVisualization value) {
   assert(::EHDRVisualization_IsValid(value));
-  _has_bits_[4] |= 0x00000400u;
+  _has_bits_[4] |= 0x00000800u;
   gamescope_hdr_visualization_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_hdr_visualization(::EHDRVisualization value) {
@@ -8515,7 +8704,7 @@ inline void CMsgClientSettings::set_gamescope_hdr_visualization(::EHDRVisualizat
 
 // optional int32 gamescope_app_target_framerate = 21002 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/AppTargetFrameRate", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
 inline bool CMsgClientSettings::_internal_has_gamescope_app_target_framerate() const {
-  bool value = (_has_bits_[4] & 0x00000800u) != 0;
+  bool value = (_has_bits_[4] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_app_target_framerate() const {
@@ -8523,7 +8712,7 @@ inline bool CMsgClientSettings::has_gamescope_app_target_framerate() const {
 }
 inline void CMsgClientSettings::clear_gamescope_app_target_framerate() {
   gamescope_app_target_framerate_ = 0;
-  _has_bits_[4] &= ~0x00000800u;
+  _has_bits_[4] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_gamescope_app_target_framerate() const {
   return gamescope_app_target_framerate_;
@@ -8533,7 +8722,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::gamescope_app_target_f
   return _internal_gamescope_app_target_framerate();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_app_target_framerate(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[4] |= 0x00000800u;
+  _has_bits_[4] |= 0x00001000u;
   gamescope_app_target_framerate_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_app_target_framerate(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8543,7 +8732,7 @@ inline void CMsgClientSettings::set_gamescope_app_target_framerate(::PROTOBUF_NA
 
 // optional bool gamescope_enable_app_target_framerate = 21003 [(.setting_store) = EClientSettingStore_Registry, (.setting_name) = "HKEY_CURRENT_USER\\Software\\Valve\\Steam\\GamescopeEnableAppTargetRefreshRate2", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_gamescope_enable_app_target_framerate() const {
-  bool value = (_has_bits_[4] & 0x00000100u) != 0;
+  bool value = (_has_bits_[4] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_enable_app_target_framerate() const {
@@ -8551,7 +8740,7 @@ inline bool CMsgClientSettings::has_gamescope_enable_app_target_framerate() cons
 }
 inline void CMsgClientSettings::clear_gamescope_enable_app_target_framerate() {
   gamescope_enable_app_target_framerate_ = false;
-  _has_bits_[4] &= ~0x00000100u;
+  _has_bits_[4] &= ~0x00000400u;
 }
 inline bool CMsgClientSettings::_internal_gamescope_enable_app_target_framerate() const {
   return gamescope_enable_app_target_framerate_;
@@ -8561,7 +8750,7 @@ inline bool CMsgClientSettings::gamescope_enable_app_target_framerate() const {
   return _internal_gamescope_enable_app_target_framerate();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_enable_app_target_framerate(bool value) {
-  _has_bits_[4] |= 0x00000100u;
+  _has_bits_[4] |= 0x00000400u;
   gamescope_enable_app_target_framerate_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_enable_app_target_framerate(bool value) {
@@ -8571,7 +8760,7 @@ inline void CMsgClientSettings::set_gamescope_enable_app_target_framerate(bool v
 
 // optional bool gamescope_disable_framelimit = 21004 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/DisableFrameLimit", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
 inline bool CMsgClientSettings::_internal_has_gamescope_disable_framelimit() const {
-  bool value = (_has_bits_[4] & 0x00000200u) != 0;
+  bool value = (_has_bits_[4] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_disable_framelimit() const {
@@ -8579,7 +8768,7 @@ inline bool CMsgClientSettings::has_gamescope_disable_framelimit() const {
 }
 inline void CMsgClientSettings::clear_gamescope_disable_framelimit() {
   gamescope_disable_framelimit_ = false;
-  _has_bits_[4] &= ~0x00000200u;
+  _has_bits_[4] &= ~0x00004000u;
 }
 inline bool CMsgClientSettings::_internal_gamescope_disable_framelimit() const {
   return gamescope_disable_framelimit_;
@@ -8589,7 +8778,7 @@ inline bool CMsgClientSettings::gamescope_disable_framelimit() const {
   return _internal_gamescope_disable_framelimit();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_disable_framelimit(bool value) {
-  _has_bits_[4] |= 0x00000200u;
+  _has_bits_[4] |= 0x00004000u;
   gamescope_disable_framelimit_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_disable_framelimit(bool value) {
@@ -8599,7 +8788,7 @@ inline void CMsgClientSettings::set_gamescope_disable_framelimit(bool value) {
 
 // optional int32 gamescope_display_refresh_rate = 21005 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/RefreshRate", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGamePerDisplay];
 inline bool CMsgClientSettings::_internal_has_gamescope_display_refresh_rate() const {
-  bool value = (_has_bits_[4] & 0x00001000u) != 0;
+  bool value = (_has_bits_[4] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_display_refresh_rate() const {
@@ -8607,7 +8796,7 @@ inline bool CMsgClientSettings::has_gamescope_display_refresh_rate() const {
 }
 inline void CMsgClientSettings::clear_gamescope_display_refresh_rate() {
   gamescope_display_refresh_rate_ = 0;
-  _has_bits_[4] &= ~0x00001000u;
+  _has_bits_[4] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_gamescope_display_refresh_rate() const {
   return gamescope_display_refresh_rate_;
@@ -8617,7 +8806,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::gamescope_display_refr
   return _internal_gamescope_display_refresh_rate();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_display_refresh_rate(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[4] |= 0x00001000u;
+  _has_bits_[4] |= 0x00002000u;
   gamescope_display_refresh_rate_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_display_refresh_rate(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8627,7 +8816,7 @@ inline void CMsgClientSettings::set_gamescope_display_refresh_rate(::PROTOBUF_NA
 
 // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_gamescope_use_game_refresh_rate_in_steam() const {
-  bool value = (_has_bits_[4] & 0x00002000u) != 0;
+  bool value = (_has_bits_[4] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_use_game_refresh_rate_in_steam() const {
@@ -8635,7 +8824,7 @@ inline bool CMsgClientSettings::has_gamescope_use_game_refresh_rate_in_steam() c
 }
 inline void CMsgClientSettings::clear_gamescope_use_game_refresh_rate_in_steam() {
   gamescope_use_game_refresh_rate_in_steam_ = false;
-  _has_bits_[4] &= ~0x00002000u;
+  _has_bits_[4] &= ~0x00008000u;
 }
 inline bool CMsgClientSettings::_internal_gamescope_use_game_refresh_rate_in_steam() const {
   return gamescope_use_game_refresh_rate_in_steam_;
@@ -8645,7 +8834,7 @@ inline bool CMsgClientSettings::gamescope_use_game_refresh_rate_in_steam() const
   return _internal_gamescope_use_game_refresh_rate_in_steam();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_use_game_refresh_rate_in_steam(bool value) {
-  _has_bits_[4] |= 0x00002000u;
+  _has_bits_[4] |= 0x00008000u;
   gamescope_use_game_refresh_rate_in_steam_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_use_game_refresh_rate_in_steam(bool value) {
@@ -8655,7 +8844,7 @@ inline void CMsgClientSettings::set_gamescope_use_game_refresh_rate_in_steam(boo
 
 // optional bool gamescope_disable_mura_correction = 21007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/MuraCorrectionDisabled", (.setting_default_bool) = false];
 inline bool CMsgClientSettings::_internal_has_gamescope_disable_mura_correction() const {
-  bool value = (_has_bits_[4] & 0x00004000u) != 0;
+  bool value = (_has_bits_[4] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_disable_mura_correction() const {
@@ -8663,7 +8852,7 @@ inline bool CMsgClientSettings::has_gamescope_disable_mura_correction() const {
 }
 inline void CMsgClientSettings::clear_gamescope_disable_mura_correction() {
   gamescope_disable_mura_correction_ = false;
-  _has_bits_[4] &= ~0x00004000u;
+  _has_bits_[4] &= ~0x00010000u;
 }
 inline bool CMsgClientSettings::_internal_gamescope_disable_mura_correction() const {
   return gamescope_disable_mura_correction_;
@@ -8673,7 +8862,7 @@ inline bool CMsgClientSettings::gamescope_disable_mura_correction() const {
   return _internal_gamescope_disable_mura_correction();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_disable_mura_correction(bool value) {
-  _has_bits_[4] |= 0x00004000u;
+  _has_bits_[4] |= 0x00010000u;
   gamescope_disable_mura_correction_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_disable_mura_correction(bool value) {
@@ -8683,7 +8872,7 @@ inline void CMsgClientSettings::set_gamescope_disable_mura_correction(bool value
 
 // optional bool gamescope_include_steamui_in_screenshots = 21008 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/IncludeSteamUIInScreenshots", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_gamescope_include_steamui_in_screenshots() const {
-  bool value = (_has_bits_[4] & 0x00008000u) != 0;
+  bool value = (_has_bits_[4] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_include_steamui_in_screenshots() const {
@@ -8691,7 +8880,7 @@ inline bool CMsgClientSettings::has_gamescope_include_steamui_in_screenshots() c
 }
 inline void CMsgClientSettings::clear_gamescope_include_steamui_in_screenshots() {
   gamescope_include_steamui_in_screenshots_ = false;
-  _has_bits_[4] &= ~0x00008000u;
+  _has_bits_[4] &= ~0x00020000u;
 }
 inline bool CMsgClientSettings::_internal_gamescope_include_steamui_in_screenshots() const {
   return gamescope_include_steamui_in_screenshots_;
@@ -8701,7 +8890,7 @@ inline bool CMsgClientSettings::gamescope_include_steamui_in_screenshots() const
   return _internal_gamescope_include_steamui_in_screenshots();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_include_steamui_in_screenshots(bool value) {
-  _has_bits_[4] |= 0x00008000u;
+  _has_bits_[4] |= 0x00020000u;
   gamescope_include_steamui_in_screenshots_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_include_steamui_in_screenshots(bool value) {
@@ -8711,7 +8900,7 @@ inline void CMsgClientSettings::set_gamescope_include_steamui_in_screenshots(boo
 
 // optional bool gamescope_allow_tearing = 21009 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/AllowTearing", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGame];
 inline bool CMsgClientSettings::_internal_has_gamescope_allow_tearing() const {
-  bool value = (_has_bits_[4] & 0x00010000u) != 0;
+  bool value = (_has_bits_[4] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_allow_tearing() const {
@@ -8719,7 +8908,7 @@ inline bool CMsgClientSettings::has_gamescope_allow_tearing() const {
 }
 inline void CMsgClientSettings::clear_gamescope_allow_tearing() {
   gamescope_allow_tearing_ = false;
-  _has_bits_[4] &= ~0x00010000u;
+  _has_bits_[4] &= ~0x00040000u;
 }
 inline bool CMsgClientSettings::_internal_gamescope_allow_tearing() const {
   return gamescope_allow_tearing_;
@@ -8729,7 +8918,7 @@ inline bool CMsgClientSettings::gamescope_allow_tearing() const {
   return _internal_gamescope_allow_tearing();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_allow_tearing(bool value) {
-  _has_bits_[4] |= 0x00010000u;
+  _has_bits_[4] |= 0x00040000u;
   gamescope_allow_tearing_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_allow_tearing(bool value) {
@@ -8739,7 +8928,7 @@ inline void CMsgClientSettings::set_gamescope_allow_tearing(bool value) {
 
 // optional bool gamescope_composite_debug = 21010 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/CompositeDebug", (.setting_default_bool) = false];
 inline bool CMsgClientSettings::_internal_has_gamescope_composite_debug() const {
-  bool value = (_has_bits_[4] & 0x00020000u) != 0;
+  bool value = (_has_bits_[4] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_composite_debug() const {
@@ -8747,7 +8936,7 @@ inline bool CMsgClientSettings::has_gamescope_composite_debug() const {
 }
 inline void CMsgClientSettings::clear_gamescope_composite_debug() {
   gamescope_composite_debug_ = false;
-  _has_bits_[4] &= ~0x00020000u;
+  _has_bits_[4] &= ~0x00080000u;
 }
 inline bool CMsgClientSettings::_internal_gamescope_composite_debug() const {
   return gamescope_composite_debug_;
@@ -8757,7 +8946,7 @@ inline bool CMsgClientSettings::gamescope_composite_debug() const {
   return _internal_gamescope_composite_debug();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_composite_debug(bool value) {
-  _has_bits_[4] |= 0x00020000u;
+  _has_bits_[4] |= 0x00080000u;
   gamescope_composite_debug_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_composite_debug(bool value) {
@@ -8767,7 +8956,7 @@ inline void CMsgClientSettings::set_gamescope_composite_debug(bool value) {
 
 // optional bool gamescope_force_composite = 21011 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/ForceComposite", (.setting_default_bool) = false];
 inline bool CMsgClientSettings::_internal_has_gamescope_force_composite() const {
-  bool value = (_has_bits_[4] & 0x00040000u) != 0;
+  bool value = (_has_bits_[4] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_gamescope_force_composite() const {
@@ -8775,7 +8964,7 @@ inline bool CMsgClientSettings::has_gamescope_force_composite() const {
 }
 inline void CMsgClientSettings::clear_gamescope_force_composite() {
   gamescope_force_composite_ = false;
-  _has_bits_[4] &= ~0x00040000u;
+  _has_bits_[4] &= ~0x00100000u;
 }
 inline bool CMsgClientSettings::_internal_gamescope_force_composite() const {
   return gamescope_force_composite_;
@@ -8785,7 +8974,7 @@ inline bool CMsgClientSettings::gamescope_force_composite() const {
   return _internal_gamescope_force_composite();
 }
 inline void CMsgClientSettings::_internal_set_gamescope_force_composite(bool value) {
-  _has_bits_[4] |= 0x00040000u;
+  _has_bits_[4] |= 0x00100000u;
   gamescope_force_composite_ = value;
 }
 inline void CMsgClientSettings::set_gamescope_force_composite(bool value) {
@@ -8868,7 +9057,7 @@ inline void CMsgClientSettings::set_allocated_gamescope_game_resolution_global(s
 
 // optional int32 steamos_status_led_brightness = 22000 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/StatusLEDBrightness", (.setting_default_int) = 100];
 inline bool CMsgClientSettings::_internal_has_steamos_status_led_brightness() const {
-  bool value = (_has_bits_[4] & 0x00200000u) != 0;
+  bool value = (_has_bits_[4] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steamos_status_led_brightness() const {
@@ -8876,7 +9065,7 @@ inline bool CMsgClientSettings::has_steamos_status_led_brightness() const {
 }
 inline void CMsgClientSettings::clear_steamos_status_led_brightness() {
   steamos_status_led_brightness_ = 0;
-  _has_bits_[4] &= ~0x00200000u;
+  _has_bits_[4] &= ~0x00400000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_steamos_status_led_brightness() const {
   return steamos_status_led_brightness_;
@@ -8886,7 +9075,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::steamos_status_led_bri
   return _internal_steamos_status_led_brightness();
 }
 inline void CMsgClientSettings::_internal_set_steamos_status_led_brightness(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[4] |= 0x00200000u;
+  _has_bits_[4] |= 0x00400000u;
   steamos_status_led_brightness_ = value;
 }
 inline void CMsgClientSettings::set_steamos_status_led_brightness(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8896,7 +9085,7 @@ inline void CMsgClientSettings::set_steamos_status_led_brightness(::PROTOBUF_NAM
 
 // optional bool steamos_tdp_limit_enabled = 22001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/TDPLimitEnabled", (.setting_default_bool) = false, (.setting_profile_mode) = ESettingProfileMode_PerGame];
 inline bool CMsgClientSettings::_internal_has_steamos_tdp_limit_enabled() const {
-  bool value = (_has_bits_[4] & 0x00080000u) != 0;
+  bool value = (_has_bits_[4] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steamos_tdp_limit_enabled() const {
@@ -8904,7 +9093,7 @@ inline bool CMsgClientSettings::has_steamos_tdp_limit_enabled() const {
 }
 inline void CMsgClientSettings::clear_steamos_tdp_limit_enabled() {
   steamos_tdp_limit_enabled_ = false;
-  _has_bits_[4] &= ~0x00080000u;
+  _has_bits_[4] &= ~0x00200000u;
 }
 inline bool CMsgClientSettings::_internal_steamos_tdp_limit_enabled() const {
   return steamos_tdp_limit_enabled_;
@@ -8914,7 +9103,7 @@ inline bool CMsgClientSettings::steamos_tdp_limit_enabled() const {
   return _internal_steamos_tdp_limit_enabled();
 }
 inline void CMsgClientSettings::_internal_set_steamos_tdp_limit_enabled(bool value) {
-  _has_bits_[4] |= 0x00080000u;
+  _has_bits_[4] |= 0x00200000u;
   steamos_tdp_limit_enabled_ = value;
 }
 inline void CMsgClientSettings::set_steamos_tdp_limit_enabled(bool value) {
@@ -8924,7 +9113,7 @@ inline void CMsgClientSettings::set_steamos_tdp_limit_enabled(bool value) {
 
 // optional int32 steamos_tdp_limit = 22002 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/TDPLimit", (.setting_default_int) = 0, (.setting_profile_mode) = ESettingProfileMode_PerGame];
 inline bool CMsgClientSettings::_internal_has_steamos_tdp_limit() const {
-  bool value = (_has_bits_[4] & 0x00400000u) != 0;
+  bool value = (_has_bits_[4] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steamos_tdp_limit() const {
@@ -8932,7 +9121,7 @@ inline bool CMsgClientSettings::has_steamos_tdp_limit() const {
 }
 inline void CMsgClientSettings::clear_steamos_tdp_limit() {
   steamos_tdp_limit_ = 0;
-  _has_bits_[4] &= ~0x00400000u;
+  _has_bits_[4] &= ~0x00800000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_steamos_tdp_limit() const {
   return steamos_tdp_limit_;
@@ -8942,7 +9131,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::steamos_tdp_limit() co
   return _internal_steamos_tdp_limit();
 }
 inline void CMsgClientSettings::_internal_set_steamos_tdp_limit(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[4] |= 0x00400000u;
+  _has_bits_[4] |= 0x00800000u;
   steamos_tdp_limit_ = value;
 }
 inline void CMsgClientSettings::set_steamos_tdp_limit(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8952,7 +9141,7 @@ inline void CMsgClientSettings::set_steamos_tdp_limit(::PROTOBUF_NAMESPACE_ID::i
 
 // optional bool steamos_cec_enabled = 22003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/CECEnabled", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_steamos_cec_enabled() const {
-  bool value = (_has_bits_[4] & 0x00100000u) != 0;
+  bool value = (_has_bits_[4] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steamos_cec_enabled() const {
@@ -8960,7 +9149,7 @@ inline bool CMsgClientSettings::has_steamos_cec_enabled() const {
 }
 inline void CMsgClientSettings::clear_steamos_cec_enabled() {
   steamos_cec_enabled_ = false;
-  _has_bits_[4] &= ~0x00100000u;
+  _has_bits_[4] &= ~0x01000000u;
 }
 inline bool CMsgClientSettings::_internal_steamos_cec_enabled() const {
   return steamos_cec_enabled_;
@@ -8970,7 +9159,7 @@ inline bool CMsgClientSettings::steamos_cec_enabled() const {
   return _internal_steamos_cec_enabled();
 }
 inline void CMsgClientSettings::_internal_set_steamos_cec_enabled(bool value) {
-  _has_bits_[4] |= 0x00100000u;
+  _has_bits_[4] |= 0x01000000u;
   steamos_cec_enabled_ = value;
 }
 inline void CMsgClientSettings::set_steamos_cec_enabled(bool value) {
@@ -8980,7 +9169,7 @@ inline void CMsgClientSettings::set_steamos_cec_enabled(bool value) {
 
 // optional bool steamos_cec_wake_on_resume = 22004 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WakeOnResume", (.setting_default_bool) = true];
 inline bool CMsgClientSettings::_internal_has_steamos_cec_wake_on_resume() const {
-  bool value = (_has_bits_[4] & 0x01000000u) != 0;
+  bool value = (_has_bits_[4] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steamos_cec_wake_on_resume() const {
@@ -8988,7 +9177,7 @@ inline bool CMsgClientSettings::has_steamos_cec_wake_on_resume() const {
 }
 inline void CMsgClientSettings::clear_steamos_cec_wake_on_resume() {
   steamos_cec_wake_on_resume_ = false;
-  _has_bits_[4] &= ~0x01000000u;
+  _has_bits_[4] &= ~0x02000000u;
 }
 inline bool CMsgClientSettings::_internal_steamos_cec_wake_on_resume() const {
   return steamos_cec_wake_on_resume_;
@@ -8998,7 +9187,7 @@ inline bool CMsgClientSettings::steamos_cec_wake_on_resume() const {
   return _internal_steamos_cec_wake_on_resume();
 }
 inline void CMsgClientSettings::_internal_set_steamos_cec_wake_on_resume(bool value) {
-  _has_bits_[4] |= 0x01000000u;
+  _has_bits_[4] |= 0x02000000u;
   steamos_cec_wake_on_resume_ = value;
 }
 inline void CMsgClientSettings::set_steamos_cec_wake_on_resume(bool value) {
@@ -9008,7 +9197,7 @@ inline void CMsgClientSettings::set_steamos_cec_wake_on_resume(bool value) {
 
 // optional bool steamos_wifi_debug = 22005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WifiDebug", (.setting_default_bool) = false];
 inline bool CMsgClientSettings::_internal_has_steamos_wifi_debug() const {
-  bool value = (_has_bits_[4] & 0x02000000u) != 0;
+  bool value = (_has_bits_[4] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steamos_wifi_debug() const {
@@ -9016,7 +9205,7 @@ inline bool CMsgClientSettings::has_steamos_wifi_debug() const {
 }
 inline void CMsgClientSettings::clear_steamos_wifi_debug() {
   steamos_wifi_debug_ = false;
-  _has_bits_[4] &= ~0x02000000u;
+  _has_bits_[4] &= ~0x04000000u;
 }
 inline bool CMsgClientSettings::_internal_steamos_wifi_debug() const {
   return steamos_wifi_debug_;
@@ -9026,7 +9215,7 @@ inline bool CMsgClientSettings::steamos_wifi_debug() const {
   return _internal_steamos_wifi_debug();
 }
 inline void CMsgClientSettings::_internal_set_steamos_wifi_debug(bool value) {
-  _has_bits_[4] |= 0x02000000u;
+  _has_bits_[4] |= 0x04000000u;
   steamos_wifi_debug_ = value;
 }
 inline void CMsgClientSettings::set_steamos_wifi_debug(bool value) {
@@ -9036,7 +9225,7 @@ inline void CMsgClientSettings::set_steamos_wifi_debug(bool value) {
 
 // optional bool steamos_wifi_force_wpa_supplicant = 22006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SteamOS/WifiForceWPASupplicant", (.setting_default_bool) = false];
 inline bool CMsgClientSettings::_internal_has_steamos_wifi_force_wpa_supplicant() const {
-  bool value = (_has_bits_[4] & 0x04000000u) != 0;
+  bool value = (_has_bits_[4] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steamos_wifi_force_wpa_supplicant() const {
@@ -9044,7 +9233,7 @@ inline bool CMsgClientSettings::has_steamos_wifi_force_wpa_supplicant() const {
 }
 inline void CMsgClientSettings::clear_steamos_wifi_force_wpa_supplicant() {
   steamos_wifi_force_wpa_supplicant_ = false;
-  _has_bits_[4] &= ~0x04000000u;
+  _has_bits_[4] &= ~0x08000000u;
 }
 inline bool CMsgClientSettings::_internal_steamos_wifi_force_wpa_supplicant() const {
   return steamos_wifi_force_wpa_supplicant_;
@@ -9054,7 +9243,7 @@ inline bool CMsgClientSettings::steamos_wifi_force_wpa_supplicant() const {
   return _internal_steamos_wifi_force_wpa_supplicant();
 }
 inline void CMsgClientSettings::_internal_set_steamos_wifi_force_wpa_supplicant(bool value) {
-  _has_bits_[4] |= 0x04000000u;
+  _has_bits_[4] |= 0x08000000u;
   steamos_wifi_force_wpa_supplicant_ = value;
 }
 inline void CMsgClientSettings::set_steamos_wifi_force_wpa_supplicant(bool value) {
@@ -9064,7 +9253,7 @@ inline void CMsgClientSettings::set_steamos_wifi_force_wpa_supplicant(bool value
 
 // optional int32 steamos_magnifier_scale = 22007 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "SteamOS/MagnifierScale", (.setting_default_int) = 150];
 inline bool CMsgClientSettings::_internal_has_steamos_magnifier_scale() const {
-  bool value = (_has_bits_[4] & 0x00800000u) != 0;
+  bool value = (_has_bits_[4] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_steamos_magnifier_scale() const {
@@ -9072,7 +9261,7 @@ inline bool CMsgClientSettings::has_steamos_magnifier_scale() const {
 }
 inline void CMsgClientSettings::clear_steamos_magnifier_scale() {
   steamos_magnifier_scale_ = 0;
-  _has_bits_[4] &= ~0x00800000u;
+  _has_bits_[4] &= ~0x10000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_steamos_magnifier_scale() const {
   return steamos_magnifier_scale_;
@@ -9082,7 +9271,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::steamos_magnifier_scal
   return _internal_steamos_magnifier_scale();
 }
 inline void CMsgClientSettings::_internal_set_steamos_magnifier_scale(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[4] |= 0x00800000u;
+  _has_bits_[4] |= 0x10000000u;
   steamos_magnifier_scale_ = value;
 }
 inline void CMsgClientSettings::set_steamos_magnifier_scale(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -9092,7 +9281,7 @@ inline void CMsgClientSettings::set_steamos_magnifier_scale(::PROTOBUF_NAMESPACE
 
 // optional bool setting_validation_bool = 23001 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyBool"];
 inline bool CMsgClientSettings::_internal_has_setting_validation_bool() const {
-  bool value = (_has_bits_[4] & 0x08000000u) != 0;
+  bool value = (_has_bits_[5] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_setting_validation_bool() const {
@@ -9100,7 +9289,7 @@ inline bool CMsgClientSettings::has_setting_validation_bool() const {
 }
 inline void CMsgClientSettings::clear_setting_validation_bool() {
   setting_validation_bool_ = false;
-  _has_bits_[4] &= ~0x08000000u;
+  _has_bits_[5] &= ~0x00000004u;
 }
 inline bool CMsgClientSettings::_internal_setting_validation_bool() const {
   return setting_validation_bool_;
@@ -9110,7 +9299,7 @@ inline bool CMsgClientSettings::setting_validation_bool() const {
   return _internal_setting_validation_bool();
 }
 inline void CMsgClientSettings::_internal_set_setting_validation_bool(bool value) {
-  _has_bits_[4] |= 0x08000000u;
+  _has_bits_[5] |= 0x00000004u;
   setting_validation_bool_ = value;
 }
 inline void CMsgClientSettings::set_setting_validation_bool(bool value) {
@@ -9120,7 +9309,7 @@ inline void CMsgClientSettings::set_setting_validation_bool(bool value) {
 
 // optional .EHDRVisualization setting_validation_enum = 23002 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyEnum"];
 inline bool CMsgClientSettings::_internal_has_setting_validation_enum() const {
-  bool value = (_has_bits_[4] & 0x10000000u) != 0;
+  bool value = (_has_bits_[4] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_setting_validation_enum() const {
@@ -9128,7 +9317,7 @@ inline bool CMsgClientSettings::has_setting_validation_enum() const {
 }
 inline void CMsgClientSettings::clear_setting_validation_enum() {
   setting_validation_enum_ = 0;
-  _has_bits_[4] &= ~0x10000000u;
+  _has_bits_[4] &= ~0x20000000u;
 }
 inline ::EHDRVisualization CMsgClientSettings::_internal_setting_validation_enum() const {
   return static_cast< ::EHDRVisualization >(setting_validation_enum_);
@@ -9139,7 +9328,7 @@ inline ::EHDRVisualization CMsgClientSettings::setting_validation_enum() const {
 }
 inline void CMsgClientSettings::_internal_set_setting_validation_enum(::EHDRVisualization value) {
   assert(::EHDRVisualization_IsValid(value));
-  _has_bits_[4] |= 0x10000000u;
+  _has_bits_[4] |= 0x20000000u;
   setting_validation_enum_ = value;
 }
 inline void CMsgClientSettings::set_setting_validation_enum(::EHDRVisualization value) {
@@ -9149,7 +9338,7 @@ inline void CMsgClientSettings::set_setting_validation_enum(::EHDRVisualization 
 
 // optional int32 setting_validation_int32 = 23003 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyInt32"];
 inline bool CMsgClientSettings::_internal_has_setting_validation_int32() const {
-  bool value = (_has_bits_[4] & 0x20000000u) != 0;
+  bool value = (_has_bits_[4] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_setting_validation_int32() const {
@@ -9157,7 +9346,7 @@ inline bool CMsgClientSettings::has_setting_validation_int32() const {
 }
 inline void CMsgClientSettings::clear_setting_validation_int32() {
   setting_validation_int32_ = 0;
-  _has_bits_[4] &= ~0x20000000u;
+  _has_bits_[4] &= ~0x40000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::_internal_setting_validation_int32() const {
   return setting_validation_int32_;
@@ -9167,7 +9356,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientSettings::setting_validation_int
   return _internal_setting_validation_int32();
 }
 inline void CMsgClientSettings::_internal_set_setting_validation_int32(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[4] |= 0x20000000u;
+  _has_bits_[4] |= 0x40000000u;
   setting_validation_int32_ = value;
 }
 inline void CMsgClientSettings::set_setting_validation_int32(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -9205,7 +9394,7 @@ inline void CMsgClientSettings::set_setting_validation_uint32(::PROTOBUF_NAMESPA
 
 // optional uint64 setting_validation_uint64 = 23005 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyUInt64"];
 inline bool CMsgClientSettings::_internal_has_setting_validation_uint64() const {
-  bool value = (_has_bits_[4] & 0x40000000u) != 0;
+  bool value = (_has_bits_[5] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_setting_validation_uint64() const {
@@ -9213,7 +9402,7 @@ inline bool CMsgClientSettings::has_setting_validation_uint64() const {
 }
 inline void CMsgClientSettings::clear_setting_validation_uint64() {
   setting_validation_uint64_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[4] &= ~0x40000000u;
+  _has_bits_[5] &= ~0x00000001u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientSettings::_internal_setting_validation_uint64() const {
   return setting_validation_uint64_;
@@ -9223,7 +9412,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientSettings::setting_validation_ui
   return _internal_setting_validation_uint64();
 }
 inline void CMsgClientSettings::_internal_set_setting_validation_uint64(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[4] |= 0x40000000u;
+  _has_bits_[5] |= 0x00000001u;
   setting_validation_uint64_ = value;
 }
 inline void CMsgClientSettings::set_setting_validation_uint64(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -9233,7 +9422,7 @@ inline void CMsgClientSettings::set_setting_validation_uint64(::PROTOBUF_NAMESPA
 
 // optional float setting_validation_float = 23006 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "SettingValidation/DummyFloat"];
 inline bool CMsgClientSettings::_internal_has_setting_validation_float() const {
-  bool value = (_has_bits_[5] & 0x00000001u) != 0;
+  bool value = (_has_bits_[5] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_setting_validation_float() const {
@@ -9241,7 +9430,7 @@ inline bool CMsgClientSettings::has_setting_validation_float() const {
 }
 inline void CMsgClientSettings::clear_setting_validation_float() {
   setting_validation_float_ = 0;
-  _has_bits_[5] &= ~0x00000001u;
+  _has_bits_[5] &= ~0x00000002u;
 }
 inline float CMsgClientSettings::_internal_setting_validation_float() const {
   return setting_validation_float_;
@@ -9251,7 +9440,7 @@ inline float CMsgClientSettings::setting_validation_float() const {
   return _internal_setting_validation_float();
 }
 inline void CMsgClientSettings::_internal_set_setting_validation_float(float value) {
-  _has_bits_[5] |= 0x00000001u;
+  _has_bits_[5] |= 0x00000002u;
   setting_validation_float_ = value;
 }
 inline void CMsgClientSettings::set_setting_validation_float(float value) {
@@ -9334,7 +9523,7 @@ inline void CMsgClientSettings::set_allocated_setting_validation_string(std::str
 
 // optional bool system_bluetooth_enabled = 24000 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "System/Bluetooth/Enabled", (.setting_default_bool) = false];
 inline bool CMsgClientSettings::_internal_has_system_bluetooth_enabled() const {
-  bool value = (_has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_has_bits_[5] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgClientSettings::has_system_bluetooth_enabled() const {
@@ -9342,7 +9531,7 @@ inline bool CMsgClientSettings::has_system_bluetooth_enabled() const {
 }
 inline void CMsgClientSettings::clear_system_bluetooth_enabled() {
   system_bluetooth_enabled_ = false;
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[5] &= ~0x00000008u;
 }
 inline bool CMsgClientSettings::_internal_system_bluetooth_enabled() const {
   return system_bluetooth_enabled_;
@@ -9352,7 +9541,7 @@ inline bool CMsgClientSettings::system_bluetooth_enabled() const {
   return _internal_system_bluetooth_enabled();
 }
 inline void CMsgClientSettings::_internal_set_system_bluetooth_enabled(bool value) {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[5] |= 0x00000008u;
   system_bluetooth_enabled_ = value;
 }
 inline void CMsgClientSettings::set_system_bluetooth_enabled(bool value) {

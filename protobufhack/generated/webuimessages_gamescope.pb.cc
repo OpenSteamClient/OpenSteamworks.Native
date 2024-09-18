@@ -116,7 +116,29 @@ struct CGamescope_SetBlurParams_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGamescope_SetBlurParams_ResponseDefaultTypeInternal _CGamescope_SetBlurParams_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fgamescope_2eproto[7];
+constexpr CGamescope_ReArmMuraCalibration_Request::CGamescope_ReArmMuraCalibration_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CGamescope_ReArmMuraCalibration_RequestDefaultTypeInternal {
+  constexpr CGamescope_ReArmMuraCalibration_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CGamescope_ReArmMuraCalibration_RequestDefaultTypeInternal() {}
+  union {
+    CGamescope_ReArmMuraCalibration_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGamescope_ReArmMuraCalibration_RequestDefaultTypeInternal _CGamescope_ReArmMuraCalibration_Request_default_instance_;
+constexpr CGamescope_ReArmMuraCalibration_Response::CGamescope_ReArmMuraCalibration_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CGamescope_ReArmMuraCalibration_ResponseDefaultTypeInternal {
+  constexpr CGamescope_ReArmMuraCalibration_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CGamescope_ReArmMuraCalibration_ResponseDefaultTypeInternal() {}
+  union {
+    CGamescope_ReArmMuraCalibration_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CGamescope_ReArmMuraCalibration_ResponseDefaultTypeInternal _CGamescope_ReArmMuraCalibration_Response_default_instance_;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fgamescope_2eproto[9];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_webuimessages_5fgamescope_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_webuimessages_5fgamescope_2eproto[1];
 
@@ -200,6 +222,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamescope_2epr
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CGamescope_ReArmMuraCalibration_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CGamescope_ReArmMuraCalibration_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 13, sizeof(::CMsgDisplayInfo)},
@@ -209,6 +241,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 58, -1, sizeof(::CGamescope_StateChanged_Notification)},
   { 63, 71, sizeof(::CGamescope_SetBlurParams_Request)},
   { 74, -1, sizeof(::CGamescope_SetBlurParams_Response)},
+  { 79, -1, sizeof(::CGamescope_ReArmMuraCalibration_Request)},
+  { 84, -1, sizeof(::CGamescope_ReArmMuraCalibration_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -219,6 +253,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGamescope_StateChanged_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGamescope_SetBlurParams_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGamescope_SetBlurParams_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGamescope_ReArmMuraCalibration_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CGamescope_ReArmMuraCalibration_Response_default_instance_),
 };
 
 const char descriptor_table_protodef_webuimessages_5fgamescope_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -248,14 +284,19 @@ const char descriptor_table_protodef_webuimessages_5fgamescope_2eproto[] PROTOBU
   "ode\030\001 \001(\0162\023.EGamescopeBlurMode:\033EGamesco"
   "peBlurMode_Disabled\022\016\n\006radius\030\002 \001(\005\022\030\n\020f"
   "ade_duration_ms\030\003 \001(\005\"#\n!CGamescope_SetB"
-  "lurParams_Response2\201\002\n\tGamescope\022G\n\010GetS"
-  "tate\022\034.CGamescope_GetState_Request\032\035.CGa"
-  "mescope_GetState_Response\022M\n\022NotifyState"
-  "Changed\022%.CGamescope_StateChanged_Notifi"
-  "cation\032\020.WebUINoResponse\022V\n\rSetBlurParam"
-  "s\022!.CGamescope_SetBlurParams_Request\032\".C"
-  "Gamescope_SetBlurParams_Response\032\004\200\227\"\001B\037"
-  "H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "lurParams_Response\")\n\'CGamescope_ReArmMu"
+  "raCalibration_Request\"*\n(CGamescope_ReAr"
+  "mMuraCalibration_Response2\356\002\n\tGamescope\022"
+  "G\n\010GetState\022\034.CGamescope_GetState_Reques"
+  "t\032\035.CGamescope_GetState_Response\022M\n\022Noti"
+  "fyStateChanged\022%.CGamescope_StateChanged"
+  "_Notification\032\020.WebUINoResponse\022V\n\rSetBl"
+  "urParams\022!.CGamescope_SetBlurParams_Requ"
+  "est\032\".CGamescope_SetBlurParams_Response\022"
+  "k\n\024ReArmMuraCalibration\022(.CGamescope_ReA"
+  "rmMuraCalibration_Request\032).CGamescope_R"
+  "eArmMuraCalibration_Response\032\004\200\227\"\001B\037H\001\200\001"
+  "\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fgamescope_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -265,8 +306,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fgamescope_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fgamescope_2eproto = {
-  false, false, 1351, descriptor_table_protodef_webuimessages_5fgamescope_2eproto, "webuimessages_gamescope.proto", 
-  &descriptor_table_webuimessages_5fgamescope_2eproto_once, descriptor_table_webuimessages_5fgamescope_2eproto_deps, 4, 7,
+  false, false, 1547, descriptor_table_protodef_webuimessages_5fgamescope_2eproto, "webuimessages_gamescope.proto", 
+  &descriptor_table_webuimessages_5fgamescope_2eproto_once, descriptor_table_webuimessages_5fgamescope_2eproto_deps, 4, 9,
   schemas, file_default_instances, TableStruct_webuimessages_5fgamescope_2eproto::offsets,
   file_level_metadata_webuimessages_5fgamescope_2eproto, file_level_enum_descriptors_webuimessages_5fgamescope_2eproto, file_level_service_descriptors_webuimessages_5fgamescope_2eproto,
 };
@@ -2196,6 +2237,320 @@ void CGamescope_SetBlurParams_Response::InternalSwap(CGamescope_SetBlurParams_Re
 
 // ===================================================================
 
+class CGamescope_ReArmMuraCalibration_Request::_Internal {
+ public:
+};
+
+CGamescope_ReArmMuraCalibration_Request::CGamescope_ReArmMuraCalibration_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CGamescope_ReArmMuraCalibration_Request)
+}
+CGamescope_ReArmMuraCalibration_Request::CGamescope_ReArmMuraCalibration_Request(const CGamescope_ReArmMuraCalibration_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CGamescope_ReArmMuraCalibration_Request)
+}
+
+void CGamescope_ReArmMuraCalibration_Request::SharedCtor() {
+}
+
+CGamescope_ReArmMuraCalibration_Request::~CGamescope_ReArmMuraCalibration_Request() {
+  // @@protoc_insertion_point(destructor:CGamescope_ReArmMuraCalibration_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CGamescope_ReArmMuraCalibration_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CGamescope_ReArmMuraCalibration_Request::ArenaDtor(void* object) {
+  CGamescope_ReArmMuraCalibration_Request* _this = reinterpret_cast< CGamescope_ReArmMuraCalibration_Request* >(object);
+  (void)_this;
+}
+void CGamescope_ReArmMuraCalibration_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CGamescope_ReArmMuraCalibration_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CGamescope_ReArmMuraCalibration_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CGamescope_ReArmMuraCalibration_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CGamescope_ReArmMuraCalibration_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CGamescope_ReArmMuraCalibration_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CGamescope_ReArmMuraCalibration_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CGamescope_ReArmMuraCalibration_Request)
+  return target;
+}
+
+size_t CGamescope_ReArmMuraCalibration_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CGamescope_ReArmMuraCalibration_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CGamescope_ReArmMuraCalibration_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CGamescope_ReArmMuraCalibration_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CGamescope_ReArmMuraCalibration_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CGamescope_ReArmMuraCalibration_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CGamescope_ReArmMuraCalibration_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CGamescope_ReArmMuraCalibration_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CGamescope_ReArmMuraCalibration_Request::MergeFrom(const CGamescope_ReArmMuraCalibration_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CGamescope_ReArmMuraCalibration_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CGamescope_ReArmMuraCalibration_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CGamescope_ReArmMuraCalibration_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGamescope_ReArmMuraCalibration_Request::CopyFrom(const CGamescope_ReArmMuraCalibration_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CGamescope_ReArmMuraCalibration_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGamescope_ReArmMuraCalibration_Request::IsInitialized() const {
+  return true;
+}
+
+void CGamescope_ReArmMuraCalibration_Request::InternalSwap(CGamescope_ReArmMuraCalibration_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CGamescope_ReArmMuraCalibration_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CGamescope_ReArmMuraCalibration_Response::_Internal {
+ public:
+};
+
+CGamescope_ReArmMuraCalibration_Response::CGamescope_ReArmMuraCalibration_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CGamescope_ReArmMuraCalibration_Response)
+}
+CGamescope_ReArmMuraCalibration_Response::CGamescope_ReArmMuraCalibration_Response(const CGamescope_ReArmMuraCalibration_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CGamescope_ReArmMuraCalibration_Response)
+}
+
+void CGamescope_ReArmMuraCalibration_Response::SharedCtor() {
+}
+
+CGamescope_ReArmMuraCalibration_Response::~CGamescope_ReArmMuraCalibration_Response() {
+  // @@protoc_insertion_point(destructor:CGamescope_ReArmMuraCalibration_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CGamescope_ReArmMuraCalibration_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CGamescope_ReArmMuraCalibration_Response::ArenaDtor(void* object) {
+  CGamescope_ReArmMuraCalibration_Response* _this = reinterpret_cast< CGamescope_ReArmMuraCalibration_Response* >(object);
+  (void)_this;
+}
+void CGamescope_ReArmMuraCalibration_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CGamescope_ReArmMuraCalibration_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CGamescope_ReArmMuraCalibration_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CGamescope_ReArmMuraCalibration_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CGamescope_ReArmMuraCalibration_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CGamescope_ReArmMuraCalibration_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CGamescope_ReArmMuraCalibration_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CGamescope_ReArmMuraCalibration_Response)
+  return target;
+}
+
+size_t CGamescope_ReArmMuraCalibration_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CGamescope_ReArmMuraCalibration_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CGamescope_ReArmMuraCalibration_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CGamescope_ReArmMuraCalibration_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CGamescope_ReArmMuraCalibration_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CGamescope_ReArmMuraCalibration_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CGamescope_ReArmMuraCalibration_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CGamescope_ReArmMuraCalibration_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CGamescope_ReArmMuraCalibration_Response::MergeFrom(const CGamescope_ReArmMuraCalibration_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CGamescope_ReArmMuraCalibration_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CGamescope_ReArmMuraCalibration_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CGamescope_ReArmMuraCalibration_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGamescope_ReArmMuraCalibration_Response::CopyFrom(const CGamescope_ReArmMuraCalibration_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CGamescope_ReArmMuraCalibration_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGamescope_ReArmMuraCalibration_Response::IsInitialized() const {
+  return true;
+}
+
+void CGamescope_ReArmMuraCalibration_Response::InternalSwap(CGamescope_ReArmMuraCalibration_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CGamescope_ReArmMuraCalibration_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 Gamescope::~Gamescope() {}
 
 const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* Gamescope::descriptor() {
@@ -2231,6 +2586,14 @@ void Gamescope::SetBlurParams(::PROTOBUF_NAMESPACE_ID::RpcController* controller
   done->Run();
 }
 
+void Gamescope::ReArmMuraCalibration(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CGamescope_ReArmMuraCalibration_Request*,
+                         ::CGamescope_ReArmMuraCalibration_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method ReArmMuraCalibration() not implemented.");
+  done->Run();
+}
+
 void Gamescope::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -2262,6 +2625,14 @@ void Gamescope::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
+    case 3:
+      ReArmMuraCalibration(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CGamescope_ReArmMuraCalibration_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CGamescope_ReArmMuraCalibration_Response*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -2278,6 +2649,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Gamescope::GetRequestPrototype(
       return ::CGamescope_StateChanged_Notification::default_instance();
     case 2:
       return ::CGamescope_SetBlurParams_Request::default_instance();
+    case 3:
+      return ::CGamescope_ReArmMuraCalibration_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -2295,6 +2668,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Gamescope::GetResponsePrototype(
       return ::WebUINoResponse::default_instance();
     case 2:
       return ::CGamescope_SetBlurParams_Response::default_instance();
+    case 3:
+      return ::CGamescope_ReArmMuraCalibration_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -2334,6 +2709,13 @@ void Gamescope_Stub::SetBlurParams(::PROTOBUF_NAMESPACE_ID::RpcController* contr
   channel_->CallMethod(descriptor()->method(2),
                        controller, request, response, done);
 }
+void Gamescope_Stub::ReArmMuraCalibration(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CGamescope_ReArmMuraCalibration_Request* request,
+                              ::CGamescope_ReArmMuraCalibration_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(3),
+                       controller, request, response, done);
+}
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
@@ -2357,6 +2739,12 @@ template<> PROTOBUF_NOINLINE ::CGamescope_SetBlurParams_Request* Arena::CreateMa
 }
 template<> PROTOBUF_NOINLINE ::CGamescope_SetBlurParams_Response* Arena::CreateMaybeMessage< ::CGamescope_SetBlurParams_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CGamescope_SetBlurParams_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CGamescope_ReArmMuraCalibration_Request* Arena::CreateMaybeMessage< ::CGamescope_ReArmMuraCalibration_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CGamescope_ReArmMuraCalibration_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CGamescope_ReArmMuraCalibration_Response* Arena::CreateMaybeMessage< ::CGamescope_ReArmMuraCalibration_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CGamescope_ReArmMuraCalibration_Response >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

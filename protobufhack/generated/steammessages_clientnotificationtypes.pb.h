@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fclientnotificationtypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[40]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[41]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -110,6 +110,9 @@ extern CClientNotificationFriendOnlineDefaultTypeInternal _CClientNotificationFr
 class CClientNotificationGameRecordingError;
 struct CClientNotificationGameRecordingErrorDefaultTypeInternal;
 extern CClientNotificationGameRecordingErrorDefaultTypeInternal _CClientNotificationGameRecordingError_default_instance_;
+class CClientNotificationGameRecordingInstantClip;
+struct CClientNotificationGameRecordingInstantClipDefaultTypeInternal;
+extern CClientNotificationGameRecordingInstantClipDefaultTypeInternal _CClientNotificationGameRecordingInstantClip_default_instance_;
 class CClientNotificationGameRecordingStart;
 struct CClientNotificationGameRecordingStartDefaultTypeInternal;
 extern CClientNotificationGameRecordingStartDefaultTypeInternal _CClientNotificationGameRecordingStart_default_instance_;
@@ -195,6 +198,7 @@ template<> ::CClientNotificationFriendInviteRollup* Arena::CreateMaybeMessage<::
 template<> ::CClientNotificationFriendMessage* Arena::CreateMaybeMessage<::CClientNotificationFriendMessage>(Arena*);
 template<> ::CClientNotificationFriendOnline* Arena::CreateMaybeMessage<::CClientNotificationFriendOnline>(Arena*);
 template<> ::CClientNotificationGameRecordingError* Arena::CreateMaybeMessage<::CClientNotificationGameRecordingError>(Arena*);
+template<> ::CClientNotificationGameRecordingInstantClip* Arena::CreateMaybeMessage<::CClientNotificationGameRecordingInstantClip>(Arena*);
 template<> ::CClientNotificationGameRecordingStart* Arena::CreateMaybeMessage<::CClientNotificationGameRecordingStart>(Arena*);
 template<> ::CClientNotificationGameRecordingStop* Arena::CreateMaybeMessage<::CClientNotificationGameRecordingStop>(Arena*);
 template<> ::CClientNotificationGameRecordingUserMarkerAdded* Arena::CreateMaybeMessage<::CClientNotificationGameRecordingUserMarkerAdded>(Arena*);
@@ -277,11 +281,12 @@ enum EClientNotificationType : int {
   EClientNotificationType_ClipDownloaded = 54,
   EClientNotificationType_GameRecordingStart = 55,
   EClientNotificationType_GameRecordingStop = 56,
-  EClientNotificationType_GameRecordingUserMarkerAdded = 57
+  EClientNotificationType_GameRecordingUserMarkerAdded = 57,
+  EClientNotificationType_GameRecordingInstantClip = 58
 };
 bool EClientNotificationType_IsValid(int value);
 constexpr EClientNotificationType EClientNotificationType_MIN = EClientNotificationType_Invalid;
-constexpr EClientNotificationType EClientNotificationType_MAX = EClientNotificationType_GameRecordingUserMarkerAdded;
+constexpr EClientNotificationType EClientNotificationType_MAX = EClientNotificationType_GameRecordingInstantClip;
 constexpr int EClientNotificationType_ARRAYSIZE = EClientNotificationType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EClientNotificationType_descriptor();
@@ -7125,6 +7130,177 @@ class CClientNotificationGameRecordingUserMarkerAdded PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
   friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CClientNotificationGameRecordingInstantClip PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientNotificationGameRecordingInstantClip) */ {
+ public:
+  inline CClientNotificationGameRecordingInstantClip() : CClientNotificationGameRecordingInstantClip(nullptr) {}
+  virtual ~CClientNotificationGameRecordingInstantClip();
+  explicit constexpr CClientNotificationGameRecordingInstantClip(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientNotificationGameRecordingInstantClip(const CClientNotificationGameRecordingInstantClip& from);
+  CClientNotificationGameRecordingInstantClip(CClientNotificationGameRecordingInstantClip&& from) noexcept
+    : CClientNotificationGameRecordingInstantClip() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientNotificationGameRecordingInstantClip& operator=(const CClientNotificationGameRecordingInstantClip& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientNotificationGameRecordingInstantClip& operator=(CClientNotificationGameRecordingInstantClip&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientNotificationGameRecordingInstantClip& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientNotificationGameRecordingInstantClip* internal_default_instance() {
+    return reinterpret_cast<const CClientNotificationGameRecordingInstantClip*>(
+               &_CClientNotificationGameRecordingInstantClip_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    40;
+
+  friend void swap(CClientNotificationGameRecordingInstantClip& a, CClientNotificationGameRecordingInstantClip& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientNotificationGameRecordingInstantClip* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientNotificationGameRecordingInstantClip* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientNotificationGameRecordingInstantClip* New() const final {
+    return CreateMaybeMessage<CClientNotificationGameRecordingInstantClip>(nullptr);
+  }
+
+  CClientNotificationGameRecordingInstantClip* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientNotificationGameRecordingInstantClip>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientNotificationGameRecordingInstantClip& from);
+  void MergeFrom(const CClientNotificationGameRecordingInstantClip& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientNotificationGameRecordingInstantClip* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientNotificationGameRecordingInstantClip";
+  }
+  protected:
+  explicit CClientNotificationGameRecordingInstantClip(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientnotificationtypes_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kClipIdFieldNumber = 2,
+    kGameIdFieldNumber = 1,
+  };
+  // optional string clip_id = 2;
+  bool has_clip_id() const;
+  private:
+  bool _internal_has_clip_id() const;
+  public:
+  void clear_clip_id();
+  const std::string& clip_id() const;
+  void set_clip_id(const std::string& value);
+  void set_clip_id(std::string&& value);
+  void set_clip_id(const char* value);
+  void set_clip_id(const char* value, size_t size);
+  std::string* mutable_clip_id();
+  std::string* release_clip_id();
+  void set_allocated_clip_id(std::string* clip_id);
+  private:
+  const std::string& _internal_clip_id() const;
+  void _internal_set_clip_id(const std::string& value);
+  std::string* _internal_mutable_clip_id();
+  public:
+
+  // optional fixed64 game_id = 1;
+  bool has_game_id() const;
+  private:
+  bool _internal_has_game_id() const;
+  public:
+  void clear_game_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id() const;
+  void set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_game_id() const;
+  void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientNotificationGameRecordingInstantClip)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr clip_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
+  friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
+};
 // ===================================================================
 
 
@@ -11064,9 +11240,116 @@ inline void CClientNotificationGameRecordingUserMarkerAdded::set_game_id(::PROTO
   // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingUserMarkerAdded.game_id)
 }
 
+// -------------------------------------------------------------------
+
+// CClientNotificationGameRecordingInstantClip
+
+// optional fixed64 game_id = 1;
+inline bool CClientNotificationGameRecordingInstantClip::_internal_has_game_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CClientNotificationGameRecordingInstantClip::has_game_id() const {
+  return _internal_has_game_id();
+}
+inline void CClientNotificationGameRecordingInstantClip::clear_game_id() {
+  game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGameRecordingInstantClip::_internal_game_id() const {
+  return game_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientNotificationGameRecordingInstantClip::game_id() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingInstantClip.game_id)
+  return _internal_game_id();
+}
+inline void CClientNotificationGameRecordingInstantClip::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  game_id_ = value;
+}
+inline void CClientNotificationGameRecordingInstantClip::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_game_id(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingInstantClip.game_id)
+}
+
+// optional string clip_id = 2;
+inline bool CClientNotificationGameRecordingInstantClip::_internal_has_clip_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientNotificationGameRecordingInstantClip::has_clip_id() const {
+  return _internal_has_clip_id();
+}
+inline void CClientNotificationGameRecordingInstantClip::clear_clip_id() {
+  clip_id_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CClientNotificationGameRecordingInstantClip::clip_id() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingInstantClip.clip_id)
+  return _internal_clip_id();
+}
+inline void CClientNotificationGameRecordingInstantClip::set_clip_id(const std::string& value) {
+  _internal_set_clip_id(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingInstantClip.clip_id)
+}
+inline std::string* CClientNotificationGameRecordingInstantClip::mutable_clip_id() {
+  // @@protoc_insertion_point(field_mutable:CClientNotificationGameRecordingInstantClip.clip_id)
+  return _internal_mutable_clip_id();
+}
+inline const std::string& CClientNotificationGameRecordingInstantClip::_internal_clip_id() const {
+  return clip_id_.Get();
+}
+inline void CClientNotificationGameRecordingInstantClip::_internal_set_clip_id(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CClientNotificationGameRecordingInstantClip::set_clip_id(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CClientNotificationGameRecordingInstantClip.clip_id)
+}
+inline void CClientNotificationGameRecordingInstantClip::set_clip_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CClientNotificationGameRecordingInstantClip.clip_id)
+}
+inline void CClientNotificationGameRecordingInstantClip::set_clip_id(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CClientNotificationGameRecordingInstantClip.clip_id)
+}
+inline std::string* CClientNotificationGameRecordingInstantClip::_internal_mutable_clip_id() {
+  _has_bits_[0] |= 0x00000001u;
+  return clip_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CClientNotificationGameRecordingInstantClip::release_clip_id() {
+  // @@protoc_insertion_point(field_release:CClientNotificationGameRecordingInstantClip.clip_id)
+  if (!_internal_has_clip_id()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return clip_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CClientNotificationGameRecordingInstantClip::set_allocated_clip_id(std::string* clip_id) {
+  if (clip_id != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  clip_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), clip_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CClientNotificationGameRecordingInstantClip.clip_id)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

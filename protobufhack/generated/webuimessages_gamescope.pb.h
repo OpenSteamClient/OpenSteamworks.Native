@@ -51,7 +51,7 @@ struct TableStruct_webuimessages_5fgamescope_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[9]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -65,6 +65,12 @@ extern CGamescope_GetState_RequestDefaultTypeInternal _CGamescope_GetState_Reque
 class CGamescope_GetState_Response;
 struct CGamescope_GetState_ResponseDefaultTypeInternal;
 extern CGamescope_GetState_ResponseDefaultTypeInternal _CGamescope_GetState_Response_default_instance_;
+class CGamescope_ReArmMuraCalibration_Request;
+struct CGamescope_ReArmMuraCalibration_RequestDefaultTypeInternal;
+extern CGamescope_ReArmMuraCalibration_RequestDefaultTypeInternal _CGamescope_ReArmMuraCalibration_Request_default_instance_;
+class CGamescope_ReArmMuraCalibration_Response;
+struct CGamescope_ReArmMuraCalibration_ResponseDefaultTypeInternal;
+extern CGamescope_ReArmMuraCalibration_ResponseDefaultTypeInternal _CGamescope_ReArmMuraCalibration_Response_default_instance_;
 class CGamescope_SetBlurParams_Request;
 struct CGamescope_SetBlurParams_RequestDefaultTypeInternal;
 extern CGamescope_SetBlurParams_RequestDefaultTypeInternal _CGamescope_SetBlurParams_Request_default_instance_;
@@ -83,6 +89,8 @@ extern CMsgGamescopeStateDefaultTypeInternal _CMsgGamescopeState_default_instanc
 PROTOBUF_NAMESPACE_OPEN
 template<> ::CGamescope_GetState_Request* Arena::CreateMaybeMessage<::CGamescope_GetState_Request>(Arena*);
 template<> ::CGamescope_GetState_Response* Arena::CreateMaybeMessage<::CGamescope_GetState_Response>(Arena*);
+template<> ::CGamescope_ReArmMuraCalibration_Request* Arena::CreateMaybeMessage<::CGamescope_ReArmMuraCalibration_Request>(Arena*);
+template<> ::CGamescope_ReArmMuraCalibration_Response* Arena::CreateMaybeMessage<::CGamescope_ReArmMuraCalibration_Response>(Arena*);
 template<> ::CGamescope_SetBlurParams_Request* Arena::CreateMaybeMessage<::CGamescope_SetBlurParams_Request>(Arena*);
 template<> ::CGamescope_SetBlurParams_Response* Arena::CreateMaybeMessage<::CGamescope_SetBlurParams_Response>(Arena*);
 template<> ::CGamescope_StateChanged_Notification* Arena::CreateMaybeMessage<::CGamescope_StateChanged_Notification>(Arena*);
@@ -1398,6 +1406,268 @@ class CGamescope_SetBlurParams_Response PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_webuimessages_5fgamescope_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CGamescope_ReArmMuraCalibration_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGamescope_ReArmMuraCalibration_Request) */ {
+ public:
+  inline CGamescope_ReArmMuraCalibration_Request() : CGamescope_ReArmMuraCalibration_Request(nullptr) {}
+  virtual ~CGamescope_ReArmMuraCalibration_Request();
+  explicit constexpr CGamescope_ReArmMuraCalibration_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CGamescope_ReArmMuraCalibration_Request(const CGamescope_ReArmMuraCalibration_Request& from);
+  CGamescope_ReArmMuraCalibration_Request(CGamescope_ReArmMuraCalibration_Request&& from) noexcept
+    : CGamescope_ReArmMuraCalibration_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CGamescope_ReArmMuraCalibration_Request& operator=(const CGamescope_ReArmMuraCalibration_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CGamescope_ReArmMuraCalibration_Request& operator=(CGamescope_ReArmMuraCalibration_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CGamescope_ReArmMuraCalibration_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CGamescope_ReArmMuraCalibration_Request* internal_default_instance() {
+    return reinterpret_cast<const CGamescope_ReArmMuraCalibration_Request*>(
+               &_CGamescope_ReArmMuraCalibration_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(CGamescope_ReArmMuraCalibration_Request& a, CGamescope_ReArmMuraCalibration_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CGamescope_ReArmMuraCalibration_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CGamescope_ReArmMuraCalibration_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CGamescope_ReArmMuraCalibration_Request* New() const final {
+    return CreateMaybeMessage<CGamescope_ReArmMuraCalibration_Request>(nullptr);
+  }
+
+  CGamescope_ReArmMuraCalibration_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CGamescope_ReArmMuraCalibration_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CGamescope_ReArmMuraCalibration_Request& from);
+  void MergeFrom(const CGamescope_ReArmMuraCalibration_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CGamescope_ReArmMuraCalibration_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CGamescope_ReArmMuraCalibration_Request";
+  }
+  protected:
+  explicit CGamescope_ReArmMuraCalibration_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_webuimessages_5fgamescope_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:CGamescope_ReArmMuraCalibration_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_webuimessages_5fgamescope_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CGamescope_ReArmMuraCalibration_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGamescope_ReArmMuraCalibration_Response) */ {
+ public:
+  inline CGamescope_ReArmMuraCalibration_Response() : CGamescope_ReArmMuraCalibration_Response(nullptr) {}
+  virtual ~CGamescope_ReArmMuraCalibration_Response();
+  explicit constexpr CGamescope_ReArmMuraCalibration_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CGamescope_ReArmMuraCalibration_Response(const CGamescope_ReArmMuraCalibration_Response& from);
+  CGamescope_ReArmMuraCalibration_Response(CGamescope_ReArmMuraCalibration_Response&& from) noexcept
+    : CGamescope_ReArmMuraCalibration_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CGamescope_ReArmMuraCalibration_Response& operator=(const CGamescope_ReArmMuraCalibration_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CGamescope_ReArmMuraCalibration_Response& operator=(CGamescope_ReArmMuraCalibration_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CGamescope_ReArmMuraCalibration_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CGamescope_ReArmMuraCalibration_Response* internal_default_instance() {
+    return reinterpret_cast<const CGamescope_ReArmMuraCalibration_Response*>(
+               &_CGamescope_ReArmMuraCalibration_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(CGamescope_ReArmMuraCalibration_Response& a, CGamescope_ReArmMuraCalibration_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CGamescope_ReArmMuraCalibration_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CGamescope_ReArmMuraCalibration_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CGamescope_ReArmMuraCalibration_Response* New() const final {
+    return CreateMaybeMessage<CGamescope_ReArmMuraCalibration_Response>(nullptr);
+  }
+
+  CGamescope_ReArmMuraCalibration_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CGamescope_ReArmMuraCalibration_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CGamescope_ReArmMuraCalibration_Response& from);
+  void MergeFrom(const CGamescope_ReArmMuraCalibration_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CGamescope_ReArmMuraCalibration_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CGamescope_ReArmMuraCalibration_Response";
+  }
+  protected:
+  explicit CGamescope_ReArmMuraCalibration_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_webuimessages_5fgamescope_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:CGamescope_ReArmMuraCalibration_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_webuimessages_5fgamescope_2eproto;
+};
 // ===================================================================
 
 class Gamescope_Stub;
@@ -1424,6 +1694,10 @@ class Gamescope : public ::PROTOBUF_NAMESPACE_ID::Service {
   virtual void SetBlurParams(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGamescope_SetBlurParams_Request* request,
                        ::CGamescope_SetBlurParams_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ReArmMuraCalibration(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CGamescope_ReArmMuraCalibration_Request* request,
+                       ::CGamescope_ReArmMuraCalibration_Response* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -1465,6 +1739,10 @@ class Gamescope_Stub : public Gamescope {
   void SetBlurParams(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGamescope_SetBlurParams_Request* request,
                        ::CGamescope_SetBlurParams_Response* response,
+                       ::google::protobuf::Closure* done);
+  void ReArmMuraCalibration(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CGamescope_ReArmMuraCalibration_Request* request,
+                       ::CGamescope_ReArmMuraCalibration_Response* response,
                        ::google::protobuf::Closure* done);
  private:
   ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
@@ -2408,9 +2686,21 @@ inline void CGamescope_SetBlurParams_Request::set_fade_duration_ms(::PROTOBUF_NA
 
 // CGamescope_SetBlurParams_Response
 
+// -------------------------------------------------------------------
+
+// CGamescope_ReArmMuraCalibration_Request
+
+// -------------------------------------------------------------------
+
+// CGamescope_ReArmMuraCalibration_Response
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

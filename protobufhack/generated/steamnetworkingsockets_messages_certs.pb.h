@@ -223,7 +223,6 @@ class CMsgSteamNetworkingIdentityLegacyBinary PROTOBUF_FINAL :
     kGenericBytesFieldNumber = 2,
     kGenericStringFieldNumber = 3,
     kIpv6AndPortFieldNumber = 4,
-    kXboxPairwiseIdFieldNumber = 17,
     kSteamIdFieldNumber = 16,
   };
   // optional bytes generic_bytes = 2;
@@ -286,26 +285,6 @@ class CMsgSteamNetworkingIdentityLegacyBinary PROTOBUF_FINAL :
   std::string* _internal_mutable_ipv6_and_port();
   public:
 
-  // optional string xbox_pairwise_id = 17;
-  bool has_xbox_pairwise_id() const;
-  private:
-  bool _internal_has_xbox_pairwise_id() const;
-  public:
-  void clear_xbox_pairwise_id();
-  const std::string& xbox_pairwise_id() const;
-  void set_xbox_pairwise_id(const std::string& value);
-  void set_xbox_pairwise_id(std::string&& value);
-  void set_xbox_pairwise_id(const char* value);
-  void set_xbox_pairwise_id(const char* value, size_t size);
-  std::string* mutable_xbox_pairwise_id();
-  std::string* release_xbox_pairwise_id();
-  void set_allocated_xbox_pairwise_id(std::string* xbox_pairwise_id);
-  private:
-  const std::string& _internal_xbox_pairwise_id() const;
-  void _internal_set_xbox_pairwise_id(const std::string& value);
-  std::string* _internal_mutable_xbox_pairwise_id();
-  public:
-
   // optional fixed64 steam_id = 16;
   bool has_steam_id() const;
   private:
@@ -331,7 +310,6 @@ class CMsgSteamNetworkingIdentityLegacyBinary PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr generic_bytes_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr generic_string_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6_and_port_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr xbox_pairwise_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steam_id_;
   friend struct ::TableStruct_steamnetworkingsockets_5fmessages_5fcerts_2eproto;
 };
@@ -1079,7 +1057,7 @@ class CMsgSteamDatagramCertificateRequest PROTOBUF_FINAL :
 
 // optional fixed64 steam_id = 16;
 inline bool CMsgSteamNetworkingIdentityLegacyBinary::_internal_has_steam_id() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSteamNetworkingIdentityLegacyBinary::has_steam_id() const {
@@ -1087,7 +1065,7 @@ inline bool CMsgSteamNetworkingIdentityLegacyBinary::has_steam_id() const {
 }
 inline void CMsgSteamNetworkingIdentityLegacyBinary::clear_steam_id() {
   steam_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgSteamNetworkingIdentityLegacyBinary::_internal_steam_id() const {
   return steam_id_;
@@ -1097,85 +1075,12 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgSteamNetworkingIdentityLegacyBinary::
   return _internal_steam_id();
 }
 inline void CMsgSteamNetworkingIdentityLegacyBinary::_internal_set_steam_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
   steam_id_ = value;
 }
 inline void CMsgSteamNetworkingIdentityLegacyBinary::set_steam_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_steam_id(value);
   // @@protoc_insertion_point(field_set:CMsgSteamNetworkingIdentityLegacyBinary.steam_id)
-}
-
-// optional string xbox_pairwise_id = 17;
-inline bool CMsgSteamNetworkingIdentityLegacyBinary::_internal_has_xbox_pairwise_id() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CMsgSteamNetworkingIdentityLegacyBinary::has_xbox_pairwise_id() const {
-  return _internal_has_xbox_pairwise_id();
-}
-inline void CMsgSteamNetworkingIdentityLegacyBinary::clear_xbox_pairwise_id() {
-  xbox_pairwise_id_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline const std::string& CMsgSteamNetworkingIdentityLegacyBinary::xbox_pairwise_id() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamNetworkingIdentityLegacyBinary.xbox_pairwise_id)
-  return _internal_xbox_pairwise_id();
-}
-inline void CMsgSteamNetworkingIdentityLegacyBinary::set_xbox_pairwise_id(const std::string& value) {
-  _internal_set_xbox_pairwise_id(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamNetworkingIdentityLegacyBinary.xbox_pairwise_id)
-}
-inline std::string* CMsgSteamNetworkingIdentityLegacyBinary::mutable_xbox_pairwise_id() {
-  // @@protoc_insertion_point(field_mutable:CMsgSteamNetworkingIdentityLegacyBinary.xbox_pairwise_id)
-  return _internal_mutable_xbox_pairwise_id();
-}
-inline const std::string& CMsgSteamNetworkingIdentityLegacyBinary::_internal_xbox_pairwise_id() const {
-  return xbox_pairwise_id_.Get();
-}
-inline void CMsgSteamNetworkingIdentityLegacyBinary::_internal_set_xbox_pairwise_id(const std::string& value) {
-  _has_bits_[0] |= 0x00000008u;
-  xbox_pairwise_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CMsgSteamNetworkingIdentityLegacyBinary::set_xbox_pairwise_id(std::string&& value) {
-  _has_bits_[0] |= 0x00000008u;
-  xbox_pairwise_id_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CMsgSteamNetworkingIdentityLegacyBinary.xbox_pairwise_id)
-}
-inline void CMsgSteamNetworkingIdentityLegacyBinary::set_xbox_pairwise_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000008u;
-  xbox_pairwise_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CMsgSteamNetworkingIdentityLegacyBinary.xbox_pairwise_id)
-}
-inline void CMsgSteamNetworkingIdentityLegacyBinary::set_xbox_pairwise_id(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000008u;
-  xbox_pairwise_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CMsgSteamNetworkingIdentityLegacyBinary.xbox_pairwise_id)
-}
-inline std::string* CMsgSteamNetworkingIdentityLegacyBinary::_internal_mutable_xbox_pairwise_id() {
-  _has_bits_[0] |= 0x00000008u;
-  return xbox_pairwise_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CMsgSteamNetworkingIdentityLegacyBinary::release_xbox_pairwise_id() {
-  // @@protoc_insertion_point(field_release:CMsgSteamNetworkingIdentityLegacyBinary.xbox_pairwise_id)
-  if (!_internal_has_xbox_pairwise_id()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000008u;
-  return xbox_pairwise_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CMsgSteamNetworkingIdentityLegacyBinary::set_allocated_xbox_pairwise_id(std::string* xbox_pairwise_id) {
-  if (xbox_pairwise_id != nullptr) {
-    _has_bits_[0] |= 0x00000008u;
-  } else {
-    _has_bits_[0] &= ~0x00000008u;
-  }
-  xbox_pairwise_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), xbox_pairwise_id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamNetworkingIdentityLegacyBinary.xbox_pairwise_id)
 }
 
 // optional bytes generic_bytes = 2;

@@ -15688,6 +15688,28 @@ EXPORT void CClientNotificationGameRecordingUserMarkerAdded_Delete(CClientNotifi
     delete ptr;
 }
 
+// Begin CClientNotificationGameRecordingInstantClip
+EXPORT CClientNotificationGameRecordingInstantClip *CClientNotificationGameRecordingInstantClip_Construct() {
+    return new CClientNotificationGameRecordingInstantClip();
+}
+
+EXPORT CClientNotificationGameRecordingInstantClip *CClientNotificationGameRecordingInstantClip_Deserialize(void* buffer, int len) {
+    CClientNotificationGameRecordingInstantClip *msg = new CClientNotificationGameRecordingInstantClip();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientNotificationGameRecordingInstantClip_DeserializeInto(CClientNotificationGameRecordingInstantClip *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientNotificationGameRecordingInstantClip_Delete(CClientNotificationGameRecordingInstantClip* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgClientRegisterAuthTicketWithCM
 EXPORT CMsgClientRegisterAuthTicketWithCM *CMsgClientRegisterAuthTicketWithCM_Construct() {
     return new CMsgClientRegisterAuthTicketWithCM();
@@ -56388,6 +56410,28 @@ EXPORT void CTimelineTag_Delete(CTimelineTag* ptr) {
     delete ptr;
 }
 
+// Begin CPhaseAttribute
+EXPORT CPhaseAttribute *CPhaseAttribute_Construct() {
+    return new CPhaseAttribute();
+}
+
+EXPORT CPhaseAttribute *CPhaseAttribute_Deserialize(void* buffer, int len) {
+    CPhaseAttribute *msg = new CPhaseAttribute();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CPhaseAttribute_DeserializeInto(CPhaseAttribute *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CPhaseAttribute_Delete(CPhaseAttribute* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgDisplayInfo
 EXPORT CMsgDisplayInfo *CMsgDisplayInfo_Construct() {
     return new CMsgDisplayInfo();
@@ -56539,6 +56583,50 @@ EXPORT bool CGamescope_SetBlurParams_Response_DeserializeInto(CGamescope_SetBlur
 }
 
 EXPORT void CGamescope_SetBlurParams_Response_Delete(CGamescope_SetBlurParams_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CGamescope_ReArmMuraCalibration_Request
+EXPORT CGamescope_ReArmMuraCalibration_Request *CGamescope_ReArmMuraCalibration_Request_Construct() {
+    return new CGamescope_ReArmMuraCalibration_Request();
+}
+
+EXPORT CGamescope_ReArmMuraCalibration_Request *CGamescope_ReArmMuraCalibration_Request_Deserialize(void* buffer, int len) {
+    CGamescope_ReArmMuraCalibration_Request *msg = new CGamescope_ReArmMuraCalibration_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGamescope_ReArmMuraCalibration_Request_DeserializeInto(CGamescope_ReArmMuraCalibration_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGamescope_ReArmMuraCalibration_Request_Delete(CGamescope_ReArmMuraCalibration_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CGamescope_ReArmMuraCalibration_Response
+EXPORT CGamescope_ReArmMuraCalibration_Response *CGamescope_ReArmMuraCalibration_Response_Construct() {
+    return new CGamescope_ReArmMuraCalibration_Response();
+}
+
+EXPORT CGamescope_ReArmMuraCalibration_Response *CGamescope_ReArmMuraCalibration_Response_Deserialize(void* buffer, int len) {
+    CGamescope_ReArmMuraCalibration_Response *msg = new CGamescope_ReArmMuraCalibration_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CGamescope_ReArmMuraCalibration_Response_DeserializeInto(CGamescope_ReArmMuraCalibration_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CGamescope_ReArmMuraCalibration_Response_Delete(CGamescope_ReArmMuraCalibration_Response* ptr) {
     delete ptr;
 }
 

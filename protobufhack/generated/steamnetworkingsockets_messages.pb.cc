@@ -114,6 +114,7 @@ constexpr CMsgSteamDatagramLinkLifetimeStats::CMsgSteamDatagramLinkLifetimeStats
   , ping_histogram_125_(0u)
   , ping_histogram_150_(0u)
   , ping_histogram_200_(0u)
+  , jitter_histogram_20_(0u)
   , ping_histogram_300_(0u)
   , ping_histogram_max_(0u)
   , ping_ntile_5th_(0u)
@@ -125,36 +126,7 @@ constexpr CMsgSteamDatagramLinkLifetimeStats::CMsgSteamDatagramLinkLifetimeStats
   , jitter_histogram_1_(0u)
   , jitter_histogram_2_(0u)
   , jitter_histogram_5_(0u)
-  , jitter_histogram_10_(0u)
-  , jitter_histogram_20_(0u)
-  , txspeed_max_(0u)
-  , txspeed_histogram_16_(0u)
-  , txspeed_histogram_32_(0u)
-  , txspeed_histogram_64_(0u)
-  , txspeed_histogram_128_(0u)
-  , txspeed_histogram_256_(0u)
-  , txspeed_histogram_512_(0u)
-  , txspeed_histogram_1024_(0u)
-  , txspeed_histogram_max_(0u)
-  , rxspeed_ntile_98th_(0u)
-  , txspeed_ntile_5th_(0u)
-  , txspeed_ntile_50th_(0u)
-  , txspeed_ntile_75th_(0u)
-  , txspeed_ntile_95th_(0u)
-  , txspeed_ntile_98th_(0u)
-  , rxspeed_max_(0u)
-  , rxspeed_histogram_16_(0u)
-  , rxspeed_histogram_32_(0u)
-  , rxspeed_histogram_64_(0u)
-  , rxspeed_histogram_128_(0u)
-  , rxspeed_histogram_256_(0u)
-  , rxspeed_histogram_512_(0u)
-  , rxspeed_histogram_1024_(0u)
-  , rxspeed_histogram_max_(0u)
-  , rxspeed_ntile_5th_(0u)
-  , rxspeed_ntile_50th_(0u)
-  , rxspeed_ntile_75th_(0u)
-  , rxspeed_ntile_95th_(0u){}
+  , jitter_histogram_10_(0u){}
 struct CMsgSteamDatagramLinkLifetimeStatsDefaultTypeInternal {
   constexpr CMsgSteamDatagramLinkLifetimeStatsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -446,34 +418,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steamnetworkingsockets_5fmessa
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, jitter_histogram_5_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, jitter_histogram_10_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, jitter_histogram_20_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_max_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_histogram_16_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_histogram_32_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_histogram_64_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_histogram_128_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_histogram_256_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_histogram_512_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_histogram_1024_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_histogram_max_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_ntile_5th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_ntile_50th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_ntile_75th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_ntile_95th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, txspeed_ntile_98th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_max_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_histogram_16_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_histogram_32_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_histogram_64_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_histogram_128_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_histogram_256_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_histogram_512_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_histogram_1024_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_histogram_max_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_ntile_5th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_ntile_50th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_ntile_75th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_ntile_95th_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramLinkLifetimeStats, rxspeed_ntile_98th_),
   6,
   0,
   1,
@@ -508,7 +452,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steamnetworkingsockets_5fmessa
   29,
   30,
   31,
-  32,
   33,
   34,
   35,
@@ -521,34 +464,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steamnetworkingsockets_5fmessa
   42,
   43,
   44,
-  45,
-  46,
-  47,
-  48,
-  49,
-  50,
-  51,
-  52,
-  53,
-  55,
-  56,
-  57,
-  58,
-  59,
-  60,
-  61,
-  62,
-  63,
-  64,
-  65,
-  66,
-  67,
-  68,
-  69,
-  70,
-  71,
-  72,
-  54,
+  32,
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramConnectionQuality, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramConnectionQuality, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -710,18 +626,18 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 15, 22, sizeof(::CMsgSteamDatagramSessionCryptInfoSigned)},
   { 24, 31, sizeof(::CMsgSteamDatagramDiagnostic)},
   { 33, 46, sizeof(::CMsgSteamDatagramLinkInstantaneousStats)},
-  { 54, 134, sizeof(::CMsgSteamDatagramLinkLifetimeStats)},
-  { 209, 216, sizeof(::CMsgSteamDatagramConnectionQuality)},
-  { 218, 224, sizeof(::CMsgICECandidate)},
-  { 225, 231, sizeof(::CMsgICERendezvous_Auth)},
-  { 232, 239, sizeof(::CMsgICERendezvous)},
-  { 241, 251, sizeof(::CMsgSteamNetworkingP2PRendezvous_ConnectRequest)},
-  { 256, 263, sizeof(::CMsgSteamNetworkingP2PRendezvous_ConnectOK)},
-  { 265, 272, sizeof(::CMsgSteamNetworkingP2PRendezvous_ConnectionClosed)},
-  { 274, 280, sizeof(::CMsgSteamNetworkingP2PRendezvous_ReliableMessage)},
-  { 281, 290, sizeof(::CMsgSteamNetworkingP2PRendezvous_ApplicationMessage)},
-  { 294, 314, sizeof(::CMsgSteamNetworkingP2PRendezvous)},
-  { 329, 349, sizeof(::CMsgSteamNetworkingICESessionSummary)},
+  { 54, 106, sizeof(::CMsgSteamDatagramLinkLifetimeStats)},
+  { 153, 160, sizeof(::CMsgSteamDatagramConnectionQuality)},
+  { 162, 168, sizeof(::CMsgICECandidate)},
+  { 169, 175, sizeof(::CMsgICERendezvous_Auth)},
+  { 176, 183, sizeof(::CMsgICERendezvous)},
+  { 185, 195, sizeof(::CMsgSteamNetworkingP2PRendezvous_ConnectRequest)},
+  { 200, 207, sizeof(::CMsgSteamNetworkingP2PRendezvous_ConnectOK)},
+  { 209, 216, sizeof(::CMsgSteamNetworkingP2PRendezvous_ConnectionClosed)},
+  { 218, 224, sizeof(::CMsgSteamNetworkingP2PRendezvous_ReliableMessage)},
+  { 225, 234, sizeof(::CMsgSteamNetworkingP2PRendezvous_ApplicationMessage)},
+  { 238, 258, sizeof(::CMsgSteamNetworkingP2PRendezvous)},
+  { 273, 293, sizeof(::CMsgSteamNetworkingICESessionSummary)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -763,7 +679,7 @@ const char descriptor_table_protodef_steamnetworkingsockets_5fmessages_2eproto[]
   "ec_x10\030\003 \001(\r\022\030\n\020in_bytes_per_sec\030\004 \001(\r\022\017"
   "\n\007ping_ms\030\005 \001(\r\022\033\n\023packets_dropped_pct\030\006"
   " \001(\r\022\"\n\032packets_weird_sequence_pct\030\007 \001(\r"
-  "\022\026\n\016peajitter_usec\030\010 \001(\r\"\231\021\n\"CMsgSteamDa"
+  "\022\026\n\016peajitter_usec\030\010 \001(\r\"\355\n\n\"CMsgSteamDa"
   "tagramLinkLifetimeStats\022\031\n\021connected_sec"
   "onds\030\002 \001(\r\022\024\n\014packets_sent\030\003 \001(\004\022\017\n\007kb_s"
   "ent\030\004 \001(\004\022\024\n\014packets_recv\030\005 \001(\004\022\017\n\007kb_re"
@@ -798,81 +714,60 @@ const char descriptor_table_protodef_steamnetworkingsockets_5fmessages_2eproto[]
   "tter_histogram_1\030> \001(\r\022\032\n\022jitter_histogr"
   "am_2\030\? \001(\r\022\032\n\022jitter_histogram_5\030@ \001(\r\022\033"
   "\n\023jitter_histogram_10\030A \001(\r\022\033\n\023jitter_hi"
-  "stogram_20\030B \001(\r\022\023\n\013txspeed_max\030C \001(\r\022\034\n"
-  "\024txspeed_histogram_16\030D \001(\r\022\034\n\024txspeed_h"
-  "istogram_32\030E \001(\r\022\034\n\024txspeed_histogram_6"
-  "4\030F \001(\r\022\035\n\025txspeed_histogram_128\030G \001(\r\022\035"
-  "\n\025txspeed_histogram_256\030H \001(\r\022\035\n\025txspeed"
-  "_histogram_512\030I \001(\r\022\036\n\026txspeed_histogra"
-  "m_1024\030J \001(\r\022\035\n\025txspeed_histogram_max\030K "
-  "\001(\r\022\031\n\021txspeed_ntile_5th\030L \001(\r\022\032\n\022txspee"
-  "d_ntile_50th\030M \001(\r\022\032\n\022txspeed_ntile_75th"
-  "\030N \001(\r\022\032\n\022txspeed_ntile_95th\030O \001(\r\022\032\n\022tx"
-  "speed_ntile_98th\030P \001(\r\022\023\n\013rxspeed_max\030Q "
-  "\001(\r\022\034\n\024rxspeed_histogram_16\030R \001(\r\022\034\n\024rxs"
-  "peed_histogram_32\030S \001(\r\022\034\n\024rxspeed_histo"
-  "gram_64\030T \001(\r\022\035\n\025rxspeed_histogram_128\030U"
-  " \001(\r\022\035\n\025rxspeed_histogram_256\030V \001(\r\022\035\n\025r"
-  "xspeed_histogram_512\030W \001(\r\022\036\n\026rxspeed_hi"
-  "stogram_1024\030X \001(\r\022\035\n\025rxspeed_histogram_"
-  "max\030Y \001(\r\022\031\n\021rxspeed_ntile_5th\030Z \001(\r\022\032\n\022"
-  "rxspeed_ntile_50th\030[ \001(\r\022\032\n\022rxspeed_ntil"
-  "e_75th\030\\ \001(\r\022\032\n\022rxspeed_ntile_95th\030] \001(\r"
-  "\022\032\n\022rxspeed_ntile_98th\030^ \001(\r\"\234\001\n\"CMsgSte"
-  "amDatagramConnectionQuality\022\?\n\rinstantan"
-  "eous\030\001 \001(\0132(.CMsgSteamDatagramLinkInstan"
-  "taneousStats\0225\n\010lifetime\030\002 \001(\0132#.CMsgSte"
-  "amDatagramLinkLifetimeStats\"%\n\020CMsgICECa"
-  "ndidate\022\021\n\tcandidate\030\003 \001(\t\"~\n\021CMsgICERen"
-  "dezvous\022%\n\004auth\030\002 \001(\0132\027.CMsgICERendezvou"
-  "s.Auth\022(\n\radd_candidate\030\001 \001(\0132\021.CMsgICEC"
-  "andidate\032\030\n\004Auth\022\020\n\010pwd_frag\030\001 \001(\t\"\237\t\n C"
-  "MsgSteamNetworkingP2PRendezvous\022\025\n\rfrom_"
-  "identity\030\010 \001(\t\022\032\n\022from_connection_id\030\t \001"
-  "(\007\022\023\n\013to_identity\030\n \001(\t\022\030\n\020to_connection"
-  "_id\030\001 \001(\007\022\022\n\nsdr_routes\030\002 \001(\014\022\036\n\026acpeer_"
-  "routes_revision\030\003 \001(\r\022\023\n\013ice_enabled\030\007 \001"
-  "(\010\022\034\n\024hosted_server_ticket\030\016 \001(\014\022I\n\017conn"
-  "ect_request\030\004 \001(\01320.CMsgSteamNetworkingP"
-  "2PRendezvous.ConnectRequest\022\?\n\nconnect_o"
-  "k\030\005 \001(\0132+.CMsgSteamNetworkingP2PRendezvo"
-  "us.ConnectOK\022M\n\021connection_closed\030\006 \001(\0132"
-  "2.CMsgSteamNetworkingP2PRendezvous.Conne"
-  "ctionClosed\022\026\n\016acreliable_msg\030\013 \001(\r\022\032\n\022f"
-  "irst_reliable_msg\030\014 \001(\r\022L\n\021reliable_mess"
-  "ages\030\r \003(\01321.CMsgSteamNetworkingP2PRende"
-  "zvous.ReliableMessage\022R\n\024application_mes"
-  "sages\030\017 \003(\01324.CMsgSteamNetworkingP2PRend"
-  "ezvous.ApplicationMessage\032\305\001\n\016ConnectReq"
-  "uest\0227\n\005crypt\030\006 \001(\0132(.CMsgSteamDatagramS"
-  "essionCryptInfoSigned\0221\n\004cert\030\007 \001(\0132#.CM"
-  "sgSteamDatagramCertificateSigned\022\027\n\017to_v"
-  "irtual_port\030\t \001(\r\022\031\n\021from_virtual_port\030\n"
-  " \001(\r\022\023\n\013from_fakeip\030\013 \001(\t\032w\n\tConnectOK\0227"
-  "\n\005crypt\030\005 \001(\0132(.CMsgSteamDatagramSession"
-  "CryptInfoSigned\0221\n\004cert\030\006 \001(\0132#.CMsgStea"
-  "mDatagramCertificateSigned\0326\n\020Connection"
-  "Closed\022\r\n\005debug\030\005 \001(\t\022\023\n\013reason_code\030\006 \001"
-  "(\r\0322\n\017ReliableMessage\022\037\n\003ice\030\001 \001(\0132\022.CMs"
-  "gICERendezvous\032T\n\022ApplicationMessage\022\014\n\004"
-  "data\030\001 \001(\014\022\017\n\007msg_num\030\002 \001(\004\022\r\n\005flags\030\003 \001"
-  "(\r\022\020\n\010lane_idx\030\004 \001(\r\"\246\003\n$CMsgSteamNetwor"
-  "kingICESessionSummary\022\033\n\023failure_reason_"
-  "code\030\007 \001(\r\022\035\n\025local_candidate_types\030\001 \001("
-  "\r\022\036\n\026remote_candidate_types\030\002 \001(\r\022\032\n\022ini"
-  "tial_route_kind\030\003 \001(\r\022\024\n\014initial_ping\030\004 "
-  "\001(\r\022\025\n\rinitial_score\030\006 \001(\r\022\026\n\016negotiatio"
-  "n_ms\030\005 \001(\r\022\027\n\017best_route_kind\030\020 \001(\r\022\021\n\tb"
-  "est_ping\030\021 \001(\r\022\022\n\nbest_score\030\022 \001(\r\022\021\n\tbe"
-  "st_time\030\023 \001(\r\022\030\n\020selected_seconds\030\014 \001(\r\022"
-  "\025\n\ruser_settings\030\r \001(\r\022\026\n\016ice_enable_var"
-  "\030\016 \001(\r\022%\n\035local_candidate_types_allowed\030"
-  "\017 \001(\r*\241\001\n\035ESteamNetworkingSocketsCipher\022"
-  ")\n%ESteamNetworkingSocketsCipher_INVALID"
-  "\020\000\022&\n\"ESteamNetworkingSocketsCipher_NULL"
-  "\020\001\022-\n)ESteamNetworkingSocketsCipher_AES_"
-  "256_GCM\020\002B\037H\001\200\001\000\252\002\027OpenSteamworks.Protob"
-  "uf"
+  "stogram_20\030B \001(\r\"\234\001\n\"CMsgSteamDatagramCo"
+  "nnectionQuality\022\?\n\rinstantaneous\030\001 \001(\0132("
+  ".CMsgSteamDatagramLinkInstantaneousStats"
+  "\0225\n\010lifetime\030\002 \001(\0132#.CMsgSteamDatagramLi"
+  "nkLifetimeStats\"%\n\020CMsgICECandidate\022\021\n\tc"
+  "andidate\030\003 \001(\t\"~\n\021CMsgICERendezvous\022%\n\004a"
+  "uth\030\002 \001(\0132\027.CMsgICERendezvous.Auth\022(\n\rad"
+  "d_candidate\030\001 \001(\0132\021.CMsgICECandidate\032\030\n\004"
+  "Auth\022\020\n\010pwd_frag\030\001 \001(\t\"\237\t\n CMsgSteamNetw"
+  "orkingP2PRendezvous\022\025\n\rfrom_identity\030\010 \001"
+  "(\t\022\032\n\022from_connection_id\030\t \001(\007\022\023\n\013to_ide"
+  "ntity\030\n \001(\t\022\030\n\020to_connection_id\030\001 \001(\007\022\022\n"
+  "\nsdr_routes\030\002 \001(\014\022\036\n\026acpeer_routes_revis"
+  "ion\030\003 \001(\r\022\023\n\013ice_enabled\030\007 \001(\010\022\034\n\024hosted"
+  "_server_ticket\030\016 \001(\014\022I\n\017connect_request\030"
+  "\004 \001(\01320.CMsgSteamNetworkingP2PRendezvous"
+  ".ConnectRequest\022\?\n\nconnect_ok\030\005 \001(\0132+.CM"
+  "sgSteamNetworkingP2PRendezvous.ConnectOK"
+  "\022M\n\021connection_closed\030\006 \001(\01322.CMsgSteamN"
+  "etworkingP2PRendezvous.ConnectionClosed\022"
+  "\026\n\016acreliable_msg\030\013 \001(\r\022\032\n\022first_reliabl"
+  "e_msg\030\014 \001(\r\022L\n\021reliable_messages\030\r \003(\01321"
+  ".CMsgSteamNetworkingP2PRendezvous.Reliab"
+  "leMessage\022R\n\024application_messages\030\017 \003(\0132"
+  "4.CMsgSteamNetworkingP2PRendezvous.Appli"
+  "cationMessage\032\305\001\n\016ConnectRequest\0227\n\005cryp"
+  "t\030\006 \001(\0132(.CMsgSteamDatagramSessionCryptI"
+  "nfoSigned\0221\n\004cert\030\007 \001(\0132#.CMsgSteamDatag"
+  "ramCertificateSigned\022\027\n\017to_virtual_port\030"
+  "\t \001(\r\022\031\n\021from_virtual_port\030\n \001(\r\022\023\n\013from"
+  "_fakeip\030\013 \001(\t\032w\n\tConnectOK\0227\n\005crypt\030\005 \001("
+  "\0132(.CMsgSteamDatagramSessionCryptInfoSig"
+  "ned\0221\n\004cert\030\006 \001(\0132#.CMsgSteamDatagramCer"
+  "tificateSigned\0326\n\020ConnectionClosed\022\r\n\005de"
+  "bug\030\005 \001(\t\022\023\n\013reason_code\030\006 \001(\r\0322\n\017Reliab"
+  "leMessage\022\037\n\003ice\030\001 \001(\0132\022.CMsgICERendezvo"
+  "us\032T\n\022ApplicationMessage\022\014\n\004data\030\001 \001(\014\022\017"
+  "\n\007msg_num\030\002 \001(\004\022\r\n\005flags\030\003 \001(\r\022\020\n\010lane_i"
+  "dx\030\004 \001(\r\"\246\003\n$CMsgSteamNetworkingICESessi"
+  "onSummary\022\033\n\023failure_reason_code\030\007 \001(\r\022\035"
+  "\n\025local_candidate_types\030\001 \001(\r\022\036\n\026remote_"
+  "candidate_types\030\002 \001(\r\022\032\n\022initial_route_k"
+  "ind\030\003 \001(\r\022\024\n\014initial_ping\030\004 \001(\r\022\025\n\riniti"
+  "al_score\030\006 \001(\r\022\026\n\016negotiation_ms\030\005 \001(\r\022\027"
+  "\n\017best_route_kind\030\020 \001(\r\022\021\n\tbest_ping\030\021 \001"
+  "(\r\022\022\n\nbest_score\030\022 \001(\r\022\021\n\tbest_time\030\023 \001("
+  "\r\022\030\n\020selected_seconds\030\014 \001(\r\022\025\n\ruser_sett"
+  "ings\030\r \001(\r\022\026\n\016ice_enable_var\030\016 \001(\r\022%\n\035lo"
+  "cal_candidate_types_allowed\030\017 \001(\r*\241\001\n\035ES"
+  "teamNetworkingSocketsCipher\022)\n%ESteamNet"
+  "workingSocketsCipher_INVALID\020\000\022&\n\"ESteam"
+  "NetworkingSocketsCipher_NULL\020\001\022-\n)ESteam"
+  "NetworkingSocketsCipher_AES_256_GCM\020\002B\037H"
+  "\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steamnetworkingsockets_5fmessages_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -880,7 +775,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steamnetworkingsockets_5fmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steamnetworkingsockets_5fmessages_2eproto = {
-  false, false, 5122, descriptor_table_protodef_steamnetworkingsockets_5fmessages_2eproto, "steamnetworkingsockets_messages.proto", 
+  false, false, 4310, descriptor_table_protodef_steamnetworkingsockets_5fmessages_2eproto, "steamnetworkingsockets_messages.proto", 
   &descriptor_table_steamnetworkingsockets_5fmessages_2eproto_once, descriptor_table_steamnetworkingsockets_5fmessages_2eproto_deps, 2, 16,
   schemas, file_default_instances, TableStruct_steamnetworkingsockets_5fmessages_2eproto::offsets,
   file_level_metadata_steamnetworkingsockets_5fmessages_2eproto, file_level_enum_descriptors_steamnetworkingsockets_5fmessages_2eproto, file_level_service_descriptors_steamnetworkingsockets_5fmessages_2eproto,
@@ -2308,127 +2203,43 @@ class CMsgSteamDatagramLinkLifetimeStats::_Internal {
     (*has_bits)[0] |= 2147483648u;
   }
   static void set_has_ping_histogram_300(HasBits* has_bits) {
-    (*has_bits)[1] |= 1u;
-  }
-  static void set_has_ping_histogram_max(HasBits* has_bits) {
     (*has_bits)[1] |= 2u;
   }
-  static void set_has_ping_ntile_5th(HasBits* has_bits) {
+  static void set_has_ping_histogram_max(HasBits* has_bits) {
     (*has_bits)[1] |= 4u;
   }
-  static void set_has_ping_ntile_50th(HasBits* has_bits) {
+  static void set_has_ping_ntile_5th(HasBits* has_bits) {
     (*has_bits)[1] |= 8u;
   }
-  static void set_has_ping_ntile_75th(HasBits* has_bits) {
+  static void set_has_ping_ntile_50th(HasBits* has_bits) {
     (*has_bits)[1] |= 16u;
   }
-  static void set_has_ping_ntile_95th(HasBits* has_bits) {
+  static void set_has_ping_ntile_75th(HasBits* has_bits) {
     (*has_bits)[1] |= 32u;
   }
-  static void set_has_ping_ntile_98th(HasBits* has_bits) {
+  static void set_has_ping_ntile_95th(HasBits* has_bits) {
     (*has_bits)[1] |= 64u;
   }
-  static void set_has_jitter_histogram_negligible(HasBits* has_bits) {
+  static void set_has_ping_ntile_98th(HasBits* has_bits) {
     (*has_bits)[1] |= 128u;
   }
-  static void set_has_jitter_histogram_1(HasBits* has_bits) {
+  static void set_has_jitter_histogram_negligible(HasBits* has_bits) {
     (*has_bits)[1] |= 256u;
   }
-  static void set_has_jitter_histogram_2(HasBits* has_bits) {
+  static void set_has_jitter_histogram_1(HasBits* has_bits) {
     (*has_bits)[1] |= 512u;
   }
-  static void set_has_jitter_histogram_5(HasBits* has_bits) {
+  static void set_has_jitter_histogram_2(HasBits* has_bits) {
     (*has_bits)[1] |= 1024u;
   }
-  static void set_has_jitter_histogram_10(HasBits* has_bits) {
+  static void set_has_jitter_histogram_5(HasBits* has_bits) {
     (*has_bits)[1] |= 2048u;
   }
-  static void set_has_jitter_histogram_20(HasBits* has_bits) {
+  static void set_has_jitter_histogram_10(HasBits* has_bits) {
     (*has_bits)[1] |= 4096u;
   }
-  static void set_has_txspeed_max(HasBits* has_bits) {
-    (*has_bits)[1] |= 8192u;
-  }
-  static void set_has_txspeed_histogram_16(HasBits* has_bits) {
-    (*has_bits)[1] |= 16384u;
-  }
-  static void set_has_txspeed_histogram_32(HasBits* has_bits) {
-    (*has_bits)[1] |= 32768u;
-  }
-  static void set_has_txspeed_histogram_64(HasBits* has_bits) {
-    (*has_bits)[1] |= 65536u;
-  }
-  static void set_has_txspeed_histogram_128(HasBits* has_bits) {
-    (*has_bits)[1] |= 131072u;
-  }
-  static void set_has_txspeed_histogram_256(HasBits* has_bits) {
-    (*has_bits)[1] |= 262144u;
-  }
-  static void set_has_txspeed_histogram_512(HasBits* has_bits) {
-    (*has_bits)[1] |= 524288u;
-  }
-  static void set_has_txspeed_histogram_1024(HasBits* has_bits) {
-    (*has_bits)[1] |= 1048576u;
-  }
-  static void set_has_txspeed_histogram_max(HasBits* has_bits) {
-    (*has_bits)[1] |= 2097152u;
-  }
-  static void set_has_txspeed_ntile_5th(HasBits* has_bits) {
-    (*has_bits)[1] |= 8388608u;
-  }
-  static void set_has_txspeed_ntile_50th(HasBits* has_bits) {
-    (*has_bits)[1] |= 16777216u;
-  }
-  static void set_has_txspeed_ntile_75th(HasBits* has_bits) {
-    (*has_bits)[1] |= 33554432u;
-  }
-  static void set_has_txspeed_ntile_95th(HasBits* has_bits) {
-    (*has_bits)[1] |= 67108864u;
-  }
-  static void set_has_txspeed_ntile_98th(HasBits* has_bits) {
-    (*has_bits)[1] |= 134217728u;
-  }
-  static void set_has_rxspeed_max(HasBits* has_bits) {
-    (*has_bits)[1] |= 268435456u;
-  }
-  static void set_has_rxspeed_histogram_16(HasBits* has_bits) {
-    (*has_bits)[1] |= 536870912u;
-  }
-  static void set_has_rxspeed_histogram_32(HasBits* has_bits) {
-    (*has_bits)[1] |= 1073741824u;
-  }
-  static void set_has_rxspeed_histogram_64(HasBits* has_bits) {
-    (*has_bits)[1] |= 2147483648u;
-  }
-  static void set_has_rxspeed_histogram_128(HasBits* has_bits) {
-    (*has_bits)[2] |= 1u;
-  }
-  static void set_has_rxspeed_histogram_256(HasBits* has_bits) {
-    (*has_bits)[2] |= 2u;
-  }
-  static void set_has_rxspeed_histogram_512(HasBits* has_bits) {
-    (*has_bits)[2] |= 4u;
-  }
-  static void set_has_rxspeed_histogram_1024(HasBits* has_bits) {
-    (*has_bits)[2] |= 8u;
-  }
-  static void set_has_rxspeed_histogram_max(HasBits* has_bits) {
-    (*has_bits)[2] |= 16u;
-  }
-  static void set_has_rxspeed_ntile_5th(HasBits* has_bits) {
-    (*has_bits)[2] |= 32u;
-  }
-  static void set_has_rxspeed_ntile_50th(HasBits* has_bits) {
-    (*has_bits)[2] |= 64u;
-  }
-  static void set_has_rxspeed_ntile_75th(HasBits* has_bits) {
-    (*has_bits)[2] |= 128u;
-  }
-  static void set_has_rxspeed_ntile_95th(HasBits* has_bits) {
-    (*has_bits)[2] |= 256u;
-  }
-  static void set_has_rxspeed_ntile_98th(HasBits* has_bits) {
-    (*has_bits)[1] |= 4194304u;
+  static void set_has_jitter_histogram_20(HasBits* has_bits) {
+    (*has_bits)[1] |= 1u;
   }
 };
 
@@ -2447,16 +2258,16 @@ CMsgSteamDatagramLinkLifetimeStats::CMsgSteamDatagramLinkLifetimeStats(const CMs
       multipath_packets_recv_later_(from.multipath_packets_recv_later_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&packets_sent_, &from.packets_sent_,
-    static_cast<size_t>(reinterpret_cast<char*>(&rxspeed_ntile_95th_) -
-    reinterpret_cast<char*>(&packets_sent_)) + sizeof(rxspeed_ntile_95th_));
+    static_cast<size_t>(reinterpret_cast<char*>(&jitter_histogram_10_) -
+    reinterpret_cast<char*>(&packets_sent_)) + sizeof(jitter_histogram_10_));
   // @@protoc_insertion_point(copy_constructor:CMsgSteamDatagramLinkLifetimeStats)
 }
 
 void CMsgSteamDatagramLinkLifetimeStats::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&packets_sent_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&rxspeed_ntile_95th_) -
-    reinterpret_cast<char*>(&packets_sent_)) + sizeof(rxspeed_ntile_95th_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&jitter_histogram_10_) -
+    reinterpret_cast<char*>(&packets_sent_)) + sizeof(jitter_histogram_10_));
 }
 
 CMsgSteamDatagramLinkLifetimeStats::~CMsgSteamDatagramLinkLifetimeStats() {
@@ -2510,32 +2321,15 @@ void CMsgSteamDatagramLinkLifetimeStats::Clear() {
   }
   cached_has_bits = _has_bits_[1];
   if (cached_has_bits & 0x000000ffu) {
-    ::memset(&ping_histogram_300_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&jitter_histogram_negligible_) -
-        reinterpret_cast<char*>(&ping_histogram_300_)) + sizeof(jitter_histogram_negligible_));
+    ::memset(&jitter_histogram_20_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&ping_ntile_98th_) -
+        reinterpret_cast<char*>(&jitter_histogram_20_)) + sizeof(ping_ntile_98th_));
   }
-  if (cached_has_bits & 0x0000ff00u) {
-    ::memset(&jitter_histogram_1_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&txspeed_histogram_32_) -
-        reinterpret_cast<char*>(&jitter_histogram_1_)) + sizeof(txspeed_histogram_32_));
+  if (cached_has_bits & 0x00001f00u) {
+    ::memset(&jitter_histogram_negligible_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&jitter_histogram_10_) -
+        reinterpret_cast<char*>(&jitter_histogram_negligible_)) + sizeof(jitter_histogram_10_));
   }
-  if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&txspeed_histogram_64_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&txspeed_ntile_5th_) -
-        reinterpret_cast<char*>(&txspeed_histogram_64_)) + sizeof(txspeed_ntile_5th_));
-  }
-  if (cached_has_bits & 0xff000000u) {
-    ::memset(&txspeed_ntile_50th_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&rxspeed_histogram_64_) -
-        reinterpret_cast<char*>(&txspeed_ntile_50th_)) + sizeof(rxspeed_histogram_64_));
-  }
-  cached_has_bits = _has_bits_[2];
-  if (cached_has_bits & 0x000000ffu) {
-    ::memset(&rxspeed_histogram_128_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&rxspeed_ntile_75th_) -
-        reinterpret_cast<char*>(&rxspeed_histogram_128_)) + sizeof(rxspeed_ntile_75th_));
-  }
-  rxspeed_ntile_95th_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2937,230 +2731,6 @@ const char* CMsgSteamDatagramLinkLifetimeStats::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 txspeed_max = 67;
-      case 67:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_txspeed_max(&_has_bits_);
-          txspeed_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_histogram_16 = 68;
-      case 68:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          _Internal::set_has_txspeed_histogram_16(&_has_bits_);
-          txspeed_histogram_16_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_histogram_32 = 69;
-      case 69:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          _Internal::set_has_txspeed_histogram_32(&_has_bits_);
-          txspeed_histogram_32_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_histogram_64 = 70;
-      case 70:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          _Internal::set_has_txspeed_histogram_64(&_has_bits_);
-          txspeed_histogram_64_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_histogram_128 = 71;
-      case 71:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          _Internal::set_has_txspeed_histogram_128(&_has_bits_);
-          txspeed_histogram_128_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_histogram_256 = 72;
-      case 72:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          _Internal::set_has_txspeed_histogram_256(&_has_bits_);
-          txspeed_histogram_256_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_histogram_512 = 73;
-      case 73:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
-          _Internal::set_has_txspeed_histogram_512(&_has_bits_);
-          txspeed_histogram_512_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_histogram_1024 = 74;
-      case 74:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
-          _Internal::set_has_txspeed_histogram_1024(&_has_bits_);
-          txspeed_histogram_1024_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_histogram_max = 75;
-      case 75:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
-          _Internal::set_has_txspeed_histogram_max(&_has_bits_);
-          txspeed_histogram_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_ntile_5th = 76;
-      case 76:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
-          _Internal::set_has_txspeed_ntile_5th(&_has_bits_);
-          txspeed_ntile_5th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_ntile_50th = 77;
-      case 77:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
-          _Internal::set_has_txspeed_ntile_50th(&_has_bits_);
-          txspeed_ntile_50th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_ntile_75th = 78;
-      case 78:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
-          _Internal::set_has_txspeed_ntile_75th(&_has_bits_);
-          txspeed_ntile_75th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_ntile_95th = 79;
-      case 79:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
-          _Internal::set_has_txspeed_ntile_95th(&_has_bits_);
-          txspeed_ntile_95th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 txspeed_ntile_98th = 80;
-      case 80:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
-          _Internal::set_has_txspeed_ntile_98th(&_has_bits_);
-          txspeed_ntile_98th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_max = 81;
-      case 81:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
-          _Internal::set_has_rxspeed_max(&_has_bits_);
-          rxspeed_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_histogram_16 = 82;
-      case 82:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
-          _Internal::set_has_rxspeed_histogram_16(&_has_bits_);
-          rxspeed_histogram_16_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_histogram_32 = 83;
-      case 83:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
-          _Internal::set_has_rxspeed_histogram_32(&_has_bits_);
-          rxspeed_histogram_32_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_histogram_64 = 84;
-      case 84:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
-          _Internal::set_has_rxspeed_histogram_64(&_has_bits_);
-          rxspeed_histogram_64_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_histogram_128 = 85;
-      case 85:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 168)) {
-          _Internal::set_has_rxspeed_histogram_128(&_has_bits_);
-          rxspeed_histogram_128_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_histogram_256 = 86;
-      case 86:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 176)) {
-          _Internal::set_has_rxspeed_histogram_256(&_has_bits_);
-          rxspeed_histogram_256_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_histogram_512 = 87;
-      case 87:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 184)) {
-          _Internal::set_has_rxspeed_histogram_512(&_has_bits_);
-          rxspeed_histogram_512_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_histogram_1024 = 88;
-      case 88:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 192)) {
-          _Internal::set_has_rxspeed_histogram_1024(&_has_bits_);
-          rxspeed_histogram_1024_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_histogram_max = 89;
-      case 89:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 200)) {
-          _Internal::set_has_rxspeed_histogram_max(&_has_bits_);
-          rxspeed_histogram_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_ntile_5th = 90;
-      case 90:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 208)) {
-          _Internal::set_has_rxspeed_ntile_5th(&_has_bits_);
-          rxspeed_ntile_5th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_ntile_50th = 91;
-      case 91:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 216)) {
-          _Internal::set_has_rxspeed_ntile_50th(&_has_bits_);
-          rxspeed_ntile_50th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_ntile_75th = 92;
-      case 92:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 224)) {
-          _Internal::set_has_rxspeed_ntile_75th(&_has_bits_);
-          rxspeed_ntile_75th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_ntile_95th = 93;
-      case 93:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 232)) {
-          _Internal::set_has_rxspeed_ntile_95th(&_has_bits_);
-          rxspeed_ntile_95th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 rxspeed_ntile_98th = 94;
-      case 94:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 240)) {
-          _Internal::set_has_rxspeed_ntile_98th(&_has_bits_);
-          rxspeed_ntile_98th_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -3396,251 +2966,81 @@ failure:
 
   cached_has_bits = _has_bits_[1];
   // optional uint32 ping_histogram_300 = 48;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(48, this->_internal_ping_histogram_300(), target);
   }
 
   // optional uint32 ping_histogram_max = 49;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(49, this->_internal_ping_histogram_max(), target);
   }
 
   // optional uint32 ping_ntile_5th = 50;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(50, this->_internal_ping_ntile_5th(), target);
   }
 
   // optional uint32 ping_ntile_50th = 51;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(51, this->_internal_ping_ntile_50th(), target);
   }
 
   // optional uint32 ping_ntile_75th = 52;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(52, this->_internal_ping_ntile_75th(), target);
   }
 
   // optional uint32 ping_ntile_95th = 53;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(53, this->_internal_ping_ntile_95th(), target);
   }
 
   // optional uint32 ping_ntile_98th = 54;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(54, this->_internal_ping_ntile_98th(), target);
   }
 
   // optional uint32 jitter_histogram_negligible = 61;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(61, this->_internal_jitter_histogram_negligible(), target);
   }
 
   // optional uint32 jitter_histogram_1 = 62;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(62, this->_internal_jitter_histogram_1(), target);
   }
 
   // optional uint32 jitter_histogram_2 = 63;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(63, this->_internal_jitter_histogram_2(), target);
   }
 
   // optional uint32 jitter_histogram_5 = 64;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(64, this->_internal_jitter_histogram_5(), target);
   }
 
   // optional uint32 jitter_histogram_10 = 65;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(65, this->_internal_jitter_histogram_10(), target);
   }
 
   // optional uint32 jitter_histogram_20 = 66;
-  if (cached_has_bits & 0x00001000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(66, this->_internal_jitter_histogram_20(), target);
-  }
-
-  // optional uint32 txspeed_max = 67;
-  if (cached_has_bits & 0x00002000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(67, this->_internal_txspeed_max(), target);
-  }
-
-  // optional uint32 txspeed_histogram_16 = 68;
-  if (cached_has_bits & 0x00004000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(68, this->_internal_txspeed_histogram_16(), target);
-  }
-
-  // optional uint32 txspeed_histogram_32 = 69;
-  if (cached_has_bits & 0x00008000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(69, this->_internal_txspeed_histogram_32(), target);
-  }
-
-  // optional uint32 txspeed_histogram_64 = 70;
-  if (cached_has_bits & 0x00010000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(70, this->_internal_txspeed_histogram_64(), target);
-  }
-
-  // optional uint32 txspeed_histogram_128 = 71;
-  if (cached_has_bits & 0x00020000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(71, this->_internal_txspeed_histogram_128(), target);
-  }
-
-  // optional uint32 txspeed_histogram_256 = 72;
-  if (cached_has_bits & 0x00040000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(72, this->_internal_txspeed_histogram_256(), target);
-  }
-
-  // optional uint32 txspeed_histogram_512 = 73;
-  if (cached_has_bits & 0x00080000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(73, this->_internal_txspeed_histogram_512(), target);
-  }
-
-  // optional uint32 txspeed_histogram_1024 = 74;
-  if (cached_has_bits & 0x00100000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(74, this->_internal_txspeed_histogram_1024(), target);
-  }
-
-  // optional uint32 txspeed_histogram_max = 75;
-  if (cached_has_bits & 0x00200000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(75, this->_internal_txspeed_histogram_max(), target);
-  }
-
-  // optional uint32 txspeed_ntile_5th = 76;
-  if (cached_has_bits & 0x00800000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(76, this->_internal_txspeed_ntile_5th(), target);
-  }
-
-  // optional uint32 txspeed_ntile_50th = 77;
-  if (cached_has_bits & 0x01000000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(77, this->_internal_txspeed_ntile_50th(), target);
-  }
-
-  // optional uint32 txspeed_ntile_75th = 78;
-  if (cached_has_bits & 0x02000000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(78, this->_internal_txspeed_ntile_75th(), target);
-  }
-
-  // optional uint32 txspeed_ntile_95th = 79;
-  if (cached_has_bits & 0x04000000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(79, this->_internal_txspeed_ntile_95th(), target);
-  }
-
-  // optional uint32 txspeed_ntile_98th = 80;
-  if (cached_has_bits & 0x08000000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(80, this->_internal_txspeed_ntile_98th(), target);
-  }
-
-  // optional uint32 rxspeed_max = 81;
-  if (cached_has_bits & 0x10000000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(81, this->_internal_rxspeed_max(), target);
-  }
-
-  // optional uint32 rxspeed_histogram_16 = 82;
-  if (cached_has_bits & 0x20000000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(82, this->_internal_rxspeed_histogram_16(), target);
-  }
-
-  // optional uint32 rxspeed_histogram_32 = 83;
-  if (cached_has_bits & 0x40000000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(83, this->_internal_rxspeed_histogram_32(), target);
-  }
-
-  // optional uint32 rxspeed_histogram_64 = 84;
-  if (cached_has_bits & 0x80000000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(84, this->_internal_rxspeed_histogram_64(), target);
-  }
-
-  cached_has_bits = _has_bits_[2];
-  // optional uint32 rxspeed_histogram_128 = 85;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(85, this->_internal_rxspeed_histogram_128(), target);
-  }
-
-  // optional uint32 rxspeed_histogram_256 = 86;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(86, this->_internal_rxspeed_histogram_256(), target);
-  }
-
-  // optional uint32 rxspeed_histogram_512 = 87;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(87, this->_internal_rxspeed_histogram_512(), target);
-  }
-
-  // optional uint32 rxspeed_histogram_1024 = 88;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(88, this->_internal_rxspeed_histogram_1024(), target);
-  }
-
-  // optional uint32 rxspeed_histogram_max = 89;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(89, this->_internal_rxspeed_histogram_max(), target);
-  }
-
-  // optional uint32 rxspeed_ntile_5th = 90;
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(90, this->_internal_rxspeed_ntile_5th(), target);
-  }
-
-  // optional uint32 rxspeed_ntile_50th = 91;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(91, this->_internal_rxspeed_ntile_50th(), target);
-  }
-
-  // optional uint32 rxspeed_ntile_75th = 92;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(92, this->_internal_rxspeed_ntile_75th(), target);
-  }
-
-  // optional uint32 rxspeed_ntile_95th = 93;
-  if (cached_has_bits & 0x00000100u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(93, this->_internal_rxspeed_ntile_95th(), target);
-  }
-
-  cached_has_bits = _has_bits_[1];
-  // optional uint32 rxspeed_ntile_98th = 94;
-  if (cached_has_bits & 0x00400000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(94, this->_internal_rxspeed_ntile_98th(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(66, this->_internal_jitter_histogram_20(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3912,303 +3312,100 @@ size_t CMsgSteamDatagramLinkLifetimeStats::ByteSizeLong() const {
   }
   cached_has_bits = _has_bits_[1];
   if (cached_has_bits & 0x000000ffu) {
-    // optional uint32 ping_histogram_300 = 48;
+    // optional uint32 jitter_histogram_20 = 66;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_jitter_histogram_20());
+    }
+
+    // optional uint32 ping_histogram_300 = 48;
+    if (cached_has_bits & 0x00000002u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ping_histogram_300());
     }
 
     // optional uint32 ping_histogram_max = 49;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ping_histogram_max());
     }
 
     // optional uint32 ping_ntile_5th = 50;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ping_ntile_5th());
     }
 
     // optional uint32 ping_ntile_50th = 51;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ping_ntile_50th());
     }
 
     // optional uint32 ping_ntile_75th = 52;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ping_ntile_75th());
     }
 
     // optional uint32 ping_ntile_95th = 53;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ping_ntile_95th());
     }
 
     // optional uint32 ping_ntile_98th = 54;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ping_ntile_98th());
     }
 
+  }
+  if (cached_has_bits & 0x00001f00u) {
     // optional uint32 jitter_histogram_negligible = 61;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_jitter_histogram_negligible());
     }
 
-  }
-  if (cached_has_bits & 0x0000ff00u) {
     // optional uint32 jitter_histogram_1 = 62;
-    if (cached_has_bits & 0x00000100u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_jitter_histogram_1());
     }
 
     // optional uint32 jitter_histogram_2 = 63;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_jitter_histogram_2());
     }
 
     // optional uint32 jitter_histogram_5 = 64;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_jitter_histogram_5());
     }
 
     // optional uint32 jitter_histogram_10 = 65;
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_jitter_histogram_10());
     }
 
-    // optional uint32 jitter_histogram_20 = 66;
-    if (cached_has_bits & 0x00001000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_jitter_histogram_20());
-    }
-
-    // optional uint32 txspeed_max = 67;
-    if (cached_has_bits & 0x00002000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_max());
-    }
-
-    // optional uint32 txspeed_histogram_16 = 68;
-    if (cached_has_bits & 0x00004000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_histogram_16());
-    }
-
-    // optional uint32 txspeed_histogram_32 = 69;
-    if (cached_has_bits & 0x00008000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_histogram_32());
-    }
-
   }
-  if (cached_has_bits & 0x00ff0000u) {
-    // optional uint32 txspeed_histogram_64 = 70;
-    if (cached_has_bits & 0x00010000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_histogram_64());
-    }
-
-    // optional uint32 txspeed_histogram_128 = 71;
-    if (cached_has_bits & 0x00020000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_histogram_128());
-    }
-
-    // optional uint32 txspeed_histogram_256 = 72;
-    if (cached_has_bits & 0x00040000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_histogram_256());
-    }
-
-    // optional uint32 txspeed_histogram_512 = 73;
-    if (cached_has_bits & 0x00080000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_histogram_512());
-    }
-
-    // optional uint32 txspeed_histogram_1024 = 74;
-    if (cached_has_bits & 0x00100000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_histogram_1024());
-    }
-
-    // optional uint32 txspeed_histogram_max = 75;
-    if (cached_has_bits & 0x00200000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_histogram_max());
-    }
-
-    // optional uint32 rxspeed_ntile_98th = 94;
-    if (cached_has_bits & 0x00400000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_ntile_98th());
-    }
-
-    // optional uint32 txspeed_ntile_5th = 76;
-    if (cached_has_bits & 0x00800000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_ntile_5th());
-    }
-
-  }
-  if (cached_has_bits & 0xff000000u) {
-    // optional uint32 txspeed_ntile_50th = 77;
-    if (cached_has_bits & 0x01000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_ntile_50th());
-    }
-
-    // optional uint32 txspeed_ntile_75th = 78;
-    if (cached_has_bits & 0x02000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_ntile_75th());
-    }
-
-    // optional uint32 txspeed_ntile_95th = 79;
-    if (cached_has_bits & 0x04000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_ntile_95th());
-    }
-
-    // optional uint32 txspeed_ntile_98th = 80;
-    if (cached_has_bits & 0x08000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_txspeed_ntile_98th());
-    }
-
-    // optional uint32 rxspeed_max = 81;
-    if (cached_has_bits & 0x10000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_max());
-    }
-
-    // optional uint32 rxspeed_histogram_16 = 82;
-    if (cached_has_bits & 0x20000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_histogram_16());
-    }
-
-    // optional uint32 rxspeed_histogram_32 = 83;
-    if (cached_has_bits & 0x40000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_histogram_32());
-    }
-
-    // optional uint32 rxspeed_histogram_64 = 84;
-    if (cached_has_bits & 0x80000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_histogram_64());
-    }
-
-  }
-  cached_has_bits = _has_bits_[2];
-  if (cached_has_bits & 0x000000ffu) {
-    // optional uint32 rxspeed_histogram_128 = 85;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_histogram_128());
-    }
-
-    // optional uint32 rxspeed_histogram_256 = 86;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_histogram_256());
-    }
-
-    // optional uint32 rxspeed_histogram_512 = 87;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_histogram_512());
-    }
-
-    // optional uint32 rxspeed_histogram_1024 = 88;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_histogram_1024());
-    }
-
-    // optional uint32 rxspeed_histogram_max = 89;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_histogram_max());
-    }
-
-    // optional uint32 rxspeed_ntile_5th = 90;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_ntile_5th());
-    }
-
-    // optional uint32 rxspeed_ntile_50th = 91;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_ntile_50th());
-    }
-
-    // optional uint32 rxspeed_ntile_75th = 92;
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_rxspeed_ntile_75th());
-    }
-
-  }
-  // optional uint32 rxspeed_ntile_95th = 93;
-  if (cached_has_bits & 0x00000100u) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_rxspeed_ntile_95th());
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -4354,142 +3551,48 @@ void CMsgSteamDatagramLinkLifetimeStats::MergeFrom(const CMsgSteamDatagramLinkLi
   cached_has_bits = from._has_bits_[1];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      ping_histogram_300_ = from.ping_histogram_300_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ping_histogram_max_ = from.ping_histogram_max_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      ping_ntile_5th_ = from.ping_ntile_5th_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      ping_ntile_50th_ = from.ping_ntile_50th_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      ping_ntile_75th_ = from.ping_ntile_75th_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      ping_ntile_95th_ = from.ping_ntile_95th_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      ping_ntile_98th_ = from.ping_ntile_98th_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      jitter_histogram_negligible_ = from.jitter_histogram_negligible_;
-    }
-    _has_bits_[1] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0x0000ff00u) {
-    if (cached_has_bits & 0x00000100u) {
-      jitter_histogram_1_ = from.jitter_histogram_1_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      jitter_histogram_2_ = from.jitter_histogram_2_;
-    }
-    if (cached_has_bits & 0x00000400u) {
-      jitter_histogram_5_ = from.jitter_histogram_5_;
-    }
-    if (cached_has_bits & 0x00000800u) {
-      jitter_histogram_10_ = from.jitter_histogram_10_;
-    }
-    if (cached_has_bits & 0x00001000u) {
       jitter_histogram_20_ = from.jitter_histogram_20_;
     }
-    if (cached_has_bits & 0x00002000u) {
-      txspeed_max_ = from.txspeed_max_;
-    }
-    if (cached_has_bits & 0x00004000u) {
-      txspeed_histogram_16_ = from.txspeed_histogram_16_;
-    }
-    if (cached_has_bits & 0x00008000u) {
-      txspeed_histogram_32_ = from.txspeed_histogram_32_;
-    }
-    _has_bits_[1] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0x00ff0000u) {
-    if (cached_has_bits & 0x00010000u) {
-      txspeed_histogram_64_ = from.txspeed_histogram_64_;
-    }
-    if (cached_has_bits & 0x00020000u) {
-      txspeed_histogram_128_ = from.txspeed_histogram_128_;
-    }
-    if (cached_has_bits & 0x00040000u) {
-      txspeed_histogram_256_ = from.txspeed_histogram_256_;
-    }
-    if (cached_has_bits & 0x00080000u) {
-      txspeed_histogram_512_ = from.txspeed_histogram_512_;
-    }
-    if (cached_has_bits & 0x00100000u) {
-      txspeed_histogram_1024_ = from.txspeed_histogram_1024_;
-    }
-    if (cached_has_bits & 0x00200000u) {
-      txspeed_histogram_max_ = from.txspeed_histogram_max_;
-    }
-    if (cached_has_bits & 0x00400000u) {
-      rxspeed_ntile_98th_ = from.rxspeed_ntile_98th_;
-    }
-    if (cached_has_bits & 0x00800000u) {
-      txspeed_ntile_5th_ = from.txspeed_ntile_5th_;
-    }
-    _has_bits_[1] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0xff000000u) {
-    if (cached_has_bits & 0x01000000u) {
-      txspeed_ntile_50th_ = from.txspeed_ntile_50th_;
-    }
-    if (cached_has_bits & 0x02000000u) {
-      txspeed_ntile_75th_ = from.txspeed_ntile_75th_;
-    }
-    if (cached_has_bits & 0x04000000u) {
-      txspeed_ntile_95th_ = from.txspeed_ntile_95th_;
-    }
-    if (cached_has_bits & 0x08000000u) {
-      txspeed_ntile_98th_ = from.txspeed_ntile_98th_;
-    }
-    if (cached_has_bits & 0x10000000u) {
-      rxspeed_max_ = from.rxspeed_max_;
-    }
-    if (cached_has_bits & 0x20000000u) {
-      rxspeed_histogram_16_ = from.rxspeed_histogram_16_;
-    }
-    if (cached_has_bits & 0x40000000u) {
-      rxspeed_histogram_32_ = from.rxspeed_histogram_32_;
-    }
-    if (cached_has_bits & 0x80000000u) {
-      rxspeed_histogram_64_ = from.rxspeed_histogram_64_;
-    }
-    _has_bits_[1] |= cached_has_bits;
-  }
-  cached_has_bits = from._has_bits_[2];
-  if (cached_has_bits & 0x000000ffu) {
-    if (cached_has_bits & 0x00000001u) {
-      rxspeed_histogram_128_ = from.rxspeed_histogram_128_;
-    }
     if (cached_has_bits & 0x00000002u) {
-      rxspeed_histogram_256_ = from.rxspeed_histogram_256_;
+      ping_histogram_300_ = from.ping_histogram_300_;
     }
     if (cached_has_bits & 0x00000004u) {
-      rxspeed_histogram_512_ = from.rxspeed_histogram_512_;
+      ping_histogram_max_ = from.ping_histogram_max_;
     }
     if (cached_has_bits & 0x00000008u) {
-      rxspeed_histogram_1024_ = from.rxspeed_histogram_1024_;
+      ping_ntile_5th_ = from.ping_ntile_5th_;
     }
     if (cached_has_bits & 0x00000010u) {
-      rxspeed_histogram_max_ = from.rxspeed_histogram_max_;
+      ping_ntile_50th_ = from.ping_ntile_50th_;
     }
     if (cached_has_bits & 0x00000020u) {
-      rxspeed_ntile_5th_ = from.rxspeed_ntile_5th_;
+      ping_ntile_75th_ = from.ping_ntile_75th_;
     }
     if (cached_has_bits & 0x00000040u) {
-      rxspeed_ntile_50th_ = from.rxspeed_ntile_50th_;
+      ping_ntile_95th_ = from.ping_ntile_95th_;
     }
     if (cached_has_bits & 0x00000080u) {
-      rxspeed_ntile_75th_ = from.rxspeed_ntile_75th_;
+      ping_ntile_98th_ = from.ping_ntile_98th_;
     }
-    _has_bits_[2] |= cached_has_bits;
+    _has_bits_[1] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000100u) {
-    _internal_set_rxspeed_ntile_95th(from._internal_rxspeed_ntile_95th());
+  if (cached_has_bits & 0x00001f00u) {
+    if (cached_has_bits & 0x00000100u) {
+      jitter_histogram_negligible_ = from.jitter_histogram_negligible_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      jitter_histogram_1_ = from.jitter_histogram_1_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      jitter_histogram_2_ = from.jitter_histogram_2_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      jitter_histogram_5_ = from.jitter_histogram_5_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      jitter_histogram_10_ = from.jitter_histogram_10_;
+    }
+    _has_bits_[1] |= cached_has_bits;
   }
 }
 
@@ -4516,12 +3619,11 @@ void CMsgSteamDatagramLinkLifetimeStats::InternalSwap(CMsgSteamDatagramLinkLifet
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   swap(_has_bits_[1], other->_has_bits_[1]);
-  swap(_has_bits_[2], other->_has_bits_[2]);
   multipath_packets_recv_sequenced_.InternalSwap(&other->multipath_packets_recv_sequenced_);
   multipath_packets_recv_later_.InternalSwap(&other->multipath_packets_recv_later_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramLinkLifetimeStats, rxspeed_ntile_95th_)
-      + sizeof(CMsgSteamDatagramLinkLifetimeStats::rxspeed_ntile_95th_)
+      PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramLinkLifetimeStats, jitter_histogram_10_)
+      + sizeof(CMsgSteamDatagramLinkLifetimeStats::jitter_histogram_10_)
       - PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramLinkLifetimeStats, packets_sent_)>(
           reinterpret_cast<char*>(&packets_sent_),
           reinterpret_cast<char*>(&other->packets_sent_));

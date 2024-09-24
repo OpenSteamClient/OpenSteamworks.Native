@@ -16,7 +16,6 @@ on:
       - "**.cmake"
       - "OpenSteamworks.Native.nativeproj"
       - "nuget.config"
-  pull_request:
 
 jobs:
   build:

@@ -20,11 +20,13 @@ set(PROTOBUF_INCLUDE_DIRS ${PROTOBUF_INSTALL_DIR}/include)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-# The protobuf libraries are named differently in a debug configuration BUT only on Windows. WTF?
-IF(CMAKE_BUILD_TYPE MATCHES Debug)
-  set(PROTOBUF_LIBRARIES protobufd)
-ELSE()
-  set(PROTOBUF_LIBRARIES protobuf)
+# The protobuf libraries are named differently in a debug configuration BUT only on Windows with MSVC. WTF?
+if (MSVC)
+  IF(CMAKE_BUILD_TYPE MATCHES Debug)
+    set(PROTOBUF_LIBRARIES protobufd)
+  ELSE()
+    set(PROTOBUF_LIBRARIES protobuf)
+  ENDIF()
 ENDIF()
 
 foreach(lib ${PROTOBUF_LIBRARIES})

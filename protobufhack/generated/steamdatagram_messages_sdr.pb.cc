@@ -96,7 +96,12 @@ constexpr CMsgSteamDatagramRouterPingReply::CMsgSteamDatagramRouterPingReply(
   , client_cookie_(0u)
   , scoring_penalty_relay_cluster_(0u)
   , your_public_port_(0u)
-  , flags_(0u){}
+  , flags_(0u)
+  , recv_tos_(0u)
+  , echo_sent_tos_(0u)
+  , sent_tos_(0u)
+  , echo_request_reply_tos_(0u)
+  , dummy_varint_(PROTOBUF_ULONGLONG(0)){}
 struct CMsgSteamDatagramRouterPingReplyDefaultTypeInternal {
   constexpr CMsgSteamDatagramRouterPingReplyDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -198,6 +203,20 @@ struct CMsgSteamDatagramNoSessionRelayToPeerDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSteamDatagramNoSessionRelayToPeerDefaultTypeInternal _CMsgSteamDatagramNoSessionRelayToPeer_default_instance_;
+constexpr CMsgTOSTreatment::CMsgTOSTreatment(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : l4s_detect_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , up_ecn1_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , down_dscp45_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct CMsgTOSTreatmentDefaultTypeInternal {
+  constexpr CMsgTOSTreatmentDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgTOSTreatmentDefaultTypeInternal() {}
+  union {
+    CMsgTOSTreatment _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgTOSTreatmentDefaultTypeInternal _CMsgTOSTreatment_default_instance_;
 constexpr CMsgSteamDatagramClientPingSampleRequest::CMsgSteamDatagramClientPingSampleRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : connection_id_(0u){}
@@ -269,6 +288,7 @@ constexpr CMsgSteamDatagramClientPingSampleReply::CMsgSteamDatagramClientPingSam
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : pops_()
   , legacy_data_centers_()
+  , tos_(nullptr)
   , connection_id_(0u)
   , relay_override_active_(false){}
 struct CMsgSteamDatagramClientPingSampleReplyDefaultTypeInternal {
@@ -784,7 +804,7 @@ struct CMsgSteamDatagramSetSecondaryAddressResultDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgSteamDatagramSetSecondaryAddressResultDefaultTypeInternal _CMsgSteamDatagramSetSecondaryAddressResult_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steamdatagram_5fmessages_5fsdr_2eproto[41];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steamdatagram_5fmessages_5fsdr_2eproto[42];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steamdatagram_5fmessages_5fsdr_2eproto[10];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steamdatagram_5fmessages_5fsdr_2eproto = nullptr;
 
@@ -853,11 +873,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steamdatagram_5fmessages_5fsdr
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, challenge_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, seconds_until_shutdown_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, client_cookie_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, recv_tos_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, echo_sent_tos_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, sent_tos_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, echo_request_reply_tos_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, scoring_penalty_relay_cluster_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, flags_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, route_exceptions_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, alt_addresses_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, dummy_pad_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramRouterPingReply, dummy_varint_),
   1,
   ~0u,
   ~0u,
@@ -869,11 +894,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steamdatagram_5fmessages_5fsdr
   3,
   5,
   6,
+  10,
+  11,
+  12,
+  13,
   7,
   9,
   ~0u,
   ~0u,
   0,
+  14,
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramGameserverPingRequestBody, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramGameserverPingRequestBody, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -973,6 +1003,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steamdatagram_5fmessages_5fsdr
   1,
   2,
   3,
+  PROTOBUF_FIELD_OFFSET(::CMsgTOSTreatment, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTOSTreatment, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgTOSTreatment, l4s_detect_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTOSTreatment, up_ecn1_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTOSTreatment, down_dscp45_),
+  0,
+  1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramClientPingSampleRequest, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramClientPingSampleRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1046,10 +1087,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steamdatagram_5fmessages_5fsdr
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramClientPingSampleReply, connection_id_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramClientPingSampleReply, relay_override_active_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramClientPingSampleReply, tos_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramClientPingSampleReply, pops_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramClientPingSampleReply, legacy_data_centers_),
-  0,
   1,
+  2,
+  0,
   ~0u,
   ~0u,
   PROTOBUF_FIELD_OFFSET(::CMsgSteamDatagramClientSwitchedPrimary_RouterQuality, _has_bits_),
@@ -1622,43 +1665,44 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 9, 18, sizeof(::CMsgSteamDatagramSignedMessageGeneric)},
   { 22, 30, sizeof(::CMsgSteamDatagramRouterPingReply_RouteException)},
   { 33, 43, sizeof(::CMsgSteamDatagramRouterPingReply_AltAddress)},
-  { 48, 69, sizeof(::CMsgSteamDatagramRouterPingReply)},
-  { 85, 97, sizeof(::CMsgSteamDatagramGameserverPingRequestBody)},
-  { 104, 118, sizeof(::CMsgSteamDatagramGameserverPingRequestEnvelope)},
-  { 127, 143, sizeof(::CMsgSteamDatagramGameserverPingReplyData)},
-  { 154, 165, sizeof(::CMsgSteamDatagramNoSessionRelayToClient)},
-  { 171, 180, sizeof(::CMsgSteamDatagramNoSessionRelayToPeer)},
-  { 184, 190, sizeof(::CMsgSteamDatagramClientPingSampleRequest)},
-  { 191, 199, sizeof(::CMsgSteamDatagramClientPingSampleReply_POP_AltAddress)},
-  { 202, 223, sizeof(::CMsgSteamDatagramClientPingSampleReply_POP)},
-  { 239, 247, sizeof(::CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter)},
-  { 250, 259, sizeof(::CMsgSteamDatagramClientPingSampleReply)},
-  { 263, 272, sizeof(::CMsgSteamDatagramClientSwitchedPrimary_RouterQuality)},
-  { 276, 293, sizeof(::CMsgSteamDatagramClientSwitchedPrimary)},
-  { 305, 319, sizeof(::CMsgSteamDatagramConnectRequest)},
-  { 328, 340, sizeof(::CMsgSteamDatagramConnectOK)},
-  { 347, 367, sizeof(::CMsgSteamNetworkingP2PSDRRoutingSummary)},
-  { 382, 389, sizeof(::CMsgSteamDatagramP2PRoutingSummary)},
-  { 391, 416, sizeof(::CMsgSteamDatagramConnectionClosed)},
-  { 436, 457, sizeof(::CMsgSteamDatagramNoConnection)},
-  { 473, 489, sizeof(::CMsgSteamDatagramGameserverSessionRequest)},
-  { 500, 511, sizeof(::CMsgSteamDatagramGameserverSessionEstablished)},
-  { 517, 530, sizeof(::CMsgSteamDatagramConnectionStatsClientToRouter)},
-  { 538, 555, sizeof(::CMsgSteamDatagramConnectionStatsRouterToClient)},
-  { 567, 585, sizeof(::CMsgSteamDatagramConnectionStatsRouterToServer)},
-  { 598, 613, sizeof(::CMsgSteamDatagramConnectionStatsServerToRouter)},
-  { 623, 629, sizeof(::CMsgSteamDatagramP2PSessionRequestBody_EncryptedData)},
-  { 630, 648, sizeof(::CMsgSteamDatagramP2PSessionRequestBody)},
-  { 661, 669, sizeof(::CMsgSteamDatagramP2PSessionRequest)},
-  { 672, 681, sizeof(::CMsgSteamDatagramP2PSessionEstablished)},
-  { 685, 703, sizeof(::CMsgSteamDatagramConnectionStatsP2PClientToRouter)},
-  { 716, 736, sizeof(::CMsgSteamDatagramConnectionStatsP2PRouterToClient)},
-  { 751, 760, sizeof(::CMsgSteamDatagramP2PBadRouteRouterToClient)},
-  { 764, 773, sizeof(::CMsgSteamDatagramP2PRoutes_RelayCluster)},
-  { 777, 786, sizeof(::CMsgSteamDatagramP2PRoutes_Route)},
-  { 790, 798, sizeof(::CMsgSteamDatagramP2PRoutes)},
-  { 801, 812, sizeof(::CMsgSteamDatagramSetSecondaryAddressRequest)},
-  { 818, 825, sizeof(::CMsgSteamDatagramSetSecondaryAddressResult)},
+  { 48, 74, sizeof(::CMsgSteamDatagramRouterPingReply)},
+  { 95, 107, sizeof(::CMsgSteamDatagramGameserverPingRequestBody)},
+  { 114, 128, sizeof(::CMsgSteamDatagramGameserverPingRequestEnvelope)},
+  { 137, 153, sizeof(::CMsgSteamDatagramGameserverPingReplyData)},
+  { 164, 175, sizeof(::CMsgSteamDatagramNoSessionRelayToClient)},
+  { 181, 190, sizeof(::CMsgSteamDatagramNoSessionRelayToPeer)},
+  { 194, 202, sizeof(::CMsgTOSTreatment)},
+  { 205, 211, sizeof(::CMsgSteamDatagramClientPingSampleRequest)},
+  { 212, 220, sizeof(::CMsgSteamDatagramClientPingSampleReply_POP_AltAddress)},
+  { 223, 244, sizeof(::CMsgSteamDatagramClientPingSampleReply_POP)},
+  { 260, 268, sizeof(::CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter)},
+  { 271, 281, sizeof(::CMsgSteamDatagramClientPingSampleReply)},
+  { 286, 295, sizeof(::CMsgSteamDatagramClientSwitchedPrimary_RouterQuality)},
+  { 299, 316, sizeof(::CMsgSteamDatagramClientSwitchedPrimary)},
+  { 328, 342, sizeof(::CMsgSteamDatagramConnectRequest)},
+  { 351, 363, sizeof(::CMsgSteamDatagramConnectOK)},
+  { 370, 390, sizeof(::CMsgSteamNetworkingP2PSDRRoutingSummary)},
+  { 405, 412, sizeof(::CMsgSteamDatagramP2PRoutingSummary)},
+  { 414, 439, sizeof(::CMsgSteamDatagramConnectionClosed)},
+  { 459, 480, sizeof(::CMsgSteamDatagramNoConnection)},
+  { 496, 512, sizeof(::CMsgSteamDatagramGameserverSessionRequest)},
+  { 523, 534, sizeof(::CMsgSteamDatagramGameserverSessionEstablished)},
+  { 540, 553, sizeof(::CMsgSteamDatagramConnectionStatsClientToRouter)},
+  { 561, 578, sizeof(::CMsgSteamDatagramConnectionStatsRouterToClient)},
+  { 590, 608, sizeof(::CMsgSteamDatagramConnectionStatsRouterToServer)},
+  { 621, 636, sizeof(::CMsgSteamDatagramConnectionStatsServerToRouter)},
+  { 646, 652, sizeof(::CMsgSteamDatagramP2PSessionRequestBody_EncryptedData)},
+  { 653, 671, sizeof(::CMsgSteamDatagramP2PSessionRequestBody)},
+  { 684, 692, sizeof(::CMsgSteamDatagramP2PSessionRequest)},
+  { 695, 704, sizeof(::CMsgSteamDatagramP2PSessionEstablished)},
+  { 708, 726, sizeof(::CMsgSteamDatagramConnectionStatsP2PClientToRouter)},
+  { 739, 759, sizeof(::CMsgSteamDatagramConnectionStatsP2PRouterToClient)},
+  { 774, 783, sizeof(::CMsgSteamDatagramP2PBadRouteRouterToClient)},
+  { 787, 796, sizeof(::CMsgSteamDatagramP2PRoutes_RelayCluster)},
+  { 800, 809, sizeof(::CMsgSteamDatagramP2PRoutes_Route)},
+  { 813, 821, sizeof(::CMsgSteamDatagramP2PRoutes)},
+  { 824, 835, sizeof(::CMsgSteamDatagramSetSecondaryAddressRequest)},
+  { 841, 848, sizeof(::CMsgSteamDatagramSetSecondaryAddressResult)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1672,6 +1716,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSteamDatagramGameserverPingReplyData_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSteamDatagramNoSessionRelayToClient_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSteamDatagramNoSessionRelayToPeer_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgTOSTreatment_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSteamDatagramClientPingSampleRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSteamDatagramClientPingSampleReply_POP_AltAddress_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgSteamDatagramClientPingSampleReply_POP_default_instance_),
@@ -1715,7 +1760,7 @@ const char descriptor_table_protodef_steamdatagram_5fmessages_5fsdr_2eproto[] PR
   "ageGeneric\0221\n\004cert\030\001 \001(\0132#.CMsgSteamData"
   "gramCertificateSigned\022\023\n\013signed_data\030\002 \001"
   "(\014\022\021\n\tsignature\030\003 \001(\014\022\022\n\tdummy_pad\030\377\007 \001("
-  "\014\"\214\007\n CMsgSteamDatagramRouterPingReply\022\030"
+  "\014\"\375\007\n CMsgSteamDatagramRouterPingReply\022\030"
   "\n\020client_timestamp\030\001 \001(\007\022\"\n\026latency_data"
   "center_ids\030\002 \003(\007B\002\020\001\022\033\n\017latency_ping_ms\030"
   "\003 \003(\rB\002\020\001\022&\n\032latency_datacenter_ids_p2p\030"
@@ -1723,328 +1768,333 @@ const char descriptor_table_protodef_steamdatagram_5fmessages_5fsdr_2eproto[] PR
   "\020\001\022\026\n\016your_public_ip\030\004 \001(\007\022\030\n\020your_publi"
   "c_port\030\013 \001(\007\022\023\n\013server_time\030\005 \001(\007\022\021\n\tcha"
   "llenge\030\006 \001(\006\022\036\n\026seconds_until_shutdown\030\007"
-  " \001(\r\022\025\n\rclient_cookie\030\010 \001(\007\022%\n\035scoring_p"
-  "enalty_relay_cluster\030\t \001(\r\022\r\n\005flags\030\014 \001("
-  "\r\022J\n\020route_exceptions\030\n \003(\01320.CMsgSteamD"
-  "atagramRouterPingReply.RouteException\022C\n"
-  "\ralt_addresses\030\r \003(\0132,.CMsgSteamDatagram"
-  "RouterPingReply.AltAddress\022\021\n\tdummy_pad\030"
-  "c \001(\014\032H\n\016RouteException\022\026\n\016data_center_i"
-  "d\030\001 \001(\007\022\r\n\005flags\030\002 \001(\r\022\017\n\007penalty\030\003 \001(\r\032"
-  "\300\001\n\nAltAddress\022\014\n\004ipv4\030\001 \001(\007\022\014\n\004port\030\002 \001"
-  "(\r\022\017\n\007penalty\030\003 \001(\r\022X\n\010protocol\030\004 \001(\01625."
-  "CMsgSteamDatagramRouterPingReply.AltAddr"
-  "ess.Protocol:\017DefaultProtocol\022\n\n\002id\030\005 \001("
-  "\t\"\037\n\010Protocol\022\023\n\017DefaultProtocol\020\000\"L\n\005Fl"
-  "ags\022 \n\034FLAG_MAYBE_MORE_DATA_CENTERS\020\001\022!\n"
-  "\035FLAG_MAYBE_MORE_ALT_ADDRESSES\020\002\"\200\002\n*CMs"
-  "gSteamDatagramGameserverPingRequestBody\022"
-  "\023\n\013relay_popid\030\001 \001(\007\0225\n\016your_public_ip\030\002"
-  " \001(\0132\035.CMsgSteamNetworkingIPAddress\022\030\n\020y"
-  "our_public_port\030\003 \001(\r\022\027\n\017relay_unix_time"
-  "\030\004 \001(\004\022\026\n\016routing_secret\030\005 \001(\006\022-\n\006my_ips"
-  "\030\006 \003(\0132\035.CMsgSteamNetworkingIPAddress\022\014\n"
-  "\004echo\030\010 \001(\014\"\272\002\n.CMsgSteamDatagramGameser"
-  "verPingRequestEnvelope\0221\n\004cert\030\006 \001(\0132#.C"
-  "MsgSteamDatagramCertificateSigned\022\023\n\013sig"
-  "ned_data\030\007 \001(\014\022\021\n\tsignature\030\010 \001(\014\022\035\n\025leg"
-  "acy_your_public_ip\030\001 \001(\007\022\037\n\027legacy_your_"
-  "public_port\030\005 \001(\007\022\036\n\026legacy_relay_unix_t"
-  "ime\030\002 \001(\007\022\030\n\020legacy_challenge\030\003 \001(\006\022\037\n\027l"
-  "egacy_router_timestamp\030\004 \001(\007\022\022\n\tdummy_pa"
-  "d\030\377\007 \001(\014\"\253\002\n(CMsgSteamDatagramGameserver"
-  "PingReplyData\022\034\n\024echo_relay_unix_time\030\002 "
-  "\001(\007\022\014\n\004echo\030\010 \001(\014\022\030\n\020legacy_challenge\030\003 "
-  "\001(\006\022\037\n\027legacy_router_timestamp\030\004 \001(\007\022\026\n\016"
-  "data_center_id\030\005 \001(\007\022\r\n\005appid\030\006 \001(\r\022\030\n\020p"
-  "rotocol_version\030\007 \001(\r\022\r\n\005build\030\t \001(\t\022\034\n\024"
-  "networconfig_version\030\n \001(\004\022\024\n\014my_unix_ti"
-  "me\030\013 \001(\007\022\024\n\014routing_blob\030\014 \001(\014\"\272\001\n\'CMsgS"
-  "teamDatagramNoSessionRelayToClient\022\025\n\rco"
-  "nnection_id\030\007 \001(\007\022\026\n\016your_public_ip\030\002 \001("
-  "\007\022\030\n\020your_public_port\030\006 \001(\007\022\023\n\013server_ti"
-  "me\030\003 \001(\007\022\021\n\tchallenge\030\004 \001(\006\022\036\n\026seconds_u"
-  "ntil_shutdown\030\005 \001(\r\"\227\001\n%CMsgSteamDatagra"
-  "mNoSessionRelayToPeer\022\037\n\027legacy_relay_se"
-  "ssion_id\030\001 \001(\r\022\035\n\025from_relay_session_id\030"
-  "\002 \001(\007\022\032\n\022from_connection_id\030\007 \001(\007\022\022\n\nklu"
-  "dge_pad\030c \001(\006\"A\n(CMsgSteamDatagramClient"
-  "PingSampleRequest\022\025\n\rconnection_id\030\001 \001(\007"
-  "\"\222\007\n&CMsgSteamDatagramClientPingSampleRe"
-  "ply\022\025\n\rconnection_id\030\001 \001(\007\022\035\n\025relay_over"
-  "ride_active\030\005 \001(\010\0229\n\004pops\030\002 \003(\0132+.CMsgSt"
-  "eamDatagramClientPingSampleReply.POP\022U\n\023"
-  "legacy_data_centers\030\003 \003(\01328.CMsgSteamDat"
-  "agramClientPingSampleReply.LegacyDataCen"
-  "ter\032\270\004\n\003POP\022\016\n\006pop_id\030\001 \001(\007\022\035\n\025default_f"
-  "ront_ping_ms\030\002 \001(\r\022\027\n\017cluster_penalty\030\004 "
-  "\001(\r\022M\n\ralt_addresses\030\007 \003(\01326.CMsgSteamDa"
-  "tagramClientPingSampleReply.POP.AltAddre"
-  "ss\022\033\n\023default_e2e_ping_ms\030\003 \001(\r\022\031\n\021defau"
-  "lt_e2e_score\030\005 \001(\r\022!\n\031p2p_via_peer_relay"
-  "_pop_id\030\006 \001(\007\022\027\n\017best_dc_ping_ms\030\t \001(\r\022\025"
-  "\n\rbest_dc_score\030\n \001(\r\022 \n\030best_dc_via_rel"
-  "ay_pop_id\030\013 \001(\007\022\032\n\022default_dc_ping_ms\030\014 "
-  "\001(\r\022\030\n\020default_dc_score\030\r \001(\r\022#\n\033default"
-  "_dc_via_relay_pop_id\030\016 \001(\007\022\027\n\017test_dc_pi"
-  "ng_ms\030\017 \001(\r\022\025\n\rtest_dc_score\030\020 \001(\r\022 \n\030te"
-  "st_dc_via_relay_pop_id\030\021 \001(\007\032@\n\nAltAddre"
-  "ss\022\n\n\002id\030\001 \001(\t\022\025\n\rfront_ping_ms\030\002 \001(\r\022\017\n"
-  "\007penalty\030\003 \001(\r\032e\n\020LegacyDataCenter\022\026\n\016da"
-  "ta_center_id\030\001 \001(\007\022 \n\030best_dc_via_relay_"
-  "pop_id\030\002 \001(\007\022\027\n\017best_dc_ping_ms\030\003 \001(\r\"\214\005"
-  "\n&CMsgSteamDatagramClientSwitchedPrimary"
-  "\022\025\n\rconnection_id\030\001 \001(\007\022\017\n\007from_ip\030\002 \001(\007"
-  "\022\021\n\tfrom_port\030\003 \001(\r\022\033\n\023from_router_clust"
-  "er\030\004 \001(\007\022\030\n\020from_active_time\030\005 \001(\r\022 \n\030fr"
-  "om_active_packets_recv\030\006 \001(\r\022\033\n\023from_dro"
-  "pped_reason\030\007 \001(\t\022\016\n\006gap_ms\030\010 \001(\r\022O\n\020fro"
-  "m_quality_now\030\t \001(\01325.CMsgSteamDatagramC"
-  "lientSwitchedPrimary.RouterQuality\022M\n\016to"
-  "_quality_now\030\n \001(\01325.CMsgSteamDatagramCl"
-  "ientSwitchedPrimary.RouterQuality\022P\n\021fro"
-  "m_quality_then\030\013 \001(\01325.CMsgSteamDatagram"
-  "ClientSwitchedPrimary.RouterQuality\022N\n\017t"
-  "o_quality_then\030\014 \001(\01325.CMsgSteamDatagram"
-  "ClientSwitchedPrimary.RouterQuality\032_\n\rR"
-  "outerQuality\022\r\n\005score\030\001 \001(\r\022\022\n\nfront_pin"
-  "g\030\002 \001(\r\022\017\n\007bacping\030\003 \001(\r\022\032\n\022seconds_unti"
-  "l_down\030\004 \001(\r\"\302\002\n\037CMsgSteamDatagramConnec"
-  "tRequest\022\025\n\rconnection_id\030\001 \001(\007\022\024\n\014my_ti"
-  "mestamp\030\004 \001(\006\022\023\n\013ping_est_ms\030\005 \001(\r\022\024\n\014vi"
-  "rtual_port\030\t \001(\r\022#\n\033gameserver_relay_ses"
-  "sion_id\030\002 \001(\r\0227\n\005crypt\030\006 \001(\0132(.CMsgSteam"
-  "DatagramSessionCryptInfoSigned\0221\n\004cert\030\007"
-  " \001(\0132#.CMsgSteamDatagramCertificateSigne"
-  "d\022\026\n\016routing_secret\030\n \001(\006\022\036\n\026legacy_clie"
-  "nt_steam_id\030\003 \001(\006\"\232\002\n\032CMsgSteamDatagramC"
-  "onnectOK\022\034\n\024client_connection_id\030\001 \001(\007\022\034"
-  "\n\024server_connection_id\030\007 \001(\007\022\026\n\016your_tim"
-  "estamp\030\003 \001(\006\022\027\n\017delay_time_usec\030\004 \001(\r\022#\n"
-  "\033gameserver_relay_session_id\030\002 \001(\r\0227\n\005cr"
-  "ypt\030\005 \001(\0132(.CMsgSteamDatagramSessionCryp"
-  "tInfoSigned\0221\n\004cert\030\006 \001(\0132#.CMsgSteamDat"
-  "agramCertificateSigned\"\256\003\n\'CMsgSteamNetw"
-  "orkingP2PSDRRoutingSummary\022\024\n\014initial_pi"
-  "ng\030\001 \001(\r\022 \n\030initial_ping_front_local\030\002 \001"
-  "(\r\022!\n\031initial_ping_front_remote\030\003 \001(\r\022\025\n"
-  "\rinitial_score\030\004 \001(\r\022\031\n\021initial_pop_loca"
-  "l\030\005 \001(\007\022\032\n\022initial_pop_remote\030\006 \001(\007\022\021\n\tb"
-  "est_ping\030\013 \001(\r\022\035\n\025best_ping_front_local\030"
-  "\014 \001(\r\022\036\n\026best_ping_front_remote\030\r \001(\r\022\022\n"
-  "\nbest_score\030\016 \001(\r\022\026\n\016best_pop_local\030\017 \001("
-  "\007\022\027\n\017best_pop_remote\030\020 \001(\007\022\021\n\tbest_time\030"
-  "\021 \001(\r\022\026\n\016negotiation_ms\030\007 \001(\r\022\030\n\020selecte"
-  "d_seconds\030\010 \001(\r\"\217\001\n\"CMsgSteamDatagramP2P"
-  "RoutingSummary\0222\n\003ice\030\002 \001(\0132%.CMsgSteamN"
-  "etworkingICESessionSummary\0225\n\003sdr\030\003 \001(\0132"
-  "(.CMsgSteamNetworkingP2PSDRRoutingSummar"
-  "y\"\351\006\n!CMsgSteamDatagramConnectionClosed\022"
-  "\030\n\020to_connection_id\030\007 \001(\007\022\032\n\022from_connec"
-  "tion_id\030\010 \001(\007\022\034\n\024from_identity_string\030\017 "
-  "\001(\t\022M\n\033legacy_from_identity_binary\030\r \001(\013"
-  "2(.CMsgSteamNetworkingIdentityLegacyBina"
-  "ry\022\034\n\024legacy_from_steam_id\030\003 \001(\006\022*\n\"lega"
-  "cy_gameserver_relay_session_id\030\002 \001(\r\022\033\n\023"
-  "to_relay_session_id\030\t \001(\007\022\035\n\025from_relay_"
-  "session_id\030\n \001(\007\022*\n\"forward_target_relay"
-  "_routing_token\030\013 \001(\014\022\037\n\027forward_target_r"
-  "evision\030\014 \001(\r\022G\n\nrelay_mode\030\004 \001(\0162-.CMsg"
-  "SteamDatagramConnectionClosed.ERelayMode"
-  ":\004None\022\r\n\005debug\030\005 \001(\t\022\023\n\013reason_code\030\006 \001"
-  "(\r\022\026\n\016routing_secret\030\016 \001(\006\022\033\n\023not_primar"
-  "y_session\030\020 \001(\010\022\035\n\025not_primary_transport"
-  "\030\023 \001(\010\022\035\n\025relay_override_active\030\026 \001(\010\022:\n"
-  "\rquality_relay\030\021 \001(\0132#.CMsgSteamDatagram"
-  "ConnectionQuality\0228\n\013quality_e2e\030\022 \001(\0132#"
-  ".CMsgSteamDatagramConnectionQuality\022@\n\023p"
-  "2p_routing_summary\030\025 \001(\0132#.CMsgSteamData"
-  "gramP2PRoutingSummary\"6\n\nERelayMode\022\010\n\004N"
-  "one\020\000\022\014\n\010EndToEnd\020\001\022\020\n\014ClosedByPeer\020\002\"\314\004"
-  "\n\035CMsgSteamDatagramNoConnection\022\030\n\020to_co"
-  "nnection_id\030\005 \001(\007\022\032\n\022from_connection_id\030"
-  "\006 \001(\007\022*\n\"legacy_gameserver_relay_session"
-  "_id\030\002 \001(\r\022\033\n\023to_relay_session_id\030\t \001(\007\022\035"
-  "\n\025from_relay_session_id\030\n \001(\007\022\034\n\024from_id"
-  "entity_string\030\007 \001(\t\022\034\n\024legacy_from_steam"
-  "_id\030\003 \001(\006\022\022\n\nend_to_end\030\004 \001(\010\022\033\n\023not_pri"
-  "mary_session\030\014 \001(\010\022\035\n\025not_primary_transp"
-  "ort\030\017 \001(\010\022\035\n\025relay_override_active\030\021 \001(\010"
-  "\022:\n\rquality_relay\030\r \001(\0132#.CMsgSteamDatag"
-  "ramConnectionQuality\0228\n\013quality_e2e\030\016 \001("
-  "\0132#.CMsgSteamDatagramConnectionQuality\022@"
-  "\n\023p2p_routing_summary\030\020 \001(\0132#.CMsgSteamD"
-  "atagramP2PRoutingSummary\022\026\n\016routing_secr"
-  "et\030\013 \001(\006\022\022\n\tdummy_pad\030\377\007 \001(\007\"\332\002\n)CMsgSte"
-  "amDatagramGameserverSessionRequest\022\016\n\006ti"
-  "cket\030\001 \001(\014\022\026\n\016challenge_time\030\003 \001(\007\022\021\n\tch"
-  "allenge\030\004 \001(\006\022\034\n\024client_connection_id\030\005 "
-  "\001(\007\022\034\n\024server_connection_id\030\010 \001(\007\022\034\n\024net"
-  "worconfig_version\030\006 \001(\004\022\030\n\020protocol_vers"
-  "ion\030\007 \001(\r\022\020\n\010platform\030\t \001(\t\022\r\n\005build\030\n \001"
-  "(\t\022\037\n\027dev_gameserver_identity\030d \001(\t\022<\n\017d"
-  "ev_client_cert\030e \001(\0132#.CMsgSteamDatagram"
-  "CertificateSigned\"\350\001\n-CMsgSteamDatagramG"
-  "ameserverSessionEstablished\022\025\n\rconnectio"
-  "n_id\030\001 \001(\007\022\"\n\032gameserver_identity_string"
-  "\030\002 \001(\t\022\036\n\026seconds_until_shutdown\030\004 \001(\r\022\023"
-  "\n\013seq_num_r2c\030\006 \001(\r\022$\n\034dummy_legacy_iden"
-  "tity_binary\030\007 \001(\014\022!\n\031legacy_gameserver_s"
-  "teamid\030\003 \001(\006\"\251\003\n.CMsgSteamDatagramConnec"
-  "tionStatsClientToRouter\022:\n\rquality_relay"
-  "\030\001 \001(\0132#.CMsgSteamDatagramConnectionQual"
-  "ity\0228\n\013quality_e2e\030\002 \001(\0132#.CMsgSteamData"
-  "gramConnectionQuality\022\017\n\007acrelay\030\004 \003(\007\022\024"
-  "\n\014legacy_ace2e\030\005 \003(\007\022\r\n\005flags\030\006 \001(\r\022\034\n\024c"
-  "lient_connection_id\030\010 \001(\007\022\023\n\013seq_num_c2r"
-  "\030\t \001(\r\022\023\n\013seq_num_e2e\030\n \001(\r\"\202\001\n\005Flags\022\025\n"
-  "\021ACK_REQUEST_RELAY\020\001\022\023\n\017ACK_REQUEST_E2E\020"
-  "\002\022\031\n\025ACK_REQUEST_IMMEDIATE\020\004\022\027\n\023NOT_PRIM"
-  "ARY_SESSION\020\010\022\031\n\025CLIENT_RELAY_OVERRIDE\020 "
-  "\"\365\003\n.CMsgSteamDatagramConnectionStatsRou"
-  "terToClient\022:\n\rquality_relay\030\001 \001(\0132#.CMs"
-  "gSteamDatagramConnectionQuality\0228\n\013quali"
-  "ty_e2e\030\002 \001(\0132#.CMsgSteamDatagramConnecti"
-  "onQuality\022\036\n\026seconds_until_shutdown\030\006 \001("
-  "\r\022\032\n\022migrate_request_ip\030\n \001(\007\022\034\n\024migrate"
-  "_request_port\030\013 \001(\r\022%\n\035scoring_penalty_r"
-  "elay_cluster\030\014 \001(\r\022\017\n\007acrelay\030\r \003(\007\022\024\n\014l"
-  "egacy_ace2e\030\016 \003(\007\022\r\n\005flags\030\017 \001(\r\022\034\n\024clie"
-  "nt_connection_id\030\007 \001(\007\022\023\n\013seq_num_r2c\030\010 "
-  "\001(\r\022\023\n\013seq_num_e2e\030\t \001(\r\"N\n\005Flags\022\025\n\021ACK"
-  "_REQUEST_RELAY\020\001\022\023\n\017ACK_REQUEST_E2E\020\002\022\031\n"
-  "\025ACK_REQUEST_IMMEDIATE\020\004\"\204\004\n.CMsgSteamDa"
-  "tagramConnectionStatsRouterToServer\022:\n\rq"
-  "uality_relay\030\001 \001(\0132#.CMsgSteamDatagramCo"
-  "nnectionQuality\0228\n\013quality_e2e\030\002 \001(\0132#.C"
-  "MsgSteamDatagramConnectionQuality\022\017\n\007acr"
-  "elay\030\n \003(\007\022\024\n\014legacy_ace2e\030\013 \003(\007\022\r\n\005flag"
-  "s\030\014 \001(\r\022\023\n\013seq_num_r2s\030\005 \001(\r\022\023\n\013seq_num_"
-  "e2e\030\006 \001(\r\022\036\n\026client_identity_string\030\017 \001("
-  "\t\022\036\n\026legacy_client_steam_id\030\007 \001(\006\022\030\n\020rel"
-  "ay_session_id\030\010 \001(\r\022\034\n\024client_connection"
-  "_id\030\t \001(\007\022\034\n\024server_connection_id\030\r \001(\007\022"
-  "\026\n\016routing_secret\030\016 \001(\006\"N\n\005Flags\022\025\n\021ACK_"
-  "REQUEST_RELAY\020\001\022\023\n\017ACK_REQUEST_E2E\020\002\022\031\n\025"
-  "ACK_REQUEST_IMMEDIATE\020\004\"\254\003\n.CMsgSteamDat"
-  "agramConnectionStatsServerToRouter\022:\n\rqu"
+  " \001(\r\022\025\n\rclient_cookie\030\010 \001(\007\022\020\n\010recv_tos\030"
+  "\020 \001(\r\022\025\n\recho_sent_tos\030\021 \001(\r\022\020\n\010sent_tos"
+  "\030\022 \001(\r\022\036\n\026echo_request_reply_tos\030\023 \001(\r\022%"
+  "\n\035scoring_penalty_relay_cluster\030\t \001(\r\022\r\n"
+  "\005flags\030\014 \001(\r\022J\n\020route_exceptions\030\n \003(\01320"
+  ".CMsgSteamDatagramRouterPingReply.RouteE"
+  "xception\022C\n\ralt_addresses\030\r \003(\0132,.CMsgSt"
+  "eamDatagramRouterPingReply.AltAddress\022\021\n"
+  "\tdummy_pad\030c \001(\014\022\024\n\014dummy_varint\030d \001(\004\032H"
+  "\n\016RouteException\022\026\n\016data_center_id\030\001 \001(\007"
+  "\022\r\n\005flags\030\002 \001(\r\022\017\n\007penalty\030\003 \001(\r\032\300\001\n\nAlt"
+  "Address\022\014\n\004ipv4\030\001 \001(\007\022\014\n\004port\030\002 \001(\r\022\017\n\007p"
+  "enalty\030\003 \001(\r\022X\n\010protocol\030\004 \001(\01625.CMsgSte"
+  "amDatagramRouterPingReply.AltAddress.Pro"
+  "tocol:\017DefaultProtocol\022\n\n\002id\030\005 \001(\t\"\037\n\010Pr"
+  "otocol\022\023\n\017DefaultProtocol\020\000\"L\n\005Flags\022 \n\034"
+  "FLAG_MAYBE_MORE_DATA_CENTERS\020\001\022!\n\035FLAG_M"
+  "AYBE_MORE_ALT_ADDRESSES\020\002\"\200\002\n*CMsgSteamD"
+  "atagramGameserverPingRequestBody\022\023\n\013rela"
+  "y_popid\030\001 \001(\007\0225\n\016your_public_ip\030\002 \001(\0132\035."
+  "CMsgSteamNetworkingIPAddress\022\030\n\020your_pub"
+  "lic_port\030\003 \001(\r\022\027\n\017relay_unix_time\030\004 \001(\004\022"
+  "\026\n\016routing_secret\030\005 \001(\006\022-\n\006my_ips\030\006 \003(\0132"
+  "\035.CMsgSteamNetworkingIPAddress\022\014\n\004echo\030\010"
+  " \001(\014\"\272\002\n.CMsgSteamDatagramGameserverPing"
+  "RequestEnvelope\0221\n\004cert\030\006 \001(\0132#.CMsgStea"
+  "mDatagramCertificateSigned\022\023\n\013signed_dat"
+  "a\030\007 \001(\014\022\021\n\tsignature\030\010 \001(\014\022\035\n\025legacy_you"
+  "r_public_ip\030\001 \001(\007\022\037\n\027legacy_your_public_"
+  "port\030\005 \001(\007\022\036\n\026legacy_relay_unix_time\030\002 \001"
+  "(\007\022\030\n\020legacy_challenge\030\003 \001(\006\022\037\n\027legacy_r"
+  "outer_timestamp\030\004 \001(\007\022\022\n\tdummy_pad\030\377\007 \001("
+  "\014\"\253\002\n(CMsgSteamDatagramGameserverPingRep"
+  "lyData\022\034\n\024echo_relay_unix_time\030\002 \001(\007\022\014\n\004"
+  "echo\030\010 \001(\014\022\030\n\020legacy_challenge\030\003 \001(\006\022\037\n\027"
+  "legacy_router_timestamp\030\004 \001(\007\022\026\n\016data_ce"
+  "nter_id\030\005 \001(\007\022\r\n\005appid\030\006 \001(\r\022\030\n\020protocol"
+  "_version\030\007 \001(\r\022\r\n\005build\030\t \001(\t\022\034\n\024networc"
+  "onfig_version\030\n \001(\004\022\024\n\014my_unix_time\030\013 \001("
+  "\007\022\024\n\014routing_blob\030\014 \001(\014\"\272\001\n\'CMsgSteamDat"
+  "agramNoSessionRelayToClient\022\025\n\rconnectio"
+  "n_id\030\007 \001(\007\022\026\n\016your_public_ip\030\002 \001(\007\022\030\n\020yo"
+  "ur_public_port\030\006 \001(\007\022\023\n\013server_time\030\003 \001("
+  "\007\022\021\n\tchallenge\030\004 \001(\006\022\036\n\026seconds_until_sh"
+  "utdown\030\005 \001(\r\"\227\001\n%CMsgSteamDatagramNoSess"
+  "ionRelayToPeer\022\037\n\027legacy_relay_session_i"
+  "d\030\001 \001(\r\022\035\n\025from_relay_session_id\030\002 \001(\007\022\032"
+  "\n\022from_connection_id\030\007 \001(\007\022\022\n\nkludge_pad"
+  "\030c \001(\006\"L\n\020CMsgTOSTreatment\022\022\n\nl4s_detect"
+  "\030\001 \001(\t\022\017\n\007up_ecn1\030\002 \001(\t\022\023\n\013down_dscp45\030\003"
+  " \001(\t\"A\n(CMsgSteamDatagramClientPingSampl"
+  "eRequest\022\025\n\rconnection_id\030\001 \001(\007\"\262\007\n&CMsg"
+  "SteamDatagramClientPingSampleReply\022\025\n\rco"
+  "nnection_id\030\001 \001(\007\022\035\n\025relay_override_acti"
+  "ve\030\005 \001(\010\022\036\n\003tos\030\006 \001(\0132\021.CMsgTOSTreatment"
+  "\0229\n\004pops\030\002 \003(\0132+.CMsgSteamDatagramClient"
+  "PingSampleReply.POP\022U\n\023legacy_data_cente"
+  "rs\030\003 \003(\01328.CMsgSteamDatagramClientPingSa"
+  "mpleReply.LegacyDataCenter\032\270\004\n\003POP\022\016\n\006po"
+  "p_id\030\001 \001(\007\022\035\n\025default_front_ping_ms\030\002 \001("
+  "\r\022\027\n\017cluster_penalty\030\004 \001(\r\022M\n\ralt_addres"
+  "ses\030\007 \003(\01326.CMsgSteamDatagramClientPingS"
+  "ampleReply.POP.AltAddress\022\033\n\023default_e2e"
+  "_ping_ms\030\003 \001(\r\022\031\n\021default_e2e_score\030\005 \001("
+  "\r\022!\n\031p2p_via_peer_relay_pop_id\030\006 \001(\007\022\027\n\017"
+  "best_dc_ping_ms\030\t \001(\r\022\025\n\rbest_dc_score\030\n"
+  " \001(\r\022 \n\030best_dc_via_relay_pop_id\030\013 \001(\007\022\032"
+  "\n\022default_dc_ping_ms\030\014 \001(\r\022\030\n\020default_dc"
+  "_score\030\r \001(\r\022#\n\033default_dc_via_relay_pop"
+  "_id\030\016 \001(\007\022\027\n\017test_dc_ping_ms\030\017 \001(\r\022\025\n\rte"
+  "st_dc_score\030\020 \001(\r\022 \n\030test_dc_via_relay_p"
+  "op_id\030\021 \001(\007\032@\n\nAltAddress\022\n\n\002id\030\001 \001(\t\022\025\n"
+  "\rfront_ping_ms\030\002 \001(\r\022\017\n\007penalty\030\003 \001(\r\032e\n"
+  "\020LegacyDataCenter\022\026\n\016data_center_id\030\001 \001("
+  "\007\022 \n\030best_dc_via_relay_pop_id\030\002 \001(\007\022\027\n\017b"
+  "est_dc_ping_ms\030\003 \001(\r\"\214\005\n&CMsgSteamDatagr"
+  "amClientSwitchedPrimary\022\025\n\rconnection_id"
+  "\030\001 \001(\007\022\017\n\007from_ip\030\002 \001(\007\022\021\n\tfrom_port\030\003 \001"
+  "(\r\022\033\n\023from_router_cluster\030\004 \001(\007\022\030\n\020from_"
+  "active_time\030\005 \001(\r\022 \n\030from_active_packets"
+  "_recv\030\006 \001(\r\022\033\n\023from_dropped_reason\030\007 \001(\t"
+  "\022\016\n\006gap_ms\030\010 \001(\r\022O\n\020from_quality_now\030\t \001"
+  "(\01325.CMsgSteamDatagramClientSwitchedPrim"
+  "ary.RouterQuality\022M\n\016to_quality_now\030\n \001("
+  "\01325.CMsgSteamDatagramClientSwitchedPrima"
+  "ry.RouterQuality\022P\n\021from_quality_then\030\013 "
+  "\001(\01325.CMsgSteamDatagramClientSwitchedPri"
+  "mary.RouterQuality\022N\n\017to_quality_then\030\014 "
+  "\001(\01325.CMsgSteamDatagramClientSwitchedPri"
+  "mary.RouterQuality\032_\n\rRouterQuality\022\r\n\005s"
+  "core\030\001 \001(\r\022\022\n\nfront_ping\030\002 \001(\r\022\017\n\007bacpin"
+  "g\030\003 \001(\r\022\032\n\022seconds_until_down\030\004 \001(\r\"\302\002\n\037"
+  "CMsgSteamDatagramConnectRequest\022\025\n\rconne"
+  "ction_id\030\001 \001(\007\022\024\n\014my_timestamp\030\004 \001(\006\022\023\n\013"
+  "ping_est_ms\030\005 \001(\r\022\024\n\014virtual_port\030\t \001(\r\022"
+  "#\n\033gameserver_relay_session_id\030\002 \001(\r\0227\n\005"
+  "crypt\030\006 \001(\0132(.CMsgSteamDatagramSessionCr"
+  "yptInfoSigned\0221\n\004cert\030\007 \001(\0132#.CMsgSteamD"
+  "atagramCertificateSigned\022\026\n\016routing_secr"
+  "et\030\n \001(\006\022\036\n\026legacy_client_steam_id\030\003 \001(\006"
+  "\"\232\002\n\032CMsgSteamDatagramConnectOK\022\034\n\024clien"
+  "t_connection_id\030\001 \001(\007\022\034\n\024server_connecti"
+  "on_id\030\007 \001(\007\022\026\n\016your_timestamp\030\003 \001(\006\022\027\n\017d"
+  "elay_time_usec\030\004 \001(\r\022#\n\033gameserver_relay"
+  "_session_id\030\002 \001(\r\0227\n\005crypt\030\005 \001(\0132(.CMsgS"
+  "teamDatagramSessionCryptInfoSigned\0221\n\004ce"
+  "rt\030\006 \001(\0132#.CMsgSteamDatagramCertificateS"
+  "igned\"\256\003\n\'CMsgSteamNetworkingP2PSDRRouti"
+  "ngSummary\022\024\n\014initial_ping\030\001 \001(\r\022 \n\030initi"
+  "al_ping_front_local\030\002 \001(\r\022!\n\031initial_pin"
+  "g_front_remote\030\003 \001(\r\022\025\n\rinitial_score\030\004 "
+  "\001(\r\022\031\n\021initial_pop_local\030\005 \001(\007\022\032\n\022initia"
+  "l_pop_remote\030\006 \001(\007\022\021\n\tbest_ping\030\013 \001(\r\022\035\n"
+  "\025best_ping_front_local\030\014 \001(\r\022\036\n\026best_pin"
+  "g_front_remote\030\r \001(\r\022\022\n\nbest_score\030\016 \001(\r"
+  "\022\026\n\016best_pop_local\030\017 \001(\007\022\027\n\017best_pop_rem"
+  "ote\030\020 \001(\007\022\021\n\tbest_time\030\021 \001(\r\022\026\n\016negotiat"
+  "ion_ms\030\007 \001(\r\022\030\n\020selected_seconds\030\010 \001(\r\"\217"
+  "\001\n\"CMsgSteamDatagramP2PRoutingSummary\0222\n"
+  "\003ice\030\002 \001(\0132%.CMsgSteamNetworkingICESessi"
+  "onSummary\0225\n\003sdr\030\003 \001(\0132(.CMsgSteamNetwor"
+  "kingP2PSDRRoutingSummary\"\351\006\n!CMsgSteamDa"
+  "tagramConnectionClosed\022\030\n\020to_connection_"
+  "id\030\007 \001(\007\022\032\n\022from_connection_id\030\010 \001(\007\022\034\n\024"
+  "from_identity_string\030\017 \001(\t\022M\n\033legacy_fro"
+  "m_identity_binary\030\r \001(\0132(.CMsgSteamNetwo"
+  "rkingIdentityLegacyBinary\022\034\n\024legacy_from"
+  "_steam_id\030\003 \001(\006\022*\n\"legacy_gameserver_rel"
+  "ay_session_id\030\002 \001(\r\022\033\n\023to_relay_session_"
+  "id\030\t \001(\007\022\035\n\025from_relay_session_id\030\n \001(\007\022"
+  "*\n\"forward_target_relay_routing_token\030\013 "
+  "\001(\014\022\037\n\027forward_target_revision\030\014 \001(\r\022G\n\n"
+  "relay_mode\030\004 \001(\0162-.CMsgSteamDatagramConn"
+  "ectionClosed.ERelayMode:\004None\022\r\n\005debug\030\005"
+  " \001(\t\022\023\n\013reason_code\030\006 \001(\r\022\026\n\016routing_sec"
+  "ret\030\016 \001(\006\022\033\n\023not_primary_session\030\020 \001(\010\022\035"
+  "\n\025not_primary_transport\030\023 \001(\010\022\035\n\025relay_o"
+  "verride_active\030\026 \001(\010\022:\n\rquality_relay\030\021 "
+  "\001(\0132#.CMsgSteamDatagramConnectionQuality"
+  "\0228\n\013quality_e2e\030\022 \001(\0132#.CMsgSteamDatagra"
+  "mConnectionQuality\022@\n\023p2p_routing_summar"
+  "y\030\025 \001(\0132#.CMsgSteamDatagramP2PRoutingSum"
+  "mary\"6\n\nERelayMode\022\010\n\004None\020\000\022\014\n\010EndToEnd"
+  "\020\001\022\020\n\014ClosedByPeer\020\002\"\314\004\n\035CMsgSteamDatagr"
+  "amNoConnection\022\030\n\020to_connection_id\030\005 \001(\007"
+  "\022\032\n\022from_connection_id\030\006 \001(\007\022*\n\"legacy_g"
+  "ameserver_relay_session_id\030\002 \001(\r\022\033\n\023to_r"
+  "elay_session_id\030\t \001(\007\022\035\n\025from_relay_sess"
+  "ion_id\030\n \001(\007\022\034\n\024from_identity_string\030\007 \001"
+  "(\t\022\034\n\024legacy_from_steam_id\030\003 \001(\006\022\022\n\nend_"
+  "to_end\030\004 \001(\010\022\033\n\023not_primary_session\030\014 \001("
+  "\010\022\035\n\025not_primary_transport\030\017 \001(\010\022\035\n\025rela"
+  "y_override_active\030\021 \001(\010\022:\n\rquality_relay"
+  "\030\r \001(\0132#.CMsgSteamDatagramConnectionQual"
+  "ity\0228\n\013quality_e2e\030\016 \001(\0132#.CMsgSteamData"
+  "gramConnectionQuality\022@\n\023p2p_routing_sum"
+  "mary\030\020 \001(\0132#.CMsgSteamDatagramP2PRouting"
+  "Summary\022\026\n\016routing_secret\030\013 \001(\006\022\022\n\tdummy"
+  "_pad\030\377\007 \001(\007\"\332\002\n)CMsgSteamDatagramGameser"
+  "verSessionRequest\022\016\n\006ticket\030\001 \001(\014\022\026\n\016cha"
+  "llenge_time\030\003 \001(\007\022\021\n\tchallenge\030\004 \001(\006\022\034\n\024"
+  "client_connection_id\030\005 \001(\007\022\034\n\024server_con"
+  "nection_id\030\010 \001(\007\022\034\n\024networconfig_version"
+  "\030\006 \001(\004\022\030\n\020protocol_version\030\007 \001(\r\022\020\n\010plat"
+  "form\030\t \001(\t\022\r\n\005build\030\n \001(\t\022\037\n\027dev_gameser"
+  "ver_identity\030d \001(\t\022<\n\017dev_client_cert\030e "
+  "\001(\0132#.CMsgSteamDatagramCertificateSigned"
+  "\"\350\001\n-CMsgSteamDatagramGameserverSessionE"
+  "stablished\022\025\n\rconnection_id\030\001 \001(\007\022\"\n\032gam"
+  "eserver_identity_string\030\002 \001(\t\022\036\n\026seconds"
+  "_until_shutdown\030\004 \001(\r\022\023\n\013seq_num_r2c\030\006 \001"
+  "(\r\022$\n\034dummy_legacy_identity_binary\030\007 \001(\014"
+  "\022!\n\031legacy_gameserver_steamid\030\003 \001(\006\"\251\003\n."
+  "CMsgSteamDatagramConnectionStatsClientTo"
+  "Router\022:\n\rquality_relay\030\001 \001(\0132#.CMsgStea"
+  "mDatagramConnectionQuality\0228\n\013quality_e2"
+  "e\030\002 \001(\0132#.CMsgSteamDatagramConnectionQua"
+  "lity\022\017\n\007acrelay\030\004 \003(\007\022\024\n\014legacy_ace2e\030\005 "
+  "\003(\007\022\r\n\005flags\030\006 \001(\r\022\034\n\024client_connection_"
+  "id\030\010 \001(\007\022\023\n\013seq_num_c2r\030\t \001(\r\022\023\n\013seq_num"
+  "_e2e\030\n \001(\r\"\202\001\n\005Flags\022\025\n\021ACK_REQUEST_RELA"
+  "Y\020\001\022\023\n\017ACK_REQUEST_E2E\020\002\022\031\n\025ACK_REQUEST_"
+  "IMMEDIATE\020\004\022\027\n\023NOT_PRIMARY_SESSION\020\010\022\031\n\025"
+  "CLIENT_RELAY_OVERRIDE\020 \"\365\003\n.CMsgSteamDat"
+  "agramConnectionStatsRouterToClient\022:\n\rqu"
   "ality_relay\030\001 \001(\0132#.CMsgSteamDatagramCon"
   "nectionQuality\0228\n\013quality_e2e\030\002 \001(\0132#.CM"
-  "sgSteamDatagramConnectionQuality\022\017\n\007acre"
-  "lay\030\010 \003(\007\022\024\n\014legacy_ace2e\030\t \003(\007\022\r\n\005flags"
-  "\030\n \001(\r\022\023\n\013seq_num_s2r\030\003 \001(\r\022\023\n\013seq_num_e"
-  "2e\030\004 \001(\r\022\030\n\020relay_session_id\030\006 \001(\r\022\034\n\024cl"
-  "ient_connection_id\030\007 \001(\007\022\034\n\024server_conne"
-  "ction_id\030\013 \001(\007\"N\n\005Flags\022\025\n\021ACK_REQUEST_R"
-  "ELAY\020\001\022\023\n\017ACK_REQUEST_E2E\020\002\022\031\n\025ACK_REQUE"
-  "ST_IMMEDIATE\020\004\"\303\003\n&CMsgSteamDatagramP2PS"
-  "essionRequestBody\022\026\n\016challenge_time\030\001 \001("
-  "\007\022\021\n\tchallenge\030\002 \001(\006\022\034\n\024client_connectio"
-  "n_id\030\003 \001(\007\022\034\n\024legacy_peer_steam_id\030\004 \001(\006"
-  "\022\034\n\024peer_identity_string\030\013 \001(\t\022\032\n\022peer_c"
-  "onnection_id\030\005 \001(\007\022\026\n\016encrypted_data\030\016 \001"
-  "(\014\022,\n$encryption_your_public_key_lead_by"
-  "te\030\017 \001(\r\022*\n\"encryption_my_ephemeral_publ"
-  "ic_key\030\020 \001(\014\022\030\n\020protocol_version\030\010 \001(\r\022\034"
-  "\n\024networconfig_version\030\t \001(\004\022\020\n\010platform"
-  "\030\014 \001(\t\022\r\n\005build\030\r \001(\t\032-\n\rEncryptedData\022\034"
-  "\n\024peer_identity_string\030\001 \001(\t\"x\n\"CMsgStea"
-  "mDatagramP2PSessionRequest\0221\n\004cert\030\001 \001(\013"
-  "2#.CMsgSteamDatagramCertificateSigned\022\014\n"
-  "\004body\030\002 \001(\014\022\021\n\tsignature\030\003 \001(\014\"\221\001\n&CMsgS"
-  "teamDatagramP2PSessionEstablished\022\025\n\rcon"
-  "nection_id\030\001 \001(\007\022\036\n\026seconds_until_shutdo"
-  "wn\030\003 \001(\r\022\033\n\023relay_routing_token\030\004 \001(\014\022\023\n"
-  "\013seq_num_r2c\030\005 \001(\r\"\203\005\n1CMsgSteamDatagram"
-  "ConnectionStatsP2PClientToRouter\022:\n\rqual"
-  "ity_relay\030\001 \001(\0132#.CMsgSteamDatagramConne"
-  "ctionQuality\0228\n\013quality_e2e\030\002 \001(\0132#.CMsg"
-  "SteamDatagramConnectionQuality\022@\n\023p2p_ro"
-  "uting_summary\030\016 \001(\0132#.CMsgSteamDatagramP"
-  "2PRoutingSummary\022\017\n\007acrelay\030\003 \003(\007\022\024\n\014leg"
-  "acy_ace2e\030\004 \003(\007\022\r\n\005flags\030\005 \001(\r\022*\n\"forwar"
-  "d_target_relay_routing_token\030\006 \001(\014\022\037\n\027fo"
-  "rward_target_revision\030\007 \001(\r\022\016\n\006routes\030\010 "
-  "\001(\014\022\036\n\026acpeer_routes_revision\030\t \001(\r\022\025\n\rc"
-  "onnection_id\030\n \001(\007\022\023\n\013seq_num_c2r\030\013 \001(\r\022"
-  "\023\n\013seq_num_e2e\030\014 \001(\r\"\241\001\n\005Flags\022\025\n\021ACK_RE"
-  "QUEST_RELAY\020\001\022\023\n\017ACK_REQUEST_E2E\020\002\022\031\n\025AC"
-  "K_REQUEST_IMMEDIATE\020\004\022\027\n\023NOT_PRIMARY_SES"
-  "SION\020\010\022\035\n\031NOT_PRIMARY_TRANSPORT_E2E\020\020\022\031\n"
-  "\025CLIENT_RELAY_OVERRIDE\020 \"\343\004\n1CMsgSteamDa"
-  "tagramConnectionStatsP2PRouterToClient\022:"
-  "\n\rquality_relay\030\001 \001(\0132#.CMsgSteamDatagra"
-  "mConnectionQuality\0228\n\013quality_e2e\030\002 \001(\0132"
-  "#.CMsgSteamDatagramConnectionQuality\022\036\n\026"
-  "seconds_until_shutdown\030\003 \001(\r\022\032\n\022migrate_"
-  "request_ip\030\004 \001(\007\022\034\n\024migrate_request_port"
-  "\030\005 \001(\r\022%\n\035scoring_penalty_relay_cluster\030"
-  "\006 \001(\r\022\017\n\007acrelay\030\007 \003(\007\022\024\n\014legacy_ace2e\030\010"
-  " \003(\007\022\r\n\005flags\030\t \001(\r\022!\n\031acforward_target_"
-  "revision\030\n \001(\r\022\016\n\006routes\030\013 \001(\014\022\036\n\026acpeer"
-  "_routes_revision\030\014 \001(\r\022\025\n\rconnection_id\030"
-  "\r \001(\007\022\023\n\013seq_num_r2c\030\016 \001(\r\022\023\n\013seq_num_e2"
-  "e\030\017 \001(\r\"m\n\005Flags\022\025\n\021ACK_REQUEST_RELAY\020\001\022"
+  "sgSteamDatagramConnectionQuality\022\036\n\026seco"
+  "nds_until_shutdown\030\006 \001(\r\022\032\n\022migrate_requ"
+  "est_ip\030\n \001(\007\022\034\n\024migrate_request_port\030\013 \001"
+  "(\r\022%\n\035scoring_penalty_relay_cluster\030\014 \001("
+  "\r\022\017\n\007acrelay\030\r \003(\007\022\024\n\014legacy_ace2e\030\016 \003(\007"
+  "\022\r\n\005flags\030\017 \001(\r\022\034\n\024client_connection_id\030"
+  "\007 \001(\007\022\023\n\013seq_num_r2c\030\010 \001(\r\022\023\n\013seq_num_e2"
+  "e\030\t \001(\r\"N\n\005Flags\022\025\n\021ACK_REQUEST_RELAY\020\001\022"
   "\023\n\017ACK_REQUEST_E2E\020\002\022\031\n\025ACK_REQUEST_IMME"
-  "DIATE\020\004\022\035\n\031NOT_PRIMARY_TRANSPORT_E2E\020\020\"\236"
-  "\001\n*CMsgSteamDatagramP2PBadRouteRouterToC"
-  "lient\022\025\n\rconnection_id\030\001 \001(\007\022\"\n\032failed_r"
-  "elay_routing_token\030\002 \001(\014\022!\n\031acforward_ta"
-  "rget_revision\030\003 \001(\r\022\022\n\nkludge_pad\030c \001(\006\""
-  "\357\002\n\032CMsgSteamDatagramP2PRoutes\022@\n\016relay_"
-  "clusters\030\001 \003(\0132(.CMsgSteamDatagramP2PRou"
-  "tes.RelayCluster\0221\n\006routes\030\002 \003(\0132!.CMsgS"
-  "teamDatagramP2PRoutes.Route\022\020\n\010revision\030"
-  "\003 \001(\r\032k\n\014RelayCluster\022\016\n\006pop_id\030\001 \001(\007\022\017\n"
-  "\007ping_ms\030\002 \001(\r\022\025\n\rscore_penalty\030\003 \001(\r\022#\n"
-  "\033session_relay_routing_token\030\004 \001(\014\032]\n\005Ro"
-  "ute\022\021\n\tmy_pop_id\030\001 \001(\007\022\023\n\013your_pop_id\030\002 "
-  "\001(\007\022\024\n\014legacy_score\030\003 \001(\r\022\026\n\016interior_sc"
-  "ore\030\004 \001(\r\"\314\001\n+CMsgSteamDatagramSetSecond"
-  "aryAddressRequest\022\026\n\016client_main_ip\030\001 \001("
-  "\007\022\030\n\020client_main_port\030\002 \001(\007\022\034\n\024client_co"
-  "nnection_id\030\003 \001(\007\022\027\n\017client_identity\030\004 \001"
-  "(\t\022 \n\030request_send_duplication\030\005 \001(\010\022\022\n\n"
-  "kludge_pad\030c \001(\014\"N\n*CMsgSteamDatagramSet"
-  "SecondaryAddressResult\022\017\n\007success\030\001 \001(\010\022"
-  "\017\n\007message\030\002 \001(\t*\234\013\n\023ESteamDatagramMsgID"
-  "\022\035\n\031ESteamDatagramMsg_Invalid\020\000\022\'\n#EStea"
-  "mDatagramMsg_RouterPingRequest\020\001\022%\n!ESte"
-  "amDatagramMsg_RouterPingReply\020\002\022+\n\'EStea"
-  "mDatagramMsg_GameserverPingRequest\020\003\022.\n*"
-  "ESteamDatagramMsg_GameserverSessionReque"
-  "st\020\005\0222\n.ESteamDatagramMsg_GameserverSess"
-  "ionEstablished\020\006\022\037\n\033ESteamDatagramMsg_No"
-  "Session\020\007\022 \n\034ESteamDatagramMsg_Diagnosti"
-  "c\020\010\022(\n$ESteamDatagramMsg_DataClientToRou"
-  "ter\020\t\022(\n$ESteamDatagramMsg_DataRouterToS"
-  "erver\020\n\022(\n$ESteamDatagramMsg_DataServerT"
-  "oRouter\020\013\022(\n$ESteamDatagramMsg_DataRoute"
-  "rToClient\020\014\022\033\n\027ESteamDatagramMsg_Stats\020\r"
-  "\022-\n)ESteamDatagramMsg_ClientPingSampleRe"
-  "quest\020\016\022+\n\'ESteamDatagramMsg_ClientPingS"
-  "ampleReply\020\017\0223\n/ESteamDatagramMsg_Client"
-  "ToRouterSwitchedPrimary\020\020\022!\n\035ESteamDatag"
-  "ramMsg_RelayHealth\020\021\022$\n ESteamDatagramMs"
-  "g_ConnectRequest\020\022\022\037\n\033ESteamDatagramMsg_"
-  "ConnectOK\020\023\022&\n\"ESteamDatagramMsg_Connect"
-  "ionClosed\020\024\022\"\n\036ESteamDatagramMsg_NoConne"
-  "ction\020\025\022*\n&ESteamDatagramMsg_TicketDecry"
-  "ptRequest\020\026\022(\n$ESteamDatagramMsg_TicketD"
-  "ecryptReply\020\027\022\'\n#ESteamDatagramMsg_P2PSe"
-  "ssionRequest\020\030\022+\n\'ESteamDatagramMsg_P2PS"
-  "essionEstablished\020\031\022$\n ESteamDatagramMsg"
-  "_P2PStatsClient\020\032\022#\n\037ESteamDatagramMsg_P"
-  "2PStatsRelay\020\033\022!\n\035ESteamDatagramMsg_P2PB"
-  "adRoute\020\034\022)\n%ESteamDatagramMsg_Gameserve"
-  "rPingReply\020\035\0222\n.ESteamDatagramMsg_Legacy"
-  "GameserverRegistration\020\036\0220\n,ESteamDatagr"
-  "amMsg_SetSecondaryAddressRequest\020\037\022/\n+ES"
-  "teamDatagramMsg_SetSecondaryAddressResul"
-  "t\020 \022-\n)ESteamDatagramMsg_RelayToRelayPin"
-  "gRequest\020!\022+\n\'ESteamDatagramMsg_RelayToR"
-  "elayPingReply\020\"B\037H\001\200\001\000\252\002\027OpenSteamworks."
-  "Protobuf"
+  "DIATE\020\004\"\204\004\n.CMsgSteamDatagramConnectionS"
+  "tatsRouterToServer\022:\n\rquality_relay\030\001 \001("
+  "\0132#.CMsgSteamDatagramConnectionQuality\0228"
+  "\n\013quality_e2e\030\002 \001(\0132#.CMsgSteamDatagramC"
+  "onnectionQuality\022\017\n\007acrelay\030\n \003(\007\022\024\n\014leg"
+  "acy_ace2e\030\013 \003(\007\022\r\n\005flags\030\014 \001(\r\022\023\n\013seq_nu"
+  "m_r2s\030\005 \001(\r\022\023\n\013seq_num_e2e\030\006 \001(\r\022\036\n\026clie"
+  "nt_identity_string\030\017 \001(\t\022\036\n\026legacy_clien"
+  "t_steam_id\030\007 \001(\006\022\030\n\020relay_session_id\030\010 \001"
+  "(\r\022\034\n\024client_connection_id\030\t \001(\007\022\034\n\024serv"
+  "er_connection_id\030\r \001(\007\022\026\n\016routing_secret"
+  "\030\016 \001(\006\"N\n\005Flags\022\025\n\021ACK_REQUEST_RELAY\020\001\022\023"
+  "\n\017ACK_REQUEST_E2E\020\002\022\031\n\025ACK_REQUEST_IMMED"
+  "IATE\020\004\"\254\003\n.CMsgSteamDatagramConnectionSt"
+  "atsServerToRouter\022:\n\rquality_relay\030\001 \001(\013"
+  "2#.CMsgSteamDatagramConnectionQuality\0228\n"
+  "\013quality_e2e\030\002 \001(\0132#.CMsgSteamDatagramCo"
+  "nnectionQuality\022\017\n\007acrelay\030\010 \003(\007\022\024\n\014lega"
+  "cy_ace2e\030\t \003(\007\022\r\n\005flags\030\n \001(\r\022\023\n\013seq_num"
+  "_s2r\030\003 \001(\r\022\023\n\013seq_num_e2e\030\004 \001(\r\022\030\n\020relay"
+  "_session_id\030\006 \001(\r\022\034\n\024client_connection_i"
+  "d\030\007 \001(\007\022\034\n\024server_connection_id\030\013 \001(\007\"N\n"
+  "\005Flags\022\025\n\021ACK_REQUEST_RELAY\020\001\022\023\n\017ACK_REQ"
+  "UEST_E2E\020\002\022\031\n\025ACK_REQUEST_IMMEDIATE\020\004\"\303\003"
+  "\n&CMsgSteamDatagramP2PSessionRequestBody"
+  "\022\026\n\016challenge_time\030\001 \001(\007\022\021\n\tchallenge\030\002 "
+  "\001(\006\022\034\n\024client_connection_id\030\003 \001(\007\022\034\n\024leg"
+  "acy_peer_steam_id\030\004 \001(\006\022\034\n\024peer_identity"
+  "_string\030\013 \001(\t\022\032\n\022peer_connection_id\030\005 \001("
+  "\007\022\026\n\016encrypted_data\030\016 \001(\014\022,\n$encryption_"
+  "your_public_key_lead_byte\030\017 \001(\r\022*\n\"encry"
+  "ption_my_ephemeral_public_key\030\020 \001(\014\022\030\n\020p"
+  "rotocol_version\030\010 \001(\r\022\034\n\024networconfig_ve"
+  "rsion\030\t \001(\004\022\020\n\010platform\030\014 \001(\t\022\r\n\005build\030\r"
+  " \001(\t\032-\n\rEncryptedData\022\034\n\024peer_identity_s"
+  "tring\030\001 \001(\t\"x\n\"CMsgSteamDatagramP2PSessi"
+  "onRequest\0221\n\004cert\030\001 \001(\0132#.CMsgSteamDatag"
+  "ramCertificateSigned\022\014\n\004body\030\002 \001(\014\022\021\n\tsi"
+  "gnature\030\003 \001(\014\"\221\001\n&CMsgSteamDatagramP2PSe"
+  "ssionEstablished\022\025\n\rconnection_id\030\001 \001(\007\022"
+  "\036\n\026seconds_until_shutdown\030\003 \001(\r\022\033\n\023relay"
+  "_routing_token\030\004 \001(\014\022\023\n\013seq_num_r2c\030\005 \001("
+  "\r\"\203\005\n1CMsgSteamDatagramConnectionStatsP2"
+  "PClientToRouter\022:\n\rquality_relay\030\001 \001(\0132#"
+  ".CMsgSteamDatagramConnectionQuality\0228\n\013q"
+  "uality_e2e\030\002 \001(\0132#.CMsgSteamDatagramConn"
+  "ectionQuality\022@\n\023p2p_routing_summary\030\016 \001"
+  "(\0132#.CMsgSteamDatagramP2PRoutingSummary\022"
+  "\017\n\007acrelay\030\003 \003(\007\022\024\n\014legacy_ace2e\030\004 \003(\007\022\r"
+  "\n\005flags\030\005 \001(\r\022*\n\"forward_target_relay_ro"
+  "uting_token\030\006 \001(\014\022\037\n\027forward_target_revi"
+  "sion\030\007 \001(\r\022\016\n\006routes\030\010 \001(\014\022\036\n\026acpeer_rou"
+  "tes_revision\030\t \001(\r\022\025\n\rconnection_id\030\n \001("
+  "\007\022\023\n\013seq_num_c2r\030\013 \001(\r\022\023\n\013seq_num_e2e\030\014 "
+  "\001(\r\"\241\001\n\005Flags\022\025\n\021ACK_REQUEST_RELAY\020\001\022\023\n\017"
+  "ACK_REQUEST_E2E\020\002\022\031\n\025ACK_REQUEST_IMMEDIA"
+  "TE\020\004\022\027\n\023NOT_PRIMARY_SESSION\020\010\022\035\n\031NOT_PRI"
+  "MARY_TRANSPORT_E2E\020\020\022\031\n\025CLIENT_RELAY_OVE"
+  "RRIDE\020 \"\343\004\n1CMsgSteamDatagramConnectionS"
+  "tatsP2PRouterToClient\022:\n\rquality_relay\030\001"
+  " \001(\0132#.CMsgSteamDatagramConnectionQualit"
+  "y\0228\n\013quality_e2e\030\002 \001(\0132#.CMsgSteamDatagr"
+  "amConnectionQuality\022\036\n\026seconds_until_shu"
+  "tdown\030\003 \001(\r\022\032\n\022migrate_request_ip\030\004 \001(\007\022"
+  "\034\n\024migrate_request_port\030\005 \001(\r\022%\n\035scoring"
+  "_penalty_relay_cluster\030\006 \001(\r\022\017\n\007acrelay\030"
+  "\007 \003(\007\022\024\n\014legacy_ace2e\030\010 \003(\007\022\r\n\005flags\030\t \001"
+  "(\r\022!\n\031acforward_target_revision\030\n \001(\r\022\016\n"
+  "\006routes\030\013 \001(\014\022\036\n\026acpeer_routes_revision\030"
+  "\014 \001(\r\022\025\n\rconnection_id\030\r \001(\007\022\023\n\013seq_num_"
+  "r2c\030\016 \001(\r\022\023\n\013seq_num_e2e\030\017 \001(\r\"m\n\005Flags\022"
+  "\025\n\021ACK_REQUEST_RELAY\020\001\022\023\n\017ACK_REQUEST_E2"
+  "E\020\002\022\031\n\025ACK_REQUEST_IMMEDIATE\020\004\022\035\n\031NOT_PR"
+  "IMARY_TRANSPORT_E2E\020\020\"\236\001\n*CMsgSteamDatag"
+  "ramP2PBadRouteRouterToClient\022\025\n\rconnecti"
+  "on_id\030\001 \001(\007\022\"\n\032failed_relay_routing_toke"
+  "n\030\002 \001(\014\022!\n\031acforward_target_revision\030\003 \001"
+  "(\r\022\022\n\nkludge_pad\030c \001(\006\"\357\002\n\032CMsgSteamData"
+  "gramP2PRoutes\022@\n\016relay_clusters\030\001 \003(\0132(."
+  "CMsgSteamDatagramP2PRoutes.RelayCluster\022"
+  "1\n\006routes\030\002 \003(\0132!.CMsgSteamDatagramP2PRo"
+  "utes.Route\022\020\n\010revision\030\003 \001(\r\032k\n\014RelayClu"
+  "ster\022\016\n\006pop_id\030\001 \001(\007\022\017\n\007ping_ms\030\002 \001(\r\022\025\n"
+  "\rscore_penalty\030\003 \001(\r\022#\n\033session_relay_ro"
+  "uting_token\030\004 \001(\014\032]\n\005Route\022\021\n\tmy_pop_id\030"
+  "\001 \001(\007\022\023\n\013your_pop_id\030\002 \001(\007\022\024\n\014legacy_sco"
+  "re\030\003 \001(\r\022\026\n\016interior_score\030\004 \001(\r\"\314\001\n+CMs"
+  "gSteamDatagramSetSecondaryAddressRequest"
+  "\022\026\n\016client_main_ip\030\001 \001(\007\022\030\n\020client_main_"
+  "port\030\002 \001(\007\022\034\n\024client_connection_id\030\003 \001(\007"
+  "\022\027\n\017client_identity\030\004 \001(\t\022 \n\030request_sen"
+  "d_duplication\030\005 \001(\010\022\022\n\nkludge_pad\030c \001(\014\""
+  "N\n*CMsgSteamDatagramSetSecondaryAddressR"
+  "esult\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t*"
+  "\234\013\n\023ESteamDatagramMsgID\022\035\n\031ESteamDatagra"
+  "mMsg_Invalid\020\000\022\'\n#ESteamDatagramMsg_Rout"
+  "erPingRequest\020\001\022%\n!ESteamDatagramMsg_Rou"
+  "terPingReply\020\002\022+\n\'ESteamDatagramMsg_Game"
+  "serverPingRequest\020\003\022.\n*ESteamDatagramMsg"
+  "_GameserverSessionRequest\020\005\0222\n.ESteamDat"
+  "agramMsg_GameserverSessionEstablished\020\006\022"
+  "\037\n\033ESteamDatagramMsg_NoSession\020\007\022 \n\034ESte"
+  "amDatagramMsg_Diagnostic\020\010\022(\n$ESteamData"
+  "gramMsg_DataClientToRouter\020\t\022(\n$ESteamDa"
+  "tagramMsg_DataRouterToServer\020\n\022(\n$ESteam"
+  "DatagramMsg_DataServerToRouter\020\013\022(\n$ESte"
+  "amDatagramMsg_DataRouterToClient\020\014\022\033\n\027ES"
+  "teamDatagramMsg_Stats\020\r\022-\n)ESteamDatagra"
+  "mMsg_ClientPingSampleRequest\020\016\022+\n\'ESteam"
+  "DatagramMsg_ClientPingSampleReply\020\017\0223\n/E"
+  "SteamDatagramMsg_ClientToRouterSwitchedP"
+  "rimary\020\020\022!\n\035ESteamDatagramMsg_RelayHealt"
+  "h\020\021\022$\n ESteamDatagramMsg_ConnectRequest\020"
+  "\022\022\037\n\033ESteamDatagramMsg_ConnectOK\020\023\022&\n\"ES"
+  "teamDatagramMsg_ConnectionClosed\020\024\022\"\n\036ES"
+  "teamDatagramMsg_NoConnection\020\025\022*\n&ESteam"
+  "DatagramMsg_TicketDecryptRequest\020\026\022(\n$ES"
+  "teamDatagramMsg_TicketDecryptReply\020\027\022\'\n#"
+  "ESteamDatagramMsg_P2PSessionRequest\020\030\022+\n"
+  "\'ESteamDatagramMsg_P2PSessionEstablished"
+  "\020\031\022$\n ESteamDatagramMsg_P2PStatsClient\020\032"
+  "\022#\n\037ESteamDatagramMsg_P2PStatsRelay\020\033\022!\n"
+  "\035ESteamDatagramMsg_P2PBadRoute\020\034\022)\n%ESte"
+  "amDatagramMsg_GameserverPingReply\020\035\0222\n.E"
+  "SteamDatagramMsg_LegacyGameserverRegistr"
+  "ation\020\036\0220\n,ESteamDatagramMsg_SetSecondar"
+  "yAddressRequest\020\037\022/\n+ESteamDatagramMsg_S"
+  "etSecondaryAddressResult\020 \022-\n)ESteamData"
+  "gramMsg_RelayToRelayPingRequest\020!\022+\n\'ESt"
+  "eamDatagramMsg_RelayToRelayPingReply\020\"B\037"
+  "H\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steamdatagram_5fmessages_5fsdr_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -2053,8 +2103,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steamdatagram_5fmessages_5fsdr_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steamdatagram_5fmessages_5fsdr_2eproto = {
-  false, false, 13528, descriptor_table_protodef_steamdatagram_5fmessages_5fsdr_2eproto, "steamdatagram_messages_sdr.proto", 
-  &descriptor_table_steamdatagram_5fmessages_5fsdr_2eproto_once, descriptor_table_steamdatagram_5fmessages_5fsdr_2eproto_deps, 3, 41,
+  false, false, 13751, descriptor_table_protodef_steamdatagram_5fmessages_5fsdr_2eproto, "steamdatagram_messages_sdr.proto", 
+  &descriptor_table_steamdatagram_5fmessages_5fsdr_2eproto_once, descriptor_table_steamdatagram_5fmessages_5fsdr_2eproto_deps, 3, 42,
   schemas, file_default_instances, TableStruct_steamdatagram_5fmessages_5fsdr_2eproto::offsets,
   file_level_metadata_steamdatagram_5fmessages_5fsdr_2eproto, file_level_enum_descriptors_steamdatagram_5fmessages_5fsdr_2eproto, file_level_service_descriptors_steamdatagram_5fmessages_5fsdr_2eproto,
 };
@@ -3561,6 +3611,18 @@ class CMsgSteamDatagramRouterPingReply::_Internal {
   static void set_has_client_cookie(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
+  static void set_has_recv_tos(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
+  }
+  static void set_has_echo_sent_tos(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
+  static void set_has_sent_tos(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
+  static void set_has_echo_request_reply_tos(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
+  }
   static void set_has_scoring_penalty_relay_cluster(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
@@ -3569,6 +3631,9 @@ class CMsgSteamDatagramRouterPingReply::_Internal {
   }
   static void set_has_dummy_pad(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
+  }
+  static void set_has_dummy_varint(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
   }
 };
 
@@ -3600,8 +3665,8 @@ CMsgSteamDatagramRouterPingReply::CMsgSteamDatagramRouterPingReply(const CMsgSte
       GetArena());
   }
   ::memcpy(&client_timestamp_, &from.client_timestamp_,
-    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
-    reinterpret_cast<char*>(&client_timestamp_)) + sizeof(flags_));
+    static_cast<size_t>(reinterpret_cast<char*>(&dummy_varint_) -
+    reinterpret_cast<char*>(&client_timestamp_)) + sizeof(dummy_varint_));
   // @@protoc_insertion_point(copy_constructor:CMsgSteamDatagramRouterPingReply)
 }
 
@@ -3609,8 +3674,8 @@ void CMsgSteamDatagramRouterPingReply::SharedCtor() {
 dummy_pad_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&client_timestamp_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
-    reinterpret_cast<char*>(&client_timestamp_)) + sizeof(flags_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&dummy_varint_) -
+    reinterpret_cast<char*>(&client_timestamp_)) + sizeof(dummy_varint_));
 }
 
 CMsgSteamDatagramRouterPingReply::~CMsgSteamDatagramRouterPingReply() {
@@ -3655,10 +3720,10 @@ void CMsgSteamDatagramRouterPingReply::Clear() {
         reinterpret_cast<char*>(&scoring_penalty_relay_cluster_) -
         reinterpret_cast<char*>(&client_timestamp_)) + sizeof(scoring_penalty_relay_cluster_));
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00007f00u) {
     ::memset(&your_public_port_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&flags_) -
-        reinterpret_cast<char*>(&your_public_port_)) + sizeof(flags_));
+        reinterpret_cast<char*>(&dummy_varint_) -
+        reinterpret_cast<char*>(&your_public_port_)) + sizeof(dummy_varint_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -3808,11 +3873,51 @@ const char* CMsgSteamDatagramRouterPingReply::_InternalParse(const char* ptr, ::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional uint32 recv_tos = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
+          _Internal::set_has_recv_tos(&has_bits);
+          recv_tos_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 echo_sent_tos = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
+          _Internal::set_has_echo_sent_tos(&has_bits);
+          echo_sent_tos_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 sent_tos = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
+          _Internal::set_has_sent_tos(&has_bits);
+          sent_tos_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 echo_request_reply_tos = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
+          _Internal::set_has_echo_request_reply_tos(&has_bits);
+          echo_request_reply_tos_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // optional bytes dummy_pad = 99;
       case 99:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_dummy_pad();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 dummy_varint = 100;
+      case 100:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_dummy_varint(&has_bits);
+          dummy_varint_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3944,10 +4049,40 @@ failure:
     }
   }
 
+  // optional uint32 recv_tos = 16;
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(16, this->_internal_recv_tos(), target);
+  }
+
+  // optional uint32 echo_sent_tos = 17;
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(17, this->_internal_echo_sent_tos(), target);
+  }
+
+  // optional uint32 sent_tos = 18;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(18, this->_internal_sent_tos(), target);
+  }
+
+  // optional uint32 echo_request_reply_tos = 19;
+  if (cached_has_bits & 0x00002000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(19, this->_internal_echo_request_reply_tos(), target);
+  }
+
   // optional bytes dummy_pad = 99;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         99, this->_internal_dummy_pad(), target);
+  }
+
+  // optional uint64 dummy_varint = 100;
+  if (cached_has_bits & 0x00004000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(100, this->_internal_dummy_varint(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4089,7 +4224,7 @@ size_t CMsgSteamDatagramRouterPingReply::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00007f00u) {
     // optional fixed32 your_public_port = 11;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 4;
@@ -4100,6 +4235,41 @@ size_t CMsgSteamDatagramRouterPingReply::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_flags());
+    }
+
+    // optional uint32 recv_tos = 16;
+    if (cached_has_bits & 0x00000400u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_recv_tos());
+    }
+
+    // optional uint32 echo_sent_tos = 17;
+    if (cached_has_bits & 0x00000800u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_echo_sent_tos());
+    }
+
+    // optional uint32 sent_tos = 18;
+    if (cached_has_bits & 0x00001000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_sent_tos());
+    }
+
+    // optional uint32 echo_request_reply_tos = 19;
+    if (cached_has_bits & 0x00002000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_echo_request_reply_tos());
+    }
+
+    // optional uint64 dummy_varint = 100;
+    if (cached_has_bits & 0x00004000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_dummy_varint());
     }
 
   }
@@ -4168,12 +4338,27 @@ void CMsgSteamDatagramRouterPingReply::MergeFrom(const CMsgSteamDatagramRouterPi
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00007f00u) {
     if (cached_has_bits & 0x00000100u) {
       your_public_port_ = from.your_public_port_;
     }
     if (cached_has_bits & 0x00000200u) {
       flags_ = from.flags_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      recv_tos_ = from.recv_tos_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      echo_sent_tos_ = from.echo_sent_tos_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      sent_tos_ = from.sent_tos_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      echo_request_reply_tos_ = from.echo_request_reply_tos_;
+    }
+    if (cached_has_bits & 0x00004000u) {
+      dummy_varint_ = from.dummy_varint_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -4209,8 +4394,8 @@ void CMsgSteamDatagramRouterPingReply::InternalSwap(CMsgSteamDatagramRouterPingR
   latency_ping_ms_p2p_.InternalSwap(&other->latency_ping_ms_p2p_);
   dummy_pad_.Swap(&other->dummy_pad_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramRouterPingReply, flags_)
-      + sizeof(CMsgSteamDatagramRouterPingReply::flags_)
+      PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramRouterPingReply, dummy_varint_)
+      + sizeof(CMsgSteamDatagramRouterPingReply::dummy_varint_)
       - PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramRouterPingReply, client_timestamp_)>(
           reinterpret_cast<char*>(&client_timestamp_),
           reinterpret_cast<char*>(&other->client_timestamp_));
@@ -6299,6 +6484,319 @@ void CMsgSteamDatagramNoSessionRelayToPeer::InternalSwap(CMsgSteamDatagramNoSess
 
 // ===================================================================
 
+class CMsgTOSTreatment::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgTOSTreatment>()._has_bits_);
+  static void set_has_l4s_detect(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_up_ecn1(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_down_dscp45(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgTOSTreatment::CMsgTOSTreatment(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgTOSTreatment)
+}
+CMsgTOSTreatment::CMsgTOSTreatment(const CMsgTOSTreatment& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  l4s_detect_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_l4s_detect()) {
+    l4s_detect_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_l4s_detect(), 
+      GetArena());
+  }
+  up_ecn1_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_up_ecn1()) {
+    up_ecn1_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_up_ecn1(), 
+      GetArena());
+  }
+  down_dscp45_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_down_dscp45()) {
+    down_dscp45_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_down_dscp45(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:CMsgTOSTreatment)
+}
+
+void CMsgTOSTreatment::SharedCtor() {
+l4s_detect_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+up_ecn1_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+down_dscp45_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+CMsgTOSTreatment::~CMsgTOSTreatment() {
+  // @@protoc_insertion_point(destructor:CMsgTOSTreatment)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgTOSTreatment::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  l4s_detect_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  up_ecn1_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  down_dscp45_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CMsgTOSTreatment::ArenaDtor(void* object) {
+  CMsgTOSTreatment* _this = reinterpret_cast< CMsgTOSTreatment* >(object);
+  (void)_this;
+}
+void CMsgTOSTreatment::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgTOSTreatment::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgTOSTreatment::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgTOSTreatment)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      l4s_detect_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      up_ecn1_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      down_dscp45_.ClearNonDefaultToEmpty();
+    }
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgTOSTreatment::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string l4s_detect = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_l4s_detect();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgTOSTreatment.l4s_detect");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string up_ecn1 = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_up_ecn1();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgTOSTreatment.up_ecn1");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string down_dscp45 = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_down_dscp45();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgTOSTreatment.down_dscp45");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgTOSTreatment::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgTOSTreatment)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string l4s_detect = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_l4s_detect().data(), static_cast<int>(this->_internal_l4s_detect().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgTOSTreatment.l4s_detect");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_l4s_detect(), target);
+  }
+
+  // optional string up_ecn1 = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_up_ecn1().data(), static_cast<int>(this->_internal_up_ecn1().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgTOSTreatment.up_ecn1");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_up_ecn1(), target);
+  }
+
+  // optional string down_dscp45 = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_down_dscp45().data(), static_cast<int>(this->_internal_down_dscp45().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgTOSTreatment.down_dscp45");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_down_dscp45(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgTOSTreatment)
+  return target;
+}
+
+size_t CMsgTOSTreatment::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgTOSTreatment)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional string l4s_detect = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_l4s_detect());
+    }
+
+    // optional string up_ecn1 = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_up_ecn1());
+    }
+
+    // optional string down_dscp45 = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_down_dscp45());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgTOSTreatment::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgTOSTreatment)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgTOSTreatment* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgTOSTreatment>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgTOSTreatment)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgTOSTreatment)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgTOSTreatment::MergeFrom(const CMsgTOSTreatment& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgTOSTreatment)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_l4s_detect(from._internal_l4s_detect());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_up_ecn1(from._internal_up_ecn1());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _internal_set_down_dscp45(from._internal_down_dscp45());
+    }
+  }
+}
+
+void CMsgTOSTreatment::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgTOSTreatment)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgTOSTreatment::CopyFrom(const CMsgTOSTreatment& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgTOSTreatment)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgTOSTreatment::IsInitialized() const {
+  return true;
+}
+
+void CMsgTOSTreatment::InternalSwap(CMsgTOSTreatment* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  l4s_detect_.Swap(&other->l4s_detect_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  up_ecn1_.Swap(&other->up_ecn1_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  down_dscp45_.Swap(&other->down_dscp45_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgTOSTreatment::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CMsgSteamDatagramClientPingSampleRequest::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgSteamDatagramClientPingSampleRequest>()._has_bits_);
@@ -7700,13 +8198,21 @@ class CMsgSteamDatagramClientPingSampleReply::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgSteamDatagramClientPingSampleReply>()._has_bits_);
   static void set_has_connection_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_relay_override_active(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
+  }
+  static const ::CMsgTOSTreatment& tos(const CMsgSteamDatagramClientPingSampleReply* msg);
+  static void set_has_tos(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
+const ::CMsgTOSTreatment&
+CMsgSteamDatagramClientPingSampleReply::_Internal::tos(const CMsgSteamDatagramClientPingSampleReply* msg) {
+  return *msg->tos_;
+}
 CMsgSteamDatagramClientPingSampleReply::CMsgSteamDatagramClientPingSampleReply(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   pops_(arena),
@@ -7721,6 +8227,11 @@ CMsgSteamDatagramClientPingSampleReply::CMsgSteamDatagramClientPingSampleReply(c
       pops_(from.pops_),
       legacy_data_centers_(from.legacy_data_centers_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_tos()) {
+    tos_ = new ::CMsgTOSTreatment(*from.tos_);
+  } else {
+    tos_ = nullptr;
+  }
   ::memcpy(&connection_id_, &from.connection_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&relay_override_active_) -
     reinterpret_cast<char*>(&connection_id_)) + sizeof(relay_override_active_));
@@ -7729,9 +8240,9 @@ CMsgSteamDatagramClientPingSampleReply::CMsgSteamDatagramClientPingSampleReply(c
 
 void CMsgSteamDatagramClientPingSampleReply::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&connection_id_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&tos_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&relay_override_active_) -
-    reinterpret_cast<char*>(&connection_id_)) + sizeof(relay_override_active_));
+    reinterpret_cast<char*>(&tos_)) + sizeof(relay_override_active_));
 }
 
 CMsgSteamDatagramClientPingSampleReply::~CMsgSteamDatagramClientPingSampleReply() {
@@ -7742,6 +8253,7 @@ CMsgSteamDatagramClientPingSampleReply::~CMsgSteamDatagramClientPingSampleReply(
 
 void CMsgSteamDatagramClientPingSampleReply::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete tos_;
 }
 
 void CMsgSteamDatagramClientPingSampleReply::ArenaDtor(void* object) {
@@ -7763,7 +8275,11 @@ void CMsgSteamDatagramClientPingSampleReply::Clear() {
   pops_.Clear();
   legacy_data_centers_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(tos_ != nullptr);
+    tos_->Clear();
+  }
+  if (cached_has_bits & 0x00000006u) {
     ::memset(&connection_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&relay_override_active_) -
         reinterpret_cast<char*>(&connection_id_)) + sizeof(relay_override_active_));
@@ -7820,6 +8336,13 @@ const char* CMsgSteamDatagramClientPingSampleReply::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional .CMsgTOSTreatment tos = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_tos(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -7851,7 +8374,7 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional fixed32 connection_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed32ToArray(1, this->_internal_connection_id(), target);
   }
@@ -7873,9 +8396,17 @@ failure:
   }
 
   // optional bool relay_override_active = 5;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_relay_override_active(), target);
+  }
+
+  // optional .CMsgTOSTreatment tos = 6;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::tos(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7909,14 +8440,21 @@ size_t CMsgSteamDatagramClientPingSampleReply::ByteSizeLong() const {
   }
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional fixed32 connection_id = 1;
+  if (cached_has_bits & 0x00000007u) {
+    // optional .CMsgTOSTreatment tos = 6;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *tos_);
+    }
+
+    // optional fixed32 connection_id = 1;
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 4;
     }
 
     // optional bool relay_override_active = 5;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
@@ -7955,11 +8493,14 @@ void CMsgSteamDatagramClientPingSampleReply::MergeFrom(const CMsgSteamDatagramCl
   pops_.MergeFrom(from.pops_);
   legacy_data_centers_.MergeFrom(from.legacy_data_centers_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      connection_id_ = from.connection_id_;
+      _internal_mutable_tos()->::CMsgTOSTreatment::MergeFrom(from._internal_tos());
     }
     if (cached_has_bits & 0x00000002u) {
+      connection_id_ = from.connection_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
       relay_override_active_ = from.relay_override_active_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -7993,9 +8534,9 @@ void CMsgSteamDatagramClientPingSampleReply::InternalSwap(CMsgSteamDatagramClien
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramClientPingSampleReply, relay_override_active_)
       + sizeof(CMsgSteamDatagramClientPingSampleReply::relay_override_active_)
-      - PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramClientPingSampleReply, connection_id_)>(
-          reinterpret_cast<char*>(&connection_id_),
-          reinterpret_cast<char*>(&other->connection_id_));
+      - PROTOBUF_FIELD_OFFSET(CMsgSteamDatagramClientPingSampleReply, tos_)>(
+          reinterpret_cast<char*>(&tos_),
+          reinterpret_cast<char*>(&other->tos_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamDatagramClientPingSampleReply::GetMetadata() const {
@@ -20025,6 +20566,9 @@ template<> PROTOBUF_NOINLINE ::CMsgSteamDatagramNoSessionRelayToClient* Arena::C
 }
 template<> PROTOBUF_NOINLINE ::CMsgSteamDatagramNoSessionRelayToPeer* Arena::CreateMaybeMessage< ::CMsgSteamDatagramNoSessionRelayToPeer >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSteamDatagramNoSessionRelayToPeer >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgTOSTreatment* Arena::CreateMaybeMessage< ::CMsgTOSTreatment >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgTOSTreatment >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgSteamDatagramClientPingSampleRequest* Arena::CreateMaybeMessage< ::CMsgSteamDatagramClientPingSampleRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSteamDatagramClientPingSampleRequest >(arena);

@@ -182,11 +182,13 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStreamVideoLimitDefaultTypeInt
 constexpr CStreamingClientCaps::CStreamingClientCaps(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : supported_colorspaces_()
+  , supported_audio_codecs_()
+  , supported_video_codecs_()
   , system_info_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , maximum_decode_bitrate_kbps_(0)
   , maximum_burst_bitrate_kbps_(0)
   , system_can_suspend_(false)
-  , supports_video_hevc_(false)
+  , supports_video_hevc_obsolete_(false)
   , disable_steam_store_(false)
   , disable_client_cursor_(false)
   , disable_intel_hardware_encoding_(false)
@@ -222,6 +224,7 @@ constexpr CStreamingClientConfig::CStreamingClientConfig(
 
   , enable_audio_uncompressed_(false)
   , enable_unreliable_fec_(false)
+  , enable_video_av1_(false)
   , enable_performance_icons_(true)
   , quality_(2)
 
@@ -1730,7 +1733,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteplay_2ep
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, system_can_suspend_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, maximum_decode_bitrate_kbps_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, maximum_burst_bitrate_kbps_),
-  PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, supports_video_hevc_),
+  PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, supports_video_hevc_obsolete_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, disable_steam_store_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, disable_client_cursor_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, disable_intel_hardware_encoding_),
@@ -1739,6 +1742,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteplay_2ep
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, form_factor_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, has_on_screen_keyboard_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, supported_colorspaces_),
+  PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, supported_audio_codecs_),
+  PROTOBUF_FIELD_OFFSET(::CStreamingClientCaps, supported_video_codecs_),
   0,
   3,
   1,
@@ -1751,6 +1756,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteplay_2ep
   9,
   11,
   10,
+  ~0u,
+  ~0u,
   ~0u,
   PROTOBUF_FIELD_OFFSET(::CStreamingClientConfig, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientConfig, _internal_metadata_),
@@ -1781,20 +1788,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteplay_2ep
   PROTOBUF_FIELD_OFFSET(::CStreamingClientConfig, runtime_limit_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientConfig, decoder_limit_),
   PROTOBUF_FIELD_OFFSET(::CStreamingClientConfig, enable_unreliable_fec_),
-  16,
+  PROTOBUF_FIELD_OFFSET(::CStreamingClientConfig, enable_video_av1_),
+  17,
   4,
   5,
   6,
   7,
-  17,
   18,
-  8,
   19,
+  8,
   20,
   21,
   22,
+  23,
   9,
-  15,
+  16,
   10,
   0,
   11,
@@ -1805,6 +1813,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteplay_2ep
   3,
   ~0u,
   14,
+  15,
   PROTOBUF_FIELD_OFFSET(::CStreamingServerConfig, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CStreamingServerConfig, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2811,109 +2820,109 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 71, 81, sizeof(::CStartNetworkTestMsg)},
   { 86, 96, sizeof(::CStreamVideoMode)},
   { 101, 110, sizeof(::CStreamVideoLimit)},
-  { 114, 132, sizeof(::CStreamingClientCaps)},
-  { 145, 174, sizeof(::CStreamingClientConfig)},
-  { 198, 213, sizeof(::CStreamingServerConfig)},
-  { 223, 235, sizeof(::CNegotiatedConfig)},
-  { 242, 252, sizeof(::CNegotiationInitMsg)},
-  { 257, 265, sizeof(::CNegotiationSetConfigMsg)},
-  { 268, -1, sizeof(::CNegotiationCompleteMsg)},
-  { 273, 283, sizeof(::CStartAudioDataMsg)},
-  { 288, -1, sizeof(::CStopAudioDataMsg)},
-  { 293, 303, sizeof(::CStartVideoDataMsg)},
-  { 308, -1, sizeof(::CStopVideoDataMsg)},
-  { 313, 319, sizeof(::CStartNeptuneDataMsg)},
-  { 320, -1, sizeof(::CStopNeptuneDataMsg)},
-  { 325, 344, sizeof(::CRecordedInput)},
-  { 357, -1, sizeof(::CRecordedInputStream)},
-  { 363, 370, sizeof(::CInputLatencyTestMsg)},
-  { 372, 381, sizeof(::CInputTouchFingerDownMsg)},
-  { 385, 394, sizeof(::CInputTouchFingerMotionMsg)},
-  { 398, 407, sizeof(::CInputTouchFingerUpMsg)},
-  { 411, 421, sizeof(::CInputMouseMotionMsg)},
-  { 426, 434, sizeof(::CInputMouseWheelMsg)},
-  { 437, 444, sizeof(::CInputMouseDownMsg)},
-  { 446, 453, sizeof(::CInputMouseUpMsg)},
-  { 455, 462, sizeof(::CInputKeyDownMsg)},
-  { 464, 471, sizeof(::CInputKeyUpMsg)},
-  { 473, 480, sizeof(::CInputTextMsg)},
-  { 482, 488, sizeof(::CSetTitleMsg)},
-  { 489, 496, sizeof(::CSetCaptureSizeMsg)},
-  { 498, 506, sizeof(::CSetIconMsg)},
-  { 509, 517, sizeof(::CSetFlashStateMsg)},
-  { 520, 527, sizeof(::CShowCursorMsg)},
-  { 529, -1, sizeof(::CHideCursorMsg)},
-  { 534, 540, sizeof(::CSetCursorMsg)},
-  { 541, 547, sizeof(::CGetCursorImageMsg)},
-  { 548, 559, sizeof(::CSetCursorImageMsg)},
-  { 565, 571, sizeof(::CSetCursorScaleMsg)},
-  { 572, 579, sizeof(::CVideoDecoderInfoMsg)},
-  { 581, 587, sizeof(::CVideoEncoderInfoMsg)},
-  { 588, -1, sizeof(::CPauseMsg)},
-  { 593, -1, sizeof(::CResumeMsg)},
-  { 598, -1, sizeof(::CEnableHighResCaptureMsg)},
-  { 603, -1, sizeof(::CDisableHighResCaptureMsg)},
-  { 608, -1, sizeof(::CEnableNeptuneDataMsg)},
-  { 613, -1, sizeof(::CDisableNeptuneDataMsg)},
-  { 618, -1, sizeof(::CPauseControllerInputMsg)},
-  { 623, -1, sizeof(::CResumeControllerInputMsg)},
-  { 628, -1, sizeof(::CToggleMagnificationMsg)},
-  { 633, 639, sizeof(::CSetCapslockMsg)},
-  { 640, 654, sizeof(::CStreamingKeymapEntry)},
-  { 663, -1, sizeof(::CStreamingKeymap)},
-  { 669, 675, sizeof(::CSetKeymapMsg)},
-  { 676, -1, sizeof(::CStopRequest)},
-  { 681, -1, sizeof(::CQuitRequest)},
-  { 686, 692, sizeof(::CDeleteCursorMsg)},
-  { 693, 699, sizeof(::CSetStreamingClientConfig)},
-  { 700, 706, sizeof(::CSetQoSMsg)},
-  { 707, 716, sizeof(::CSetTargetFramerateMsg)},
-  { 720, 726, sizeof(::CSetTargetBitrateMsg)},
-  { 727, 733, sizeof(::COverlayEnabledMsg)},
-  { 734, 740, sizeof(::CSetGammaRampMsg)},
-  { 741, 750, sizeof(::CSetActivityMsg)},
-  { 754, -1, sizeof(::CSystemSuspendMsg)},
-  { 759, 765, sizeof(::CVirtualHereRequestMsg)},
-  { 766, 772, sizeof(::CVirtualHereReadyMsg)},
-  { 773, 779, sizeof(::CVirtualHereShareDeviceMsg)},
-  { 780, 786, sizeof(::CSetSpectatorModeMsg)},
-  { 787, 794, sizeof(::CRemoteHIDMsg)},
-  { 796, 804, sizeof(::CTouchConfigActiveMsg)},
-  { 807, 813, sizeof(::CGetTouchConfigDataMsg)},
-  { 814, 824, sizeof(::CSetTouchConfigDataMsg)},
-  { 829, 836, sizeof(::CSaveTouchConfigLayoutMsg)},
-  { 838, 845, sizeof(::CTouchActionSetActiveMsg)},
-  { 847, 854, sizeof(::CTouchActionSetLayerAddedMsg)},
-  { 856, 863, sizeof(::CTouchActionSetLayerRemovedMsg)},
-  { 865, 872, sizeof(::CGetTouchIconDataMsg)},
-  { 874, 882, sizeof(::CSetTouchIconDataMsg)},
-  { 885, 897, sizeof(::CRemotePlayTogetherGroupUpdateMsg_Player)},
-  { 904, 914, sizeof(::CRemotePlayTogetherGroupUpdateMsg)},
-  { 919, 925, sizeof(::CSetInputTemporarilyDisabledMsg)},
-  { 926, 932, sizeof(::CSetQualityOverrideMsg)},
-  { 933, 939, sizeof(::CSetBitrateOverrideMsg)},
-  { 940, -1, sizeof(::CShowOnScreenKeyboardMsg)},
-  { 945, 953, sizeof(::CControllerPersonalizationUpdateMsg)},
-  { 956, 962, sizeof(::CVRConnectionReady)},
-  { 963, -1, sizeof(::CStreamDataLostMsg)},
-  { 969, 977, sizeof(::CAudioFormat)},
-  { 980, 988, sizeof(::CVideoFormat)},
-  { 991, 998, sizeof(::CFrameEvent)},
-  { 1000, 1017, sizeof(::CFrameStats)},
-  { 1029, 1038, sizeof(::CFrameStatAccumulatedValue)},
-  { 1042, 1051, sizeof(::CFrameStatsListMsg)},
-  { 1055, 1064, sizeof(::CStreamingSessionStats)},
-  { 1068, 1074, sizeof(::CDebugDumpMsg)},
-  { 1075, 1082, sizeof(::CLogMsg)},
-  { 1084, 1091, sizeof(::CLogUploadMsg)},
-  { 1093, 1101, sizeof(::CTransportSignalMsg_WebRTCMessage_Candidate)},
-  { 1104, -1, sizeof(::CTransportSignalMsg_WebRTCMessage)},
-  { 1114, 1121, sizeof(::CTransportSignalMsg)},
-  { 1123, 1134, sizeof(::CControllerConfigMsg_ControllerConfigResponse)},
-  { 1140, 1146, sizeof(::CControllerConfigMsg_ControllerPersonalizationResponse)},
-  { 1147, 1156, sizeof(::CControllerConfigMsg_ControllerActiveConfigChangeResponse)},
-  { 1160, 1169, sizeof(::CControllerConfigMsg_ControllerActiveConfigMsg)},
-  { 1173, 1184, sizeof(::CControllerConfigMsg)},
+  { 114, 134, sizeof(::CStreamingClientCaps)},
+  { 149, 179, sizeof(::CStreamingClientConfig)},
+  { 204, 219, sizeof(::CStreamingServerConfig)},
+  { 229, 241, sizeof(::CNegotiatedConfig)},
+  { 248, 258, sizeof(::CNegotiationInitMsg)},
+  { 263, 271, sizeof(::CNegotiationSetConfigMsg)},
+  { 274, -1, sizeof(::CNegotiationCompleteMsg)},
+  { 279, 289, sizeof(::CStartAudioDataMsg)},
+  { 294, -1, sizeof(::CStopAudioDataMsg)},
+  { 299, 309, sizeof(::CStartVideoDataMsg)},
+  { 314, -1, sizeof(::CStopVideoDataMsg)},
+  { 319, 325, sizeof(::CStartNeptuneDataMsg)},
+  { 326, -1, sizeof(::CStopNeptuneDataMsg)},
+  { 331, 350, sizeof(::CRecordedInput)},
+  { 363, -1, sizeof(::CRecordedInputStream)},
+  { 369, 376, sizeof(::CInputLatencyTestMsg)},
+  { 378, 387, sizeof(::CInputTouchFingerDownMsg)},
+  { 391, 400, sizeof(::CInputTouchFingerMotionMsg)},
+  { 404, 413, sizeof(::CInputTouchFingerUpMsg)},
+  { 417, 427, sizeof(::CInputMouseMotionMsg)},
+  { 432, 440, sizeof(::CInputMouseWheelMsg)},
+  { 443, 450, sizeof(::CInputMouseDownMsg)},
+  { 452, 459, sizeof(::CInputMouseUpMsg)},
+  { 461, 468, sizeof(::CInputKeyDownMsg)},
+  { 470, 477, sizeof(::CInputKeyUpMsg)},
+  { 479, 486, sizeof(::CInputTextMsg)},
+  { 488, 494, sizeof(::CSetTitleMsg)},
+  { 495, 502, sizeof(::CSetCaptureSizeMsg)},
+  { 504, 512, sizeof(::CSetIconMsg)},
+  { 515, 523, sizeof(::CSetFlashStateMsg)},
+  { 526, 533, sizeof(::CShowCursorMsg)},
+  { 535, -1, sizeof(::CHideCursorMsg)},
+  { 540, 546, sizeof(::CSetCursorMsg)},
+  { 547, 553, sizeof(::CGetCursorImageMsg)},
+  { 554, 565, sizeof(::CSetCursorImageMsg)},
+  { 571, 577, sizeof(::CSetCursorScaleMsg)},
+  { 578, 585, sizeof(::CVideoDecoderInfoMsg)},
+  { 587, 593, sizeof(::CVideoEncoderInfoMsg)},
+  { 594, -1, sizeof(::CPauseMsg)},
+  { 599, -1, sizeof(::CResumeMsg)},
+  { 604, -1, sizeof(::CEnableHighResCaptureMsg)},
+  { 609, -1, sizeof(::CDisableHighResCaptureMsg)},
+  { 614, -1, sizeof(::CEnableNeptuneDataMsg)},
+  { 619, -1, sizeof(::CDisableNeptuneDataMsg)},
+  { 624, -1, sizeof(::CPauseControllerInputMsg)},
+  { 629, -1, sizeof(::CResumeControllerInputMsg)},
+  { 634, -1, sizeof(::CToggleMagnificationMsg)},
+  { 639, 645, sizeof(::CSetCapslockMsg)},
+  { 646, 660, sizeof(::CStreamingKeymapEntry)},
+  { 669, -1, sizeof(::CStreamingKeymap)},
+  { 675, 681, sizeof(::CSetKeymapMsg)},
+  { 682, -1, sizeof(::CStopRequest)},
+  { 687, -1, sizeof(::CQuitRequest)},
+  { 692, 698, sizeof(::CDeleteCursorMsg)},
+  { 699, 705, sizeof(::CSetStreamingClientConfig)},
+  { 706, 712, sizeof(::CSetQoSMsg)},
+  { 713, 722, sizeof(::CSetTargetFramerateMsg)},
+  { 726, 732, sizeof(::CSetTargetBitrateMsg)},
+  { 733, 739, sizeof(::COverlayEnabledMsg)},
+  { 740, 746, sizeof(::CSetGammaRampMsg)},
+  { 747, 756, sizeof(::CSetActivityMsg)},
+  { 760, -1, sizeof(::CSystemSuspendMsg)},
+  { 765, 771, sizeof(::CVirtualHereRequestMsg)},
+  { 772, 778, sizeof(::CVirtualHereReadyMsg)},
+  { 779, 785, sizeof(::CVirtualHereShareDeviceMsg)},
+  { 786, 792, sizeof(::CSetSpectatorModeMsg)},
+  { 793, 800, sizeof(::CRemoteHIDMsg)},
+  { 802, 810, sizeof(::CTouchConfigActiveMsg)},
+  { 813, 819, sizeof(::CGetTouchConfigDataMsg)},
+  { 820, 830, sizeof(::CSetTouchConfigDataMsg)},
+  { 835, 842, sizeof(::CSaveTouchConfigLayoutMsg)},
+  { 844, 851, sizeof(::CTouchActionSetActiveMsg)},
+  { 853, 860, sizeof(::CTouchActionSetLayerAddedMsg)},
+  { 862, 869, sizeof(::CTouchActionSetLayerRemovedMsg)},
+  { 871, 878, sizeof(::CGetTouchIconDataMsg)},
+  { 880, 888, sizeof(::CSetTouchIconDataMsg)},
+  { 891, 903, sizeof(::CRemotePlayTogetherGroupUpdateMsg_Player)},
+  { 910, 920, sizeof(::CRemotePlayTogetherGroupUpdateMsg)},
+  { 925, 931, sizeof(::CSetInputTemporarilyDisabledMsg)},
+  { 932, 938, sizeof(::CSetQualityOverrideMsg)},
+  { 939, 945, sizeof(::CSetBitrateOverrideMsg)},
+  { 946, -1, sizeof(::CShowOnScreenKeyboardMsg)},
+  { 951, 959, sizeof(::CControllerPersonalizationUpdateMsg)},
+  { 962, 968, sizeof(::CVRConnectionReady)},
+  { 969, -1, sizeof(::CStreamDataLostMsg)},
+  { 975, 983, sizeof(::CAudioFormat)},
+  { 986, 994, sizeof(::CVideoFormat)},
+  { 997, 1004, sizeof(::CFrameEvent)},
+  { 1006, 1023, sizeof(::CFrameStats)},
+  { 1035, 1044, sizeof(::CFrameStatAccumulatedValue)},
+  { 1048, 1057, sizeof(::CFrameStatsListMsg)},
+  { 1061, 1070, sizeof(::CStreamingSessionStats)},
+  { 1074, 1080, sizeof(::CDebugDumpMsg)},
+  { 1081, 1088, sizeof(::CLogMsg)},
+  { 1090, 1097, sizeof(::CLogUploadMsg)},
+  { 1099, 1107, sizeof(::CTransportSignalMsg_WebRTCMessage_Candidate)},
+  { 1110, -1, sizeof(::CTransportSignalMsg_WebRTCMessage)},
+  { 1120, 1127, sizeof(::CTransportSignalMsg)},
+  { 1129, 1140, sizeof(::CControllerConfigMsg_ControllerConfigResponse)},
+  { 1146, 1152, sizeof(::CControllerConfigMsg_ControllerPersonalizationResponse)},
+  { 1153, 1162, sizeof(::CControllerConfigMsg_ControllerActiveConfigChangeResponse)},
+  { 1166, 1175, sizeof(::CControllerConfigMsg_ControllerActiveConfigMsg)},
+  { 1179, 1190, sizeof(::CControllerConfigMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -3065,494 +3074,498 @@ const char descriptor_table_protodef_steammessages_5fremoteplay_2eproto[] PROTOB
   "amVideoLimit\0228\n\005codec\030\001 \001(\0162\022.EStreamVid"
   "eoCodec:\025EStreamVideoCodecNone\022\037\n\004mode\030\002"
   " \001(\0132\021.CStreamVideoMode\022\024\n\014bitrate_kbps\030"
-  "\003 \001(\005\022\032\n\022burst_bitrate_kbps\030\004 \001(\005\"\313\003\n\024CS"
+  "\003 \001(\005\022\032\n\022burst_bitrate_kbps\030\004 \001(\005\"\274\004\n\024CS"
   "treamingClientCaps\022\023\n\013system_info\030\001 \001(\t\022"
   "\032\n\022system_can_suspend\030\002 \001(\010\022#\n\033maximum_d"
   "ecode_bitrate_kbps\030\003 \001(\005\022\"\n\032maximum_burs"
-  "t_bitrate_kbps\030\004 \001(\005\022\033\n\023supports_video_h"
-  "evc\030\005 \001(\010\022\033\n\023disable_steam_store\030\006 \001(\010\022\035"
-  "\n\025disable_client_cursor\030\007 \001(\010\022\'\n\037disable"
-  "_intel_hardware_encoding\030\010 \001(\010\022%\n\035disabl"
-  "e_amd_hardware_encoding\030\t \001(\010\022(\n disable"
-  "_nvidia_hardware_encoding\030\n \001(\010\022\023\n\013form_"
-  "factor\030\013 \001(\005\022\036\n\026has_on_screen_keyboard\030\014"
-  " \001(\010\0221\n\025supported_colorspaces\030\r \003(\0162\022.ES"
-  "treamColorspace\"\353\007\n\026CStreamingClientConf"
-  "ig\022B\n\007quality\030\001 \001(\0162\031.EStreamQualityPref"
-  "erence:\026EStreamQualityBalanced\022\034\n\024desire"
-  "d_resolution_x\030\002 \001(\r\022\034\n\024desired_resoluti"
-  "on_y\030\003 \001(\r\022#\n\033desired_framerate_numerato"
-  "r\030\004 \001(\r\022%\n\035desired_framerate_denominator"
-  "\030\005 \001(\r\022 \n\024desired_bitrate_kbps\030\006 \001(\005:\002-1"
-  "\022&\n\030enable_hardware_decoding\030\007 \001(\010:\004true"
-  "\022)\n\032enable_performance_overlay\030\010 \001(\010:\005fa"
-  "lse\022$\n\026enable_video_streaming\030\t \001(\010:\004tru"
-  "e\022$\n\026enable_audio_streaming\030\n \001(\010:\004true\022"
-  "$\n\026enable_input_streaming\030\013 \001(\010:\004true\022\031\n"
-  "\016audio_channels\030\014 \001(\005:\0012\022 \n\021enable_video"
-  "_hevc\030\r \001(\010:\005false\022&\n\030enable_performance"
-  "_icons\030\016 \001(\010:\004true\022*\n\033enable_microphone_"
-  "streaming\030\017 \001(\010:\005false\022!\n\031controller_ove"
-  "rlay_hotkey\030\020 \001(\t\022/\n enable_touch_contro"
-  "ller_OBSOLETE\030\021 \001(\010:\005false\022=\n\tp2p_scope\030"
-  "\023 \001(\0162\020.EStreamP2PScope:\030EStreamP2PScope"
-  "Automatic\022(\n\031enable_audio_uncompressed\030\024"
-  " \001(\010:\005false\022)\n\rdisplay_limit\030\025 \001(\0132\022.CSt"
-  "reamVideoLimit\022)\n\rquality_limit\030\026 \001(\0132\022."
-  "CStreamVideoLimit\022)\n\rruntime_limit\030\027 \001(\013"
-  "2\022.CStreamVideoLimit\022)\n\rdecoder_limit\030\030 "
-  "\003(\0132\022.CStreamVideoLimit\022$\n\025enable_unreli"
-  "able_fec\030\031 \001(\010:\005false\"\330\003\n\026CStreamingServ"
-  "erConfig\022!\n\031change_desktop_resolution\030\001 "
-  "\001(\010\022.\n&dynamically_adjust_resolution_OBS"
-  "OLETE\030\002 \001(\010\022\034\n\024enable_capture_nvfbc\030\003 \001("
-  "\010\0220\n(enable_hardware_encoding_nvidia_OBS"
-  "OLETE\030\004 \001(\010\022-\n%enable_hardware_encoding_"
-  "amd_OBSOLETE\030\005 \001(\010\022/\n\'enable_hardware_en"
-  "coding_intel_OBSOLETE\030\006 \001(\010\022!\n\031software_"
-  "encoding_threads\030\007 \001(\005\022\037\n\027enable_traffic"
-  "_priority\030\010 \001(\010\022U\n\017host_play_audio\030\t \001(\016"
-  "2\037.EStreamHostPlayAudioPreference:\033EStre"
-  "amHostPlayAudioDefault\022 \n\030enable_hardwar"
-  "e_encoding\030\n \001(\010\"\315\002\n\021CNegotiatedConfig\022\025"
-  "\n\rreliable_data\030\001 \001(\010\022G\n\024selected_audio_"
-  "codec\030\002 \001(\0162\022.EStreamAudioCodec:\025EStream"
-  "AudioCodecNone\022G\n\024selected_video_codec\030\003"
-  " \001(\0162\022.EStreamVideoCodec:\025EStreamVideoCo"
-  "decNone\0229\n\036available_video_modes_OBSOLET"
-  "E\030\004 \003(\0132\021.CStreamVideoMode\022\031\n\021enable_rem"
-  "ote_hid\030\005 \001(\010\022\032\n\022enable_touch_input\030\006 \001("
-  "\010\022\035\n\025disable_client_cursor\030\007 \001(\010\"\317\001\n\023CNe"
-  "gotiationInitMsg\022\025\n\rreliable_data\030\001 \001(\010\022"
-  "2\n\026supported_audio_codecs\030\002 \003(\0162\022.EStrea"
-  "mAudioCodec\0222\n\026supported_video_codecs\030\003 "
-  "\003(\0162\022.EStreamVideoCodec\022\033\n\023supports_remo"
-  "te_hid\030\004 \001(\010\022\034\n\024supports_touch_input\030\005 \001"
-  "(\010\"\256\001\n\030CNegotiationSetConfigMsg\022\"\n\006confi"
-  "g\030\001 \002(\0132\022.CNegotiatedConfig\0228\n\027streaming"
-  "_client_config\030\002 \001(\0132\027.CStreamingClientC"
-  "onfig\0224\n\025streaming_client_caps\030\003 \001(\0132\025.C"
-  "StreamingClientCaps\"\031\n\027CNegotiationCompl"
-  "eteMsg\"\230\001\n\022CStartAudioDataMsg\022\017\n\007channel"
-  "\030\002 \002(\r\0228\n\005codec\030\003 \001(\0162\022.EStreamAudioCode"
-  "c:\025EStreamAudioCodecNone\022\022\n\ncodec_data\030\004"
-  " \001(\014\022\021\n\tfrequency\030\005 \001(\r\022\020\n\010channels\030\006 \001("
-  "\r\"\023\n\021CStopAudioDataMsg\"\222\001\n\022CStartVideoDa"
-  "taMsg\022\017\n\007channel\030\001 \002(\r\0228\n\005codec\030\002 \001(\0162\022."
-  "EStreamVideoCodec:\025EStreamVideoCodecNone"
-  "\022\022\n\ncodec_data\030\003 \001(\014\022\r\n\005width\030\004 \001(\r\022\016\n\006h"
-  "eight\030\005 \001(\r\"\023\n\021CStopVideoDataMsg\"\'\n\024CSta"
-  "rtNeptuneDataMsg\022\017\n\007channel\030\001 \002(\r\"\025\n\023CSt"
-  "opNeptuneDataMsg\"\303\004\n\016CRecordedInput\022I\n\004t"
-  "ype\030\001 \001(\0162\026.EStreamControlMessage:#EStre"
-  "amControlAuthenticationRequest\022\021\n\ttimest"
-  "amp\030\002 \001(\r\0220\n\013finger_down\030\003 \001(\0132\031.CInputT"
-  "ouchFingerDownMsgH\000\0224\n\rfinger_motion\030\004 \001"
-  "(\0132\033.CInputTouchFingerMotionMsgH\000\022,\n\tfin"
-  "ger_up\030\005 \001(\0132\027.CInputTouchFingerUpMsgH\000\022"
-  "-\n\014mouse_motion\030\006 \001(\0132\025.CInputMouseMotio"
-  "nMsgH\000\022+\n\013mouse_wheel\030\007 \001(\0132\024.CInputMous"
-  "eWheelMsgH\000\022)\n\nmouse_down\030\010 \001(\0132\023.CInput"
-  "MouseDownMsgH\000\022%\n\010mouse_up\030\t \001(\0132\021.CInpu"
-  "tMouseUpMsgH\000\022%\n\010key_down\030\n \001(\0132\021.CInput"
-  "KeyDownMsgH\000\022!\n\006key_up\030\013 \001(\0132\017.CInputKey"
-  "UpMsgH\000\022\036\n\004text\030\014 \001(\0132\016.CInputTextMsgH\000\022"
-  "\035\n\003hid\030\r \001(\0132\016.CRemoteHIDMsgH\000B\006\n\004data\"8"
-  "\n\024CRecordedInputStream\022 \n\007entries\030\001 \003(\0132"
-  "\017.CRecordedInput\"9\n\024CInputLatencyTestMsg"
-  "\022\022\n\ninput_mark\030\001 \002(\r\022\r\n\005color\030\002 \001(\r\"l\n\030C"
-  "InputTouchFingerDownMsg\022\022\n\ninput_mark\030\001 "
-  "\001(\r\022\020\n\010fingerid\030\002 \001(\004\022\024\n\014x_normalized\030\003 "
-  "\001(\002\022\024\n\014y_normalized\030\004 \001(\002\"n\n\032CInputTouch"
-  "FingerMotionMsg\022\022\n\ninput_mark\030\001 \001(\r\022\020\n\010f"
-  "ingerid\030\002 \001(\004\022\024\n\014x_normalized\030\003 \001(\002\022\024\n\014y"
-  "_normalized\030\004 \001(\002\"j\n\026CInputTouchFingerUp"
-  "Msg\022\022\n\ninput_mark\030\001 \001(\r\022\020\n\010fingerid\030\002 \001("
-  "\004\022\024\n\014x_normalized\030\003 \001(\002\022\024\n\014y_normalized\030"
-  "\004 \001(\002\"n\n\024CInputMouseMotionMsg\022\022\n\ninput_m"
-  "ark\030\001 \001(\r\022\024\n\014x_normalized\030\002 \001(\002\022\024\n\014y_nor"
-  "malized\030\003 \001(\002\022\n\n\002dx\030\004 \001(\005\022\n\n\002dy\030\005 \001(\005\"\201\001"
-  "\n\023CInputMouseWheelMsg\022\022\n\ninput_mark\030\001 \001("
-  "\r\022C\n\tdirection\030\002 \002(\0162\033.EStreamMouseWheel"
-  "Direction:\023EStreamMouseWheelUp\022\021\n\006amount"
-  "\030\003 \001(\002:\0011\"e\n\022CInputMouseDownMsg\022\022\n\ninput"
-  "_mark\030\001 \001(\r\022;\n\006button\030\002 \002(\0162\023.EStreamMou"
-  "seButton:\026EStreamMouseButtonLeft\"c\n\020CInp"
-  "utMouseUpMsg\022\022\n\ninput_mark\030\001 \001(\r\022;\n\006butt"
-  "on\030\002 \002(\0162\023.EStreamMouseButton:\026EStreamMo"
-  "useButtonLeft\"8\n\020CInputKeyDownMsg\022\022\n\ninp"
-  "ut_mark\030\001 \001(\r\022\020\n\010scancode\030\002 \002(\r\"6\n\016CInpu"
-  "tKeyUpMsg\022\022\n\ninput_mark\030\001 \001(\r\022\020\n\010scancod"
-  "e\030\002 \002(\r\"6\n\rCInputTextMsg\022\022\n\ninput_mark\030\001"
-  " \001(\r\022\021\n\ttext_utf8\030\002 \002(\t\"\034\n\014CSetTitleMsg\022"
-  "\014\n\004text\030\001 \001(\t\"3\n\022CSetCaptureSizeMsg\022\r\n\005w"
-  "idth\030\001 \001(\005\022\016\n\006height\030\002 \001(\005\";\n\013CSetIconMs"
-  "g\022\r\n\005width\030\001 \001(\005\022\016\n\006height\030\002 \001(\005\022\r\n\005imag"
-  "e\030\003 \001(\014\"E\n\021CSetFlashStateMsg\022\r\n\005flags\030\001 "
-  "\001(\r\022\r\n\005count\030\002 \001(\r\022\022\n\ntimeout_ms\030\003 \001(\r\"<"
-  "\n\016CShowCursorMsg\022\024\n\014x_normalized\030\001 \001(\002\022\024"
-  "\n\014y_normalized\030\002 \001(\002\"\020\n\016CHideCursorMsg\"\""
-  "\n\rCSetCursorMsg\022\021\n\tcursor_id\030\001 \002(\004\"\'\n\022CG"
-  "etCursorImageMsg\022\021\n\tcursor_id\030\001 \002(\004\"s\n\022C"
-  "SetCursorImageMsg\022\021\n\tcursor_id\030\001 \002(\004\022\r\n\005"
-  "width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\022\r\n\005hot_x\030\004 \001"
-  "(\005\022\r\n\005hot_y\030\005 \001(\005\022\r\n\005image\030\006 \001(\014\"#\n\022CSet"
-  "CursorScaleMsg\022\r\n\005scale\030\001 \001(\002\"5\n\024CVideoD"
-  "ecoderInfoMsg\022\014\n\004info\030\001 \001(\t\022\017\n\007threads\030\002"
-  " \001(\005\"$\n\024CVideoEncoderInfoMsg\022\014\n\004info\030\001 \001"
-  "(\t\"\013\n\tCPauseMsg\"\014\n\nCResumeMsg\"\032\n\030CEnable"
-  "HighResCaptureMsg\"\033\n\031CDisableHighResCapt"
-  "ureMsg\"\027\n\025CEnableNeptuneDataMsg\"\030\n\026CDisa"
-  "bleNeptuneDataMsg\"\032\n\030CPauseControllerInp"
-  "utMsg\"\033\n\031CResumeControllerInputMsg\"\031\n\027CT"
-  "oggleMagnificationMsg\"\"\n\017CSetCapslockMsg"
-  "\022\017\n\007pressed\030\001 \001(\010\"\204\002\n\025CStreamingKeymapEn"
-  "try\022\020\n\010scancode\030\001 \001(\005\022\026\n\016normal_keycode\030"
-  "\002 \001(\005\022\025\n\rshift_keycode\030\003 \001(\005\022\026\n\016capslock"
-  "eycode\030\004 \001(\005\022\034\n\024shift_capslockeycode\030\005 \001"
-  "(\005\022\025\n\raltgr_keycode\030\006 \001(\005\022\033\n\023altgr_shift"
-  "_keycode\030\007 \001(\005\022\034\n\024altgr_capslockeycode\030\010"
-  " \001(\005\022\"\n\032altgr_shift_capslockeycode\030\t \001(\005"
-  "\";\n\020CStreamingKeymap\022\'\n\007entries\030\001 \003(\0132\026."
-  "CStreamingKeymapEntry\"2\n\rCSetKeymapMsg\022!"
-  "\n\006keymap\030\001 \001(\0132\021.CStreamingKeymap\"\016\n\014CSt"
-  "opRequest\"\016\n\014CQuitRequest\"%\n\020CDeleteCurs"
-  "orMsg\022\021\n\tcursor_id\030\001 \002(\004\"D\n\031CSetStreamin"
-  "gClientConfig\022\'\n\006config\030\001 \002(\0132\027.CStreami"
-  "ngClientConfig\"\035\n\nCSetQoSMsg\022\017\n\007use_qos\030"
-  "\001 \002(\010\"x\n\026CSetTargetFramerateMsg\022\021\n\tframe"
-  "rate\030\001 \002(\r\022\017\n\007reasons\030\002 \001(\r\022\033\n\023framerate"
-  "_numerator\030\003 \001(\r\022\035\n\025framerate_denominato"
-  "r\030\004 \001(\r\"\'\n\024CSetTargetBitrateMsg\022\017\n\007bitra"
-  "te\030\001 \002(\005\"%\n\022COverlayEnabledMsg\022\017\n\007enable"
-  "d\030\001 \002(\010\"&\n\020CSetGammaRampMsg\022\022\n\ngamma_ram"
-  "p\030\001 \001(\014\"|\n\017CSetActivityMsg\0227\n\010activity\030\001"
-  " \001(\0162\020.EStreamActivity:\023EStreamActivityI"
-  "dle\022\r\n\005appid\030\002 \001(\r\022\016\n\006gameid\030\003 \001(\004\022\021\n\tga"
-  "me_name\030\004 \001(\t\"\023\n\021CSystemSuspendMsg\"*\n\026CV"
-  "irtualHereRequestMsg\022\020\n\010hostname\030\001 \001(\t\"5"
-  "\n\024CVirtualHereReadyMsg\022\035\n\025licensed_devic"
-  "e_count\030\001 \001(\r\"4\n\032CVirtualHereShareDevice"
-  "Msg\022\026\n\016device_address\030\001 \001(\t\"\'\n\024CSetSpect"
-  "atorModeMsg\022\017\n\007enabled\030\001 \001(\010\"3\n\rCRemoteH"
-  "IDMsg\022\014\n\004data\030\001 \001(\014\022\024\n\014active_input\030\002 \001("
-  "\010\"I\n\025CTouchConfigActiveMsg\022\r\n\005appid\030\001 \001("
-  "\r\022\020\n\010revision\030\002 \001(\r\022\017\n\007creator\030\003 \001(\004\"\'\n\026"
-  "CGetTouchConfigDataMsg\022\r\n\005appid\030\001 \001(\r\"h\n"
-  "\026CSetTouchConfigDataMsg\022\r\n\005appid\030\001 \001(\r\022\020"
-  "\n\010revision\030\002 \001(\r\022\014\n\004data\030\003 \001(\014\022\016\n\006layout"
-  "\030\004 \001(\014\022\017\n\007creator\030\005 \001(\004\":\n\031CSaveTouchCon"
-  "figLayoutMsg\022\r\n\005appid\030\001 \001(\r\022\016\n\006layout\030\004 "
-  "\001(\014\"\?\n\030CTouchActionSetActiveMsg\022\r\n\005appid"
-  "\030\001 \001(\r\022\024\n\014actionset_id\030\002 \001(\005\"C\n\034CTouchAc"
-  "tionSetLayerAddedMsg\022\r\n\005appid\030\001 \001(\r\022\024\n\014a"
-  "ctionset_id\030\002 \001(\005\"E\n\036CTouchActionSetLaye"
-  "rRemovedMsg\022\r\n\005appid\030\001 \001(\r\022\024\n\014actionset_"
-  "id\030\002 \001(\005\"3\n\024CGetTouchIconDataMsg\022\r\n\005appi"
-  "d\030\001 \001(\r\022\014\n\004icon\030\002 \001(\t\"A\n\024CSetTouchIconDa"
-  "taMsg\022\r\n\005appid\030\001 \001(\r\022\014\n\004icon\030\002 \001(\t\022\014\n\004da"
-  "ta\030\003 \001(\014\"\352\002\n!CRemotePlayTogetherGroupUpd"
-  "ateMsg\022:\n\007players\030\001 \003(\0132).CRemotePlayTog"
-  "etherGroupUpdateMsg.Player\022\024\n\014player_ind"
-  "ex\030\002 \001(\005\022\034\n\024miniprofile_location\030\003 \001(\t\022\021"
-  "\n\tgame_name\030\004 \001(\t\022\027\n\017avatar_location\030\005 \001"
-  "(\t\032\250\001\n\006Player\022\021\n\taccountid\030\001 \001(\r\022\017\n\007gues"
-  "tid\030\002 \001(\r\022\030\n\020keyboard_enabled\030\003 \001(\010\022\025\n\rm"
-  "ouse_enabled\030\004 \001(\010\022\032\n\022controller_enabled"
-  "\030\005 \001(\010\022\030\n\020controller_slots\030\006 \003(\r\022\023\n\013avat"
-  "ar_hash\030\007 \001(\014\"3\n\037CSetInputTemporarilyDis"
-  "abledMsg\022\020\n\010disabled\030\001 \001(\010\"\'\n\026CSetQualit"
-  "yOverrideMsg\022\r\n\005value\030\001 \001(\005\"\'\n\026CSetBitra"
-  "teOverrideMsg\022\r\n\005value\030\001 \001(\005\"\032\n\030CShowOnS"
-  "creenKeyboardMsg\"~\n#CControllerPersonali"
-  "zationUpdateMsg\022\027\n\017controller_path\030\001 \001(\t"
-  "\022\027\n\017controller_name\030\002 \001(\t\022%\n\035reverse_dia"
-  "mond_button_layout\030\003 \001(\010\",\n\022CVRConnectio"
-  "nReady\022\026\n\016connect_params\030\001 \001(\t\"%\n\022CStrea"
-  "mDataLostMsg\022\017\n\007packets\030\001 \003(\r\"d\n\014CAudioF"
-  "ormat\022/\n\006format\030\001 \002(\0162\r.EAudioFormat:\020EA"
-  "udioFormatNone\022\021\n\tfrequency\030\002 \001(\r\022\020\n\010cha"
-  "nnels\030\003 \001(\r\"^\n\014CVideoFormat\022/\n\006format\030\001 "
-  "\002(\0162\r.EVideoFormat:\020EVideoFormatNone\022\r\n\005"
-  "width\030\002 \001(\r\022\016\n\006height\030\003 \001(\r\"^\n\013CFrameEve"
-  "nt\022<\n\010event_id\030\001 \002(\0162\022.EStreamFrameEvent"
-  ":\026EStreamInputEventStart\022\021\n\ttimestamp\030\002 "
-  "\002(\r\"\313\002\n\013CFrameStats\022\020\n\010frame_id\030\001 \002(\r\022\022\n"
-  "\ninput_mark\030\002 \001(\r\022\034\n\006events\030\003 \003(\0132\014.CFra"
-  "meEvent\022>\n\006result\030\004 \002(\0162\023.EStreamFrameRe"
-  "sult:\031EStreamFrameResultPending\022\031\n\021frame"
-  "_start_delta\030\005 \001(\002\022\033\n\023frame_display_delt"
-  "a\030\006 \001(\002\022\021\n\tping_time\030\007 \001(\002\022\026\n\016server_bit"
-  "rate\030\010 \001(\002\022\026\n\016client_bitrate\030\t \001(\002\022\024\n\014li"
-  "nbandwidth\030\n \001(\002\022\023\n\013packet_loss\030\013 \001(\002\022\022\n"
-  "\nframe_size\030\014 \001(\r\"\206\001\n\032CFrameStatAccumula"
-  "tedValue\0228\n\tstat_type\030\001 \002(\0162\026.EFrameAccu"
-  "mulatedStat:\rEFrameStatFPS\022\r\n\005count\030\002 \002("
-  "\005\022\017\n\007average\030\003 \002(\002\022\016\n\006stddev\030\004 \001(\002\"\277\001\n\022C"
-  "FrameStatsListMsg\022;\n\tdata_type\030\001 \002(\0162\023.E"
-  "StreamingDataType:\023EStreamingAudioData\022\033"
-  "\n\005stats\030\002 \003(\0132\014.CFrameStats\0226\n\021accumulat"
-  "ed_stats\030\003 \003(\0132\033.CFrameStatAccumulatedVa"
-  "lue\022\027\n\017latest_frame_id\030\004 \002(\005\"\207\001\n\026CStream"
-  "ingSessionStats\022\035\n\025frame_loss_percentage"
-  "\030\001 \001(\002\022\035\n\025average_networtime_ms\030\002 \001(\002\022\034\n"
-  "\024stddev_networtime_ms\030\003 \001(\002\022\021\n\ttest_data"
-  "\030\004 \001(\t\"#\n\rCDebugDumpMsg\022\022\n\nscreenshot\030\001 "
-  "\001(\014\"(\n\007CLogMsg\022\014\n\004type\030\001 \001(\005\022\017\n\007message\030"
-  "\002 \001(\t\"N\n\rCLogUploadMsg\022/\n\004type\030\001 \001(\0162\r.E"
-  "LogFileType:\022ELogFileSystemBoot\022\014\n\004data\030"
-  "\003 \001(\014\"\263\002\n\023CTransportSignalMsg\0222\n\006webrtc\030"
-  "\001 \001(\0132\".CTransportSignalMsg.WebRTCMessag"
-  "e\022\013\n\003sdr\030\002 \003(\014\032\332\001\n\rWebRTCMessage\022\022\n\010gree"
-  "ting\030\001 \001(\010H\000\022\017\n\005offer\030\002 \001(\tH\000\022\020\n\006answer\030"
-  "\003 \001(\tH\000\022A\n\tcandidate\030\004 \001(\0132,.CTransportS"
-  "ignalMsg.WebRTCMessage.CandidateH\000\032H\n\tCa"
-  "ndidate\022\017\n\007sdp_mid\030\001 \001(\t\022\027\n\017sdp_mline_in"
-  "dex\030\002 \001(\005\022\021\n\tcandidate\030\003 \001(\tB\005\n\003msg\"\334\006\n\024"
-  "CControllerConfigMsg\022Z\n\004type\030\001 \002(\0162\033.ESt"
-  "reamControllerConfigMsg:/EStreamControll"
-  "erConfigMsg_RequestConfigsForApp\022\026\n\016cont"
-  "rollerPath\030\002 \001(\t\022\r\n\005appid\030\003 \001(\r\022X\n\027perso"
-  "nalizationResponse\030\004 \001(\01327.CControllerCo"
-  "nfigMsg.ControllerPersonalizationRespons"
-  "e\022F\n\016configResponse\030\006 \003(\0132..CControllerC"
-  "onfigMsg.ControllerConfigResponse\022N\n\025act"
-  "iveConfigChangeMsg\030\007 \001(\0132/.CControllerCo"
-  "nfigMsg.ControllerActiveConfigMsg\032\231\001\n\030Co"
-  "ntrollerConfigResponse\022\r\n\005appid\030\001 \001(\r\022\021\n"
-  "\tconfigURL\030\002 \001(\t\022\026\n\016controllerType\030\003 \001(\r"
-  "\022\026\n\016controllerData\030\004 \001(\t\022\026\n\016selectionOrd"
-  "er\030\005 \001(\r\022\023\n\013actionBlock\030\006 \001(\010\032@\n!Control"
-  "lerPersonalizationResponse\022\033\n\023personaliz"
-  "ationData\030\001 \001(\t\032\201\001\n$ControllerActiveConf"
-  "igChangeResponse\022\021\n\tconfigURL\030\002 \001(\t\022\026\n\016c"
-  "ontrollerType\030\003 \001(\r\022\026\n\016controllerData\030\004 "
-  "\001(\t\022\026\n\016selectionOrder\030\005 \001(\r\032m\n\031Controlle"
-  "rActiveConfigMsg\022\r\n\005appid\030\001 \001(\r\022\021\n\tconfi"
-  "gURL\030\002 \001(\t\022\026\n\016controllerType\030\003 \001(\r\022\026\n\016co"
-  "ntrollerData\030\004 \001(\t*\251\001\n\016EStreamChannel\022\"\n"
-  "\025EStreamChannelInvalid\020\377\377\377\377\377\377\377\377\377\001\022\033\n\027ESt"
-  "reamChannelDiscovery\020\000\022\031\n\025EStreamChannel"
-  "Control\020\001\022\027\n\023EStreamChannelStats\020\002\022\"\n\036ES"
-  "treamChannelDataChannelStart\020\003*\\\n\027EStrea"
-  "mDiscoveryMessage\022\037\n\033EStreamDiscoveryPin"
-  "gRequest\020\001\022 \n\034EStreamDiscoveryPingRespon"
-  "se\020\002*\342\035\n\025EStreamControlMessage\022\'\n#EStrea"
-  "mControlAuthenticationRequest\020\001\022(\n$EStre"
-  "amControlAuthenticationResponse\020\002\022!\n\035ESt"
-  "reamControlNegotiationInit\020\003\022&\n\"EStreamC"
-  "ontrolNegotiationSetConfig\020\004\022%\n!EStreamC"
-  "ontrolNegotiationComplete\020\005\022!\n\035EStreamCo"
-  "ntrolClientHandshake\020\006\022!\n\035EStreamControl"
-  "ServerHandshake\020\007\022\"\n\036EStreamControlStart"
-  "NetworkTest\020\010\022\033\n\027EStreamControlKeepAlive"
-  "\020\t\022%\n!EStreamControl_LAST_SETUP_MESSAGE\020"
-  "\017\022 \n\034EStreamControlStartAudioData\0202\022\037\n\033E"
-  "StreamControlStopAudioData\0203\022 \n\034EStreamC"
-  "ontrolStartVideoData\0204\022\037\n\033EStreamControl"
-  "StopVideoData\0205\022\"\n\036EStreamControlInputMo"
-  "useMotion\0206\022!\n\035EStreamControlInputMouseW"
-  "heel\0207\022 \n\034EStreamControlInputMouseDown\0208"
-  "\022\036\n\032EStreamControlInputMouseUp\0209\022\036\n\032EStr"
-  "eamControlInputKeyDown\020:\022\034\n\030EStreamContr"
-  "olInputKeyUp\020;\022/\n+EStreamControlInputGam"
-  "epadAttached_OBSOLETE\020<\022,\n(EStreamContro"
-  "lInputGamepadEvent_OBSOLETE\020=\022/\n+EStream"
-  "ControlInputGamepadDetached_OBSOLETE\020>\022\034"
-  "\n\030EStreamControlShowCursor\020\?\022\034\n\030EStreamC"
-  "ontrolHideCursor\020@\022\033\n\027EStreamControlSetC"
-  "ursor\020A\022 \n\034EStreamControlGetCursorImage\020"
-  "B\022 \n\034EStreamControlSetCursorImage\020C\022\036\n\032E"
-  "StreamControlDeleteCursor\020D\022$\n EStreamCo"
-  "ntrolSetTargetFramerate\020E\022\"\n\036EStreamCont"
-  "rolInputLatencyTest\020F\022(\n$EStreamControlG"
-  "amepadRumble_OBSOLETE\020G\022 \n\034EStreamContro"
-  "lOverlayEnabled\020J\0222\n.EStreamControlInput"
-  "ControllerAttached_OBSOLETE\020K\022/\n+EStream"
-  "ControlInputControllerState_OBSOLETE\020L\022-"
-  "\n)EStreamControlTriggerHapticPulse_OBSOL"
-  "ETE\020M\0222\n.EStreamControlInputControllerDe"
-  "tached_OBSOLETE\020N\022\"\n\036EStreamControlVideo"
-  "DecoderInfo\020P\022\032\n\026EStreamControlSetTitle\020"
-  "Q\022\031\n\025EStreamControlSetIcon\020R\022\035\n\031EStreamC"
-  "ontrolQuitRequest\020S\022\030\n\024EStreamControlSet"
-  "QoS\020W\022:\n6EStreamControlInputControllerWi"
-  "relessPresence_OBSOLETE\020X\022\036\n\032EStreamCont"
-  "rolSetGammaRamp\020Y\022\"\n\036EStreamControlVideo"
-  "EncoderInfo\020Z\0222\n.EStreamControlInputCont"
-  "rollerStateHID_OBSOLETE\020]\022\"\n\036EStreamCont"
-  "rolSetTargetBitrate\020^\0226\n2EStreamControlS"
-  "etControllerPairingEnabled_OBSOLETE\020_\0225\n"
-  "1EStreamControlSetControllerPairingResul"
-  "t_OBSOLETE\020`\0226\n2EStreamControlTriggerCon"
-  "trollerDisconnect_OBSOLETE\020a\022\035\n\031EStreamC"
-  "ontrolSetActivity\020b\022*\n&EStreamControlSet"
-  "StreamingClientConfig\020c\022\037\n\033EStreamContro"
-  "lSystemSuspend\020d\0220\n,EStreamControlSetCon"
-  "trollerSettings_OBSOLETE\020e\022$\n EStreamCon"
-  "trolVirtualHereRequest\020f\022\"\n\036EStreamContr"
-  "olVirtualHereReady\020g\022(\n$EStreamControlVi"
-  "rtualHereShareDevice\020h\022\"\n\036EStreamControl"
-  "SetSpectatorMode\020i\022\033\n\027EStreamControlRemo"
-  "teHID\020j\022%\n!EStreamControlStartMicrophone"
-  "Data\020k\022$\n EStreamControlStopMicrophoneDa"
-  "ta\020l\022\033\n\027EStreamControlInputText\020m\022#\n\037ESt"
-  "reamControlTouchConfigActive\020n\022$\n EStrea"
-  "mControlGetTouchConfigData\020o\022$\n EStreamC"
-  "ontrolSetTouchConfigData\020p\022\'\n#EStreamCon"
-  "trolSaveTouchConfigLayout\020q\022&\n\"EStreamCo"
-  "ntrolTouchActionSetActive\020r\022\"\n\036EStreamCo"
-  "ntrolGetTouchIconData\020s\022\"\n\036EStreamContro"
-  "lSetTouchIconData\020t\022&\n\"EStreamControlInp"
-  "utTouchFingerDown\020u\022(\n$EStreamControlInp"
-  "utTouchFingerMotion\020v\022$\n EStreamControlI"
-  "nputTouchFingerUp\020w\022 \n\034EStreamControlSet"
-  "CaptureSize\020x\022\037\n\033EStreamControlSetFlashS"
-  "tate\020y\022\027\n\023EStreamControlPause\020z\022\030\n\024EStre"
-  "amControlResume\020{\022&\n\"EStreamControlEnabl"
-  "eHighResCapture\020|\022\'\n#EStreamControlDisab"
-  "leHighResCapture\020}\022%\n!EStreamControlTogg"
-  "leMagnification\020~\022\035\n\031EStreamControlSetCa"
-  "pslock\020\177\022\034\n\027EStreamControlSetKeymap\020\200\001\022\036"
-  "\n\031EStreamControlStopRequest\020\201\001\022+\n&EStrea"
-  "mControlTouchActionSetLayerAdded\020\202\001\022-\n(E"
-  "StreamControlTouchActionSetLayerRemoved\020"
-  "\203\001\0220\n+EStreamControlRemotePlayTogetherGr"
-  "oupUpdate\020\204\001\022.\n)EStreamControlSetInputTe"
-  "mporarilyDisabled\020\205\001\022%\n EStreamControlSe"
-  "tQualityOverride\020\206\001\022%\n EStreamControlSet"
-  "BitrateOverride\020\207\001\022\'\n\"EStreamControlShow"
-  "OnScreenKeyboard\020\210\001\022&\n!EStreamControlCon"
-  "trollerConfigMsg\020\211\001\0222\n-EStreamControlCon"
-  "trollerPersonalizationUpdate\020\212\001\022$\n\037EStre"
-  "amControlEnableNeptuneData\020\213\001\022%\n EStream"
-  "ControlDisableNeptuneData\020\214\001\022#\n\036EStreamC"
-  "ontrolStartNeptuneData\020\215\001\022\"\n\035EStreamCont"
-  "rolStopNeptuneData\020\216\001\022\'\n\"EStreamControlP"
-  "auseControllerInput\020\217\001\022(\n#EStreamControl"
-  "ResumeControllerInput\020\220\001\022$\n\037EStreamContr"
-  "olVRConnectionReady\020\221\001\022!\n\034EStreamControl"
-  "SetCursorScale\020\222\001*C\n\016EStreamVersion\022\026\n\022E"
-  "StreamVersionNone\020\000\022\031\n\025EStreamVersionCur"
-  "rent\020\001*\264\001\n\021EStreamAudioCodec\022\031\n\025EStreamA"
-  "udioCodecNone\020\000\022\030\n\024EStreamAudioCodecRaw\020"
-  "\001\022\033\n\027EStreamAudioCodecVorbis\020\002\022\031\n\025EStrea"
-  "mAudioCodecOpus\020\003\022\030\n\024EStreamAudioCodecMP"
-  "3\020\004\022\030\n\024EStreamAudioCodecAAC\020\005*\352\001\n\021EStrea"
-  "mVideoCodec\022\031\n\025EStreamVideoCodecNone\020\000\022\030"
-  "\n\024EStreamVideoCodecRaw\020\001\022\030\n\024EStreamVideo"
-  "CodecVP8\020\002\022\030\n\024EStreamVideoCodecVP9\020\003\022\031\n\025"
-  "EStreamVideoCodecH264\020\004\022\031\n\025EStreamVideoC"
-  "odecHEVC\020\005\022\032\n\026EStreamVideoCodecORBX1\020\006\022\032"
-  "\n\026EStreamVideoCodecORBX2\020\007*\221\001\n\030EStreamQu"
-  "alityPreference\022$\n\027EStreamQualityAutomat"
-  "ic\020\377\377\377\377\377\377\377\377\377\001\022\026\n\022EStreamQualityFast\020\001\022\032\n"
-  "\026EStreamQualityBalanced\020\002\022\033\n\027EStreamQual"
-  "ityBeautiful\020\003*T\n\016EStreamBitrate\022%\n\030EStr"
-  "eamBitrateAutodetect\020\377\377\377\377\377\377\377\377\377\001\022\033\n\027EStre"
-  "amBitrateUnlimited\020\000*\315\001\n\021EStreamColorspa"
-  "ce\022\035\n\031EStreamColorspace_Unknown\020\000\022\033\n\027ESt"
-  "reamColorspace_BT601\020\001\022 \n\034EStreamColorsp"
-  "ace_BT601_Full\020\002\022\033\n\027EStreamColorspace_BT"
-  "709\020\003\022 \n\034EStreamColorspace_BT709_Full\020\004\022"
-  "\033\n\027EStreamColorspace_HDR10\020\005*\240\001\n\017EStream"
-  "P2PScope\022\034\n\030EStreamP2PScopeAutomatic\020\000\022\033"
-  "\n\027EStreamP2PScopeDisabled\020\001\022\031\n\025EStreamP2"
-  "PScopeOnlyMe\020\002\022\032\n\026EStreamP2PScopeFriends"
-  "\020\003\022\033\n\027EStreamP2PScopeEveryone\020\004*a\n\036EStre"
-  "amHostPlayAudioPreference\022\037\n\033EStreamHost"
-  "PlayAudioDefault\020\000\022\036\n\032EStreamHostPlayAud"
-  "ioAlways\020\001*\177\n\022EStreamingDataType\022\027\n\023EStr"
-  "eamingAudioData\020\000\022\027\n\023EStreamingVideoData"
-  "\020\001\022\034\n\030EStreamingMicrophoneData\020\002\022\031\n\025EStr"
-  "eamingNeptuneData\020\003*\277\001\n\022EStreamMouseButt"
-  "on\022\032\n\026EStreamMouseButtonLeft\020\001\022\033\n\027EStrea"
-  "mMouseButtonRight\020\002\022\034\n\030EStreamMouseButto"
-  "nMiddle\020\020\022\030\n\024EStreamMouseButtonX1\020 \022\030\n\024E"
-  "StreamMouseButtonX2\020@\022\036\n\031EStreamMouseBut"
-  "tonUnknown\020\200 *\220\001\n\032EStreamMouseWheelDirec"
-  "tion\022\027\n\023EStreamMouseWheelUp\020x\022\"\n\025EStream"
-  "MouseWheelDown\020\210\377\377\377\377\377\377\377\377\001\022\031\n\025EStreamMous"
-  "eWheelLeft\020\003\022\032\n\026EStreamMouseWheelRight\020\004"
-  "*\373\001\n\027EStreamFramerateLimiter\022\037\n\033EStreamF"
-  "ramerateSlowCapture\020\001\022\037\n\033EStreamFramerat"
-  "eSlowConvert\020\002\022\036\n\032EStreamFramerateSlowEn"
-  "code\020\004\022\037\n\033EStreamFramerateSlowNetwork\020\010\022"
-  "\036\n\032EStreamFramerateSlowDecode\020\020\022\034\n\030EStre"
-  "amFramerateSlowGame\020 \022\037\n\033EStreamFramerat"
-  "eSlowDisplay\020@*\233\001\n\017EStreamActivity\022\027\n\023ES"
-  "treamActivityIdle\020\001\022\027\n\023EStreamActivityGa"
-  "me\020\002\022\032\n\026EStreamActivityDesktop\020\003\022 \n\034EStr"
-  "eamActivitySecureDesktop\020\004\022\030\n\024EStreamAct"
-  "ivityMusic\020\005*@\n\022EStreamDataMessage\022\025\n\021ES"
-  "treamDataPacket\020\001\022\023\n\017EStreamDataLost\020\002*^"
-  "\n\014EAudioFormat\022\024\n\020EAudioFormatNone\020\000\022!\n\035"
-  "EAudioFormat16BitLittleEndian\020\001\022\025\n\021EAudi"
-  "oFormatFloat\020\002*Q\n\014EVideoFormat\022\024\n\020EVideo"
-  "FormatNone\020\000\022\024\n\020EVideoFormatYV12\020\001\022\025\n\021EV"
-  "ideoFormatAccel\020\002*\313\001\n\023EStreamStatsMessag"
-  "e\022\033\n\027EStreamStatsFrameEvents\020\001\022\031\n\025EStrea"
-  "mStatsDebugDump\020\002\022\032\n\026EStreamStatsLogMess"
-  "age\020\003\022\036\n\032EStreamStatsLogUploadBegin\020\004\022\035\n"
-  "\031EStreamStatsLogUploadData\020\005\022!\n\035EStreamS"
-  "tatsLogUploadComplete\020\006*\337\004\n\021EStreamFrame"
-  "Event\022\032\n\026EStreamInputEventStart\020\000\022\031\n\025ESt"
-  "reamInputEventSend\020\001\022\031\n\025EStreamInputEven"
-  "tRecv\020\002\022\033\n\027EStreamInputEventQueued\020\003\022\034\n\030"
-  "EStreamInputEventHandled\020\004\022\032\n\026EStreamFra"
-  "meEventStart\020\005\022!\n\035EStreamFrameEventCaptu"
-  "reBegin\020\006\022\037\n\033EStreamFrameEventCaptureEnd"
-  "\020\007\022!\n\035EStreamFrameEventConvertBegin\020\010\022\037\n"
-  "\033EStreamFrameEventConvertEnd\020\t\022 \n\034EStrea"
-  "mFrameEventEncodeBegin\020\n\022\036\n\032EStreamFrame"
-  "EventEncodeEnd\020\013\022\031\n\025EStreamFrameEventSen"
-  "d\020\014\022\031\n\025EStreamFrameEventRecv\020\r\022 \n\034EStrea"
-  "mFrameEventDecodeBegin\020\016\022\036\n\032EStreamFrame"
-  "EventDecodeEnd\020\017\022 \n\034EStreamFrameEventUpl"
-  "oadBegin\020\020\022\036\n\032EStreamFrameEventUploadEnd"
-  "\020\021\022\035\n\031EStreamFrameEventComplete\020\022*\304\002\n\022ES"
-  "treamFrameResult\022\035\n\031EStreamFrameResultPe"
-  "nding\020\000\022\037\n\033EStreamFrameResultDisplayed\020\001"
-  "\022(\n$EStreamFrameResultDroppedNetworkSlow"
-  "\020\002\022(\n$EStreamFrameResultDroppedNetworkLo"
-  "st\020\003\022\'\n#EStreamFrameResultDroppedDecodeS"
-  "low\020\004\022*\n&EStreamFrameResultDroppedDecode"
-  "Corrupt\020\005\022!\n\035EStreamFrameResultDroppedLa"
-  "te\020\006\022\"\n\036EStreamFrameResultDroppedReset\020\007"
-  "*\374\004\n\025EFrameAccumulatedStat\022\021\n\rEFrameStat"
-  "FPS\020\000\022\037\n\033EFrameStatCaptureDurationMS\020\001\022\037"
-  "\n\033EFrameStatConvertDurationMS\020\002\022\036\n\032EFram"
-  "eStatEncodeDurationMS\020\003\022\035\n\031EFrameStatSte"
-  "amDurationMS\020\004\022\036\n\032EFrameStatServerDurati"
-  "onMS\020\005\022\037\n\033EFrameStatNetworkDurationMS\020\006\022"
-  "\036\n\032EFrameStatDecodeDurationMS\020\007\022\037\n\033EFram"
-  "eStatDisplayDurationMS\020\010\022\036\n\032EFrameStatCl"
-  "ientDurationMS\020\t\022\035\n\031EFrameStatFrameDurat"
-  "ionMS\020\n\022\034\n\030EFrameStatInputLatencyMS\020\013\022\033\n"
-  "\027EFrameStatGameLatencyMS\020\014\022 \n\034EFrameStat"
-  "RoundTripLatencyMS\020\r\022\030\n\024EFrameStatPingTi"
-  "meMS\020\016\022%\n!EFrameStatServerBitrateKbitPer"
-  "Sec\020\017\022%\n!EFrameStatClientBitrateKbitPerS"
-  "ec\020\020\022%\n!EFrameStatLinkBandwidthKbitPerSe"
-  "c\020\021\022\"\n\036EFrameStatPacketLossPercentage\020\022*"
-  "X\n\014ELogFileType\022\026\n\022ELogFileSystemBoot\020\000\022"
-  "\027\n\023ELogFileSystemReset\020\001\022\027\n\023ELogFileSyst"
-  "emDebug\020\002*\237\002\n\032EStreamControllerConfigMsg"
-  "\0223\n/EStreamControllerConfigMsg_RequestCo"
-  "nfigsForApp\020\000\022-\n)EStreamControllerConfig"
-  "Msg_ConfigResponse\020\001\0226\n2EStreamControlle"
-  "rConfigMsg_PersonalizationResponse\020\002\0221\n-"
-  "EStreamControllerConfigMsg_ActiveConfigC"
-  "hange\020\003\0222\n.EStreamControllerConfigMsg_Re"
-  "questActiveConfig\020\004B\037H\001\200\001\000\252\002\027OpenSteamwo"
-  "rks.Protobuf"
+  "t_bitrate_kbps\030\004 \001(\005\022$\n\034supports_video_h"
+  "evc_OBSOLETE\030\005 \001(\010\022\033\n\023disable_steam_stor"
+  "e\030\006 \001(\010\022\035\n\025disable_client_cursor\030\007 \001(\010\022\'"
+  "\n\037disable_intel_hardware_encoding\030\010 \001(\010\022"
+  "%\n\035disable_amd_hardware_encoding\030\t \001(\010\022("
+  "\n disable_nvidia_hardware_encoding\030\n \001(\010"
+  "\022\023\n\013form_factor\030\013 \001(\005\022\036\n\026has_on_screen_k"
+  "eyboard\030\014 \001(\010\0221\n\025supported_colorspaces\030\r"
+  " \003(\0162\022.EStreamColorspace\0222\n\026supported_au"
+  "dio_codecs\030\016 \003(\0162\022.EStreamAudioCodec\0222\n\026"
+  "supported_video_codecs\030\017 \003(\0162\022.EStreamVi"
+  "deoCodec\"\214\010\n\026CStreamingClientConfig\022B\n\007q"
+  "uality\030\001 \001(\0162\031.EStreamQualityPreference:"
+  "\026EStreamQualityBalanced\022\034\n\024desired_resol"
+  "ution_x\030\002 \001(\r\022\034\n\024desired_resolution_y\030\003 "
+  "\001(\r\022#\n\033desired_framerate_numerator\030\004 \001(\r"
+  "\022%\n\035desired_framerate_denominator\030\005 \001(\r\022"
+  " \n\024desired_bitrate_kbps\030\006 \001(\005:\002-1\022&\n\030ena"
+  "ble_hardware_decoding\030\007 \001(\010:\004true\022)\n\032ena"
+  "ble_performance_overlay\030\010 \001(\010:\005false\022$\n\026"
+  "enable_video_streaming\030\t \001(\010:\004true\022$\n\026en"
+  "able_audio_streaming\030\n \001(\010:\004true\022$\n\026enab"
+  "le_input_streaming\030\013 \001(\010:\004true\022\031\n\016audio_"
+  "channels\030\014 \001(\005:\0012\022 \n\021enable_video_hevc\030\r"
+  " \001(\010:\005false\022&\n\030enable_performance_icons\030"
+  "\016 \001(\010:\004true\022*\n\033enable_microphone_streami"
+  "ng\030\017 \001(\010:\005false\022!\n\031controller_overlay_ho"
+  "tkey\030\020 \001(\t\022/\n enable_touch_controller_OB"
+  "SOLETE\030\021 \001(\010:\005false\022=\n\tp2p_scope\030\023 \001(\0162\020"
+  ".EStreamP2PScope:\030EStreamP2PScopeAutomat"
+  "ic\022(\n\031enable_audio_uncompressed\030\024 \001(\010:\005f"
+  "alse\022)\n\rdisplay_limit\030\025 \001(\0132\022.CStreamVid"
+  "eoLimit\022)\n\rquality_limit\030\026 \001(\0132\022.CStream"
+  "VideoLimit\022)\n\rruntime_limit\030\027 \001(\0132\022.CStr"
+  "eamVideoLimit\022)\n\rdecoder_limit\030\030 \003(\0132\022.C"
+  "StreamVideoLimit\022$\n\025enable_unreliable_fe"
+  "c\030\031 \001(\010:\005false\022\037\n\020enable_video_av1\030\032 \001(\010"
+  ":\005false\"\330\003\n\026CStreamingServerConfig\022!\n\031ch"
+  "ange_desktop_resolution\030\001 \001(\010\022.\n&dynamic"
+  "ally_adjust_resolution_OBSOLETE\030\002 \001(\010\022\034\n"
+  "\024enable_capture_nvfbc\030\003 \001(\010\0220\n(enable_ha"
+  "rdware_encoding_nvidia_OBSOLETE\030\004 \001(\010\022-\n"
+  "%enable_hardware_encoding_amd_OBSOLETE\030\005"
+  " \001(\010\022/\n\'enable_hardware_encoding_intel_O"
+  "BSOLETE\030\006 \001(\010\022!\n\031software_encoding_threa"
+  "ds\030\007 \001(\005\022\037\n\027enable_traffic_priority\030\010 \001("
+  "\010\022U\n\017host_play_audio\030\t \001(\0162\037.EStreamHost"
+  "PlayAudioPreference:\033EStreamHostPlayAudi"
+  "oDefault\022 \n\030enable_hardware_encoding\030\n \001"
+  "(\010\"\315\002\n\021CNegotiatedConfig\022\025\n\rreliable_dat"
+  "a\030\001 \001(\010\022G\n\024selected_audio_codec\030\002 \001(\0162\022."
+  "EStreamAudioCodec:\025EStreamAudioCodecNone"
+  "\022G\n\024selected_video_codec\030\003 \001(\0162\022.EStream"
+  "VideoCodec:\025EStreamVideoCodecNone\0229\n\036ava"
+  "ilable_video_modes_OBSOLETE\030\004 \003(\0132\021.CStr"
+  "eamVideoMode\022\031\n\021enable_remote_hid\030\005 \001(\010\022"
+  "\032\n\022enable_touch_input\030\006 \001(\010\022\035\n\025disable_c"
+  "lient_cursor\030\007 \001(\010\"\317\001\n\023CNegotiationInitM"
+  "sg\022\025\n\rreliable_data\030\001 \001(\010\0222\n\026supported_a"
+  "udio_codecs\030\002 \003(\0162\022.EStreamAudioCodec\0222\n"
+  "\026supported_video_codecs\030\003 \003(\0162\022.EStreamV"
+  "ideoCodec\022\033\n\023supports_remote_hid\030\004 \001(\010\022\034"
+  "\n\024supports_touch_input\030\005 \001(\010\"\256\001\n\030CNegoti"
+  "ationSetConfigMsg\022\"\n\006config\030\001 \002(\0132\022.CNeg"
+  "otiatedConfig\0228\n\027streaming_client_config"
+  "\030\002 \001(\0132\027.CStreamingClientConfig\0224\n\025strea"
+  "ming_client_caps\030\003 \001(\0132\025.CStreamingClien"
+  "tCaps\"\031\n\027CNegotiationCompleteMsg\"\230\001\n\022CSt"
+  "artAudioDataMsg\022\017\n\007channel\030\002 \002(\r\0228\n\005code"
+  "c\030\003 \001(\0162\022.EStreamAudioCodec:\025EStreamAudi"
+  "oCodecNone\022\022\n\ncodec_data\030\004 \001(\014\022\021\n\tfreque"
+  "ncy\030\005 \001(\r\022\020\n\010channels\030\006 \001(\r\"\023\n\021CStopAudi"
+  "oDataMsg\"\222\001\n\022CStartVideoDataMsg\022\017\n\007chann"
+  "el\030\001 \002(\r\0228\n\005codec\030\002 \001(\0162\022.EStreamVideoCo"
+  "dec:\025EStreamVideoCodecNone\022\022\n\ncodec_data"
+  "\030\003 \001(\014\022\r\n\005width\030\004 \001(\r\022\016\n\006height\030\005 \001(\r\"\023\n"
+  "\021CStopVideoDataMsg\"\'\n\024CStartNeptuneDataM"
+  "sg\022\017\n\007channel\030\001 \002(\r\"\025\n\023CStopNeptuneDataM"
+  "sg\"\303\004\n\016CRecordedInput\022I\n\004type\030\001 \001(\0162\026.ES"
+  "treamControlMessage:#EStreamControlAuthe"
+  "nticationRequest\022\021\n\ttimestamp\030\002 \001(\r\0220\n\013f"
+  "inger_down\030\003 \001(\0132\031.CInputTouchFingerDown"
+  "MsgH\000\0224\n\rfinger_motion\030\004 \001(\0132\033.CInputTou"
+  "chFingerMotionMsgH\000\022,\n\tfinger_up\030\005 \001(\0132\027"
+  ".CInputTouchFingerUpMsgH\000\022-\n\014mouse_motio"
+  "n\030\006 \001(\0132\025.CInputMouseMotionMsgH\000\022+\n\013mous"
+  "e_wheel\030\007 \001(\0132\024.CInputMouseWheelMsgH\000\022)\n"
+  "\nmouse_down\030\010 \001(\0132\023.CInputMouseDownMsgH\000"
+  "\022%\n\010mouse_up\030\t \001(\0132\021.CInputMouseUpMsgH\000\022"
+  "%\n\010key_down\030\n \001(\0132\021.CInputKeyDownMsgH\000\022!"
+  "\n\006key_up\030\013 \001(\0132\017.CInputKeyUpMsgH\000\022\036\n\004tex"
+  "t\030\014 \001(\0132\016.CInputTextMsgH\000\022\035\n\003hid\030\r \001(\0132\016"
+  ".CRemoteHIDMsgH\000B\006\n\004data\"8\n\024CRecordedInp"
+  "utStream\022 \n\007entries\030\001 \003(\0132\017.CRecordedInp"
+  "ut\"9\n\024CInputLatencyTestMsg\022\022\n\ninput_mark"
+  "\030\001 \002(\r\022\r\n\005color\030\002 \001(\r\"l\n\030CInputTouchFing"
+  "erDownMsg\022\022\n\ninput_mark\030\001 \001(\r\022\020\n\010fingeri"
+  "d\030\002 \001(\004\022\024\n\014x_normalized\030\003 \001(\002\022\024\n\014y_norma"
+  "lized\030\004 \001(\002\"n\n\032CInputTouchFingerMotionMs"
+  "g\022\022\n\ninput_mark\030\001 \001(\r\022\020\n\010fingerid\030\002 \001(\004\022"
+  "\024\n\014x_normalized\030\003 \001(\002\022\024\n\014y_normalized\030\004 "
+  "\001(\002\"j\n\026CInputTouchFingerUpMsg\022\022\n\ninput_m"
+  "ark\030\001 \001(\r\022\020\n\010fingerid\030\002 \001(\004\022\024\n\014x_normali"
+  "zed\030\003 \001(\002\022\024\n\014y_normalized\030\004 \001(\002\"n\n\024CInpu"
+  "tMouseMotionMsg\022\022\n\ninput_mark\030\001 \001(\r\022\024\n\014x"
+  "_normalized\030\002 \001(\002\022\024\n\014y_normalized\030\003 \001(\002\022"
+  "\n\n\002dx\030\004 \001(\005\022\n\n\002dy\030\005 \001(\005\"\201\001\n\023CInputMouseW"
+  "heelMsg\022\022\n\ninput_mark\030\001 \001(\r\022C\n\tdirection"
+  "\030\002 \002(\0162\033.EStreamMouseWheelDirection:\023ESt"
+  "reamMouseWheelUp\022\021\n\006amount\030\003 \001(\002:\0011\"e\n\022C"
+  "InputMouseDownMsg\022\022\n\ninput_mark\030\001 \001(\r\022;\n"
+  "\006button\030\002 \002(\0162\023.EStreamMouseButton:\026EStr"
+  "eamMouseButtonLeft\"c\n\020CInputMouseUpMsg\022\022"
+  "\n\ninput_mark\030\001 \001(\r\022;\n\006button\030\002 \002(\0162\023.ESt"
+  "reamMouseButton:\026EStreamMouseButtonLeft\""
+  "8\n\020CInputKeyDownMsg\022\022\n\ninput_mark\030\001 \001(\r\022"
+  "\020\n\010scancode\030\002 \002(\r\"6\n\016CInputKeyUpMsg\022\022\n\ni"
+  "nput_mark\030\001 \001(\r\022\020\n\010scancode\030\002 \002(\r\"6\n\rCIn"
+  "putTextMsg\022\022\n\ninput_mark\030\001 \001(\r\022\021\n\ttext_u"
+  "tf8\030\002 \002(\t\"\034\n\014CSetTitleMsg\022\014\n\004text\030\001 \001(\t\""
+  "3\n\022CSetCaptureSizeMsg\022\r\n\005width\030\001 \001(\005\022\016\n\006"
+  "height\030\002 \001(\005\";\n\013CSetIconMsg\022\r\n\005width\030\001 \001"
+  "(\005\022\016\n\006height\030\002 \001(\005\022\r\n\005image\030\003 \001(\014\"E\n\021CSe"
+  "tFlashStateMsg\022\r\n\005flags\030\001 \001(\r\022\r\n\005count\030\002"
+  " \001(\r\022\022\n\ntimeout_ms\030\003 \001(\r\"<\n\016CShowCursorM"
+  "sg\022\024\n\014x_normalized\030\001 \001(\002\022\024\n\014y_normalized"
+  "\030\002 \001(\002\"\020\n\016CHideCursorMsg\"\"\n\rCSetCursorMs"
+  "g\022\021\n\tcursor_id\030\001 \002(\004\"\'\n\022CGetCursorImageM"
+  "sg\022\021\n\tcursor_id\030\001 \002(\004\"s\n\022CSetCursorImage"
+  "Msg\022\021\n\tcursor_id\030\001 \002(\004\022\r\n\005width\030\002 \001(\005\022\016\n"
+  "\006height\030\003 \001(\005\022\r\n\005hot_x\030\004 \001(\005\022\r\n\005hot_y\030\005 "
+  "\001(\005\022\r\n\005image\030\006 \001(\014\"#\n\022CSetCursorScaleMsg"
+  "\022\r\n\005scale\030\001 \001(\002\"5\n\024CVideoDecoderInfoMsg\022"
+  "\014\n\004info\030\001 \001(\t\022\017\n\007threads\030\002 \001(\005\"$\n\024CVideo"
+  "EncoderInfoMsg\022\014\n\004info\030\001 \001(\t\"\013\n\tCPauseMs"
+  "g\"\014\n\nCResumeMsg\"\032\n\030CEnableHighResCapture"
+  "Msg\"\033\n\031CDisableHighResCaptureMsg\"\027\n\025CEna"
+  "bleNeptuneDataMsg\"\030\n\026CDisableNeptuneData"
+  "Msg\"\032\n\030CPauseControllerInputMsg\"\033\n\031CResu"
+  "meControllerInputMsg\"\031\n\027CToggleMagnifica"
+  "tionMsg\"\"\n\017CSetCapslockMsg\022\017\n\007pressed\030\001 "
+  "\001(\010\"\204\002\n\025CStreamingKeymapEntry\022\020\n\010scancod"
+  "e\030\001 \001(\005\022\026\n\016normal_keycode\030\002 \001(\005\022\025\n\rshift"
+  "_keycode\030\003 \001(\005\022\026\n\016capslockeycode\030\004 \001(\005\022\034"
+  "\n\024shift_capslockeycode\030\005 \001(\005\022\025\n\raltgr_ke"
+  "ycode\030\006 \001(\005\022\033\n\023altgr_shift_keycode\030\007 \001(\005"
+  "\022\034\n\024altgr_capslockeycode\030\010 \001(\005\022\"\n\032altgr_"
+  "shift_capslockeycode\030\t \001(\005\";\n\020CStreaming"
+  "Keymap\022\'\n\007entries\030\001 \003(\0132\026.CStreamingKeym"
+  "apEntry\"2\n\rCSetKeymapMsg\022!\n\006keymap\030\001 \001(\013"
+  "2\021.CStreamingKeymap\"\016\n\014CStopRequest\"\016\n\014C"
+  "QuitRequest\"%\n\020CDeleteCursorMsg\022\021\n\tcurso"
+  "r_id\030\001 \002(\004\"D\n\031CSetStreamingClientConfig\022"
+  "\'\n\006config\030\001 \002(\0132\027.CStreamingClientConfig"
+  "\"\035\n\nCSetQoSMsg\022\017\n\007use_qos\030\001 \002(\010\"x\n\026CSetT"
+  "argetFramerateMsg\022\021\n\tframerate\030\001 \002(\r\022\017\n\007"
+  "reasons\030\002 \001(\r\022\033\n\023framerate_numerator\030\003 \001"
+  "(\r\022\035\n\025framerate_denominator\030\004 \001(\r\"\'\n\024CSe"
+  "tTargetBitrateMsg\022\017\n\007bitrate\030\001 \002(\005\"%\n\022CO"
+  "verlayEnabledMsg\022\017\n\007enabled\030\001 \002(\010\"&\n\020CSe"
+  "tGammaRampMsg\022\022\n\ngamma_ramp\030\001 \001(\014\"|\n\017CSe"
+  "tActivityMsg\0227\n\010activity\030\001 \001(\0162\020.EStream"
+  "Activity:\023EStreamActivityIdle\022\r\n\005appid\030\002"
+  " \001(\r\022\016\n\006gameid\030\003 \001(\004\022\021\n\tgame_name\030\004 \001(\t\""
+  "\023\n\021CSystemSuspendMsg\"*\n\026CVirtualHereRequ"
+  "estMsg\022\020\n\010hostname\030\001 \001(\t\"5\n\024CVirtualHere"
+  "ReadyMsg\022\035\n\025licensed_device_count\030\001 \001(\r\""
+  "4\n\032CVirtualHereShareDeviceMsg\022\026\n\016device_"
+  "address\030\001 \001(\t\"\'\n\024CSetSpectatorModeMsg\022\017\n"
+  "\007enabled\030\001 \001(\010\"3\n\rCRemoteHIDMsg\022\014\n\004data\030"
+  "\001 \001(\014\022\024\n\014active_input\030\002 \001(\010\"I\n\025CTouchCon"
+  "figActiveMsg\022\r\n\005appid\030\001 \001(\r\022\020\n\010revision\030"
+  "\002 \001(\r\022\017\n\007creator\030\003 \001(\004\"\'\n\026CGetTouchConfi"
+  "gDataMsg\022\r\n\005appid\030\001 \001(\r\"h\n\026CSetTouchConf"
+  "igDataMsg\022\r\n\005appid\030\001 \001(\r\022\020\n\010revision\030\002 \001"
+  "(\r\022\014\n\004data\030\003 \001(\014\022\016\n\006layout\030\004 \001(\014\022\017\n\007crea"
+  "tor\030\005 \001(\004\":\n\031CSaveTouchConfigLayoutMsg\022\r"
+  "\n\005appid\030\001 \001(\r\022\016\n\006layout\030\004 \001(\014\"\?\n\030CTouchA"
+  "ctionSetActiveMsg\022\r\n\005appid\030\001 \001(\r\022\024\n\014acti"
+  "onset_id\030\002 \001(\005\"C\n\034CTouchActionSetLayerAd"
+  "dedMsg\022\r\n\005appid\030\001 \001(\r\022\024\n\014actionset_id\030\002 "
+  "\001(\005\"E\n\036CTouchActionSetLayerRemovedMsg\022\r\n"
+  "\005appid\030\001 \001(\r\022\024\n\014actionset_id\030\002 \001(\005\"3\n\024CG"
+  "etTouchIconDataMsg\022\r\n\005appid\030\001 \001(\r\022\014\n\004ico"
+  "n\030\002 \001(\t\"A\n\024CSetTouchIconDataMsg\022\r\n\005appid"
+  "\030\001 \001(\r\022\014\n\004icon\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\"\352\002\n!C"
+  "RemotePlayTogetherGroupUpdateMsg\022:\n\007play"
+  "ers\030\001 \003(\0132).CRemotePlayTogetherGroupUpda"
+  "teMsg.Player\022\024\n\014player_index\030\002 \001(\005\022\034\n\024mi"
+  "niprofile_location\030\003 \001(\t\022\021\n\tgame_name\030\004 "
+  "\001(\t\022\027\n\017avatar_location\030\005 \001(\t\032\250\001\n\006Player\022"
+  "\021\n\taccountid\030\001 \001(\r\022\017\n\007guestid\030\002 \001(\r\022\030\n\020k"
+  "eyboard_enabled\030\003 \001(\010\022\025\n\rmouse_enabled\030\004"
+  " \001(\010\022\032\n\022controller_enabled\030\005 \001(\010\022\030\n\020cont"
+  "roller_slots\030\006 \003(\r\022\023\n\013avatar_hash\030\007 \001(\014\""
+  "3\n\037CSetInputTemporarilyDisabledMsg\022\020\n\010di"
+  "sabled\030\001 \001(\010\"\'\n\026CSetQualityOverrideMsg\022\r"
+  "\n\005value\030\001 \001(\005\"\'\n\026CSetBitrateOverrideMsg\022"
+  "\r\n\005value\030\001 \001(\005\"\032\n\030CShowOnScreenKeyboardM"
+  "sg\"~\n#CControllerPersonalizationUpdateMs"
+  "g\022\027\n\017controller_path\030\001 \001(\t\022\027\n\017controller"
+  "_name\030\002 \001(\t\022%\n\035reverse_diamond_button_la"
+  "yout\030\003 \001(\010\",\n\022CVRConnectionReady\022\026\n\016conn"
+  "ect_params\030\001 \001(\t\"%\n\022CStreamDataLostMsg\022\017"
+  "\n\007packets\030\001 \003(\r\"d\n\014CAudioFormat\022/\n\006forma"
+  "t\030\001 \002(\0162\r.EAudioFormat:\020EAudioFormatNone"
+  "\022\021\n\tfrequency\030\002 \001(\r\022\020\n\010channels\030\003 \001(\r\"^\n"
+  "\014CVideoFormat\022/\n\006format\030\001 \002(\0162\r.EVideoFo"
+  "rmat:\020EVideoFormatNone\022\r\n\005width\030\002 \001(\r\022\016\n"
+  "\006height\030\003 \001(\r\"^\n\013CFrameEvent\022<\n\010event_id"
+  "\030\001 \002(\0162\022.EStreamFrameEvent:\026EStreamInput"
+  "EventStart\022\021\n\ttimestamp\030\002 \002(\r\"\313\002\n\013CFrame"
+  "Stats\022\020\n\010frame_id\030\001 \002(\r\022\022\n\ninput_mark\030\002 "
+  "\001(\r\022\034\n\006events\030\003 \003(\0132\014.CFrameEvent\022>\n\006res"
+  "ult\030\004 \002(\0162\023.EStreamFrameResult:\031EStreamF"
+  "rameResultPending\022\031\n\021frame_start_delta\030\005"
+  " \001(\002\022\033\n\023frame_display_delta\030\006 \001(\002\022\021\n\tpin"
+  "g_time\030\007 \001(\002\022\026\n\016server_bitrate\030\010 \001(\002\022\026\n\016"
+  "client_bitrate\030\t \001(\002\022\024\n\014linbandwidth\030\n \001"
+  "(\002\022\023\n\013packet_loss\030\013 \001(\002\022\022\n\nframe_size\030\014 "
+  "\001(\r\"\206\001\n\032CFrameStatAccumulatedValue\0228\n\tst"
+  "at_type\030\001 \002(\0162\026.EFrameAccumulatedStat:\rE"
+  "FrameStatFPS\022\r\n\005count\030\002 \002(\005\022\017\n\007average\030\003"
+  " \002(\002\022\016\n\006stddev\030\004 \001(\002\"\277\001\n\022CFrameStatsList"
+  "Msg\022;\n\tdata_type\030\001 \002(\0162\023.EStreamingDataT"
+  "ype:\023EStreamingAudioData\022\033\n\005stats\030\002 \003(\0132"
+  "\014.CFrameStats\0226\n\021accumulated_stats\030\003 \003(\013"
+  "2\033.CFrameStatAccumulatedValue\022\027\n\017latest_"
+  "frame_id\030\004 \002(\005\"\207\001\n\026CStreamingSessionStat"
+  "s\022\035\n\025frame_loss_percentage\030\001 \001(\002\022\035\n\025aver"
+  "age_networtime_ms\030\002 \001(\002\022\034\n\024stddev_networ"
+  "time_ms\030\003 \001(\002\022\021\n\ttest_data\030\004 \001(\t\"#\n\rCDeb"
+  "ugDumpMsg\022\022\n\nscreenshot\030\001 \001(\014\"(\n\007CLogMsg"
+  "\022\014\n\004type\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"N\n\rCLogU"
+  "ploadMsg\022/\n\004type\030\001 \001(\0162\r.ELogFileType:\022E"
+  "LogFileSystemBoot\022\014\n\004data\030\003 \001(\014\"\263\002\n\023CTra"
+  "nsportSignalMsg\0222\n\006webrtc\030\001 \001(\0132\".CTrans"
+  "portSignalMsg.WebRTCMessage\022\013\n\003sdr\030\002 \003(\014"
+  "\032\332\001\n\rWebRTCMessage\022\022\n\010greeting\030\001 \001(\010H\000\022\017"
+  "\n\005offer\030\002 \001(\tH\000\022\020\n\006answer\030\003 \001(\tH\000\022A\n\tcan"
+  "didate\030\004 \001(\0132,.CTransportSignalMsg.WebRT"
+  "CMessage.CandidateH\000\032H\n\tCandidate\022\017\n\007sdp"
+  "_mid\030\001 \001(\t\022\027\n\017sdp_mline_index\030\002 \001(\005\022\021\n\tc"
+  "andidate\030\003 \001(\tB\005\n\003msg\"\334\006\n\024CControllerCon"
+  "figMsg\022Z\n\004type\030\001 \002(\0162\033.EStreamController"
+  "ConfigMsg:/EStreamControllerConfigMsg_Re"
+  "questConfigsForApp\022\026\n\016controllerPath\030\002 \001"
+  "(\t\022\r\n\005appid\030\003 \001(\r\022X\n\027personalizationResp"
+  "onse\030\004 \001(\01327.CControllerConfigMsg.Contro"
+  "llerPersonalizationResponse\022F\n\016configRes"
+  "ponse\030\006 \003(\0132..CControllerConfigMsg.Contr"
+  "ollerConfigResponse\022N\n\025activeConfigChang"
+  "eMsg\030\007 \001(\0132/.CControllerConfigMsg.Contro"
+  "llerActiveConfigMsg\032\231\001\n\030ControllerConfig"
+  "Response\022\r\n\005appid\030\001 \001(\r\022\021\n\tconfigURL\030\002 \001"
+  "(\t\022\026\n\016controllerType\030\003 \001(\r\022\026\n\016controller"
+  "Data\030\004 \001(\t\022\026\n\016selectionOrder\030\005 \001(\r\022\023\n\013ac"
+  "tionBlock\030\006 \001(\010\032@\n!ControllerPersonaliza"
+  "tionResponse\022\033\n\023personalizationData\030\001 \001("
+  "\t\032\201\001\n$ControllerActiveConfigChangeRespon"
+  "se\022\021\n\tconfigURL\030\002 \001(\t\022\026\n\016controllerType\030"
+  "\003 \001(\r\022\026\n\016controllerData\030\004 \001(\t\022\026\n\016selecti"
+  "onOrder\030\005 \001(\r\032m\n\031ControllerActiveConfigM"
+  "sg\022\r\n\005appid\030\001 \001(\r\022\021\n\tconfigURL\030\002 \001(\t\022\026\n\016"
+  "controllerType\030\003 \001(\r\022\026\n\016controllerData\030\004"
+  " \001(\t*\251\001\n\016EStreamChannel\022\"\n\025EStreamChanne"
+  "lInvalid\020\377\377\377\377\377\377\377\377\377\001\022\033\n\027EStreamChannelDis"
+  "covery\020\000\022\031\n\025EStreamChannelControl\020\001\022\027\n\023E"
+  "StreamChannelStats\020\002\022\"\n\036EStreamChannelDa"
+  "taChannelStart\020\003*\\\n\027EStreamDiscoveryMess"
+  "age\022\037\n\033EStreamDiscoveryPingRequest\020\001\022 \n\034"
+  "EStreamDiscoveryPingResponse\020\002*\342\035\n\025EStre"
+  "amControlMessage\022\'\n#EStreamControlAuthen"
+  "ticationRequest\020\001\022(\n$EStreamControlAuthe"
+  "nticationResponse\020\002\022!\n\035EStreamControlNeg"
+  "otiationInit\020\003\022&\n\"EStreamControlNegotiat"
+  "ionSetConfig\020\004\022%\n!EStreamControlNegotiat"
+  "ionComplete\020\005\022!\n\035EStreamControlClientHan"
+  "dshake\020\006\022!\n\035EStreamControlServerHandshak"
+  "e\020\007\022\"\n\036EStreamControlStartNetworkTest\020\010\022"
+  "\033\n\027EStreamControlKeepAlive\020\t\022%\n!EStreamC"
+  "ontrol_LAST_SETUP_MESSAGE\020\017\022 \n\034EStreamCo"
+  "ntrolStartAudioData\0202\022\037\n\033EStreamControlS"
+  "topAudioData\0203\022 \n\034EStreamControlStartVid"
+  "eoData\0204\022\037\n\033EStreamControlStopVideoData\020"
+  "5\022\"\n\036EStreamControlInputMouseMotion\0206\022!\n"
+  "\035EStreamControlInputMouseWheel\0207\022 \n\034EStr"
+  "eamControlInputMouseDown\0208\022\036\n\032EStreamCon"
+  "trolInputMouseUp\0209\022\036\n\032EStreamControlInpu"
+  "tKeyDown\020:\022\034\n\030EStreamControlInputKeyUp\020;"
+  "\022/\n+EStreamControlInputGamepadAttached_O"
+  "BSOLETE\020<\022,\n(EStreamControlInputGamepadE"
+  "vent_OBSOLETE\020=\022/\n+EStreamControlInputGa"
+  "mepadDetached_OBSOLETE\020>\022\034\n\030EStreamContr"
+  "olShowCursor\020\?\022\034\n\030EStreamControlHideCurs"
+  "or\020@\022\033\n\027EStreamControlSetCursor\020A\022 \n\034ESt"
+  "reamControlGetCursorImage\020B\022 \n\034EStreamCo"
+  "ntrolSetCursorImage\020C\022\036\n\032EStreamControlD"
+  "eleteCursor\020D\022$\n EStreamControlSetTarget"
+  "Framerate\020E\022\"\n\036EStreamControlInputLatenc"
+  "yTest\020F\022(\n$EStreamControlGamepadRumble_O"
+  "BSOLETE\020G\022 \n\034EStreamControlOverlayEnable"
+  "d\020J\0222\n.EStreamControlInputControllerAtta"
+  "ched_OBSOLETE\020K\022/\n+EStreamControlInputCo"
+  "ntrollerState_OBSOLETE\020L\022-\n)EStreamContr"
+  "olTriggerHapticPulse_OBSOLETE\020M\0222\n.EStre"
+  "amControlInputControllerDetached_OBSOLET"
+  "E\020N\022\"\n\036EStreamControlVideoDecoderInfo\020P\022"
+  "\032\n\026EStreamControlSetTitle\020Q\022\031\n\025EStreamCo"
+  "ntrolSetIcon\020R\022\035\n\031EStreamControlQuitRequ"
+  "est\020S\022\030\n\024EStreamControlSetQoS\020W\022:\n6EStre"
+  "amControlInputControllerWirelessPresence"
+  "_OBSOLETE\020X\022\036\n\032EStreamControlSetGammaRam"
+  "p\020Y\022\"\n\036EStreamControlVideoEncoderInfo\020Z\022"
+  "2\n.EStreamControlInputControllerStateHID"
+  "_OBSOLETE\020]\022\"\n\036EStreamControlSetTargetBi"
+  "trate\020^\0226\n2EStreamControlSetControllerPa"
+  "iringEnabled_OBSOLETE\020_\0225\n1EStreamContro"
+  "lSetControllerPairingResult_OBSOLETE\020`\0226"
+  "\n2EStreamControlTriggerControllerDisconn"
+  "ect_OBSOLETE\020a\022\035\n\031EStreamControlSetActiv"
+  "ity\020b\022*\n&EStreamControlSetStreamingClien"
+  "tConfig\020c\022\037\n\033EStreamControlSystemSuspend"
+  "\020d\0220\n,EStreamControlSetControllerSetting"
+  "s_OBSOLETE\020e\022$\n EStreamControlVirtualHer"
+  "eRequest\020f\022\"\n\036EStreamControlVirtualHereR"
+  "eady\020g\022(\n$EStreamControlVirtualHereShare"
+  "Device\020h\022\"\n\036EStreamControlSetSpectatorMo"
+  "de\020i\022\033\n\027EStreamControlRemoteHID\020j\022%\n!ESt"
+  "reamControlStartMicrophoneData\020k\022$\n EStr"
+  "eamControlStopMicrophoneData\020l\022\033\n\027EStrea"
+  "mControlInputText\020m\022#\n\037EStreamControlTou"
+  "chConfigActive\020n\022$\n EStreamControlGetTou"
+  "chConfigData\020o\022$\n EStreamControlSetTouch"
+  "ConfigData\020p\022\'\n#EStreamControlSaveTouchC"
+  "onfigLayout\020q\022&\n\"EStreamControlTouchActi"
+  "onSetActive\020r\022\"\n\036EStreamControlGetTouchI"
+  "conData\020s\022\"\n\036EStreamControlSetTouchIconD"
+  "ata\020t\022&\n\"EStreamControlInputTouchFingerD"
+  "own\020u\022(\n$EStreamControlInputTouchFingerM"
+  "otion\020v\022$\n EStreamControlInputTouchFinge"
+  "rUp\020w\022 \n\034EStreamControlSetCaptureSize\020x\022"
+  "\037\n\033EStreamControlSetFlashState\020y\022\027\n\023EStr"
+  "eamControlPause\020z\022\030\n\024EStreamControlResum"
+  "e\020{\022&\n\"EStreamControlEnableHighResCaptur"
+  "e\020|\022\'\n#EStreamControlDisableHighResCaptu"
+  "re\020}\022%\n!EStreamControlToggleMagnificatio"
+  "n\020~\022\035\n\031EStreamControlSetCapslock\020\177\022\034\n\027ES"
+  "treamControlSetKeymap\020\200\001\022\036\n\031EStreamContr"
+  "olStopRequest\020\201\001\022+\n&EStreamControlTouchA"
+  "ctionSetLayerAdded\020\202\001\022-\n(EStreamControlT"
+  "ouchActionSetLayerRemoved\020\203\001\0220\n+EStreamC"
+  "ontrolRemotePlayTogetherGroupUpdate\020\204\001\022."
+  "\n)EStreamControlSetInputTemporarilyDisab"
+  "led\020\205\001\022%\n EStreamControlSetQualityOverri"
+  "de\020\206\001\022%\n EStreamControlSetBitrateOverrid"
+  "e\020\207\001\022\'\n\"EStreamControlShowOnScreenKeyboa"
+  "rd\020\210\001\022&\n!EStreamControlControllerConfigM"
+  "sg\020\211\001\0222\n-EStreamControlControllerPersona"
+  "lizationUpdate\020\212\001\022$\n\037EStreamControlEnabl"
+  "eNeptuneData\020\213\001\022%\n EStreamControlDisable"
+  "NeptuneData\020\214\001\022#\n\036EStreamControlStartNep"
+  "tuneData\020\215\001\022\"\n\035EStreamControlStopNeptune"
+  "Data\020\216\001\022\'\n\"EStreamControlPauseController"
+  "Input\020\217\001\022(\n#EStreamControlResumeControll"
+  "erInput\020\220\001\022$\n\037EStreamControlVRConnection"
+  "Ready\020\221\001\022!\n\034EStreamControlSetCursorScale"
+  "\020\222\001*C\n\016EStreamVersion\022\026\n\022EStreamVersionN"
+  "one\020\000\022\031\n\025EStreamVersionCurrent\020\001*\264\001\n\021ESt"
+  "reamAudioCodec\022\031\n\025EStreamAudioCodecNone\020"
+  "\000\022\030\n\024EStreamAudioCodecRaw\020\001\022\033\n\027EStreamAu"
+  "dioCodecVorbis\020\002\022\031\n\025EStreamAudioCodecOpu"
+  "s\020\003\022\030\n\024EStreamAudioCodecMP3\020\004\022\030\n\024EStream"
+  "AudioCodecAAC\020\005*\204\002\n\021EStreamVideoCodec\022\031\n"
+  "\025EStreamVideoCodecNone\020\000\022\030\n\024EStreamVideo"
+  "CodecRaw\020\001\022\030\n\024EStreamVideoCodecVP8\020\002\022\030\n\024"
+  "EStreamVideoCodecVP9\020\003\022\031\n\025EStreamVideoCo"
+  "decH264\020\004\022\031\n\025EStreamVideoCodecHEVC\020\005\022\032\n\026"
+  "EStreamVideoCodecORBX1\020\006\022\032\n\026EStreamVideo"
+  "CodecORBX2\020\007\022\030\n\024EStreamVideoCodecAV1\020\010*\221"
+  "\001\n\030EStreamQualityPreference\022$\n\027EStreamQu"
+  "alityAutomatic\020\377\377\377\377\377\377\377\377\377\001\022\026\n\022EStreamQual"
+  "ityFast\020\001\022\032\n\026EStreamQualityBalanced\020\002\022\033\n"
+  "\027EStreamQualityBeautiful\020\003*T\n\016EStreamBit"
+  "rate\022%\n\030EStreamBitrateAutodetect\020\377\377\377\377\377\377\377"
+  "\377\377\001\022\033\n\027EStreamBitrateUnlimited\020\000*\315\001\n\021ESt"
+  "reamColorspace\022\035\n\031EStreamColorspace_Unkn"
+  "own\020\000\022\033\n\027EStreamColorspace_BT601\020\001\022 \n\034ES"
+  "treamColorspace_BT601_Full\020\002\022\033\n\027EStreamC"
+  "olorspace_BT709\020\003\022 \n\034EStreamColorspace_B"
+  "T709_Full\020\004\022\033\n\027EStreamColorspace_HDR10\020\005"
+  "*\240\001\n\017EStreamP2PScope\022\034\n\030EStreamP2PScopeA"
+  "utomatic\020\000\022\033\n\027EStreamP2PScopeDisabled\020\001\022"
+  "\031\n\025EStreamP2PScopeOnlyMe\020\002\022\032\n\026EStreamP2P"
+  "ScopeFriends\020\003\022\033\n\027EStreamP2PScopeEveryon"
+  "e\020\004*a\n\036EStreamHostPlayAudioPreference\022\037\n"
+  "\033EStreamHostPlayAudioDefault\020\000\022\036\n\032EStrea"
+  "mHostPlayAudioAlways\020\001*\177\n\022EStreamingData"
+  "Type\022\027\n\023EStreamingAudioData\020\000\022\027\n\023EStream"
+  "ingVideoData\020\001\022\034\n\030EStreamingMicrophoneDa"
+  "ta\020\002\022\031\n\025EStreamingNeptuneData\020\003*\277\001\n\022EStr"
+  "eamMouseButton\022\032\n\026EStreamMouseButtonLeft"
+  "\020\001\022\033\n\027EStreamMouseButtonRight\020\002\022\034\n\030EStre"
+  "amMouseButtonMiddle\020\020\022\030\n\024EStreamMouseBut"
+  "tonX1\020 \022\030\n\024EStreamMouseButtonX2\020@\022\036\n\031ESt"
+  "reamMouseButtonUnknown\020\200 *\220\001\n\032EStreamMou"
+  "seWheelDirection\022\027\n\023EStreamMouseWheelUp\020"
+  "x\022\"\n\025EStreamMouseWheelDown\020\210\377\377\377\377\377\377\377\377\001\022\031\n"
+  "\025EStreamMouseWheelLeft\020\003\022\032\n\026EStreamMouse"
+  "WheelRight\020\004*\373\001\n\027EStreamFramerateLimiter"
+  "\022\037\n\033EStreamFramerateSlowCapture\020\001\022\037\n\033ESt"
+  "reamFramerateSlowConvert\020\002\022\036\n\032EStreamFra"
+  "merateSlowEncode\020\004\022\037\n\033EStreamFramerateSl"
+  "owNetwork\020\010\022\036\n\032EStreamFramerateSlowDecod"
+  "e\020\020\022\034\n\030EStreamFramerateSlowGame\020 \022\037\n\033ESt"
+  "reamFramerateSlowDisplay\020@*\233\001\n\017EStreamAc"
+  "tivity\022\027\n\023EStreamActivityIdle\020\001\022\027\n\023EStre"
+  "amActivityGame\020\002\022\032\n\026EStreamActivityDeskt"
+  "op\020\003\022 \n\034EStreamActivitySecureDesktop\020\004\022\030"
+  "\n\024EStreamActivityMusic\020\005*@\n\022EStreamDataM"
+  "essage\022\025\n\021EStreamDataPacket\020\001\022\023\n\017EStream"
+  "DataLost\020\002*^\n\014EAudioFormat\022\024\n\020EAudioForm"
+  "atNone\020\000\022!\n\035EAudioFormat16BitLittleEndia"
+  "n\020\001\022\025\n\021EAudioFormatFloat\020\002*Q\n\014EVideoForm"
+  "at\022\024\n\020EVideoFormatNone\020\000\022\024\n\020EVideoFormat"
+  "YV12\020\001\022\025\n\021EVideoFormatAccel\020\002*\313\001\n\023EStrea"
+  "mStatsMessage\022\033\n\027EStreamStatsFrameEvents"
+  "\020\001\022\031\n\025EStreamStatsDebugDump\020\002\022\032\n\026EStream"
+  "StatsLogMessage\020\003\022\036\n\032EStreamStatsLogUplo"
+  "adBegin\020\004\022\035\n\031EStreamStatsLogUploadData\020\005"
+  "\022!\n\035EStreamStatsLogUploadComplete\020\006*\337\004\n\021"
+  "EStreamFrameEvent\022\032\n\026EStreamInputEventSt"
+  "art\020\000\022\031\n\025EStreamInputEventSend\020\001\022\031\n\025EStr"
+  "eamInputEventRecv\020\002\022\033\n\027EStreamInputEvent"
+  "Queued\020\003\022\034\n\030EStreamInputEventHandled\020\004\022\032"
+  "\n\026EStreamFrameEventStart\020\005\022!\n\035EStreamFra"
+  "meEventCaptureBegin\020\006\022\037\n\033EStreamFrameEve"
+  "ntCaptureEnd\020\007\022!\n\035EStreamFrameEventConve"
+  "rtBegin\020\010\022\037\n\033EStreamFrameEventConvertEnd"
+  "\020\t\022 \n\034EStreamFrameEventEncodeBegin\020\n\022\036\n\032"
+  "EStreamFrameEventEncodeEnd\020\013\022\031\n\025EStreamF"
+  "rameEventSend\020\014\022\031\n\025EStreamFrameEventRecv"
+  "\020\r\022 \n\034EStreamFrameEventDecodeBegin\020\016\022\036\n\032"
+  "EStreamFrameEventDecodeEnd\020\017\022 \n\034EStreamF"
+  "rameEventUploadBegin\020\020\022\036\n\032EStreamFrameEv"
+  "entUploadEnd\020\021\022\035\n\031EStreamFrameEventCompl"
+  "ete\020\022*\304\002\n\022EStreamFrameResult\022\035\n\031EStreamF"
+  "rameResultPending\020\000\022\037\n\033EStreamFrameResul"
+  "tDisplayed\020\001\022(\n$EStreamFrameResultDroppe"
+  "dNetworkSlow\020\002\022(\n$EStreamFrameResultDrop"
+  "pedNetworkLost\020\003\022\'\n#EStreamFrameResultDr"
+  "oppedDecodeSlow\020\004\022*\n&EStreamFrameResultD"
+  "roppedDecodeCorrupt\020\005\022!\n\035EStreamFrameRes"
+  "ultDroppedLate\020\006\022\"\n\036EStreamFrameResultDr"
+  "oppedReset\020\007*\374\004\n\025EFrameAccumulatedStat\022\021"
+  "\n\rEFrameStatFPS\020\000\022\037\n\033EFrameStatCaptureDu"
+  "rationMS\020\001\022\037\n\033EFrameStatConvertDurationM"
+  "S\020\002\022\036\n\032EFrameStatEncodeDurationMS\020\003\022\035\n\031E"
+  "FrameStatSteamDurationMS\020\004\022\036\n\032EFrameStat"
+  "ServerDurationMS\020\005\022\037\n\033EFrameStatNetworkD"
+  "urationMS\020\006\022\036\n\032EFrameStatDecodeDurationM"
+  "S\020\007\022\037\n\033EFrameStatDisplayDurationMS\020\010\022\036\n\032"
+  "EFrameStatClientDurationMS\020\t\022\035\n\031EFrameSt"
+  "atFrameDurationMS\020\n\022\034\n\030EFrameStatInputLa"
+  "tencyMS\020\013\022\033\n\027EFrameStatGameLatencyMS\020\014\022 "
+  "\n\034EFrameStatRoundTripLatencyMS\020\r\022\030\n\024EFra"
+  "meStatPingTimeMS\020\016\022%\n!EFrameStatServerBi"
+  "trateKbitPerSec\020\017\022%\n!EFrameStatClientBit"
+  "rateKbitPerSec\020\020\022%\n!EFrameStatLinkBandwi"
+  "dthKbitPerSec\020\021\022\"\n\036EFrameStatPacketLossP"
+  "ercentage\020\022*X\n\014ELogFileType\022\026\n\022ELogFileS"
+  "ystemBoot\020\000\022\027\n\023ELogFileSystemReset\020\001\022\027\n\023"
+  "ELogFileSystemDebug\020\002*\237\002\n\032EStreamControl"
+  "lerConfigMsg\0223\n/EStreamControllerConfigM"
+  "sg_RequestConfigsForApp\020\000\022-\n)EStreamCont"
+  "rollerConfigMsg_ConfigResponse\020\001\0226\n2EStr"
+  "eamControllerConfigMsg_PersonalizationRe"
+  "sponse\020\002\0221\n-EStreamControllerConfigMsg_A"
+  "ctiveConfigChange\020\003\0222\n.EStreamController"
+  "ConfigMsg_RequestActiveConfig\020\004B\037H\001\200\001\000\252\002"
+  "\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fremoteplay_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fremoteplay_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fremoteplay_2eproto = {
-  false, false, 20412, descriptor_table_protodef_steammessages_5fremoteplay_2eproto, "steammessages_remoteplay.proto", 
+  false, false, 20584, descriptor_table_protodef_steammessages_5fremoteplay_2eproto, "steammessages_remoteplay.proto", 
   &descriptor_table_steammessages_5fremoteplay_2eproto_once, descriptor_table_steammessages_5fremoteplay_2eproto_deps, 1, 115,
   schemas, file_default_instances, TableStruct_steammessages_5fremoteplay_2eproto::offsets,
   file_level_metadata_steammessages_5fremoteplay_2eproto, file_level_enum_descriptors_steammessages_5fremoteplay_2eproto, file_level_service_descriptors_steammessages_5fremoteplay_2eproto,
@@ -3774,6 +3787,7 @@ bool EStreamVideoCodec_IsValid(int value) {
     case 5:
     case 6:
     case 7:
+    case 8:
       return true;
     default:
       return false;
@@ -7188,7 +7202,7 @@ class CStreamingClientCaps::_Internal {
   static void set_has_maximum_burst_bitrate_kbps(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_supports_video_hevc(HasBits* has_bits) {
+  static void set_has_supports_video_hevc_obsolete(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_disable_steam_store(HasBits* has_bits) {
@@ -7216,7 +7230,9 @@ class CStreamingClientCaps::_Internal {
 
 CStreamingClientCaps::CStreamingClientCaps(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  supported_colorspaces_(arena) {
+  supported_colorspaces_(arena),
+  supported_audio_codecs_(arena),
+  supported_video_codecs_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CStreamingClientCaps)
@@ -7224,7 +7240,9 @@ CStreamingClientCaps::CStreamingClientCaps(::PROTOBUF_NAMESPACE_ID::Arena* arena
 CStreamingClientCaps::CStreamingClientCaps(const CStreamingClientCaps& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
-      supported_colorspaces_(from.supported_colorspaces_) {
+      supported_colorspaces_(from.supported_colorspaces_),
+      supported_audio_codecs_(from.supported_audio_codecs_),
+      supported_video_codecs_(from.supported_video_codecs_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   system_info_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_system_info()) {
@@ -7273,6 +7291,8 @@ void CStreamingClientCaps::Clear() {
   (void) cached_has_bits;
 
   supported_colorspaces_.Clear();
+  supported_audio_codecs_.Clear();
+  supported_video_codecs_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     system_info_.ClearNonDefaultToEmpty();
@@ -7334,11 +7354,11 @@ const char* CStreamingClientCaps::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool supports_video_hevc = 5;
+      // optional bool supports_video_hevc_OBSOLETE = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          _Internal::set_has_supports_video_hevc(&has_bits);
-          supports_video_hevc_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _Internal::set_has_supports_video_hevc_obsolete(&has_bits);
+          supports_video_hevc_obsolete_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -7418,6 +7438,46 @@ const char* CStreamingClientCaps::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // repeated .EStreamAudioCodec supported_audio_codecs = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+            CHK_(ptr);
+            if (PROTOBUF_PREDICT_TRUE(::EStreamAudioCodec_IsValid(val))) {
+              _internal_add_supported_audio_codecs(static_cast<::EStreamAudioCodec>(val));
+            } else {
+              ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(14, val, mutable_unknown_fields());
+            }
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<112>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(_internal_mutable_supported_audio_codecs(), ptr, ctx, ::EStreamAudioCodec_IsValid, &_internal_metadata_, 14);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .EStreamVideoCodec supported_video_codecs = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+            CHK_(ptr);
+            if (PROTOBUF_PREDICT_TRUE(::EStreamVideoCodec_IsValid(val))) {
+              _internal_add_supported_video_codecs(static_cast<::EStreamVideoCodec>(val));
+            } else {
+              ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(15, val, mutable_unknown_fields());
+            }
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<120>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(_internal_mutable_supported_video_codecs(), ptr, ctx, ::EStreamVideoCodec_IsValid, &_internal_metadata_, 15);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -7476,10 +7536,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_maximum_burst_bitrate_kbps(), target);
   }
 
-  // optional bool supports_video_hevc = 5;
+  // optional bool supports_video_hevc_OBSOLETE = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_supports_video_hevc(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_supports_video_hevc_obsolete(), target);
   }
 
   // optional bool disable_steam_store = 6;
@@ -7531,6 +7591,20 @@ failure:
         13, this->_internal_supported_colorspaces(i), target);
   }
 
+  // repeated .EStreamAudioCodec supported_audio_codecs = 14;
+  for (int i = 0, n = this->_internal_supported_audio_codecs_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+        14, this->_internal_supported_audio_codecs(i), target);
+  }
+
+  // repeated .EStreamVideoCodec supported_video_codecs = 15;
+  for (int i = 0, n = this->_internal_supported_video_codecs_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+        15, this->_internal_supported_video_codecs(i), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -7553,6 +7627,26 @@ size_t CStreamingClientCaps::ByteSizeLong() const {
     unsigned int count = static_cast<unsigned int>(this->_internal_supported_colorspaces_size());for (unsigned int i = 0; i < count; i++) {
       data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
         this->_internal_supported_colorspaces(static_cast<int>(i)));
+    }
+    total_size += (1UL * count) + data_size;
+  }
+
+  // repeated .EStreamAudioCodec supported_audio_codecs = 14;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_supported_audio_codecs_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
+        this->_internal_supported_audio_codecs(static_cast<int>(i)));
+    }
+    total_size += (1UL * count) + data_size;
+  }
+
+  // repeated .EStreamVideoCodec supported_video_codecs = 15;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_supported_video_codecs_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
+        this->_internal_supported_video_codecs(static_cast<int>(i)));
     }
     total_size += (1UL * count) + data_size;
   }
@@ -7585,7 +7679,7 @@ size_t CStreamingClientCaps::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional bool supports_video_hevc = 5;
+    // optional bool supports_video_hevc_OBSOLETE = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
@@ -7662,6 +7756,8 @@ void CStreamingClientCaps::MergeFrom(const CStreamingClientCaps& from) {
   (void) cached_has_bits;
 
   supported_colorspaces_.MergeFrom(from.supported_colorspaces_);
+  supported_audio_codecs_.MergeFrom(from.supported_audio_codecs_);
+  supported_video_codecs_.MergeFrom(from.supported_video_codecs_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -7677,7 +7773,7 @@ void CStreamingClientCaps::MergeFrom(const CStreamingClientCaps& from) {
       system_can_suspend_ = from.system_can_suspend_;
     }
     if (cached_has_bits & 0x00000010u) {
-      supports_video_hevc_ = from.supports_video_hevc_;
+      supports_video_hevc_obsolete_ = from.supports_video_hevc_obsolete_;
     }
     if (cached_has_bits & 0x00000020u) {
       disable_steam_store_ = from.disable_steam_store_;
@@ -7730,6 +7826,8 @@ void CStreamingClientCaps::InternalSwap(CStreamingClientCaps* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   supported_colorspaces_.InternalSwap(&other->supported_colorspaces_);
+  supported_audio_codecs_.InternalSwap(&other->supported_audio_codecs_);
+  supported_video_codecs_.InternalSwap(&other->supported_video_codecs_);
   system_info_.Swap(&other->system_info_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CStreamingClientCaps, form_factor_)
@@ -7750,7 +7848,7 @@ class CStreamingClientConfig::_Internal {
  public:
   using HasBits = decltype(std::declval<CStreamingClientConfig>()._has_bits_);
   static void set_has_quality(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
+    (*has_bits)[0] |= 131072u;
   }
   static void set_has_desired_resolution_x(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
@@ -7765,31 +7863,31 @@ class CStreamingClientConfig::_Internal {
     (*has_bits)[0] |= 128u;
   }
   static void set_has_desired_bitrate_kbps(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_enable_hardware_decoding(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 524288u;
   }
   static void set_has_enable_performance_overlay(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
   }
   static void set_has_enable_video_streaming(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
-  }
-  static void set_has_enable_audio_streaming(HasBits* has_bits) {
     (*has_bits)[0] |= 1048576u;
   }
-  static void set_has_enable_input_streaming(HasBits* has_bits) {
+  static void set_has_enable_audio_streaming(HasBits* has_bits) {
     (*has_bits)[0] |= 2097152u;
   }
-  static void set_has_audio_channels(HasBits* has_bits) {
+  static void set_has_enable_input_streaming(HasBits* has_bits) {
     (*has_bits)[0] |= 4194304u;
+  }
+  static void set_has_audio_channels(HasBits* has_bits) {
+    (*has_bits)[0] |= 8388608u;
   }
   static void set_has_enable_video_hevc(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
   static void set_has_enable_performance_icons(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
+    (*has_bits)[0] |= 65536u;
   }
   static void set_has_enable_microphone_streaming(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
@@ -7820,6 +7918,9 @@ class CStreamingClientConfig::_Internal {
   }
   static void set_has_enable_unreliable_fec(HasBits* has_bits) {
     (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_enable_video_av1(HasBits* has_bits) {
+    (*has_bits)[0] |= 32768u;
   }
 };
 
@@ -7877,8 +7978,8 @@ void CStreamingClientConfig::SharedCtor() {
 controller_overlay_hotkey_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&display_limit_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&enable_unreliable_fec_) -
-    reinterpret_cast<char*>(&display_limit_)) + sizeof(enable_unreliable_fec_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&enable_video_av1_) -
+    reinterpret_cast<char*>(&display_limit_)) + sizeof(enable_video_av1_));
 enable_performance_icons_ = true;
 quality_ = 2;
 desired_bitrate_kbps_ = -1;
@@ -7945,11 +8046,11 @@ void CStreamingClientConfig::Clear() {
   }
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&enable_performance_overlay_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&enable_unreliable_fec_) -
-        reinterpret_cast<char*>(&enable_performance_overlay_)) + sizeof(enable_unreliable_fec_));
-    enable_performance_icons_ = true;
+        reinterpret_cast<char*>(&enable_video_av1_) -
+        reinterpret_cast<char*>(&enable_performance_overlay_)) + sizeof(enable_video_av1_));
   }
-  if (cached_has_bits & 0x007f0000u) {
+  if (cached_has_bits & 0x00ff0000u) {
+    enable_performance_icons_ = true;
     quality_ = 2;
     desired_bitrate_kbps_ = -1;
     enable_hardware_decoding_ = true;
@@ -8174,6 +8275,14 @@ const char* CStreamingClientConfig::_InternalParse(const char* ptr, ::PROTOBUF_N
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool enable_video_av1 = 26 [default = false];
+      case 26:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 208)) {
+          _Internal::set_has_enable_video_av1(&has_bits);
+          enable_video_av1_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -8205,7 +8314,7 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional .EStreamQualityPreference quality = 1 [default = EStreamQualityBalanced];
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_quality(), target);
@@ -8236,13 +8345,13 @@ failure:
   }
 
   // optional int32 desired_bitrate_kbps = 6 [default = -1];
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_desired_bitrate_kbps(), target);
   }
 
   // optional bool enable_hardware_decoding = 7 [default = true];
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_enable_hardware_decoding(), target);
   }
@@ -8254,25 +8363,25 @@ failure:
   }
 
   // optional bool enable_video_streaming = 9 [default = true];
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_enable_video_streaming(), target);
   }
 
   // optional bool enable_audio_streaming = 10 [default = true];
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_enable_audio_streaming(), target);
   }
 
   // optional bool enable_input_streaming = 11 [default = true];
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_enable_input_streaming(), target);
   }
 
   // optional int32 audio_channels = 12 [default = 2];
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(12, this->_internal_audio_channels(), target);
   }
@@ -8284,7 +8393,7 @@ failure:
   }
 
   // optional bool enable_performance_icons = 14 [default = true];
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_enable_performance_icons(), target);
   }
@@ -8360,6 +8469,12 @@ failure:
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(25, this->_internal_enable_unreliable_fec(), target);
+  }
+
+  // optional bool enable_video_av1 = 26 [default = false];
+  if (cached_has_bits & 0x00008000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(26, this->_internal_enable_video_av1(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -8481,48 +8596,53 @@ size_t CStreamingClientConfig::ByteSizeLong() const {
       total_size += 2 + 1;
     }
 
-    // optional bool enable_performance_icons = 14 [default = true];
+    // optional bool enable_video_av1 = 26 [default = false];
     if (cached_has_bits & 0x00008000u) {
-      total_size += 1 + 1;
+      total_size += 2 + 1;
     }
 
   }
-  if (cached_has_bits & 0x007f0000u) {
-    // optional .EStreamQualityPreference quality = 1 [default = EStreamQualityBalanced];
+  if (cached_has_bits & 0x00ff0000u) {
+    // optional bool enable_performance_icons = 14 [default = true];
     if (cached_has_bits & 0x00010000u) {
+      total_size += 1 + 1;
+    }
+
+    // optional .EStreamQualityPreference quality = 1 [default = EStreamQualityBalanced];
+    if (cached_has_bits & 0x00020000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_quality());
     }
 
     // optional int32 desired_bitrate_kbps = 6 [default = -1];
-    if (cached_has_bits & 0x00020000u) {
+    if (cached_has_bits & 0x00040000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_desired_bitrate_kbps());
     }
 
     // optional bool enable_hardware_decoding = 7 [default = true];
-    if (cached_has_bits & 0x00040000u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool enable_video_streaming = 9 [default = true];
     if (cached_has_bits & 0x00080000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool enable_audio_streaming = 10 [default = true];
+    // optional bool enable_video_streaming = 9 [default = true];
     if (cached_has_bits & 0x00100000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool enable_input_streaming = 11 [default = true];
+    // optional bool enable_audio_streaming = 10 [default = true];
     if (cached_has_bits & 0x00200000u) {
       total_size += 1 + 1;
     }
 
-    // optional int32 audio_channels = 12 [default = 2];
+    // optional bool enable_input_streaming = 11 [default = true];
     if (cached_has_bits & 0x00400000u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 audio_channels = 12 [default = 2];
+    if (cached_has_bits & 0x00800000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_audio_channels());
@@ -8612,30 +8732,33 @@ void CStreamingClientConfig::MergeFrom(const CStreamingClientConfig& from) {
       enable_unreliable_fec_ = from.enable_unreliable_fec_;
     }
     if (cached_has_bits & 0x00008000u) {
-      enable_performance_icons_ = from.enable_performance_icons_;
+      enable_video_av1_ = from.enable_video_av1_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x007f0000u) {
+  if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      quality_ = from.quality_;
+      enable_performance_icons_ = from.enable_performance_icons_;
     }
     if (cached_has_bits & 0x00020000u) {
-      desired_bitrate_kbps_ = from.desired_bitrate_kbps_;
+      quality_ = from.quality_;
     }
     if (cached_has_bits & 0x00040000u) {
-      enable_hardware_decoding_ = from.enable_hardware_decoding_;
+      desired_bitrate_kbps_ = from.desired_bitrate_kbps_;
     }
     if (cached_has_bits & 0x00080000u) {
-      enable_video_streaming_ = from.enable_video_streaming_;
+      enable_hardware_decoding_ = from.enable_hardware_decoding_;
     }
     if (cached_has_bits & 0x00100000u) {
-      enable_audio_streaming_ = from.enable_audio_streaming_;
+      enable_video_streaming_ = from.enable_video_streaming_;
     }
     if (cached_has_bits & 0x00200000u) {
-      enable_input_streaming_ = from.enable_input_streaming_;
+      enable_audio_streaming_ = from.enable_audio_streaming_;
     }
     if (cached_has_bits & 0x00400000u) {
+      enable_input_streaming_ = from.enable_input_streaming_;
+    }
+    if (cached_has_bits & 0x00800000u) {
       audio_channels_ = from.audio_channels_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -8677,8 +8800,8 @@ void CStreamingClientConfig::InternalSwap(CStreamingClientConfig* other) {
   decoder_limit_.InternalSwap(&other->decoder_limit_);
   controller_overlay_hotkey_.Swap(&other->controller_overlay_hotkey_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CStreamingClientConfig, enable_unreliable_fec_)
-      + sizeof(CStreamingClientConfig::enable_unreliable_fec_)
+      PROTOBUF_FIELD_OFFSET(CStreamingClientConfig, enable_video_av1_)
+      + sizeof(CStreamingClientConfig::enable_video_av1_)
       - PROTOBUF_FIELD_OFFSET(CStreamingClientConfig, display_limit_)>(
           reinterpret_cast<char*>(&display_limit_),
           reinterpret_cast<char*>(&other->display_limit_));

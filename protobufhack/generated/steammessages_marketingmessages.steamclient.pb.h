@@ -225,11 +225,14 @@ enum EMarketingMessageType : int {
   EMarketingMessageUpdate = 10,
   EMarketingMessageMidweekDeal = 11,
   EMarketingMessageDailyDeal = 12,
-  EMarketingMessageNewDLC = 13
+  EMarketingMessageNewDLC = 13,
+  EMarketingMessageFreeWeekend = 14,
+  EMarketingMessageSalePages = 15,
+  EMarketingMessagePlaytestAvailable = 16
 };
 bool EMarketingMessageType_IsValid(int value);
 constexpr EMarketingMessageType EMarketingMessageType_MIN = EMarketingMessageInvalid;
-constexpr EMarketingMessageType EMarketingMessageType_MAX = EMarketingMessageNewDLC;
+constexpr EMarketingMessageType EMarketingMessageType_MAX = EMarketingMessagePlaytestAvailable;
 constexpr int EMarketingMessageType_ARRAYSIZE = EMarketingMessageType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMarketingMessageType_descriptor();

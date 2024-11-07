@@ -6934,6 +6934,7 @@ class CClientNotificationGameRecordingStop PROTOBUF_FINAL :
   enum : int {
     kClipIdFieldNumber = 2,
     kGameIdFieldNumber = 1,
+    kDurationSecsFieldNumber = 3,
   };
   // optional string clip_id = 2;
   bool has_clip_id() const;
@@ -6968,6 +6969,19 @@ class CClientNotificationGameRecordingStop PROTOBUF_FINAL :
   void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional float duration_secs = 3;
+  bool has_duration_secs() const;
+  private:
+  bool _internal_has_duration_secs() const;
+  public:
+  void clear_duration_secs();
+  float duration_secs() const;
+  void set_duration_secs(float value);
+  private:
+  float _internal_duration_secs() const;
+  void _internal_set_duration_secs(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CClientNotificationGameRecordingStop)
  private:
   class _Internal;
@@ -6979,6 +6993,7 @@ class CClientNotificationGameRecordingStop PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr clip_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
+  float duration_secs_;
   friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
 };
 // -------------------------------------------------------------------
@@ -7254,6 +7269,7 @@ class CClientNotificationGameRecordingInstantClip PROTOBUF_FINAL :
   enum : int {
     kClipIdFieldNumber = 2,
     kGameIdFieldNumber = 1,
+    kDurationSecsFieldNumber = 3,
   };
   // optional string clip_id = 2;
   bool has_clip_id() const;
@@ -7288,6 +7304,19 @@ class CClientNotificationGameRecordingInstantClip PROTOBUF_FINAL :
   void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional float duration_secs = 3;
+  bool has_duration_secs() const;
+  private:
+  bool _internal_has_duration_secs() const;
+  public:
+  void clear_duration_secs();
+  float duration_secs() const;
+  void set_duration_secs(float value);
+  private:
+  float _internal_duration_secs() const;
+  void _internal_set_duration_secs(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CClientNotificationGameRecordingInstantClip)
  private:
   class _Internal;
@@ -7299,6 +7328,7 @@ class CClientNotificationGameRecordingInstantClip PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr clip_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
+  float duration_secs_;
   friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
 };
 // ===================================================================
@@ -11208,6 +11238,34 @@ inline void CClientNotificationGameRecordingStop::set_allocated_clip_id(std::str
   // @@protoc_insertion_point(field_set_allocated:CClientNotificationGameRecordingStop.clip_id)
 }
 
+// optional float duration_secs = 3;
+inline bool CClientNotificationGameRecordingStop::_internal_has_duration_secs() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientNotificationGameRecordingStop::has_duration_secs() const {
+  return _internal_has_duration_secs();
+}
+inline void CClientNotificationGameRecordingStop::clear_duration_secs() {
+  duration_secs_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline float CClientNotificationGameRecordingStop::_internal_duration_secs() const {
+  return duration_secs_;
+}
+inline float CClientNotificationGameRecordingStop::duration_secs() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingStop.duration_secs)
+  return _internal_duration_secs();
+}
+inline void CClientNotificationGameRecordingStop::_internal_set_duration_secs(float value) {
+  _has_bits_[0] |= 0x00000004u;
+  duration_secs_ = value;
+}
+inline void CClientNotificationGameRecordingStop::set_duration_secs(float value) {
+  _internal_set_duration_secs(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingStop.duration_secs)
+}
+
 // -------------------------------------------------------------------
 
 // CClientNotificationGameRecordingUserMarkerAdded
@@ -11343,6 +11401,34 @@ inline void CClientNotificationGameRecordingInstantClip::set_allocated_clip_id(s
   clip_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), clip_id,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CClientNotificationGameRecordingInstantClip.clip_id)
+}
+
+// optional float duration_secs = 3;
+inline bool CClientNotificationGameRecordingInstantClip::_internal_has_duration_secs() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientNotificationGameRecordingInstantClip::has_duration_secs() const {
+  return _internal_has_duration_secs();
+}
+inline void CClientNotificationGameRecordingInstantClip::clear_duration_secs() {
+  duration_secs_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline float CClientNotificationGameRecordingInstantClip::_internal_duration_secs() const {
+  return duration_secs_;
+}
+inline float CClientNotificationGameRecordingInstantClip::duration_secs() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationGameRecordingInstantClip.duration_secs)
+  return _internal_duration_secs();
+}
+inline void CClientNotificationGameRecordingInstantClip::_internal_set_duration_secs(float value) {
+  _has_bits_[0] |= 0x00000004u;
+  duration_secs_ = value;
+}
+inline void CClientNotificationGameRecordingInstantClip::set_duration_secs(float value) {
+  _internal_set_duration_secs(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationGameRecordingInstantClip.duration_secs)
 }
 
 #ifdef __GNUC__

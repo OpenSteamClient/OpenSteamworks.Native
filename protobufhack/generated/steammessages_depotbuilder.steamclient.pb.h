@@ -244,6 +244,7 @@ class CContentBuilder_InitDepotBuild_Request PROTOBUF_FINAL :
     kDepotidFieldNumber = 2,
     kWorkshopItemidFieldNumber = 3,
     kForLocalCsFieldNumber = 4,
+    kShaderDepotFieldNumber = 6,
   };
   // optional string target_branch = 5;
   bool has_target_branch() const;
@@ -317,6 +318,19 @@ class CContentBuilder_InitDepotBuild_Request PROTOBUF_FINAL :
   void _internal_set_for_local_cs(bool value);
   public:
 
+  // optional bool shader_depot = 6;
+  bool has_shader_depot() const;
+  private:
+  bool _internal_has_shader_depot() const;
+  public:
+  void clear_shader_depot();
+  bool shader_depot() const;
+  void set_shader_depot(bool value);
+  private:
+  bool _internal_shader_depot() const;
+  void _internal_set_shader_depot(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CContentBuilder_InitDepotBuild_Request)
  private:
   class _Internal;
@@ -331,6 +345,7 @@ class CContentBuilder_InitDepotBuild_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 depotid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 workshop_itemid_;
   bool for_local_cs_;
+  bool shader_depot_;
   friend struct ::TableStruct_steammessages_5fdepotbuilder_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3023,6 +3038,34 @@ inline void CContentBuilder_InitDepotBuild_Request::set_allocated_target_branch(
   target_branch_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), target_branch,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CContentBuilder_InitDepotBuild_Request.target_branch)
+}
+
+// optional bool shader_depot = 6;
+inline bool CContentBuilder_InitDepotBuild_Request::_internal_has_shader_depot() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CContentBuilder_InitDepotBuild_Request::has_shader_depot() const {
+  return _internal_has_shader_depot();
+}
+inline void CContentBuilder_InitDepotBuild_Request::clear_shader_depot() {
+  shader_depot_ = false;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline bool CContentBuilder_InitDepotBuild_Request::_internal_shader_depot() const {
+  return shader_depot_;
+}
+inline bool CContentBuilder_InitDepotBuild_Request::shader_depot() const {
+  // @@protoc_insertion_point(field_get:CContentBuilder_InitDepotBuild_Request.shader_depot)
+  return _internal_shader_depot();
+}
+inline void CContentBuilder_InitDepotBuild_Request::_internal_set_shader_depot(bool value) {
+  _has_bits_[0] |= 0x00000020u;
+  shader_depot_ = value;
+}
+inline void CContentBuilder_InitDepotBuild_Request::set_shader_depot(bool value) {
+  _internal_set_shader_depot(value);
+  // @@protoc_insertion_point(field_set:CContentBuilder_InitDepotBuild_Request.shader_depot)
 }
 
 // -------------------------------------------------------------------

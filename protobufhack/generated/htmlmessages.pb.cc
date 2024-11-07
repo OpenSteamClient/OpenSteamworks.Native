@@ -1025,6 +1025,64 @@ struct CMsgFileLoadDialogResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgFileLoadDialogResponseDefaultTypeInternal _CMsgFileLoadDialogResponse_default_instance_;
+constexpr CMsgRequestProcessInfo::CMsgRequestProcessInfo(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : requestid_(PROTOBUF_ULONGLONG(0)){}
+struct CMsgRequestProcessInfoDefaultTypeInternal {
+  constexpr CMsgRequestProcessInfoDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgRequestProcessInfoDefaultTypeInternal() {}
+  union {
+    CMsgRequestProcessInfo _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgRequestProcessInfoDefaultTypeInternal _CMsgRequestProcessInfo_default_instance_;
+constexpr CMsgProcessInfoNotification::CMsgProcessInfoNotification(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : requestid_(PROTOBUF_ULONGLONG(0))
+  , gpu_status_(0)
+
+  , canvas_2d_(0)
+
+  , canvas_oop_rasterization_(0)
+
+  , direct_rendering_display_compositor_(0)
+
+  , gpu_compositing_(0)
+
+  , multiple_raster_threads_(0)
+
+  , opengl_(0)
+
+  , rasterization_(0)
+
+  , raw_draw_(0)
+
+  , skia_graphite_(0)
+
+  , video_decode_(0)
+
+  , video_encode_(0)
+
+  , vulkan_(0)
+
+  , webgl_(0)
+
+  , webgl2_(0)
+
+  , webgpu_(0)
+
+  , webnn_(0)
+{}
+struct CMsgProcessInfoNotificationDefaultTypeInternal {
+  constexpr CMsgProcessInfoNotificationDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgProcessInfoNotificationDefaultTypeInternal() {}
+  union {
+    CMsgProcessInfoNotification _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgProcessInfoNotificationDefaultTypeInternal _CMsgProcessInfoNotification_default_instance_;
 constexpr CMsgShowToolTip::CMsgShowToolTip(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : text_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -2376,7 +2434,7 @@ struct CMsgRestartJSContextDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgRestartJSContextDefaultTypeInternal _CMsgRestartJSContext_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_htmlmessages_2eproto[168];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_htmlmessages_2eproto[170];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_htmlmessages_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_htmlmessages_2eproto = nullptr;
 
@@ -3209,6 +3267,54 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_htmlmessages_2eproto::offsets[
   1,
   2,
   ~0u,
+  PROTOBUF_FIELD_OFFSET(::CMsgRequestProcessInfo, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgRequestProcessInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgRequestProcessInfo, requestid_),
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, requestid_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, gpu_status_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, canvas_2d_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, canvas_oop_rasterization_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, direct_rendering_display_compositor_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, gpu_compositing_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, multiple_raster_threads_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, opengl_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, rasterization_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, raw_draw_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, skia_graphite_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, video_decode_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, video_encode_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, vulkan_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, webgl_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, webgl2_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, webgpu_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProcessInfoNotification, webnn_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
   PROTOBUF_FIELD_OFFSET(::CMsgShowToolTip, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgShowToolTip, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4314,104 +4420,106 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 783, 791, sizeof(::CMsgFileLoadDialog_Filter)},
   { 794, 807, sizeof(::CMsgFileLoadDialog)},
   { 815, 824, sizeof(::CMsgFileLoadDialogResponse)},
-  { 828, 835, sizeof(::CMsgShowToolTip)},
-  { 837, 844, sizeof(::CMsgUpdateToolTip)},
-  { 846, 852, sizeof(::CMsgHideToolTip)},
-  { 853, 861, sizeof(::CMsgSearchResults)},
-  { 864, 870, sizeof(::CMsgClose)},
-  { 871, 882, sizeof(::CMsgSetSharedPaintBuffers)},
-  { 888, 894, sizeof(::CMsgAckSharedPaintBuffers)},
-  { 895, 908, sizeof(::CMsgNeedsPaint)},
-  { 916, 927, sizeof(::CMsgComboNeedsPaint)},
-  { 933, 946, sizeof(::CMsgNeedsSharedTexturePaint)},
-  { 954, 960, sizeof(::CMsgGetZoom)},
-  { 961, 968, sizeof(::CMsgGetZoomResponse)},
-  { 970, 978, sizeof(::CMsgLinkAtPosition)},
-  { 981, 992, sizeof(::CMsgLinkAtPositionResponse)},
-  { 998, 1006, sizeof(::CMsgZoomToElementAtPosition)},
-  { 1009, 1017, sizeof(::CMsgZoomToElementAtPositionResponse)},
-  { 1020, 1029, sizeof(::CMsgScalePageToValue)},
-  { 1033, 1040, sizeof(::CMsgForcePopupsToDirectHWND)},
-  { 1042, 1049, sizeof(::CMsgScalePageToValueResponse)},
-  { 1051, 1061, sizeof(::CMsgSavePageToJPEG)},
-  { 1066, 1074, sizeof(::CMsgSavePageToJPEGResponse)},
-  { 1077, 1084, sizeof(::CMsgJSAlert)},
-  { 1086, 1093, sizeof(::CMsgJSConfirm)},
-  { 1095, 1102, sizeof(::CMsgJSDialogResponse)},
-  { 1104, 1112, sizeof(::CMsgCanGoBackAndForward)},
-  { 1115, 1123, sizeof(::CMsgOpenSteamURL)},
-  { 1126, 1139, sizeof(::CMsgSetCookie)},
-  { 1147, 1154, sizeof(::CMsgSetTargetFrameRate)},
-  { 1156, 1162, sizeof(::CMsgPauseRepaint)},
-  { 1163, 1169, sizeof(::CMsgFullRepaint)},
-  { 1170, 1176, sizeof(::CMsgRequestFullScreen)},
-  { 1177, 1183, sizeof(::CMsgExitFullScreen)},
-  { 1184, 1190, sizeof(::CMsgToggleFindInPageDialog)},
-  { 1191, 1197, sizeof(::CMsgSetPIDShuttingDown)},
-  { 1198, 1204, sizeof(::CMsgDisableBackgroundThrottling)},
-  { 1205, 1211, sizeof(::CMsgAckPIDShuttingDown)},
-  { 1212, 1219, sizeof(::CMsgGetCookiesForURL)},
-  { 1221, 1230, sizeof(::CCookie)},
-  { 1234, 1242, sizeof(::CMsgGetCookiesForURLResponse)},
-  { 1245, 1258, sizeof(::CMsgNodeHasFocus)},
-  { 1266, 1272, sizeof(::CMsgZoomToFocusedElement)},
-  { 1273, 1279, sizeof(::CMsgFocusedNodeText)},
-  { 1280, 1287, sizeof(::CMsgFocusedNodeTextResponse)},
-  { 1289, 1295, sizeof(::CMsgBuildID)},
-  { 1296, 1302, sizeof(::CMsgOpenDevTools)},
-  { 1303, 1309, sizeof(::CMsgCloseDevTools)},
-  { 1310, 1317, sizeof(::CMsgUnlockH264)},
-  { 1319, 1335, sizeof(::CMsgScreenInformationChanged)},
-  { 1346, 1352, sizeof(::CMsgClearAllCookies)},
-  { 1353, 1360, sizeof(::CMsgScreenDPI)},
-  { 1362, 1368, sizeof(::CMsgAckScreenDPI)},
-  { 1369, -1, sizeof(::CMsgAuthedSteamDomains)},
-  { 1375, 1381, sizeof(::CMsgSteamAuthNeeded)},
-  { 1382, 1388, sizeof(::CMsgSteamAuthCookiesSet)},
-  { 1389, 1397, sizeof(::CMsgJSRegisterMethod)},
-  { 1400, 1407, sizeof(::CMsgJSValue_JSObjectProperty)},
-  { 1409, 1425, sizeof(::CMsgJSValue)},
-  { 1436, 1445, sizeof(::CMsgJSMethodCall)},
-  { 1449, 1458, sizeof(::CMsgJSExecuteCallback)},
-  { 1462, 1472, sizeof(::CMsgJSExecutePromise)},
-  { 1477, 1485, sizeof(::CMsgJSReleaseCallback)},
-  { 1488, 1496, sizeof(::CMsgJSRaiseException)},
-  { 1499, 1507, sizeof(::CMsgLoadLocalization)},
-  { 1510, 1516, sizeof(::CMsgNotifyUserActivation)},
-  { 1517, 1523, sizeof(::CMsgSetNetFakeLocalSystemState)},
-  { 1524, 1535, sizeof(::CMsgDraggableRegionsChanged_DraggableRects)},
-  { 1541, 1548, sizeof(::CMsgDraggableRegionsChanged)},
-  { 1550, 1558, sizeof(::CMsgResizeGripChanged)},
-  { 1561, 1575, sizeof(::CMsgSetWindowPosition)},
-  { 1584, 1590, sizeof(::CMsgShowWindow)},
-  { 1591, 1597, sizeof(::CMsgHideWindow)},
-  { 1598, 1604, sizeof(::CMsgBringWindowToFront)},
-  { 1605, 1611, sizeof(::CMsgSetForegroundWindow)},
-  { 1612, 1618, sizeof(::CMsgMaximizeRestoreWindow)},
-  { 1619, 1625, sizeof(::CMsgMinimizeWindow)},
-  { 1626, 1633, sizeof(::CMsgShowBrowserContextMenu_ContextCommand)},
-  { 1635, 1651, sizeof(::CMsgShowBrowserContextMenu)},
-  { 1662, 1669, sizeof(::CMsgHandleContextMenuCommand)},
-  { 1671, 1685, sizeof(::CMsgTouchGesture)},
-  { 1694, 1701, sizeof(::CMsgSetTouchGesturesToCancel)},
-  { 1703, 1710, sizeof(::CMsgImeSetComposition)},
-  { 1712, 1719, sizeof(::CMsgImeCommitText)},
-  { 1721, 1727, sizeof(::CMsgImeCancelComposition)},
-  { 1728, 1736, sizeof(::CMsgImeCompositionRangeChanged)},
-  { 1739, 1747, sizeof(::CMsgInspectElement)},
-  { 1750, 1757, sizeof(::CMsgDisableF5)},
-  { 1759, 1766, sizeof(::CMsgStartDownload)},
-  { 1768, 1775, sizeof(::CMsgSetWindowStackingOrder)},
-  { 1777, 1786, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
-  { 1790, 1797, sizeof(::CMsgBlockedRequest)},
-  { 1799, 1806, sizeof(::CMsgBrowserFocusChanged)},
-  { 1808, 1815, sizeof(::CMsgSetProtocolBlockList)},
-  { 1817, 1824, sizeof(::CMsgSetForceDeviceScaleFactors)},
-  { 1826, 1832, sizeof(::CMsgSetUIMode)},
-  { 1833, 1839, sizeof(::CMsgSetSteamBetaName)},
-  { 1840, 1846, sizeof(::CMsgPopupCreated)},
-  { 1847, 1854, sizeof(::CMsgSetVRKeyboardVisibility)},
-  { 1856, -1, sizeof(::CMsgRestartJSContext)},
+  { 828, 834, sizeof(::CMsgRequestProcessInfo)},
+  { 835, 858, sizeof(::CMsgProcessInfoNotification)},
+  { 876, 883, sizeof(::CMsgShowToolTip)},
+  { 885, 892, sizeof(::CMsgUpdateToolTip)},
+  { 894, 900, sizeof(::CMsgHideToolTip)},
+  { 901, 909, sizeof(::CMsgSearchResults)},
+  { 912, 918, sizeof(::CMsgClose)},
+  { 919, 930, sizeof(::CMsgSetSharedPaintBuffers)},
+  { 936, 942, sizeof(::CMsgAckSharedPaintBuffers)},
+  { 943, 956, sizeof(::CMsgNeedsPaint)},
+  { 964, 975, sizeof(::CMsgComboNeedsPaint)},
+  { 981, 994, sizeof(::CMsgNeedsSharedTexturePaint)},
+  { 1002, 1008, sizeof(::CMsgGetZoom)},
+  { 1009, 1016, sizeof(::CMsgGetZoomResponse)},
+  { 1018, 1026, sizeof(::CMsgLinkAtPosition)},
+  { 1029, 1040, sizeof(::CMsgLinkAtPositionResponse)},
+  { 1046, 1054, sizeof(::CMsgZoomToElementAtPosition)},
+  { 1057, 1065, sizeof(::CMsgZoomToElementAtPositionResponse)},
+  { 1068, 1077, sizeof(::CMsgScalePageToValue)},
+  { 1081, 1088, sizeof(::CMsgForcePopupsToDirectHWND)},
+  { 1090, 1097, sizeof(::CMsgScalePageToValueResponse)},
+  { 1099, 1109, sizeof(::CMsgSavePageToJPEG)},
+  { 1114, 1122, sizeof(::CMsgSavePageToJPEGResponse)},
+  { 1125, 1132, sizeof(::CMsgJSAlert)},
+  { 1134, 1141, sizeof(::CMsgJSConfirm)},
+  { 1143, 1150, sizeof(::CMsgJSDialogResponse)},
+  { 1152, 1160, sizeof(::CMsgCanGoBackAndForward)},
+  { 1163, 1171, sizeof(::CMsgOpenSteamURL)},
+  { 1174, 1187, sizeof(::CMsgSetCookie)},
+  { 1195, 1202, sizeof(::CMsgSetTargetFrameRate)},
+  { 1204, 1210, sizeof(::CMsgPauseRepaint)},
+  { 1211, 1217, sizeof(::CMsgFullRepaint)},
+  { 1218, 1224, sizeof(::CMsgRequestFullScreen)},
+  { 1225, 1231, sizeof(::CMsgExitFullScreen)},
+  { 1232, 1238, sizeof(::CMsgToggleFindInPageDialog)},
+  { 1239, 1245, sizeof(::CMsgSetPIDShuttingDown)},
+  { 1246, 1252, sizeof(::CMsgDisableBackgroundThrottling)},
+  { 1253, 1259, sizeof(::CMsgAckPIDShuttingDown)},
+  { 1260, 1267, sizeof(::CMsgGetCookiesForURL)},
+  { 1269, 1278, sizeof(::CCookie)},
+  { 1282, 1290, sizeof(::CMsgGetCookiesForURLResponse)},
+  { 1293, 1306, sizeof(::CMsgNodeHasFocus)},
+  { 1314, 1320, sizeof(::CMsgZoomToFocusedElement)},
+  { 1321, 1327, sizeof(::CMsgFocusedNodeText)},
+  { 1328, 1335, sizeof(::CMsgFocusedNodeTextResponse)},
+  { 1337, 1343, sizeof(::CMsgBuildID)},
+  { 1344, 1350, sizeof(::CMsgOpenDevTools)},
+  { 1351, 1357, sizeof(::CMsgCloseDevTools)},
+  { 1358, 1365, sizeof(::CMsgUnlockH264)},
+  { 1367, 1383, sizeof(::CMsgScreenInformationChanged)},
+  { 1394, 1400, sizeof(::CMsgClearAllCookies)},
+  { 1401, 1408, sizeof(::CMsgScreenDPI)},
+  { 1410, 1416, sizeof(::CMsgAckScreenDPI)},
+  { 1417, -1, sizeof(::CMsgAuthedSteamDomains)},
+  { 1423, 1429, sizeof(::CMsgSteamAuthNeeded)},
+  { 1430, 1436, sizeof(::CMsgSteamAuthCookiesSet)},
+  { 1437, 1445, sizeof(::CMsgJSRegisterMethod)},
+  { 1448, 1455, sizeof(::CMsgJSValue_JSObjectProperty)},
+  { 1457, 1473, sizeof(::CMsgJSValue)},
+  { 1484, 1493, sizeof(::CMsgJSMethodCall)},
+  { 1497, 1506, sizeof(::CMsgJSExecuteCallback)},
+  { 1510, 1520, sizeof(::CMsgJSExecutePromise)},
+  { 1525, 1533, sizeof(::CMsgJSReleaseCallback)},
+  { 1536, 1544, sizeof(::CMsgJSRaiseException)},
+  { 1547, 1555, sizeof(::CMsgLoadLocalization)},
+  { 1558, 1564, sizeof(::CMsgNotifyUserActivation)},
+  { 1565, 1571, sizeof(::CMsgSetNetFakeLocalSystemState)},
+  { 1572, 1583, sizeof(::CMsgDraggableRegionsChanged_DraggableRects)},
+  { 1589, 1596, sizeof(::CMsgDraggableRegionsChanged)},
+  { 1598, 1606, sizeof(::CMsgResizeGripChanged)},
+  { 1609, 1623, sizeof(::CMsgSetWindowPosition)},
+  { 1632, 1638, sizeof(::CMsgShowWindow)},
+  { 1639, 1645, sizeof(::CMsgHideWindow)},
+  { 1646, 1652, sizeof(::CMsgBringWindowToFront)},
+  { 1653, 1659, sizeof(::CMsgSetForegroundWindow)},
+  { 1660, 1666, sizeof(::CMsgMaximizeRestoreWindow)},
+  { 1667, 1673, sizeof(::CMsgMinimizeWindow)},
+  { 1674, 1681, sizeof(::CMsgShowBrowserContextMenu_ContextCommand)},
+  { 1683, 1699, sizeof(::CMsgShowBrowserContextMenu)},
+  { 1710, 1717, sizeof(::CMsgHandleContextMenuCommand)},
+  { 1719, 1733, sizeof(::CMsgTouchGesture)},
+  { 1742, 1749, sizeof(::CMsgSetTouchGesturesToCancel)},
+  { 1751, 1758, sizeof(::CMsgImeSetComposition)},
+  { 1760, 1767, sizeof(::CMsgImeCommitText)},
+  { 1769, 1775, sizeof(::CMsgImeCancelComposition)},
+  { 1776, 1784, sizeof(::CMsgImeCompositionRangeChanged)},
+  { 1787, 1795, sizeof(::CMsgInspectElement)},
+  { 1798, 1805, sizeof(::CMsgDisableF5)},
+  { 1807, 1814, sizeof(::CMsgStartDownload)},
+  { 1816, 1823, sizeof(::CMsgSetWindowStackingOrder)},
+  { 1825, 1834, sizeof(::CMsgBrowserViewPostMessageToParentRequest)},
+  { 1838, 1845, sizeof(::CMsgBlockedRequest)},
+  { 1847, 1854, sizeof(::CMsgBrowserFocusChanged)},
+  { 1856, 1863, sizeof(::CMsgSetProtocolBlockList)},
+  { 1865, 1872, sizeof(::CMsgSetForceDeviceScaleFactors)},
+  { 1874, 1880, sizeof(::CMsgSetUIMode)},
+  { 1881, 1887, sizeof(::CMsgSetSteamBetaName)},
+  { 1888, 1894, sizeof(::CMsgPopupCreated)},
+  { 1895, 1902, sizeof(::CMsgSetVRKeyboardVisibility)},
+  { 1904, -1, sizeof(::CMsgRestartJSContext)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -4485,6 +4593,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgFileLoadDialog_Filter_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgFileLoadDialog_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgFileLoadDialogResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgRequestProcessInfo_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgProcessInfoNotification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgShowToolTip_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgUpdateToolTip_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgHideToolTip_default_instance_),
@@ -4587,383 +4697,419 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_htmlmessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022htmlmessages.proto\032 google/protobuf/de"
-  "scriptor.proto\"^\n\tCMsgKeyUp\022\026\n\016browser_h"
-  "andle\030\001 \001(\r\022\017\n\007keyCode\030\002 \001(\r\022\021\n\tmodifier"
-  "s\030\003 \001(\r\022\025\n\rnativeKeyCode\030\004 \001(\r\"w\n\013CMsgKe"
-  "yDown\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007keyCode"
-  "\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001(\r\022\025\n\ris_system_k"
-  "ey\030\004 \001(\010\022\025\n\rnativeKeyCode\030\005 \001(\r\"q\n\013CMsgK"
-  "eyChar\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007unicha"
-  "r\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001(\r\022\017\n\007keyCode\030\004 "
-  "\001(\r\022\025\n\rnativeKeyCode\030\005 \001(\r\"P\n\rCMsgMouseD"
-  "own\022\026\n\016browser_handle\030\001 \001(\r\022\024\n\014mouse_but"
-  "ton\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001(\r\"z\n\013CMsgMous"
-  "eUp\022\026\n\016browser_handle\030\001 \001(\r\022\024\n\014mouse_but"
-  "ton\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001(\r\022\024\n\014is_off_p"
-  "anel\030\004 \001(\010\022\t\n\001x\030\005 \001(\005\022\t\n\001y\030\006 \001(\005\"T\n\021CMsg"
-  "MouseDblClick\022\026\n\016browser_handle\030\001 \001(\r\022\024\n"
-  "\014mouse_button\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001(\r\"["
-  "\n\016CMsgMouseWheel\022\026\n\016browser_handle\030\001 \001(\r"
-  "\022\016\n\006deltax\030\002 \001(\005\022\016\n\006deltay\030\003 \001(\005\022\021\n\tmodi"
-  "fiers\030\004 \001(\r\"P\n\rCMsgMouseMove\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\022\021\n\tmo"
-  "difiers\030\004 \001(\r\"(\n\016CMsgMouseLeave\022\026\n\016brows"
-  "er_handle\030\001 \001(\r\"\335\003\n\021CMsgBrowserCreate\022\022\n"
-  "\nrequest_id\030\001 \001(\r\022\021\n\tuseragent\030\003 \001(\t\022\020\n\010"
-  "user_css\030\005 \001(\t\022\030\n\020native_dropdowns\030\006 \001(\010"
-  "\022\023\n\013dpi_scaling\030\007 \001(\002\022\027\n\toffscreen\030\010 \001(\010"
-  ":\004true\022\030\n\rinitial_width\030\t \001(\r:\0010\022\031\n\016init"
-  "ial_height\030\n \001(\r:\0010\022\023\n\013window_icon\030\013 \001(\t"
-  "\022\031\n\nborderless\030\014 \001(\010:\005false\022\025\n\rvroverlay"
-  "_key\030\r \001(\t\022\027\n\014browser_type\030\016 \001(\r:\0010\022 \n\013i"
-  "nitial_top\030\017 \001(\005:\013-2147483648\022!\n\014initial"
-  "_left\030\020 \001(\005:\013-2147483648\022(\n\031only_allow_t"
-  "rusted_popups\030\021 \001(\010:\005false\022\023\n\013initial_ur"
-  "l\030\022 \001(\t\022\023\n\013hwnd_parent\030\023 \001(\006\022\031\n\016creation"
-  "_flags\030\024 \001(\r:\0010\"G\n\031CMsgBrowserCreateResp"
-  "onse\022\026\n\016browser_handle\030\001 \001(\r\022\022\n\nrequest_"
-  "id\030\002 \001(\r\"+\n\021CMsgBrowserRemove\022\026\n\016browser"
-  "_handle\030\001 \001(\r\"\230\002\n\036CMsgSetLocalFileReques"
-  "tMapping\022\026\n\016browser_handle\030\001 \001(\r\022\023\n\013requ"
-  "est_url\030\002 \001(\t\022\032\n\022default_local_path\030\003 \001("
-  "\t\022\?\n\006routes\030\004 \003(\0132/.CMsgSetLocalFileRequ"
-  "estMapping.AdditionalRoute\032l\n\017Additional"
-  "Route\022\024\n\014relative_url\030\001 \001(\t\022\022\n\nlocal_pat"
-  "h\030\002 \001(\t\022\032\n\022allowed_extensions\030\003 \001(\t\022\023\n\013u"
-  "rl_rewrite\030\004 \001(\010\"\271\001\n\027CMsgBrowserErrorStr"
-  "ings\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005title\030\002 "
-  "\001(\t\022\016\n\006header\030\003 \001(\t\022\022\n\ncache_miss\030\004 \001(\t\022"
-  "\017\n\007bad_url\030\005 \001(\t\022\032\n\022connection_problem\030\006"
-  " \001(\t\022\025\n\rproxy_problem\030\007 \001(\t\022\017\n\007unknown\030\010"
-  " \001(\t\":\n\022CMsgBrowserSetName\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\"H\n\017CMsgBrowserS"
-  "ize\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005width\030\002 \001"
-  "(\001\022\016\n\006height\030\003 \001(\001\"N\n\025CMsgBrowserSetMinS"
-  "ize\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005width\030\002 \001"
-  "(\001\022\016\n\006height\030\003 \001(\001\"e\n\023CMsgBrowserPositio"
-  "n\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\001\022\t\n\001"
-  "y\030\003 \001(\001\022\017\n\007x_local\030\004 \001(\001\022\017\n\007y_local\030\005 \001("
-  "\001\"\245\001\n\022CMsgBrowserResized\022\026\n\016browser_hand"
-  "le\030\001 \001(\r\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005width\030"
-  "\004 \001(\001\022\016\n\006height\030\005 \001(\001\022\026\n\016dpi_horizontal\030"
-  "\006 \001(\001\022\024\n\014dpi_vertical\030\007 \001(\001\022\024\n\014display_n"
-  "ame\030\010 \001(\t\"k\n\013CMsgPostURL\022\026\n\016browser_hand"
-  "le\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\014\n\004post\030\003 \001(\t\022\022\n\np"
-  "ageserial\030\004 \001(\r\022\025\n\rreplace_entry\030\005 \001(\010\"C"
-  "\n\rCMsgAddHeader\022\026\n\016browser_handle\030\001 \001(\r\022"
-  "\013\n\003key\030\002 \001(\t\022\r\n\005value\030\003 \001(\t\"&\n\014CMsgStopL"
-  "oad\022\026\n\016browser_handle\030\001 \001(\r\"$\n\nCMsgReloa"
-  "d\022\026\n\016browser_handle\030\001 \001(\r\"\'\n\rCMsgGoForwa"
-  "rd\022\026\n\016browser_handle\030\001 \001(\r\"$\n\nCMsgGoBack"
-  "\022\026\n\016browser_handle\030\001 \001(\r\"7\n\rCMsgWasHidde"
-  "n\022\026\n\016browser_handle\030\001 \001(\r\022\016\n\006hidden\030\002 \001("
-  "\010\"B\n\027CMsgSetWindowVisibility\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"*\n\020CMsgCle"
-  "arHistory\022\026\n\016browser_handle\030\001 \001(\r\"2\n\030CMs"
-  "gClearAllBrowsingData\022\026\n\016browser_handle\030"
-  "\001 \001(\r\"\"\n\010CMsgCopy\022\026\n\016browser_handle\030\001 \001("
-  "\r\"#\n\tCMsgPaste\022\026\n\016browser_handle\030\001 \001(\r\"\?"
-  "\n\025CMsgExecuteJavaScript\022\026\n\016browser_handl"
-  "e\030\001 \001(\r\022\016\n\006script\030\002 \001(\t\"5\n\014CMsgSetFocus\022"
-  "\026\n\016browser_handle\030\001 \001(\r\022\r\n\005focus\030\002 \001(\010\"5"
-  "\n\033CMsgHorizontalScrollBarSize\022\026\n\016browser"
-  "_handle\030\001 \001(\r\"\223\001\n#CMsgHorizontalScrollBa"
-  "rSizeResponse\022\026\n\016browser_handle\030\001 \001(\r\022\022\n"
-  "\nscroll_max\030\006 \001(\r\022\016\n\006scroll\030\007 \001(\r\022\014\n\004zoo"
-  "m\030\010 \001(\002\022\017\n\007visible\030\t \001(\010\022\021\n\tpage_size\030\n "
-  "\001(\r\"3\n\031CMsgVerticalScrollBarSize\022\026\n\016brow"
-  "ser_handle\030\001 \001(\r\"\221\001\n!CMsgVerticalScrollB"
-  "arSizeResponse\022\026\n\016browser_handle\030\001 \001(\r\022\022"
-  "\n\nscroll_max\030\006 \001(\r\022\016\n\006scroll\030\007 \001(\r\022\014\n\004zo"
-  "om\030\010 \001(\002\022\017\n\007visible\030\t \001(\010\022\021\n\tpage_size\030\n"
-  " \001(\r\"X\n\010CMsgFind\022\026\n\016browser_handle\030\001 \001(\r"
-  "\022\014\n\004find\030\002 \001(\t\022\016\n\006infind\030\003 \001(\010\022\026\n\007revers"
-  "e\030\004 \001(\010:\005false\"&\n\014CMsgStopFind\022\026\n\016browse"
-  "r_handle\030\001 \001(\r\"A\n\027CMsgSetHorizontalScrol"
-  "l\022\026\n\016browser_handle\030\001 \001(\r\022\016\n\006scroll\030\002 \001("
-  "\r\"\?\n\025CMsgSetVerticalScroll\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\016\n\006scroll\030\002 \001(\r\"8\n\020CMsgSetZoo"
-  "mLevel\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004zoom\030\002"
-  " \001(\001\"(\n\016CMsgViewSource\022\026\n\016browser_handle"
-  "\030\001 \001(\r\"X\n\020CMsgBrowserReady\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\026\n\016vr_overlay_key\030\002 \001(\t\022\024\n\014hw"
-  "nd_browser\030\003 \001(\006\"\207\001\n\016CMsgURLChanged\022\026\n\016b"
-  "rowser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\020\n\010post"
-  "Data\030\003 \001(\t\022\023\n\013bIsRedirect\030\004 \001(\010\022\021\n\tpaget"
-  "itle\030\005 \001(\t\022\026\n\016bNewNavigation\030\006 \001(\010\"\034\n\rCH"
-  "istoryEntry\022\013\n\003url\030\001 \001(\t\"\\\n\022CMsgHistoryC"
-  "hanged\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005index\030"
-  "\002 \001(\r\022\037\n\007entries\030\003 \003(\0132\016.CHistoryEntry\"c"
-  "\n\rCMsgLoadError\022\026\n\016browser_handle\030\001 \001(\r\022"
-  "\022\n\nerror_code\030\002 \001(\005\022\013\n\003url\030\003 \001(\t\022\031\n\021erro"
-  "r_description\030\004 \001(\t\")\n\013CHTMLHeader\022\013\n\003ke"
-  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\274\001\n\025CHTMLPageSecu"
-  "rityInfo\022\030\n\tbIsSecure\030\001 \001(\010:\005false\022\034\n\rbH"
-  "asCertError\030\002 \001(\010:\005false\022\022\n\nissuerName\030\003"
-  " \001(\t\022\020\n\010certName\030\004 \001(\t\022\025\n\ncertExpiry\030\005 \001"
-  "(\005:\0010\022\024\n\tnCertBits\030\006 \001(\005:\0010\022\030\n\tbIsEVCert"
-  "\030\007 \001(\010:\005false\"M\n\023CMsgFinishedRequest\022\026\n\016"
-  "browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\021\n\tpag"
-  "eTitle\030\003 \001(\t\"j\n\021CMsgLoadedRequest\022\026\n\016bro"
-  "wser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\021\n\tpageTi"
-  "tle\030\003 \001(\t\022\035\n\007headers\030\005 \003(\0132\014.CHTMLHeader"
-  "\"=\n\025CMsgFavIconURLChanged\022\026\n\016browser_han"
-  "dle\030\001 \001(\r\022\014\n\004urls\030\002 \003(\t\"f\n\020CMsgPageSecur"
-  "ity\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t"
-  "\022-\n\rsecurity_info\030\003 \001(\0132\026.CHTMLPageSecur"
-  "ityInfo\"n\n\020CMsgStartRequest\022\026\n\016browser_h"
-  "andle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\016\n\006target\030\003 \001(\t"
-  "\022\020\n\010postData\030\004 \001(\t\022\023\n\013bIsRedirect\030\005 \001(\010\""
-  "B\n\030CMsgStartRequestResponse\022\026\n\016browser_h"
-  "andle\030\001 \001(\r\022\016\n\006bAllow\030\002 \001(\010\"\'\n\rCMsgShowP"
-  "opup\022\026\n\016browser_handle\030\001 \001(\r\"\'\n\rCMsgHide"
-  "Popup\022\026\n\016browser_handle\030\001 \001(\r\"Y\n\rCMsgSiz"
-  "ePopup\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001("
-  "\005\022\t\n\001y\030\003 \001(\005\022\014\n\004wide\030\004 \001(\r\022\014\n\004tall\030\005 \001(\r"
-  "\"J\n\016CMsgOpenNewTab\022\026\n\016browser_handle\030\001 \001"
-  "(\r\022\013\n\003url\030\002 \001(\t\022\023\n\013bForeground\030\003 \001(\010\"\354\001\n"
-  "\023CMsgPopupHTMLWindow\022\026\n\016browser_handle\030\001"
-  " \001(\r\022\013\n\003url\030\002 \001(\t\022\026\n\001x\030\003 \001(\005:\013-214748364"
-  "8\022\026\n\001y\030\004 \001(\005:\013-2147483648\022\014\n\004wide\030\005 \001(\r\022"
-  "\014\n\004tall\030\006 \001(\r\022\023\n\013popup_index\030\007 \001(\r\022\027\n\017tr"
-  "usted_creator\030\010 \001(\010\022\014\n\004name\030\t \001(\t\022\014\n\004hwn"
-  "d\030\n \001(\004\022\032\n\022parent_popup_index\030\013 \001(\r\"E\n\033C"
-  "MsgPopupHTMLWindowResponse\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\016\n\006bAllow\030\002 \001(\010\"9\n\020CMsgSetHTM"
-  "LTitle\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005title\030"
-  "\002 \001(\t\":\n\023CMsgLoadingResource\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"6\n\016CMsgStatusT"
-  "ext\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004text\030\002 \001("
-  "\t\"\214\001\n\rCMsgSetCursor\022\026\n\016browser_handle\030\001 "
-  "\001(\r\022\016\n\006cursor\030\002 \001(\r\022\023\n\013custom_data\030\003 \001(\014"
-  "\022\014\n\004wide\030\004 \001(\r\022\014\n\004tall\030\005 \001(\r\022\020\n\010xhotspot"
-  "\030\006 \001(\r\022\020\n\010yhotspot\030\007 \001(\r\"\233\002\n\022CMsgFileLoa"
-  "dDialog\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025ownin"
-  "g_browser_handle\030\002 \001(\r\022\r\n\005title\030\003 \001(\t\022\023\n"
-  "\013initialFile\030\004 \001(\t\022\024\n\014accept_types\030\005 \003(\t"
-  "\022\017\n\007is_save\030\006 \001(\010\022\030\n\020choose_directory\030\007 "
-  "\001(\010\022+\n\007filters\030\010 \003(\0132\032.CMsgFileLoadDialo"
-  "g.Filter\032<\n\006Filter\022\014\n\004name\030\001 \001(\t\022\020\n\010patt"
-  "erns\030\002 \003(\t\022\022\n\nis_default\030\003 \001(\010\"t\n\032CMsgFi"
-  "leLoadDialogResponse\022\026\n\016browser_handle\030\001"
-  " \001(\r\022\035\n\025owning_browser_handle\030\002 \001(\r\022\020\n\010b"
-  "success\030\003 \001(\010\022\r\n\005files\030\004 \003(\t\"7\n\017CMsgShow"
-  "ToolTip\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004text\030"
-  "\002 \001(\t\"9\n\021CMsgUpdateToolTip\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\")\n\017CMsgHideTool"
-  "Tip\022\026\n\016browser_handle\030\001 \001(\r\"Q\n\021CMsgSearc"
-  "hResults\022\026\n\016browser_handle\030\001 \001(\r\022\023\n\013acti"
-  "veMatch\030\002 \001(\005\022\017\n\007results\030\003 \001(\005\"#\n\tCMsgCl"
-  "ose\022\026\n\016browser_handle\030\001 \001(\r\"\212\001\n\031CMsgSetS"
-  "haredPaintBuffers\022\026\n\016browser_handle\030\001 \001("
-  "\r\022\014\n\004wide\030\002 \001(\r\022\014\n\004tall\030\003 \001(\r\022\022\n\nsource_"
-  "pid\030\004 \001(\004\022\025\n\rsource_handle\030\005 \001(\004\022\016\n\006hand"
-  "le\030\006 \001(\004\"3\n\031CMsgAckSharedPaintBuffers\022\026\n"
-  "\016browser_handle\030\001 \001(\r\"\273\001\n\016CMsgNeedsPaint"
-  "\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007scrollx\030\n \001("
-  "\r\022\017\n\007scrolly\030\013 \001(\r\022\021\n\tpagescale\030\014 \001(\002\022\022\n"
-  "\npageserial\030\017 \001(\r\022\024\n\014avg_frame_ms\030\024 \001(\r\022"
-  "\033\n\023stddev_sum_frame_ms\030\025 \001(\002\022\025\n\rlong_fra"
-  "me_ms\030\026 \001(\r\"\257\001\n\023CMsgComboNeedsPaint\022\026\n\016b"
-  "rowser_handle\030\001 \001(\r\022\014\n\004rgba\030\002 \001(\004\022\030\n\rcom"
-  "bobox_wide\030\003 \001(\r:\0010\022\030\n\rcombobox_tall\030\004 \001"
-  "(\r:\0010\022\037\n\024shared_memory_handle\030\005 \001(\004:\0010\022\035"
-  "\n\022shared_memory_size\030\007 \001(\004:\0010\"\263\001\n\033CMsgNe"
-  "edsSharedTexturePaint\022\026\n\016browser_handle\030"
-  "\001 \001(\r\022\024\n\014share_handle\030\002 \001(\r\022\r\n\005width\030\003 \001"
-  "(\r\022\016\n\006height\030\004 \001(\r\022\017\n\007scrollx\030\005 \001(\r\022\017\n\007s"
-  "crolly\030\006 \001(\r\022\021\n\tpagescale\030\007 \001(\002\022\022\n\npages"
-  "erial\030\010 \001(\r\"%\n\013CMsgGetZoom\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\";\n\023CMsgGetZoomResponse\022\026\n\016bro"
-  "wser_handle\030\001 \001(\r\022\014\n\004zoom\030\002 \001(\002\"B\n\022CMsgL"
-  "inkAtPosition\022\026\n\016browser_handle\030\001 \001(\r\022\t\n"
-  "\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"z\n\032CMsgLinkAtPositio"
-  "nResponse\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002"
-  " \001(\r\022\t\n\001y\030\003 \001(\r\022\013\n\003url\030\004 \001(\t\022\021\n\tblivelin"
-  "k\030\005 \001(\010\022\016\n\006binput\030\006 \001(\010\"K\n\033CMsgZoomToEle"
-  "mentAtPosition\022\026\n\016browser_handle\030\001 \001(\r\022\t"
-  "\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"^\n#CMsgZoomToElemen"
-  "tAtPositionResponse\022\026\n\016browser_handle\030\001 "
-  "\001(\r\022\r\n\005scale\030\002 \001(\002\022\020\n\010duration\030\003 \001(\002\"S\n\024"
-  "CMsgScalePageToValue\022\026\n\016browser_handle\030\001"
-  " \001(\r\022\r\n\005scale\030\002 \001(\002\022\t\n\001x\030\003 \001(\002\022\t\n\001y\030\004 \001("
-  "\002\"W\n\033CMsgForcePopupsToDirectHWND\022\026\n\016brow"
-  "ser_handle\030\001 \001(\r\022 \n\030force_direct_hwnd_po"
-  "pups\030\002 \001(\010\"D\n\034CMsgScalePageToValueRespon"
-  "se\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004zoom\030\002 \001(\002"
-  "\"j\n\022CMsgSavePageToJPEG\022\026\n\016browser_handle"
-  "\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\020\n\010filename\030\003 \001(\t\022\r\n"
-  "\005width\030\004 \001(\r\022\016\n\006height\030\005 \001(\r\"S\n\032CMsgSave"
-  "PageToJPEGResponse\022\026\n\016browser_handle\030\001 \001"
-  "(\r\022\013\n\003url\030\002 \001(\t\022\020\n\010filename\030\003 \001(\t\"6\n\013CMs"
-  "gJSAlert\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007mess"
-  "age\030\002 \001(\t\"8\n\rCMsgJSConfirm\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\017\n\007message\030\002 \001(\t\">\n\024CMsgJSDia"
-  "logResponse\022\026\n\016browser_handle\030\001 \001(\r\022\016\n\006r"
-  "esult\030\002 \001(\010\"V\n\027CMsgCanGoBackAndForward\022\026"
-  "\n\016browser_handle\030\001 \001(\r\022\017\n\007bgoback\030\002 \001(\010\022"
-  "\022\n\nbgoforward\030\003 \001(\010\"I\n\020CMsgOpenSteamURL\022"
-  "\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\020\n\010"
-  "referrer\030\003 \001(\t\"\214\001\n\rCMsgSetCookie\022\013\n\003key\030"
-  "\001 \001(\t\022\r\n\005value\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\014\n\004ho"
-  "st\030\004 \001(\t\022\017\n\007expires\030\005 \001(\r\022\016\n\006secure\030\006 \001("
-  "\010\022\020\n\010httponly\030\007 \001(\010\022\020\n\010samesite\030\010 \001(\005\"J\n"
-  "\026CMsgSetTargetFrameRate\022\026\n\016browser_handl"
-  "e\030\001 \001(\r\022\030\n\020nTargetFrameRate\030\002 \001(\r\"*\n\020CMs"
-  "gPauseRepaint\022\026\n\016browser_handle\030\001 \001(\r\")\n"
-  "\017CMsgFullRepaint\022\026\n\016browser_handle\030\001 \001(\r"
-  "\"/\n\025CMsgRequestFullScreen\022\026\n\016browser_han"
-  "dle\030\001 \001(\r\",\n\022CMsgExitFullScreen\022\026\n\016brows"
-  "er_handle\030\001 \001(\r\"4\n\032CMsgToggleFindInPageD"
-  "ialog\022\026\n\016browser_handle\030\001 \001(\r\"0\n\026CMsgSet"
-  "PIDShuttingDown\022\026\n\016browser_handle\030\001 \001(\r\""
-  "9\n\037CMsgDisableBackgroundThrottling\022\026\n\016br"
-  "owser_handle\030\001 \001(\r\"0\n\026CMsgAckPIDShutting"
-  "Down\022\026\n\016browser_handle\030\001 \001(\r\";\n\024CMsgGetC"
-  "ookiesForURL\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003"
-  "url\030\002 \001(\t\"D\n\007CCookie\022\014\n\004name\030\001 \001(\t\022\r\n\005va"
-  "lue\030\002 \001(\t\022\016\n\006domain\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\""
-  "^\n\034CMsgGetCookiesForURLResponse\022\026\n\016brows"
-  "er_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\031\n\007cookies\030"
-  "\003 \003(\0132\010.CCookie\"\300\001\n\020CMsgNodeHasFocus\022\026\n\016"
-  "browser_handle\030\001 \001(\r\022\016\n\006bInput\030\002 \001(\010\022\014\n\004"
-  "name\030\003 \001(\t\022\026\n\016elementtagname\030\004 \001(\t\022\030\n\020se"
-  "archbuttontext\030\005 \001(\t\022\032\n\022bHasMultipleInpu"
-  "ts\030\006 \001(\010\022\022\n\ninput_type\030\007 \001(\t\022\024\n\014bIsMainF"
-  "rame\030\010 \001(\010\"2\n\030CMsgZoomToFocusedElement\022\026"
-  "\n\016browser_handle\030\001 \001(\r\"-\n\023CMsgFocusedNod"
-  "eText\022\026\n\016browser_handle\030\001 \001(\r\"D\n\033CMsgFoc"
-  "usedNodeTextResponse\022\026\n\016browser_handle\030\001"
-  " \001(\r\022\r\n\005value\030\002 \001(\t\"\037\n\013CMsgBuildID\022\020\n\010bu"
-  "ild_id\030\001 \001(\004\"*\n\020CMsgOpenDevTools\022\026\n\016brow"
-  "ser_handle\030\001 \001(\r\"+\n\021CMsgCloseDevTools\022\026\n"
-  "\016browser_handle\030\001 \001(\r\";\n\016CMsgUnlockH264\022"
-  "\026\n\016browser_handle\030\001 \001(\r\022\021\n\tunloccode\030\002 \001"
-  "(\t\"\227\002\n\034CMsgScreenInformationChanged\022\026\n\016b"
-  "rowser_handle\030\001 \001(\r\022\026\n\016override_width\030\002 "
-  "\001(\r\022\027\n\017override_height\030\003 \001(\r\022\024\n\014monitor_"
-  "left\030\004 \001(\r\022\023\n\013monitor_top\030\005 \001(\r\022\025\n\rmonit"
-  "or_right\030\006 \001(\r\022\026\n\016monitor_bottom\030\007 \001(\r\022\023"
-  "\n\013usable_left\030\010 \001(\r\022\022\n\nusable_top\030\t \001(\r\022"
-  "\024\n\014usable_right\030\n \001(\r\022\025\n\rusable_bottom\030\013"
-  " \001(\r\"-\n\023CMsgClearAllCookies\022\026\n\016browser_h"
-  "andle\030\001 \001(\r\"<\n\rCMsgScreenDPI\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\023\n\013dpi_scaling\030\002 \001(\002\"*\n\020CMs"
-  "gAckScreenDPI\022\026\n\016browser_handle\030\001 \001(\r\")\n"
-  "\026CMsgAuthedSteamDomains\022\017\n\007domains\030\001 \003(\t"
-  "\"%\n\023CMsgSteamAuthNeeded\022\016\n\006filler\030\001 \001(\010\""
-  "*\n\027CMsgSteamAuthCookiesSet\022\017\n\007success\030\001 "
-  "\001(\010\"\210\001\n\024CMsgJSRegisterMethod\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022J\n\013method_typ"
-  "e\030\003 \001(\0162\026.EJSRegisterMethodType:\035EJSRegi"
-  "sterMethodType_Invalid\"\344\002\n\013CMsgJSValue\022\022"
-  "\n\nbool_value\030\001 \001(\010\022\021\n\tint_value\030\002 \001(\005\022\022\n"
-  "\nuint_value\030\003 \001(\r\022\024\n\014double_value\030\004 \001(\001\022"
-  "\024\n\014string_value\030\005 \001(\t\022\027\n\017function_handle"
-  "\030\006 \001(\004\022\023\n\013bytes_value\030\014 \001(\014\022\020\n\010is_array\030"
-  "\010 \001(\010\022\"\n\014array_values\030\t \003(\0132\014.CMsgJSValu"
-  "e\022\021\n\tis_object\030\n \001(\010\0228\n\021object_propertie"
-  "s\030\013 \003(\0132\035.CMsgJSValue.JSObjectProperty\032="
-  "\n\020JSObjectProperty\022\014\n\004name\030\001 \001(\t\022\033\n\005valu"
-  "e\030\002 \001(\0132\014.CMsgJSValue\"x\n\020CMsgJSMethodCal"
-  "l\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025owning_brow"
-  "ser_handle\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\037\n\targume"
-  "nts\030\004 \003(\0132\014.CMsgJSValue\"\210\001\n\025CMsgJSExecut"
-  "eCallback\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025own"
-  "ing_browser_handle\030\002 \001(\r\022\027\n\017function_han"
-  "dle\030\003 \001(\004\022\037\n\targuments\030\004 \003(\0132\014.CMsgJSVal"
-  "ue\"\234\001\n\024CMsgJSExecutePromise\022\026\n\016browser_h"
-  "andle\030\001 \001(\r\022\035\n\025owning_browser_handle\030\002 \001"
-  "(\r\022\026\n\016promise_handle\030\003 \001(\004\022\025\n\rreject_rea"
-  "son\030\004 \001(\t\022\036\n\010argument\030\005 \001(\0132\014.CMsgJSValu"
-  "e\"g\n\025CMsgJSReleaseCallback\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\035\n\025owning_browser_handle\030\002 \001("
-  "\r\022\027\n\017function_handle\030\003 \001(\004\"`\n\024CMsgJSRais"
-  "eException\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025ow"
-  "ning_browser_handle\030\002 \001(\r\022\021\n\texception\030\003"
-  " \001(\t\"[\n\024CMsgLoadLocalization\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\031\n\021localization_path\030\002 \001(\t\022"
-  "\020\n\010language\030\003 \001(\t\"2\n\030CMsgNotifyUserActiv"
-  "ation\022\026\n\016browser_handle\030\001 \001(\r\"/\n\036CMsgSet"
-  "NetFakeLocalSystemState\022\r\n\005state\030\001 \001(\r\"\340"
-  "\001\n\033CMsgDraggableRegionsChanged\022\026\n\016browse"
-  "r_handle\030\001 \001(\r\022:\n\005rects\030\002 \003(\0132+.CMsgDrag"
-  "gableRegionsChanged.DraggableRects\032m\n\016Dr"
-  "aggableRects\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\r\n\005wi"
-  "dth\030\003 \001(\005\022\016\n\006height\030\004 \001(\005\022\021\n\tdraggable\030\005"
-  " \001(\010\022\023\n\013transparent\030\006 \001(\010\"N\n\025CMsgResizeG"
-  "ripChanged\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005wi"
-  "dth\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\"\262\001\n\025CMsgSetWin"
-  "dowPosition\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x"
-  "\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005width\030\004 \001(\001\022\016\n\006heig"
-  "ht\030\005 \001(\001\022\021\n\tmin_width\030\006 \001(\001\022\022\n\nmin_heigh"
-  "t\030\007 \001(\001\022\021\n\tmax_width\030\010 \001(\001\022\022\n\nmax_height"
-  "\030\t \001(\001\"(\n\016CMsgShowWindow\022\026\n\016browser_hand"
-  "le\030\001 \001(\r\"(\n\016CMsgHideWindow\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\"0\n\026CMsgBringWindowToFront\022\026\n\016"
-  "browser_handle\030\001 \001(\r\"1\n\027CMsgSetForegroun"
-  "dWindow\022\026\n\016browser_handle\030\001 \001(\r\"3\n\031CMsgM"
-  "aximizeRestoreWindow\022\026\n\016browser_handle\030\001"
-  " \001(\r\",\n\022CMsgMinimizeWindow\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\"\344\002\n\032CMsgShowBrowserContextMen"
-  "u\022\026\n\016browser_handle\030\001 \001(\r\022C\n\017custom_comm"
-  "ands\030\002 \003(\0132*.CMsgShowBrowserContextMenu."
-  "ContextCommand\022\022\n\ntype_flags\030\003 \001(\r\022\020\n\010pa"
-  "ge_url\030\004 \001(\t\022\017\n\007coord_x\030\005 \001(\005\022\017\n\007coord_y"
-  "\030\006 \001(\005\022\016\n\006linurl\030\007 \001(\t\022\031\n\021unfiltered_lin"
-  "url\030\010 \001(\t\022\026\n\016selection_text\030\t \001(\t\022\027\n\017mis"
-  "spelled_word\030\n \001(\t\022\030\n\020edit_state_flags\030\013"
-  " \001(\r\032+\n\016ContextCommand\022\n\n\002id\030\001 \001(\005\022\r\n\005la"
-  "bel\030\002 \001(\t\"J\n\034CMsgHandleContextMenuComman"
-  "d\022\026\n\016browser_handle\030\001 \001(\r\022\022\n\ncommand_id\030"
-  "\002 \001(\005\"\244\001\n\020CMsgTouchGesture\022\026\n\016browser_ha"
-  "ndle\030\001 \001(\r\022\n\n\002id\030\002 \001(\005\022\017\n\007gesture\030\003 \001(\r\022"
-  "\t\n\001x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\r\n\005width\030\006 \001(\001\022\016\n\006"
-  "height\030\007 \001(\001\022\021\n\ttap_count\030\010 \001(\r\022\023\n\013pinch"
-  "_scale\030\t \001(\001\"H\n\034CMsgSetTouchGesturesToCa"
-  "ncel\022\026\n\016browser_handle\030\001 \001(\r\022\020\n\010gestures"
-  "\030\002 \003(\r\"=\n\025CMsgImeSetComposition\022\026\n\016brows"
-  "er_handle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\"9\n\021CMsgIme"
-  "CommitText\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004te"
-  "xt\030\002 \001(\t\"2\n\030CMsgImeCancelComposition\022\026\n\016"
-  "browser_handle\030\001 \001(\r\"N\n\036CMsgImeCompositi"
-  "onRangeChanged\022\026\n\016browser_handle\030\001 \001(\r\022\t"
-  "\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"B\n\022CMsgInspectEleme"
-  "nt\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n"
-  "\001y\030\003 \001(\r\"8\n\rCMsgDisableF5\022\026\n\016browser_han"
-  "dle\030\001 \001(\r\022\017\n\007disable\030\002 \001(\010\"8\n\021CMsgStartD"
-  "ownload\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002"
-  " \001(\t\"L\n\032CMsgSetWindowStackingOrder\022\026\n\016br"
-  "owser_handle\030\001 \001(\r\022\026\n\016estackingorder\030\002 \001"
-  "(\r\"z\n)CMsgBrowserViewPostMessageToParent"
-  "Request\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007messa"
-  "ge\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016requesting_url"
-  "\030\004 \001(\t\"9\n\022CMsgBlockedRequest\022\026\n\016browser_"
-  "handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"B\n\027CMsgBrowser"
-  "FocusChanged\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007"
-  "focused\030\002 \001(\010\"@\n\030CMsgSetProtocolBlockLis"
-  "t\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004list\030\002 \001(\t\""
-  "J\n\036CMsgSetForceDeviceScaleFactors\022\021\n\tdpi"
-  "_scale\030\001 \001(\001\022\025\n\rbrowser_scale\030\002 \001(\001\" \n\rC"
-  "MsgSetUIMode\022\017\n\007ui_mode\030\001 \001(\005\"/\n\024CMsgSet"
-  "SteamBetaName\022\027\n\017steam_beta_name\030\001 \001(\t\"*"
-  "\n\020CMsgPopupCreated\022\026\n\016browser_handle\030\001 \001"
-  "(\r\"F\n\033CMsgSetVRKeyboardVisibility\022\026\n\016bro"
-  "wser_handle\030\001 \001(\r\022\017\n\007visible\030\002 \001(\010\"\026\n\024CM"
-  "sgRestartJSContext*\245\001\n\025EJSRegisterMethod"
-  "Type\022!\n\035EJSRegisterMethodType_Invalid\020\000\022"
-  "\"\n\036EJSRegisterMethodType_Function\020\001\022\"\n\036E"
-  "JSRegisterMethodType_Callback\020\002\022!\n\035EJSRe"
-  "gisterMethodType_Promise\020\003B\037H\001\200\001\000\252\002\027Open"
-  "Steamworks.Protobuf"
+  "scriptor.proto\032\013enums.proto\"^\n\tCMsgKeyUp"
+  "\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007keyCode\030\002 \001("
+  "\r\022\021\n\tmodifiers\030\003 \001(\r\022\025\n\rnativeKeyCode\030\004 "
+  "\001(\r\"w\n\013CMsgKeyDown\022\026\n\016browser_handle\030\001 \001"
+  "(\r\022\017\n\007keyCode\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001(\r\022\025"
+  "\n\ris_system_key\030\004 \001(\010\022\025\n\rnativeKeyCode\030\005"
+  " \001(\r\"q\n\013CMsgKeyChar\022\026\n\016browser_handle\030\001 "
+  "\001(\r\022\017\n\007unichar\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001(\r\022"
+  "\017\n\007keyCode\030\004 \001(\r\022\025\n\rnativeKeyCode\030\005 \001(\r\""
+  "P\n\rCMsgMouseDown\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\024\n\014mouse_button\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001("
+  "\r\"z\n\013CMsgMouseUp\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\024\n\014mouse_button\030\002 \001(\r\022\021\n\tmodifiers\030\003 \001("
+  "\r\022\024\n\014is_off_panel\030\004 \001(\010\022\t\n\001x\030\005 \001(\005\022\t\n\001y\030"
+  "\006 \001(\005\"T\n\021CMsgMouseDblClick\022\026\n\016browser_ha"
+  "ndle\030\001 \001(\r\022\024\n\014mouse_button\030\002 \001(\r\022\021\n\tmodi"
+  "fiers\030\003 \001(\r\"[\n\016CMsgMouseWheel\022\026\n\016browser"
+  "_handle\030\001 \001(\r\022\016\n\006deltax\030\002 \001(\005\022\016\n\006deltay\030"
+  "\003 \001(\005\022\021\n\tmodifiers\030\004 \001(\r\"P\n\rCMsgMouseMov"
+  "e\022\026\n\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\005\022\t\n\001"
+  "y\030\003 \001(\005\022\021\n\tmodifiers\030\004 \001(\r\"(\n\016CMsgMouseL"
+  "eave\022\026\n\016browser_handle\030\001 \001(\r\"\335\003\n\021CMsgBro"
+  "wserCreate\022\022\n\nrequest_id\030\001 \001(\r\022\021\n\tuserag"
+  "ent\030\003 \001(\t\022\020\n\010user_css\030\005 \001(\t\022\030\n\020native_dr"
+  "opdowns\030\006 \001(\010\022\023\n\013dpi_scaling\030\007 \001(\002\022\027\n\tof"
+  "fscreen\030\010 \001(\010:\004true\022\030\n\rinitial_width\030\t \001"
+  "(\r:\0010\022\031\n\016initial_height\030\n \001(\r:\0010\022\023\n\013wind"
+  "ow_icon\030\013 \001(\t\022\031\n\nborderless\030\014 \001(\010:\005false"
+  "\022\025\n\rvroverlay_key\030\r \001(\t\022\027\n\014browser_type\030"
+  "\016 \001(\r:\0010\022 \n\013initial_top\030\017 \001(\005:\013-21474836"
+  "48\022!\n\014initial_left\030\020 \001(\005:\013-2147483648\022(\n"
+  "\031only_allow_trusted_popups\030\021 \001(\010:\005false\022"
+  "\023\n\013initial_url\030\022 \001(\t\022\023\n\013hwnd_parent\030\023 \001("
+  "\006\022\031\n\016creation_flags\030\024 \001(\r:\0010\"G\n\031CMsgBrow"
+  "serCreateResponse\022\026\n\016browser_handle\030\001 \001("
+  "\r\022\022\n\nrequest_id\030\002 \001(\r\"+\n\021CMsgBrowserRemo"
+  "ve\022\026\n\016browser_handle\030\001 \001(\r\"\230\002\n\036CMsgSetLo"
+  "calFileRequestMapping\022\026\n\016browser_handle\030"
+  "\001 \001(\r\022\023\n\013request_url\030\002 \001(\t\022\032\n\022default_lo"
+  "cal_path\030\003 \001(\t\022\?\n\006routes\030\004 \003(\0132/.CMsgSet"
+  "LocalFileRequestMapping.AdditionalRoute\032"
+  "l\n\017AdditionalRoute\022\024\n\014relative_url\030\001 \001(\t"
+  "\022\022\n\nlocal_path\030\002 \001(\t\022\032\n\022allowed_extensio"
+  "ns\030\003 \001(\t\022\023\n\013url_rewrite\030\004 \001(\010\"\271\001\n\027CMsgBr"
+  "owserErrorStrings\022\026\n\016browser_handle\030\001 \001("
+  "\r\022\r\n\005title\030\002 \001(\t\022\016\n\006header\030\003 \001(\t\022\022\n\ncach"
+  "e_miss\030\004 \001(\t\022\017\n\007bad_url\030\005 \001(\t\022\032\n\022connect"
+  "ion_problem\030\006 \001(\t\022\025\n\rproxy_problem\030\007 \001(\t"
+  "\022\017\n\007unknown\030\010 \001(\t\":\n\022CMsgBrowserSetName\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\"H\n"
+  "\017CMsgBrowserSize\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\r\n\005width\030\002 \001(\001\022\016\n\006height\030\003 \001(\001\"N\n\025CMsgB"
+  "rowserSetMinSize\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\r\n\005width\030\002 \001(\001\022\016\n\006height\030\003 \001(\001\"e\n\023CMsgB"
+  "rowserPosition\022\026\n\016browser_handle\030\001 \001(\r\022\t"
+  "\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\017\n\007x_local\030\004 \001(\001\022\017\n"
+  "\007y_local\030\005 \001(\001\"\245\001\n\022CMsgBrowserResized\022\026\n"
+  "\016browser_handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 "
+  "\001(\001\022\r\n\005width\030\004 \001(\001\022\016\n\006height\030\005 \001(\001\022\026\n\016dp"
+  "i_horizontal\030\006 \001(\001\022\024\n\014dpi_vertical\030\007 \001(\001"
+  "\022\024\n\014display_name\030\010 \001(\t\"k\n\013CMsgPostURL\022\026\n"
+  "\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\014\n\004po"
+  "st\030\003 \001(\t\022\022\n\npageserial\030\004 \001(\r\022\025\n\rreplace_"
+  "entry\030\005 \001(\010\"C\n\rCMsgAddHeader\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\013\n\003key\030\002 \001(\t\022\r\n\005value\030\003 \001(\t"
+  "\"&\n\014CMsgStopLoad\022\026\n\016browser_handle\030\001 \001(\r"
+  "\"$\n\nCMsgReload\022\026\n\016browser_handle\030\001 \001(\r\"\'"
+  "\n\rCMsgGoForward\022\026\n\016browser_handle\030\001 \001(\r\""
+  "$\n\nCMsgGoBack\022\026\n\016browser_handle\030\001 \001(\r\"7\n"
+  "\rCMsgWasHidden\022\026\n\016browser_handle\030\001 \001(\r\022\016"
+  "\n\006hidden\030\002 \001(\010\"B\n\027CMsgSetWindowVisibilit"
+  "y\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007visible\030\002 \001"
+  "(\010\"*\n\020CMsgClearHistory\022\026\n\016browser_handle"
+  "\030\001 \001(\r\"2\n\030CMsgClearAllBrowsingData\022\026\n\016br"
+  "owser_handle\030\001 \001(\r\"\"\n\010CMsgCopy\022\026\n\016browse"
+  "r_handle\030\001 \001(\r\"#\n\tCMsgPaste\022\026\n\016browser_h"
+  "andle\030\001 \001(\r\"\?\n\025CMsgExecuteJavaScript\022\026\n\016"
+  "browser_handle\030\001 \001(\r\022\016\n\006script\030\002 \001(\t\"5\n\014"
+  "CMsgSetFocus\022\026\n\016browser_handle\030\001 \001(\r\022\r\n\005"
+  "focus\030\002 \001(\010\"5\n\033CMsgHorizontalScrollBarSi"
+  "ze\022\026\n\016browser_handle\030\001 \001(\r\"\223\001\n#CMsgHoriz"
+  "ontalScrollBarSizeResponse\022\026\n\016browser_ha"
+  "ndle\030\001 \001(\r\022\022\n\nscroll_max\030\006 \001(\r\022\016\n\006scroll"
+  "\030\007 \001(\r\022\014\n\004zoom\030\010 \001(\002\022\017\n\007visible\030\t \001(\010\022\021\n"
+  "\tpage_size\030\n \001(\r\"3\n\031CMsgVerticalScrollBa"
+  "rSize\022\026\n\016browser_handle\030\001 \001(\r\"\221\001\n!CMsgVe"
+  "rticalScrollBarSizeResponse\022\026\n\016browser_h"
+  "andle\030\001 \001(\r\022\022\n\nscroll_max\030\006 \001(\r\022\016\n\006scrol"
+  "l\030\007 \001(\r\022\014\n\004zoom\030\010 \001(\002\022\017\n\007visible\030\t \001(\010\022\021"
+  "\n\tpage_size\030\n \001(\r\"X\n\010CMsgFind\022\026\n\016browser"
+  "_handle\030\001 \001(\r\022\014\n\004find\030\002 \001(\t\022\016\n\006infind\030\003 "
+  "\001(\010\022\026\n\007reverse\030\004 \001(\010:\005false\"&\n\014CMsgStopF"
+  "ind\022\026\n\016browser_handle\030\001 \001(\r\"A\n\027CMsgSetHo"
+  "rizontalScroll\022\026\n\016browser_handle\030\001 \001(\r\022\016"
+  "\n\006scroll\030\002 \001(\r\"\?\n\025CMsgSetVerticalScroll\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022\016\n\006scroll\030\002 \001(\r\""
+  "8\n\020CMsgSetZoomLevel\022\026\n\016browser_handle\030\001 "
+  "\001(\r\022\014\n\004zoom\030\002 \001(\001\"(\n\016CMsgViewSource\022\026\n\016b"
+  "rowser_handle\030\001 \001(\r\"X\n\020CMsgBrowserReady\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022\026\n\016vr_overlay_ke"
+  "y\030\002 \001(\t\022\024\n\014hwnd_browser\030\003 \001(\006\"\207\001\n\016CMsgUR"
+  "LChanged\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030"
+  "\002 \001(\t\022\020\n\010postData\030\003 \001(\t\022\023\n\013bIsRedirect\030\004"
+  " \001(\010\022\021\n\tpagetitle\030\005 \001(\t\022\026\n\016bNewNavigatio"
+  "n\030\006 \001(\010\"\034\n\rCHistoryEntry\022\013\n\003url\030\001 \001(\t\"\\\n"
+  "\022CMsgHistoryChanged\022\026\n\016browser_handle\030\001 "
+  "\001(\r\022\r\n\005index\030\002 \001(\r\022\037\n\007entries\030\003 \003(\0132\016.CH"
+  "istoryEntry\"c\n\rCMsgLoadError\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\022\n\nerror_code\030\002 \001(\005\022\013\n\003url\030"
+  "\003 \001(\t\022\031\n\021error_description\030\004 \001(\t\")\n\013CHTM"
+  "LHeader\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\274\001\n\025"
+  "CHTMLPageSecurityInfo\022\030\n\tbIsSecure\030\001 \001(\010"
+  ":\005false\022\034\n\rbHasCertError\030\002 \001(\010:\005false\022\022\n"
+  "\nissuerName\030\003 \001(\t\022\020\n\010certName\030\004 \001(\t\022\025\n\nc"
+  "ertExpiry\030\005 \001(\005:\0010\022\024\n\tnCertBits\030\006 \001(\005:\0010"
+  "\022\030\n\tbIsEVCert\030\007 \001(\010:\005false\"M\n\023CMsgFinish"
+  "edRequest\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url"
+  "\030\002 \001(\t\022\021\n\tpageTitle\030\003 \001(\t\"j\n\021CMsgLoadedR"
+  "equest\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 "
+  "\001(\t\022\021\n\tpageTitle\030\003 \001(\t\022\035\n\007headers\030\005 \003(\0132"
+  "\014.CHTMLHeader\"=\n\025CMsgFavIconURLChanged\022\026"
+  "\n\016browser_handle\030\001 \001(\r\022\014\n\004urls\030\002 \003(\t\"f\n\020"
+  "CMsgPageSecurity\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\013\n\003url\030\002 \001(\t\022-\n\rsecurity_info\030\003 \001(\0132\026.C"
+  "HTMLPageSecurityInfo\"n\n\020CMsgStartRequest"
+  "\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\016\n"
+  "\006target\030\003 \001(\t\022\020\n\010postData\030\004 \001(\t\022\023\n\013bIsRe"
+  "direct\030\005 \001(\010\"B\n\030CMsgStartRequestResponse"
+  "\022\026\n\016browser_handle\030\001 \001(\r\022\016\n\006bAllow\030\002 \001(\010"
+  "\"\'\n\rCMsgShowPopup\022\026\n\016browser_handle\030\001 \001("
+  "\r\"\'\n\rCMsgHidePopup\022\026\n\016browser_handle\030\001 \001"
+  "(\r\"Y\n\rCMsgSizePopup\022\026\n\016browser_handle\030\001 "
+  "\001(\r\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\022\014\n\004wide\030\004 \001(\r\022"
+  "\014\n\004tall\030\005 \001(\r\"J\n\016CMsgOpenNewTab\022\026\n\016brows"
+  "er_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\023\n\013bForegro"
+  "und\030\003 \001(\010\"\354\001\n\023CMsgPopupHTMLWindow\022\026\n\016bro"
+  "wser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\026\n\001x\030\003 \001("
+  "\005:\013-2147483648\022\026\n\001y\030\004 \001(\005:\013-2147483648\022\014"
+  "\n\004wide\030\005 \001(\r\022\014\n\004tall\030\006 \001(\r\022\023\n\013popup_inde"
+  "x\030\007 \001(\r\022\027\n\017trusted_creator\030\010 \001(\010\022\014\n\004name"
+  "\030\t \001(\t\022\014\n\004hwnd\030\n \001(\004\022\032\n\022parent_popup_ind"
+  "ex\030\013 \001(\r\"E\n\033CMsgPopupHTMLWindowResponse\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022\016\n\006bAllow\030\002 \001(\010\""
+  "9\n\020CMsgSetHTMLTitle\022\026\n\016browser_handle\030\001 "
+  "\001(\r\022\r\n\005title\030\002 \001(\t\":\n\023CMsgLoadingResourc"
+  "e\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"6"
+  "\n\016CMsgStatusText\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\014\n\004text\030\002 \001(\t\"\214\001\n\rCMsgSetCursor\022\026\n\016brow"
+  "ser_handle\030\001 \001(\r\022\016\n\006cursor\030\002 \001(\r\022\023\n\013cust"
+  "om_data\030\003 \001(\014\022\014\n\004wide\030\004 \001(\r\022\014\n\004tall\030\005 \001("
+  "\r\022\020\n\010xhotspot\030\006 \001(\r\022\020\n\010yhotspot\030\007 \001(\r\"\233\002"
+  "\n\022CMsgFileLoadDialog\022\026\n\016browser_handle\030\001"
+  " \001(\r\022\035\n\025owning_browser_handle\030\002 \001(\r\022\r\n\005t"
+  "itle\030\003 \001(\t\022\023\n\013initialFile\030\004 \001(\t\022\024\n\014accep"
+  "t_types\030\005 \003(\t\022\017\n\007is_save\030\006 \001(\010\022\030\n\020choose"
+  "_directory\030\007 \001(\010\022+\n\007filters\030\010 \003(\0132\032.CMsg"
+  "FileLoadDialog.Filter\032<\n\006Filter\022\014\n\004name\030"
+  "\001 \001(\t\022\020\n\010patterns\030\002 \003(\t\022\022\n\nis_default\030\003 "
+  "\001(\010\"t\n\032CMsgFileLoadDialogResponse\022\026\n\016bro"
+  "wser_handle\030\001 \001(\r\022\035\n\025owning_browser_hand"
+  "le\030\002 \001(\r\022\020\n\010bsuccess\030\003 \001(\010\022\r\n\005files\030\004 \003("
+  "\t\"+\n\026CMsgRequestProcessInfo\022\021\n\trequestid"
+  "\030\001 \001(\004\"\311\n\n\033CMsgProcessInfoNotification\022\021"
+  "\n\trequestid\030\001 \001(\004\022A\n\ngpu_status\030\002 \001(\0162\022."
+  "EBrowserGPUStatus:\031EBrowserGPUStatus_Inv"
+  "alid\022H\n\tcanvas_2d\030\003 \001(\0162\026.EBrowserFeatur"
+  "eStatus:\035EBrowserFeatureStatus_Invalid\022W"
+  "\n\030canvas_oop_rasterization\030\004 \001(\0162\026.EBrow"
+  "serFeatureStatus:\035EBrowserFeatureStatus_"
+  "Invalid\022b\n#direct_rendering_display_comp"
+  "ositor\030\005 \001(\0162\026.EBrowserFeatureStatus:\035EB"
+  "rowserFeatureStatus_Invalid\022N\n\017gpu_compo"
+  "siting\030\006 \001(\0162\026.EBrowserFeatureStatus:\035EB"
+  "rowserFeatureStatus_Invalid\022V\n\027multiple_"
+  "raster_threads\030\007 \001(\0162\026.EBrowserFeatureSt"
+  "atus:\035EBrowserFeatureStatus_Invalid\022E\n\006o"
+  "pengl\030\010 \001(\0162\026.EBrowserFeatureStatus:\035EBr"
+  "owserFeatureStatus_Invalid\022L\n\rrasterizat"
+  "ion\030\t \001(\0162\026.EBrowserFeatureStatus:\035EBrow"
+  "serFeatureStatus_Invalid\022G\n\010raw_draw\030\n \001"
+  "(\0162\026.EBrowserFeatureStatus:\035EBrowserFeat"
+  "ureStatus_Invalid\022L\n\rskia_graphite\030\013 \001(\016"
+  "2\026.EBrowserFeatureStatus:\035EBrowserFeatur"
+  "eStatus_Invalid\022K\n\014video_decode\030\r \001(\0162\026."
+  "EBrowserFeatureStatus:\035EBrowserFeatureSt"
+  "atus_Invalid\022K\n\014video_encode\030\016 \001(\0162\026.EBr"
+  "owserFeatureStatus:\035EBrowserFeatureStatu"
+  "s_Invalid\022E\n\006vulkan\030\017 \001(\0162\026.EBrowserFeat"
+  "ureStatus:\035EBrowserFeatureStatus_Invalid"
+  "\022D\n\005webgl\030\020 \001(\0162\026.EBrowserFeatureStatus:"
+  "\035EBrowserFeatureStatus_Invalid\022E\n\006webgl2"
+  "\030\021 \001(\0162\026.EBrowserFeatureStatus:\035EBrowser"
+  "FeatureStatus_Invalid\022E\n\006webgpu\030\022 \001(\0162\026."
+  "EBrowserFeatureStatus:\035EBrowserFeatureSt"
+  "atus_Invalid\022D\n\005webnn\030\023 \001(\0162\026.EBrowserFe"
+  "atureStatus:\035EBrowserFeatureStatus_Inval"
+  "id\"7\n\017CMsgShowToolTip\022\026\n\016browser_handle\030"
+  "\001 \001(\r\022\014\n\004text\030\002 \001(\t\"9\n\021CMsgUpdateToolTip"
+  "\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\")"
+  "\n\017CMsgHideToolTip\022\026\n\016browser_handle\030\001 \001("
+  "\r\"Q\n\021CMsgSearchResults\022\026\n\016browser_handle"
+  "\030\001 \001(\r\022\023\n\013activeMatch\030\002 \001(\005\022\017\n\007results\030\003"
+  " \001(\005\"#\n\tCMsgClose\022\026\n\016browser_handle\030\001 \001("
+  "\r\"\212\001\n\031CMsgSetSharedPaintBuffers\022\026\n\016brows"
+  "er_handle\030\001 \001(\r\022\014\n\004wide\030\002 \001(\r\022\014\n\004tall\030\003 "
+  "\001(\r\022\022\n\nsource_pid\030\004 \001(\004\022\025\n\rsource_handle"
+  "\030\005 \001(\004\022\016\n\006handle\030\006 \001(\004\"3\n\031CMsgAckSharedP"
+  "aintBuffers\022\026\n\016browser_handle\030\001 \001(\r\"\273\001\n\016"
+  "CMsgNeedsPaint\022\026\n\016browser_handle\030\001 \001(\r\022\017"
+  "\n\007scrollx\030\n \001(\r\022\017\n\007scrolly\030\013 \001(\r\022\021\n\tpage"
+  "scale\030\014 \001(\002\022\022\n\npageserial\030\017 \001(\r\022\024\n\014avg_f"
+  "rame_ms\030\024 \001(\r\022\033\n\023stddev_sum_frame_ms\030\025 \001"
+  "(\002\022\025\n\rlong_frame_ms\030\026 \001(\r\"\257\001\n\023CMsgComboN"
+  "eedsPaint\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004rgb"
+  "a\030\002 \001(\004\022\030\n\rcombobox_wide\030\003 \001(\r:\0010\022\030\n\rcom"
+  "bobox_tall\030\004 \001(\r:\0010\022\037\n\024shared_memory_han"
+  "dle\030\005 \001(\004:\0010\022\035\n\022shared_memory_size\030\007 \001(\004"
+  ":\0010\"\263\001\n\033CMsgNeedsSharedTexturePaint\022\026\n\016b"
+  "rowser_handle\030\001 \001(\r\022\024\n\014share_handle\030\002 \001("
+  "\r\022\r\n\005width\030\003 \001(\r\022\016\n\006height\030\004 \001(\r\022\017\n\007scro"
+  "llx\030\005 \001(\r\022\017\n\007scrolly\030\006 \001(\r\022\021\n\tpagescale\030"
+  "\007 \001(\002\022\022\n\npageserial\030\010 \001(\r\"%\n\013CMsgGetZoom"
+  "\022\026\n\016browser_handle\030\001 \001(\r\";\n\023CMsgGetZoomR"
+  "esponse\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004zoom\030"
+  "\002 \001(\002\"B\n\022CMsgLinkAtPosition\022\026\n\016browser_h"
+  "andle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"z\n\032CMs"
+  "gLinkAtPositionResponse\022\026\n\016browser_handl"
+  "e\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\022\013\n\003url\030\004 \001"
+  "(\t\022\021\n\tblivelink\030\005 \001(\010\022\016\n\006binput\030\006 \001(\010\"K\n"
+  "\033CMsgZoomToElementAtPosition\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"^\n#CM"
+  "sgZoomToElementAtPositionResponse\022\026\n\016bro"
+  "wser_handle\030\001 \001(\r\022\r\n\005scale\030\002 \001(\002\022\020\n\010dura"
+  "tion\030\003 \001(\002\"S\n\024CMsgScalePageToValue\022\026\n\016br"
+  "owser_handle\030\001 \001(\r\022\r\n\005scale\030\002 \001(\002\022\t\n\001x\030\003"
+  " \001(\002\022\t\n\001y\030\004 \001(\002\"W\n\033CMsgForcePopupsToDire"
+  "ctHWND\022\026\n\016browser_handle\030\001 \001(\r\022 \n\030force_"
+  "direct_hwnd_popups\030\002 \001(\010\"D\n\034CMsgScalePag"
+  "eToValueResponse\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\014\n\004zoom\030\002 \001(\002\"j\n\022CMsgSavePageToJPEG\022\026\n\016"
+  "browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\020\n\010fil"
+  "ename\030\003 \001(\t\022\r\n\005width\030\004 \001(\r\022\016\n\006height\030\005 \001"
+  "(\r\"S\n\032CMsgSavePageToJPEGResponse\022\026\n\016brow"
+  "ser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\020\n\010filenam"
+  "e\030\003 \001(\t\"6\n\013CMsgJSAlert\022\026\n\016browser_handle"
+  "\030\001 \001(\r\022\017\n\007message\030\002 \001(\t\"8\n\rCMsgJSConfirm"
+  "\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007message\030\002 \001("
+  "\t\">\n\024CMsgJSDialogResponse\022\026\n\016browser_han"
+  "dle\030\001 \001(\r\022\016\n\006result\030\002 \001(\010\"V\n\027CMsgCanGoBa"
+  "ckAndForward\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007"
+  "bgoback\030\002 \001(\010\022\022\n\nbgoforward\030\003 \001(\010\"I\n\020CMs"
+  "gOpenSteamURL\022\026\n\016browser_handle\030\001 \001(\r\022\013\n"
+  "\003url\030\002 \001(\t\022\020\n\010referrer\030\003 \001(\t\"\214\001\n\rCMsgSet"
+  "Cookie\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\022\014\n\004pa"
+  "th\030\003 \001(\t\022\014\n\004host\030\004 \001(\t\022\017\n\007expires\030\005 \001(\r\022"
+  "\016\n\006secure\030\006 \001(\010\022\020\n\010httponly\030\007 \001(\010\022\020\n\010sam"
+  "esite\030\010 \001(\005\"J\n\026CMsgSetTargetFrameRate\022\026\n"
+  "\016browser_handle\030\001 \001(\r\022\030\n\020nTargetFrameRat"
+  "e\030\002 \001(\r\"*\n\020CMsgPauseRepaint\022\026\n\016browser_h"
+  "andle\030\001 \001(\r\")\n\017CMsgFullRepaint\022\026\n\016browse"
+  "r_handle\030\001 \001(\r\"/\n\025CMsgRequestFullScreen\022"
+  "\026\n\016browser_handle\030\001 \001(\r\",\n\022CMsgExitFullS"
+  "creen\022\026\n\016browser_handle\030\001 \001(\r\"4\n\032CMsgTog"
+  "gleFindInPageDialog\022\026\n\016browser_handle\030\001 "
+  "\001(\r\"0\n\026CMsgSetPIDShuttingDown\022\026\n\016browser"
+  "_handle\030\001 \001(\r\"9\n\037CMsgDisableBackgroundTh"
+  "rottling\022\026\n\016browser_handle\030\001 \001(\r\"0\n\026CMsg"
+  "AckPIDShuttingDown\022\026\n\016browser_handle\030\001 \001"
+  "(\r\";\n\024CMsgGetCookiesForURL\022\026\n\016browser_ha"
+  "ndle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\"D\n\007CCookie\022\014\n\004na"
+  "me\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\022\016\n\006domain\030\003 \001(\t\022"
+  "\014\n\004path\030\004 \001(\t\"^\n\034CMsgGetCookiesForURLRes"
+  "ponse\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001"
+  "(\t\022\031\n\007cookies\030\003 \003(\0132\010.CCookie\"\300\001\n\020CMsgNo"
+  "deHasFocus\022\026\n\016browser_handle\030\001 \001(\r\022\016\n\006bI"
+  "nput\030\002 \001(\010\022\014\n\004name\030\003 \001(\t\022\026\n\016elementtagna"
+  "me\030\004 \001(\t\022\030\n\020searchbuttontext\030\005 \001(\t\022\032\n\022bH"
+  "asMultipleInputs\030\006 \001(\010\022\022\n\ninput_type\030\007 \001"
+  "(\t\022\024\n\014bIsMainFrame\030\010 \001(\010\"2\n\030CMsgZoomToFo"
+  "cusedElement\022\026\n\016browser_handle\030\001 \001(\r\"-\n\023"
+  "CMsgFocusedNodeText\022\026\n\016browser_handle\030\001 "
+  "\001(\r\"D\n\033CMsgFocusedNodeTextResponse\022\026\n\016br"
+  "owser_handle\030\001 \001(\r\022\r\n\005value\030\002 \001(\t\"\037\n\013CMs"
+  "gBuildID\022\020\n\010build_id\030\001 \001(\004\"*\n\020CMsgOpenDe"
+  "vTools\022\026\n\016browser_handle\030\001 \001(\r\"+\n\021CMsgCl"
+  "oseDevTools\022\026\n\016browser_handle\030\001 \001(\r\";\n\016C"
+  "MsgUnlockH264\022\026\n\016browser_handle\030\001 \001(\r\022\021\n"
+  "\tunloccode\030\002 \001(\t\"\227\002\n\034CMsgScreenInformati"
+  "onChanged\022\026\n\016browser_handle\030\001 \001(\r\022\026\n\016ove"
+  "rride_width\030\002 \001(\r\022\027\n\017override_height\030\003 \001"
+  "(\r\022\024\n\014monitor_left\030\004 \001(\r\022\023\n\013monitor_top\030"
+  "\005 \001(\r\022\025\n\rmonitor_right\030\006 \001(\r\022\026\n\016monitor_"
+  "bottom\030\007 \001(\r\022\023\n\013usable_left\030\010 \001(\r\022\022\n\nusa"
+  "ble_top\030\t \001(\r\022\024\n\014usable_right\030\n \001(\r\022\025\n\ru"
+  "sable_bottom\030\013 \001(\r\"-\n\023CMsgClearAllCookie"
+  "s\022\026\n\016browser_handle\030\001 \001(\r\"<\n\rCMsgScreenD"
+  "PI\022\026\n\016browser_handle\030\001 \001(\r\022\023\n\013dpi_scalin"
+  "g\030\002 \001(\002\"*\n\020CMsgAckScreenDPI\022\026\n\016browser_h"
+  "andle\030\001 \001(\r\")\n\026CMsgAuthedSteamDomains\022\017\n"
+  "\007domains\030\001 \003(\t\"%\n\023CMsgSteamAuthNeeded\022\016\n"
+  "\006filler\030\001 \001(\010\"*\n\027CMsgSteamAuthCookiesSet"
+  "\022\017\n\007success\030\001 \001(\010\"\210\001\n\024CMsgJSRegisterMeth"
+  "od\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004name\030\002 \001(\t"
+  "\022J\n\013method_type\030\003 \001(\0162\026.EJSRegisterMetho"
+  "dType:\035EJSRegisterMethodType_Invalid\"\344\002\n"
+  "\013CMsgJSValue\022\022\n\nbool_value\030\001 \001(\010\022\021\n\tint_"
+  "value\030\002 \001(\005\022\022\n\nuint_value\030\003 \001(\r\022\024\n\014doubl"
+  "e_value\030\004 \001(\001\022\024\n\014string_value\030\005 \001(\t\022\027\n\017f"
+  "unction_handle\030\006 \001(\004\022\023\n\013bytes_value\030\014 \001("
+  "\014\022\020\n\010is_array\030\010 \001(\010\022\"\n\014array_values\030\t \003("
+  "\0132\014.CMsgJSValue\022\021\n\tis_object\030\n \001(\010\0228\n\021ob"
+  "ject_properties\030\013 \003(\0132\035.CMsgJSValue.JSOb"
+  "jectProperty\032=\n\020JSObjectProperty\022\014\n\004name"
+  "\030\001 \001(\t\022\033\n\005value\030\002 \001(\0132\014.CMsgJSValue\"x\n\020C"
+  "MsgJSMethodCall\022\026\n\016browser_handle\030\001 \001(\r\022"
+  "\035\n\025owning_browser_handle\030\002 \001(\r\022\014\n\004name\030\003"
+  " \001(\t\022\037\n\targuments\030\004 \003(\0132\014.CMsgJSValue\"\210\001"
+  "\n\025CMsgJSExecuteCallback\022\026\n\016browser_handl"
+  "e\030\001 \001(\r\022\035\n\025owning_browser_handle\030\002 \001(\r\022\027"
+  "\n\017function_handle\030\003 \001(\004\022\037\n\targuments\030\004 \003"
+  "(\0132\014.CMsgJSValue\"\234\001\n\024CMsgJSExecutePromis"
+  "e\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025owning_brow"
+  "ser_handle\030\002 \001(\r\022\026\n\016promise_handle\030\003 \001(\004"
+  "\022\025\n\rreject_reason\030\004 \001(\t\022\036\n\010argument\030\005 \001("
+  "\0132\014.CMsgJSValue\"g\n\025CMsgJSReleaseCallback"
+  "\022\026\n\016browser_handle\030\001 \001(\r\022\035\n\025owning_brows"
+  "er_handle\030\002 \001(\r\022\027\n\017function_handle\030\003 \001(\004"
+  "\"`\n\024CMsgJSRaiseException\022\026\n\016browser_hand"
+  "le\030\001 \001(\r\022\035\n\025owning_browser_handle\030\002 \001(\r\022"
+  "\021\n\texception\030\003 \001(\t\"[\n\024CMsgLoadLocalizati"
+  "on\022\026\n\016browser_handle\030\001 \001(\r\022\031\n\021localizati"
+  "on_path\030\002 \001(\t\022\020\n\010language\030\003 \001(\t\"2\n\030CMsgN"
+  "otifyUserActivation\022\026\n\016browser_handle\030\001 "
+  "\001(\r\"/\n\036CMsgSetNetFakeLocalSystemState\022\r\n"
+  "\005state\030\001 \001(\r\"\340\001\n\033CMsgDraggableRegionsCha"
+  "nged\022\026\n\016browser_handle\030\001 \001(\r\022:\n\005rects\030\002 "
+  "\003(\0132+.CMsgDraggableRegionsChanged.Dragga"
+  "bleRects\032m\n\016DraggableRects\022\t\n\001x\030\001 \001(\005\022\t\n"
+  "\001y\030\002 \001(\005\022\r\n\005width\030\003 \001(\005\022\016\n\006height\030\004 \001(\005\022"
+  "\021\n\tdraggable\030\005 \001(\010\022\023\n\013transparent\030\006 \001(\010\""
+  "N\n\025CMsgResizeGripChanged\022\026\n\016browser_hand"
+  "le\030\001 \001(\r\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030\003 \001(\005\""
+  "\262\001\n\025CMsgSetWindowPosition\022\026\n\016browser_han"
+  "dle\030\001 \001(\r\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\r\n\005width"
+  "\030\004 \001(\001\022\016\n\006height\030\005 \001(\001\022\021\n\tmin_width\030\006 \001("
+  "\001\022\022\n\nmin_height\030\007 \001(\001\022\021\n\tmax_width\030\010 \001(\001"
+  "\022\022\n\nmax_height\030\t \001(\001\"(\n\016CMsgShowWindow\022\026"
+  "\n\016browser_handle\030\001 \001(\r\"(\n\016CMsgHideWindow"
+  "\022\026\n\016browser_handle\030\001 \001(\r\"0\n\026CMsgBringWin"
+  "dowToFront\022\026\n\016browser_handle\030\001 \001(\r\"1\n\027CM"
+  "sgSetForegroundWindow\022\026\n\016browser_handle\030"
+  "\001 \001(\r\"3\n\031CMsgMaximizeRestoreWindow\022\026\n\016br"
+  "owser_handle\030\001 \001(\r\",\n\022CMsgMinimizeWindow"
+  "\022\026\n\016browser_handle\030\001 \001(\r\"\344\002\n\032CMsgShowBro"
+  "wserContextMenu\022\026\n\016browser_handle\030\001 \001(\r\022"
+  "C\n\017custom_commands\030\002 \003(\0132*.CMsgShowBrows"
+  "erContextMenu.ContextCommand\022\022\n\ntype_fla"
+  "gs\030\003 \001(\r\022\020\n\010page_url\030\004 \001(\t\022\017\n\007coord_x\030\005 "
+  "\001(\005\022\017\n\007coord_y\030\006 \001(\005\022\016\n\006linurl\030\007 \001(\t\022\031\n\021"
+  "unfiltered_linurl\030\010 \001(\t\022\026\n\016selection_tex"
+  "t\030\t \001(\t\022\027\n\017misspelled_word\030\n \001(\t\022\030\n\020edit"
+  "_state_flags\030\013 \001(\r\032+\n\016ContextCommand\022\n\n\002"
+  "id\030\001 \001(\005\022\r\n\005label\030\002 \001(\t\"J\n\034CMsgHandleCon"
+  "textMenuCommand\022\026\n\016browser_handle\030\001 \001(\r\022"
+  "\022\n\ncommand_id\030\002 \001(\005\"\244\001\n\020CMsgTouchGesture"
+  "\022\026\n\016browser_handle\030\001 \001(\r\022\n\n\002id\030\002 \001(\005\022\017\n\007"
+  "gesture\030\003 \001(\r\022\t\n\001x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\r\n\005w"
+  "idth\030\006 \001(\001\022\016\n\006height\030\007 \001(\001\022\021\n\ttap_count\030"
+  "\010 \001(\r\022\023\n\013pinch_scale\030\t \001(\001\"H\n\034CMsgSetTou"
+  "chGesturesToCancel\022\026\n\016browser_handle\030\001 \001"
+  "(\r\022\020\n\010gestures\030\002 \003(\r\"=\n\025CMsgImeSetCompos"
+  "ition\022\026\n\016browser_handle\030\001 \001(\r\022\014\n\004text\030\002 "
+  "\001(\t\"9\n\021CMsgImeCommitText\022\026\n\016browser_hand"
+  "le\030\001 \001(\r\022\014\n\004text\030\002 \001(\t\"2\n\030CMsgImeCancelC"
+  "omposition\022\026\n\016browser_handle\030\001 \001(\r\"N\n\036CM"
+  "sgImeCompositionRangeChanged\022\026\n\016browser_"
+  "handle\030\001 \001(\r\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"B\n\022CM"
+  "sgInspectElement\022\026\n\016browser_handle\030\001 \001(\r"
+  "\022\t\n\001x\030\002 \001(\r\022\t\n\001y\030\003 \001(\r\"8\n\rCMsgDisableF5\022"
+  "\026\n\016browser_handle\030\001 \001(\r\022\017\n\007disable\030\002 \001(\010"
+  "\"8\n\021CMsgStartDownload\022\026\n\016browser_handle\030"
+  "\001 \001(\r\022\013\n\003url\030\002 \001(\t\"L\n\032CMsgSetWindowStack"
+  "ingOrder\022\026\n\016browser_handle\030\001 \001(\r\022\026\n\016esta"
+  "ckingorder\030\002 \001(\r\"z\n)CMsgBrowserViewPostM"
+  "essageToParentRequest\022\026\n\016browser_handle\030"
+  "\001 \001(\r\022\017\n\007message\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\022\026\n\016"
+  "requesting_url\030\004 \001(\t\"9\n\022CMsgBlockedReque"
+  "st\022\026\n\016browser_handle\030\001 \001(\r\022\013\n\003url\030\002 \001(\t\""
+  "B\n\027CMsgBrowserFocusChanged\022\026\n\016browser_ha"
+  "ndle\030\001 \001(\r\022\017\n\007focused\030\002 \001(\010\"@\n\030CMsgSetPr"
+  "otocolBlockList\022\026\n\016browser_handle\030\001 \001(\r\022"
+  "\014\n\004list\030\002 \001(\t\"J\n\036CMsgSetForceDeviceScale"
+  "Factors\022\021\n\tdpi_scale\030\001 \001(\001\022\025\n\rbrowser_sc"
+  "ale\030\002 \001(\001\" \n\rCMsgSetUIMode\022\017\n\007ui_mode\030\001 "
+  "\001(\005\"/\n\024CMsgSetSteamBetaName\022\027\n\017steam_bet"
+  "a_name\030\001 \001(\t\"*\n\020CMsgPopupCreated\022\026\n\016brow"
+  "ser_handle\030\001 \001(\r\"F\n\033CMsgSetVRKeyboardVis"
+  "ibility\022\026\n\016browser_handle\030\001 \001(\r\022\017\n\007visib"
+  "le\030\002 \001(\010\"\026\n\024CMsgRestartJSContext*\245\001\n\025EJS"
+  "RegisterMethodType\022!\n\035EJSRegisterMethodT"
+  "ype_Invalid\020\000\022\"\n\036EJSRegisterMethodType_F"
+  "unction\020\001\022\"\n\036EJSRegisterMethodType_Callb"
+  "ack\020\002\022!\n\035EJSRegisterMethodType_Promise\020\003"
+  "B\037H\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_htmlmessages_2eproto_deps[1] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_htmlmessages_2eproto_deps[2] = {
+  &::descriptor_table_enums_2eproto,
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_htmlmessages_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_htmlmessages_2eproto = {
-  false, false, 14779, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
-  &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 1, 168,
+  false, false, 16193, descriptor_table_protodef_htmlmessages_2eproto, "htmlmessages.proto", 
+  &descriptor_table_htmlmessages_2eproto_once, descriptor_table_htmlmessages_2eproto_deps, 2, 170,
   schemas, file_default_instances, TableStruct_htmlmessages_2eproto::offsets,
   file_level_metadata_htmlmessages_2eproto, file_level_enum_descriptors_htmlmessages_2eproto, file_level_service_descriptors_htmlmessages_2eproto,
 };
@@ -25540,6 +25686,976 @@ void CMsgFileLoadDialogResponse::InternalSwap(CMsgFileLoadDialogResponse* other)
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgFileLoadDialogResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMsgRequestProcessInfo::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgRequestProcessInfo>()._has_bits_);
+  static void set_has_requestid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgRequestProcessInfo::CMsgRequestProcessInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgRequestProcessInfo)
+}
+CMsgRequestProcessInfo::CMsgRequestProcessInfo(const CMsgRequestProcessInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  requestid_ = from.requestid_;
+  // @@protoc_insertion_point(copy_constructor:CMsgRequestProcessInfo)
+}
+
+void CMsgRequestProcessInfo::SharedCtor() {
+requestid_ = PROTOBUF_ULONGLONG(0);
+}
+
+CMsgRequestProcessInfo::~CMsgRequestProcessInfo() {
+  // @@protoc_insertion_point(destructor:CMsgRequestProcessInfo)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgRequestProcessInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMsgRequestProcessInfo::ArenaDtor(void* object) {
+  CMsgRequestProcessInfo* _this = reinterpret_cast< CMsgRequestProcessInfo* >(object);
+  (void)_this;
+}
+void CMsgRequestProcessInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgRequestProcessInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgRequestProcessInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgRequestProcessInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  requestid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgRequestProcessInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 requestid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_requestid(&has_bits);
+          requestid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgRequestProcessInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgRequestProcessInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 requestid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_requestid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgRequestProcessInfo)
+  return target;
+}
+
+size_t CMsgRequestProcessInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgRequestProcessInfo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional uint64 requestid = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_requestid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgRequestProcessInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgRequestProcessInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgRequestProcessInfo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgRequestProcessInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgRequestProcessInfo)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgRequestProcessInfo)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgRequestProcessInfo::MergeFrom(const CMsgRequestProcessInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgRequestProcessInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_requestid()) {
+    _internal_set_requestid(from._internal_requestid());
+  }
+}
+
+void CMsgRequestProcessInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgRequestProcessInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgRequestProcessInfo::CopyFrom(const CMsgRequestProcessInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgRequestProcessInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgRequestProcessInfo::IsInitialized() const {
+  return true;
+}
+
+void CMsgRequestProcessInfo::InternalSwap(CMsgRequestProcessInfo* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(requestid_, other->requestid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgRequestProcessInfo::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMsgProcessInfoNotification::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgProcessInfoNotification>()._has_bits_);
+  static void set_has_requestid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_gpu_status(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_canvas_2d(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_canvas_oop_rasterization(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_direct_rendering_display_compositor(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_gpu_compositing(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_multiple_raster_threads(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
+  static void set_has_opengl(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_rasterization(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_raw_draw(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
+  }
+  static void set_has_skia_graphite(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
+  }
+  static void set_has_video_decode(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
+  static void set_has_video_encode(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
+  static void set_has_vulkan(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
+  }
+  static void set_has_webgl(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_webgl2(HasBits* has_bits) {
+    (*has_bits)[0] |= 32768u;
+  }
+  static void set_has_webgpu(HasBits* has_bits) {
+    (*has_bits)[0] |= 65536u;
+  }
+  static void set_has_webnn(HasBits* has_bits) {
+    (*has_bits)[0] |= 131072u;
+  }
+};
+
+CMsgProcessInfoNotification::CMsgProcessInfoNotification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgProcessInfoNotification)
+}
+CMsgProcessInfoNotification::CMsgProcessInfoNotification(const CMsgProcessInfoNotification& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&requestid_, &from.requestid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&webnn_) -
+    reinterpret_cast<char*>(&requestid_)) + sizeof(webnn_));
+  // @@protoc_insertion_point(copy_constructor:CMsgProcessInfoNotification)
+}
+
+void CMsgProcessInfoNotification::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&requestid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&webnn_) -
+    reinterpret_cast<char*>(&requestid_)) + sizeof(webnn_));
+}
+
+CMsgProcessInfoNotification::~CMsgProcessInfoNotification() {
+  // @@protoc_insertion_point(destructor:CMsgProcessInfoNotification)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgProcessInfoNotification::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMsgProcessInfoNotification::ArenaDtor(void* object) {
+  CMsgProcessInfoNotification* _this = reinterpret_cast< CMsgProcessInfoNotification* >(object);
+  (void)_this;
+}
+void CMsgProcessInfoNotification::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgProcessInfoNotification::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgProcessInfoNotification::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgProcessInfoNotification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x000000ffu) {
+    ::memset(&requestid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&opengl_) -
+        reinterpret_cast<char*>(&requestid_)) + sizeof(opengl_));
+  }
+  if (cached_has_bits & 0x0000ff00u) {
+    ::memset(&rasterization_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&webgl2_) -
+        reinterpret_cast<char*>(&rasterization_)) + sizeof(webgl2_));
+  }
+  if (cached_has_bits & 0x00030000u) {
+    ::memset(&webgpu_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&webnn_) -
+        reinterpret_cast<char*>(&webgpu_)) + sizeof(webnn_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgProcessInfoNotification::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 requestid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_requestid(&has_bits);
+          requestid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserGPUStatus gpu_status = 2 [default = EBrowserGPUStatus_Invalid];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserGPUStatus_IsValid(val))) {
+            _internal_set_gpu_status(static_cast<::EBrowserGPUStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(2, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus canvas_2d = 3 [default = EBrowserFeatureStatus_Invalid];
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_canvas_2d(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(3, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus canvas_oop_rasterization = 4 [default = EBrowserFeatureStatus_Invalid];
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_canvas_oop_rasterization(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(4, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus direct_rendering_display_compositor = 5 [default = EBrowserFeatureStatus_Invalid];
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_direct_rendering_display_compositor(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(5, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus gpu_compositing = 6 [default = EBrowserFeatureStatus_Invalid];
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_gpu_compositing(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(6, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus multiple_raster_threads = 7 [default = EBrowserFeatureStatus_Invalid];
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_multiple_raster_threads(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(7, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus opengl = 8 [default = EBrowserFeatureStatus_Invalid];
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_opengl(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(8, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus rasterization = 9 [default = EBrowserFeatureStatus_Invalid];
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_rasterization(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(9, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus raw_draw = 10 [default = EBrowserFeatureStatus_Invalid];
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_raw_draw(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(10, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus skia_graphite = 11 [default = EBrowserFeatureStatus_Invalid];
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_skia_graphite(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(11, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus video_decode = 13 [default = EBrowserFeatureStatus_Invalid];
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_video_decode(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(13, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus video_encode = 14 [default = EBrowserFeatureStatus_Invalid];
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_video_encode(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(14, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus vulkan = 15 [default = EBrowserFeatureStatus_Invalid];
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_vulkan(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(15, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus webgl = 16 [default = EBrowserFeatureStatus_Invalid];
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_webgl(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(16, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus webgl2 = 17 [default = EBrowserFeatureStatus_Invalid];
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_webgl2(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(17, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus webgpu = 18 [default = EBrowserFeatureStatus_Invalid];
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_webgpu(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(18, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .EBrowserFeatureStatus webnn = 19 [default = EBrowserFeatureStatus_Invalid];
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EBrowserFeatureStatus_IsValid(val))) {
+            _internal_set_webnn(static_cast<::EBrowserFeatureStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(19, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgProcessInfoNotification::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgProcessInfoNotification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 requestid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_requestid(), target);
+  }
+
+  // optional .EBrowserGPUStatus gpu_status = 2 [default = EBrowserGPUStatus_Invalid];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_gpu_status(), target);
+  }
+
+  // optional .EBrowserFeatureStatus canvas_2d = 3 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_canvas_2d(), target);
+  }
+
+  // optional .EBrowserFeatureStatus canvas_oop_rasterization = 4 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_canvas_oop_rasterization(), target);
+  }
+
+  // optional .EBrowserFeatureStatus direct_rendering_display_compositor = 5 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      5, this->_internal_direct_rendering_display_compositor(), target);
+  }
+
+  // optional .EBrowserFeatureStatus gpu_compositing = 6 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      6, this->_internal_gpu_compositing(), target);
+  }
+
+  // optional .EBrowserFeatureStatus multiple_raster_threads = 7 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      7, this->_internal_multiple_raster_threads(), target);
+  }
+
+  // optional .EBrowserFeatureStatus opengl = 8 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      8, this->_internal_opengl(), target);
+  }
+
+  // optional .EBrowserFeatureStatus rasterization = 9 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      9, this->_internal_rasterization(), target);
+  }
+
+  // optional .EBrowserFeatureStatus raw_draw = 10 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      10, this->_internal_raw_draw(), target);
+  }
+
+  // optional .EBrowserFeatureStatus skia_graphite = 11 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      11, this->_internal_skia_graphite(), target);
+  }
+
+  // optional .EBrowserFeatureStatus video_decode = 13 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      13, this->_internal_video_decode(), target);
+  }
+
+  // optional .EBrowserFeatureStatus video_encode = 14 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      14, this->_internal_video_encode(), target);
+  }
+
+  // optional .EBrowserFeatureStatus vulkan = 15 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00002000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      15, this->_internal_vulkan(), target);
+  }
+
+  // optional .EBrowserFeatureStatus webgl = 16 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00004000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      16, this->_internal_webgl(), target);
+  }
+
+  // optional .EBrowserFeatureStatus webgl2 = 17 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00008000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      17, this->_internal_webgl2(), target);
+  }
+
+  // optional .EBrowserFeatureStatus webgpu = 18 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00010000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      18, this->_internal_webgpu(), target);
+  }
+
+  // optional .EBrowserFeatureStatus webnn = 19 [default = EBrowserFeatureStatus_Invalid];
+  if (cached_has_bits & 0x00020000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      19, this->_internal_webnn(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgProcessInfoNotification)
+  return target;
+}
+
+size_t CMsgProcessInfoNotification::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgProcessInfoNotification)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x000000ffu) {
+    // optional uint64 requestid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_requestid());
+    }
+
+    // optional .EBrowserGPUStatus gpu_status = 2 [default = EBrowserGPUStatus_Invalid];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_gpu_status());
+    }
+
+    // optional .EBrowserFeatureStatus canvas_2d = 3 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_canvas_2d());
+    }
+
+    // optional .EBrowserFeatureStatus canvas_oop_rasterization = 4 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_canvas_oop_rasterization());
+    }
+
+    // optional .EBrowserFeatureStatus direct_rendering_display_compositor = 5 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_direct_rendering_display_compositor());
+    }
+
+    // optional .EBrowserFeatureStatus gpu_compositing = 6 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_gpu_compositing());
+    }
+
+    // optional .EBrowserFeatureStatus multiple_raster_threads = 7 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_multiple_raster_threads());
+    }
+
+    // optional .EBrowserFeatureStatus opengl = 8 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_opengl());
+    }
+
+  }
+  if (cached_has_bits & 0x0000ff00u) {
+    // optional .EBrowserFeatureStatus rasterization = 9 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000100u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_rasterization());
+    }
+
+    // optional .EBrowserFeatureStatus raw_draw = 10 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_raw_draw());
+    }
+
+    // optional .EBrowserFeatureStatus skia_graphite = 11 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000400u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_skia_graphite());
+    }
+
+    // optional .EBrowserFeatureStatus video_decode = 13 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00000800u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_video_decode());
+    }
+
+    // optional .EBrowserFeatureStatus video_encode = 14 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00001000u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_video_encode());
+    }
+
+    // optional .EBrowserFeatureStatus vulkan = 15 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00002000u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_vulkan());
+    }
+
+    // optional .EBrowserFeatureStatus webgl = 16 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00004000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_webgl());
+    }
+
+    // optional .EBrowserFeatureStatus webgl2 = 17 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00008000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_webgl2());
+    }
+
+  }
+  if (cached_has_bits & 0x00030000u) {
+    // optional .EBrowserFeatureStatus webgpu = 18 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00010000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_webgpu());
+    }
+
+    // optional .EBrowserFeatureStatus webnn = 19 [default = EBrowserFeatureStatus_Invalid];
+    if (cached_has_bits & 0x00020000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_webnn());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgProcessInfoNotification::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgProcessInfoNotification)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgProcessInfoNotification* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgProcessInfoNotification>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgProcessInfoNotification)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgProcessInfoNotification)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgProcessInfoNotification::MergeFrom(const CMsgProcessInfoNotification& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgProcessInfoNotification)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x000000ffu) {
+    if (cached_has_bits & 0x00000001u) {
+      requestid_ = from.requestid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      gpu_status_ = from.gpu_status_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      canvas_2d_ = from.canvas_2d_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      canvas_oop_rasterization_ = from.canvas_oop_rasterization_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      direct_rendering_display_compositor_ = from.direct_rendering_display_compositor_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      gpu_compositing_ = from.gpu_compositing_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      multiple_raster_threads_ = from.multiple_raster_threads_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      opengl_ = from.opengl_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x0000ff00u) {
+    if (cached_has_bits & 0x00000100u) {
+      rasterization_ = from.rasterization_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      raw_draw_ = from.raw_draw_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      skia_graphite_ = from.skia_graphite_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      video_decode_ = from.video_decode_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      video_encode_ = from.video_encode_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      vulkan_ = from.vulkan_;
+    }
+    if (cached_has_bits & 0x00004000u) {
+      webgl_ = from.webgl_;
+    }
+    if (cached_has_bits & 0x00008000u) {
+      webgl2_ = from.webgl2_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00030000u) {
+    if (cached_has_bits & 0x00010000u) {
+      webgpu_ = from.webgpu_;
+    }
+    if (cached_has_bits & 0x00020000u) {
+      webnn_ = from.webnn_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CMsgProcessInfoNotification::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgProcessInfoNotification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgProcessInfoNotification::CopyFrom(const CMsgProcessInfoNotification& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgProcessInfoNotification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgProcessInfoNotification::IsInitialized() const {
+  return true;
+}
+
+void CMsgProcessInfoNotification::InternalSwap(CMsgProcessInfoNotification* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgProcessInfoNotification, webnn_)
+      + sizeof(CMsgProcessInfoNotification::webnn_)
+      - PROTOBUF_FIELD_OFFSET(CMsgProcessInfoNotification, requestid_)>(
+          reinterpret_cast<char*>(&requestid_),
+          reinterpret_cast<char*>(&other->requestid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgProcessInfoNotification::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -52065,6 +53181,12 @@ template<> PROTOBUF_NOINLINE ::CMsgFileLoadDialog* Arena::CreateMaybeMessage< ::
 }
 template<> PROTOBUF_NOINLINE ::CMsgFileLoadDialogResponse* Arena::CreateMaybeMessage< ::CMsgFileLoadDialogResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgFileLoadDialogResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgRequestProcessInfo* Arena::CreateMaybeMessage< ::CMsgRequestProcessInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgRequestProcessInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgProcessInfoNotification* Arena::CreateMaybeMessage< ::CMsgProcessInfoNotification >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgProcessInfoNotification >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgShowToolTip* Arena::CreateMaybeMessage< ::CMsgShowToolTip >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgShowToolTip >(arena);

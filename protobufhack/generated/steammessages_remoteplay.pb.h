@@ -769,11 +769,12 @@ enum EStreamVideoCodec : int {
   EStreamVideoCodecH264 = 4,
   EStreamVideoCodecHEVC = 5,
   EStreamVideoCodecORBX1 = 6,
-  EStreamVideoCodecORBX2 = 7
+  EStreamVideoCodecORBX2 = 7,
+  EStreamVideoCodecAV1 = 8
 };
 bool EStreamVideoCodec_IsValid(int value);
 constexpr EStreamVideoCodec EStreamVideoCodec_MIN = EStreamVideoCodecNone;
-constexpr EStreamVideoCodec EStreamVideoCodec_MAX = EStreamVideoCodecORBX2;
+constexpr EStreamVideoCodec EStreamVideoCodec_MAX = EStreamVideoCodecAV1;
 constexpr int EStreamVideoCodec_ARRAYSIZE = EStreamVideoCodec_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStreamVideoCodec_descriptor();
@@ -3490,11 +3491,13 @@ class CStreamingClientCaps PROTOBUF_FINAL :
 
   enum : int {
     kSupportedColorspacesFieldNumber = 13,
+    kSupportedAudioCodecsFieldNumber = 14,
+    kSupportedVideoCodecsFieldNumber = 15,
     kSystemInfoFieldNumber = 1,
     kMaximumDecodeBitrateKbpsFieldNumber = 3,
     kMaximumBurstBitrateKbpsFieldNumber = 4,
     kSystemCanSuspendFieldNumber = 2,
-    kSupportsVideoHevcFieldNumber = 5,
+    kSupportsVideoHevcOBSOLETEFieldNumber = 5,
     kDisableSteamStoreFieldNumber = 6,
     kDisableClientCursorFieldNumber = 7,
     kDisableIntelHardwareEncodingFieldNumber = 8,
@@ -3519,6 +3522,40 @@ class CStreamingClientCaps PROTOBUF_FINAL :
   void add_supported_colorspaces(::EStreamColorspace value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& supported_colorspaces() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_supported_colorspaces();
+
+  // repeated .EStreamAudioCodec supported_audio_codecs = 14;
+  int supported_audio_codecs_size() const;
+  private:
+  int _internal_supported_audio_codecs_size() const;
+  public:
+  void clear_supported_audio_codecs();
+  private:
+  ::EStreamAudioCodec _internal_supported_audio_codecs(int index) const;
+  void _internal_add_supported_audio_codecs(::EStreamAudioCodec value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_supported_audio_codecs();
+  public:
+  ::EStreamAudioCodec supported_audio_codecs(int index) const;
+  void set_supported_audio_codecs(int index, ::EStreamAudioCodec value);
+  void add_supported_audio_codecs(::EStreamAudioCodec value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& supported_audio_codecs() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_supported_audio_codecs();
+
+  // repeated .EStreamVideoCodec supported_video_codecs = 15;
+  int supported_video_codecs_size() const;
+  private:
+  int _internal_supported_video_codecs_size() const;
+  public:
+  void clear_supported_video_codecs();
+  private:
+  ::EStreamVideoCodec _internal_supported_video_codecs(int index) const;
+  void _internal_add_supported_video_codecs(::EStreamVideoCodec value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_supported_video_codecs();
+  public:
+  ::EStreamVideoCodec supported_video_codecs(int index) const;
+  void set_supported_video_codecs(int index, ::EStreamVideoCodec value);
+  void add_supported_video_codecs(::EStreamVideoCodec value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& supported_video_codecs() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_supported_video_codecs();
 
   // optional string system_info = 1;
   bool has_system_info() const;
@@ -3579,17 +3616,17 @@ class CStreamingClientCaps PROTOBUF_FINAL :
   void _internal_set_system_can_suspend(bool value);
   public:
 
-  // optional bool supports_video_hevc = 5;
-  bool has_supports_video_hevc() const;
+  // optional bool supports_video_hevc_OBSOLETE = 5;
+  bool has_supports_video_hevc_obsolete() const;
   private:
-  bool _internal_has_supports_video_hevc() const;
+  bool _internal_has_supports_video_hevc_obsolete() const;
   public:
-  void clear_supports_video_hevc();
-  bool supports_video_hevc() const;
-  void set_supports_video_hevc(bool value);
+  void clear_supports_video_hevc_obsolete();
+  bool supports_video_hevc_obsolete() const;
+  void set_supports_video_hevc_obsolete(bool value);
   private:
-  bool _internal_supports_video_hevc() const;
-  void _internal_set_supports_video_hevc(bool value);
+  bool _internal_supports_video_hevc_obsolete() const;
+  void _internal_set_supports_video_hevc_obsolete(bool value);
   public:
 
   // optional bool disable_steam_store = 6;
@@ -3693,11 +3730,13 @@ class CStreamingClientCaps PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> supported_colorspaces_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> supported_audio_codecs_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> supported_video_codecs_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr system_info_;
   ::PROTOBUF_NAMESPACE_ID::int32 maximum_decode_bitrate_kbps_;
   ::PROTOBUF_NAMESPACE_ID::int32 maximum_burst_bitrate_kbps_;
   bool system_can_suspend_;
-  bool supports_video_hevc_;
+  bool supports_video_hevc_obsolete_;
   bool disable_steam_store_;
   bool disable_client_cursor_;
   bool disable_intel_hardware_encoding_;
@@ -3845,6 +3884,7 @@ class CStreamingClientConfig PROTOBUF_FINAL :
     kP2PScopeFieldNumber = 19,
     kEnableAudioUncompressedFieldNumber = 20,
     kEnableUnreliableFecFieldNumber = 25,
+    kEnableVideoAv1FieldNumber = 26,
     kEnablePerformanceIconsFieldNumber = 14,
     kQualityFieldNumber = 1,
     kDesiredBitrateKbpsFieldNumber = 6,
@@ -4089,6 +4129,19 @@ class CStreamingClientConfig PROTOBUF_FINAL :
   void _internal_set_enable_unreliable_fec(bool value);
   public:
 
+  // optional bool enable_video_av1 = 26 [default = false];
+  bool has_enable_video_av1() const;
+  private:
+  bool _internal_has_enable_video_av1() const;
+  public:
+  void clear_enable_video_av1();
+  bool enable_video_av1() const;
+  void set_enable_video_av1(bool value);
+  private:
+  bool _internal_enable_video_av1() const;
+  void _internal_set_enable_video_av1(bool value);
+  public:
+
   // optional bool enable_performance_icons = 14 [default = true];
   bool has_enable_performance_icons() const;
   private:
@@ -4218,6 +4271,7 @@ class CStreamingClientConfig PROTOBUF_FINAL :
   int p2p_scope_;
   bool enable_audio_uncompressed_;
   bool enable_unreliable_fec_;
+  bool enable_video_av1_;
   bool enable_performance_icons_;
   int quality_;
   ::PROTOBUF_NAMESPACE_ID::int32 desired_bitrate_kbps_;
@@ -23134,32 +23188,32 @@ inline void CStreamingClientCaps::set_maximum_burst_bitrate_kbps(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CStreamingClientCaps.maximum_burst_bitrate_kbps)
 }
 
-// optional bool supports_video_hevc = 5;
-inline bool CStreamingClientCaps::_internal_has_supports_video_hevc() const {
+// optional bool supports_video_hevc_OBSOLETE = 5;
+inline bool CStreamingClientCaps::_internal_has_supports_video_hevc_obsolete() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
-inline bool CStreamingClientCaps::has_supports_video_hevc() const {
-  return _internal_has_supports_video_hevc();
+inline bool CStreamingClientCaps::has_supports_video_hevc_obsolete() const {
+  return _internal_has_supports_video_hevc_obsolete();
 }
-inline void CStreamingClientCaps::clear_supports_video_hevc() {
-  supports_video_hevc_ = false;
+inline void CStreamingClientCaps::clear_supports_video_hevc_obsolete() {
+  supports_video_hevc_obsolete_ = false;
   _has_bits_[0] &= ~0x00000010u;
 }
-inline bool CStreamingClientCaps::_internal_supports_video_hevc() const {
-  return supports_video_hevc_;
+inline bool CStreamingClientCaps::_internal_supports_video_hevc_obsolete() const {
+  return supports_video_hevc_obsolete_;
 }
-inline bool CStreamingClientCaps::supports_video_hevc() const {
-  // @@protoc_insertion_point(field_get:CStreamingClientCaps.supports_video_hevc)
-  return _internal_supports_video_hevc();
+inline bool CStreamingClientCaps::supports_video_hevc_obsolete() const {
+  // @@protoc_insertion_point(field_get:CStreamingClientCaps.supports_video_hevc_OBSOLETE)
+  return _internal_supports_video_hevc_obsolete();
 }
-inline void CStreamingClientCaps::_internal_set_supports_video_hevc(bool value) {
+inline void CStreamingClientCaps::_internal_set_supports_video_hevc_obsolete(bool value) {
   _has_bits_[0] |= 0x00000010u;
-  supports_video_hevc_ = value;
+  supports_video_hevc_obsolete_ = value;
 }
-inline void CStreamingClientCaps::set_supports_video_hevc(bool value) {
-  _internal_set_supports_video_hevc(value);
-  // @@protoc_insertion_point(field_set:CStreamingClientCaps.supports_video_hevc)
+inline void CStreamingClientCaps::set_supports_video_hevc_obsolete(bool value) {
+  _internal_set_supports_video_hevc_obsolete(value);
+  // @@protoc_insertion_point(field_set:CStreamingClientCaps.supports_video_hevc_OBSOLETE)
 }
 
 // optional bool disable_steam_store = 6;
@@ -23403,13 +23457,103 @@ CStreamingClientCaps::mutable_supported_colorspaces() {
   return _internal_mutable_supported_colorspaces();
 }
 
+// repeated .EStreamAudioCodec supported_audio_codecs = 14;
+inline int CStreamingClientCaps::_internal_supported_audio_codecs_size() const {
+  return supported_audio_codecs_.size();
+}
+inline int CStreamingClientCaps::supported_audio_codecs_size() const {
+  return _internal_supported_audio_codecs_size();
+}
+inline void CStreamingClientCaps::clear_supported_audio_codecs() {
+  supported_audio_codecs_.Clear();
+}
+inline ::EStreamAudioCodec CStreamingClientCaps::_internal_supported_audio_codecs(int index) const {
+  return static_cast< ::EStreamAudioCodec >(supported_audio_codecs_.Get(index));
+}
+inline ::EStreamAudioCodec CStreamingClientCaps::supported_audio_codecs(int index) const {
+  // @@protoc_insertion_point(field_get:CStreamingClientCaps.supported_audio_codecs)
+  return _internal_supported_audio_codecs(index);
+}
+inline void CStreamingClientCaps::set_supported_audio_codecs(int index, ::EStreamAudioCodec value) {
+  assert(::EStreamAudioCodec_IsValid(value));
+  supported_audio_codecs_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CStreamingClientCaps.supported_audio_codecs)
+}
+inline void CStreamingClientCaps::_internal_add_supported_audio_codecs(::EStreamAudioCodec value) {
+  assert(::EStreamAudioCodec_IsValid(value));
+  supported_audio_codecs_.Add(value);
+}
+inline void CStreamingClientCaps::add_supported_audio_codecs(::EStreamAudioCodec value) {
+  // @@protoc_insertion_point(field_add:CStreamingClientCaps.supported_audio_codecs)
+  _internal_add_supported_audio_codecs(value);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+CStreamingClientCaps::supported_audio_codecs() const {
+  // @@protoc_insertion_point(field_list:CStreamingClientCaps.supported_audio_codecs)
+  return supported_audio_codecs_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+CStreamingClientCaps::_internal_mutable_supported_audio_codecs() {
+  return &supported_audio_codecs_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+CStreamingClientCaps::mutable_supported_audio_codecs() {
+  // @@protoc_insertion_point(field_mutable_list:CStreamingClientCaps.supported_audio_codecs)
+  return _internal_mutable_supported_audio_codecs();
+}
+
+// repeated .EStreamVideoCodec supported_video_codecs = 15;
+inline int CStreamingClientCaps::_internal_supported_video_codecs_size() const {
+  return supported_video_codecs_.size();
+}
+inline int CStreamingClientCaps::supported_video_codecs_size() const {
+  return _internal_supported_video_codecs_size();
+}
+inline void CStreamingClientCaps::clear_supported_video_codecs() {
+  supported_video_codecs_.Clear();
+}
+inline ::EStreamVideoCodec CStreamingClientCaps::_internal_supported_video_codecs(int index) const {
+  return static_cast< ::EStreamVideoCodec >(supported_video_codecs_.Get(index));
+}
+inline ::EStreamVideoCodec CStreamingClientCaps::supported_video_codecs(int index) const {
+  // @@protoc_insertion_point(field_get:CStreamingClientCaps.supported_video_codecs)
+  return _internal_supported_video_codecs(index);
+}
+inline void CStreamingClientCaps::set_supported_video_codecs(int index, ::EStreamVideoCodec value) {
+  assert(::EStreamVideoCodec_IsValid(value));
+  supported_video_codecs_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CStreamingClientCaps.supported_video_codecs)
+}
+inline void CStreamingClientCaps::_internal_add_supported_video_codecs(::EStreamVideoCodec value) {
+  assert(::EStreamVideoCodec_IsValid(value));
+  supported_video_codecs_.Add(value);
+}
+inline void CStreamingClientCaps::add_supported_video_codecs(::EStreamVideoCodec value) {
+  // @@protoc_insertion_point(field_add:CStreamingClientCaps.supported_video_codecs)
+  _internal_add_supported_video_codecs(value);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+CStreamingClientCaps::supported_video_codecs() const {
+  // @@protoc_insertion_point(field_list:CStreamingClientCaps.supported_video_codecs)
+  return supported_video_codecs_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+CStreamingClientCaps::_internal_mutable_supported_video_codecs() {
+  return &supported_video_codecs_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+CStreamingClientCaps::mutable_supported_video_codecs() {
+  // @@protoc_insertion_point(field_mutable_list:CStreamingClientCaps.supported_video_codecs)
+  return _internal_mutable_supported_video_codecs();
+}
+
 // -------------------------------------------------------------------
 
 // CStreamingClientConfig
 
 // optional .EStreamQualityPreference quality = 1 [default = EStreamQualityBalanced];
 inline bool CStreamingClientConfig::_internal_has_quality() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CStreamingClientConfig::has_quality() const {
@@ -23417,7 +23561,7 @@ inline bool CStreamingClientConfig::has_quality() const {
 }
 inline void CStreamingClientConfig::clear_quality() {
   quality_ = 2;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline ::EStreamQualityPreference CStreamingClientConfig::_internal_quality() const {
   return static_cast< ::EStreamQualityPreference >(quality_);
@@ -23428,7 +23572,7 @@ inline ::EStreamQualityPreference CStreamingClientConfig::quality() const {
 }
 inline void CStreamingClientConfig::_internal_set_quality(::EStreamQualityPreference value) {
   assert(::EStreamQualityPreference_IsValid(value));
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
   quality_ = value;
 }
 inline void CStreamingClientConfig::set_quality(::EStreamQualityPreference value) {
@@ -23550,7 +23694,7 @@ inline void CStreamingClientConfig::set_desired_framerate_denominator(::PROTOBUF
 
 // optional int32 desired_bitrate_kbps = 6 [default = -1];
 inline bool CStreamingClientConfig::_internal_has_desired_bitrate_kbps() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CStreamingClientConfig::has_desired_bitrate_kbps() const {
@@ -23558,7 +23702,7 @@ inline bool CStreamingClientConfig::has_desired_bitrate_kbps() const {
 }
 inline void CStreamingClientConfig::clear_desired_bitrate_kbps() {
   desired_bitrate_kbps_ = -1;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CStreamingClientConfig::_internal_desired_bitrate_kbps() const {
   return desired_bitrate_kbps_;
@@ -23568,7 +23712,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CStreamingClientConfig::desired_bitrate_kb
   return _internal_desired_bitrate_kbps();
 }
 inline void CStreamingClientConfig::_internal_set_desired_bitrate_kbps(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
   desired_bitrate_kbps_ = value;
 }
 inline void CStreamingClientConfig::set_desired_bitrate_kbps(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -23578,7 +23722,7 @@ inline void CStreamingClientConfig::set_desired_bitrate_kbps(::PROTOBUF_NAMESPAC
 
 // optional bool enable_hardware_decoding = 7 [default = true];
 inline bool CStreamingClientConfig::_internal_has_enable_hardware_decoding() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CStreamingClientConfig::has_enable_hardware_decoding() const {
@@ -23586,7 +23730,7 @@ inline bool CStreamingClientConfig::has_enable_hardware_decoding() const {
 }
 inline void CStreamingClientConfig::clear_enable_hardware_decoding() {
   enable_hardware_decoding_ = true;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline bool CStreamingClientConfig::_internal_enable_hardware_decoding() const {
   return enable_hardware_decoding_;
@@ -23596,7 +23740,7 @@ inline bool CStreamingClientConfig::enable_hardware_decoding() const {
   return _internal_enable_hardware_decoding();
 }
 inline void CStreamingClientConfig::_internal_set_enable_hardware_decoding(bool value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
   enable_hardware_decoding_ = value;
 }
 inline void CStreamingClientConfig::set_enable_hardware_decoding(bool value) {
@@ -23634,7 +23778,7 @@ inline void CStreamingClientConfig::set_enable_performance_overlay(bool value) {
 
 // optional bool enable_video_streaming = 9 [default = true];
 inline bool CStreamingClientConfig::_internal_has_enable_video_streaming() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CStreamingClientConfig::has_enable_video_streaming() const {
@@ -23642,7 +23786,7 @@ inline bool CStreamingClientConfig::has_enable_video_streaming() const {
 }
 inline void CStreamingClientConfig::clear_enable_video_streaming() {
   enable_video_streaming_ = true;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline bool CStreamingClientConfig::_internal_enable_video_streaming() const {
   return enable_video_streaming_;
@@ -23652,7 +23796,7 @@ inline bool CStreamingClientConfig::enable_video_streaming() const {
   return _internal_enable_video_streaming();
 }
 inline void CStreamingClientConfig::_internal_set_enable_video_streaming(bool value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
   enable_video_streaming_ = value;
 }
 inline void CStreamingClientConfig::set_enable_video_streaming(bool value) {
@@ -23662,7 +23806,7 @@ inline void CStreamingClientConfig::set_enable_video_streaming(bool value) {
 
 // optional bool enable_audio_streaming = 10 [default = true];
 inline bool CStreamingClientConfig::_internal_has_enable_audio_streaming() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CStreamingClientConfig::has_enable_audio_streaming() const {
@@ -23670,7 +23814,7 @@ inline bool CStreamingClientConfig::has_enable_audio_streaming() const {
 }
 inline void CStreamingClientConfig::clear_enable_audio_streaming() {
   enable_audio_streaming_ = true;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline bool CStreamingClientConfig::_internal_enable_audio_streaming() const {
   return enable_audio_streaming_;
@@ -23680,7 +23824,7 @@ inline bool CStreamingClientConfig::enable_audio_streaming() const {
   return _internal_enable_audio_streaming();
 }
 inline void CStreamingClientConfig::_internal_set_enable_audio_streaming(bool value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
   enable_audio_streaming_ = value;
 }
 inline void CStreamingClientConfig::set_enable_audio_streaming(bool value) {
@@ -23690,7 +23834,7 @@ inline void CStreamingClientConfig::set_enable_audio_streaming(bool value) {
 
 // optional bool enable_input_streaming = 11 [default = true];
 inline bool CStreamingClientConfig::_internal_has_enable_input_streaming() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CStreamingClientConfig::has_enable_input_streaming() const {
@@ -23698,7 +23842,7 @@ inline bool CStreamingClientConfig::has_enable_input_streaming() const {
 }
 inline void CStreamingClientConfig::clear_enable_input_streaming() {
   enable_input_streaming_ = true;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline bool CStreamingClientConfig::_internal_enable_input_streaming() const {
   return enable_input_streaming_;
@@ -23708,7 +23852,7 @@ inline bool CStreamingClientConfig::enable_input_streaming() const {
   return _internal_enable_input_streaming();
 }
 inline void CStreamingClientConfig::_internal_set_enable_input_streaming(bool value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
   enable_input_streaming_ = value;
 }
 inline void CStreamingClientConfig::set_enable_input_streaming(bool value) {
@@ -23718,7 +23862,7 @@ inline void CStreamingClientConfig::set_enable_input_streaming(bool value) {
 
 // optional int32 audio_channels = 12 [default = 2];
 inline bool CStreamingClientConfig::_internal_has_audio_channels() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CStreamingClientConfig::has_audio_channels() const {
@@ -23726,7 +23870,7 @@ inline bool CStreamingClientConfig::has_audio_channels() const {
 }
 inline void CStreamingClientConfig::clear_audio_channels() {
   audio_channels_ = 2;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CStreamingClientConfig::_internal_audio_channels() const {
   return audio_channels_;
@@ -23736,7 +23880,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CStreamingClientConfig::audio_channels() c
   return _internal_audio_channels();
 }
 inline void CStreamingClientConfig::_internal_set_audio_channels(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
   audio_channels_ = value;
 }
 inline void CStreamingClientConfig::set_audio_channels(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -23774,7 +23918,7 @@ inline void CStreamingClientConfig::set_enable_video_hevc(bool value) {
 
 // optional bool enable_performance_icons = 14 [default = true];
 inline bool CStreamingClientConfig::_internal_has_enable_performance_icons() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CStreamingClientConfig::has_enable_performance_icons() const {
@@ -23782,7 +23926,7 @@ inline bool CStreamingClientConfig::has_enable_performance_icons() const {
 }
 inline void CStreamingClientConfig::clear_enable_performance_icons() {
   enable_performance_icons_ = true;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline bool CStreamingClientConfig::_internal_enable_performance_icons() const {
   return enable_performance_icons_;
@@ -23792,7 +23936,7 @@ inline bool CStreamingClientConfig::enable_performance_icons() const {
   return _internal_enable_performance_icons();
 }
 inline void CStreamingClientConfig::_internal_set_enable_performance_icons(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
   enable_performance_icons_ = value;
 }
 inline void CStreamingClientConfig::set_enable_performance_icons(bool value) {
@@ -24300,6 +24444,34 @@ inline void CStreamingClientConfig::_internal_set_enable_unreliable_fec(bool val
 inline void CStreamingClientConfig::set_enable_unreliable_fec(bool value) {
   _internal_set_enable_unreliable_fec(value);
   // @@protoc_insertion_point(field_set:CStreamingClientConfig.enable_unreliable_fec)
+}
+
+// optional bool enable_video_av1 = 26 [default = false];
+inline bool CStreamingClientConfig::_internal_has_enable_video_av1() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool CStreamingClientConfig::has_enable_video_av1() const {
+  return _internal_has_enable_video_av1();
+}
+inline void CStreamingClientConfig::clear_enable_video_av1() {
+  enable_video_av1_ = false;
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline bool CStreamingClientConfig::_internal_enable_video_av1() const {
+  return enable_video_av1_;
+}
+inline bool CStreamingClientConfig::enable_video_av1() const {
+  // @@protoc_insertion_point(field_get:CStreamingClientConfig.enable_video_av1)
+  return _internal_enable_video_av1();
+}
+inline void CStreamingClientConfig::_internal_set_enable_video_av1(bool value) {
+  _has_bits_[0] |= 0x00008000u;
+  enable_video_av1_ = value;
+}
+inline void CStreamingClientConfig::set_enable_video_av1(bool value) {
+  _internal_set_enable_video_av1(value);
+  // @@protoc_insertion_point(field_set:CStreamingClientConfig.enable_video_av1)
 }
 
 // -------------------------------------------------------------------

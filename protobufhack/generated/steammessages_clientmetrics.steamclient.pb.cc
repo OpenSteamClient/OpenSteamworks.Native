@@ -968,44 +968,44 @@ const char descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient
   "lipShareMethod_File\020\003\022\035\n\031EClipShareMetho"
   "d_SendClip\020\004\022 \n\034EClipShareMethod_SaveToM"
   "edia\020\005\022\037\n\033EClipShareMethod_CreateLink\020\006*"
-  "\335\001\n\020EClipRangeMethod\022%\n!EClipRangeMethod"
+  "\202\002\n\020EClipRangeMethod\022%\n!EClipRangeMethod"
   "_CreateClipButton\020\001\022\036\n\032EClipRangeMethod_"
   "Highlight\020\002\022$\n EClipRangeMethod_BeginEnd"
   "Buttons\020\003\022 \n\034EClipRangeMethod_ContextMen"
   "u\020\004\022\031\n\025EClipRangeMethod_Drag\020\005\022\037\n\033EClipR"
-  "angeMethod_EntireClip\020\0062\311\t\n\rClientMetric"
-  "s\022\\\n\035ClientAppInterfaceStatsReport\022..CCl"
-  "ientMetrics_AppInterfaceStats_Notificati"
-  "on\032\013.NoResponse\022Z\n\034ClientIPv6Connectivit"
-  "yReport\022-.CClientMetrics_IPv6Connectivit"
-  "y_Notification\032\013.NoResponse\022X\n\030SteamPipe"
-  "WorkStatsReport\022/.CClientMetrics_SteamPi"
-  "peWorkStats_Notification\032\013.NoResponse\022N\n"
-  "\020ReportReactUsage\022-.CClientMetrics_Repor"
-  "tReactUsage_Notification\032\013.NoResponse\022P\n"
-  "\021ReportClientError\022..CClientMetrics_Repo"
-  "rtClientError_Notification\032\013.NoResponse\022"
-  "R\n\025ClientBootstrapReport\022,.CClientMetric"
-  "s_ClientBootstrap_Notification\032\013.NoRespo"
-  "nse\022T\n\031ClientDownloadRatesReport\022*.CClie"
-  "ntMetrics_DownloadRates_Notification\032\013.N"
-  "oResponse\022\\\n\035ClientContentValidationRepo"
-  "rt\022..CClientMetrics_ContentValidation_No"
-  "tification\032\013.NoResponse\022V\n\027ClientCloudAp"
-  "pSyncStats\022..CClientMetrics_CloudAppSync"
-  "Stats_Notification\032\013.NoResponse\022l\n Clien"
-  "tDownloadResponseCodeCounts\022;.CClientMet"
-  "rics_ContentDownloadResponse_Counts_Noti"
-  "fication\032\013.NoResponse\022N\n\020ReportClientArg"
-  "s\022-.CClientMetrics_ReportClientArgs_Noti"
-  "fication\032\013.NoResponse\022F\n\017ReportClipShare"
-  "\022&.CClientMetrics_ClipShare_Notification"
-  "\032\013.NoResponse\022F\n\017ReportClipRange\022&.CClie"
-  "ntMetrics_ClipRange_Notification\032\013.NoRes"
-  "ponse\022T\n\026ReportEndGameRecording\022-.CClien"
-  "tMetrics_EndGameRecording_Notification\032\013"
-  ".NoResponseB\035\200\001\001\252\002\027OpenSteamworks.Protob"
-  "uf"
+  "angeMethod_EntireClip\020\006\022#\n\037EClipRangeMet"
+  "hod_PhaseRecording\020\0072\311\t\n\rClientMetrics\022\\"
+  "\n\035ClientAppInterfaceStatsReport\022..CClien"
+  "tMetrics_AppInterfaceStats_Notification\032"
+  "\013.NoResponse\022Z\n\034ClientIPv6ConnectivityRe"
+  "port\022-.CClientMetrics_IPv6Connectivity_N"
+  "otification\032\013.NoResponse\022X\n\030SteamPipeWor"
+  "kStatsReport\022/.CClientMetrics_SteamPipeW"
+  "orkStats_Notification\032\013.NoResponse\022N\n\020Re"
+  "portReactUsage\022-.CClientMetrics_ReportRe"
+  "actUsage_Notification\032\013.NoResponse\022P\n\021Re"
+  "portClientError\022..CClientMetrics_ReportC"
+  "lientError_Notification\032\013.NoResponse\022R\n\025"
+  "ClientBootstrapReport\022,.CClientMetrics_C"
+  "lientBootstrap_Notification\032\013.NoResponse"
+  "\022T\n\031ClientDownloadRatesReport\022*.CClientM"
+  "etrics_DownloadRates_Notification\032\013.NoRe"
+  "sponse\022\\\n\035ClientContentValidationReport\022"
+  "..CClientMetrics_ContentValidation_Notif"
+  "ication\032\013.NoResponse\022V\n\027ClientCloudAppSy"
+  "ncStats\022..CClientMetrics_CloudAppSyncSta"
+  "ts_Notification\032\013.NoResponse\022l\n ClientDo"
+  "wnloadResponseCodeCounts\022;.CClientMetric"
+  "s_ContentDownloadResponse_Counts_Notific"
+  "ation\032\013.NoResponse\022N\n\020ReportClientArgs\022-"
+  ".CClientMetrics_ReportClientArgs_Notific"
+  "ation\032\013.NoResponse\022F\n\017ReportClipShare\022&."
+  "CClientMetrics_ClipShare_Notification\032\013."
+  "NoResponse\022F\n\017ReportClipRange\022&.CClientM"
+  "etrics_ClipRange_Notification\032\013.NoRespon"
+  "se\022T\n\026ReportEndGameRecording\022-.CClientMe"
+  "trics_EndGameRecording_Notification\032\013.No"
+  "ResponseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_clientmetrics_2eproto,
@@ -1016,7 +1016,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto = {
-  false, false, 6842, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
+  false, false, 6879, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
   &descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once, descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps, 5, 24,
   schemas, file_default_instances, TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto,
@@ -1089,6 +1089,7 @@ bool EClipRangeMethod_IsValid(int value) {
     case 4:
     case 5:
     case 6:
+    case 7:
       return true;
     default:
       return false;

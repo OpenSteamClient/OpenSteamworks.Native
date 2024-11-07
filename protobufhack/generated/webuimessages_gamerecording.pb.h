@@ -53,7 +53,7 @@ struct TableStruct_webuimessages_5fgamerecording_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[92]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[85]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -61,36 +61,6 @@ struct TableStruct_webuimessages_5fgamerecording_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fgamerecording_2eproto;
 ::PROTOBUF_NAMESPACE_ID::Metadata descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(int index);
-class CGameRecordingDebug_AddTimelineHighlightMarker_Request;
-struct CGameRecordingDebug_AddTimelineHighlightMarker_RequestDefaultTypeInternal;
-extern CGameRecordingDebug_AddTimelineHighlightMarker_RequestDefaultTypeInternal _CGameRecordingDebug_AddTimelineHighlightMarker_Request_default_instance_;
-class CGameRecordingDebug_AddTimelineHighlightMarker_Response;
-struct CGameRecordingDebug_AddTimelineHighlightMarker_ResponseDefaultTypeInternal;
-extern CGameRecordingDebug_AddTimelineHighlightMarker_ResponseDefaultTypeInternal _CGameRecordingDebug_AddTimelineHighlightMarker_Response_default_instance_;
-class CGameRecordingDebug_AddTimelineRangeEnd_Request;
-struct CGameRecordingDebug_AddTimelineRangeEnd_RequestDefaultTypeInternal;
-extern CGameRecordingDebug_AddTimelineRangeEnd_RequestDefaultTypeInternal _CGameRecordingDebug_AddTimelineRangeEnd_Request_default_instance_;
-class CGameRecordingDebug_AddTimelineRangeEnd_Response;
-struct CGameRecordingDebug_AddTimelineRangeEnd_ResponseDefaultTypeInternal;
-extern CGameRecordingDebug_AddTimelineRangeEnd_ResponseDefaultTypeInternal _CGameRecordingDebug_AddTimelineRangeEnd_Response_default_instance_;
-class CGameRecordingDebug_AddTimelineRangeStart_Request;
-struct CGameRecordingDebug_AddTimelineRangeStart_RequestDefaultTypeInternal;
-extern CGameRecordingDebug_AddTimelineRangeStart_RequestDefaultTypeInternal _CGameRecordingDebug_AddTimelineRangeStart_Request_default_instance_;
-class CGameRecordingDebug_AddTimelineRangeStart_Response;
-struct CGameRecordingDebug_AddTimelineRangeStart_ResponseDefaultTypeInternal;
-extern CGameRecordingDebug_AddTimelineRangeStart_ResponseDefaultTypeInternal _CGameRecordingDebug_AddTimelineRangeStart_Response_default_instance_;
-class CGameRecordingDebug_AddTimelineTimestamp_Request;
-struct CGameRecordingDebug_AddTimelineTimestamp_RequestDefaultTypeInternal;
-extern CGameRecordingDebug_AddTimelineTimestamp_RequestDefaultTypeInternal _CGameRecordingDebug_AddTimelineTimestamp_Request_default_instance_;
-class CGameRecordingDebug_AddTimelineTimestamp_Response;
-struct CGameRecordingDebug_AddTimelineTimestamp_ResponseDefaultTypeInternal;
-extern CGameRecordingDebug_AddTimelineTimestamp_ResponseDefaultTypeInternal _CGameRecordingDebug_AddTimelineTimestamp_Response_default_instance_;
-class CGameRecordingDebug_SetTimelineGameMode_Request;
-struct CGameRecordingDebug_SetTimelineGameMode_RequestDefaultTypeInternal;
-extern CGameRecordingDebug_SetTimelineGameMode_RequestDefaultTypeInternal _CGameRecordingDebug_SetTimelineGameMode_Request_default_instance_;
-class CGameRecordingDebug_SetTimelineGameMode_Response;
-struct CGameRecordingDebug_SetTimelineGameMode_ResponseDefaultTypeInternal;
-extern CGameRecordingDebug_SetTimelineGameMode_ResponseDefaultTypeInternal _CGameRecordingDebug_SetTimelineGameMode_Response_default_instance_;
 class CGameRecording_CleanupBackgroundRecordings_Request;
 struct CGameRecording_CleanupBackgroundRecordings_RequestDefaultTypeInternal;
 extern CGameRecording_CleanupBackgroundRecordings_RequestDefaultTypeInternal _CGameRecording_CleanupBackgroundRecordings_Request_default_instance_;
@@ -118,6 +88,12 @@ extern CGameRecording_DeletePerGameSettings_RequestDefaultTypeInternal _CGameRec
 class CGameRecording_DeletePerGameSettings_Response;
 struct CGameRecording_DeletePerGameSettings_ResponseDefaultTypeInternal;
 extern CGameRecording_DeletePerGameSettings_ResponseDefaultTypeInternal _CGameRecording_DeletePerGameSettings_Response_default_instance_;
+class CGameRecording_ExportClipPreview_Request;
+struct CGameRecording_ExportClipPreview_RequestDefaultTypeInternal;
+extern CGameRecording_ExportClipPreview_RequestDefaultTypeInternal _CGameRecording_ExportClipPreview_Request_default_instance_;
+class CGameRecording_ExportClipPreview_Response;
+struct CGameRecording_ExportClipPreview_ResponseDefaultTypeInternal;
+extern CGameRecording_ExportClipPreview_ResponseDefaultTypeInternal _CGameRecording_ExportClipPreview_Response_default_instance_;
 class CGameRecording_ExportClip_Request;
 struct CGameRecording_ExportClip_RequestDefaultTypeInternal;
 extern CGameRecording_ExportClip_RequestDefaultTypeInternal _CGameRecording_ExportClip_Request_default_instance_;
@@ -130,21 +106,21 @@ extern CGameRecording_ExportClip_SettingsDefaultTypeInternal _CGameRecording_Exp
 class CGameRecording_ExportProgress_Notification;
 struct CGameRecording_ExportProgress_NotificationDefaultTypeInternal;
 extern CGameRecording_ExportProgress_NotificationDefaultTypeInternal _CGameRecording_ExportProgress_Notification_default_instance_;
-class CGameRecording_GetActiveTimelineApps_Request;
-struct CGameRecording_GetActiveTimelineApps_RequestDefaultTypeInternal;
-extern CGameRecording_GetActiveTimelineApps_RequestDefaultTypeInternal _CGameRecording_GetActiveTimelineApps_Request_default_instance_;
-class CGameRecording_GetActiveTimelineApps_Response;
-struct CGameRecording_GetActiveTimelineApps_ResponseDefaultTypeInternal;
-extern CGameRecording_GetActiveTimelineApps_ResponseDefaultTypeInternal _CGameRecording_GetActiveTimelineApps_Response_default_instance_;
-class CGameRecording_GetActiveTimelineApps_Response_App;
-struct CGameRecording_GetActiveTimelineApps_Response_AppDefaultTypeInternal;
-extern CGameRecording_GetActiveTimelineApps_Response_AppDefaultTypeInternal _CGameRecording_GetActiveTimelineApps_Response_App_default_instance_;
 class CGameRecording_GetAndTrimPostGameHighlights_Request;
 struct CGameRecording_GetAndTrimPostGameHighlights_RequestDefaultTypeInternal;
 extern CGameRecording_GetAndTrimPostGameHighlights_RequestDefaultTypeInternal _CGameRecording_GetAndTrimPostGameHighlights_Request_default_instance_;
 class CGameRecording_GetAndTrimPostGameHighlights_Response;
 struct CGameRecording_GetAndTrimPostGameHighlights_ResponseDefaultTypeInternal;
 extern CGameRecording_GetAndTrimPostGameHighlights_ResponseDefaultTypeInternal _CGameRecording_GetAndTrimPostGameHighlights_Response_default_instance_;
+class CGameRecording_GetAppsWithBackgroundVideo_Request;
+struct CGameRecording_GetAppsWithBackgroundVideo_RequestDefaultTypeInternal;
+extern CGameRecording_GetAppsWithBackgroundVideo_RequestDefaultTypeInternal _CGameRecording_GetAppsWithBackgroundVideo_Request_default_instance_;
+class CGameRecording_GetAppsWithBackgroundVideo_Response;
+struct CGameRecording_GetAppsWithBackgroundVideo_ResponseDefaultTypeInternal;
+extern CGameRecording_GetAppsWithBackgroundVideo_ResponseDefaultTypeInternal _CGameRecording_GetAppsWithBackgroundVideo_Response_default_instance_;
+class CGameRecording_GetAppsWithBackgroundVideo_Response_App;
+struct CGameRecording_GetAppsWithBackgroundVideo_Response_AppDefaultTypeInternal;
+extern CGameRecording_GetAppsWithBackgroundVideo_Response_AppDefaultTypeInternal _CGameRecording_GetAppsWithBackgroundVideo_Response_App_default_instance_;
 class CGameRecording_GetAvailableDiskSpace_Request;
 struct CGameRecording_GetAvailableDiskSpace_RequestDefaultTypeInternal;
 extern CGameRecording_GetAvailableDiskSpace_RequestDefaultTypeInternal _CGameRecording_GetAvailableDiskSpace_Request_default_instance_;
@@ -301,6 +277,9 @@ extern CGameRecording_TimelineChanged_NotificationDefaultTypeInternal _CGameReco
 class CGameRecording_TimelineEntryChanged_Notification;
 struct CGameRecording_TimelineEntryChanged_NotificationDefaultTypeInternal;
 extern CGameRecording_TimelineEntryChanged_NotificationDefaultTypeInternal _CGameRecording_TimelineEntryChanged_Notification_default_instance_;
+class CGameRecording_TimelineEntryRemoved_Notification;
+struct CGameRecording_TimelineEntryRemoved_NotificationDefaultTypeInternal;
+extern CGameRecording_TimelineEntryRemoved_NotificationDefaultTypeInternal _CGameRecording_TimelineEntryRemoved_Notification_default_instance_;
 class CGameRecording_UploadClipToSteam_Request;
 struct CGameRecording_UploadClipToSteam_RequestDefaultTypeInternal;
 extern CGameRecording_UploadClipToSteam_RequestDefaultTypeInternal _CGameRecording_UploadClipToSteam_Request_default_instance_;
@@ -338,16 +317,6 @@ class CTimelineEntry;
 struct CTimelineEntryDefaultTypeInternal;
 extern CTimelineEntryDefaultTypeInternal _CTimelineEntry_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
-template<> ::CGameRecordingDebug_AddTimelineHighlightMarker_Request* Arena::CreateMaybeMessage<::CGameRecordingDebug_AddTimelineHighlightMarker_Request>(Arena*);
-template<> ::CGameRecordingDebug_AddTimelineHighlightMarker_Response* Arena::CreateMaybeMessage<::CGameRecordingDebug_AddTimelineHighlightMarker_Response>(Arena*);
-template<> ::CGameRecordingDebug_AddTimelineRangeEnd_Request* Arena::CreateMaybeMessage<::CGameRecordingDebug_AddTimelineRangeEnd_Request>(Arena*);
-template<> ::CGameRecordingDebug_AddTimelineRangeEnd_Response* Arena::CreateMaybeMessage<::CGameRecordingDebug_AddTimelineRangeEnd_Response>(Arena*);
-template<> ::CGameRecordingDebug_AddTimelineRangeStart_Request* Arena::CreateMaybeMessage<::CGameRecordingDebug_AddTimelineRangeStart_Request>(Arena*);
-template<> ::CGameRecordingDebug_AddTimelineRangeStart_Response* Arena::CreateMaybeMessage<::CGameRecordingDebug_AddTimelineRangeStart_Response>(Arena*);
-template<> ::CGameRecordingDebug_AddTimelineTimestamp_Request* Arena::CreateMaybeMessage<::CGameRecordingDebug_AddTimelineTimestamp_Request>(Arena*);
-template<> ::CGameRecordingDebug_AddTimelineTimestamp_Response* Arena::CreateMaybeMessage<::CGameRecordingDebug_AddTimelineTimestamp_Response>(Arena*);
-template<> ::CGameRecordingDebug_SetTimelineGameMode_Request* Arena::CreateMaybeMessage<::CGameRecordingDebug_SetTimelineGameMode_Request>(Arena*);
-template<> ::CGameRecordingDebug_SetTimelineGameMode_Response* Arena::CreateMaybeMessage<::CGameRecordingDebug_SetTimelineGameMode_Response>(Arena*);
 template<> ::CGameRecording_CleanupBackgroundRecordings_Request* Arena::CreateMaybeMessage<::CGameRecording_CleanupBackgroundRecordings_Request>(Arena*);
 template<> ::CGameRecording_CleanupBackgroundRecordings_Response* Arena::CreateMaybeMessage<::CGameRecording_CleanupBackgroundRecordings_Response>(Arena*);
 template<> ::CGameRecording_ClipCreated_Notification* Arena::CreateMaybeMessage<::CGameRecording_ClipCreated_Notification>(Arena*);
@@ -357,15 +326,17 @@ template<> ::CGameRecording_DeleteClip_Request* Arena::CreateMaybeMessage<::CGam
 template<> ::CGameRecording_DeleteClip_Response* Arena::CreateMaybeMessage<::CGameRecording_DeleteClip_Response>(Arena*);
 template<> ::CGameRecording_DeletePerGameSettings_Request* Arena::CreateMaybeMessage<::CGameRecording_DeletePerGameSettings_Request>(Arena*);
 template<> ::CGameRecording_DeletePerGameSettings_Response* Arena::CreateMaybeMessage<::CGameRecording_DeletePerGameSettings_Response>(Arena*);
+template<> ::CGameRecording_ExportClipPreview_Request* Arena::CreateMaybeMessage<::CGameRecording_ExportClipPreview_Request>(Arena*);
+template<> ::CGameRecording_ExportClipPreview_Response* Arena::CreateMaybeMessage<::CGameRecording_ExportClipPreview_Response>(Arena*);
 template<> ::CGameRecording_ExportClip_Request* Arena::CreateMaybeMessage<::CGameRecording_ExportClip_Request>(Arena*);
 template<> ::CGameRecording_ExportClip_Response* Arena::CreateMaybeMessage<::CGameRecording_ExportClip_Response>(Arena*);
 template<> ::CGameRecording_ExportClip_Settings* Arena::CreateMaybeMessage<::CGameRecording_ExportClip_Settings>(Arena*);
 template<> ::CGameRecording_ExportProgress_Notification* Arena::CreateMaybeMessage<::CGameRecording_ExportProgress_Notification>(Arena*);
-template<> ::CGameRecording_GetActiveTimelineApps_Request* Arena::CreateMaybeMessage<::CGameRecording_GetActiveTimelineApps_Request>(Arena*);
-template<> ::CGameRecording_GetActiveTimelineApps_Response* Arena::CreateMaybeMessage<::CGameRecording_GetActiveTimelineApps_Response>(Arena*);
-template<> ::CGameRecording_GetActiveTimelineApps_Response_App* Arena::CreateMaybeMessage<::CGameRecording_GetActiveTimelineApps_Response_App>(Arena*);
 template<> ::CGameRecording_GetAndTrimPostGameHighlights_Request* Arena::CreateMaybeMessage<::CGameRecording_GetAndTrimPostGameHighlights_Request>(Arena*);
 template<> ::CGameRecording_GetAndTrimPostGameHighlights_Response* Arena::CreateMaybeMessage<::CGameRecording_GetAndTrimPostGameHighlights_Response>(Arena*);
+template<> ::CGameRecording_GetAppsWithBackgroundVideo_Request* Arena::CreateMaybeMessage<::CGameRecording_GetAppsWithBackgroundVideo_Request>(Arena*);
+template<> ::CGameRecording_GetAppsWithBackgroundVideo_Response* Arena::CreateMaybeMessage<::CGameRecording_GetAppsWithBackgroundVideo_Response>(Arena*);
+template<> ::CGameRecording_GetAppsWithBackgroundVideo_Response_App* Arena::CreateMaybeMessage<::CGameRecording_GetAppsWithBackgroundVideo_Response_App>(Arena*);
 template<> ::CGameRecording_GetAvailableDiskSpace_Request* Arena::CreateMaybeMessage<::CGameRecording_GetAvailableDiskSpace_Request>(Arena*);
 template<> ::CGameRecording_GetAvailableDiskSpace_Response* Arena::CreateMaybeMessage<::CGameRecording_GetAvailableDiskSpace_Response>(Arena*);
 template<> ::CGameRecording_GetClips_Request* Arena::CreateMaybeMessage<::CGameRecording_GetClips_Request>(Arena*);
@@ -418,6 +389,7 @@ template<> ::CGameRecording_TakeScreenshot_Request* Arena::CreateMaybeMessage<::
 template<> ::CGameRecording_TakeScreenshot_Response* Arena::CreateMaybeMessage<::CGameRecording_TakeScreenshot_Response>(Arena*);
 template<> ::CGameRecording_TimelineChanged_Notification* Arena::CreateMaybeMessage<::CGameRecording_TimelineChanged_Notification>(Arena*);
 template<> ::CGameRecording_TimelineEntryChanged_Notification* Arena::CreateMaybeMessage<::CGameRecording_TimelineEntryChanged_Notification>(Arena*);
+template<> ::CGameRecording_TimelineEntryRemoved_Notification* Arena::CreateMaybeMessage<::CGameRecording_TimelineEntryRemoved_Notification>(Arena*);
 template<> ::CGameRecording_UploadClipToSteam_Request* Arena::CreateMaybeMessage<::CGameRecording_UploadClipToSteam_Request>(Arena*);
 template<> ::CGameRecording_UploadClipToSteam_Response* Arena::CreateMaybeMessage<::CGameRecording_UploadClipToSteam_Response>(Arena*);
 template<> ::CGameRecording_UploadProgress_Notification* Arena::CreateMaybeMessage<::CGameRecording_UploadProgress_Notification>(Arena*);
@@ -610,24 +582,24 @@ inline bool EThumbnailFormat_Parse(
 }
 // ===================================================================
 
-class CGameRecording_GetActiveTimelineApps_Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_GetActiveTimelineApps_Request) */ {
+class CGameRecording_GetAppsWithBackgroundVideo_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_GetAppsWithBackgroundVideo_Request) */ {
  public:
-  inline CGameRecording_GetActiveTimelineApps_Request() : CGameRecording_GetActiveTimelineApps_Request(nullptr) {}
-  virtual ~CGameRecording_GetActiveTimelineApps_Request();
-  explicit constexpr CGameRecording_GetActiveTimelineApps_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CGameRecording_GetAppsWithBackgroundVideo_Request() : CGameRecording_GetAppsWithBackgroundVideo_Request(nullptr) {}
+  virtual ~CGameRecording_GetAppsWithBackgroundVideo_Request();
+  explicit constexpr CGameRecording_GetAppsWithBackgroundVideo_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CGameRecording_GetActiveTimelineApps_Request(const CGameRecording_GetActiveTimelineApps_Request& from);
-  CGameRecording_GetActiveTimelineApps_Request(CGameRecording_GetActiveTimelineApps_Request&& from) noexcept
-    : CGameRecording_GetActiveTimelineApps_Request() {
+  CGameRecording_GetAppsWithBackgroundVideo_Request(const CGameRecording_GetAppsWithBackgroundVideo_Request& from);
+  CGameRecording_GetAppsWithBackgroundVideo_Request(CGameRecording_GetAppsWithBackgroundVideo_Request&& from) noexcept
+    : CGameRecording_GetAppsWithBackgroundVideo_Request() {
     *this = ::std::move(from);
   }
 
-  inline CGameRecording_GetActiveTimelineApps_Request& operator=(const CGameRecording_GetActiveTimelineApps_Request& from) {
+  inline CGameRecording_GetAppsWithBackgroundVideo_Request& operator=(const CGameRecording_GetAppsWithBackgroundVideo_Request& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CGameRecording_GetActiveTimelineApps_Request& operator=(CGameRecording_GetActiveTimelineApps_Request&& from) noexcept {
+  inline CGameRecording_GetAppsWithBackgroundVideo_Request& operator=(CGameRecording_GetAppsWithBackgroundVideo_Request&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -652,20 +624,20 @@ class CGameRecording_GetActiveTimelineApps_Request PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const CGameRecording_GetActiveTimelineApps_Request& default_instance() {
+  static const CGameRecording_GetAppsWithBackgroundVideo_Request& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CGameRecording_GetActiveTimelineApps_Request* internal_default_instance() {
-    return reinterpret_cast<const CGameRecording_GetActiveTimelineApps_Request*>(
-               &_CGameRecording_GetActiveTimelineApps_Request_default_instance_);
+  static inline const CGameRecording_GetAppsWithBackgroundVideo_Request* internal_default_instance() {
+    return reinterpret_cast<const CGameRecording_GetAppsWithBackgroundVideo_Request*>(
+               &_CGameRecording_GetAppsWithBackgroundVideo_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(CGameRecording_GetActiveTimelineApps_Request& a, CGameRecording_GetActiveTimelineApps_Request& b) {
+  friend void swap(CGameRecording_GetAppsWithBackgroundVideo_Request& a, CGameRecording_GetAppsWithBackgroundVideo_Request& b) {
     a.Swap(&b);
   }
-  inline void Swap(CGameRecording_GetActiveTimelineApps_Request* other) {
+  inline void Swap(CGameRecording_GetAppsWithBackgroundVideo_Request* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -673,7 +645,7 @@ class CGameRecording_GetActiveTimelineApps_Request PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CGameRecording_GetActiveTimelineApps_Request* other) {
+  void UnsafeArenaSwap(CGameRecording_GetAppsWithBackgroundVideo_Request* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -681,17 +653,17 @@ class CGameRecording_GetActiveTimelineApps_Request PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline CGameRecording_GetActiveTimelineApps_Request* New() const final {
-    return CreateMaybeMessage<CGameRecording_GetActiveTimelineApps_Request>(nullptr);
+  inline CGameRecording_GetAppsWithBackgroundVideo_Request* New() const final {
+    return CreateMaybeMessage<CGameRecording_GetAppsWithBackgroundVideo_Request>(nullptr);
   }
 
-  CGameRecording_GetActiveTimelineApps_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecording_GetActiveTimelineApps_Request>(arena);
+  CGameRecording_GetAppsWithBackgroundVideo_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CGameRecording_GetAppsWithBackgroundVideo_Request>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecording_GetActiveTimelineApps_Request& from);
-  void MergeFrom(const CGameRecording_GetActiveTimelineApps_Request& from);
+  void CopyFrom(const CGameRecording_GetAppsWithBackgroundVideo_Request& from);
+  void MergeFrom(const CGameRecording_GetAppsWithBackgroundVideo_Request& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -705,13 +677,13 @@ class CGameRecording_GetActiveTimelineApps_Request PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecording_GetActiveTimelineApps_Request* other);
+  void InternalSwap(CGameRecording_GetAppsWithBackgroundVideo_Request* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecording_GetActiveTimelineApps_Request";
+    return "CGameRecording_GetAppsWithBackgroundVideo_Request";
   }
   protected:
-  explicit CGameRecording_GetActiveTimelineApps_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit CGameRecording_GetAppsWithBackgroundVideo_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -729,7 +701,7 @@ class CGameRecording_GetActiveTimelineApps_Request PROTOBUF_FINAL :
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:CGameRecording_GetActiveTimelineApps_Request)
+  // @@protoc_insertion_point(class_scope:CGameRecording_GetAppsWithBackgroundVideo_Request)
  private:
   class _Internal;
 
@@ -741,24 +713,24 @@ class CGameRecording_GetActiveTimelineApps_Request PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CGameRecording_GetActiveTimelineApps_Response_App PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_GetActiveTimelineApps_Response.App) */ {
+class CGameRecording_GetAppsWithBackgroundVideo_Response_App PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_GetAppsWithBackgroundVideo_Response.App) */ {
  public:
-  inline CGameRecording_GetActiveTimelineApps_Response_App() : CGameRecording_GetActiveTimelineApps_Response_App(nullptr) {}
-  virtual ~CGameRecording_GetActiveTimelineApps_Response_App();
-  explicit constexpr CGameRecording_GetActiveTimelineApps_Response_App(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CGameRecording_GetAppsWithBackgroundVideo_Response_App() : CGameRecording_GetAppsWithBackgroundVideo_Response_App(nullptr) {}
+  virtual ~CGameRecording_GetAppsWithBackgroundVideo_Response_App();
+  explicit constexpr CGameRecording_GetAppsWithBackgroundVideo_Response_App(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CGameRecording_GetActiveTimelineApps_Response_App(const CGameRecording_GetActiveTimelineApps_Response_App& from);
-  CGameRecording_GetActiveTimelineApps_Response_App(CGameRecording_GetActiveTimelineApps_Response_App&& from) noexcept
-    : CGameRecording_GetActiveTimelineApps_Response_App() {
+  CGameRecording_GetAppsWithBackgroundVideo_Response_App(const CGameRecording_GetAppsWithBackgroundVideo_Response_App& from);
+  CGameRecording_GetAppsWithBackgroundVideo_Response_App(CGameRecording_GetAppsWithBackgroundVideo_Response_App&& from) noexcept
+    : CGameRecording_GetAppsWithBackgroundVideo_Response_App() {
     *this = ::std::move(from);
   }
 
-  inline CGameRecording_GetActiveTimelineApps_Response_App& operator=(const CGameRecording_GetActiveTimelineApps_Response_App& from) {
+  inline CGameRecording_GetAppsWithBackgroundVideo_Response_App& operator=(const CGameRecording_GetAppsWithBackgroundVideo_Response_App& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CGameRecording_GetActiveTimelineApps_Response_App& operator=(CGameRecording_GetActiveTimelineApps_Response_App&& from) noexcept {
+  inline CGameRecording_GetAppsWithBackgroundVideo_Response_App& operator=(CGameRecording_GetAppsWithBackgroundVideo_Response_App&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -783,20 +755,20 @@ class CGameRecording_GetActiveTimelineApps_Response_App PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const CGameRecording_GetActiveTimelineApps_Response_App& default_instance() {
+  static const CGameRecording_GetAppsWithBackgroundVideo_Response_App& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CGameRecording_GetActiveTimelineApps_Response_App* internal_default_instance() {
-    return reinterpret_cast<const CGameRecording_GetActiveTimelineApps_Response_App*>(
-               &_CGameRecording_GetActiveTimelineApps_Response_App_default_instance_);
+  static inline const CGameRecording_GetAppsWithBackgroundVideo_Response_App* internal_default_instance() {
+    return reinterpret_cast<const CGameRecording_GetAppsWithBackgroundVideo_Response_App*>(
+               &_CGameRecording_GetAppsWithBackgroundVideo_Response_App_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(CGameRecording_GetActiveTimelineApps_Response_App& a, CGameRecording_GetActiveTimelineApps_Response_App& b) {
+  friend void swap(CGameRecording_GetAppsWithBackgroundVideo_Response_App& a, CGameRecording_GetAppsWithBackgroundVideo_Response_App& b) {
     a.Swap(&b);
   }
-  inline void Swap(CGameRecording_GetActiveTimelineApps_Response_App* other) {
+  inline void Swap(CGameRecording_GetAppsWithBackgroundVideo_Response_App* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -804,7 +776,7 @@ class CGameRecording_GetActiveTimelineApps_Response_App PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CGameRecording_GetActiveTimelineApps_Response_App* other) {
+  void UnsafeArenaSwap(CGameRecording_GetAppsWithBackgroundVideo_Response_App* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -812,17 +784,17 @@ class CGameRecording_GetActiveTimelineApps_Response_App PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline CGameRecording_GetActiveTimelineApps_Response_App* New() const final {
-    return CreateMaybeMessage<CGameRecording_GetActiveTimelineApps_Response_App>(nullptr);
+  inline CGameRecording_GetAppsWithBackgroundVideo_Response_App* New() const final {
+    return CreateMaybeMessage<CGameRecording_GetAppsWithBackgroundVideo_Response_App>(nullptr);
   }
 
-  CGameRecording_GetActiveTimelineApps_Response_App* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecording_GetActiveTimelineApps_Response_App>(arena);
+  CGameRecording_GetAppsWithBackgroundVideo_Response_App* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CGameRecording_GetAppsWithBackgroundVideo_Response_App>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecording_GetActiveTimelineApps_Response_App& from);
-  void MergeFrom(const CGameRecording_GetActiveTimelineApps_Response_App& from);
+  void CopyFrom(const CGameRecording_GetAppsWithBackgroundVideo_Response_App& from);
+  void MergeFrom(const CGameRecording_GetAppsWithBackgroundVideo_Response_App& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -836,13 +808,13 @@ class CGameRecording_GetActiveTimelineApps_Response_App PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecording_GetActiveTimelineApps_Response_App* other);
+  void InternalSwap(CGameRecording_GetAppsWithBackgroundVideo_Response_App* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecording_GetActiveTimelineApps_Response.App";
+    return "CGameRecording_GetAppsWithBackgroundVideo_Response.App";
   }
   protected:
-  explicit CGameRecording_GetActiveTimelineApps_Response_App(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit CGameRecording_GetAppsWithBackgroundVideo_Response_App(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -960,7 +932,7 @@ class CGameRecording_GetActiveTimelineApps_Response_App PROTOBUF_FINAL :
   void _internal_set_is_active(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CGameRecording_GetActiveTimelineApps_Response.App)
+  // @@protoc_insertion_point(class_scope:CGameRecording_GetAppsWithBackgroundVideo_Response.App)
  private:
   class _Internal;
 
@@ -980,24 +952,24 @@ class CGameRecording_GetActiveTimelineApps_Response_App PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CGameRecording_GetActiveTimelineApps_Response PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_GetActiveTimelineApps_Response) */ {
+class CGameRecording_GetAppsWithBackgroundVideo_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_GetAppsWithBackgroundVideo_Response) */ {
  public:
-  inline CGameRecording_GetActiveTimelineApps_Response() : CGameRecording_GetActiveTimelineApps_Response(nullptr) {}
-  virtual ~CGameRecording_GetActiveTimelineApps_Response();
-  explicit constexpr CGameRecording_GetActiveTimelineApps_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CGameRecording_GetAppsWithBackgroundVideo_Response() : CGameRecording_GetAppsWithBackgroundVideo_Response(nullptr) {}
+  virtual ~CGameRecording_GetAppsWithBackgroundVideo_Response();
+  explicit constexpr CGameRecording_GetAppsWithBackgroundVideo_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CGameRecording_GetActiveTimelineApps_Response(const CGameRecording_GetActiveTimelineApps_Response& from);
-  CGameRecording_GetActiveTimelineApps_Response(CGameRecording_GetActiveTimelineApps_Response&& from) noexcept
-    : CGameRecording_GetActiveTimelineApps_Response() {
+  CGameRecording_GetAppsWithBackgroundVideo_Response(const CGameRecording_GetAppsWithBackgroundVideo_Response& from);
+  CGameRecording_GetAppsWithBackgroundVideo_Response(CGameRecording_GetAppsWithBackgroundVideo_Response&& from) noexcept
+    : CGameRecording_GetAppsWithBackgroundVideo_Response() {
     *this = ::std::move(from);
   }
 
-  inline CGameRecording_GetActiveTimelineApps_Response& operator=(const CGameRecording_GetActiveTimelineApps_Response& from) {
+  inline CGameRecording_GetAppsWithBackgroundVideo_Response& operator=(const CGameRecording_GetAppsWithBackgroundVideo_Response& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CGameRecording_GetActiveTimelineApps_Response& operator=(CGameRecording_GetActiveTimelineApps_Response&& from) noexcept {
+  inline CGameRecording_GetAppsWithBackgroundVideo_Response& operator=(CGameRecording_GetAppsWithBackgroundVideo_Response&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1022,20 +994,20 @@ class CGameRecording_GetActiveTimelineApps_Response PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const CGameRecording_GetActiveTimelineApps_Response& default_instance() {
+  static const CGameRecording_GetAppsWithBackgroundVideo_Response& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CGameRecording_GetActiveTimelineApps_Response* internal_default_instance() {
-    return reinterpret_cast<const CGameRecording_GetActiveTimelineApps_Response*>(
-               &_CGameRecording_GetActiveTimelineApps_Response_default_instance_);
+  static inline const CGameRecording_GetAppsWithBackgroundVideo_Response* internal_default_instance() {
+    return reinterpret_cast<const CGameRecording_GetAppsWithBackgroundVideo_Response*>(
+               &_CGameRecording_GetAppsWithBackgroundVideo_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(CGameRecording_GetActiveTimelineApps_Response& a, CGameRecording_GetActiveTimelineApps_Response& b) {
+  friend void swap(CGameRecording_GetAppsWithBackgroundVideo_Response& a, CGameRecording_GetAppsWithBackgroundVideo_Response& b) {
     a.Swap(&b);
   }
-  inline void Swap(CGameRecording_GetActiveTimelineApps_Response* other) {
+  inline void Swap(CGameRecording_GetAppsWithBackgroundVideo_Response* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1043,7 +1015,7 @@ class CGameRecording_GetActiveTimelineApps_Response PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CGameRecording_GetActiveTimelineApps_Response* other) {
+  void UnsafeArenaSwap(CGameRecording_GetAppsWithBackgroundVideo_Response* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1051,17 +1023,17 @@ class CGameRecording_GetActiveTimelineApps_Response PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline CGameRecording_GetActiveTimelineApps_Response* New() const final {
-    return CreateMaybeMessage<CGameRecording_GetActiveTimelineApps_Response>(nullptr);
+  inline CGameRecording_GetAppsWithBackgroundVideo_Response* New() const final {
+    return CreateMaybeMessage<CGameRecording_GetAppsWithBackgroundVideo_Response>(nullptr);
   }
 
-  CGameRecording_GetActiveTimelineApps_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecording_GetActiveTimelineApps_Response>(arena);
+  CGameRecording_GetAppsWithBackgroundVideo_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CGameRecording_GetAppsWithBackgroundVideo_Response>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecording_GetActiveTimelineApps_Response& from);
-  void MergeFrom(const CGameRecording_GetActiveTimelineApps_Response& from);
+  void CopyFrom(const CGameRecording_GetAppsWithBackgroundVideo_Response& from);
+  void MergeFrom(const CGameRecording_GetAppsWithBackgroundVideo_Response& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1075,13 +1047,13 @@ class CGameRecording_GetActiveTimelineApps_Response PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecording_GetActiveTimelineApps_Response* other);
+  void InternalSwap(CGameRecording_GetAppsWithBackgroundVideo_Response* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecording_GetActiveTimelineApps_Response";
+    return "CGameRecording_GetAppsWithBackgroundVideo_Response";
   }
   protected:
-  explicit CGameRecording_GetActiveTimelineApps_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit CGameRecording_GetAppsWithBackgroundVideo_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1097,39 +1069,39 @@ class CGameRecording_GetActiveTimelineApps_Response PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
-  typedef CGameRecording_GetActiveTimelineApps_Response_App App;
+  typedef CGameRecording_GetAppsWithBackgroundVideo_Response_App App;
 
   // accessors -------------------------------------------------------
 
   enum : int {
     kAppsFieldNumber = 1,
   };
-  // repeated .CGameRecording_GetActiveTimelineApps_Response.App apps = 1;
+  // repeated .CGameRecording_GetAppsWithBackgroundVideo_Response.App apps = 1;
   int apps_size() const;
   private:
   int _internal_apps_size() const;
   public:
   void clear_apps();
-  ::CGameRecording_GetActiveTimelineApps_Response_App* mutable_apps(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetActiveTimelineApps_Response_App >*
+  ::CGameRecording_GetAppsWithBackgroundVideo_Response_App* mutable_apps(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetAppsWithBackgroundVideo_Response_App >*
       mutable_apps();
   private:
-  const ::CGameRecording_GetActiveTimelineApps_Response_App& _internal_apps(int index) const;
-  ::CGameRecording_GetActiveTimelineApps_Response_App* _internal_add_apps();
+  const ::CGameRecording_GetAppsWithBackgroundVideo_Response_App& _internal_apps(int index) const;
+  ::CGameRecording_GetAppsWithBackgroundVideo_Response_App* _internal_add_apps();
   public:
-  const ::CGameRecording_GetActiveTimelineApps_Response_App& apps(int index) const;
-  ::CGameRecording_GetActiveTimelineApps_Response_App* add_apps();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetActiveTimelineApps_Response_App >&
+  const ::CGameRecording_GetAppsWithBackgroundVideo_Response_App& apps(int index) const;
+  ::CGameRecording_GetAppsWithBackgroundVideo_Response_App* add_apps();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetAppsWithBackgroundVideo_Response_App >&
       apps() const;
 
-  // @@protoc_insertion_point(class_scope:CGameRecording_GetActiveTimelineApps_Response)
+  // @@protoc_insertion_point(class_scope:CGameRecording_GetAppsWithBackgroundVideo_Response)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetActiveTimelineApps_Response_App > apps_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetAppsWithBackgroundVideo_Response_App > apps_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
 };
@@ -4903,6 +4875,192 @@ class CGameRecording_TimelineEntryChanged_Notification PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CGameRecording_TimelineEntryRemoved_Notification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_TimelineEntryRemoved_Notification) */ {
+ public:
+  inline CGameRecording_TimelineEntryRemoved_Notification() : CGameRecording_TimelineEntryRemoved_Notification(nullptr) {}
+  virtual ~CGameRecording_TimelineEntryRemoved_Notification();
+  explicit constexpr CGameRecording_TimelineEntryRemoved_Notification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CGameRecording_TimelineEntryRemoved_Notification(const CGameRecording_TimelineEntryRemoved_Notification& from);
+  CGameRecording_TimelineEntryRemoved_Notification(CGameRecording_TimelineEntryRemoved_Notification&& from) noexcept
+    : CGameRecording_TimelineEntryRemoved_Notification() {
+    *this = ::std::move(from);
+  }
+
+  inline CGameRecording_TimelineEntryRemoved_Notification& operator=(const CGameRecording_TimelineEntryRemoved_Notification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CGameRecording_TimelineEntryRemoved_Notification& operator=(CGameRecording_TimelineEntryRemoved_Notification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CGameRecording_TimelineEntryRemoved_Notification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CGameRecording_TimelineEntryRemoved_Notification* internal_default_instance() {
+    return reinterpret_cast<const CGameRecording_TimelineEntryRemoved_Notification*>(
+               &_CGameRecording_TimelineEntryRemoved_Notification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(CGameRecording_TimelineEntryRemoved_Notification& a, CGameRecording_TimelineEntryRemoved_Notification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CGameRecording_TimelineEntryRemoved_Notification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CGameRecording_TimelineEntryRemoved_Notification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CGameRecording_TimelineEntryRemoved_Notification* New() const final {
+    return CreateMaybeMessage<CGameRecording_TimelineEntryRemoved_Notification>(nullptr);
+  }
+
+  CGameRecording_TimelineEntryRemoved_Notification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CGameRecording_TimelineEntryRemoved_Notification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CGameRecording_TimelineEntryRemoved_Notification& from);
+  void MergeFrom(const CGameRecording_TimelineEntryRemoved_Notification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CGameRecording_TimelineEntryRemoved_Notification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CGameRecording_TimelineEntryRemoved_Notification";
+  }
+  protected:
+  explicit CGameRecording_TimelineEntryRemoved_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTimelineIdFieldNumber = 2,
+    kGameIdFieldNumber = 1,
+    kEntryIdFieldNumber = 3,
+  };
+  // optional string timeline_id = 2;
+  bool has_timeline_id() const;
+  private:
+  bool _internal_has_timeline_id() const;
+  public:
+  void clear_timeline_id();
+  const std::string& timeline_id() const;
+  void set_timeline_id(const std::string& value);
+  void set_timeline_id(std::string&& value);
+  void set_timeline_id(const char* value);
+  void set_timeline_id(const char* value, size_t size);
+  std::string* mutable_timeline_id();
+  std::string* release_timeline_id();
+  void set_allocated_timeline_id(std::string* timeline_id);
+  private:
+  const std::string& _internal_timeline_id() const;
+  void _internal_set_timeline_id(const std::string& value);
+  std::string* _internal_mutable_timeline_id();
+  public:
+
+  // optional uint64 game_id = 1;
+  bool has_game_id() const;
+  private:
+  bool _internal_has_game_id() const;
+  public:
+  void clear_game_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id() const;
+  void set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_game_id() const;
+  void _internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint64 entry_id = 3;
+  bool has_entry_id() const;
+  private:
+  bool _internal_has_entry_id() const;
+  public:
+  void clear_entry_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 entry_id() const;
+  void set_entry_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_entry_id() const;
+  void _internal_set_entry_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CGameRecording_TimelineEntryRemoved_Notification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timeline_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 entry_id_;
+  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CGameRecording_LowDiskSpace_Notification PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_LowDiskSpace_Notification) */ {
  public:
@@ -4953,7 +5111,7 @@ class CGameRecording_LowDiskSpace_Notification PROTOBUF_FINAL :
                &_CGameRecording_LowDiskSpace_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CGameRecording_LowDiskSpace_Notification& a, CGameRecording_LowDiskSpace_Notification& b) {
     a.Swap(&b);
@@ -5084,7 +5242,7 @@ class CGameRecording_PostGameHighlightsChanged_Notification PROTOBUF_FINAL :
                &_CGameRecording_PostGameHighlightsChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CGameRecording_PostGameHighlightsChanged_Notification& a, CGameRecording_PostGameHighlightsChanged_Notification& b) {
     a.Swap(&b);
@@ -5233,7 +5391,7 @@ class CGameRecording_OpenOverlayToGamePhase_Notification PROTOBUF_FINAL :
                &_CGameRecording_OpenOverlayToGamePhase_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CGameRecording_OpenOverlayToGamePhase_Notification& a, CGameRecording_OpenOverlayToGamePhase_Notification& b) {
     a.Swap(&b);
@@ -5404,7 +5562,7 @@ class CGameRecording_OpenOverlayToTimelineEvent_Notification PROTOBUF_FINAL :
                &_CGameRecording_OpenOverlayToTimelineEvent_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CGameRecording_OpenOverlayToTimelineEvent_Notification& a, CGameRecording_OpenOverlayToTimelineEvent_Notification& b) {
     a.Swap(&b);
@@ -5568,7 +5726,7 @@ class CGameRecording_PhaseListChanged_Notification PROTOBUF_FINAL :
                &_CGameRecording_PhaseListChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(CGameRecording_PhaseListChanged_Notification& a, CGameRecording_PhaseListChanged_Notification& b) {
     a.Swap(&b);
@@ -5699,7 +5857,7 @@ class CGameRecording_ClipSummary PROTOBUF_FINAL :
                &_CGameRecording_ClipSummary_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CGameRecording_ClipSummary& a, CGameRecording_ClipSummary& b) {
     a.Swap(&b);
@@ -6123,7 +6281,7 @@ class CGameRecording_SaveClip_Request_Position PROTOBUF_FINAL :
                &_CGameRecording_SaveClip_Request_Position_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CGameRecording_SaveClip_Request_Position& a, CGameRecording_SaveClip_Request_Position& b) {
     a.Swap(&b);
@@ -6294,7 +6452,7 @@ class CGameRecording_SaveClip_Request PROTOBUF_FINAL :
                &_CGameRecording_SaveClip_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CGameRecording_SaveClip_Request& a, CGameRecording_SaveClip_Request& b) {
     a.Swap(&b);
@@ -6372,6 +6530,7 @@ class CGameRecording_SaveClip_Request PROTOBUF_FINAL :
     kEndFieldNumber = 3,
     kGameIdFieldNumber = 1,
     kTemporaryFieldNumber = 6,
+    kForceThumbnailFieldNumber = 7,
   };
   // optional string name = 4;
   bool has_name() const;
@@ -6475,6 +6634,19 @@ class CGameRecording_SaveClip_Request PROTOBUF_FINAL :
   void _internal_set_temporary(bool value);
   public:
 
+  // optional bool force_thumbnail = 7;
+  bool has_force_thumbnail() const;
+  private:
+  bool _internal_has_force_thumbnail() const;
+  public:
+  void clear_force_thumbnail();
+  bool force_thumbnail() const;
+  void set_force_thumbnail(bool value);
+  private:
+  bool _internal_force_thumbnail() const;
+  void _internal_set_force_thumbnail(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CGameRecording_SaveClip_Request)
  private:
   class _Internal;
@@ -6490,6 +6662,7 @@ class CGameRecording_SaveClip_Request PROTOBUF_FINAL :
   ::CGameRecording_SaveClip_Request_Position* end_;
   ::PROTOBUF_NAMESPACE_ID::uint64 game_id_;
   bool temporary_;
+  bool force_thumbnail_;
   friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6544,7 +6717,7 @@ class CGameRecording_SaveClip_Response PROTOBUF_FINAL :
                &_CGameRecording_SaveClip_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CGameRecording_SaveClip_Response& a, CGameRecording_SaveClip_Response& b) {
     a.Swap(&b);
@@ -6698,7 +6871,7 @@ class CGameRecording_DeleteClip_Request PROTOBUF_FINAL :
                &_CGameRecording_DeleteClip_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CGameRecording_DeleteClip_Request& a, CGameRecording_DeleteClip_Request& b) {
     a.Swap(&b);
@@ -6854,7 +7027,7 @@ class CGameRecording_DeleteClip_Response PROTOBUF_FINAL :
                &_CGameRecording_DeleteClip_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(CGameRecording_DeleteClip_Response& a, CGameRecording_DeleteClip_Response& b) {
     a.Swap(&b);
@@ -6985,7 +7158,7 @@ class CGameRecording_ExportClip_Settings PROTOBUF_FINAL :
                &_CGameRecording_ExportClip_Settings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(CGameRecording_ExportClip_Settings& a, CGameRecording_ExportClip_Settings& b) {
     a.Swap(&b);
@@ -7059,6 +7232,7 @@ class CGameRecording_ExportClip_Settings PROTOBUF_FINAL :
     kWidthFieldNumber = 2,
     kHeightFieldNumber = 3,
     kFramesPerSecondFieldNumber = 4,
+    kCodecFieldNumber = 5,
   };
   // optional int32 bitrate_kbps = 1;
   bool has_bitrate_kbps() const;
@@ -7112,6 +7286,19 @@ class CGameRecording_ExportClip_Settings PROTOBUF_FINAL :
   void _internal_set_frames_per_second(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional .EExportCodec codec = 5 [default = EExportCodec_Default];
+  bool has_codec() const;
+  private:
+  bool _internal_has_codec() const;
+  public:
+  void clear_codec();
+  ::EExportCodec codec() const;
+  void set_codec(::EExportCodec value);
+  private:
+  ::EExportCodec _internal_codec() const;
+  void _internal_set_codec(::EExportCodec value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CGameRecording_ExportClip_Settings)
  private:
   class _Internal;
@@ -7125,6 +7312,7 @@ class CGameRecording_ExportClip_Settings PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 width_;
   ::PROTOBUF_NAMESPACE_ID::int32 height_;
   ::PROTOBUF_NAMESPACE_ID::int32 frames_per_second_;
+  int codec_;
   friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
 };
 // -------------------------------------------------------------------
@@ -7179,7 +7367,7 @@ class CGameRecording_ExportClip_Request PROTOBUF_FINAL :
                &_CGameRecording_ExportClip_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(CGameRecording_ExportClip_Request& a, CGameRecording_ExportClip_Request& b) {
     a.Swap(&b);
@@ -7252,6 +7440,7 @@ class CGameRecording_ExportClip_Request PROTOBUF_FINAL :
     kClipIdFieldNumber = 1,
     kExportMp4PathFieldNumber = 2,
     kSettingsFieldNumber = 3,
+    kUseUniqueFilenameFieldNumber = 4,
   };
   // optional string clip_id = 1;
   bool has_clip_id() const;
@@ -7311,6 +7500,19 @@ class CGameRecording_ExportClip_Request PROTOBUF_FINAL :
       ::CGameRecording_ExportClip_Settings* settings);
   ::CGameRecording_ExportClip_Settings* unsafe_arena_release_settings();
 
+  // optional bool use_unique_filename = 4;
+  bool has_use_unique_filename() const;
+  private:
+  bool _internal_has_use_unique_filename() const;
+  public:
+  void clear_use_unique_filename();
+  bool use_unique_filename() const;
+  void set_use_unique_filename(bool value);
+  private:
+  bool _internal_use_unique_filename() const;
+  void _internal_set_use_unique_filename(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CGameRecording_ExportClip_Request)
  private:
   class _Internal;
@@ -7323,6 +7525,7 @@ class CGameRecording_ExportClip_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr clip_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr export_mp4_path_;
   ::CGameRecording_ExportClip_Settings* settings_;
+  bool use_unique_filename_;
   friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
 };
 // -------------------------------------------------------------------
@@ -7377,7 +7580,7 @@ class CGameRecording_ExportClip_Response PROTOBUF_FINAL :
                &_CGameRecording_ExportClip_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(CGameRecording_ExportClip_Response& a, CGameRecording_ExportClip_Response& b) {
     a.Swap(&b);
@@ -7458,6 +7661,366 @@ class CGameRecording_ExportClip_Response PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CGameRecording_ExportClipPreview_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_ExportClipPreview_Request) */ {
+ public:
+  inline CGameRecording_ExportClipPreview_Request() : CGameRecording_ExportClipPreview_Request(nullptr) {}
+  virtual ~CGameRecording_ExportClipPreview_Request();
+  explicit constexpr CGameRecording_ExportClipPreview_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CGameRecording_ExportClipPreview_Request(const CGameRecording_ExportClipPreview_Request& from);
+  CGameRecording_ExportClipPreview_Request(CGameRecording_ExportClipPreview_Request&& from) noexcept
+    : CGameRecording_ExportClipPreview_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CGameRecording_ExportClipPreview_Request& operator=(const CGameRecording_ExportClipPreview_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CGameRecording_ExportClipPreview_Request& operator=(CGameRecording_ExportClipPreview_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CGameRecording_ExportClipPreview_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CGameRecording_ExportClipPreview_Request* internal_default_instance() {
+    return reinterpret_cast<const CGameRecording_ExportClipPreview_Request*>(
+               &_CGameRecording_ExportClipPreview_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    37;
+
+  friend void swap(CGameRecording_ExportClipPreview_Request& a, CGameRecording_ExportClipPreview_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CGameRecording_ExportClipPreview_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CGameRecording_ExportClipPreview_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CGameRecording_ExportClipPreview_Request* New() const final {
+    return CreateMaybeMessage<CGameRecording_ExportClipPreview_Request>(nullptr);
+  }
+
+  CGameRecording_ExportClipPreview_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CGameRecording_ExportClipPreview_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CGameRecording_ExportClipPreview_Request& from);
+  void MergeFrom(const CGameRecording_ExportClipPreview_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CGameRecording_ExportClipPreview_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CGameRecording_ExportClipPreview_Request";
+  }
+  protected:
+  explicit CGameRecording_ExportClipPreview_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kClipIdFieldNumber = 1,
+    kSettingsFieldNumber = 2,
+    kRunPolicyChecksFieldNumber = 3,
+  };
+  // optional string clip_id = 1;
+  bool has_clip_id() const;
+  private:
+  bool _internal_has_clip_id() const;
+  public:
+  void clear_clip_id();
+  const std::string& clip_id() const;
+  void set_clip_id(const std::string& value);
+  void set_clip_id(std::string&& value);
+  void set_clip_id(const char* value);
+  void set_clip_id(const char* value, size_t size);
+  std::string* mutable_clip_id();
+  std::string* release_clip_id();
+  void set_allocated_clip_id(std::string* clip_id);
+  private:
+  const std::string& _internal_clip_id() const;
+  void _internal_set_clip_id(const std::string& value);
+  std::string* _internal_mutable_clip_id();
+  public:
+
+  // optional .CGameRecording_ExportClip_Settings settings = 2;
+  bool has_settings() const;
+  private:
+  bool _internal_has_settings() const;
+  public:
+  void clear_settings();
+  const ::CGameRecording_ExportClip_Settings& settings() const;
+  ::CGameRecording_ExportClip_Settings* release_settings();
+  ::CGameRecording_ExportClip_Settings* mutable_settings();
+  void set_allocated_settings(::CGameRecording_ExportClip_Settings* settings);
+  private:
+  const ::CGameRecording_ExportClip_Settings& _internal_settings() const;
+  ::CGameRecording_ExportClip_Settings* _internal_mutable_settings();
+  public:
+  void unsafe_arena_set_allocated_settings(
+      ::CGameRecording_ExportClip_Settings* settings);
+  ::CGameRecording_ExportClip_Settings* unsafe_arena_release_settings();
+
+  // optional bool run_policy_checks = 3;
+  bool has_run_policy_checks() const;
+  private:
+  bool _internal_has_run_policy_checks() const;
+  public:
+  void clear_run_policy_checks();
+  bool run_policy_checks() const;
+  void set_run_policy_checks(bool value);
+  private:
+  bool _internal_run_policy_checks() const;
+  void _internal_set_run_policy_checks(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CGameRecording_ExportClipPreview_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr clip_id_;
+  ::CGameRecording_ExportClip_Settings* settings_;
+  bool run_policy_checks_;
+  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CGameRecording_ExportClipPreview_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_ExportClipPreview_Response) */ {
+ public:
+  inline CGameRecording_ExportClipPreview_Response() : CGameRecording_ExportClipPreview_Response(nullptr) {}
+  virtual ~CGameRecording_ExportClipPreview_Response();
+  explicit constexpr CGameRecording_ExportClipPreview_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CGameRecording_ExportClipPreview_Response(const CGameRecording_ExportClipPreview_Response& from);
+  CGameRecording_ExportClipPreview_Response(CGameRecording_ExportClipPreview_Response&& from) noexcept
+    : CGameRecording_ExportClipPreview_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CGameRecording_ExportClipPreview_Response& operator=(const CGameRecording_ExportClipPreview_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CGameRecording_ExportClipPreview_Response& operator=(CGameRecording_ExportClipPreview_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CGameRecording_ExportClipPreview_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CGameRecording_ExportClipPreview_Response* internal_default_instance() {
+    return reinterpret_cast<const CGameRecording_ExportClipPreview_Response*>(
+               &_CGameRecording_ExportClipPreview_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    38;
+
+  friend void swap(CGameRecording_ExportClipPreview_Response& a, CGameRecording_ExportClipPreview_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CGameRecording_ExportClipPreview_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CGameRecording_ExportClipPreview_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CGameRecording_ExportClipPreview_Response* New() const final {
+    return CreateMaybeMessage<CGameRecording_ExportClipPreview_Response>(nullptr);
+  }
+
+  CGameRecording_ExportClipPreview_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CGameRecording_ExportClipPreview_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CGameRecording_ExportClipPreview_Response& from);
+  void MergeFrom(const CGameRecording_ExportClipPreview_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CGameRecording_ExportClipPreview_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CGameRecording_ExportClipPreview_Response";
+  }
+  protected:
+  explicit CGameRecording_ExportClipPreview_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSettingsFieldNumber = 2,
+    kEstimatedSizeFieldNumber = 1,
+  };
+  // optional .CGameRecording_ExportClip_Settings settings = 2;
+  bool has_settings() const;
+  private:
+  bool _internal_has_settings() const;
+  public:
+  void clear_settings();
+  const ::CGameRecording_ExportClip_Settings& settings() const;
+  ::CGameRecording_ExportClip_Settings* release_settings();
+  ::CGameRecording_ExportClip_Settings* mutable_settings();
+  void set_allocated_settings(::CGameRecording_ExportClip_Settings* settings);
+  private:
+  const ::CGameRecording_ExportClip_Settings& _internal_settings() const;
+  ::CGameRecording_ExportClip_Settings* _internal_mutable_settings();
+  public:
+  void unsafe_arena_set_allocated_settings(
+      ::CGameRecording_ExportClip_Settings* settings);
+  ::CGameRecording_ExportClip_Settings* unsafe_arena_release_settings();
+
+  // optional uint64 estimated_size = 1;
+  bool has_estimated_size() const;
+  private:
+  bool _internal_has_estimated_size() const;
+  public:
+  void clear_estimated_size();
+  ::PROTOBUF_NAMESPACE_ID::uint64 estimated_size() const;
+  void set_estimated_size(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_estimated_size() const;
+  void _internal_set_estimated_size(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CGameRecording_ExportClipPreview_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::CGameRecording_ExportClip_Settings* settings_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 estimated_size_;
+  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CGameRecording_TakeScreenshot_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecording_TakeScreenshot_Request) */ {
  public:
@@ -7508,7 +8071,7 @@ class CGameRecording_TakeScreenshot_Request PROTOBUF_FINAL :
                &_CGameRecording_TakeScreenshot_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    39;
 
   friend void swap(CGameRecording_TakeScreenshot_Request& a, CGameRecording_TakeScreenshot_Request& b) {
     a.Swap(&b);
@@ -7694,7 +8257,7 @@ class CGameRecording_TakeScreenshot_Response PROTOBUF_FINAL :
                &_CGameRecording_TakeScreenshot_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    40;
 
   friend void swap(CGameRecording_TakeScreenshot_Response& a, CGameRecording_TakeScreenshot_Response& b) {
     a.Swap(&b);
@@ -7843,7 +8406,7 @@ class CGameRecording_UploadClipToSteam_Request PROTOBUF_FINAL :
                &_CGameRecording_UploadClipToSteam_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    41;
 
   friend void swap(CGameRecording_UploadClipToSteam_Request& a, CGameRecording_UploadClipToSteam_Request& b) {
     a.Swap(&b);
@@ -8058,7 +8621,7 @@ class CGameRecording_UploadClipToSteam_Response PROTOBUF_FINAL :
                &_CGameRecording_UploadClipToSteam_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    42;
 
   friend void swap(CGameRecording_UploadClipToSteam_Response& a, CGameRecording_UploadClipToSteam_Response& b) {
     a.Swap(&b);
@@ -8212,7 +8775,7 @@ class CGameRecording_ZipClip_Request PROTOBUF_FINAL :
                &_CGameRecording_ZipClip_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    43;
 
   friend void swap(CGameRecording_ZipClip_Request& a, CGameRecording_ZipClip_Request& b) {
     a.Swap(&b);
@@ -8368,7 +8931,7 @@ class CGameRecording_ZipClip_Response PROTOBUF_FINAL :
                &_CGameRecording_ZipClip_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    44;
 
   friend void swap(CGameRecording_ZipClip_Response& a, CGameRecording_ZipClip_Response& b) {
     a.Swap(&b);
@@ -8524,7 +9087,7 @@ class CGameRecording_GetClips_Request PROTOBUF_FINAL :
                &_CGameRecording_GetClips_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    45;
 
   friend void swap(CGameRecording_GetClips_Request& a, CGameRecording_GetClips_Request& b) {
     a.Swap(&b);
@@ -8703,7 +9266,7 @@ class CGameRecording_GetClips_Response PROTOBUF_FINAL :
                &_CGameRecording_GetClips_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    46;
 
   friend void swap(CGameRecording_GetClips_Response& a, CGameRecording_GetClips_Response& b) {
     a.Swap(&b);
@@ -8856,7 +9419,7 @@ class CGameRecording_GetAndTrimPostGameHighlights_Request PROTOBUF_FINAL :
                &_CGameRecording_GetAndTrimPostGameHighlights_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    47;
 
   friend void swap(CGameRecording_GetAndTrimPostGameHighlights_Request& a, CGameRecording_GetAndTrimPostGameHighlights_Request& b) {
     a.Swap(&b);
@@ -9020,7 +9583,7 @@ class CGameRecording_GetAndTrimPostGameHighlights_Response PROTOBUF_FINAL :
                &_CGameRecording_GetAndTrimPostGameHighlights_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    48;
 
   friend void swap(CGameRecording_GetAndTrimPostGameHighlights_Response& a, CGameRecording_GetAndTrimPostGameHighlights_Response& b) {
     a.Swap(&b);
@@ -9173,7 +9736,7 @@ class CGameRecording_UserAddTimelineEntry_Request PROTOBUF_FINAL :
                &_CGameRecording_UserAddTimelineEntry_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    49;
 
   friend void swap(CGameRecording_UserAddTimelineEntry_Request& a, CGameRecording_UserAddTimelineEntry_Request& b) {
     a.Swap(&b);
@@ -9364,7 +9927,7 @@ class CGameRecording_UserAddTimelineEntry_Response PROTOBUF_FINAL :
                &_CGameRecording_UserAddTimelineEntry_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    50;
 
   friend void swap(CGameRecording_UserAddTimelineEntry_Response& a, CGameRecording_UserAddTimelineEntry_Response& b) {
     a.Swap(&b);
@@ -9513,7 +10076,7 @@ class CGameRecording_UserUpdateTimelineEntry_Request PROTOBUF_FINAL :
                &_CGameRecording_UserUpdateTimelineEntry_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    51;
 
   friend void swap(CGameRecording_UserUpdateTimelineEntry_Request& a, CGameRecording_UserUpdateTimelineEntry_Request& b) {
     a.Swap(&b);
@@ -9704,7 +10267,7 @@ class CGameRecording_UserUpdateTimelineEntry_Response PROTOBUF_FINAL :
                &_CGameRecording_UserUpdateTimelineEntry_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    52;
 
   friend void swap(CGameRecording_UserUpdateTimelineEntry_Response& a, CGameRecording_UserUpdateTimelineEntry_Response& b) {
     a.Swap(&b);
@@ -9835,7 +10398,7 @@ class CGameRecording_UserRemoveTimelineEntry_Request PROTOBUF_FINAL :
                &_CGameRecording_UserRemoveTimelineEntry_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    53;
 
   friend void swap(CGameRecording_UserRemoveTimelineEntry_Request& a, CGameRecording_UserRemoveTimelineEntry_Request& b) {
     a.Swap(&b);
@@ -10043,7 +10606,7 @@ class CGameRecording_UserRemoveTimelineEntry_Response PROTOBUF_FINAL :
                &_CGameRecording_UserRemoveTimelineEntry_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    54;
 
   friend void swap(CGameRecording_UserRemoveTimelineEntry_Response& a, CGameRecording_UserRemoveTimelineEntry_Response& b) {
     a.Swap(&b);
@@ -10174,7 +10737,7 @@ class CGameRecording_ManuallyDeleteRecordingsForApps_Request PROTOBUF_FINAL :
                &_CGameRecording_ManuallyDeleteRecordingsForApps_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    55;
 
   friend void swap(CGameRecording_ManuallyDeleteRecordingsForApps_Request& a, CGameRecording_ManuallyDeleteRecordingsForApps_Request& b) {
     a.Swap(&b);
@@ -10331,7 +10894,7 @@ class CGameRecording_ManuallyDeleteRecordingsForApps_Response PROTOBUF_FINAL :
                &_CGameRecording_ManuallyDeleteRecordingsForApps_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    56;
 
   friend void swap(CGameRecording_ManuallyDeleteRecordingsForApps_Response& a, CGameRecording_ManuallyDeleteRecordingsForApps_Response& b) {
     a.Swap(&b);
@@ -10462,7 +11025,7 @@ class CGameRecording_GetTotalDiskSpaceUsage_Request PROTOBUF_FINAL :
                &_CGameRecording_GetTotalDiskSpaceUsage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    57;
 
   friend void swap(CGameRecording_GetTotalDiskSpaceUsage_Request& a, CGameRecording_GetTotalDiskSpaceUsage_Request& b) {
     a.Swap(&b);
@@ -10633,7 +11196,7 @@ class CGameRecording_GetTotalDiskSpaceUsage_Response PROTOBUF_FINAL :
                &_CGameRecording_GetTotalDiskSpaceUsage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    58;
 
   friend void swap(CGameRecording_GetTotalDiskSpaceUsage_Response& a, CGameRecording_GetTotalDiskSpaceUsage_Response& b) {
     a.Swap(&b);
@@ -10782,7 +11345,7 @@ class CGameRecording_GetThumbnails_Request PROTOBUF_FINAL :
                &_CGameRecording_GetThumbnails_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    59;
 
   friend void swap(CGameRecording_GetThumbnails_Request& a, CGameRecording_GetThumbnails_Request& b) {
     a.Swap(&b);
@@ -11051,7 +11614,7 @@ class CGameRecording_GetThumbnails_Response_Thumbnail PROTOBUF_FINAL :
                &_CGameRecording_GetThumbnails_Response_Thumbnail_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    60;
 
   friend void swap(CGameRecording_GetThumbnails_Response_Thumbnail& a, CGameRecording_GetThumbnails_Response_Thumbnail& b) {
     a.Swap(&b);
@@ -11237,7 +11800,7 @@ class CGameRecording_GetThumbnails_Response PROTOBUF_FINAL :
                &_CGameRecording_GetThumbnails_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    61;
 
   friend void swap(CGameRecording_GetThumbnails_Response& a, CGameRecording_GetThumbnails_Response& b) {
     a.Swap(&b);
@@ -11392,7 +11955,7 @@ class CGameRecording_StartRecording_Request PROTOBUF_FINAL :
                &_CGameRecording_StartRecording_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    62;
 
   friend void swap(CGameRecording_StartRecording_Request& a, CGameRecording_StartRecording_Request& b) {
     a.Swap(&b);
@@ -11541,7 +12104,7 @@ class CGameRecording_StartRecording_Response PROTOBUF_FINAL :
                &_CGameRecording_StartRecording_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    63;
 
   friend void swap(CGameRecording_StartRecording_Response& a, CGameRecording_StartRecording_Response& b) {
     a.Swap(&b);
@@ -11672,7 +12235,7 @@ class CGameRecording_StopRecording_Request PROTOBUF_FINAL :
                &_CGameRecording_StopRecording_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    64;
 
   friend void swap(CGameRecording_StopRecording_Request& a, CGameRecording_StopRecording_Request& b) {
     a.Swap(&b);
@@ -11821,7 +12384,7 @@ class CGameRecording_StopRecording_Response PROTOBUF_FINAL :
                &_CGameRecording_StopRecording_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    65;
 
   friend void swap(CGameRecording_StopRecording_Response& a, CGameRecording_StopRecording_Response& b) {
     a.Swap(&b);
@@ -11975,7 +12538,7 @@ class CGameRecording_GetRecordingSize_Request PROTOBUF_FINAL :
                &_CGameRecording_GetRecordingSize_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    66;
 
   friend void swap(CGameRecording_GetRecordingSize_Request& a, CGameRecording_GetRecordingSize_Request& b) {
     a.Swap(&b);
@@ -12124,7 +12687,7 @@ class CGameRecording_GetRecordingSize_Response PROTOBUF_FINAL :
                &_CGameRecording_GetRecordingSize_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    67;
 
   friend void swap(CGameRecording_GetRecordingSize_Response& a, CGameRecording_GetRecordingSize_Response& b) {
     a.Swap(&b);
@@ -12273,7 +12836,7 @@ class CGameRecording_CleanupBackgroundRecordings_Request PROTOBUF_FINAL :
                &_CGameRecording_CleanupBackgroundRecordings_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    68;
 
   friend void swap(CGameRecording_CleanupBackgroundRecordings_Request& a, CGameRecording_CleanupBackgroundRecordings_Request& b) {
     a.Swap(&b);
@@ -12404,7 +12967,7 @@ class CGameRecording_CleanupBackgroundRecordings_Response PROTOBUF_FINAL :
                &_CGameRecording_CleanupBackgroundRecordings_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    69;
 
   friend void swap(CGameRecording_CleanupBackgroundRecordings_Response& a, CGameRecording_CleanupBackgroundRecordings_Response& b) {
     a.Swap(&b);
@@ -12535,7 +13098,7 @@ class CGameRecording_GetPlatformCapabilities_Request PROTOBUF_FINAL :
                &_CGameRecording_GetPlatformCapabilities_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    70;
 
   friend void swap(CGameRecording_GetPlatformCapabilities_Request& a, CGameRecording_GetPlatformCapabilities_Request& b) {
     a.Swap(&b);
@@ -12666,7 +13229,7 @@ class CGameRecording_GetPlatformCapabilities_Response PROTOBUF_FINAL :
                &_CGameRecording_GetPlatformCapabilities_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    71;
 
   friend void swap(CGameRecording_GetPlatformCapabilities_Response& a, CGameRecording_GetPlatformCapabilities_Response& b) {
     a.Swap(&b);
@@ -12815,7 +13378,7 @@ class CGameRecording_ClipCreated_Notification PROTOBUF_FINAL :
                &_CGameRecording_ClipCreated_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    72;
 
   friend void swap(CGameRecording_ClipCreated_Notification& a, CGameRecording_ClipCreated_Notification& b) {
     a.Swap(&b);
@@ -12969,7 +13532,7 @@ class CGameRecording_ClipDeleted_Notification PROTOBUF_FINAL :
                &_CGameRecording_ClipDeleted_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    73;
 
   friend void swap(CGameRecording_ClipDeleted_Notification& a, CGameRecording_ClipDeleted_Notification& b) {
     a.Swap(&b);
@@ -13140,7 +13703,7 @@ class CGameRecording_ExportProgress_Notification PROTOBUF_FINAL :
                &_CGameRecording_ExportProgress_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    74;
 
   friend void swap(CGameRecording_ExportProgress_Notification& a, CGameRecording_ExportProgress_Notification& b) {
     a.Swap(&b);
@@ -13326,7 +13889,7 @@ class CGameRecording_PerGameSettings PROTOBUF_FINAL :
                &_CGameRecording_PerGameSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    75;
 
   friend void swap(CGameRecording_PerGameSettings& a, CGameRecording_PerGameSettings& b) {
     a.Swap(&b);
@@ -13396,11 +13959,32 @@ class CGameRecording_PerGameSettings PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kGameidFieldNumber = 1,
-    kEnabledFieldNumber = 2,
-    kMinutesFieldNumber = 3,
     kBitrateFieldNumber = 4,
+    kGameidFieldNumber = 1,
+    kMinutesFieldNumber = 3,
+    kEnabledFieldNumber = 2,
+    kInfiniteFieldNumber = 5,
   };
+  // optional string bitrate = 4;
+  bool has_bitrate() const;
+  private:
+  bool _internal_has_bitrate() const;
+  public:
+  void clear_bitrate();
+  const std::string& bitrate() const;
+  void set_bitrate(const std::string& value);
+  void set_bitrate(std::string&& value);
+  void set_bitrate(const char* value);
+  void set_bitrate(const char* value, size_t size);
+  std::string* mutable_bitrate();
+  std::string* release_bitrate();
+  void set_allocated_bitrate(std::string* bitrate);
+  private:
+  const std::string& _internal_bitrate() const;
+  void _internal_set_bitrate(const std::string& value);
+  std::string* _internal_mutable_bitrate();
+  public:
+
   // optional fixed64 gameid = 1;
   bool has_gameid() const;
   private:
@@ -13412,6 +13996,19 @@ class CGameRecording_PerGameSettings PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gameid() const;
   void _internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint32 minutes = 3;
+  bool has_minutes() const;
+  private:
+  bool _internal_has_minutes() const;
+  public:
+  void clear_minutes();
+  ::PROTOBUF_NAMESPACE_ID::uint32 minutes() const;
+  void set_minutes(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_minutes() const;
+  void _internal_set_minutes(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // optional bool enabled = 2;
@@ -13427,30 +14024,17 @@ class CGameRecording_PerGameSettings PROTOBUF_FINAL :
   void _internal_set_enabled(bool value);
   public:
 
-  // optional int32 minutes = 3;
-  bool has_minutes() const;
+  // optional bool infinite = 5;
+  bool has_infinite() const;
   private:
-  bool _internal_has_minutes() const;
+  bool _internal_has_infinite() const;
   public:
-  void clear_minutes();
-  ::PROTOBUF_NAMESPACE_ID::int32 minutes() const;
-  void set_minutes(::PROTOBUF_NAMESPACE_ID::int32 value);
+  void clear_infinite();
+  bool infinite() const;
+  void set_infinite(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_minutes() const;
-  void _internal_set_minutes(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // optional int32 bitrate = 4;
-  bool has_bitrate() const;
-  private:
-  bool _internal_has_bitrate() const;
-  public:
-  void clear_bitrate();
-  ::PROTOBUF_NAMESPACE_ID::int32 bitrate() const;
-  void set_bitrate(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_bitrate() const;
-  void _internal_set_bitrate(::PROTOBUF_NAMESPACE_ID::int32 value);
+  bool _internal_infinite() const;
+  void _internal_set_infinite(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:CGameRecording_PerGameSettings)
@@ -13462,10 +14046,11 @@ class CGameRecording_PerGameSettings PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr bitrate_;
   ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 minutes_;
   bool enabled_;
-  ::PROTOBUF_NAMESPACE_ID::int32 minutes_;
-  ::PROTOBUF_NAMESPACE_ID::int32 bitrate_;
+  bool infinite_;
   friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
 };
 // -------------------------------------------------------------------
@@ -13520,7 +14105,7 @@ class CGameRecording_GetPerGameSettings_Request PROTOBUF_FINAL :
                &_CGameRecording_GetPerGameSettings_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    76;
 
   friend void swap(CGameRecording_GetPerGameSettings_Request& a, CGameRecording_GetPerGameSettings_Request& b) {
     a.Swap(&b);
@@ -13651,7 +14236,7 @@ class CGameRecording_GetPerGameSettings_Response PROTOBUF_FINAL :
                &_CGameRecording_GetPerGameSettings_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    77;
 
   friend void swap(CGameRecording_GetPerGameSettings_Response& a, CGameRecording_GetPerGameSettings_Response& b) {
     a.Swap(&b);
@@ -13804,7 +14389,7 @@ class CGameRecording_SetPerGameSettings_Request PROTOBUF_FINAL :
                &_CGameRecording_SetPerGameSettings_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    78;
 
   friend void swap(CGameRecording_SetPerGameSettings_Request& a, CGameRecording_SetPerGameSettings_Request& b) {
     a.Swap(&b);
@@ -13958,7 +14543,7 @@ class CGameRecording_SetPerGameSettings_Response PROTOBUF_FINAL :
                &_CGameRecording_SetPerGameSettings_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    79;
 
   friend void swap(CGameRecording_SetPerGameSettings_Response& a, CGameRecording_SetPerGameSettings_Response& b) {
     a.Swap(&b);
@@ -14089,7 +14674,7 @@ class CGameRecording_DeletePerGameSettings_Request PROTOBUF_FINAL :
                &_CGameRecording_DeletePerGameSettings_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    80;
 
   friend void swap(CGameRecording_DeletePerGameSettings_Request& a, CGameRecording_DeletePerGameSettings_Request& b) {
     a.Swap(&b);
@@ -14238,7 +14823,7 @@ class CGameRecording_DeletePerGameSettings_Response PROTOBUF_FINAL :
                &_CGameRecording_DeletePerGameSettings_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    81;
 
   friend void swap(CGameRecording_DeletePerGameSettings_Response& a, CGameRecording_DeletePerGameSettings_Response& b) {
     a.Swap(&b);
@@ -14369,7 +14954,7 @@ class CGameRecording_UploadProgress_Notification PROTOBUF_FINAL :
                &_CGameRecording_UploadProgress_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    82;
 
   friend void swap(CGameRecording_UploadProgress_Notification& a, CGameRecording_UploadProgress_Notification& b) {
     a.Swap(&b);
@@ -14555,7 +15140,7 @@ class CGameRecording_SwitchBackgroundRecordingGame_Request PROTOBUF_FINAL :
                &_CGameRecording_SwitchBackgroundRecordingGame_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    83;
 
   friend void swap(CGameRecording_SwitchBackgroundRecordingGame_Request& a, CGameRecording_SwitchBackgroundRecordingGame_Request& b) {
     a.Swap(&b);
@@ -14704,7 +15289,7 @@ class CGameRecording_SwitchBackgroundRecordingGame_Response PROTOBUF_FINAL :
                &_CGameRecording_SwitchBackgroundRecordingGame_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    84;
 
   friend void swap(CGameRecording_SwitchBackgroundRecordingGame_Response& a, CGameRecording_SwitchBackgroundRecordingGame_Response& b) {
     a.Swap(&b);
@@ -14783,1575 +15368,6 @@ class CGameRecording_SwitchBackgroundRecordingGame_Response PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
 };
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_AddTimelineHighlightMarker_Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_AddTimelineHighlightMarker_Request) */ {
- public:
-  inline CGameRecordingDebug_AddTimelineHighlightMarker_Request() : CGameRecordingDebug_AddTimelineHighlightMarker_Request(nullptr) {}
-  virtual ~CGameRecordingDebug_AddTimelineHighlightMarker_Request();
-  explicit constexpr CGameRecordingDebug_AddTimelineHighlightMarker_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_AddTimelineHighlightMarker_Request(const CGameRecordingDebug_AddTimelineHighlightMarker_Request& from);
-  CGameRecordingDebug_AddTimelineHighlightMarker_Request(CGameRecordingDebug_AddTimelineHighlightMarker_Request&& from) noexcept
-    : CGameRecordingDebug_AddTimelineHighlightMarker_Request() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_AddTimelineHighlightMarker_Request& operator=(const CGameRecordingDebug_AddTimelineHighlightMarker_Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_AddTimelineHighlightMarker_Request& operator=(CGameRecordingDebug_AddTimelineHighlightMarker_Request&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_AddTimelineHighlightMarker_Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_AddTimelineHighlightMarker_Request* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_AddTimelineHighlightMarker_Request*>(
-               &_CGameRecordingDebug_AddTimelineHighlightMarker_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    82;
-
-  friend void swap(CGameRecordingDebug_AddTimelineHighlightMarker_Request& a, CGameRecordingDebug_AddTimelineHighlightMarker_Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_AddTimelineHighlightMarker_Request* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_AddTimelineHighlightMarker_Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_AddTimelineHighlightMarker_Request* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineHighlightMarker_Request>(nullptr);
-  }
-
-  CGameRecordingDebug_AddTimelineHighlightMarker_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineHighlightMarker_Request>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_AddTimelineHighlightMarker_Request& from);
-  void MergeFrom(const CGameRecordingDebug_AddTimelineHighlightMarker_Request& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_AddTimelineHighlightMarker_Request* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_AddTimelineHighlightMarker_Request";
-  }
-  protected:
-  explicit CGameRecordingDebug_AddTimelineHighlightMarker_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kIconFieldNumber = 2,
-    kTitleFieldNumber = 3,
-    kDescFieldNumber = 4,
-    kAppidFieldNumber = 1,
-  };
-  // optional string icon = 2;
-  bool has_icon() const;
-  private:
-  bool _internal_has_icon() const;
-  public:
-  void clear_icon();
-  const std::string& icon() const;
-  void set_icon(const std::string& value);
-  void set_icon(std::string&& value);
-  void set_icon(const char* value);
-  void set_icon(const char* value, size_t size);
-  std::string* mutable_icon();
-  std::string* release_icon();
-  void set_allocated_icon(std::string* icon);
-  private:
-  const std::string& _internal_icon() const;
-  void _internal_set_icon(const std::string& value);
-  std::string* _internal_mutable_icon();
-  public:
-
-  // optional string title = 3;
-  bool has_title() const;
-  private:
-  bool _internal_has_title() const;
-  public:
-  void clear_title();
-  const std::string& title() const;
-  void set_title(const std::string& value);
-  void set_title(std::string&& value);
-  void set_title(const char* value);
-  void set_title(const char* value, size_t size);
-  std::string* mutable_title();
-  std::string* release_title();
-  void set_allocated_title(std::string* title);
-  private:
-  const std::string& _internal_title() const;
-  void _internal_set_title(const std::string& value);
-  std::string* _internal_mutable_title();
-  public:
-
-  // optional string desc = 4;
-  bool has_desc() const;
-  private:
-  bool _internal_has_desc() const;
-  public:
-  void clear_desc();
-  const std::string& desc() const;
-  void set_desc(const std::string& value);
-  void set_desc(std::string&& value);
-  void set_desc(const char* value);
-  void set_desc(const char* value, size_t size);
-  std::string* mutable_desc();
-  std::string* release_desc();
-  void set_allocated_desc(std::string* desc);
-  private:
-  const std::string& _internal_desc() const;
-  void _internal_set_desc(const std::string& value);
-  std::string* _internal_mutable_desc();
-  public:
-
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
-  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
-  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_AddTimelineHighlightMarker_Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr icon_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr desc_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_AddTimelineHighlightMarker_Response PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_AddTimelineHighlightMarker_Response) */ {
- public:
-  inline CGameRecordingDebug_AddTimelineHighlightMarker_Response() : CGameRecordingDebug_AddTimelineHighlightMarker_Response(nullptr) {}
-  virtual ~CGameRecordingDebug_AddTimelineHighlightMarker_Response();
-  explicit constexpr CGameRecordingDebug_AddTimelineHighlightMarker_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_AddTimelineHighlightMarker_Response(const CGameRecordingDebug_AddTimelineHighlightMarker_Response& from);
-  CGameRecordingDebug_AddTimelineHighlightMarker_Response(CGameRecordingDebug_AddTimelineHighlightMarker_Response&& from) noexcept
-    : CGameRecordingDebug_AddTimelineHighlightMarker_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_AddTimelineHighlightMarker_Response& operator=(const CGameRecordingDebug_AddTimelineHighlightMarker_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_AddTimelineHighlightMarker_Response& operator=(CGameRecordingDebug_AddTimelineHighlightMarker_Response&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_AddTimelineHighlightMarker_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_AddTimelineHighlightMarker_Response* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_AddTimelineHighlightMarker_Response*>(
-               &_CGameRecordingDebug_AddTimelineHighlightMarker_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    83;
-
-  friend void swap(CGameRecordingDebug_AddTimelineHighlightMarker_Response& a, CGameRecordingDebug_AddTimelineHighlightMarker_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_AddTimelineHighlightMarker_Response* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_AddTimelineHighlightMarker_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_AddTimelineHighlightMarker_Response* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineHighlightMarker_Response>(nullptr);
-  }
-
-  CGameRecordingDebug_AddTimelineHighlightMarker_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineHighlightMarker_Response>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_AddTimelineHighlightMarker_Response& from);
-  void MergeFrom(const CGameRecordingDebug_AddTimelineHighlightMarker_Response& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_AddTimelineHighlightMarker_Response* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_AddTimelineHighlightMarker_Response";
-  }
-  protected:
-  explicit CGameRecordingDebug_AddTimelineHighlightMarker_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_AddTimelineHighlightMarker_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_AddTimelineTimestamp_Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_AddTimelineTimestamp_Request) */ {
- public:
-  inline CGameRecordingDebug_AddTimelineTimestamp_Request() : CGameRecordingDebug_AddTimelineTimestamp_Request(nullptr) {}
-  virtual ~CGameRecordingDebug_AddTimelineTimestamp_Request();
-  explicit constexpr CGameRecordingDebug_AddTimelineTimestamp_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_AddTimelineTimestamp_Request(const CGameRecordingDebug_AddTimelineTimestamp_Request& from);
-  CGameRecordingDebug_AddTimelineTimestamp_Request(CGameRecordingDebug_AddTimelineTimestamp_Request&& from) noexcept
-    : CGameRecordingDebug_AddTimelineTimestamp_Request() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_AddTimelineTimestamp_Request& operator=(const CGameRecordingDebug_AddTimelineTimestamp_Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_AddTimelineTimestamp_Request& operator=(CGameRecordingDebug_AddTimelineTimestamp_Request&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_AddTimelineTimestamp_Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_AddTimelineTimestamp_Request* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_AddTimelineTimestamp_Request*>(
-               &_CGameRecordingDebug_AddTimelineTimestamp_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    84;
-
-  friend void swap(CGameRecordingDebug_AddTimelineTimestamp_Request& a, CGameRecordingDebug_AddTimelineTimestamp_Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_AddTimelineTimestamp_Request* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_AddTimelineTimestamp_Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_AddTimelineTimestamp_Request* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineTimestamp_Request>(nullptr);
-  }
-
-  CGameRecordingDebug_AddTimelineTimestamp_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineTimestamp_Request>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_AddTimelineTimestamp_Request& from);
-  void MergeFrom(const CGameRecordingDebug_AddTimelineTimestamp_Request& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_AddTimelineTimestamp_Request* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_AddTimelineTimestamp_Request";
-  }
-  protected:
-  explicit CGameRecordingDebug_AddTimelineTimestamp_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTitleFieldNumber = 2,
-    kAppidFieldNumber = 1,
-  };
-  // optional string title = 2;
-  bool has_title() const;
-  private:
-  bool _internal_has_title() const;
-  public:
-  void clear_title();
-  const std::string& title() const;
-  void set_title(const std::string& value);
-  void set_title(std::string&& value);
-  void set_title(const char* value);
-  void set_title(const char* value, size_t size);
-  std::string* mutable_title();
-  std::string* release_title();
-  void set_allocated_title(std::string* title);
-  private:
-  const std::string& _internal_title() const;
-  void _internal_set_title(const std::string& value);
-  std::string* _internal_mutable_title();
-  public:
-
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
-  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
-  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_AddTimelineTimestamp_Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_AddTimelineTimestamp_Response PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_AddTimelineTimestamp_Response) */ {
- public:
-  inline CGameRecordingDebug_AddTimelineTimestamp_Response() : CGameRecordingDebug_AddTimelineTimestamp_Response(nullptr) {}
-  virtual ~CGameRecordingDebug_AddTimelineTimestamp_Response();
-  explicit constexpr CGameRecordingDebug_AddTimelineTimestamp_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_AddTimelineTimestamp_Response(const CGameRecordingDebug_AddTimelineTimestamp_Response& from);
-  CGameRecordingDebug_AddTimelineTimestamp_Response(CGameRecordingDebug_AddTimelineTimestamp_Response&& from) noexcept
-    : CGameRecordingDebug_AddTimelineTimestamp_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_AddTimelineTimestamp_Response& operator=(const CGameRecordingDebug_AddTimelineTimestamp_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_AddTimelineTimestamp_Response& operator=(CGameRecordingDebug_AddTimelineTimestamp_Response&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_AddTimelineTimestamp_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_AddTimelineTimestamp_Response* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_AddTimelineTimestamp_Response*>(
-               &_CGameRecordingDebug_AddTimelineTimestamp_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    85;
-
-  friend void swap(CGameRecordingDebug_AddTimelineTimestamp_Response& a, CGameRecordingDebug_AddTimelineTimestamp_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_AddTimelineTimestamp_Response* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_AddTimelineTimestamp_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_AddTimelineTimestamp_Response* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineTimestamp_Response>(nullptr);
-  }
-
-  CGameRecordingDebug_AddTimelineTimestamp_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineTimestamp_Response>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_AddTimelineTimestamp_Response& from);
-  void MergeFrom(const CGameRecordingDebug_AddTimelineTimestamp_Response& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_AddTimelineTimestamp_Response* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_AddTimelineTimestamp_Response";
-  }
-  protected:
-  explicit CGameRecordingDebug_AddTimelineTimestamp_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_AddTimelineTimestamp_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_AddTimelineRangeStart_Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_AddTimelineRangeStart_Request) */ {
- public:
-  inline CGameRecordingDebug_AddTimelineRangeStart_Request() : CGameRecordingDebug_AddTimelineRangeStart_Request(nullptr) {}
-  virtual ~CGameRecordingDebug_AddTimelineRangeStart_Request();
-  explicit constexpr CGameRecordingDebug_AddTimelineRangeStart_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_AddTimelineRangeStart_Request(const CGameRecordingDebug_AddTimelineRangeStart_Request& from);
-  CGameRecordingDebug_AddTimelineRangeStart_Request(CGameRecordingDebug_AddTimelineRangeStart_Request&& from) noexcept
-    : CGameRecordingDebug_AddTimelineRangeStart_Request() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_AddTimelineRangeStart_Request& operator=(const CGameRecordingDebug_AddTimelineRangeStart_Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_AddTimelineRangeStart_Request& operator=(CGameRecordingDebug_AddTimelineRangeStart_Request&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_AddTimelineRangeStart_Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_AddTimelineRangeStart_Request* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_AddTimelineRangeStart_Request*>(
-               &_CGameRecordingDebug_AddTimelineRangeStart_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    86;
-
-  friend void swap(CGameRecordingDebug_AddTimelineRangeStart_Request& a, CGameRecordingDebug_AddTimelineRangeStart_Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_AddTimelineRangeStart_Request* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_AddTimelineRangeStart_Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_AddTimelineRangeStart_Request* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineRangeStart_Request>(nullptr);
-  }
-
-  CGameRecordingDebug_AddTimelineRangeStart_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineRangeStart_Request>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_AddTimelineRangeStart_Request& from);
-  void MergeFrom(const CGameRecordingDebug_AddTimelineRangeStart_Request& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_AddTimelineRangeStart_Request* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_AddTimelineRangeStart_Request";
-  }
-  protected:
-  explicit CGameRecordingDebug_AddTimelineRangeStart_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kIdFieldNumber = 2,
-    kTitleFieldNumber = 3,
-    kAppidFieldNumber = 1,
-  };
-  // optional string id = 2;
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  const std::string& id() const;
-  void set_id(const std::string& value);
-  void set_id(std::string&& value);
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  std::string* mutable_id();
-  std::string* release_id();
-  void set_allocated_id(std::string* id);
-  private:
-  const std::string& _internal_id() const;
-  void _internal_set_id(const std::string& value);
-  std::string* _internal_mutable_id();
-  public:
-
-  // optional string title = 3;
-  bool has_title() const;
-  private:
-  bool _internal_has_title() const;
-  public:
-  void clear_title();
-  const std::string& title() const;
-  void set_title(const std::string& value);
-  void set_title(std::string&& value);
-  void set_title(const char* value);
-  void set_title(const char* value, size_t size);
-  std::string* mutable_title();
-  std::string* release_title();
-  void set_allocated_title(std::string* title);
-  private:
-  const std::string& _internal_title() const;
-  void _internal_set_title(const std::string& value);
-  std::string* _internal_mutable_title();
-  public:
-
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
-  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
-  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_AddTimelineRangeStart_Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_AddTimelineRangeStart_Response PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_AddTimelineRangeStart_Response) */ {
- public:
-  inline CGameRecordingDebug_AddTimelineRangeStart_Response() : CGameRecordingDebug_AddTimelineRangeStart_Response(nullptr) {}
-  virtual ~CGameRecordingDebug_AddTimelineRangeStart_Response();
-  explicit constexpr CGameRecordingDebug_AddTimelineRangeStart_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_AddTimelineRangeStart_Response(const CGameRecordingDebug_AddTimelineRangeStart_Response& from);
-  CGameRecordingDebug_AddTimelineRangeStart_Response(CGameRecordingDebug_AddTimelineRangeStart_Response&& from) noexcept
-    : CGameRecordingDebug_AddTimelineRangeStart_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_AddTimelineRangeStart_Response& operator=(const CGameRecordingDebug_AddTimelineRangeStart_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_AddTimelineRangeStart_Response& operator=(CGameRecordingDebug_AddTimelineRangeStart_Response&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_AddTimelineRangeStart_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_AddTimelineRangeStart_Response* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_AddTimelineRangeStart_Response*>(
-               &_CGameRecordingDebug_AddTimelineRangeStart_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    87;
-
-  friend void swap(CGameRecordingDebug_AddTimelineRangeStart_Response& a, CGameRecordingDebug_AddTimelineRangeStart_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_AddTimelineRangeStart_Response* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_AddTimelineRangeStart_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_AddTimelineRangeStart_Response* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineRangeStart_Response>(nullptr);
-  }
-
-  CGameRecordingDebug_AddTimelineRangeStart_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineRangeStart_Response>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_AddTimelineRangeStart_Response& from);
-  void MergeFrom(const CGameRecordingDebug_AddTimelineRangeStart_Response& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_AddTimelineRangeStart_Response* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_AddTimelineRangeStart_Response";
-  }
-  protected:
-  explicit CGameRecordingDebug_AddTimelineRangeStart_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_AddTimelineRangeStart_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_AddTimelineRangeEnd_Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_AddTimelineRangeEnd_Request) */ {
- public:
-  inline CGameRecordingDebug_AddTimelineRangeEnd_Request() : CGameRecordingDebug_AddTimelineRangeEnd_Request(nullptr) {}
-  virtual ~CGameRecordingDebug_AddTimelineRangeEnd_Request();
-  explicit constexpr CGameRecordingDebug_AddTimelineRangeEnd_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_AddTimelineRangeEnd_Request(const CGameRecordingDebug_AddTimelineRangeEnd_Request& from);
-  CGameRecordingDebug_AddTimelineRangeEnd_Request(CGameRecordingDebug_AddTimelineRangeEnd_Request&& from) noexcept
-    : CGameRecordingDebug_AddTimelineRangeEnd_Request() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_AddTimelineRangeEnd_Request& operator=(const CGameRecordingDebug_AddTimelineRangeEnd_Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_AddTimelineRangeEnd_Request& operator=(CGameRecordingDebug_AddTimelineRangeEnd_Request&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_AddTimelineRangeEnd_Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_AddTimelineRangeEnd_Request* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_AddTimelineRangeEnd_Request*>(
-               &_CGameRecordingDebug_AddTimelineRangeEnd_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    88;
-
-  friend void swap(CGameRecordingDebug_AddTimelineRangeEnd_Request& a, CGameRecordingDebug_AddTimelineRangeEnd_Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_AddTimelineRangeEnd_Request* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_AddTimelineRangeEnd_Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_AddTimelineRangeEnd_Request* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineRangeEnd_Request>(nullptr);
-  }
-
-  CGameRecordingDebug_AddTimelineRangeEnd_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineRangeEnd_Request>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_AddTimelineRangeEnd_Request& from);
-  void MergeFrom(const CGameRecordingDebug_AddTimelineRangeEnd_Request& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_AddTimelineRangeEnd_Request* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_AddTimelineRangeEnd_Request";
-  }
-  protected:
-  explicit CGameRecordingDebug_AddTimelineRangeEnd_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kIdFieldNumber = 2,
-    kAppidFieldNumber = 1,
-  };
-  // optional string id = 2;
-  bool has_id() const;
-  private:
-  bool _internal_has_id() const;
-  public:
-  void clear_id();
-  const std::string& id() const;
-  void set_id(const std::string& value);
-  void set_id(std::string&& value);
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  std::string* mutable_id();
-  std::string* release_id();
-  void set_allocated_id(std::string* id);
-  private:
-  const std::string& _internal_id() const;
-  void _internal_set_id(const std::string& value);
-  std::string* _internal_mutable_id();
-  public:
-
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
-  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
-  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_AddTimelineRangeEnd_Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_AddTimelineRangeEnd_Response PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_AddTimelineRangeEnd_Response) */ {
- public:
-  inline CGameRecordingDebug_AddTimelineRangeEnd_Response() : CGameRecordingDebug_AddTimelineRangeEnd_Response(nullptr) {}
-  virtual ~CGameRecordingDebug_AddTimelineRangeEnd_Response();
-  explicit constexpr CGameRecordingDebug_AddTimelineRangeEnd_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_AddTimelineRangeEnd_Response(const CGameRecordingDebug_AddTimelineRangeEnd_Response& from);
-  CGameRecordingDebug_AddTimelineRangeEnd_Response(CGameRecordingDebug_AddTimelineRangeEnd_Response&& from) noexcept
-    : CGameRecordingDebug_AddTimelineRangeEnd_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_AddTimelineRangeEnd_Response& operator=(const CGameRecordingDebug_AddTimelineRangeEnd_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_AddTimelineRangeEnd_Response& operator=(CGameRecordingDebug_AddTimelineRangeEnd_Response&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_AddTimelineRangeEnd_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_AddTimelineRangeEnd_Response* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_AddTimelineRangeEnd_Response*>(
-               &_CGameRecordingDebug_AddTimelineRangeEnd_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    89;
-
-  friend void swap(CGameRecordingDebug_AddTimelineRangeEnd_Response& a, CGameRecordingDebug_AddTimelineRangeEnd_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_AddTimelineRangeEnd_Response* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_AddTimelineRangeEnd_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_AddTimelineRangeEnd_Response* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineRangeEnd_Response>(nullptr);
-  }
-
-  CGameRecordingDebug_AddTimelineRangeEnd_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_AddTimelineRangeEnd_Response>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_AddTimelineRangeEnd_Response& from);
-  void MergeFrom(const CGameRecordingDebug_AddTimelineRangeEnd_Response& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_AddTimelineRangeEnd_Response* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_AddTimelineRangeEnd_Response";
-  }
-  protected:
-  explicit CGameRecordingDebug_AddTimelineRangeEnd_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_AddTimelineRangeEnd_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_SetTimelineGameMode_Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_SetTimelineGameMode_Request) */ {
- public:
-  inline CGameRecordingDebug_SetTimelineGameMode_Request() : CGameRecordingDebug_SetTimelineGameMode_Request(nullptr) {}
-  virtual ~CGameRecordingDebug_SetTimelineGameMode_Request();
-  explicit constexpr CGameRecordingDebug_SetTimelineGameMode_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_SetTimelineGameMode_Request(const CGameRecordingDebug_SetTimelineGameMode_Request& from);
-  CGameRecordingDebug_SetTimelineGameMode_Request(CGameRecordingDebug_SetTimelineGameMode_Request&& from) noexcept
-    : CGameRecordingDebug_SetTimelineGameMode_Request() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_SetTimelineGameMode_Request& operator=(const CGameRecordingDebug_SetTimelineGameMode_Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_SetTimelineGameMode_Request& operator=(CGameRecordingDebug_SetTimelineGameMode_Request&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_SetTimelineGameMode_Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_SetTimelineGameMode_Request* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_SetTimelineGameMode_Request*>(
-               &_CGameRecordingDebug_SetTimelineGameMode_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    90;
-
-  friend void swap(CGameRecordingDebug_SetTimelineGameMode_Request& a, CGameRecordingDebug_SetTimelineGameMode_Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_SetTimelineGameMode_Request* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_SetTimelineGameMode_Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_SetTimelineGameMode_Request* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_SetTimelineGameMode_Request>(nullptr);
-  }
-
-  CGameRecordingDebug_SetTimelineGameMode_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_SetTimelineGameMode_Request>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_SetTimelineGameMode_Request& from);
-  void MergeFrom(const CGameRecordingDebug_SetTimelineGameMode_Request& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_SetTimelineGameMode_Request* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_SetTimelineGameMode_Request";
-  }
-  protected:
-  explicit CGameRecordingDebug_SetTimelineGameMode_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAppidFieldNumber = 1,
-    kModeFieldNumber = 2,
-  };
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
-  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
-  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 mode = 2;
-  bool has_mode() const;
-  private:
-  bool _internal_has_mode() const;
-  public:
-  void clear_mode();
-  ::PROTOBUF_NAMESPACE_ID::uint32 mode() const;
-  void set_mode(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_mode() const;
-  void _internal_set_mode(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_SetTimelineGameMode_Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 mode_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGameRecordingDebug_SetTimelineGameMode_Response PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameRecordingDebug_SetTimelineGameMode_Response) */ {
- public:
-  inline CGameRecordingDebug_SetTimelineGameMode_Response() : CGameRecordingDebug_SetTimelineGameMode_Response(nullptr) {}
-  virtual ~CGameRecordingDebug_SetTimelineGameMode_Response();
-  explicit constexpr CGameRecordingDebug_SetTimelineGameMode_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGameRecordingDebug_SetTimelineGameMode_Response(const CGameRecordingDebug_SetTimelineGameMode_Response& from);
-  CGameRecordingDebug_SetTimelineGameMode_Response(CGameRecordingDebug_SetTimelineGameMode_Response&& from) noexcept
-    : CGameRecordingDebug_SetTimelineGameMode_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CGameRecordingDebug_SetTimelineGameMode_Response& operator=(const CGameRecordingDebug_SetTimelineGameMode_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGameRecordingDebug_SetTimelineGameMode_Response& operator=(CGameRecordingDebug_SetTimelineGameMode_Response&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CGameRecordingDebug_SetTimelineGameMode_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGameRecordingDebug_SetTimelineGameMode_Response* internal_default_instance() {
-    return reinterpret_cast<const CGameRecordingDebug_SetTimelineGameMode_Response*>(
-               &_CGameRecordingDebug_SetTimelineGameMode_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    91;
-
-  friend void swap(CGameRecordingDebug_SetTimelineGameMode_Response& a, CGameRecordingDebug_SetTimelineGameMode_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGameRecordingDebug_SetTimelineGameMode_Response* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGameRecordingDebug_SetTimelineGameMode_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CGameRecordingDebug_SetTimelineGameMode_Response* New() const final {
-    return CreateMaybeMessage<CGameRecordingDebug_SetTimelineGameMode_Response>(nullptr);
-  }
-
-  CGameRecordingDebug_SetTimelineGameMode_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CGameRecordingDebug_SetTimelineGameMode_Response>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CGameRecordingDebug_SetTimelineGameMode_Response& from);
-  void MergeFrom(const CGameRecordingDebug_SetTimelineGameMode_Response& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGameRecordingDebug_SetTimelineGameMode_Response* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGameRecordingDebug_SetTimelineGameMode_Response";
-  }
-  protected:
-  explicit CGameRecordingDebug_SetTimelineGameMode_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_webuimessages_5fgamerecording_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:CGameRecordingDebug_SetTimelineGameMode_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_webuimessages_5fgamerecording_2eproto;
-};
 // ===================================================================
 
 class GameRecording_Stub;
@@ -16367,9 +15383,9 @@ class GameRecording : public ::PROTOBUF_NAMESPACE_ID::Service {
 
   static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* descriptor();
 
-  virtual void GetActiveTimelineApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecording_GetActiveTimelineApps_Request* request,
-                       ::CGameRecording_GetActiveTimelineApps_Response* response,
+  virtual void GetAppsWithBackgroundVideo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CGameRecording_GetAppsWithBackgroundVideo_Request* request,
+                       ::CGameRecording_GetAppsWithBackgroundVideo_Response* response,
                        ::google::protobuf::Closure* done);
   virtual void GetTimelinesForApp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGameRecording_GetTimelinesForApp_Request* request,
@@ -16414,6 +15430,10 @@ class GameRecording : public ::PROTOBUF_NAMESPACE_ID::Service {
   virtual void ExportClip(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGameRecording_ExportClip_Request* request,
                        ::CGameRecording_ExportClip_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ExportClipPreview(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CGameRecording_ExportClipPreview_Request* request,
+                       ::CGameRecording_ExportClipPreview_Response* response,
                        ::google::protobuf::Closure* done);
   virtual void TakeScreenshot(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGameRecording_TakeScreenshot_Request* request,
@@ -16461,6 +15481,10 @@ class GameRecording : public ::PROTOBUF_NAMESPACE_ID::Service {
                        ::google::protobuf::Closure* done);
   virtual void NotifyTimelineEntryChanged(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGameRecording_TimelineEntryChanged_Notification* request,
+                       ::WebUINoResponse* response,
+                       ::google::protobuf::Closure* done);
+  virtual void NotifyTimelineEntryRemoved(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CGameRecording_TimelineEntryRemoved_Notification* request,
                        ::WebUINoResponse* response,
                        ::google::protobuf::Closure* done);
   virtual void NotifyClipCreated(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
@@ -16564,9 +15588,9 @@ class GameRecording_Stub : public GameRecording {
 
   // implements GameRecording ------------------------------------------
 
-  void GetActiveTimelineApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecording_GetActiveTimelineApps_Request* request,
-                       ::CGameRecording_GetActiveTimelineApps_Response* response,
+  void GetAppsWithBackgroundVideo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CGameRecording_GetAppsWithBackgroundVideo_Request* request,
+                       ::CGameRecording_GetAppsWithBackgroundVideo_Response* response,
                        ::google::protobuf::Closure* done);
   void GetTimelinesForApp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGameRecording_GetTimelinesForApp_Request* request,
@@ -16611,6 +15635,10 @@ class GameRecording_Stub : public GameRecording {
   void ExportClip(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGameRecording_ExportClip_Request* request,
                        ::CGameRecording_ExportClip_Response* response,
+                       ::google::protobuf::Closure* done);
+  void ExportClipPreview(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CGameRecording_ExportClipPreview_Request* request,
+                       ::CGameRecording_ExportClipPreview_Response* response,
                        ::google::protobuf::Closure* done);
   void TakeScreenshot(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGameRecording_TakeScreenshot_Request* request,
@@ -16658,6 +15686,10 @@ class GameRecording_Stub : public GameRecording {
                        ::google::protobuf::Closure* done);
   void NotifyTimelineEntryChanged(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CGameRecording_TimelineEntryChanged_Notification* request,
+                       ::WebUINoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void NotifyTimelineEntryRemoved(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CGameRecording_TimelineEntryRemoved_Notification* request,
                        ::WebUINoResponse* response,
                        ::google::protobuf::Closure* done);
   void NotifyClipCreated(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
@@ -16739,97 +15771,6 @@ class GameRecording_Stub : public GameRecording {
 };
 
 
-// -------------------------------------------------------------------
-
-class GameRecordingDebug_Stub;
-
-class GameRecordingDebug : public ::PROTOBUF_NAMESPACE_ID::Service {
- protected:
-  // This class should be treated as an abstract interface.
-  inline GameRecordingDebug() {};
- public:
-  virtual ~GameRecordingDebug();
-
-  typedef GameRecordingDebug_Stub Stub;
-
-  static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* descriptor();
-
-  virtual void AddTimelineHighlightMarker(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_AddTimelineHighlightMarker_Request* request,
-                       ::CGameRecordingDebug_AddTimelineHighlightMarker_Response* response,
-                       ::google::protobuf::Closure* done);
-  virtual void AddTimelineTimestamp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_AddTimelineTimestamp_Request* request,
-                       ::CGameRecordingDebug_AddTimelineTimestamp_Response* response,
-                       ::google::protobuf::Closure* done);
-  virtual void AddTimelineRangeStart(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_AddTimelineRangeStart_Request* request,
-                       ::CGameRecordingDebug_AddTimelineRangeStart_Response* response,
-                       ::google::protobuf::Closure* done);
-  virtual void AddTimelineRangeEnd(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_AddTimelineRangeEnd_Request* request,
-                       ::CGameRecordingDebug_AddTimelineRangeEnd_Response* response,
-                       ::google::protobuf::Closure* done);
-  virtual void SetTimelineGameMode(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_SetTimelineGameMode_Request* request,
-                       ::CGameRecordingDebug_SetTimelineGameMode_Response* response,
-                       ::google::protobuf::Closure* done);
-
-  // implements Service ----------------------------------------------
-
-  const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* GetDescriptor();
-  void CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
-                  ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                  const ::PROTOBUF_NAMESPACE_ID::Message* request,
-                  ::PROTOBUF_NAMESPACE_ID::Message* response,
-                  ::google::protobuf::Closure* done);
-  const ::PROTOBUF_NAMESPACE_ID::Message& GetRequestPrototype(
-    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method) const;
-  const ::PROTOBUF_NAMESPACE_ID::Message& GetResponsePrototype(
-    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method) const;
-
- private:
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(GameRecordingDebug);
-};
-
-class GameRecordingDebug_Stub : public GameRecordingDebug {
- public:
-  GameRecordingDebug_Stub(::PROTOBUF_NAMESPACE_ID::RpcChannel* channel);
-  GameRecordingDebug_Stub(::PROTOBUF_NAMESPACE_ID::RpcChannel* channel,
-                   ::PROTOBUF_NAMESPACE_ID::Service::ChannelOwnership ownership);
-  ~GameRecordingDebug_Stub();
-
-  inline ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel() { return channel_; }
-
-  // implements GameRecordingDebug ------------------------------------------
-
-  void AddTimelineHighlightMarker(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_AddTimelineHighlightMarker_Request* request,
-                       ::CGameRecordingDebug_AddTimelineHighlightMarker_Response* response,
-                       ::google::protobuf::Closure* done);
-  void AddTimelineTimestamp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_AddTimelineTimestamp_Request* request,
-                       ::CGameRecordingDebug_AddTimelineTimestamp_Response* response,
-                       ::google::protobuf::Closure* done);
-  void AddTimelineRangeStart(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_AddTimelineRangeStart_Request* request,
-                       ::CGameRecordingDebug_AddTimelineRangeStart_Response* response,
-                       ::google::protobuf::Closure* done);
-  void AddTimelineRangeEnd(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_AddTimelineRangeEnd_Request* request,
-                       ::CGameRecordingDebug_AddTimelineRangeEnd_Response* response,
-                       ::google::protobuf::Closure* done);
-  void SetTimelineGameMode(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CGameRecordingDebug_SetTimelineGameMode_Request* request,
-                       ::CGameRecordingDebug_SetTimelineGameMode_Response* response,
-                       ::google::protobuf::Closure* done);
- private:
-  ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
-  bool owns_channel_;
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(GameRecordingDebug_Stub);
-};
-
-
 // ===================================================================
 
 
@@ -16839,249 +15780,249 @@ class GameRecordingDebug_Stub : public GameRecordingDebug {
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// CGameRecording_GetActiveTimelineApps_Request
+// CGameRecording_GetAppsWithBackgroundVideo_Request
 
 // -------------------------------------------------------------------
 
-// CGameRecording_GetActiveTimelineApps_Response_App
+// CGameRecording_GetAppsWithBackgroundVideo_Response_App
 
 // optional uint64 game_id = 1;
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::_internal_has_game_id() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_has_game_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::has_game_id() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::has_game_id() const {
   return _internal_has_game_id();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::clear_game_id() {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::clear_game_id() {
   game_id_ = PROTOBUF_ULONGLONG(0);
   _has_bits_[0] &= ~0x00000001u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_GetActiveTimelineApps_Response_App::_internal_game_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_game_id() const {
   return game_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_GetActiveTimelineApps_Response_App::game_id() const {
-  // @@protoc_insertion_point(field_get:CGameRecording_GetActiveTimelineApps_Response.App.game_id)
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_GetAppsWithBackgroundVideo_Response_App::game_id() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_GetAppsWithBackgroundVideo_Response.App.game_id)
   return _internal_game_id();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _has_bits_[0] |= 0x00000001u;
   game_id_ = value;
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_game_id(value);
-  // @@protoc_insertion_point(field_set:CGameRecording_GetActiveTimelineApps_Response.App.game_id)
+  // @@protoc_insertion_point(field_set:CGameRecording_GetAppsWithBackgroundVideo_Response.App.game_id)
 }
 
 // optional uint32 most_recent_start_time = 2;
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::_internal_has_most_recent_start_time() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_has_most_recent_start_time() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::has_most_recent_start_time() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::has_most_recent_start_time() const {
   return _internal_has_most_recent_start_time();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::clear_most_recent_start_time() {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::clear_most_recent_start_time() {
   most_recent_start_time_ = 0u;
   _has_bits_[0] &= ~0x00000002u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecording_GetActiveTimelineApps_Response_App::_internal_most_recent_start_time() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_most_recent_start_time() const {
   return most_recent_start_time_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecording_GetActiveTimelineApps_Response_App::most_recent_start_time() const {
-  // @@protoc_insertion_point(field_get:CGameRecording_GetActiveTimelineApps_Response.App.most_recent_start_time)
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecording_GetAppsWithBackgroundVideo_Response_App::most_recent_start_time() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_GetAppsWithBackgroundVideo_Response.App.most_recent_start_time)
   return _internal_most_recent_start_time();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::_internal_set_most_recent_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_set_most_recent_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _has_bits_[0] |= 0x00000002u;
   most_recent_start_time_ = value;
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::set_most_recent_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::set_most_recent_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_most_recent_start_time(value);
-  // @@protoc_insertion_point(field_set:CGameRecording_GetActiveTimelineApps_Response.App.most_recent_start_time)
+  // @@protoc_insertion_point(field_set:CGameRecording_GetAppsWithBackgroundVideo_Response.App.most_recent_start_time)
 }
 
 // optional .EGameRecordingType recording_type = 3 [default = EGameRecordingType_Unknown];
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::_internal_has_recording_type() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_has_recording_type() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::has_recording_type() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::has_recording_type() const {
   return _internal_has_recording_type();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::clear_recording_type() {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::clear_recording_type() {
   recording_type_ = 0;
   _has_bits_[0] &= ~0x00000004u;
 }
-inline ::EGameRecordingType CGameRecording_GetActiveTimelineApps_Response_App::_internal_recording_type() const {
+inline ::EGameRecordingType CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_recording_type() const {
   return static_cast< ::EGameRecordingType >(recording_type_);
 }
-inline ::EGameRecordingType CGameRecording_GetActiveTimelineApps_Response_App::recording_type() const {
-  // @@protoc_insertion_point(field_get:CGameRecording_GetActiveTimelineApps_Response.App.recording_type)
+inline ::EGameRecordingType CGameRecording_GetAppsWithBackgroundVideo_Response_App::recording_type() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_GetAppsWithBackgroundVideo_Response.App.recording_type)
   return _internal_recording_type();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::_internal_set_recording_type(::EGameRecordingType value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_set_recording_type(::EGameRecordingType value) {
   assert(::EGameRecordingType_IsValid(value));
   _has_bits_[0] |= 0x00000004u;
   recording_type_ = value;
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::set_recording_type(::EGameRecordingType value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::set_recording_type(::EGameRecordingType value) {
   _internal_set_recording_type(value);
-  // @@protoc_insertion_point(field_set:CGameRecording_GetActiveTimelineApps_Response.App.recording_type)
+  // @@protoc_insertion_point(field_set:CGameRecording_GetAppsWithBackgroundVideo_Response.App.recording_type)
 }
 
 // optional double video_duration_seconds = 4;
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::_internal_has_video_duration_seconds() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_has_video_duration_seconds() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::has_video_duration_seconds() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::has_video_duration_seconds() const {
   return _internal_has_video_duration_seconds();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::clear_video_duration_seconds() {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::clear_video_duration_seconds() {
   video_duration_seconds_ = 0;
   _has_bits_[0] &= ~0x00000008u;
 }
-inline double CGameRecording_GetActiveTimelineApps_Response_App::_internal_video_duration_seconds() const {
+inline double CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_video_duration_seconds() const {
   return video_duration_seconds_;
 }
-inline double CGameRecording_GetActiveTimelineApps_Response_App::video_duration_seconds() const {
-  // @@protoc_insertion_point(field_get:CGameRecording_GetActiveTimelineApps_Response.App.video_duration_seconds)
+inline double CGameRecording_GetAppsWithBackgroundVideo_Response_App::video_duration_seconds() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_GetAppsWithBackgroundVideo_Response.App.video_duration_seconds)
   return _internal_video_duration_seconds();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::_internal_set_video_duration_seconds(double value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_set_video_duration_seconds(double value) {
   _has_bits_[0] |= 0x00000008u;
   video_duration_seconds_ = value;
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::set_video_duration_seconds(double value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::set_video_duration_seconds(double value) {
   _internal_set_video_duration_seconds(value);
-  // @@protoc_insertion_point(field_set:CGameRecording_GetActiveTimelineApps_Response.App.video_duration_seconds)
+  // @@protoc_insertion_point(field_set:CGameRecording_GetAppsWithBackgroundVideo_Response.App.video_duration_seconds)
 }
 
 // optional double timeline_duration_seconds = 5;
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::_internal_has_timeline_duration_seconds() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_has_timeline_duration_seconds() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::has_timeline_duration_seconds() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::has_timeline_duration_seconds() const {
   return _internal_has_timeline_duration_seconds();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::clear_timeline_duration_seconds() {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::clear_timeline_duration_seconds() {
   timeline_duration_seconds_ = 0;
   _has_bits_[0] &= ~0x00000010u;
 }
-inline double CGameRecording_GetActiveTimelineApps_Response_App::_internal_timeline_duration_seconds() const {
+inline double CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_timeline_duration_seconds() const {
   return timeline_duration_seconds_;
 }
-inline double CGameRecording_GetActiveTimelineApps_Response_App::timeline_duration_seconds() const {
-  // @@protoc_insertion_point(field_get:CGameRecording_GetActiveTimelineApps_Response.App.timeline_duration_seconds)
+inline double CGameRecording_GetAppsWithBackgroundVideo_Response_App::timeline_duration_seconds() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_GetAppsWithBackgroundVideo_Response.App.timeline_duration_seconds)
   return _internal_timeline_duration_seconds();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::_internal_set_timeline_duration_seconds(double value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_set_timeline_duration_seconds(double value) {
   _has_bits_[0] |= 0x00000010u;
   timeline_duration_seconds_ = value;
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::set_timeline_duration_seconds(double value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::set_timeline_duration_seconds(double value) {
   _internal_set_timeline_duration_seconds(value);
-  // @@protoc_insertion_point(field_set:CGameRecording_GetActiveTimelineApps_Response.App.timeline_duration_seconds)
+  // @@protoc_insertion_point(field_set:CGameRecording_GetAppsWithBackgroundVideo_Response.App.timeline_duration_seconds)
 }
 
 // optional bool is_active = 6;
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::_internal_has_is_active() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_has_is_active() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::has_is_active() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::has_is_active() const {
   return _internal_has_is_active();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::clear_is_active() {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::clear_is_active() {
   is_active_ = false;
   _has_bits_[0] &= ~0x00000040u;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::_internal_is_active() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_is_active() const {
   return is_active_;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::is_active() const {
-  // @@protoc_insertion_point(field_get:CGameRecording_GetActiveTimelineApps_Response.App.is_active)
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::is_active() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_GetAppsWithBackgroundVideo_Response.App.is_active)
   return _internal_is_active();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::_internal_set_is_active(bool value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_set_is_active(bool value) {
   _has_bits_[0] |= 0x00000040u;
   is_active_ = value;
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::set_is_active(bool value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::set_is_active(bool value) {
   _internal_set_is_active(value);
-  // @@protoc_insertion_point(field_set:CGameRecording_GetActiveTimelineApps_Response.App.is_active)
+  // @@protoc_insertion_point(field_set:CGameRecording_GetAppsWithBackgroundVideo_Response.App.is_active)
 }
 
 // optional uint64 file_size = 7;
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::_internal_has_file_size() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_has_file_size() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
-inline bool CGameRecording_GetActiveTimelineApps_Response_App::has_file_size() const {
+inline bool CGameRecording_GetAppsWithBackgroundVideo_Response_App::has_file_size() const {
   return _internal_has_file_size();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::clear_file_size() {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::clear_file_size() {
   file_size_ = PROTOBUF_ULONGLONG(0);
   _has_bits_[0] &= ~0x00000020u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_GetActiveTimelineApps_Response_App::_internal_file_size() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_file_size() const {
   return file_size_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_GetActiveTimelineApps_Response_App::file_size() const {
-  // @@protoc_insertion_point(field_get:CGameRecording_GetActiveTimelineApps_Response.App.file_size)
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_GetAppsWithBackgroundVideo_Response_App::file_size() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_GetAppsWithBackgroundVideo_Response.App.file_size)
   return _internal_file_size();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::_internal_set_file_size(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::_internal_set_file_size(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _has_bits_[0] |= 0x00000020u;
   file_size_ = value;
 }
-inline void CGameRecording_GetActiveTimelineApps_Response_App::set_file_size(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response_App::set_file_size(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_file_size(value);
-  // @@protoc_insertion_point(field_set:CGameRecording_GetActiveTimelineApps_Response.App.file_size)
+  // @@protoc_insertion_point(field_set:CGameRecording_GetAppsWithBackgroundVideo_Response.App.file_size)
 }
 
 // -------------------------------------------------------------------
 
-// CGameRecording_GetActiveTimelineApps_Response
+// CGameRecording_GetAppsWithBackgroundVideo_Response
 
-// repeated .CGameRecording_GetActiveTimelineApps_Response.App apps = 1;
-inline int CGameRecording_GetActiveTimelineApps_Response::_internal_apps_size() const {
+// repeated .CGameRecording_GetAppsWithBackgroundVideo_Response.App apps = 1;
+inline int CGameRecording_GetAppsWithBackgroundVideo_Response::_internal_apps_size() const {
   return apps_.size();
 }
-inline int CGameRecording_GetActiveTimelineApps_Response::apps_size() const {
+inline int CGameRecording_GetAppsWithBackgroundVideo_Response::apps_size() const {
   return _internal_apps_size();
 }
-inline void CGameRecording_GetActiveTimelineApps_Response::clear_apps() {
+inline void CGameRecording_GetAppsWithBackgroundVideo_Response::clear_apps() {
   apps_.Clear();
 }
-inline ::CGameRecording_GetActiveTimelineApps_Response_App* CGameRecording_GetActiveTimelineApps_Response::mutable_apps(int index) {
-  // @@protoc_insertion_point(field_mutable:CGameRecording_GetActiveTimelineApps_Response.apps)
+inline ::CGameRecording_GetAppsWithBackgroundVideo_Response_App* CGameRecording_GetAppsWithBackgroundVideo_Response::mutable_apps(int index) {
+  // @@protoc_insertion_point(field_mutable:CGameRecording_GetAppsWithBackgroundVideo_Response.apps)
   return apps_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetActiveTimelineApps_Response_App >*
-CGameRecording_GetActiveTimelineApps_Response::mutable_apps() {
-  // @@protoc_insertion_point(field_mutable_list:CGameRecording_GetActiveTimelineApps_Response.apps)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetAppsWithBackgroundVideo_Response_App >*
+CGameRecording_GetAppsWithBackgroundVideo_Response::mutable_apps() {
+  // @@protoc_insertion_point(field_mutable_list:CGameRecording_GetAppsWithBackgroundVideo_Response.apps)
   return &apps_;
 }
-inline const ::CGameRecording_GetActiveTimelineApps_Response_App& CGameRecording_GetActiveTimelineApps_Response::_internal_apps(int index) const {
+inline const ::CGameRecording_GetAppsWithBackgroundVideo_Response_App& CGameRecording_GetAppsWithBackgroundVideo_Response::_internal_apps(int index) const {
   return apps_.Get(index);
 }
-inline const ::CGameRecording_GetActiveTimelineApps_Response_App& CGameRecording_GetActiveTimelineApps_Response::apps(int index) const {
-  // @@protoc_insertion_point(field_get:CGameRecording_GetActiveTimelineApps_Response.apps)
+inline const ::CGameRecording_GetAppsWithBackgroundVideo_Response_App& CGameRecording_GetAppsWithBackgroundVideo_Response::apps(int index) const {
+  // @@protoc_insertion_point(field_get:CGameRecording_GetAppsWithBackgroundVideo_Response.apps)
   return _internal_apps(index);
 }
-inline ::CGameRecording_GetActiveTimelineApps_Response_App* CGameRecording_GetActiveTimelineApps_Response::_internal_add_apps() {
+inline ::CGameRecording_GetAppsWithBackgroundVideo_Response_App* CGameRecording_GetAppsWithBackgroundVideo_Response::_internal_add_apps() {
   return apps_.Add();
 }
-inline ::CGameRecording_GetActiveTimelineApps_Response_App* CGameRecording_GetActiveTimelineApps_Response::add_apps() {
-  // @@protoc_insertion_point(field_add:CGameRecording_GetActiveTimelineApps_Response.apps)
+inline ::CGameRecording_GetAppsWithBackgroundVideo_Response_App* CGameRecording_GetAppsWithBackgroundVideo_Response::add_apps() {
+  // @@protoc_insertion_point(field_add:CGameRecording_GetAppsWithBackgroundVideo_Response.apps)
   return _internal_add_apps();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetActiveTimelineApps_Response_App >&
-CGameRecording_GetActiveTimelineApps_Response::apps() const {
-  // @@protoc_insertion_point(field_list:CGameRecording_GetActiveTimelineApps_Response.apps)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameRecording_GetAppsWithBackgroundVideo_Response_App >&
+CGameRecording_GetAppsWithBackgroundVideo_Response::apps() const {
+  // @@protoc_insertion_point(field_list:CGameRecording_GetAppsWithBackgroundVideo_Response.apps)
   return apps_;
 }
 
@@ -20109,6 +19050,139 @@ inline void CGameRecording_TimelineEntryChanged_Notification::set_game_id(::PROT
 
 // -------------------------------------------------------------------
 
+// CGameRecording_TimelineEntryRemoved_Notification
+
+// optional uint64 game_id = 1;
+inline bool CGameRecording_TimelineEntryRemoved_Notification::_internal_has_game_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CGameRecording_TimelineEntryRemoved_Notification::has_game_id() const {
+  return _internal_has_game_id();
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::clear_game_id() {
+  game_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_TimelineEntryRemoved_Notification::_internal_game_id() const {
+  return game_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_TimelineEntryRemoved_Notification::game_id() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_TimelineEntryRemoved_Notification.game_id)
+  return _internal_game_id();
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::_internal_set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  game_id_ = value;
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::set_game_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_game_id(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_TimelineEntryRemoved_Notification.game_id)
+}
+
+// optional string timeline_id = 2;
+inline bool CGameRecording_TimelineEntryRemoved_Notification::_internal_has_timeline_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CGameRecording_TimelineEntryRemoved_Notification::has_timeline_id() const {
+  return _internal_has_timeline_id();
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::clear_timeline_id() {
+  timeline_id_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CGameRecording_TimelineEntryRemoved_Notification::timeline_id() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_TimelineEntryRemoved_Notification.timeline_id)
+  return _internal_timeline_id();
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::set_timeline_id(const std::string& value) {
+  _internal_set_timeline_id(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_TimelineEntryRemoved_Notification.timeline_id)
+}
+inline std::string* CGameRecording_TimelineEntryRemoved_Notification::mutable_timeline_id() {
+  // @@protoc_insertion_point(field_mutable:CGameRecording_TimelineEntryRemoved_Notification.timeline_id)
+  return _internal_mutable_timeline_id();
+}
+inline const std::string& CGameRecording_TimelineEntryRemoved_Notification::_internal_timeline_id() const {
+  return timeline_id_.Get();
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::_internal_set_timeline_id(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  timeline_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::set_timeline_id(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  timeline_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CGameRecording_TimelineEntryRemoved_Notification.timeline_id)
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::set_timeline_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  timeline_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CGameRecording_TimelineEntryRemoved_Notification.timeline_id)
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::set_timeline_id(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  timeline_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CGameRecording_TimelineEntryRemoved_Notification.timeline_id)
+}
+inline std::string* CGameRecording_TimelineEntryRemoved_Notification::_internal_mutable_timeline_id() {
+  _has_bits_[0] |= 0x00000001u;
+  return timeline_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CGameRecording_TimelineEntryRemoved_Notification::release_timeline_id() {
+  // @@protoc_insertion_point(field_release:CGameRecording_TimelineEntryRemoved_Notification.timeline_id)
+  if (!_internal_has_timeline_id()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return timeline_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::set_allocated_timeline_id(std::string* timeline_id) {
+  if (timeline_id != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  timeline_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), timeline_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CGameRecording_TimelineEntryRemoved_Notification.timeline_id)
+}
+
+// optional uint64 entry_id = 3;
+inline bool CGameRecording_TimelineEntryRemoved_Notification::_internal_has_entry_id() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CGameRecording_TimelineEntryRemoved_Notification::has_entry_id() const {
+  return _internal_has_entry_id();
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::clear_entry_id() {
+  entry_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_TimelineEntryRemoved_Notification::_internal_entry_id() const {
+  return entry_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_TimelineEntryRemoved_Notification::entry_id() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_TimelineEntryRemoved_Notification.entry_id)
+  return _internal_entry_id();
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::_internal_set_entry_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000004u;
+  entry_id_ = value;
+}
+inline void CGameRecording_TimelineEntryRemoved_Notification::set_entry_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_entry_id(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_TimelineEntryRemoved_Notification.entry_id)
+}
+
+// -------------------------------------------------------------------
+
 // CGameRecording_LowDiskSpace_Notification
 
 // -------------------------------------------------------------------
@@ -21494,6 +20568,34 @@ inline void CGameRecording_SaveClip_Request::set_temporary(bool value) {
   // @@protoc_insertion_point(field_set:CGameRecording_SaveClip_Request.temporary)
 }
 
+// optional bool force_thumbnail = 7;
+inline bool CGameRecording_SaveClip_Request::_internal_has_force_thumbnail() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CGameRecording_SaveClip_Request::has_force_thumbnail() const {
+  return _internal_has_force_thumbnail();
+}
+inline void CGameRecording_SaveClip_Request::clear_force_thumbnail() {
+  force_thumbnail_ = false;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline bool CGameRecording_SaveClip_Request::_internal_force_thumbnail() const {
+  return force_thumbnail_;
+}
+inline bool CGameRecording_SaveClip_Request::force_thumbnail() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_SaveClip_Request.force_thumbnail)
+  return _internal_force_thumbnail();
+}
+inline void CGameRecording_SaveClip_Request::_internal_set_force_thumbnail(bool value) {
+  _has_bits_[0] |= 0x00000040u;
+  force_thumbnail_ = value;
+}
+inline void CGameRecording_SaveClip_Request::set_force_thumbnail(bool value) {
+  _internal_set_force_thumbnail(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_SaveClip_Request.force_thumbnail)
+}
+
 // -------------------------------------------------------------------
 
 // CGameRecording_SaveClip_Response
@@ -21778,6 +20880,35 @@ inline void CGameRecording_ExportClip_Settings::set_frames_per_second(::PROTOBUF
   // @@protoc_insertion_point(field_set:CGameRecording_ExportClip_Settings.frames_per_second)
 }
 
+// optional .EExportCodec codec = 5 [default = EExportCodec_Default];
+inline bool CGameRecording_ExportClip_Settings::_internal_has_codec() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CGameRecording_ExportClip_Settings::has_codec() const {
+  return _internal_has_codec();
+}
+inline void CGameRecording_ExportClip_Settings::clear_codec() {
+  codec_ = 0;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::EExportCodec CGameRecording_ExportClip_Settings::_internal_codec() const {
+  return static_cast< ::EExportCodec >(codec_);
+}
+inline ::EExportCodec CGameRecording_ExportClip_Settings::codec() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_ExportClip_Settings.codec)
+  return _internal_codec();
+}
+inline void CGameRecording_ExportClip_Settings::_internal_set_codec(::EExportCodec value) {
+  assert(::EExportCodec_IsValid(value));
+  _has_bits_[0] |= 0x00000010u;
+  codec_ = value;
+}
+inline void CGameRecording_ExportClip_Settings::set_codec(::EExportCodec value) {
+  _internal_set_codec(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_ExportClip_Settings.codec)
+}
+
 // -------------------------------------------------------------------
 
 // CGameRecording_ExportClip_Request
@@ -22011,9 +21142,340 @@ inline void CGameRecording_ExportClip_Request::set_allocated_settings(::CGameRec
   // @@protoc_insertion_point(field_set_allocated:CGameRecording_ExportClip_Request.settings)
 }
 
+// optional bool use_unique_filename = 4;
+inline bool CGameRecording_ExportClip_Request::_internal_has_use_unique_filename() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CGameRecording_ExportClip_Request::has_use_unique_filename() const {
+  return _internal_has_use_unique_filename();
+}
+inline void CGameRecording_ExportClip_Request::clear_use_unique_filename() {
+  use_unique_filename_ = false;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline bool CGameRecording_ExportClip_Request::_internal_use_unique_filename() const {
+  return use_unique_filename_;
+}
+inline bool CGameRecording_ExportClip_Request::use_unique_filename() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_ExportClip_Request.use_unique_filename)
+  return _internal_use_unique_filename();
+}
+inline void CGameRecording_ExportClip_Request::_internal_set_use_unique_filename(bool value) {
+  _has_bits_[0] |= 0x00000008u;
+  use_unique_filename_ = value;
+}
+inline void CGameRecording_ExportClip_Request::set_use_unique_filename(bool value) {
+  _internal_set_use_unique_filename(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_ExportClip_Request.use_unique_filename)
+}
+
 // -------------------------------------------------------------------
 
 // CGameRecording_ExportClip_Response
+
+// -------------------------------------------------------------------
+
+// CGameRecording_ExportClipPreview_Request
+
+// optional string clip_id = 1;
+inline bool CGameRecording_ExportClipPreview_Request::_internal_has_clip_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CGameRecording_ExportClipPreview_Request::has_clip_id() const {
+  return _internal_has_clip_id();
+}
+inline void CGameRecording_ExportClipPreview_Request::clear_clip_id() {
+  clip_id_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CGameRecording_ExportClipPreview_Request::clip_id() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_ExportClipPreview_Request.clip_id)
+  return _internal_clip_id();
+}
+inline void CGameRecording_ExportClipPreview_Request::set_clip_id(const std::string& value) {
+  _internal_set_clip_id(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_ExportClipPreview_Request.clip_id)
+}
+inline std::string* CGameRecording_ExportClipPreview_Request::mutable_clip_id() {
+  // @@protoc_insertion_point(field_mutable:CGameRecording_ExportClipPreview_Request.clip_id)
+  return _internal_mutable_clip_id();
+}
+inline const std::string& CGameRecording_ExportClipPreview_Request::_internal_clip_id() const {
+  return clip_id_.Get();
+}
+inline void CGameRecording_ExportClipPreview_Request::_internal_set_clip_id(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CGameRecording_ExportClipPreview_Request::set_clip_id(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CGameRecording_ExportClipPreview_Request.clip_id)
+}
+inline void CGameRecording_ExportClipPreview_Request::set_clip_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CGameRecording_ExportClipPreview_Request.clip_id)
+}
+inline void CGameRecording_ExportClipPreview_Request::set_clip_id(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CGameRecording_ExportClipPreview_Request.clip_id)
+}
+inline std::string* CGameRecording_ExportClipPreview_Request::_internal_mutable_clip_id() {
+  _has_bits_[0] |= 0x00000001u;
+  return clip_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CGameRecording_ExportClipPreview_Request::release_clip_id() {
+  // @@protoc_insertion_point(field_release:CGameRecording_ExportClipPreview_Request.clip_id)
+  if (!_internal_has_clip_id()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return clip_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CGameRecording_ExportClipPreview_Request::set_allocated_clip_id(std::string* clip_id) {
+  if (clip_id != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  clip_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), clip_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CGameRecording_ExportClipPreview_Request.clip_id)
+}
+
+// optional .CGameRecording_ExportClip_Settings settings = 2;
+inline bool CGameRecording_ExportClipPreview_Request::_internal_has_settings() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || settings_ != nullptr);
+  return value;
+}
+inline bool CGameRecording_ExportClipPreview_Request::has_settings() const {
+  return _internal_has_settings();
+}
+inline void CGameRecording_ExportClipPreview_Request::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CGameRecording_ExportClip_Settings& CGameRecording_ExportClipPreview_Request::_internal_settings() const {
+  const ::CGameRecording_ExportClip_Settings* p = settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CGameRecording_ExportClip_Settings&>(
+      ::_CGameRecording_ExportClip_Settings_default_instance_);
+}
+inline const ::CGameRecording_ExportClip_Settings& CGameRecording_ExportClipPreview_Request::settings() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_ExportClipPreview_Request.settings)
+  return _internal_settings();
+}
+inline void CGameRecording_ExportClipPreview_Request::unsafe_arena_set_allocated_settings(
+    ::CGameRecording_ExportClip_Settings* settings) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(settings_);
+  }
+  settings_ = settings;
+  if (settings) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CGameRecording_ExportClipPreview_Request.settings)
+}
+inline ::CGameRecording_ExportClip_Settings* CGameRecording_ExportClipPreview_Request::release_settings() {
+  _has_bits_[0] &= ~0x00000002u;
+  ::CGameRecording_ExportClip_Settings* temp = settings_;
+  settings_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CGameRecording_ExportClip_Settings* CGameRecording_ExportClipPreview_Request::unsafe_arena_release_settings() {
+  // @@protoc_insertion_point(field_release:CGameRecording_ExportClipPreview_Request.settings)
+  _has_bits_[0] &= ~0x00000002u;
+  ::CGameRecording_ExportClip_Settings* temp = settings_;
+  settings_ = nullptr;
+  return temp;
+}
+inline ::CGameRecording_ExportClip_Settings* CGameRecording_ExportClipPreview_Request::_internal_mutable_settings() {
+  _has_bits_[0] |= 0x00000002u;
+  if (settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CGameRecording_ExportClip_Settings>(GetArena());
+    settings_ = p;
+  }
+  return settings_;
+}
+inline ::CGameRecording_ExportClip_Settings* CGameRecording_ExportClipPreview_Request::mutable_settings() {
+  // @@protoc_insertion_point(field_mutable:CGameRecording_ExportClipPreview_Request.settings)
+  return _internal_mutable_settings();
+}
+inline void CGameRecording_ExportClipPreview_Request::set_allocated_settings(::CGameRecording_ExportClip_Settings* settings) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete settings_;
+  }
+  if (settings) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(settings);
+    if (message_arena != submessage_arena) {
+      settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, settings, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  settings_ = settings;
+  // @@protoc_insertion_point(field_set_allocated:CGameRecording_ExportClipPreview_Request.settings)
+}
+
+// optional bool run_policy_checks = 3;
+inline bool CGameRecording_ExportClipPreview_Request::_internal_has_run_policy_checks() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CGameRecording_ExportClipPreview_Request::has_run_policy_checks() const {
+  return _internal_has_run_policy_checks();
+}
+inline void CGameRecording_ExportClipPreview_Request::clear_run_policy_checks() {
+  run_policy_checks_ = false;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline bool CGameRecording_ExportClipPreview_Request::_internal_run_policy_checks() const {
+  return run_policy_checks_;
+}
+inline bool CGameRecording_ExportClipPreview_Request::run_policy_checks() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_ExportClipPreview_Request.run_policy_checks)
+  return _internal_run_policy_checks();
+}
+inline void CGameRecording_ExportClipPreview_Request::_internal_set_run_policy_checks(bool value) {
+  _has_bits_[0] |= 0x00000004u;
+  run_policy_checks_ = value;
+}
+inline void CGameRecording_ExportClipPreview_Request::set_run_policy_checks(bool value) {
+  _internal_set_run_policy_checks(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_ExportClipPreview_Request.run_policy_checks)
+}
+
+// -------------------------------------------------------------------
+
+// CGameRecording_ExportClipPreview_Response
+
+// optional uint64 estimated_size = 1;
+inline bool CGameRecording_ExportClipPreview_Response::_internal_has_estimated_size() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CGameRecording_ExportClipPreview_Response::has_estimated_size() const {
+  return _internal_has_estimated_size();
+}
+inline void CGameRecording_ExportClipPreview_Response::clear_estimated_size() {
+  estimated_size_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_ExportClipPreview_Response::_internal_estimated_size() const {
+  return estimated_size_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_ExportClipPreview_Response::estimated_size() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_ExportClipPreview_Response.estimated_size)
+  return _internal_estimated_size();
+}
+inline void CGameRecording_ExportClipPreview_Response::_internal_set_estimated_size(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  estimated_size_ = value;
+}
+inline void CGameRecording_ExportClipPreview_Response::set_estimated_size(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_estimated_size(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_ExportClipPreview_Response.estimated_size)
+}
+
+// optional .CGameRecording_ExportClip_Settings settings = 2;
+inline bool CGameRecording_ExportClipPreview_Response::_internal_has_settings() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || settings_ != nullptr);
+  return value;
+}
+inline bool CGameRecording_ExportClipPreview_Response::has_settings() const {
+  return _internal_has_settings();
+}
+inline void CGameRecording_ExportClipPreview_Response::clear_settings() {
+  if (settings_ != nullptr) settings_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CGameRecording_ExportClip_Settings& CGameRecording_ExportClipPreview_Response::_internal_settings() const {
+  const ::CGameRecording_ExportClip_Settings* p = settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CGameRecording_ExportClip_Settings&>(
+      ::_CGameRecording_ExportClip_Settings_default_instance_);
+}
+inline const ::CGameRecording_ExportClip_Settings& CGameRecording_ExportClipPreview_Response::settings() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_ExportClipPreview_Response.settings)
+  return _internal_settings();
+}
+inline void CGameRecording_ExportClipPreview_Response::unsafe_arena_set_allocated_settings(
+    ::CGameRecording_ExportClip_Settings* settings) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(settings_);
+  }
+  settings_ = settings;
+  if (settings) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CGameRecording_ExportClipPreview_Response.settings)
+}
+inline ::CGameRecording_ExportClip_Settings* CGameRecording_ExportClipPreview_Response::release_settings() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::CGameRecording_ExportClip_Settings* temp = settings_;
+  settings_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CGameRecording_ExportClip_Settings* CGameRecording_ExportClipPreview_Response::unsafe_arena_release_settings() {
+  // @@protoc_insertion_point(field_release:CGameRecording_ExportClipPreview_Response.settings)
+  _has_bits_[0] &= ~0x00000001u;
+  ::CGameRecording_ExportClip_Settings* temp = settings_;
+  settings_ = nullptr;
+  return temp;
+}
+inline ::CGameRecording_ExportClip_Settings* CGameRecording_ExportClipPreview_Response::_internal_mutable_settings() {
+  _has_bits_[0] |= 0x00000001u;
+  if (settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CGameRecording_ExportClip_Settings>(GetArena());
+    settings_ = p;
+  }
+  return settings_;
+}
+inline ::CGameRecording_ExportClip_Settings* CGameRecording_ExportClipPreview_Response::mutable_settings() {
+  // @@protoc_insertion_point(field_mutable:CGameRecording_ExportClipPreview_Response.settings)
+  return _internal_mutable_settings();
+}
+inline void CGameRecording_ExportClipPreview_Response::set_allocated_settings(::CGameRecording_ExportClip_Settings* settings) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete settings_;
+  }
+  if (settings) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(settings);
+    if (message_arena != submessage_arena) {
+      settings = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, settings, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  settings_ = settings;
+  // @@protoc_insertion_point(field_set_allocated:CGameRecording_ExportClipPreview_Response.settings)
+}
 
 // -------------------------------------------------------------------
 
@@ -24844,7 +24306,7 @@ inline void CGameRecording_ExportProgress_Notification::set_eresult(::PROTOBUF_N
 
 // optional fixed64 gameid = 1;
 inline bool CGameRecording_PerGameSettings::_internal_has_gameid() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CGameRecording_PerGameSettings::has_gameid() const {
@@ -24852,7 +24314,7 @@ inline bool CGameRecording_PerGameSettings::has_gameid() const {
 }
 inline void CGameRecording_PerGameSettings::clear_gameid() {
   gameid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_PerGameSettings::_internal_gameid() const {
   return gameid_;
@@ -24862,7 +24324,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CGameRecording_PerGameSettings::gameid() 
   return _internal_gameid();
 }
 inline void CGameRecording_PerGameSettings::_internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
   gameid_ = value;
 }
 inline void CGameRecording_PerGameSettings::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -24872,7 +24334,7 @@ inline void CGameRecording_PerGameSettings::set_gameid(::PROTOBUF_NAMESPACE_ID::
 
 // optional bool enabled = 2;
 inline bool CGameRecording_PerGameSettings::_internal_has_enabled() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CGameRecording_PerGameSettings::has_enabled() const {
@@ -24880,7 +24342,7 @@ inline bool CGameRecording_PerGameSettings::has_enabled() const {
 }
 inline void CGameRecording_PerGameSettings::clear_enabled() {
   enabled_ = false;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline bool CGameRecording_PerGameSettings::_internal_enabled() const {
   return enabled_;
@@ -24890,7 +24352,7 @@ inline bool CGameRecording_PerGameSettings::enabled() const {
   return _internal_enabled();
 }
 inline void CGameRecording_PerGameSettings::_internal_set_enabled(bool value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000008u;
   enabled_ = value;
 }
 inline void CGameRecording_PerGameSettings::set_enabled(bool value) {
@@ -24898,7 +24360,7 @@ inline void CGameRecording_PerGameSettings::set_enabled(bool value) {
   // @@protoc_insertion_point(field_set:CGameRecording_PerGameSettings.enabled)
 }
 
-// optional int32 minutes = 3;
+// optional uint32 minutes = 3;
 inline bool CGameRecording_PerGameSettings::_internal_has_minutes() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -24907,51 +24369,124 @@ inline bool CGameRecording_PerGameSettings::has_minutes() const {
   return _internal_has_minutes();
 }
 inline void CGameRecording_PerGameSettings::clear_minutes() {
-  minutes_ = 0;
+  minutes_ = 0u;
   _has_bits_[0] &= ~0x00000004u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 CGameRecording_PerGameSettings::_internal_minutes() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecording_PerGameSettings::_internal_minutes() const {
   return minutes_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 CGameRecording_PerGameSettings::minutes() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecording_PerGameSettings::minutes() const {
   // @@protoc_insertion_point(field_get:CGameRecording_PerGameSettings.minutes)
   return _internal_minutes();
 }
-inline void CGameRecording_PerGameSettings::_internal_set_minutes(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void CGameRecording_PerGameSettings::_internal_set_minutes(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _has_bits_[0] |= 0x00000004u;
   minutes_ = value;
 }
-inline void CGameRecording_PerGameSettings::set_minutes(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void CGameRecording_PerGameSettings::set_minutes(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_minutes(value);
   // @@protoc_insertion_point(field_set:CGameRecording_PerGameSettings.minutes)
 }
 
-// optional int32 bitrate = 4;
+// optional string bitrate = 4;
 inline bool CGameRecording_PerGameSettings::_internal_has_bitrate() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CGameRecording_PerGameSettings::has_bitrate() const {
   return _internal_has_bitrate();
 }
 inline void CGameRecording_PerGameSettings::clear_bitrate() {
-  bitrate_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
+  bitrate_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 CGameRecording_PerGameSettings::_internal_bitrate() const {
-  return bitrate_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 CGameRecording_PerGameSettings::bitrate() const {
+inline const std::string& CGameRecording_PerGameSettings::bitrate() const {
   // @@protoc_insertion_point(field_get:CGameRecording_PerGameSettings.bitrate)
   return _internal_bitrate();
 }
-inline void CGameRecording_PerGameSettings::_internal_set_bitrate(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000008u;
-  bitrate_ = value;
-}
-inline void CGameRecording_PerGameSettings::set_bitrate(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void CGameRecording_PerGameSettings::set_bitrate(const std::string& value) {
   _internal_set_bitrate(value);
   // @@protoc_insertion_point(field_set:CGameRecording_PerGameSettings.bitrate)
+}
+inline std::string* CGameRecording_PerGameSettings::mutable_bitrate() {
+  // @@protoc_insertion_point(field_mutable:CGameRecording_PerGameSettings.bitrate)
+  return _internal_mutable_bitrate();
+}
+inline const std::string& CGameRecording_PerGameSettings::_internal_bitrate() const {
+  return bitrate_.Get();
+}
+inline void CGameRecording_PerGameSettings::_internal_set_bitrate(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  bitrate_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CGameRecording_PerGameSettings::set_bitrate(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  bitrate_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CGameRecording_PerGameSettings.bitrate)
+}
+inline void CGameRecording_PerGameSettings::set_bitrate(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  bitrate_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CGameRecording_PerGameSettings.bitrate)
+}
+inline void CGameRecording_PerGameSettings::set_bitrate(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  bitrate_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CGameRecording_PerGameSettings.bitrate)
+}
+inline std::string* CGameRecording_PerGameSettings::_internal_mutable_bitrate() {
+  _has_bits_[0] |= 0x00000001u;
+  return bitrate_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CGameRecording_PerGameSettings::release_bitrate() {
+  // @@protoc_insertion_point(field_release:CGameRecording_PerGameSettings.bitrate)
+  if (!_internal_has_bitrate()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return bitrate_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CGameRecording_PerGameSettings::set_allocated_bitrate(std::string* bitrate) {
+  if (bitrate != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  bitrate_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), bitrate,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CGameRecording_PerGameSettings.bitrate)
+}
+
+// optional bool infinite = 5;
+inline bool CGameRecording_PerGameSettings::_internal_has_infinite() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CGameRecording_PerGameSettings::has_infinite() const {
+  return _internal_has_infinite();
+}
+inline void CGameRecording_PerGameSettings::clear_infinite() {
+  infinite_ = false;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline bool CGameRecording_PerGameSettings::_internal_infinite() const {
+  return infinite_;
+}
+inline bool CGameRecording_PerGameSettings::infinite() const {
+  // @@protoc_insertion_point(field_get:CGameRecording_PerGameSettings.infinite)
+  return _internal_infinite();
+}
+inline void CGameRecording_PerGameSettings::_internal_set_infinite(bool value) {
+  _has_bits_[0] |= 0x00000010u;
+  infinite_ = value;
+}
+inline void CGameRecording_PerGameSettings::set_infinite(bool value) {
+  _internal_set_infinite(value);
+  // @@protoc_insertion_point(field_set:CGameRecording_PerGameSettings.infinite)
 }
 
 // -------------------------------------------------------------------
@@ -25297,742 +24832,9 @@ inline void CGameRecording_SwitchBackgroundRecordingGame_Request::set_game_id(::
 
 // CGameRecording_SwitchBackgroundRecordingGame_Response
 
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_AddTimelineHighlightMarker_Request
-
-// optional uint32 appid = 1;
-inline bool CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineHighlightMarker_Request::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::clear_appid() {
-  appid_ = 0u;
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_appid() const {
-  return appid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_AddTimelineHighlightMarker_Request::appid() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineHighlightMarker_Request.appid)
-  return _internal_appid();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000008u;
-  appid_ = value;
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineHighlightMarker_Request.appid)
-}
-
-// optional string icon = 2;
-inline bool CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_has_icon() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineHighlightMarker_Request::has_icon() const {
-  return _internal_has_icon();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::clear_icon() {
-  icon_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CGameRecordingDebug_AddTimelineHighlightMarker_Request::icon() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineHighlightMarker_Request.icon)
-  return _internal_icon();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_icon(const std::string& value) {
-  _internal_set_icon(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineHighlightMarker_Request.icon)
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::mutable_icon() {
-  // @@protoc_insertion_point(field_mutable:CGameRecordingDebug_AddTimelineHighlightMarker_Request.icon)
-  return _internal_mutable_icon();
-}
-inline const std::string& CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_icon() const {
-  return icon_.Get();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_set_icon(const std::string& value) {
-  _has_bits_[0] |= 0x00000001u;
-  icon_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_icon(std::string&& value) {
-  _has_bits_[0] |= 0x00000001u;
-  icon_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CGameRecordingDebug_AddTimelineHighlightMarker_Request.icon)
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_icon(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000001u;
-  icon_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CGameRecordingDebug_AddTimelineHighlightMarker_Request.icon)
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_icon(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000001u;
-  icon_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CGameRecordingDebug_AddTimelineHighlightMarker_Request.icon)
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_mutable_icon() {
-  _has_bits_[0] |= 0x00000001u;
-  return icon_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::release_icon() {
-  // @@protoc_insertion_point(field_release:CGameRecordingDebug_AddTimelineHighlightMarker_Request.icon)
-  if (!_internal_has_icon()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000001u;
-  return icon_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_allocated_icon(std::string* icon) {
-  if (icon != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  icon_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), icon,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CGameRecordingDebug_AddTimelineHighlightMarker_Request.icon)
-}
-
-// optional string title = 3;
-inline bool CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_has_title() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineHighlightMarker_Request::has_title() const {
-  return _internal_has_title();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::clear_title() {
-  title_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& CGameRecordingDebug_AddTimelineHighlightMarker_Request::title() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineHighlightMarker_Request.title)
-  return _internal_title();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_title(const std::string& value) {
-  _internal_set_title(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineHighlightMarker_Request.title)
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::mutable_title() {
-  // @@protoc_insertion_point(field_mutable:CGameRecordingDebug_AddTimelineHighlightMarker_Request.title)
-  return _internal_mutable_title();
-}
-inline const std::string& CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_title() const {
-  return title_.Get();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_set_title(const std::string& value) {
-  _has_bits_[0] |= 0x00000002u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_title(std::string&& value) {
-  _has_bits_[0] |= 0x00000002u;
-  title_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CGameRecordingDebug_AddTimelineHighlightMarker_Request.title)
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_title(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000002u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CGameRecordingDebug_AddTimelineHighlightMarker_Request.title)
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_title(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000002u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CGameRecordingDebug_AddTimelineHighlightMarker_Request.title)
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_mutable_title() {
-  _has_bits_[0] |= 0x00000002u;
-  return title_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::release_title() {
-  // @@protoc_insertion_point(field_release:CGameRecordingDebug_AddTimelineHighlightMarker_Request.title)
-  if (!_internal_has_title()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000002u;
-  return title_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_allocated_title(std::string* title) {
-  if (title != nullptr) {
-    _has_bits_[0] |= 0x00000002u;
-  } else {
-    _has_bits_[0] &= ~0x00000002u;
-  }
-  title_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), title,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CGameRecordingDebug_AddTimelineHighlightMarker_Request.title)
-}
-
-// optional string desc = 4;
-inline bool CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_has_desc() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineHighlightMarker_Request::has_desc() const {
-  return _internal_has_desc();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::clear_desc() {
-  desc_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline const std::string& CGameRecordingDebug_AddTimelineHighlightMarker_Request::desc() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineHighlightMarker_Request.desc)
-  return _internal_desc();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_desc(const std::string& value) {
-  _internal_set_desc(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineHighlightMarker_Request.desc)
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::mutable_desc() {
-  // @@protoc_insertion_point(field_mutable:CGameRecordingDebug_AddTimelineHighlightMarker_Request.desc)
-  return _internal_mutable_desc();
-}
-inline const std::string& CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_desc() const {
-  return desc_.Get();
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_set_desc(const std::string& value) {
-  _has_bits_[0] |= 0x00000004u;
-  desc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_desc(std::string&& value) {
-  _has_bits_[0] |= 0x00000004u;
-  desc_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CGameRecordingDebug_AddTimelineHighlightMarker_Request.desc)
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_desc(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000004u;
-  desc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CGameRecordingDebug_AddTimelineHighlightMarker_Request.desc)
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_desc(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000004u;
-  desc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CGameRecordingDebug_AddTimelineHighlightMarker_Request.desc)
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::_internal_mutable_desc() {
-  _has_bits_[0] |= 0x00000004u;
-  return desc_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CGameRecordingDebug_AddTimelineHighlightMarker_Request::release_desc() {
-  // @@protoc_insertion_point(field_release:CGameRecordingDebug_AddTimelineHighlightMarker_Request.desc)
-  if (!_internal_has_desc()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000004u;
-  return desc_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineHighlightMarker_Request::set_allocated_desc(std::string* desc) {
-  if (desc != nullptr) {
-    _has_bits_[0] |= 0x00000004u;
-  } else {
-    _has_bits_[0] &= ~0x00000004u;
-  }
-  desc_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), desc,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CGameRecordingDebug_AddTimelineHighlightMarker_Request.desc)
-}
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_AddTimelineHighlightMarker_Response
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_AddTimelineTimestamp_Request
-
-// optional uint32 appid = 1;
-inline bool CGameRecordingDebug_AddTimelineTimestamp_Request::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineTimestamp_Request::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::clear_appid() {
-  appid_ = 0u;
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_AddTimelineTimestamp_Request::_internal_appid() const {
-  return appid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_AddTimelineTimestamp_Request::appid() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineTimestamp_Request.appid)
-  return _internal_appid();
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000002u;
-  appid_ = value;
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineTimestamp_Request.appid)
-}
-
-// optional string title = 2;
-inline bool CGameRecordingDebug_AddTimelineTimestamp_Request::_internal_has_title() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineTimestamp_Request::has_title() const {
-  return _internal_has_title();
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::clear_title() {
-  title_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CGameRecordingDebug_AddTimelineTimestamp_Request::title() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineTimestamp_Request.title)
-  return _internal_title();
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::set_title(const std::string& value) {
-  _internal_set_title(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineTimestamp_Request.title)
-}
-inline std::string* CGameRecordingDebug_AddTimelineTimestamp_Request::mutable_title() {
-  // @@protoc_insertion_point(field_mutable:CGameRecordingDebug_AddTimelineTimestamp_Request.title)
-  return _internal_mutable_title();
-}
-inline const std::string& CGameRecordingDebug_AddTimelineTimestamp_Request::_internal_title() const {
-  return title_.Get();
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::_internal_set_title(const std::string& value) {
-  _has_bits_[0] |= 0x00000001u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::set_title(std::string&& value) {
-  _has_bits_[0] |= 0x00000001u;
-  title_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CGameRecordingDebug_AddTimelineTimestamp_Request.title)
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::set_title(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000001u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CGameRecordingDebug_AddTimelineTimestamp_Request.title)
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::set_title(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000001u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CGameRecordingDebug_AddTimelineTimestamp_Request.title)
-}
-inline std::string* CGameRecordingDebug_AddTimelineTimestamp_Request::_internal_mutable_title() {
-  _has_bits_[0] |= 0x00000001u;
-  return title_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CGameRecordingDebug_AddTimelineTimestamp_Request::release_title() {
-  // @@protoc_insertion_point(field_release:CGameRecordingDebug_AddTimelineTimestamp_Request.title)
-  if (!_internal_has_title()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000001u;
-  return title_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineTimestamp_Request::set_allocated_title(std::string* title) {
-  if (title != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  title_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), title,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CGameRecordingDebug_AddTimelineTimestamp_Request.title)
-}
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_AddTimelineTimestamp_Response
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_AddTimelineRangeStart_Request
-
-// optional uint32 appid = 1;
-inline bool CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineRangeStart_Request::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::clear_appid() {
-  appid_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_appid() const {
-  return appid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_AddTimelineRangeStart_Request::appid() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineRangeStart_Request.appid)
-  return _internal_appid();
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
-  appid_ = value;
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineRangeStart_Request.appid)
-}
-
-// optional string id = 2;
-inline bool CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineRangeStart_Request::has_id() const {
-  return _internal_has_id();
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::clear_id() {
-  id_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CGameRecordingDebug_AddTimelineRangeStart_Request::id() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineRangeStart_Request.id)
-  return _internal_id();
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_id(const std::string& value) {
-  _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineRangeStart_Request.id)
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeStart_Request::mutable_id() {
-  // @@protoc_insertion_point(field_mutable:CGameRecordingDebug_AddTimelineRangeStart_Request.id)
-  return _internal_mutable_id();
-}
-inline const std::string& CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_id() const {
-  return id_.Get();
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_set_id(const std::string& value) {
-  _has_bits_[0] |= 0x00000001u;
-  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_id(std::string&& value) {
-  _has_bits_[0] |= 0x00000001u;
-  id_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CGameRecordingDebug_AddTimelineRangeStart_Request.id)
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000001u;
-  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CGameRecordingDebug_AddTimelineRangeStart_Request.id)
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_id(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000001u;
-  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CGameRecordingDebug_AddTimelineRangeStart_Request.id)
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_mutable_id() {
-  _has_bits_[0] |= 0x00000001u;
-  return id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeStart_Request::release_id() {
-  // @@protoc_insertion_point(field_release:CGameRecordingDebug_AddTimelineRangeStart_Request.id)
-  if (!_internal_has_id()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000001u;
-  return id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_allocated_id(std::string* id) {
-  if (id != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CGameRecordingDebug_AddTimelineRangeStart_Request.id)
-}
-
-// optional string title = 3;
-inline bool CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_has_title() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineRangeStart_Request::has_title() const {
-  return _internal_has_title();
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::clear_title() {
-  title_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& CGameRecordingDebug_AddTimelineRangeStart_Request::title() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineRangeStart_Request.title)
-  return _internal_title();
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_title(const std::string& value) {
-  _internal_set_title(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineRangeStart_Request.title)
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeStart_Request::mutable_title() {
-  // @@protoc_insertion_point(field_mutable:CGameRecordingDebug_AddTimelineRangeStart_Request.title)
-  return _internal_mutable_title();
-}
-inline const std::string& CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_title() const {
-  return title_.Get();
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_set_title(const std::string& value) {
-  _has_bits_[0] |= 0x00000002u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_title(std::string&& value) {
-  _has_bits_[0] |= 0x00000002u;
-  title_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CGameRecordingDebug_AddTimelineRangeStart_Request.title)
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_title(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000002u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CGameRecordingDebug_AddTimelineRangeStart_Request.title)
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_title(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000002u;
-  title_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CGameRecordingDebug_AddTimelineRangeStart_Request.title)
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeStart_Request::_internal_mutable_title() {
-  _has_bits_[0] |= 0x00000002u;
-  return title_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeStart_Request::release_title() {
-  // @@protoc_insertion_point(field_release:CGameRecordingDebug_AddTimelineRangeStart_Request.title)
-  if (!_internal_has_title()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000002u;
-  return title_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineRangeStart_Request::set_allocated_title(std::string* title) {
-  if (title != nullptr) {
-    _has_bits_[0] |= 0x00000002u;
-  } else {
-    _has_bits_[0] &= ~0x00000002u;
-  }
-  title_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), title,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CGameRecordingDebug_AddTimelineRangeStart_Request.title)
-}
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_AddTimelineRangeStart_Response
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_AddTimelineRangeEnd_Request
-
-// optional uint32 appid = 1;
-inline bool CGameRecordingDebug_AddTimelineRangeEnd_Request::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineRangeEnd_Request::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::clear_appid() {
-  appid_ = 0u;
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_AddTimelineRangeEnd_Request::_internal_appid() const {
-  return appid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_AddTimelineRangeEnd_Request::appid() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineRangeEnd_Request.appid)
-  return _internal_appid();
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000002u;
-  appid_ = value;
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineRangeEnd_Request.appid)
-}
-
-// optional string id = 2;
-inline bool CGameRecordingDebug_AddTimelineRangeEnd_Request::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_AddTimelineRangeEnd_Request::has_id() const {
-  return _internal_has_id();
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::clear_id() {
-  id_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CGameRecordingDebug_AddTimelineRangeEnd_Request::id() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_AddTimelineRangeEnd_Request.id)
-  return _internal_id();
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::set_id(const std::string& value) {
-  _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_AddTimelineRangeEnd_Request.id)
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeEnd_Request::mutable_id() {
-  // @@protoc_insertion_point(field_mutable:CGameRecordingDebug_AddTimelineRangeEnd_Request.id)
-  return _internal_mutable_id();
-}
-inline const std::string& CGameRecordingDebug_AddTimelineRangeEnd_Request::_internal_id() const {
-  return id_.Get();
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::_internal_set_id(const std::string& value) {
-  _has_bits_[0] |= 0x00000001u;
-  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::set_id(std::string&& value) {
-  _has_bits_[0] |= 0x00000001u;
-  id_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CGameRecordingDebug_AddTimelineRangeEnd_Request.id)
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::set_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000001u;
-  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CGameRecordingDebug_AddTimelineRangeEnd_Request.id)
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::set_id(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000001u;
-  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CGameRecordingDebug_AddTimelineRangeEnd_Request.id)
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeEnd_Request::_internal_mutable_id() {
-  _has_bits_[0] |= 0x00000001u;
-  return id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CGameRecordingDebug_AddTimelineRangeEnd_Request::release_id() {
-  // @@protoc_insertion_point(field_release:CGameRecordingDebug_AddTimelineRangeEnd_Request.id)
-  if (!_internal_has_id()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000001u;
-  return id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CGameRecordingDebug_AddTimelineRangeEnd_Request::set_allocated_id(std::string* id) {
-  if (id != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CGameRecordingDebug_AddTimelineRangeEnd_Request.id)
-}
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_AddTimelineRangeEnd_Response
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_SetTimelineGameMode_Request
-
-// optional uint32 appid = 1;
-inline bool CGameRecordingDebug_SetTimelineGameMode_Request::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_SetTimelineGameMode_Request::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CGameRecordingDebug_SetTimelineGameMode_Request::clear_appid() {
-  appid_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_SetTimelineGameMode_Request::_internal_appid() const {
-  return appid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_SetTimelineGameMode_Request::appid() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_SetTimelineGameMode_Request.appid)
-  return _internal_appid();
-}
-inline void CGameRecordingDebug_SetTimelineGameMode_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000001u;
-  appid_ = value;
-}
-inline void CGameRecordingDebug_SetTimelineGameMode_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_SetTimelineGameMode_Request.appid)
-}
-
-// optional uint32 mode = 2;
-inline bool CGameRecordingDebug_SetTimelineGameMode_Request::_internal_has_mode() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGameRecordingDebug_SetTimelineGameMode_Request::has_mode() const {
-  return _internal_has_mode();
-}
-inline void CGameRecordingDebug_SetTimelineGameMode_Request::clear_mode() {
-  mode_ = 0u;
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_SetTimelineGameMode_Request::_internal_mode() const {
-  return mode_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CGameRecordingDebug_SetTimelineGameMode_Request::mode() const {
-  // @@protoc_insertion_point(field_get:CGameRecordingDebug_SetTimelineGameMode_Request.mode)
-  return _internal_mode();
-}
-inline void CGameRecordingDebug_SetTimelineGameMode_Request::_internal_set_mode(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000002u;
-  mode_ = value;
-}
-inline void CGameRecordingDebug_SetTimelineGameMode_Request::set_mode(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_mode(value);
-  // @@protoc_insertion_point(field_set:CGameRecordingDebug_SetTimelineGameMode_Request.mode)
-}
-
-// -------------------------------------------------------------------
-
-// CGameRecordingDebug_SetTimelineGameMode_Response
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

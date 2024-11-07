@@ -548,6 +548,7 @@ class CDataPublisher_ClientUpdateAppJob_Notification PROTOBUF_FINAL :
     kIsShaderFieldNumber = 24,
     kCellIdFieldNumber = 22,
     kTotalBytesSavedFieldNumber = 21,
+    kSecondsNotPlayedFieldNumber = 25,
   };
   // repeated uint32 depot_ids = 2;
   int depot_ids_size() const;
@@ -871,6 +872,19 @@ class CDataPublisher_ClientUpdateAppJob_Notification PROTOBUF_FINAL :
   void _internal_set_total_bytes_saved(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional uint32 seconds_not_played = 25;
+  bool has_seconds_not_played() const;
+  private:
+  bool _internal_has_seconds_not_played() const;
+  public:
+  void clear_seconds_not_played();
+  ::PROTOBUF_NAMESPACE_ID::uint32 seconds_not_played() const;
+  void set_seconds_not_played(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_seconds_not_played() const;
+  void _internal_set_seconds_not_played(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDataPublisher_ClientUpdateAppJob_Notification)
  private:
   class _Internal;
@@ -903,6 +917,7 @@ class CDataPublisher_ClientUpdateAppJob_Notification PROTOBUF_FINAL :
   bool is_shader_;
   ::PROTOBUF_NAMESPACE_ID::uint32 cell_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 total_bytes_saved_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 seconds_not_played_;
   friend struct ::TableStruct_steammessages_5fdatapublisher_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3782,6 +3797,34 @@ inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_is_sha
 inline void CDataPublisher_ClientUpdateAppJob_Notification::set_is_shader(bool value) {
   _internal_set_is_shader(value);
   // @@protoc_insertion_point(field_set:CDataPublisher_ClientUpdateAppJob_Notification.is_shader)
+}
+
+// optional uint32 seconds_not_played = 25;
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::_internal_has_seconds_not_played() const {
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  return value;
+}
+inline bool CDataPublisher_ClientUpdateAppJob_Notification::has_seconds_not_played() const {
+  return _internal_has_seconds_not_played();
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::clear_seconds_not_played() {
+  seconds_not_played_ = 0u;
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CDataPublisher_ClientUpdateAppJob_Notification::_internal_seconds_not_played() const {
+  return seconds_not_played_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CDataPublisher_ClientUpdateAppJob_Notification::seconds_not_played() const {
+  // @@protoc_insertion_point(field_get:CDataPublisher_ClientUpdateAppJob_Notification.seconds_not_played)
+  return _internal_seconds_not_played();
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::_internal_set_seconds_not_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00400000u;
+  seconds_not_played_ = value;
+}
+inline void CDataPublisher_ClientUpdateAppJob_Notification::set_seconds_not_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_seconds_not_played(value);
+  // @@protoc_insertion_point(field_set:CDataPublisher_ClientUpdateAppJob_Notification.seconds_not_played)
 }
 
 // -------------------------------------------------------------------

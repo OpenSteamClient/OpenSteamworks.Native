@@ -22,7 +22,8 @@ constexpr CContentBuilder_InitDepotBuild_Request::CContentBuilder_InitDepotBuild
   , appid_(0u)
   , depotid_(0u)
   , workshop_itemid_(PROTOBUF_ULONGLONG(0))
-  , for_local_cs_(false){}
+  , for_local_cs_(false)
+  , shader_depot_(false){}
 struct CContentBuilder_InitDepotBuild_RequestDefaultTypeInternal {
   constexpr CContentBuilder_InitDepotBuild_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -229,11 +230,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fdepotbuilder_2
   PROTOBUF_FIELD_OFFSET(::CContentBuilder_InitDepotBuild_Request, workshop_itemid_),
   PROTOBUF_FIELD_OFFSET(::CContentBuilder_InitDepotBuild_Request, for_local_cs_),
   PROTOBUF_FIELD_OFFSET(::CContentBuilder_InitDepotBuild_Request, target_branch_),
+  PROTOBUF_FIELD_OFFSET(::CContentBuilder_InitDepotBuild_Request, shader_depot_),
   1,
   2,
   3,
   4,
   0,
+  5,
   PROTOBUF_FIELD_OFFSET(::CContentBuilder_InitDepotBuild_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CContentBuilder_InitDepotBuild_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -379,20 +382,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fdepotbuilder_2
   0,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 10, sizeof(::CContentBuilder_InitDepotBuild_Request)},
-  { 15, 31, sizeof(::CContentBuilder_InitDepotBuild_Response)},
-  { 42, 53, sizeof(::CContentBuilder_StartDepotUpload_Request)},
-  { 59, 65, sizeof(::CContentBuilder_StartDepotUpload_Response)},
-  { 66, 73, sizeof(::CContentBuilder_GetMissingDepotChunks_Request)},
-  { 75, 81, sizeof(::CContentBuilder_GetMissingDepotChunks_Response_Chunks)},
-  { 82, 90, sizeof(::CContentBuilder_GetMissingDepotChunks_Response)},
-  { 93, 100, sizeof(::CContentBuilder_FinishDepotUpload_Request)},
-  { 102, 109, sizeof(::CContentBuilder_FinishDepotUpload_Response)},
-  { 111, 118, sizeof(::CContentBuilder_CommitAppBuild_Request_Depots)},
-  { 120, 129, sizeof(::CContentBuilder_CommitAppBuild_Request)},
-  { 133, 139, sizeof(::CContentBuilder_CommitAppBuild_Response)},
-  { 140, 148, sizeof(::CContentBuilder_SignInstallScript_Request)},
-  { 151, 157, sizeof(::CContentBuilder_SignInstallScript_Response)},
+  { 0, 11, sizeof(::CContentBuilder_InitDepotBuild_Request)},
+  { 17, 33, sizeof(::CContentBuilder_InitDepotBuild_Response)},
+  { 44, 55, sizeof(::CContentBuilder_StartDepotUpload_Request)},
+  { 61, 67, sizeof(::CContentBuilder_StartDepotUpload_Response)},
+  { 68, 75, sizeof(::CContentBuilder_GetMissingDepotChunks_Request)},
+  { 77, 83, sizeof(::CContentBuilder_GetMissingDepotChunks_Response_Chunks)},
+  { 84, 92, sizeof(::CContentBuilder_GetMissingDepotChunks_Response)},
+  { 95, 102, sizeof(::CContentBuilder_FinishDepotUpload_Request)},
+  { 104, 111, sizeof(::CContentBuilder_FinishDepotUpload_Response)},
+  { 113, 120, sizeof(::CContentBuilder_CommitAppBuild_Request_Depots)},
+  { 122, 131, sizeof(::CContentBuilder_CommitAppBuild_Request)},
+  { 135, 141, sizeof(::CContentBuilder_CommitAppBuild_Response)},
+  { 142, 150, sizeof(::CContentBuilder_SignInstallScript_Request)},
+  { 153, 159, sizeof(::CContentBuilder_SignInstallScript_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -416,68 +419,68 @@ const char descriptor_table_protodef_steammessages_5fdepotbuilder_2esteamclient_
   "\n,steammessages_depotbuilder.steamclient"
   ".proto\032 google/protobuf/descriptor.proto"
   "\032\030steammessages_base.proto\032,steammessage"
-  "s_unified_base.steamclient.proto\"\216\001\n&CCo"
+  "s_unified_base.steamclient.proto\"\244\001\n&CCo"
   "ntentBuilder_InitDepotBuild_Request\022\r\n\005a"
   "ppid\030\001 \001(\r\022\017\n\007depotid\030\002 \001(\r\022\027\n\017workshop_"
   "itemid\030\003 \001(\004\022\024\n\014for_local_cs\030\004 \001(\010\022\025\n\rta"
-  "rget_branch\030\005 \001(\t\"\206\003\n\'CContentBuilder_In"
-  "itDepotBuild_Response\022\033\n\023baseline_manife"
-  "stid\030\001 \001(\004\022\020\n\010chunsize\030\002 \001(\r\022\017\n\007aes_key\030"
-  "\003 \001(\014\022\017\n\007rsa_key\030\004 \001(\014\022\020\n\010url_host\030\005 \001(\t"
-  "\022 \n\030offset_detection_enabled\030\006 \001(\010\022(\n of"
-  "fset_detection_min_clean_chunk\030\007 \001(\r\022)\n!"
-  "offset_detection_blast_radius_pre\030\010 \001(\r\022"
-  "*\n\"offset_detection_blast_radius_post\030\t "
-  "\001(\r\022)\n!offset_detection_max_distance_pre"
-  "\030\n \001(\r\022*\n\"offset_detection_max_distance_"
-  "post\030\013 \001(\r\"\255\001\n(CContentBuilder_StartDepo"
-  "tUpload_Request\022\r\n\005appid\030\001 \001(\r\022\017\n\007depoti"
-  "d\030\002 \001(\r\022\027\n\017workshop_itemid\030\003 \001(\004\022\024\n\014for_"
-  "local_cs\030\004 \001(\010\022\033\n\023baseline_manifestid\030\005 "
-  "\001(\004\022\025\n\rmanifest_size\030\006 \001(\r\"G\n)CContentBu"
-  "ilder_StartDepotUpload_Response\022\032\n\022depot"
-  "_build_handle\030\001 \001(\004\"Z\n-CContentBuilder_G"
-  "etMissingDepotChunks_Request\022\r\n\005appid\030\001 "
-  "\001(\r\022\032\n\022depot_build_handle\030\002 \001(\004\"\322\001\n.CCon"
-  "tentBuilder_GetMissingDepotChunks_Respon"
-  "se\022N\n\016missing_chunks\030\001 \003(\01326.CContentBui"
-  "lder_GetMissingDepotChunks_Response.Chun"
-  "ks\022\034\n\024total_missing_chunks\030\002 \001(\r\022\033\n\023tota"
-  "l_missing_bytes\030\003 \001(\004\032\025\n\006Chunks\022\013\n\003sha\030\001"
-  " \001(\014\"V\n)CContentBuilder_FinishDepotUploa"
-  "d_Request\022\r\n\005appid\030\001 \001(\r\022\032\n\022depot_build_"
-  "handle\030\002 \001(\004\"U\n*CContentBuilder_FinishDe"
-  "potUpload_Response\022\022\n\nmanifestid\030\001 \001(\004\022\023"
-  "\n\013prev_reused\030\002 \001(\010\"\331\001\n&CContentBuilder_"
-  "CommitAppBuild_Request\022\r\n\005appid\030\001 \001(\r\022G\n"
-  "\017depot_manifests\030\002 \003(\0132..CContentBuilder"
-  "_CommitAppBuild_Request.Depots\022\023\n\013build_"
-  "notes\030\004 \001(\t\022\023\n\013live_branch\030\005 \001(\t\032-\n\006Depo"
-  "ts\022\017\n\007depotid\030\001 \001(\r\022\022\n\nmanifestid\030\002 \001(\004\""
-  ":\n\'CContentBuilder_CommitAppBuild_Respon"
-  "se\022\017\n\007buildid\030\001 \001(\r\"c\n)CContentBuilder_S"
-  "ignInstallScript_Request\022\r\n\005appid\030\001 \001(\r\022"
-  "\017\n\007depotid\030\002 \001(\r\022\026\n\016install_script\030\003 \001(\t"
-  "\"K\n*CContentBuilder_SignInstallScript_Re"
-  "sponse\022\035\n\025signed_install_script\030\001 \001(\t2\233\005"
-  "\n\016ContentBuilder\022c\n\016InitDepotBuild\022\'.CCo"
-  "ntentBuilder_InitDepotBuild_Request\032(.CC"
-  "ontentBuilder_InitDepotBuild_Response\022i\n"
-  "\020StartDepotUpload\022).CContentBuilder_Star"
-  "tDepotUpload_Request\032*.CContentBuilder_S"
-  "tartDepotUpload_Response\022x\n\025GetMissingDe"
-  "potChunks\022..CContentBuilder_GetMissingDe"
-  "potChunks_Request\032/.CContentBuilder_GetM"
-  "issingDepotChunks_Response\022l\n\021FinishDepo"
-  "tUpload\022*.CContentBuilder_FinishDepotUpl"
-  "oad_Request\032+.CContentBuilder_FinishDepo"
-  "tUpload_Response\022c\n\016CommitAppBuild\022\'.CCo"
-  "ntentBuilder_CommitAppBuild_Request\032(.CC"
-  "ontentBuilder_CommitAppBuild_Response\022l\n"
-  "\021SignInstallScript\022*.CContentBuilder_Sig"
-  "nInstallScript_Request\032+.CContentBuilder"
-  "_SignInstallScript_ResponseB\035\200\001\001\252\002\027OpenS"
-  "teamworks.Protobuf"
+  "rget_branch\030\005 \001(\t\022\024\n\014shader_depot\030\006 \001(\010\""
+  "\206\003\n\'CContentBuilder_InitDepotBuild_Respo"
+  "nse\022\033\n\023baseline_manifestid\030\001 \001(\004\022\020\n\010chun"
+  "size\030\002 \001(\r\022\017\n\007aes_key\030\003 \001(\014\022\017\n\007rsa_key\030\004"
+  " \001(\014\022\020\n\010url_host\030\005 \001(\t\022 \n\030offset_detecti"
+  "on_enabled\030\006 \001(\010\022(\n offset_detection_min"
+  "_clean_chunk\030\007 \001(\r\022)\n!offset_detection_b"
+  "last_radius_pre\030\010 \001(\r\022*\n\"offset_detectio"
+  "n_blast_radius_post\030\t \001(\r\022)\n!offset_dete"
+  "ction_max_distance_pre\030\n \001(\r\022*\n\"offset_d"
+  "etection_max_distance_post\030\013 \001(\r\"\255\001\n(CCo"
+  "ntentBuilder_StartDepotUpload_Request\022\r\n"
+  "\005appid\030\001 \001(\r\022\017\n\007depotid\030\002 \001(\r\022\027\n\017worksho"
+  "p_itemid\030\003 \001(\004\022\024\n\014for_local_cs\030\004 \001(\010\022\033\n\023"
+  "baseline_manifestid\030\005 \001(\004\022\025\n\rmanifest_si"
+  "ze\030\006 \001(\r\"G\n)CContentBuilder_StartDepotUp"
+  "load_Response\022\032\n\022depot_build_handle\030\001 \001("
+  "\004\"Z\n-CContentBuilder_GetMissingDepotChun"
+  "ks_Request\022\r\n\005appid\030\001 \001(\r\022\032\n\022depot_build"
+  "_handle\030\002 \001(\004\"\322\001\n.CContentBuilder_GetMis"
+  "singDepotChunks_Response\022N\n\016missing_chun"
+  "ks\030\001 \003(\01326.CContentBuilder_GetMissingDep"
+  "otChunks_Response.Chunks\022\034\n\024total_missin"
+  "g_chunks\030\002 \001(\r\022\033\n\023total_missing_bytes\030\003 "
+  "\001(\004\032\025\n\006Chunks\022\013\n\003sha\030\001 \001(\014\"V\n)CContentBu"
+  "ilder_FinishDepotUpload_Request\022\r\n\005appid"
+  "\030\001 \001(\r\022\032\n\022depot_build_handle\030\002 \001(\004\"U\n*CC"
+  "ontentBuilder_FinishDepotUpload_Response"
+  "\022\022\n\nmanifestid\030\001 \001(\004\022\023\n\013prev_reused\030\002 \001("
+  "\010\"\331\001\n&CContentBuilder_CommitAppBuild_Req"
+  "uest\022\r\n\005appid\030\001 \001(\r\022G\n\017depot_manifests\030\002"
+  " \003(\0132..CContentBuilder_CommitAppBuild_Re"
+  "quest.Depots\022\023\n\013build_notes\030\004 \001(\t\022\023\n\013liv"
+  "e_branch\030\005 \001(\t\032-\n\006Depots\022\017\n\007depotid\030\001 \001("
+  "\r\022\022\n\nmanifestid\030\002 \001(\004\":\n\'CContentBuilder"
+  "_CommitAppBuild_Response\022\017\n\007buildid\030\001 \001("
+  "\r\"c\n)CContentBuilder_SignInstallScript_R"
+  "equest\022\r\n\005appid\030\001 \001(\r\022\017\n\007depotid\030\002 \001(\r\022\026"
+  "\n\016install_script\030\003 \001(\t\"K\n*CContentBuilde"
+  "r_SignInstallScript_Response\022\035\n\025signed_i"
+  "nstall_script\030\001 \001(\t2\233\005\n\016ContentBuilder\022c"
+  "\n\016InitDepotBuild\022\'.CContentBuilder_InitD"
+  "epotBuild_Request\032(.CContentBuilder_Init"
+  "DepotBuild_Response\022i\n\020StartDepotUpload\022"
+  ").CContentBuilder_StartDepotUpload_Reque"
+  "st\032*.CContentBuilder_StartDepotUpload_Re"
+  "sponse\022x\n\025GetMissingDepotChunks\022..CConte"
+  "ntBuilder_GetMissingDepotChunks_Request\032"
+  "/.CContentBuilder_GetMissingDepotChunks_"
+  "Response\022l\n\021FinishDepotUpload\022*.CContent"
+  "Builder_FinishDepotUpload_Request\032+.CCon"
+  "tentBuilder_FinishDepotUpload_Response\022c"
+  "\n\016CommitAppBuild\022\'.CContentBuilder_Commi"
+  "tAppBuild_Request\032(.CContentBuilder_Comm"
+  "itAppBuild_Response\022l\n\021SignInstallScript"
+  "\022*.CContentBuilder_SignInstallScript_Req"
+  "uest\032+.CContentBuilder_SignInstallScript"
+  "_ResponseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -486,7 +489,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto = {
-  false, false, 2578, descriptor_table_protodef_steammessages_5fdepotbuilder_2esteamclient_2eproto, "steammessages_depotbuilder.steamclient.proto", 
+  false, false, 2600, descriptor_table_protodef_steammessages_5fdepotbuilder_2esteamclient_2eproto, "steammessages_depotbuilder.steamclient.proto", 
   &descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto_once, descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto_deps, 3, 14,
   schemas, file_default_instances, TableStruct_steammessages_5fdepotbuilder_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fdepotbuilder_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fdepotbuilder_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fdepotbuilder_2esteamclient_2eproto,
@@ -520,6 +523,9 @@ class CContentBuilder_InitDepotBuild_Request::_Internal {
   static void set_has_target_branch(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_shader_depot(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
 };
 
 CContentBuilder_InitDepotBuild_Request::CContentBuilder_InitDepotBuild_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -538,8 +544,8 @@ CContentBuilder_InitDepotBuild_Request::CContentBuilder_InitDepotBuild_Request(c
       GetArena());
   }
   ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&for_local_cs_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(for_local_cs_));
+    static_cast<size_t>(reinterpret_cast<char*>(&shader_depot_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(shader_depot_));
   // @@protoc_insertion_point(copy_constructor:CContentBuilder_InitDepotBuild_Request)
 }
 
@@ -547,8 +553,8 @@ void CContentBuilder_InitDepotBuild_Request::SharedCtor() {
 target_branch_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&for_local_cs_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(for_local_cs_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&shader_depot_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(shader_depot_));
 }
 
 CContentBuilder_InitDepotBuild_Request::~CContentBuilder_InitDepotBuild_Request() {
@@ -582,10 +588,10 @@ void CContentBuilder_InitDepotBuild_Request::Clear() {
   if (cached_has_bits & 0x00000001u) {
     target_branch_.ClearNonDefaultToEmpty();
   }
-  if (cached_has_bits & 0x0000001eu) {
+  if (cached_has_bits & 0x0000003eu) {
     ::memset(&appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&for_local_cs_) -
-        reinterpret_cast<char*>(&appid_)) + sizeof(for_local_cs_));
+        reinterpret_cast<char*>(&shader_depot_) -
+        reinterpret_cast<char*>(&appid_)) + sizeof(shader_depot_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -639,6 +645,14 @@ const char* CContentBuilder_InitDepotBuild_Request::_InternalParse(const char* p
           #ifndef NDEBUG
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CContentBuilder_InitDepotBuild_Request.target_branch");
           #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool shader_depot = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_shader_depot(&has_bits);
+          shader_depot_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -706,6 +720,12 @@ failure:
         5, this->_internal_target_branch(), target);
   }
 
+  // optional bool shader_depot = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_shader_depot(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -723,7 +743,7 @@ size_t CContentBuilder_InitDepotBuild_Request::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional string target_branch = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -754,6 +774,11 @@ size_t CContentBuilder_InitDepotBuild_Request::ByteSizeLong() const {
 
     // optional bool for_local_cs = 4;
     if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool shader_depot = 6;
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
@@ -790,7 +815,7 @@ void CContentBuilder_InitDepotBuild_Request::MergeFrom(const CContentBuilder_Ini
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_target_branch(from._internal_target_branch());
     }
@@ -805,6 +830,9 @@ void CContentBuilder_InitDepotBuild_Request::MergeFrom(const CContentBuilder_Ini
     }
     if (cached_has_bits & 0x00000010u) {
       for_local_cs_ = from.for_local_cs_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      shader_depot_ = from.shader_depot_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -834,8 +862,8 @@ void CContentBuilder_InitDepotBuild_Request::InternalSwap(CContentBuilder_InitDe
   swap(_has_bits_[0], other->_has_bits_[0]);
   target_branch_.Swap(&other->target_branch_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CContentBuilder_InitDepotBuild_Request, for_local_cs_)
-      + sizeof(CContentBuilder_InitDepotBuild_Request::for_local_cs_)
+      PROTOBUF_FIELD_OFFSET(CContentBuilder_InitDepotBuild_Request, shader_depot_)
+      + sizeof(CContentBuilder_InitDepotBuild_Request::shader_depot_)
       - PROTOBUF_FIELD_OFFSET(CContentBuilder_InitDepotBuild_Request, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));

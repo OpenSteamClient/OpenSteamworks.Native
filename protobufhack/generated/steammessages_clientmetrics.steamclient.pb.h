@@ -241,11 +241,12 @@ enum EClipRangeMethod : int {
   EClipRangeMethod_BeginEndButtons = 3,
   EClipRangeMethod_ContextMenu = 4,
   EClipRangeMethod_Drag = 5,
-  EClipRangeMethod_EntireClip = 6
+  EClipRangeMethod_EntireClip = 6,
+  EClipRangeMethod_PhaseRecording = 7
 };
 bool EClipRangeMethod_IsValid(int value);
 constexpr EClipRangeMethod EClipRangeMethod_MIN = EClipRangeMethod_CreateClipButton;
-constexpr EClipRangeMethod EClipRangeMethod_MAX = EClipRangeMethod_EntireClip;
+constexpr EClipRangeMethod EClipRangeMethod_MAX = EClipRangeMethod_PhaseRecording;
 constexpr int EClipRangeMethod_ARRAYSIZE = EClipRangeMethod_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EClipRangeMethod_descriptor();

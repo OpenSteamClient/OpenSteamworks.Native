@@ -17,7 +17,7 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 static constexpr ::PROTOBUF_NAMESPACE_ID::Metadata* file_level_metadata_enums_2eproto = nullptr;
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_enums_2eproto[61];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_enums_2eproto[65];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_enums_2eproto = nullptr;
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_enums_2eproto::offsets[1] = {};
 static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
@@ -288,141 +288,185 @@ const char descriptor_table_protodef_enums_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "ranch_Beta\020\003\022\033\n\027EOSBranch_BetaCandidate\020"
   "\004\022\025\n\021EOSBranch_Preview\020\005\022\036\n\032EOSBranch_Pr"
   "eviewCandidate\020\006\022\022\n\016EOSBranch_Main\020\007\022\025\n\021"
-  "EOSBranch_Staging\020\010*\271\005\n\023ECommunityItemCl"
-  "ass\022\037\n\033ECommunityItemClass_Invalid\020\000\022\035\n\031"
-  "ECommunityItemClass_Badge\020\001\022 \n\034ECommunit"
-  "yItemClass_GameCard\020\002\022)\n%ECommunityItemC"
-  "lass_ProfileBackground\020\003\022 \n\034ECommunityIt"
-  "emClass_Emoticon\020\004\022#\n\037ECommunityItemClas"
-  "s_BoosterPack\020\005\022\"\n\036ECommunityItemClass_C"
-  "onsumable\020\006\022\037\n\033ECommunityItemClass_GameG"
-  "oo\020\007\022\'\n#ECommunityItemClass_ProfileModif"
-  "ier\020\010\022\035\n\031ECommunityItemClass_Scene\020\t\022\"\n\036"
-  "ECommunityItemClass_SalienItem\020\n\022\037\n\033ECom"
-  "munityItemClass_Sticker\020\013\022\"\n\036ECommunityI"
-  "temClass_ChatEffect\020\014\022-\n)ECommunityItemC"
-  "lass_MiniProfileBackground\020\r\022#\n\037ECommuni"
-  "tyItemClass_AvatarFrame\020\016\022&\n\"ECommunityI"
-  "temClass_AnimatedAvatar\020\017\022-\n)ECommunityI"
-  "temClass_SteamDeckKeyboardSkin\020\020\022-\n)ECom"
-  "munityItemClass_SteamDeckStartupMovie\020\021*"
-  "\311\001\n\037ESteamDeckCompatibilityFeedback\022\'\n#E"
-  "SteamDeckCompatibilityFeedbacUnset\020\000\022\'\n#"
-  "ESteamDeckCompatibilityFeedbacAgree\020\001\022*\n"
-  "&ESteamDeckCompatibilityFeedbacDisagree\020"
-  "\002\022(\n$ESteamDeckCompatibilityFeedbacIgnor"
-  "e\020\003*\231\001\n\036EProvideDeckFeedbackPreference\022("
-  "\n$EProvideDeckFeedbackPreference_Unset\020\000"
-  "\022&\n\"EProvideDeckFeedbackPreference_Yes\020\001"
-  "\022%\n!EProvideDeckFeedbackPreference_No\020\002*"
-  "\225\003\n\rETouchGesture\022\025\n\021ETouchGestureNone\020\000"
-  "\022\026\n\022ETouchGestureTouch\020\001\022\024\n\020ETouchGestur"
-  "eTap\020\002\022\032\n\026ETouchGestureDoubleTap\020\003\022\033\n\027ET"
-  "ouchGestureShortPress\020\004\022\032\n\026ETouchGesture"
-  "LongPress\020\005\022\030\n\024ETouchGestureLongTap\020\006\022\035\n"
-  "\031ETouchGestureTwoFingerTap\020\007\022\035\n\031ETouchGe"
-  "stureTapCancelled\020\010\022\033\n\027ETouchGesturePinc"
-  "hBegin\020\t\022\034\n\030ETouchGesturePinchUpdate\020\n\022\031"
-  "\n\025ETouchGesturePinchEnd\020\013\022\033\n\027ETouchGestu"
-  "reFlingStart\020\014\022\037\n\033ETouchGestureFlingCanc"
-  "elled\020\r*\206\001\n\023ESessionPersistence\022(\n\033ESess"
-  "ionPersistence_Invalid\020\377\377\377\377\377\377\377\377\377\001\022!\n\035ESe"
-  "ssionPersistence_Ephemeral\020\000\022\"\n\036ESession"
-  "Persistence_Persistent\020\001*\321\001\n\032ENewSteamAn"
-  "nouncementState\022&\n\"ENewSteamAnnouncement"
-  "State_Invalid\020\000\022&\n\"ENewSteamAnnouncement"
-  "State_AllRead\020\001\022.\n*ENewSteamAnnouncement"
-  "State_NewAnnouncement\020\002\0223\n/ENewSteamAnno"
-  "uncementState_FeaturedAnnouncement\020\003*\354\001\n"
-  "\nEForumType\022\026\n\022EForumType_Invalid\020\000\022\026\n\022E"
-  "ForumType_General\020\001\022\034\n\030EForumType_Report"
-  "edPosts\020\002\022\027\n\023EForumType_Workshop\020\003\022\034\n\030EF"
-  "orumType_PublishedFile\020\004\022\026\n\022EForumType_T"
-  "rading\020\005\022\027\n\023EForumType_PlayTest\020\006\022\024\n\020EFo"
-  "rumType_Event\020\007\022\022\n\016EForumType_Max\020\010*\337\006\n\022"
-  "ECommentThreadType\022\035\n\031ECommentThreadType"
-  "Invalid\020\000\022+\n\'ECommentThreadTypeScreensho"
-  "t_Deprecated\020\001\022/\n+ECommentThreadTypeWork"
-  "shopAccount_Developer\020\002\022,\n(ECommentThrea"
-  "dTypeWorkshopAccount_Public\020\003\022-\n)ECommen"
-  "tThreadTypePublishedFile_Developer\020\004\022*\n&"
-  "ECommentThreadTypePublishedFile_Public\020\005"
-  "\022\032\n\026ECommentThreadTypeTest\020\006\022 \n\034EComment"
-  "ThreadTypeForumTopic\020\007\022$\n ECommentThread"
-  "TypeRecommendation\020\010\022&\n\"ECommentThreadTy"
-  "peVideo_Deprecated\020\t\022\035\n\031ECommentThreadTy"
-  "peProfile\020\n\022\036\n\032ECommentThreadTypeNewsPos"
-  "t\020\013\022\032\n\026ECommentThreadTypeClan\020\014\022&\n\"EComm"
-  "entThreadTypeClanAnnouncement\020\r\022\037\n\033EComm"
-  "entThreadTypeClanEvent\020\016\022)\n%ECommentThre"
-  "adTypeUserStatusPublished\020\017\022)\n%ECommentT"
-  "hreadTypeUserReceivedNewGame\020\020\0220\n,EComme"
-  "ntThreadTypePublishedFile_Announcement\020\021"
-  "\022&\n\"ECommentThreadTypeModeratorMessage\020\022"
-  "\022$\n ECommentThreadTypeClanCuratedApp\020\023\022\""
-  "\n\036ECommentThreadTypeQAndASession\020\024\022\031\n\025EC"
-  "ommentThreadTypeMax\020\025*\315\001\n\024EBroadcastPerm"
-  "ission\022 \n\034EBroadcastPermissionDisabled\020\000"
-  "\022&\n\"EBroadcastPermissionFriendsApprove\020\001"
-  "\022&\n\"EBroadcastPermissionFriendsAllowed\020\002"
-  "\022\036\n\032EBroadcastPermissionPublic\020\003\022#\n\037EBro"
-  "adcastPermissionSubscribers\020\004*b\n\030EBroadc"
-  "astEncoderSetting\022 \n\034EBroadcastEncoderBe"
-  "stQuality\020\000\022$\n EBroadcastEncoderBestPerf"
-  "ormance\020\001*s\n\024ECloudGamingPlatform\022\034\n\030ECl"
-  "oudGamingPlatformNone\020\000\022\035\n\031ECloudGamingP"
-  "latformValve\020\001\022\036\n\032ECloudGamingPlatformNV"
-  "IDIA\020\002*\265\001\n\030ECompromiseDetectionType\022!\n\035E"
-  "CompromiseDetectionType_None\020\000\022\'\n#ECompr"
-  "omiseDetectionType_TradeEvent\020\001\022(\n$EComp"
-  "romiseDetectionType_ApiCallRate\020\002\022#\n\037ECo"
-  "mpromiseDetectionType_Manual\020\003*\316\001\n\032EAsyn"
-  "cGameSessionUserState\022.\n!EAsyncGameSessi"
-  "onUserStateUnknown\020\377\377\377\377\377\377\377\377\377\001\022.\n*EAsyncG"
-  "ameSessionUserStateWaitingForOthers\020\000\022,\n"
-  "(EAsyncGameSessionUserStateReadyForActio"
-  "n\020\001\022\"\n\036EAsyncGameSessionUserStateDone\020\002*"
-  "\276\001\n\037EAsyncGameSessionUserVisibility\0229\n5E"
-  "AsyncGameSessionUserVisibilityEnvelopeAn"
-  "dSessionList\020\000\0222\n.EAsyncGameSessionUserV"
-  "isibilitySessionListOnly\020\001\022,\n(EAsyncGame"
-  "SessionUserVisibilityDismissed\020\002*\312\001\n\022EGa"
-  "meRecordingType\022\036\n\032EGameRecordingType_Un"
-  "known\020\000\022#\n\037EGameRecordingType_NotRecordi"
-  "ng\020\001\022&\n\"EGameRecordingType_ManualRecordi"
-  "ng\020\002\022*\n&EGameRecordingType_BackgroundRec"
-  "ording\020\003\022\033\n\027EGameRecordingType_Clip\020\004*\302\003"
-  "\n\rEProtoAppType\022\023\n\017EAppTypeInvalid\020\000\022\020\n\014"
-  "EAppTypeGame\020\001\022\027\n\023EAppTypeApplication\020\002\022"
-  "\020\n\014EAppTypeTool\020\004\022\020\n\014EAppTypeDemo\020\010\022\025\n\021E"
-  "AppTypeDeprected\020\020\022\017\n\013EAppTypeDLC\020 \022\021\n\rE"
-  "AppTypeGuide\020@\022\023\n\016EAppTypeDriver\020\200\001\022\023\n\016E"
-  "AppTypeConfig\020\200\002\022\025\n\020EAppTypeHardware\020\200\004\022"
-  "\026\n\021EAppTypeFranchise\020\200\010\022\022\n\rEAppTypeVideo"
-  "\020\200\020\022\023\n\016EAppTypePlugin\020\200 \022\027\n\022EAppTypeMusi"
-  "cAlbum\020\200@\022\024\n\016EAppTypeSeries\020\200\200\001\022\023\n\rEAppT"
-  "ypeComic\020\200\200\002\022\022\n\014EAppTypeBeta\020\200\200\004\022\030\n\020EApp"
-  "TypeShortcut\020\200\200\200\200\004\022\036\n\021EAppTypeDepotOnly\020"
-  "\200\200\200\200\370\377\377\377\377\001*\352\001\n EWindowsUpdateInstallatio"
-  "nImpact\0225\n(EWindowsUpdateInstallationImp"
-  "act_Unknown\020\377\377\377\377\377\377\377\377\377\001\022+\n\'EWindowsUpdate"
-  "InstallationImpact_Normal\020\000\022*\n&EWindowsU"
-  "pdateInstallationImpact_Minor\020\001\0226\n2EWind"
-  "owsUpdateInstallationImpact_ExclusiveHan"
-  "dling\020\002*\352\001\n\034EWindowsUpdateRebootBehavior"
-  "\0221\n$EWindowsUpdateRebootBehavior_Unknown"
-  "\020\377\377\377\377\377\377\377\377\377\001\0221\n-EWindowsUpdateRebootBehav"
-  "ior_NeverNeedsReboot\020\000\0222\n.EWindowsUpdate"
-  "RebootBehavior_AlwaysNeedsReboot\020\001\0220\n,EW"
-  "indowsUpdateRebootBehavior_MightNeedRebo"
-  "ot\020\002*\362\001\n\026EExternalSaleEventType\022\"\n\036EExte"
-  "rnalSaleEventType_Unknown\020\000\022$\n EExternal"
-  "SaleEventType_Publisher\020\001\022#\n\037EExternalSa"
-  "leEventType_Showcase\020\002\022!\n\035EExternalSaleE"
-  "ventType_Region\020\003\022 \n\034EExternalSaleEventT"
-  "ype_Theme\020\004\022$\n EExternalSaleEventType_Fr"
-  "anchise\020\005B#H\001\200\001\001\252\002\027OpenSteamworks.Protob"
-  "uf\200\265\030\001"
+  "EOSBranch_Staging\020\010*\377\002\n\021EBrowserGPUStatu"
+  "s\022\035\n\031EBrowserGPUStatus_Invalid\020\000\022\035\n\031EBro"
+  "wserGPUStatus_Enabled\020\001\022%\n!EBrowserGPUSt"
+  "atus_DisabledUnknown\020\002\022(\n$EBrowserGPUSta"
+  "tus_DisabledCrashCount\020\004\022\'\n#EBrowserGPUS"
+  "tatus_DisabledBlocklist\020\005\022*\n&EBrowserGPU"
+  "Status_DisabledDebugRequest\020\006\022)\n%EBrowse"
+  "rGPUStatus_DisabledCommandLine\020\007\022+\n\'EBro"
+  "wserGPUStatus_DisabledRuntimeDetect\020\010\022.\n"
+  "*EBrowserGPUStatus_DisabledChildCommandL"
+  "ine\020\t*\307\004\n\025EBrowserFeatureStatus\022!\n\035EBrow"
+  "serFeatureStatus_Invalid\020\000\022\"\n\036EBrowserFe"
+  "atureStatus_NotFound\020\001\022!\n\035EBrowserFeatur"
+  "eStatus_Unknown\020\002\022*\n&EBrowserFeatureStat"
+  "us_DisabledSoftware\020\003\022%\n!EBrowserFeature"
+  "Status_DisabledOff\020\004\022\'\n#EBrowserFeatureS"
+  "tatus_DisabledOffOk\020\005\022-\n)EBrowserFeature"
+  "Status_UnavailableSoftware\020\006\022(\n$EBrowser"
+  "FeatureStatus_UnavailableOff\020\007\022*\n&EBrows"
+  "erFeatureStatus_UnavailableOffOk\020\010\022)\n%EB"
+  "rowserFeatureStatus_EnabledReadback\020\t\022&\n"
+  "\"EBrowserFeatureStatus_EnabledForce\020\n\022!\n"
+  "\035EBrowserFeatureStatus_Enabled\020\013\022#\n\037EBro"
+  "wserFeatureStatus_EnabledOn\020\014\022(\n$EBrowse"
+  "rFeatureStatus_EnabledForceOn\020\r*\367\004\n\014EGpu"
+  "DriverId\022\030\n\024EGpuDriverId_Invalid\020\000\022\030\n\024EG"
+  "puDriverId_Unknown\020\001\022\037\n\033EGpuDriverId_Amd"
+  "Proprietary\020\002\022\036\n\032EGpuDriverId_AmdOpenSou"
+  "rce\020\003\022\031\n\025EGpuDriverId_MesaRadv\020\004\022\"\n\036EGpu"
+  "DriverId_NvidiaProprietary\020\005\022 \n\034EGpuDriv"
+  "erId_IntelPropietary\020\006\022\032\n\026EGpuDriverId_M"
+  "esaIntel\020\007\022$\n EGpuDriverId_QualcommPropr"
+  "ietary\020\010\022\037\n\033EGpuDriverId_ArmProprietary\020"
+  "\t\022\"\n\036EGpuDriverId_GoogleSwiftshader\020\n\022$\n"
+  " EGpuDriverId_BroadcomProprietary\020\013\022\035\n\031E"
+  "GpuDriverId_MesaLLVMPipe\020\014\022\031\n\025EGpuDriver"
+  "Id_MoltenVK\020\r\022\033\n\027EGpuDriverId_MesaTurnip"
+  "\020\016\022\032\n\026EGpuDriverId_MesaPanVK\020\017\022\032\n\026EGpuDr"
+  "iverId_MesaVenus\020\020\022\032\n\026EGpuDriverId_MesaD"
+  "ozen\020\021\022\030\n\024EGpuDriverId_MesaNVK\020\022\022\037\n\033EGpu"
+  "DriverId_MesaHoneyKrisp\020\023*\271\005\n\023ECommunity"
+  "ItemClass\022\037\n\033ECommunityItemClass_Invalid"
+  "\020\000\022\035\n\031ECommunityItemClass_Badge\020\001\022 \n\034ECo"
+  "mmunityItemClass_GameCard\020\002\022)\n%ECommunit"
+  "yItemClass_ProfileBackground\020\003\022 \n\034ECommu"
+  "nityItemClass_Emoticon\020\004\022#\n\037ECommunityIt"
+  "emClass_BoosterPack\020\005\022\"\n\036ECommunityItemC"
+  "lass_Consumable\020\006\022\037\n\033ECommunityItemClass"
+  "_GameGoo\020\007\022\'\n#ECommunityItemClass_Profil"
+  "eModifier\020\010\022\035\n\031ECommunityItemClass_Scene"
+  "\020\t\022\"\n\036ECommunityItemClass_SalienItem\020\n\022\037"
+  "\n\033ECommunityItemClass_Sticker\020\013\022\"\n\036EComm"
+  "unityItemClass_ChatEffect\020\014\022-\n)ECommunit"
+  "yItemClass_MiniProfileBackground\020\r\022#\n\037EC"
+  "ommunityItemClass_AvatarFrame\020\016\022&\n\"EComm"
+  "unityItemClass_AnimatedAvatar\020\017\022-\n)EComm"
+  "unityItemClass_SteamDeckKeyboardSkin\020\020\022-"
+  "\n)ECommunityItemClass_SteamDeckStartupMo"
+  "vie\020\021*\311\001\n\037ESteamDeckCompatibilityFeedbac"
+  "k\022\'\n#ESteamDeckCompatibilityFeedbacUnset"
+  "\020\000\022\'\n#ESteamDeckCompatibilityFeedbacAgre"
+  "e\020\001\022*\n&ESteamDeckCompatibilityFeedbacDis"
+  "agree\020\002\022(\n$ESteamDeckCompatibilityFeedba"
+  "cIgnore\020\003*\231\001\n\036EProvideDeckFeedbackPrefer"
+  "ence\022(\n$EProvideDeckFeedbackPreference_U"
+  "nset\020\000\022&\n\"EProvideDeckFeedbackPreference"
+  "_Yes\020\001\022%\n!EProvideDeckFeedbackPreference"
+  "_No\020\002*\225\003\n\rETouchGesture\022\025\n\021ETouchGesture"
+  "None\020\000\022\026\n\022ETouchGestureTouch\020\001\022\024\n\020ETouch"
+  "GestureTap\020\002\022\032\n\026ETouchGestureDoubleTap\020\003"
+  "\022\033\n\027ETouchGestureShortPress\020\004\022\032\n\026ETouchG"
+  "estureLongPress\020\005\022\030\n\024ETouchGestureLongTa"
+  "p\020\006\022\035\n\031ETouchGestureTwoFingerTap\020\007\022\035\n\031ET"
+  "ouchGestureTapCancelled\020\010\022\033\n\027ETouchGestu"
+  "rePinchBegin\020\t\022\034\n\030ETouchGesturePinchUpda"
+  "te\020\n\022\031\n\025ETouchGesturePinchEnd\020\013\022\033\n\027ETouc"
+  "hGestureFlingStart\020\014\022\037\n\033ETouchGestureFli"
+  "ngCancelled\020\r*\206\001\n\023ESessionPersistence\022(\n"
+  "\033ESessionPersistence_Invalid\020\377\377\377\377\377\377\377\377\377\001\022"
+  "!\n\035ESessionPersistence_Ephemeral\020\000\022\"\n\036ES"
+  "essionPersistence_Persistent\020\001*\321\001\n\032ENewS"
+  "teamAnnouncementState\022&\n\"ENewSteamAnnoun"
+  "cementState_Invalid\020\000\022&\n\"ENewSteamAnnoun"
+  "cementState_AllRead\020\001\022.\n*ENewSteamAnnoun"
+  "cementState_NewAnnouncement\020\002\0223\n/ENewSte"
+  "amAnnouncementState_FeaturedAnnouncement"
+  "\020\003*\354\001\n\nEForumType\022\026\n\022EForumType_Invalid\020"
+  "\000\022\026\n\022EForumType_General\020\001\022\034\n\030EForumType_"
+  "ReportedPosts\020\002\022\027\n\023EForumType_Workshop\020\003"
+  "\022\034\n\030EForumType_PublishedFile\020\004\022\026\n\022EForum"
+  "Type_Trading\020\005\022\027\n\023EForumType_PlayTest\020\006\022"
+  "\024\n\020EForumType_Event\020\007\022\022\n\016EForumType_Max\020"
+  "\010*\337\006\n\022ECommentThreadType\022\035\n\031ECommentThre"
+  "adTypeInvalid\020\000\022+\n\'ECommentThreadTypeScr"
+  "eenshot_Deprecated\020\001\022/\n+ECommentThreadTy"
+  "peWorkshopAccount_Developer\020\002\022,\n(ECommen"
+  "tThreadTypeWorkshopAccount_Public\020\003\022-\n)E"
+  "CommentThreadTypePublishedFile_Developer"
+  "\020\004\022*\n&ECommentThreadTypePublishedFile_Pu"
+  "blic\020\005\022\032\n\026ECommentThreadTypeTest\020\006\022 \n\034EC"
+  "ommentThreadTypeForumTopic\020\007\022$\n EComment"
+  "ThreadTypeRecommendation\020\010\022&\n\"ECommentTh"
+  "readTypeVideo_Deprecated\020\t\022\035\n\031ECommentTh"
+  "readTypeProfile\020\n\022\036\n\032ECommentThreadTypeN"
+  "ewsPost\020\013\022\032\n\026ECommentThreadTypeClan\020\014\022&\n"
+  "\"ECommentThreadTypeClanAnnouncement\020\r\022\037\n"
+  "\033ECommentThreadTypeClanEvent\020\016\022)\n%EComme"
+  "ntThreadTypeUserStatusPublished\020\017\022)\n%ECo"
+  "mmentThreadTypeUserReceivedNewGame\020\020\0220\n,"
+  "ECommentThreadTypePublishedFile_Announce"
+  "ment\020\021\022&\n\"ECommentThreadTypeModeratorMes"
+  "sage\020\022\022$\n ECommentThreadTypeClanCuratedA"
+  "pp\020\023\022\"\n\036ECommentThreadTypeQAndASession\020\024"
+  "\022\031\n\025ECommentThreadTypeMax\020\025*\315\001\n\024EBroadca"
+  "stPermission\022 \n\034EBroadcastPermissionDisa"
+  "bled\020\000\022&\n\"EBroadcastPermissionFriendsApp"
+  "rove\020\001\022&\n\"EBroadcastPermissionFriendsAll"
+  "owed\020\002\022\036\n\032EBroadcastPermissionPublic\020\003\022#"
+  "\n\037EBroadcastPermissionSubscribers\020\004*b\n\030E"
+  "BroadcastEncoderSetting\022 \n\034EBroadcastEnc"
+  "oderBestQuality\020\000\022$\n EBroadcastEncoderBe"
+  "stPerformance\020\001*s\n\024ECloudGamingPlatform\022"
+  "\034\n\030ECloudGamingPlatformNone\020\000\022\035\n\031ECloudG"
+  "amingPlatformValve\020\001\022\036\n\032ECloudGamingPlat"
+  "formNVIDIA\020\002*\216\002\n\030ECompromiseDetectionTyp"
+  "e\022!\n\035ECompromiseDetectionType_None\020\000\022\'\n#"
+  "ECompromiseDetectionType_TradeEvent\020\001\022(\n"
+  "$ECompromiseDetectionType_ApiCallRate\020\002\022"
+  "#\n\037ECompromiseDetectionType_Manual\020\003\022)\n%"
+  "ECompromiseDetectionType_TicketAction\020\004\022"
+  ",\n(ECompromiseDetectionType_MaliciousRef"
+  "und\020\005*\316\001\n\032EAsyncGameSessionUserState\022.\n!"
+  "EAsyncGameSessionUserStateUnknown\020\377\377\377\377\377\377"
+  "\377\377\377\001\022.\n*EAsyncGameSessionUserStateWaitin"
+  "gForOthers\020\000\022,\n(EAsyncGameSessionUserSta"
+  "teReadyForAction\020\001\022\"\n\036EAsyncGameSessionU"
+  "serStateDone\020\002*\276\001\n\037EAsyncGameSessionUser"
+  "Visibility\0229\n5EAsyncGameSessionUserVisib"
+  "ilityEnvelopeAndSessionList\020\000\0222\n.EAsyncG"
+  "ameSessionUserVisibilitySessionListOnly\020"
+  "\001\022,\n(EAsyncGameSessionUserVisibilityDism"
+  "issed\020\002*\312\001\n\022EGameRecordingType\022\036\n\032EGameR"
+  "ecordingType_Unknown\020\000\022#\n\037EGameRecording"
+  "Type_NotRecording\020\001\022&\n\"EGameRecordingTyp"
+  "e_ManualRecording\020\002\022*\n&EGameRecordingTyp"
+  "e_BackgroundRecording\020\003\022\033\n\027EGameRecordin"
+  "gType_Clip\020\004*V\n\014EExportCodec\022\030\n\024EExportC"
+  "odec_Default\020\000\022\025\n\021EExportCodec_H264\020\001\022\025\n"
+  "\021EExportCodec_H265\020\002*\302\003\n\rEProtoAppType\022\023"
+  "\n\017EAppTypeInvalid\020\000\022\020\n\014EAppTypeGame\020\001\022\027\n"
+  "\023EAppTypeApplication\020\002\022\020\n\014EAppTypeTool\020\004"
+  "\022\020\n\014EAppTypeDemo\020\010\022\025\n\021EAppTypeDeprected\020"
+  "\020\022\017\n\013EAppTypeDLC\020 \022\021\n\rEAppTypeGuide\020@\022\023\n"
+  "\016EAppTypeDriver\020\200\001\022\023\n\016EAppTypeConfig\020\200\002\022"
+  "\025\n\020EAppTypeHardware\020\200\004\022\026\n\021EAppTypeFranch"
+  "ise\020\200\010\022\022\n\rEAppTypeVideo\020\200\020\022\023\n\016EAppTypePl"
+  "ugin\020\200 \022\027\n\022EAppTypeMusicAlbum\020\200@\022\024\n\016EApp"
+  "TypeSeries\020\200\200\001\022\023\n\rEAppTypeComic\020\200\200\002\022\022\n\014E"
+  "AppTypeBeta\020\200\200\004\022\030\n\020EAppTypeShortcut\020\200\200\200\200"
+  "\004\022\036\n\021EAppTypeDepotOnly\020\200\200\200\200\370\377\377\377\377\001*\352\001\n EW"
+  "indowsUpdateInstallationImpact\0225\n(EWindo"
+  "wsUpdateInstallationImpact_Unknown\020\377\377\377\377\377"
+  "\377\377\377\377\001\022+\n\'EWindowsUpdateInstallationImpac"
+  "t_Normal\020\000\022*\n&EWindowsUpdateInstallation"
+  "Impact_Minor\020\001\0226\n2EWindowsUpdateInstalla"
+  "tionImpact_ExclusiveHandling\020\002*\352\001\n\034EWind"
+  "owsUpdateRebootBehavior\0221\n$EWindowsUpdat"
+  "eRebootBehavior_Unknown\020\377\377\377\377\377\377\377\377\377\001\0221\n-EW"
+  "indowsUpdateRebootBehavior_NeverNeedsReb"
+  "oot\020\000\0222\n.EWindowsUpdateRebootBehavior_Al"
+  "waysNeedsReboot\020\001\0220\n,EWindowsUpdateReboo"
+  "tBehavior_MightNeedReboot\020\002*\362\001\n\026EExterna"
+  "lSaleEventType\022\"\n\036EExternalSaleEventType"
+  "_Unknown\020\000\022$\n EExternalSaleEventType_Pub"
+  "lisher\020\001\022#\n\037EExternalSaleEventType_Showc"
+  "ase\020\002\022!\n\035EExternalSaleEventType_Region\020\003"
+  "\022 \n\034EExternalSaleEventType_Theme\020\004\022$\n EE"
+  "xternalSaleEventType_Franchise\020\005B#H\001\200\001\001\252"
+  "\002\027OpenSteamworks.Protobuf\200\265\030\001"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_enums_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -430,7 +474,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_enums_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_enums_2eproto = {
-  false, false, 15926, descriptor_table_protodef_enums_2eproto, "enums.proto", 
+  false, false, 17709, descriptor_table_protodef_enums_2eproto, "enums.proto", 
   &descriptor_table_enums_2eproto_once, descriptor_table_enums_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_enums_2eproto::offsets,
   file_level_metadata_enums_2eproto, file_level_enum_descriptors_enums_2eproto, file_level_service_descriptors_enums_2eproto,
@@ -1199,9 +1243,88 @@ bool EOSBranch_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECommunityItemClass_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBrowserGPUStatus_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
   return file_level_enum_descriptors_enums_2eproto[42];
+}
+bool EBrowserGPUStatus_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBrowserFeatureStatus_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[43];
+}
+bool EBrowserFeatureStatus_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGpuDriverId_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[44];
+}
+bool EGpuDriverId_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECommunityItemClass_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[45];
 }
 bool ECommunityItemClass_IsValid(int value) {
   switch (value) {
@@ -1231,7 +1354,7 @@ bool ECommunityItemClass_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESteamDeckCompatibilityFeedback_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[43];
+  return file_level_enum_descriptors_enums_2eproto[46];
 }
 bool ESteamDeckCompatibilityFeedback_IsValid(int value) {
   switch (value) {
@@ -1247,7 +1370,7 @@ bool ESteamDeckCompatibilityFeedback_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProvideDeckFeedbackPreference_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[44];
+  return file_level_enum_descriptors_enums_2eproto[47];
 }
 bool EProvideDeckFeedbackPreference_IsValid(int value) {
   switch (value) {
@@ -1262,7 +1385,7 @@ bool EProvideDeckFeedbackPreference_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ETouchGesture_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[45];
+  return file_level_enum_descriptors_enums_2eproto[48];
 }
 bool ETouchGesture_IsValid(int value) {
   switch (value) {
@@ -1288,7 +1411,7 @@ bool ETouchGesture_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESessionPersistence_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[46];
+  return file_level_enum_descriptors_enums_2eproto[49];
 }
 bool ESessionPersistence_IsValid(int value) {
   switch (value) {
@@ -1303,7 +1426,7 @@ bool ESessionPersistence_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ENewSteamAnnouncementState_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[47];
+  return file_level_enum_descriptors_enums_2eproto[50];
 }
 bool ENewSteamAnnouncementState_IsValid(int value) {
   switch (value) {
@@ -1319,7 +1442,7 @@ bool ENewSteamAnnouncementState_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EForumType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[48];
+  return file_level_enum_descriptors_enums_2eproto[51];
 }
 bool EForumType_IsValid(int value) {
   switch (value) {
@@ -1340,7 +1463,7 @@ bool EForumType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECommentThreadType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[49];
+  return file_level_enum_descriptors_enums_2eproto[52];
 }
 bool ECommentThreadType_IsValid(int value) {
   switch (value) {
@@ -1374,7 +1497,7 @@ bool ECommentThreadType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBroadcastPermission_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[50];
+  return file_level_enum_descriptors_enums_2eproto[53];
 }
 bool EBroadcastPermission_IsValid(int value) {
   switch (value) {
@@ -1391,7 +1514,7 @@ bool EBroadcastPermission_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBroadcastEncoderSetting_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[51];
+  return file_level_enum_descriptors_enums_2eproto[54];
 }
 bool EBroadcastEncoderSetting_IsValid(int value) {
   switch (value) {
@@ -1405,7 +1528,7 @@ bool EBroadcastEncoderSetting_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECloudGamingPlatform_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[52];
+  return file_level_enum_descriptors_enums_2eproto[55];
 }
 bool ECloudGamingPlatform_IsValid(int value) {
   switch (value) {
@@ -1420,7 +1543,7 @@ bool ECloudGamingPlatform_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECompromiseDetectionType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[53];
+  return file_level_enum_descriptors_enums_2eproto[56];
 }
 bool ECompromiseDetectionType_IsValid(int value) {
   switch (value) {
@@ -1428,6 +1551,8 @@ bool ECompromiseDetectionType_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+    case 4:
+    case 5:
       return true;
     default:
       return false;
@@ -1436,7 +1561,7 @@ bool ECompromiseDetectionType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAsyncGameSessionUserState_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[54];
+  return file_level_enum_descriptors_enums_2eproto[57];
 }
 bool EAsyncGameSessionUserState_IsValid(int value) {
   switch (value) {
@@ -1452,7 +1577,7 @@ bool EAsyncGameSessionUserState_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAsyncGameSessionUserVisibility_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[55];
+  return file_level_enum_descriptors_enums_2eproto[58];
 }
 bool EAsyncGameSessionUserVisibility_IsValid(int value) {
   switch (value) {
@@ -1467,7 +1592,7 @@ bool EAsyncGameSessionUserVisibility_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGameRecordingType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[56];
+  return file_level_enum_descriptors_enums_2eproto[59];
 }
 bool EGameRecordingType_IsValid(int value) {
   switch (value) {
@@ -1482,9 +1607,24 @@ bool EGameRecordingType_IsValid(int value) {
   }
 }
 
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EExportCodec_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
+  return file_level_enum_descriptors_enums_2eproto[60];
+}
+bool EExportCodec_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProtoAppType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[57];
+  return file_level_enum_descriptors_enums_2eproto[61];
 }
 bool EProtoAppType_IsValid(int value) {
   switch (value) {
@@ -1516,7 +1656,7 @@ bool EProtoAppType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EWindowsUpdateInstallationImpact_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[58];
+  return file_level_enum_descriptors_enums_2eproto[62];
 }
 bool EWindowsUpdateInstallationImpact_IsValid(int value) {
   switch (value) {
@@ -1532,7 +1672,7 @@ bool EWindowsUpdateInstallationImpact_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EWindowsUpdateRebootBehavior_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[59];
+  return file_level_enum_descriptors_enums_2eproto[63];
 }
 bool EWindowsUpdateRebootBehavior_IsValid(int value) {
   switch (value) {
@@ -1548,7 +1688,7 @@ bool EWindowsUpdateRebootBehavior_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EExternalSaleEventType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_enums_2eproto);
-  return file_level_enum_descriptors_enums_2eproto[60];
+  return file_level_enum_descriptors_enums_2eproto[64];
 }
 bool EExternalSaleEventType_IsValid(int value) {
   switch (value) {

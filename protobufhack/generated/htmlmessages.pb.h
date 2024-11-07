@@ -33,6 +33,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/descriptor.pb.h>
+#include "enums.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_htmlmessages_2eproto
@@ -48,7 +49,7 @@ struct TableStruct_htmlmessages_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[168]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[170]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -380,12 +381,18 @@ extern CMsgPopupHTMLWindowResponseDefaultTypeInternal _CMsgPopupHTMLWindowRespon
 class CMsgPostURL;
 struct CMsgPostURLDefaultTypeInternal;
 extern CMsgPostURLDefaultTypeInternal _CMsgPostURL_default_instance_;
+class CMsgProcessInfoNotification;
+struct CMsgProcessInfoNotificationDefaultTypeInternal;
+extern CMsgProcessInfoNotificationDefaultTypeInternal _CMsgProcessInfoNotification_default_instance_;
 class CMsgReload;
 struct CMsgReloadDefaultTypeInternal;
 extern CMsgReloadDefaultTypeInternal _CMsgReload_default_instance_;
 class CMsgRequestFullScreen;
 struct CMsgRequestFullScreenDefaultTypeInternal;
 extern CMsgRequestFullScreenDefaultTypeInternal _CMsgRequestFullScreen_default_instance_;
+class CMsgRequestProcessInfo;
+struct CMsgRequestProcessInfoDefaultTypeInternal;
+extern CMsgRequestProcessInfoDefaultTypeInternal _CMsgRequestProcessInfo_default_instance_;
 class CMsgResizeGripChanged;
 struct CMsgResizeGripChangedDefaultTypeInternal;
 extern CMsgResizeGripChangedDefaultTypeInternal _CMsgResizeGripChanged_default_instance_;
@@ -669,8 +676,10 @@ template<> ::CMsgPopupCreated* Arena::CreateMaybeMessage<::CMsgPopupCreated>(Are
 template<> ::CMsgPopupHTMLWindow* Arena::CreateMaybeMessage<::CMsgPopupHTMLWindow>(Arena*);
 template<> ::CMsgPopupHTMLWindowResponse* Arena::CreateMaybeMessage<::CMsgPopupHTMLWindowResponse>(Arena*);
 template<> ::CMsgPostURL* Arena::CreateMaybeMessage<::CMsgPostURL>(Arena*);
+template<> ::CMsgProcessInfoNotification* Arena::CreateMaybeMessage<::CMsgProcessInfoNotification>(Arena*);
 template<> ::CMsgReload* Arena::CreateMaybeMessage<::CMsgReload>(Arena*);
 template<> ::CMsgRequestFullScreen* Arena::CreateMaybeMessage<::CMsgRequestFullScreen>(Arena*);
+template<> ::CMsgRequestProcessInfo* Arena::CreateMaybeMessage<::CMsgRequestProcessInfo>(Arena*);
 template<> ::CMsgResizeGripChanged* Arena::CreateMaybeMessage<::CMsgResizeGripChanged>(Arena*);
 template<> ::CMsgRestartJSContext* Arena::CreateMaybeMessage<::CMsgRestartJSContext>(Arena*);
 template<> ::CMsgSavePageToJPEG* Arena::CreateMaybeMessage<::CMsgSavePageToJPEG>(Arena*);
@@ -14174,6 +14183,559 @@ class CMsgFileLoadDialogResponse PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMsgRequestProcessInfo PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgRequestProcessInfo) */ {
+ public:
+  inline CMsgRequestProcessInfo() : CMsgRequestProcessInfo(nullptr) {}
+  virtual ~CMsgRequestProcessInfo();
+  explicit constexpr CMsgRequestProcessInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgRequestProcessInfo(const CMsgRequestProcessInfo& from);
+  CMsgRequestProcessInfo(CMsgRequestProcessInfo&& from) noexcept
+    : CMsgRequestProcessInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgRequestProcessInfo& operator=(const CMsgRequestProcessInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgRequestProcessInfo& operator=(CMsgRequestProcessInfo&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgRequestProcessInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgRequestProcessInfo* internal_default_instance() {
+    return reinterpret_cast<const CMsgRequestProcessInfo*>(
+               &_CMsgRequestProcessInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    70;
+
+  friend void swap(CMsgRequestProcessInfo& a, CMsgRequestProcessInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgRequestProcessInfo* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgRequestProcessInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgRequestProcessInfo* New() const final {
+    return CreateMaybeMessage<CMsgRequestProcessInfo>(nullptr);
+  }
+
+  CMsgRequestProcessInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgRequestProcessInfo>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgRequestProcessInfo& from);
+  void MergeFrom(const CMsgRequestProcessInfo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgRequestProcessInfo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgRequestProcessInfo";
+  }
+  protected:
+  explicit CMsgRequestProcessInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_htmlmessages_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRequestidFieldNumber = 1,
+  };
+  // optional uint64 requestid = 1;
+  bool has_requestid() const;
+  private:
+  bool _internal_has_requestid() const;
+  public:
+  void clear_requestid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 requestid() const;
+  void set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_requestid() const;
+  void _internal_set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgRequestProcessInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 requestid_;
+  friend struct ::TableStruct_htmlmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgProcessInfoNotification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgProcessInfoNotification) */ {
+ public:
+  inline CMsgProcessInfoNotification() : CMsgProcessInfoNotification(nullptr) {}
+  virtual ~CMsgProcessInfoNotification();
+  explicit constexpr CMsgProcessInfoNotification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgProcessInfoNotification(const CMsgProcessInfoNotification& from);
+  CMsgProcessInfoNotification(CMsgProcessInfoNotification&& from) noexcept
+    : CMsgProcessInfoNotification() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgProcessInfoNotification& operator=(const CMsgProcessInfoNotification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgProcessInfoNotification& operator=(CMsgProcessInfoNotification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgProcessInfoNotification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgProcessInfoNotification* internal_default_instance() {
+    return reinterpret_cast<const CMsgProcessInfoNotification*>(
+               &_CMsgProcessInfoNotification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    71;
+
+  friend void swap(CMsgProcessInfoNotification& a, CMsgProcessInfoNotification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgProcessInfoNotification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgProcessInfoNotification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgProcessInfoNotification* New() const final {
+    return CreateMaybeMessage<CMsgProcessInfoNotification>(nullptr);
+  }
+
+  CMsgProcessInfoNotification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgProcessInfoNotification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgProcessInfoNotification& from);
+  void MergeFrom(const CMsgProcessInfoNotification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgProcessInfoNotification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgProcessInfoNotification";
+  }
+  protected:
+  explicit CMsgProcessInfoNotification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_htmlmessages_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRequestidFieldNumber = 1,
+    kGpuStatusFieldNumber = 2,
+    kCanvas2DFieldNumber = 3,
+    kCanvasOopRasterizationFieldNumber = 4,
+    kDirectRenderingDisplayCompositorFieldNumber = 5,
+    kGpuCompositingFieldNumber = 6,
+    kMultipleRasterThreadsFieldNumber = 7,
+    kOpenglFieldNumber = 8,
+    kRasterizationFieldNumber = 9,
+    kRawDrawFieldNumber = 10,
+    kSkiaGraphiteFieldNumber = 11,
+    kVideoDecodeFieldNumber = 13,
+    kVideoEncodeFieldNumber = 14,
+    kVulkanFieldNumber = 15,
+    kWebglFieldNumber = 16,
+    kWebgl2FieldNumber = 17,
+    kWebgpuFieldNumber = 18,
+    kWebnnFieldNumber = 19,
+  };
+  // optional uint64 requestid = 1;
+  bool has_requestid() const;
+  private:
+  bool _internal_has_requestid() const;
+  public:
+  void clear_requestid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 requestid() const;
+  void set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_requestid() const;
+  void _internal_set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional .EBrowserGPUStatus gpu_status = 2 [default = EBrowserGPUStatus_Invalid];
+  bool has_gpu_status() const;
+  private:
+  bool _internal_has_gpu_status() const;
+  public:
+  void clear_gpu_status();
+  ::EBrowserGPUStatus gpu_status() const;
+  void set_gpu_status(::EBrowserGPUStatus value);
+  private:
+  ::EBrowserGPUStatus _internal_gpu_status() const;
+  void _internal_set_gpu_status(::EBrowserGPUStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus canvas_2d = 3 [default = EBrowserFeatureStatus_Invalid];
+  bool has_canvas_2d() const;
+  private:
+  bool _internal_has_canvas_2d() const;
+  public:
+  void clear_canvas_2d();
+  ::EBrowserFeatureStatus canvas_2d() const;
+  void set_canvas_2d(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_canvas_2d() const;
+  void _internal_set_canvas_2d(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus canvas_oop_rasterization = 4 [default = EBrowserFeatureStatus_Invalid];
+  bool has_canvas_oop_rasterization() const;
+  private:
+  bool _internal_has_canvas_oop_rasterization() const;
+  public:
+  void clear_canvas_oop_rasterization();
+  ::EBrowserFeatureStatus canvas_oop_rasterization() const;
+  void set_canvas_oop_rasterization(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_canvas_oop_rasterization() const;
+  void _internal_set_canvas_oop_rasterization(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus direct_rendering_display_compositor = 5 [default = EBrowserFeatureStatus_Invalid];
+  bool has_direct_rendering_display_compositor() const;
+  private:
+  bool _internal_has_direct_rendering_display_compositor() const;
+  public:
+  void clear_direct_rendering_display_compositor();
+  ::EBrowserFeatureStatus direct_rendering_display_compositor() const;
+  void set_direct_rendering_display_compositor(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_direct_rendering_display_compositor() const;
+  void _internal_set_direct_rendering_display_compositor(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus gpu_compositing = 6 [default = EBrowserFeatureStatus_Invalid];
+  bool has_gpu_compositing() const;
+  private:
+  bool _internal_has_gpu_compositing() const;
+  public:
+  void clear_gpu_compositing();
+  ::EBrowserFeatureStatus gpu_compositing() const;
+  void set_gpu_compositing(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_gpu_compositing() const;
+  void _internal_set_gpu_compositing(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus multiple_raster_threads = 7 [default = EBrowserFeatureStatus_Invalid];
+  bool has_multiple_raster_threads() const;
+  private:
+  bool _internal_has_multiple_raster_threads() const;
+  public:
+  void clear_multiple_raster_threads();
+  ::EBrowserFeatureStatus multiple_raster_threads() const;
+  void set_multiple_raster_threads(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_multiple_raster_threads() const;
+  void _internal_set_multiple_raster_threads(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus opengl = 8 [default = EBrowserFeatureStatus_Invalid];
+  bool has_opengl() const;
+  private:
+  bool _internal_has_opengl() const;
+  public:
+  void clear_opengl();
+  ::EBrowserFeatureStatus opengl() const;
+  void set_opengl(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_opengl() const;
+  void _internal_set_opengl(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus rasterization = 9 [default = EBrowserFeatureStatus_Invalid];
+  bool has_rasterization() const;
+  private:
+  bool _internal_has_rasterization() const;
+  public:
+  void clear_rasterization();
+  ::EBrowserFeatureStatus rasterization() const;
+  void set_rasterization(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_rasterization() const;
+  void _internal_set_rasterization(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus raw_draw = 10 [default = EBrowserFeatureStatus_Invalid];
+  bool has_raw_draw() const;
+  private:
+  bool _internal_has_raw_draw() const;
+  public:
+  void clear_raw_draw();
+  ::EBrowserFeatureStatus raw_draw() const;
+  void set_raw_draw(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_raw_draw() const;
+  void _internal_set_raw_draw(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus skia_graphite = 11 [default = EBrowserFeatureStatus_Invalid];
+  bool has_skia_graphite() const;
+  private:
+  bool _internal_has_skia_graphite() const;
+  public:
+  void clear_skia_graphite();
+  ::EBrowserFeatureStatus skia_graphite() const;
+  void set_skia_graphite(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_skia_graphite() const;
+  void _internal_set_skia_graphite(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus video_decode = 13 [default = EBrowserFeatureStatus_Invalid];
+  bool has_video_decode() const;
+  private:
+  bool _internal_has_video_decode() const;
+  public:
+  void clear_video_decode();
+  ::EBrowserFeatureStatus video_decode() const;
+  void set_video_decode(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_video_decode() const;
+  void _internal_set_video_decode(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus video_encode = 14 [default = EBrowserFeatureStatus_Invalid];
+  bool has_video_encode() const;
+  private:
+  bool _internal_has_video_encode() const;
+  public:
+  void clear_video_encode();
+  ::EBrowserFeatureStatus video_encode() const;
+  void set_video_encode(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_video_encode() const;
+  void _internal_set_video_encode(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus vulkan = 15 [default = EBrowserFeatureStatus_Invalid];
+  bool has_vulkan() const;
+  private:
+  bool _internal_has_vulkan() const;
+  public:
+  void clear_vulkan();
+  ::EBrowserFeatureStatus vulkan() const;
+  void set_vulkan(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_vulkan() const;
+  void _internal_set_vulkan(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus webgl = 16 [default = EBrowserFeatureStatus_Invalid];
+  bool has_webgl() const;
+  private:
+  bool _internal_has_webgl() const;
+  public:
+  void clear_webgl();
+  ::EBrowserFeatureStatus webgl() const;
+  void set_webgl(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_webgl() const;
+  void _internal_set_webgl(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus webgl2 = 17 [default = EBrowserFeatureStatus_Invalid];
+  bool has_webgl2() const;
+  private:
+  bool _internal_has_webgl2() const;
+  public:
+  void clear_webgl2();
+  ::EBrowserFeatureStatus webgl2() const;
+  void set_webgl2(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_webgl2() const;
+  void _internal_set_webgl2(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus webgpu = 18 [default = EBrowserFeatureStatus_Invalid];
+  bool has_webgpu() const;
+  private:
+  bool _internal_has_webgpu() const;
+  public:
+  void clear_webgpu();
+  ::EBrowserFeatureStatus webgpu() const;
+  void set_webgpu(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_webgpu() const;
+  void _internal_set_webgpu(::EBrowserFeatureStatus value);
+  public:
+
+  // optional .EBrowserFeatureStatus webnn = 19 [default = EBrowserFeatureStatus_Invalid];
+  bool has_webnn() const;
+  private:
+  bool _internal_has_webnn() const;
+  public:
+  void clear_webnn();
+  ::EBrowserFeatureStatus webnn() const;
+  void set_webnn(::EBrowserFeatureStatus value);
+  private:
+  ::EBrowserFeatureStatus _internal_webnn() const;
+  void _internal_set_webnn(::EBrowserFeatureStatus value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgProcessInfoNotification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 requestid_;
+  int gpu_status_;
+  int canvas_2d_;
+  int canvas_oop_rasterization_;
+  int direct_rendering_display_compositor_;
+  int gpu_compositing_;
+  int multiple_raster_threads_;
+  int opengl_;
+  int rasterization_;
+  int raw_draw_;
+  int skia_graphite_;
+  int video_decode_;
+  int video_encode_;
+  int vulkan_;
+  int webgl_;
+  int webgl2_;
+  int webgpu_;
+  int webnn_;
+  friend struct ::TableStruct_htmlmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgShowToolTip PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgShowToolTip) */ {
  public:
@@ -14224,7 +14786,7 @@ class CMsgShowToolTip PROTOBUF_FINAL :
                &_CMsgShowToolTip_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    72;
 
   friend void swap(CMsgShowToolTip& a, CMsgShowToolTip& b) {
     a.Swap(&b);
@@ -14395,7 +14957,7 @@ class CMsgUpdateToolTip PROTOBUF_FINAL :
                &_CMsgUpdateToolTip_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    73;
 
   friend void swap(CMsgUpdateToolTip& a, CMsgUpdateToolTip& b) {
     a.Swap(&b);
@@ -14566,7 +15128,7 @@ class CMsgHideToolTip PROTOBUF_FINAL :
                &_CMsgHideToolTip_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    74;
 
   friend void swap(CMsgHideToolTip& a, CMsgHideToolTip& b) {
     a.Swap(&b);
@@ -14715,7 +15277,7 @@ class CMsgSearchResults PROTOBUF_FINAL :
                &_CMsgSearchResults_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    75;
 
   friend void swap(CMsgSearchResults& a, CMsgSearchResults& b) {
     a.Swap(&b);
@@ -14894,7 +15456,7 @@ class CMsgClose PROTOBUF_FINAL :
                &_CMsgClose_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    76;
 
   friend void swap(CMsgClose& a, CMsgClose& b) {
     a.Swap(&b);
@@ -15043,7 +15605,7 @@ class CMsgSetSharedPaintBuffers PROTOBUF_FINAL :
                &_CMsgSetSharedPaintBuffers_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    77;
 
   friend void swap(CMsgSetSharedPaintBuffers& a, CMsgSetSharedPaintBuffers& b) {
     a.Swap(&b);
@@ -15267,7 +15829,7 @@ class CMsgAckSharedPaintBuffers PROTOBUF_FINAL :
                &_CMsgAckSharedPaintBuffers_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    78;
 
   friend void swap(CMsgAckSharedPaintBuffers& a, CMsgAckSharedPaintBuffers& b) {
     a.Swap(&b);
@@ -15416,7 +15978,7 @@ class CMsgNeedsPaint PROTOBUF_FINAL :
                &_CMsgNeedsPaint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    79;
 
   friend void swap(CMsgNeedsPaint& a, CMsgNeedsPaint& b) {
     a.Swap(&b);
@@ -15670,7 +16232,7 @@ class CMsgComboNeedsPaint PROTOBUF_FINAL :
                &_CMsgComboNeedsPaint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    80;
 
   friend void swap(CMsgComboNeedsPaint& a, CMsgComboNeedsPaint& b) {
     a.Swap(&b);
@@ -15894,7 +16456,7 @@ class CMsgNeedsSharedTexturePaint PROTOBUF_FINAL :
                &_CMsgNeedsSharedTexturePaint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    81;
 
   friend void swap(CMsgNeedsSharedTexturePaint& a, CMsgNeedsSharedTexturePaint& b) {
     a.Swap(&b);
@@ -16148,7 +16710,7 @@ class CMsgGetZoom PROTOBUF_FINAL :
                &_CMsgGetZoom_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    82;
 
   friend void swap(CMsgGetZoom& a, CMsgGetZoom& b) {
     a.Swap(&b);
@@ -16297,7 +16859,7 @@ class CMsgGetZoomResponse PROTOBUF_FINAL :
                &_CMsgGetZoomResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    83;
 
   friend void swap(CMsgGetZoomResponse& a, CMsgGetZoomResponse& b) {
     a.Swap(&b);
@@ -16461,7 +17023,7 @@ class CMsgLinkAtPosition PROTOBUF_FINAL :
                &_CMsgLinkAtPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    84;
 
   friend void swap(CMsgLinkAtPosition& a, CMsgLinkAtPosition& b) {
     a.Swap(&b);
@@ -16640,7 +17202,7 @@ class CMsgLinkAtPositionResponse PROTOBUF_FINAL :
                &_CMsgLinkAtPositionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    85;
 
   friend void swap(CMsgLinkAtPositionResponse& a, CMsgLinkAtPositionResponse& b) {
     a.Swap(&b);
@@ -16871,7 +17433,7 @@ class CMsgZoomToElementAtPosition PROTOBUF_FINAL :
                &_CMsgZoomToElementAtPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    86;
 
   friend void swap(CMsgZoomToElementAtPosition& a, CMsgZoomToElementAtPosition& b) {
     a.Swap(&b);
@@ -17050,7 +17612,7 @@ class CMsgZoomToElementAtPositionResponse PROTOBUF_FINAL :
                &_CMsgZoomToElementAtPositionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    87;
 
   friend void swap(CMsgZoomToElementAtPositionResponse& a, CMsgZoomToElementAtPositionResponse& b) {
     a.Swap(&b);
@@ -17229,7 +17791,7 @@ class CMsgScalePageToValue PROTOBUF_FINAL :
                &_CMsgScalePageToValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    88;
 
   friend void swap(CMsgScalePageToValue& a, CMsgScalePageToValue& b) {
     a.Swap(&b);
@@ -17423,7 +17985,7 @@ class CMsgForcePopupsToDirectHWND PROTOBUF_FINAL :
                &_CMsgForcePopupsToDirectHWND_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    89;
 
   friend void swap(CMsgForcePopupsToDirectHWND& a, CMsgForcePopupsToDirectHWND& b) {
     a.Swap(&b);
@@ -17587,7 +18149,7 @@ class CMsgScalePageToValueResponse PROTOBUF_FINAL :
                &_CMsgScalePageToValueResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    90;
 
   friend void swap(CMsgScalePageToValueResponse& a, CMsgScalePageToValueResponse& b) {
     a.Swap(&b);
@@ -17751,7 +18313,7 @@ class CMsgSavePageToJPEG PROTOBUF_FINAL :
                &_CMsgSavePageToJPEG_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    91;
 
   friend void swap(CMsgSavePageToJPEG& a, CMsgSavePageToJPEG& b) {
     a.Swap(&b);
@@ -17974,7 +18536,7 @@ class CMsgSavePageToJPEGResponse PROTOBUF_FINAL :
                &_CMsgSavePageToJPEGResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    92;
 
   friend void swap(CMsgSavePageToJPEGResponse& a, CMsgSavePageToJPEGResponse& b) {
     a.Swap(&b);
@@ -18167,7 +18729,7 @@ class CMsgJSAlert PROTOBUF_FINAL :
                &_CMsgJSAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    93;
 
   friend void swap(CMsgJSAlert& a, CMsgJSAlert& b) {
     a.Swap(&b);
@@ -18338,7 +18900,7 @@ class CMsgJSConfirm PROTOBUF_FINAL :
                &_CMsgJSConfirm_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    94;
 
   friend void swap(CMsgJSConfirm& a, CMsgJSConfirm& b) {
     a.Swap(&b);
@@ -18509,7 +19071,7 @@ class CMsgJSDialogResponse PROTOBUF_FINAL :
                &_CMsgJSDialogResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    95;
 
   friend void swap(CMsgJSDialogResponse& a, CMsgJSDialogResponse& b) {
     a.Swap(&b);
@@ -18673,7 +19235,7 @@ class CMsgCanGoBackAndForward PROTOBUF_FINAL :
                &_CMsgCanGoBackAndForward_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    96;
 
   friend void swap(CMsgCanGoBackAndForward& a, CMsgCanGoBackAndForward& b) {
     a.Swap(&b);
@@ -18852,7 +19414,7 @@ class CMsgOpenSteamURL PROTOBUF_FINAL :
                &_CMsgOpenSteamURL_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    97;
 
   friend void swap(CMsgOpenSteamURL& a, CMsgOpenSteamURL& b) {
     a.Swap(&b);
@@ -19045,7 +19607,7 @@ class CMsgSetCookie PROTOBUF_FINAL :
                &_CMsgSetCookie_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    96;
+    98;
 
   friend void swap(CMsgSetCookie& a, CMsgSetCookie& b) {
     a.Swap(&b);
@@ -19327,7 +19889,7 @@ class CMsgSetTargetFrameRate PROTOBUF_FINAL :
                &_CMsgSetTargetFrameRate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    99;
 
   friend void swap(CMsgSetTargetFrameRate& a, CMsgSetTargetFrameRate& b) {
     a.Swap(&b);
@@ -19491,7 +20053,7 @@ class CMsgPauseRepaint PROTOBUF_FINAL :
                &_CMsgPauseRepaint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    100;
 
   friend void swap(CMsgPauseRepaint& a, CMsgPauseRepaint& b) {
     a.Swap(&b);
@@ -19640,7 +20202,7 @@ class CMsgFullRepaint PROTOBUF_FINAL :
                &_CMsgFullRepaint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    101;
 
   friend void swap(CMsgFullRepaint& a, CMsgFullRepaint& b) {
     a.Swap(&b);
@@ -19789,7 +20351,7 @@ class CMsgRequestFullScreen PROTOBUF_FINAL :
                &_CMsgRequestFullScreen_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    102;
 
   friend void swap(CMsgRequestFullScreen& a, CMsgRequestFullScreen& b) {
     a.Swap(&b);
@@ -19938,7 +20500,7 @@ class CMsgExitFullScreen PROTOBUF_FINAL :
                &_CMsgExitFullScreen_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    103;
 
   friend void swap(CMsgExitFullScreen& a, CMsgExitFullScreen& b) {
     a.Swap(&b);
@@ -20087,7 +20649,7 @@ class CMsgToggleFindInPageDialog PROTOBUF_FINAL :
                &_CMsgToggleFindInPageDialog_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    104;
 
   friend void swap(CMsgToggleFindInPageDialog& a, CMsgToggleFindInPageDialog& b) {
     a.Swap(&b);
@@ -20236,7 +20798,7 @@ class CMsgSetPIDShuttingDown PROTOBUF_FINAL :
                &_CMsgSetPIDShuttingDown_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    105;
 
   friend void swap(CMsgSetPIDShuttingDown& a, CMsgSetPIDShuttingDown& b) {
     a.Swap(&b);
@@ -20385,7 +20947,7 @@ class CMsgDisableBackgroundThrottling PROTOBUF_FINAL :
                &_CMsgDisableBackgroundThrottling_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    106;
 
   friend void swap(CMsgDisableBackgroundThrottling& a, CMsgDisableBackgroundThrottling& b) {
     a.Swap(&b);
@@ -20534,7 +21096,7 @@ class CMsgAckPIDShuttingDown PROTOBUF_FINAL :
                &_CMsgAckPIDShuttingDown_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    105;
+    107;
 
   friend void swap(CMsgAckPIDShuttingDown& a, CMsgAckPIDShuttingDown& b) {
     a.Swap(&b);
@@ -20683,7 +21245,7 @@ class CMsgGetCookiesForURL PROTOBUF_FINAL :
                &_CMsgGetCookiesForURL_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    106;
+    108;
 
   friend void swap(CMsgGetCookiesForURL& a, CMsgGetCookiesForURL& b) {
     a.Swap(&b);
@@ -20854,7 +21416,7 @@ class CCookie PROTOBUF_FINAL :
                &_CCookie_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    107;
+    109;
 
   friend void swap(CCookie& a, CCookie& b) {
     a.Swap(&b);
@@ -21076,7 +21638,7 @@ class CMsgGetCookiesForURLResponse PROTOBUF_FINAL :
                &_CMsgGetCookiesForURLResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    108;
+    110;
 
   friend void swap(CMsgGetCookiesForURLResponse& a, CMsgGetCookiesForURLResponse& b) {
     a.Swap(&b);
@@ -21267,7 +21829,7 @@ class CMsgNodeHasFocus PROTOBUF_FINAL :
                &_CMsgNodeHasFocus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    109;
+    111;
 
   friend void swap(CMsgNodeHasFocus& a, CMsgNodeHasFocus& b) {
     a.Swap(&b);
@@ -21549,7 +22111,7 @@ class CMsgZoomToFocusedElement PROTOBUF_FINAL :
                &_CMsgZoomToFocusedElement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    110;
+    112;
 
   friend void swap(CMsgZoomToFocusedElement& a, CMsgZoomToFocusedElement& b) {
     a.Swap(&b);
@@ -21698,7 +22260,7 @@ class CMsgFocusedNodeText PROTOBUF_FINAL :
                &_CMsgFocusedNodeText_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    111;
+    113;
 
   friend void swap(CMsgFocusedNodeText& a, CMsgFocusedNodeText& b) {
     a.Swap(&b);
@@ -21847,7 +22409,7 @@ class CMsgFocusedNodeTextResponse PROTOBUF_FINAL :
                &_CMsgFocusedNodeTextResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    112;
+    114;
 
   friend void swap(CMsgFocusedNodeTextResponse& a, CMsgFocusedNodeTextResponse& b) {
     a.Swap(&b);
@@ -22018,7 +22580,7 @@ class CMsgBuildID PROTOBUF_FINAL :
                &_CMsgBuildID_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    113;
+    115;
 
   friend void swap(CMsgBuildID& a, CMsgBuildID& b) {
     a.Swap(&b);
@@ -22167,7 +22729,7 @@ class CMsgOpenDevTools PROTOBUF_FINAL :
                &_CMsgOpenDevTools_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    114;
+    116;
 
   friend void swap(CMsgOpenDevTools& a, CMsgOpenDevTools& b) {
     a.Swap(&b);
@@ -22316,7 +22878,7 @@ class CMsgCloseDevTools PROTOBUF_FINAL :
                &_CMsgCloseDevTools_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    115;
+    117;
 
   friend void swap(CMsgCloseDevTools& a, CMsgCloseDevTools& b) {
     a.Swap(&b);
@@ -22465,7 +23027,7 @@ class CMsgUnlockH264 PROTOBUF_FINAL :
                &_CMsgUnlockH264_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    116;
+    118;
 
   friend void swap(CMsgUnlockH264& a, CMsgUnlockH264& b) {
     a.Swap(&b);
@@ -22636,7 +23198,7 @@ class CMsgScreenInformationChanged PROTOBUF_FINAL :
                &_CMsgScreenInformationChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    117;
+    119;
 
   friend void swap(CMsgScreenInformationChanged& a, CMsgScreenInformationChanged& b) {
     a.Swap(&b);
@@ -22935,7 +23497,7 @@ class CMsgClearAllCookies PROTOBUF_FINAL :
                &_CMsgClearAllCookies_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    118;
+    120;
 
   friend void swap(CMsgClearAllCookies& a, CMsgClearAllCookies& b) {
     a.Swap(&b);
@@ -23084,7 +23646,7 @@ class CMsgScreenDPI PROTOBUF_FINAL :
                &_CMsgScreenDPI_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    119;
+    121;
 
   friend void swap(CMsgScreenDPI& a, CMsgScreenDPI& b) {
     a.Swap(&b);
@@ -23248,7 +23810,7 @@ class CMsgAckScreenDPI PROTOBUF_FINAL :
                &_CMsgAckScreenDPI_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    120;
+    122;
 
   friend void swap(CMsgAckScreenDPI& a, CMsgAckScreenDPI& b) {
     a.Swap(&b);
@@ -23397,7 +23959,7 @@ class CMsgAuthedSteamDomains PROTOBUF_FINAL :
                &_CMsgAuthedSteamDomains_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    121;
+    123;
 
   friend void swap(CMsgAuthedSteamDomains& a, CMsgAuthedSteamDomains& b) {
     a.Swap(&b);
@@ -23556,7 +24118,7 @@ class CMsgSteamAuthNeeded PROTOBUF_FINAL :
                &_CMsgSteamAuthNeeded_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    122;
+    124;
 
   friend void swap(CMsgSteamAuthNeeded& a, CMsgSteamAuthNeeded& b) {
     a.Swap(&b);
@@ -23705,7 +24267,7 @@ class CMsgSteamAuthCookiesSet PROTOBUF_FINAL :
                &_CMsgSteamAuthCookiesSet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    123;
+    125;
 
   friend void swap(CMsgSteamAuthCookiesSet& a, CMsgSteamAuthCookiesSet& b) {
     a.Swap(&b);
@@ -23854,7 +24416,7 @@ class CMsgJSRegisterMethod PROTOBUF_FINAL :
                &_CMsgJSRegisterMethod_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    124;
+    126;
 
   friend void swap(CMsgJSRegisterMethod& a, CMsgJSRegisterMethod& b) {
     a.Swap(&b);
@@ -24040,7 +24602,7 @@ class CMsgJSValue_JSObjectProperty PROTOBUF_FINAL :
                &_CMsgJSValue_JSObjectProperty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    125;
+    127;
 
   friend void swap(CMsgJSValue_JSObjectProperty& a, CMsgJSValue_JSObjectProperty& b) {
     a.Swap(&b);
@@ -24216,7 +24778,7 @@ class CMsgJSValue PROTOBUF_FINAL :
                &_CMsgJSValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    126;
+    128;
 
   friend void swap(CMsgJSValue& a, CMsgJSValue& b) {
     a.Swap(&b);
@@ -24541,7 +25103,7 @@ class CMsgJSMethodCall PROTOBUF_FINAL :
                &_CMsgJSMethodCall_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    127;
+    129;
 
   friend void swap(CMsgJSMethodCall& a, CMsgJSMethodCall& b) {
     a.Swap(&b);
@@ -24747,7 +25309,7 @@ class CMsgJSExecuteCallback PROTOBUF_FINAL :
                &_CMsgJSExecuteCallback_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    128;
+    130;
 
   friend void swap(CMsgJSExecuteCallback& a, CMsgJSExecuteCallback& b) {
     a.Swap(&b);
@@ -24946,7 +25508,7 @@ class CMsgJSExecutePromise PROTOBUF_FINAL :
                &_CMsgJSExecutePromise_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    129;
+    131;
 
   friend void swap(CMsgJSExecutePromise& a, CMsgJSExecutePromise& b) {
     a.Swap(&b);
@@ -25167,7 +25729,7 @@ class CMsgJSReleaseCallback PROTOBUF_FINAL :
                &_CMsgJSReleaseCallback_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    130;
+    132;
 
   friend void swap(CMsgJSReleaseCallback& a, CMsgJSReleaseCallback& b) {
     a.Swap(&b);
@@ -25346,7 +25908,7 @@ class CMsgJSRaiseException PROTOBUF_FINAL :
                &_CMsgJSRaiseException_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    131;
+    133;
 
   friend void swap(CMsgJSRaiseException& a, CMsgJSRaiseException& b) {
     a.Swap(&b);
@@ -25532,7 +26094,7 @@ class CMsgLoadLocalization PROTOBUF_FINAL :
                &_CMsgLoadLocalization_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    132;
+    134;
 
   friend void swap(CMsgLoadLocalization& a, CMsgLoadLocalization& b) {
     a.Swap(&b);
@@ -25725,7 +26287,7 @@ class CMsgNotifyUserActivation PROTOBUF_FINAL :
                &_CMsgNotifyUserActivation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    133;
+    135;
 
   friend void swap(CMsgNotifyUserActivation& a, CMsgNotifyUserActivation& b) {
     a.Swap(&b);
@@ -25874,7 +26436,7 @@ class CMsgSetNetFakeLocalSystemState PROTOBUF_FINAL :
                &_CMsgSetNetFakeLocalSystemState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    134;
+    136;
 
   friend void swap(CMsgSetNetFakeLocalSystemState& a, CMsgSetNetFakeLocalSystemState& b) {
     a.Swap(&b);
@@ -26023,7 +26585,7 @@ class CMsgDraggableRegionsChanged_DraggableRects PROTOBUF_FINAL :
                &_CMsgDraggableRegionsChanged_DraggableRects_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    135;
+    137;
 
   friend void swap(CMsgDraggableRegionsChanged_DraggableRects& a, CMsgDraggableRegionsChanged_DraggableRects& b) {
     a.Swap(&b);
@@ -26247,7 +26809,7 @@ class CMsgDraggableRegionsChanged PROTOBUF_FINAL :
                &_CMsgDraggableRegionsChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    136;
+    138;
 
   friend void swap(CMsgDraggableRegionsChanged& a, CMsgDraggableRegionsChanged& b) {
     a.Swap(&b);
@@ -26418,7 +26980,7 @@ class CMsgResizeGripChanged PROTOBUF_FINAL :
                &_CMsgResizeGripChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    137;
+    139;
 
   friend void swap(CMsgResizeGripChanged& a, CMsgResizeGripChanged& b) {
     a.Swap(&b);
@@ -26597,7 +27159,7 @@ class CMsgSetWindowPosition PROTOBUF_FINAL :
                &_CMsgSetWindowPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    138;
+    140;
 
   friend void swap(CMsgSetWindowPosition& a, CMsgSetWindowPosition& b) {
     a.Swap(&b);
@@ -26866,7 +27428,7 @@ class CMsgShowWindow PROTOBUF_FINAL :
                &_CMsgShowWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    139;
+    141;
 
   friend void swap(CMsgShowWindow& a, CMsgShowWindow& b) {
     a.Swap(&b);
@@ -27015,7 +27577,7 @@ class CMsgHideWindow PROTOBUF_FINAL :
                &_CMsgHideWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    140;
+    142;
 
   friend void swap(CMsgHideWindow& a, CMsgHideWindow& b) {
     a.Swap(&b);
@@ -27164,7 +27726,7 @@ class CMsgBringWindowToFront PROTOBUF_FINAL :
                &_CMsgBringWindowToFront_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    141;
+    143;
 
   friend void swap(CMsgBringWindowToFront& a, CMsgBringWindowToFront& b) {
     a.Swap(&b);
@@ -27313,7 +27875,7 @@ class CMsgSetForegroundWindow PROTOBUF_FINAL :
                &_CMsgSetForegroundWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    142;
+    144;
 
   friend void swap(CMsgSetForegroundWindow& a, CMsgSetForegroundWindow& b) {
     a.Swap(&b);
@@ -27462,7 +28024,7 @@ class CMsgMaximizeRestoreWindow PROTOBUF_FINAL :
                &_CMsgMaximizeRestoreWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    143;
+    145;
 
   friend void swap(CMsgMaximizeRestoreWindow& a, CMsgMaximizeRestoreWindow& b) {
     a.Swap(&b);
@@ -27611,7 +28173,7 @@ class CMsgMinimizeWindow PROTOBUF_FINAL :
                &_CMsgMinimizeWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    144;
+    146;
 
   friend void swap(CMsgMinimizeWindow& a, CMsgMinimizeWindow& b) {
     a.Swap(&b);
@@ -27760,7 +28322,7 @@ class CMsgShowBrowserContextMenu_ContextCommand PROTOBUF_FINAL :
                &_CMsgShowBrowserContextMenu_ContextCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    145;
+    147;
 
   friend void swap(CMsgShowBrowserContextMenu_ContextCommand& a, CMsgShowBrowserContextMenu_ContextCommand& b) {
     a.Swap(&b);
@@ -27931,7 +28493,7 @@ class CMsgShowBrowserContextMenu PROTOBUF_FINAL :
                &_CMsgShowBrowserContextMenu_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    146;
+    148;
 
   friend void swap(CMsgShowBrowserContextMenu& a, CMsgShowBrowserContextMenu& b) {
     a.Swap(&b);
@@ -28272,7 +28834,7 @@ class CMsgHandleContextMenuCommand PROTOBUF_FINAL :
                &_CMsgHandleContextMenuCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    147;
+    149;
 
   friend void swap(CMsgHandleContextMenuCommand& a, CMsgHandleContextMenuCommand& b) {
     a.Swap(&b);
@@ -28436,7 +28998,7 @@ class CMsgTouchGesture PROTOBUF_FINAL :
                &_CMsgTouchGesture_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    148;
+    150;
 
   friend void swap(CMsgTouchGesture& a, CMsgTouchGesture& b) {
     a.Swap(&b);
@@ -28705,7 +29267,7 @@ class CMsgSetTouchGesturesToCancel PROTOBUF_FINAL :
                &_CMsgSetTouchGesturesToCancel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    149;
+    151;
 
   friend void swap(CMsgSetTouchGesturesToCancel& a, CMsgSetTouchGesturesToCancel& b) {
     a.Swap(&b);
@@ -28878,7 +29440,7 @@ class CMsgImeSetComposition PROTOBUF_FINAL :
                &_CMsgImeSetComposition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    150;
+    152;
 
   friend void swap(CMsgImeSetComposition& a, CMsgImeSetComposition& b) {
     a.Swap(&b);
@@ -29049,7 +29611,7 @@ class CMsgImeCommitText PROTOBUF_FINAL :
                &_CMsgImeCommitText_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    151;
+    153;
 
   friend void swap(CMsgImeCommitText& a, CMsgImeCommitText& b) {
     a.Swap(&b);
@@ -29220,7 +29782,7 @@ class CMsgImeCancelComposition PROTOBUF_FINAL :
                &_CMsgImeCancelComposition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    152;
+    154;
 
   friend void swap(CMsgImeCancelComposition& a, CMsgImeCancelComposition& b) {
     a.Swap(&b);
@@ -29369,7 +29931,7 @@ class CMsgImeCompositionRangeChanged PROTOBUF_FINAL :
                &_CMsgImeCompositionRangeChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    153;
+    155;
 
   friend void swap(CMsgImeCompositionRangeChanged& a, CMsgImeCompositionRangeChanged& b) {
     a.Swap(&b);
@@ -29548,7 +30110,7 @@ class CMsgInspectElement PROTOBUF_FINAL :
                &_CMsgInspectElement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    154;
+    156;
 
   friend void swap(CMsgInspectElement& a, CMsgInspectElement& b) {
     a.Swap(&b);
@@ -29727,7 +30289,7 @@ class CMsgDisableF5 PROTOBUF_FINAL :
                &_CMsgDisableF5_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    155;
+    157;
 
   friend void swap(CMsgDisableF5& a, CMsgDisableF5& b) {
     a.Swap(&b);
@@ -29891,7 +30453,7 @@ class CMsgStartDownload PROTOBUF_FINAL :
                &_CMsgStartDownload_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    156;
+    158;
 
   friend void swap(CMsgStartDownload& a, CMsgStartDownload& b) {
     a.Swap(&b);
@@ -30062,7 +30624,7 @@ class CMsgSetWindowStackingOrder PROTOBUF_FINAL :
                &_CMsgSetWindowStackingOrder_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    157;
+    159;
 
   friend void swap(CMsgSetWindowStackingOrder& a, CMsgSetWindowStackingOrder& b) {
     a.Swap(&b);
@@ -30226,7 +30788,7 @@ class CMsgBrowserViewPostMessageToParentRequest PROTOBUF_FINAL :
                &_CMsgBrowserViewPostMessageToParentRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    158;
+    160;
 
   friend void swap(CMsgBrowserViewPostMessageToParentRequest& a, CMsgBrowserViewPostMessageToParentRequest& b) {
     a.Swap(&b);
@@ -30441,7 +31003,7 @@ class CMsgBlockedRequest PROTOBUF_FINAL :
                &_CMsgBlockedRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    159;
+    161;
 
   friend void swap(CMsgBlockedRequest& a, CMsgBlockedRequest& b) {
     a.Swap(&b);
@@ -30612,7 +31174,7 @@ class CMsgBrowserFocusChanged PROTOBUF_FINAL :
                &_CMsgBrowserFocusChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    160;
+    162;
 
   friend void swap(CMsgBrowserFocusChanged& a, CMsgBrowserFocusChanged& b) {
     a.Swap(&b);
@@ -30776,7 +31338,7 @@ class CMsgSetProtocolBlockList PROTOBUF_FINAL :
                &_CMsgSetProtocolBlockList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    161;
+    163;
 
   friend void swap(CMsgSetProtocolBlockList& a, CMsgSetProtocolBlockList& b) {
     a.Swap(&b);
@@ -30947,7 +31509,7 @@ class CMsgSetForceDeviceScaleFactors PROTOBUF_FINAL :
                &_CMsgSetForceDeviceScaleFactors_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    162;
+    164;
 
   friend void swap(CMsgSetForceDeviceScaleFactors& a, CMsgSetForceDeviceScaleFactors& b) {
     a.Swap(&b);
@@ -31111,7 +31673,7 @@ class CMsgSetUIMode PROTOBUF_FINAL :
                &_CMsgSetUIMode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    163;
+    165;
 
   friend void swap(CMsgSetUIMode& a, CMsgSetUIMode& b) {
     a.Swap(&b);
@@ -31260,7 +31822,7 @@ class CMsgSetSteamBetaName PROTOBUF_FINAL :
                &_CMsgSetSteamBetaName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    164;
+    166;
 
   friend void swap(CMsgSetSteamBetaName& a, CMsgSetSteamBetaName& b) {
     a.Swap(&b);
@@ -31416,7 +31978,7 @@ class CMsgPopupCreated PROTOBUF_FINAL :
                &_CMsgPopupCreated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    165;
+    167;
 
   friend void swap(CMsgPopupCreated& a, CMsgPopupCreated& b) {
     a.Swap(&b);
@@ -31565,7 +32127,7 @@ class CMsgSetVRKeyboardVisibility PROTOBUF_FINAL :
                &_CMsgSetVRKeyboardVisibility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    166;
+    168;
 
   friend void swap(CMsgSetVRKeyboardVisibility& a, CMsgSetVRKeyboardVisibility& b) {
     a.Swap(&b);
@@ -31729,7 +32291,7 @@ class CMsgRestartJSContext PROTOBUF_FINAL :
                &_CMsgRestartJSContext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    167;
+    169;
 
   friend void swap(CMsgRestartJSContext& a, CMsgRestartJSContext& b) {
     a.Swap(&b);
@@ -41498,6 +42060,563 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 CMsgFileLoadDialogResponse::mutable_files() {
   // @@protoc_insertion_point(field_mutable_list:CMsgFileLoadDialogResponse.files)
   return &files_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgRequestProcessInfo
+
+// optional uint64 requestid = 1;
+inline bool CMsgRequestProcessInfo::_internal_has_requestid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgRequestProcessInfo::has_requestid() const {
+  return _internal_has_requestid();
+}
+inline void CMsgRequestProcessInfo::clear_requestid() {
+  requestid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgRequestProcessInfo::_internal_requestid() const {
+  return requestid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgRequestProcessInfo::requestid() const {
+  // @@protoc_insertion_point(field_get:CMsgRequestProcessInfo.requestid)
+  return _internal_requestid();
+}
+inline void CMsgRequestProcessInfo::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  requestid_ = value;
+}
+inline void CMsgRequestProcessInfo::set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_requestid(value);
+  // @@protoc_insertion_point(field_set:CMsgRequestProcessInfo.requestid)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgProcessInfoNotification
+
+// optional uint64 requestid = 1;
+inline bool CMsgProcessInfoNotification::_internal_has_requestid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_requestid() const {
+  return _internal_has_requestid();
+}
+inline void CMsgProcessInfoNotification::clear_requestid() {
+  requestid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProcessInfoNotification::_internal_requestid() const {
+  return requestid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProcessInfoNotification::requestid() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.requestid)
+  return _internal_requestid();
+}
+inline void CMsgProcessInfoNotification::_internal_set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  requestid_ = value;
+}
+inline void CMsgProcessInfoNotification::set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_requestid(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.requestid)
+}
+
+// optional .EBrowserGPUStatus gpu_status = 2 [default = EBrowserGPUStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_gpu_status() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_gpu_status() const {
+  return _internal_has_gpu_status();
+}
+inline void CMsgProcessInfoNotification::clear_gpu_status() {
+  gpu_status_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::EBrowserGPUStatus CMsgProcessInfoNotification::_internal_gpu_status() const {
+  return static_cast< ::EBrowserGPUStatus >(gpu_status_);
+}
+inline ::EBrowserGPUStatus CMsgProcessInfoNotification::gpu_status() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.gpu_status)
+  return _internal_gpu_status();
+}
+inline void CMsgProcessInfoNotification::_internal_set_gpu_status(::EBrowserGPUStatus value) {
+  assert(::EBrowserGPUStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  gpu_status_ = value;
+}
+inline void CMsgProcessInfoNotification::set_gpu_status(::EBrowserGPUStatus value) {
+  _internal_set_gpu_status(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.gpu_status)
+}
+
+// optional .EBrowserFeatureStatus canvas_2d = 3 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_canvas_2d() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_canvas_2d() const {
+  return _internal_has_canvas_2d();
+}
+inline void CMsgProcessInfoNotification::clear_canvas_2d() {
+  canvas_2d_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_canvas_2d() const {
+  return static_cast< ::EBrowserFeatureStatus >(canvas_2d_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::canvas_2d() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.canvas_2d)
+  return _internal_canvas_2d();
+}
+inline void CMsgProcessInfoNotification::_internal_set_canvas_2d(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000004u;
+  canvas_2d_ = value;
+}
+inline void CMsgProcessInfoNotification::set_canvas_2d(::EBrowserFeatureStatus value) {
+  _internal_set_canvas_2d(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.canvas_2d)
+}
+
+// optional .EBrowserFeatureStatus canvas_oop_rasterization = 4 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_canvas_oop_rasterization() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_canvas_oop_rasterization() const {
+  return _internal_has_canvas_oop_rasterization();
+}
+inline void CMsgProcessInfoNotification::clear_canvas_oop_rasterization() {
+  canvas_oop_rasterization_ = 0;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_canvas_oop_rasterization() const {
+  return static_cast< ::EBrowserFeatureStatus >(canvas_oop_rasterization_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::canvas_oop_rasterization() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.canvas_oop_rasterization)
+  return _internal_canvas_oop_rasterization();
+}
+inline void CMsgProcessInfoNotification::_internal_set_canvas_oop_rasterization(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000008u;
+  canvas_oop_rasterization_ = value;
+}
+inline void CMsgProcessInfoNotification::set_canvas_oop_rasterization(::EBrowserFeatureStatus value) {
+  _internal_set_canvas_oop_rasterization(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.canvas_oop_rasterization)
+}
+
+// optional .EBrowserFeatureStatus direct_rendering_display_compositor = 5 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_direct_rendering_display_compositor() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_direct_rendering_display_compositor() const {
+  return _internal_has_direct_rendering_display_compositor();
+}
+inline void CMsgProcessInfoNotification::clear_direct_rendering_display_compositor() {
+  direct_rendering_display_compositor_ = 0;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_direct_rendering_display_compositor() const {
+  return static_cast< ::EBrowserFeatureStatus >(direct_rendering_display_compositor_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::direct_rendering_display_compositor() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.direct_rendering_display_compositor)
+  return _internal_direct_rendering_display_compositor();
+}
+inline void CMsgProcessInfoNotification::_internal_set_direct_rendering_display_compositor(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000010u;
+  direct_rendering_display_compositor_ = value;
+}
+inline void CMsgProcessInfoNotification::set_direct_rendering_display_compositor(::EBrowserFeatureStatus value) {
+  _internal_set_direct_rendering_display_compositor(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.direct_rendering_display_compositor)
+}
+
+// optional .EBrowserFeatureStatus gpu_compositing = 6 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_gpu_compositing() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_gpu_compositing() const {
+  return _internal_has_gpu_compositing();
+}
+inline void CMsgProcessInfoNotification::clear_gpu_compositing() {
+  gpu_compositing_ = 0;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_gpu_compositing() const {
+  return static_cast< ::EBrowserFeatureStatus >(gpu_compositing_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::gpu_compositing() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.gpu_compositing)
+  return _internal_gpu_compositing();
+}
+inline void CMsgProcessInfoNotification::_internal_set_gpu_compositing(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000020u;
+  gpu_compositing_ = value;
+}
+inline void CMsgProcessInfoNotification::set_gpu_compositing(::EBrowserFeatureStatus value) {
+  _internal_set_gpu_compositing(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.gpu_compositing)
+}
+
+// optional .EBrowserFeatureStatus multiple_raster_threads = 7 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_multiple_raster_threads() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_multiple_raster_threads() const {
+  return _internal_has_multiple_raster_threads();
+}
+inline void CMsgProcessInfoNotification::clear_multiple_raster_threads() {
+  multiple_raster_threads_ = 0;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_multiple_raster_threads() const {
+  return static_cast< ::EBrowserFeatureStatus >(multiple_raster_threads_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::multiple_raster_threads() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.multiple_raster_threads)
+  return _internal_multiple_raster_threads();
+}
+inline void CMsgProcessInfoNotification::_internal_set_multiple_raster_threads(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000040u;
+  multiple_raster_threads_ = value;
+}
+inline void CMsgProcessInfoNotification::set_multiple_raster_threads(::EBrowserFeatureStatus value) {
+  _internal_set_multiple_raster_threads(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.multiple_raster_threads)
+}
+
+// optional .EBrowserFeatureStatus opengl = 8 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_opengl() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_opengl() const {
+  return _internal_has_opengl();
+}
+inline void CMsgProcessInfoNotification::clear_opengl() {
+  opengl_ = 0;
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_opengl() const {
+  return static_cast< ::EBrowserFeatureStatus >(opengl_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::opengl() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.opengl)
+  return _internal_opengl();
+}
+inline void CMsgProcessInfoNotification::_internal_set_opengl(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000080u;
+  opengl_ = value;
+}
+inline void CMsgProcessInfoNotification::set_opengl(::EBrowserFeatureStatus value) {
+  _internal_set_opengl(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.opengl)
+}
+
+// optional .EBrowserFeatureStatus rasterization = 9 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_rasterization() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_rasterization() const {
+  return _internal_has_rasterization();
+}
+inline void CMsgProcessInfoNotification::clear_rasterization() {
+  rasterization_ = 0;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_rasterization() const {
+  return static_cast< ::EBrowserFeatureStatus >(rasterization_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::rasterization() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.rasterization)
+  return _internal_rasterization();
+}
+inline void CMsgProcessInfoNotification::_internal_set_rasterization(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000100u;
+  rasterization_ = value;
+}
+inline void CMsgProcessInfoNotification::set_rasterization(::EBrowserFeatureStatus value) {
+  _internal_set_rasterization(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.rasterization)
+}
+
+// optional .EBrowserFeatureStatus raw_draw = 10 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_raw_draw() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_raw_draw() const {
+  return _internal_has_raw_draw();
+}
+inline void CMsgProcessInfoNotification::clear_raw_draw() {
+  raw_draw_ = 0;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_raw_draw() const {
+  return static_cast< ::EBrowserFeatureStatus >(raw_draw_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::raw_draw() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.raw_draw)
+  return _internal_raw_draw();
+}
+inline void CMsgProcessInfoNotification::_internal_set_raw_draw(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000200u;
+  raw_draw_ = value;
+}
+inline void CMsgProcessInfoNotification::set_raw_draw(::EBrowserFeatureStatus value) {
+  _internal_set_raw_draw(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.raw_draw)
+}
+
+// optional .EBrowserFeatureStatus skia_graphite = 11 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_skia_graphite() const {
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_skia_graphite() const {
+  return _internal_has_skia_graphite();
+}
+inline void CMsgProcessInfoNotification::clear_skia_graphite() {
+  skia_graphite_ = 0;
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_skia_graphite() const {
+  return static_cast< ::EBrowserFeatureStatus >(skia_graphite_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::skia_graphite() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.skia_graphite)
+  return _internal_skia_graphite();
+}
+inline void CMsgProcessInfoNotification::_internal_set_skia_graphite(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000400u;
+  skia_graphite_ = value;
+}
+inline void CMsgProcessInfoNotification::set_skia_graphite(::EBrowserFeatureStatus value) {
+  _internal_set_skia_graphite(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.skia_graphite)
+}
+
+// optional .EBrowserFeatureStatus video_decode = 13 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_video_decode() const {
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_video_decode() const {
+  return _internal_has_video_decode();
+}
+inline void CMsgProcessInfoNotification::clear_video_decode() {
+  video_decode_ = 0;
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_video_decode() const {
+  return static_cast< ::EBrowserFeatureStatus >(video_decode_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::video_decode() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.video_decode)
+  return _internal_video_decode();
+}
+inline void CMsgProcessInfoNotification::_internal_set_video_decode(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00000800u;
+  video_decode_ = value;
+}
+inline void CMsgProcessInfoNotification::set_video_decode(::EBrowserFeatureStatus value) {
+  _internal_set_video_decode(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.video_decode)
+}
+
+// optional .EBrowserFeatureStatus video_encode = 14 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_video_encode() const {
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_video_encode() const {
+  return _internal_has_video_encode();
+}
+inline void CMsgProcessInfoNotification::clear_video_encode() {
+  video_encode_ = 0;
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_video_encode() const {
+  return static_cast< ::EBrowserFeatureStatus >(video_encode_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::video_encode() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.video_encode)
+  return _internal_video_encode();
+}
+inline void CMsgProcessInfoNotification::_internal_set_video_encode(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00001000u;
+  video_encode_ = value;
+}
+inline void CMsgProcessInfoNotification::set_video_encode(::EBrowserFeatureStatus value) {
+  _internal_set_video_encode(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.video_encode)
+}
+
+// optional .EBrowserFeatureStatus vulkan = 15 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_vulkan() const {
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_vulkan() const {
+  return _internal_has_vulkan();
+}
+inline void CMsgProcessInfoNotification::clear_vulkan() {
+  vulkan_ = 0;
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_vulkan() const {
+  return static_cast< ::EBrowserFeatureStatus >(vulkan_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::vulkan() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.vulkan)
+  return _internal_vulkan();
+}
+inline void CMsgProcessInfoNotification::_internal_set_vulkan(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00002000u;
+  vulkan_ = value;
+}
+inline void CMsgProcessInfoNotification::set_vulkan(::EBrowserFeatureStatus value) {
+  _internal_set_vulkan(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.vulkan)
+}
+
+// optional .EBrowserFeatureStatus webgl = 16 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_webgl() const {
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_webgl() const {
+  return _internal_has_webgl();
+}
+inline void CMsgProcessInfoNotification::clear_webgl() {
+  webgl_ = 0;
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_webgl() const {
+  return static_cast< ::EBrowserFeatureStatus >(webgl_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::webgl() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.webgl)
+  return _internal_webgl();
+}
+inline void CMsgProcessInfoNotification::_internal_set_webgl(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00004000u;
+  webgl_ = value;
+}
+inline void CMsgProcessInfoNotification::set_webgl(::EBrowserFeatureStatus value) {
+  _internal_set_webgl(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.webgl)
+}
+
+// optional .EBrowserFeatureStatus webgl2 = 17 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_webgl2() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_webgl2() const {
+  return _internal_has_webgl2();
+}
+inline void CMsgProcessInfoNotification::clear_webgl2() {
+  webgl2_ = 0;
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_webgl2() const {
+  return static_cast< ::EBrowserFeatureStatus >(webgl2_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::webgl2() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.webgl2)
+  return _internal_webgl2();
+}
+inline void CMsgProcessInfoNotification::_internal_set_webgl2(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00008000u;
+  webgl2_ = value;
+}
+inline void CMsgProcessInfoNotification::set_webgl2(::EBrowserFeatureStatus value) {
+  _internal_set_webgl2(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.webgl2)
+}
+
+// optional .EBrowserFeatureStatus webgpu = 18 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_webgpu() const {
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_webgpu() const {
+  return _internal_has_webgpu();
+}
+inline void CMsgProcessInfoNotification::clear_webgpu() {
+  webgpu_ = 0;
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_webgpu() const {
+  return static_cast< ::EBrowserFeatureStatus >(webgpu_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::webgpu() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.webgpu)
+  return _internal_webgpu();
+}
+inline void CMsgProcessInfoNotification::_internal_set_webgpu(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00010000u;
+  webgpu_ = value;
+}
+inline void CMsgProcessInfoNotification::set_webgpu(::EBrowserFeatureStatus value) {
+  _internal_set_webgpu(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.webgpu)
+}
+
+// optional .EBrowserFeatureStatus webnn = 19 [default = EBrowserFeatureStatus_Invalid];
+inline bool CMsgProcessInfoNotification::_internal_has_webnn() const {
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  return value;
+}
+inline bool CMsgProcessInfoNotification::has_webnn() const {
+  return _internal_has_webnn();
+}
+inline void CMsgProcessInfoNotification::clear_webnn() {
+  webnn_ = 0;
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::_internal_webnn() const {
+  return static_cast< ::EBrowserFeatureStatus >(webnn_);
+}
+inline ::EBrowserFeatureStatus CMsgProcessInfoNotification::webnn() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessInfoNotification.webnn)
+  return _internal_webnn();
+}
+inline void CMsgProcessInfoNotification::_internal_set_webnn(::EBrowserFeatureStatus value) {
+  assert(::EBrowserFeatureStatus_IsValid(value));
+  _has_bits_[0] |= 0x00020000u;
+  webnn_ = value;
+}
+inline void CMsgProcessInfoNotification::set_webnn(::EBrowserFeatureStatus value) {
+  _internal_set_webnn(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessInfoNotification.webnn)
 }
 
 // -------------------------------------------------------------------
@@ -52059,6 +53178,10 @@ inline void CMsgSetVRKeyboardVisibility::set_visible(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

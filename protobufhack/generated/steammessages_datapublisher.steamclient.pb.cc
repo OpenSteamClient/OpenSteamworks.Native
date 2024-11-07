@@ -61,7 +61,8 @@ constexpr CDataPublisher_ClientUpdateAppJob_Notification::CDataPublisher_ClientU
   , is_workshop_(false)
   , is_shader_(false)
   , cell_id_(0u)
-  , total_bytes_saved_(PROTOBUF_ULONGLONG(0)){}
+  , total_bytes_saved_(PROTOBUF_ULONGLONG(0))
+  , seconds_not_played_(0u){}
 struct CDataPublisher_ClientUpdateAppJob_NotificationDefaultTypeInternal {
   constexpr CDataPublisher_ClientUpdateAppJob_NotificationDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -250,6 +251,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fdatapublisher_
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, cell_id_),
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, is_workshop_),
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, is_shader_),
+  PROTOBUF_FIELD_OFFSET(::CDataPublisher_ClientUpdateAppJob_Notification, seconds_not_played_),
   2,
   ~0u,
   3,
@@ -273,6 +275,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fdatapublisher_
   20,
   18,
   19,
+  22,
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_GetVRDeviceInfo_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDataPublisher_GetVRDeviceInfo_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -364,16 +367,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fdatapublisher_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 15, sizeof(::CDataPublisher_ClientContentCorruptionReport_Notification)},
-  { 25, 53, sizeof(::CDataPublisher_ClientUpdateAppJob_Notification)},
-  { 76, 82, sizeof(::CDataPublisher_GetVRDeviceInfo_Request)},
-  { 83, 94, sizeof(::CDataPublisher_GetVRDeviceInfo_Response_Device)},
-  { 100, -1, sizeof(::CDataPublisher_GetVRDeviceInfo_Response)},
-  { 106, 113, sizeof(::CDataPublisher_SetVRDeviceInfoAggregationReference_Request)},
-  { 115, 121, sizeof(::CDataPublisher_SetVRDeviceInfoAggregationReference_Response)},
-  { 122, 132, sizeof(::CDataPublisher_AddVRDeviceInfo_Request)},
-  { 137, 144, sizeof(::CDataPublisher_AddVRDeviceInfo_Response)},
-  { 146, 153, sizeof(::CValveHWSurvey_GetSurveySchedule_Request)},
-  { 155, 162, sizeof(::CValveHWSurvey_GetSurveySchedule_Response)},
+  { 25, 54, sizeof(::CDataPublisher_ClientUpdateAppJob_Notification)},
+  { 78, 84, sizeof(::CDataPublisher_GetVRDeviceInfo_Request)},
+  { 85, 96, sizeof(::CDataPublisher_GetVRDeviceInfo_Response_Device)},
+  { 102, -1, sizeof(::CDataPublisher_GetVRDeviceInfo_Response)},
+  { 108, 115, sizeof(::CDataPublisher_SetVRDeviceInfoAggregationReference_Request)},
+  { 117, 123, sizeof(::CDataPublisher_SetVRDeviceInfoAggregationReference_Response)},
+  { 124, 134, sizeof(::CDataPublisher_AddVRDeviceInfo_Request)},
+  { 139, 146, sizeof(::CDataPublisher_AddVRDeviceInfo_Response)},
+  { 148, 155, sizeof(::CValveHWSurvey_GetSurveySchedule_Request)},
+  { 157, 164, sizeof(::CValveHWSurvey_GetSurveySchedule_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -401,7 +404,7 @@ const char descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient
   "ctid\030\004 \001(\t\022\016\n\006cellid\030\005 \001(\r\022\023\n\013is_manifes"
   "t\030\006 \001(\010\022\023\n\013object_size\030\007 \001(\004\022\027\n\017corrupti"
   "on_type\030\010 \001(\r\022\022\n\nused_https\030\t \001(\010\022\031\n\021oc_"
-  "proxy_detected\030\n \001(\010\"\334\004\n.CDataPublisher_"
+  "proxy_detected\030\n \001(\010\"\370\004\n.CDataPublisher_"
   "ClientUpdateAppJob_Notification\022\016\n\006app_i"
   "d\030\001 \001(\r\022\021\n\tdepot_ids\030\002 \003(\r\022\021\n\tapp_state\030"
   "\003 \001(\r\022\025\n\rjob_app_error\030\004 \001(\r\022\025\n\rerror_de"
@@ -416,48 +419,48 @@ const char descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient
   "wed\030\021 \001(\010\022\027\n\017is_free_weekend\030\022 \001(\010\022\033\n\023to"
   "tal_bytes_patched\030\024 \001(\004\022\031\n\021total_bytes_s"
   "aved\030\025 \001(\004\022\017\n\007cell_id\030\026 \001(\r\022\023\n\013is_worksh"
-  "op\030\027 \001(\010\022\021\n\tis_shader\030\030 \001(\010\"=\n&CDataPubl"
-  "isher_GetVRDeviceInfo_Request\022\023\n\013month_c"
-  "ount\030\001 \001(\r\"\335\001\n\'CDataPublisher_GetVRDevic"
-  "eInfo_Response\022\?\n\006device\030\001 \003(\0132/.CDataPu"
-  "blisher_GetVRDeviceInfo_Response.Device\032"
-  "q\n\006Device\022\014\n\004name\030\001 \001(\t\022\013\n\003ref\030\002 \001(\r\022\027\n\017"
-  "aggregation_ref\030\003 \001(\r\022\r\n\005total\030\004 \001(\r\022\016\n\006"
-  "driver\030\005 \001(\t\022\024\n\014device_class\030\006 \001(\005\"b\n:CD"
-  "ataPublisher_SetVRDeviceInfoAggregationR"
-  "eference_Request\022\013\n\003ref\030\001 \001(\r\022\027\n\017aggrega"
-  "tion_ref\030\002 \001(\r\"M\n;CDataPublisher_SetVRDe"
-  "viceInfoAggregationReference_Response\022\016\n"
-  "\006result\030\001 \001(\r\"\214\001\n&CDataPublisher_AddVRDe"
-  "viceInfo_Request\022\024\n\014manufacturer\030\001 \001(\t\022\r"
-  "\n\005model\030\002 \001(\t\022\016\n\006driver\030\003 \001(\t\022\027\n\017control"
-  "ler_type\030\004 \001(\t\022\024\n\014device_class\030\005 \001(\005\"F\n\'"
-  "CDataPublisher_AddVRDeviceInfo_Response\022"
-  "\016\n\006result\030\001 \001(\r\022\013\n\003ref\030\002 \001(\r\"c\n(CValveHW"
-  "Survey_GetSurveySchedule_Request\022\027\n\017surv"
-  "eydatetoken\030\001 \001(\t\022\036\n\026surveydatetokenvers"
-  "ion\030\002 \001(\006\"d\n)CValveHWSurvey_GetSurveySch"
-  "edule_Response\022\027\n\017surveydatetoken\030\001 \001(\r\022"
-  "\036\n\026surveydatetokenversion\030\002 \001(\0062\302\004\n\rData"
-  "Publisher\022h\n\035ClientContentCorruptionRepo"
-  "rt\022:.CDataPublisher_ClientContentCorrupt"
-  "ionReport_Notification\032\013.NoResponse\022X\n\030C"
-  "lientUpdateAppJobReport\022/.CDataPublisher"
-  "_ClientUpdateAppJob_Notification\032\013.NoRes"
-  "ponse\022d\n\017GetVRDeviceInfo\022\'.CDataPublishe"
-  "r_GetVRDeviceInfo_Request\032(.CDataPublish"
-  "er_GetVRDeviceInfo_Response\022\240\001\n#SetVRDev"
-  "iceInfoAggregationReference\022;.CDataPubli"
-  "sher_SetVRDeviceInfoAggregationReference"
-  "_Request\032<.CDataPublisher_SetVRDeviceInf"
-  "oAggregationReference_Response\022d\n\017AddVRD"
-  "eviceInfo\022\'.CDataPublisher_AddVRDeviceIn"
-  "fo_Request\032(.CDataPublisher_AddVRDeviceI"
-  "nfo_Response2{\n\rValveHWSurvey\022j\n\021GetSurv"
-  "eySchedule\022).CValveHWSurvey_GetSurveySch"
-  "edule_Request\032*.CValveHWSurvey_GetSurvey"
-  "Schedule_ResponseB\035\200\001\001\252\002\027OpenSteamworks."
-  "Protobuf"
+  "op\030\027 \001(\010\022\021\n\tis_shader\030\030 \001(\010\022\032\n\022seconds_n"
+  "ot_played\030\031 \001(\r\"=\n&CDataPublisher_GetVRD"
+  "eviceInfo_Request\022\023\n\013month_count\030\001 \001(\r\"\335"
+  "\001\n\'CDataPublisher_GetVRDeviceInfo_Respon"
+  "se\022\?\n\006device\030\001 \003(\0132/.CDataPublisher_GetV"
+  "RDeviceInfo_Response.Device\032q\n\006Device\022\014\n"
+  "\004name\030\001 \001(\t\022\013\n\003ref\030\002 \001(\r\022\027\n\017aggregation_"
+  "ref\030\003 \001(\r\022\r\n\005total\030\004 \001(\r\022\016\n\006driver\030\005 \001(\t"
+  "\022\024\n\014device_class\030\006 \001(\005\"b\n:CDataPublisher"
+  "_SetVRDeviceInfoAggregationReference_Req"
+  "uest\022\013\n\003ref\030\001 \001(\r\022\027\n\017aggregation_ref\030\002 \001"
+  "(\r\"M\n;CDataPublisher_SetVRDeviceInfoAggr"
+  "egationReference_Response\022\016\n\006result\030\001 \001("
+  "\r\"\214\001\n&CDataPublisher_AddVRDeviceInfo_Req"
+  "uest\022\024\n\014manufacturer\030\001 \001(\t\022\r\n\005model\030\002 \001("
+  "\t\022\016\n\006driver\030\003 \001(\t\022\027\n\017controller_type\030\004 \001"
+  "(\t\022\024\n\014device_class\030\005 \001(\005\"F\n\'CDataPublish"
+  "er_AddVRDeviceInfo_Response\022\016\n\006result\030\001 "
+  "\001(\r\022\013\n\003ref\030\002 \001(\r\"c\n(CValveHWSurvey_GetSu"
+  "rveySchedule_Request\022\027\n\017surveydatetoken\030"
+  "\001 \001(\t\022\036\n\026surveydatetokenversion\030\002 \001(\006\"d\n"
+  ")CValveHWSurvey_GetSurveySchedule_Respon"
+  "se\022\027\n\017surveydatetoken\030\001 \001(\r\022\036\n\026surveydat"
+  "etokenversion\030\002 \001(\0062\302\004\n\rDataPublisher\022h\n"
+  "\035ClientContentCorruptionReport\022:.CDataPu"
+  "blisher_ClientContentCorruptionReport_No"
+  "tification\032\013.NoResponse\022X\n\030ClientUpdateA"
+  "ppJobReport\022/.CDataPublisher_ClientUpdat"
+  "eAppJob_Notification\032\013.NoResponse\022d\n\017Get"
+  "VRDeviceInfo\022\'.CDataPublisher_GetVRDevic"
+  "eInfo_Request\032(.CDataPublisher_GetVRDevi"
+  "ceInfo_Response\022\240\001\n#SetVRDeviceInfoAggre"
+  "gationReference\022;.CDataPublisher_SetVRDe"
+  "viceInfoAggregationReference_Request\032<.C"
+  "DataPublisher_SetVRDeviceInfoAggregation"
+  "Reference_Response\022d\n\017AddVRDeviceInfo\022\'."
+  "CDataPublisher_AddVRDeviceInfo_Request\032("
+  ".CDataPublisher_AddVRDeviceInfo_Response"
+  "2{\n\rValveHWSurvey\022j\n\021GetSurveySchedule\022)"
+  ".CValveHWSurvey_GetSurveySchedule_Reques"
+  "t\032*.CValveHWSurvey_GetSurveySchedule_Res"
+  "ponseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -466,7 +469,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto = {
-  false, false, 2648, descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient_2eproto, "steammessages_datapublisher.steamclient.proto", 
+  false, false, 2676, descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient_2eproto, "steammessages_datapublisher.steamclient.proto", 
   &descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_once, descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_deps, 3, 11,
   schemas, file_default_instances, TableStruct_steammessages_5fdatapublisher_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fdatapublisher_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fdatapublisher_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fdatapublisher_2esteamclient_2eproto,
@@ -1058,6 +1061,9 @@ class CDataPublisher_ClientUpdateAppJob_Notification::_Internal {
   static void set_has_is_shader(HasBits* has_bits) {
     (*has_bits)[0] |= 524288u;
   }
+  static void set_has_seconds_not_played(HasBits* has_bits) {
+    (*has_bits)[0] |= 4194304u;
+  }
 };
 
 CDataPublisher_ClientUpdateAppJob_Notification::CDataPublisher_ClientUpdateAppJob_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -1083,8 +1089,8 @@ CDataPublisher_ClientUpdateAppJob_Notification::CDataPublisher_ClientUpdateAppJo
       GetArena());
   }
   ::memcpy(&app_id_, &from.app_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&total_bytes_saved_) -
-    reinterpret_cast<char*>(&app_id_)) + sizeof(total_bytes_saved_));
+    static_cast<size_t>(reinterpret_cast<char*>(&seconds_not_played_) -
+    reinterpret_cast<char*>(&app_id_)) + sizeof(seconds_not_played_));
   // @@protoc_insertion_point(copy_constructor:CDataPublisher_ClientUpdateAppJob_Notification)
 }
 
@@ -1093,8 +1099,8 @@ error_details_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStri
 branch_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&app_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&total_bytes_saved_) -
-    reinterpret_cast<char*>(&app_id_)) + sizeof(total_bytes_saved_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&seconds_not_played_) -
+    reinterpret_cast<char*>(&app_id_)) + sizeof(seconds_not_played_));
 }
 
 CDataPublisher_ClientUpdateAppJob_Notification::~CDataPublisher_ClientUpdateAppJob_Notification() {
@@ -1145,10 +1151,10 @@ void CDataPublisher_ClientUpdateAppJob_Notification::Clear() {
         reinterpret_cast<char*>(&total_bytes_patched_) -
         reinterpret_cast<char*>(&files_validation_failed_)) + sizeof(total_bytes_patched_));
   }
-  if (cached_has_bits & 0x003f0000u) {
+  if (cached_has_bits & 0x007f0000u) {
     ::memset(&is_borrowed_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&total_bytes_saved_) -
-        reinterpret_cast<char*>(&is_borrowed_)) + sizeof(total_bytes_saved_));
+        reinterpret_cast<char*>(&seconds_not_played_) -
+        reinterpret_cast<char*>(&is_borrowed_)) + sizeof(seconds_not_played_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1359,6 +1365,14 @@ const char* CDataPublisher_ClientUpdateAppJob_Notification::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional uint32 seconds_not_played = 25;
+      case 25:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 200)) {
+          _Internal::set_has_seconds_not_played(&has_bits);
+          seconds_not_played_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -1535,6 +1549,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24, this->_internal_is_shader(), target);
   }
 
+  // optional uint32 seconds_not_played = 25;
+  if (cached_has_bits & 0x00400000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(25, this->_internal_seconds_not_played(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1675,7 +1695,7 @@ size_t CDataPublisher_ClientUpdateAppJob_Notification::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x003f0000u) {
+  if (cached_has_bits & 0x007f0000u) {
     // optional bool is_borrowed = 17;
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 + 1;
@@ -1708,6 +1728,13 @@ size_t CDataPublisher_ClientUpdateAppJob_Notification::ByteSizeLong() const {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_total_bytes_saved());
+    }
+
+    // optional uint32 seconds_not_played = 25;
+    if (cached_has_bits & 0x00400000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_seconds_not_played());
     }
 
   }
@@ -1798,7 +1825,7 @@ void CDataPublisher_ClientUpdateAppJob_Notification::MergeFrom(const CDataPublis
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x003f0000u) {
+  if (cached_has_bits & 0x007f0000u) {
     if (cached_has_bits & 0x00010000u) {
       is_borrowed_ = from.is_borrowed_;
     }
@@ -1816,6 +1843,9 @@ void CDataPublisher_ClientUpdateAppJob_Notification::MergeFrom(const CDataPublis
     }
     if (cached_has_bits & 0x00200000u) {
       total_bytes_saved_ = from.total_bytes_saved_;
+    }
+    if (cached_has_bits & 0x00400000u) {
+      seconds_not_played_ = from.seconds_not_played_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1847,8 +1877,8 @@ void CDataPublisher_ClientUpdateAppJob_Notification::InternalSwap(CDataPublisher
   error_details_.Swap(&other->error_details_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   branch_name_.Swap(&other->branch_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDataPublisher_ClientUpdateAppJob_Notification, total_bytes_saved_)
-      + sizeof(CDataPublisher_ClientUpdateAppJob_Notification::total_bytes_saved_)
+      PROTOBUF_FIELD_OFFSET(CDataPublisher_ClientUpdateAppJob_Notification, seconds_not_played_)
+      + sizeof(CDataPublisher_ClientUpdateAppJob_Notification::seconds_not_played_)
       - PROTOBUF_FIELD_OFFSET(CDataPublisher_ClientUpdateAppJob_Notification, app_id_)>(
           reinterpret_cast<char*>(&app_id_),
           reinterpret_cast<char*>(&other->app_id_));

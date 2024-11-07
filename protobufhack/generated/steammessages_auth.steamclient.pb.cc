@@ -211,6 +211,7 @@ constexpr CAuthentication_GetAuthSessionInfo_Response::CAuthentication_GetAuthSe
 
   , requestor_location_mismatch_(false)
   , high_usage_login_(false)
+  , device_trust_(0)
   , requested_persistence_(-1)
 {}
 struct CAuthentication_GetAuthSessionInfo_ResponseDefaultTypeInternal {
@@ -222,6 +223,35 @@ struct CAuthentication_GetAuthSessionInfo_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAuthentication_GetAuthSessionInfo_ResponseDefaultTypeInternal _CAuthentication_GetAuthSessionInfo_Response_default_instance_;
+constexpr CAuthentication_GetAuthSessionRiskInfo_Request::CAuthentication_GetAuthSessionRiskInfo_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : client_id_(PROTOBUF_ULONGLONG(0))
+  , language_(0u){}
+struct CAuthentication_GetAuthSessionRiskInfo_RequestDefaultTypeInternal {
+  constexpr CAuthentication_GetAuthSessionRiskInfo_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CAuthentication_GetAuthSessionRiskInfo_RequestDefaultTypeInternal() {}
+  union {
+    CAuthentication_GetAuthSessionRiskInfo_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAuthentication_GetAuthSessionRiskInfo_RequestDefaultTypeInternal _CAuthentication_GetAuthSessionRiskInfo_Request_default_instance_;
+constexpr CAuthentication_GetAuthSessionRiskInfo_Response::CAuthentication_GetAuthSessionRiskInfo_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : location_confirmer_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , location_requestor_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , location_other_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , platform_type_(0)
+{}
+struct CAuthentication_GetAuthSessionRiskInfo_ResponseDefaultTypeInternal {
+  constexpr CAuthentication_GetAuthSessionRiskInfo_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CAuthentication_GetAuthSessionRiskInfo_ResponseDefaultTypeInternal() {}
+  union {
+    CAuthentication_GetAuthSessionRiskInfo_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAuthentication_GetAuthSessionRiskInfo_ResponseDefaultTypeInternal _CAuthentication_GetAuthSessionRiskInfo_Response_default_instance_;
 constexpr CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : signature_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -629,6 +659,30 @@ struct CAuthenticationSupport_GetTokenHistory_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAuthenticationSupport_GetTokenHistory_ResponseDefaultTypeInternal _CAuthenticationSupport_GetTokenHistory_Response_default_instance_;
+constexpr CAuthenticationSupport_MarkTokenCompromised_Request::CAuthenticationSupport_MarkTokenCompromised_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : steamid_(PROTOBUF_ULONGLONG(0))
+  , token_id_(PROTOBUF_ULONGLONG(0)){}
+struct CAuthenticationSupport_MarkTokenCompromised_RequestDefaultTypeInternal {
+  constexpr CAuthenticationSupport_MarkTokenCompromised_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CAuthenticationSupport_MarkTokenCompromised_RequestDefaultTypeInternal() {}
+  union {
+    CAuthenticationSupport_MarkTokenCompromised_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAuthenticationSupport_MarkTokenCompromised_RequestDefaultTypeInternal _CAuthenticationSupport_MarkTokenCompromised_Request_default_instance_;
+constexpr CAuthenticationSupport_MarkTokenCompromised_Response::CAuthenticationSupport_MarkTokenCompromised_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CAuthenticationSupport_MarkTokenCompromised_ResponseDefaultTypeInternal {
+  constexpr CAuthenticationSupport_MarkTokenCompromised_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CAuthenticationSupport_MarkTokenCompromised_ResponseDefaultTypeInternal() {}
+  union {
+    CAuthenticationSupport_MarkTokenCompromised_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAuthenticationSupport_MarkTokenCompromised_ResponseDefaultTypeInternal _CAuthenticationSupport_MarkTokenCompromised_Response_default_instance_;
 constexpr CCloudGaming_CreateNonce_Request::CCloudGaming_CreateNonce_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : platform_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -693,7 +747,7 @@ struct CCloudGaming_GetTimeRemaining_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloudGaming_GetTimeRemaining_ResponseDefaultTypeInternal _CCloudGaming_GetTimeRemaining_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fauth_2esteamclient_2eproto[46];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fauth_2esteamclient_2eproto[50];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto[7];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fauth_2esteamclient_2eproto[3];
 
@@ -878,6 +932,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fauth_2esteamcl
   PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionInfo_Response, requestor_location_mismatch_),
   PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionInfo_Response, high_usage_login_),
   PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionInfo_Response, requested_persistence_),
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionInfo_Response, device_trust_),
   0,
   1,
   2,
@@ -889,7 +944,30 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fauth_2esteamcl
   8,
   9,
   10,
+  12,
   11,
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Request, client_id_),
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Request, language_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Response, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Response, location_confirmer_),
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Response, location_requestor_),
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Response, location_other_),
+  PROTOBUF_FIELD_OFFSET(::CAuthentication_GetAuthSessionRiskInfo_Response, platform_type_),
+  0,
+  1,
+  2,
+  3,
   PROTOBUF_FIELD_OFFSET(::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1190,6 +1268,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fauth_2esteamcl
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CAuthenticationSupport_GetTokenHistory_Response, history_),
+  PROTOBUF_FIELD_OFFSET(::CAuthenticationSupport_MarkTokenCompromised_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CAuthenticationSupport_MarkTokenCompromised_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CAuthenticationSupport_MarkTokenCompromised_Request, steamid_),
+  PROTOBUF_FIELD_OFFSET(::CAuthenticationSupport_MarkTokenCompromised_Request, token_id_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CAuthenticationSupport_MarkTokenCompromised_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CCloudGaming_CreateNonce_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCloudGaming_CreateNonce_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1245,41 +1337,45 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 124, 132, sizeof(::CAuthentication_PollAuthSessionStatus_Request)},
   { 135, 148, sizeof(::CAuthentication_PollAuthSessionStatus_Response)},
   { 156, 162, sizeof(::CAuthentication_GetAuthSessionInfo_Request)},
-  { 163, 180, sizeof(::CAuthentication_GetAuthSessionInfo_Response)},
-  { 192, 203, sizeof(::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request)},
-  { 209, -1, sizeof(::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response)},
-  { 214, 223, sizeof(::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request)},
-  { 227, 233, sizeof(::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response)},
-  { 234, 242, sizeof(::CAuthentication_AccessToken_GenerateForApp_Request)},
-  { 245, 252, sizeof(::CAuthentication_AccessToken_GenerateForApp_Response)},
-  { 254, -1, sizeof(::CAuthentication_RefreshToken_Enumerate_Request)},
-  { 259, 270, sizeof(::CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent)},
-  { 276, 293, sizeof(::CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription)},
-  { 305, 312, sizeof(::CAuthentication_RefreshToken_Enumerate_Response)},
-  { 314, -1, sizeof(::CAuthentication_GetAuthSessionsForAccount_Request)},
-  { 319, -1, sizeof(::CAuthentication_GetAuthSessionsForAccount_Response)},
-  { 325, 333, sizeof(::CAuthentication_MigrateMobileSession_Request)},
-  { 336, 343, sizeof(::CAuthentication_MigrateMobileSession_Response)},
-  { 345, 352, sizeof(::CAuthentication_Token_Revoke_Request)},
-  { 354, -1, sizeof(::CAuthentication_Token_Revoke_Response)},
-  { 359, 368, sizeof(::CAuthentication_RefreshToken_Revoke_Request)},
-  { 372, -1, sizeof(::CAuthentication_RefreshToken_Revoke_Response)},
-  { 377, 384, sizeof(::CAuthenticationSupport_QueryRefreshTokensByAccount_Request)},
-  { 386, 396, sizeof(::CSupportRefreshTokenDescription_TokenUsageEvent)},
-  { 401, 418, sizeof(::CSupportRefreshTokenDescription)},
-  { 430, 437, sizeof(::CAuthenticationSupport_QueryRefreshTokensByAccount_Response)},
-  { 439, 445, sizeof(::CAuthenticationSupport_QueryRefreshTokenByID_Request)},
-  { 446, -1, sizeof(::CAuthenticationSupport_QueryRefreshTokenByID_Response)},
-  { 452, 459, sizeof(::CAuthenticationSupport_RevokeToken_Request)},
-  { 461, -1, sizeof(::CAuthenticationSupport_RevokeToken_Response)},
-  { 466, 472, sizeof(::CAuthenticationSupport_GetTokenHistory_Request)},
-  { 473, 482, sizeof(::CSupportRefreshTokenAudit)},
-  { 486, -1, sizeof(::CAuthenticationSupport_GetTokenHistory_Response)},
-  { 492, 499, sizeof(::CCloudGaming_CreateNonce_Request)},
-  { 501, 508, sizeof(::CCloudGaming_CreateNonce_Response)},
-  { 510, 517, sizeof(::CCloudGaming_GetTimeRemaining_Request)},
-  { 519, 526, sizeof(::CCloudGaming_TimeRemaining)},
-  { 528, -1, sizeof(::CCloudGaming_GetTimeRemaining_Response)},
+  { 163, 181, sizeof(::CAuthentication_GetAuthSessionInfo_Response)},
+  { 194, 201, sizeof(::CAuthentication_GetAuthSessionRiskInfo_Request)},
+  { 203, 212, sizeof(::CAuthentication_GetAuthSessionRiskInfo_Response)},
+  { 216, 227, sizeof(::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request)},
+  { 233, -1, sizeof(::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response)},
+  { 238, 247, sizeof(::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request)},
+  { 251, 257, sizeof(::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response)},
+  { 258, 266, sizeof(::CAuthentication_AccessToken_GenerateForApp_Request)},
+  { 269, 276, sizeof(::CAuthentication_AccessToken_GenerateForApp_Response)},
+  { 278, -1, sizeof(::CAuthentication_RefreshToken_Enumerate_Request)},
+  { 283, 294, sizeof(::CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent)},
+  { 300, 317, sizeof(::CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription)},
+  { 329, 336, sizeof(::CAuthentication_RefreshToken_Enumerate_Response)},
+  { 338, -1, sizeof(::CAuthentication_GetAuthSessionsForAccount_Request)},
+  { 343, -1, sizeof(::CAuthentication_GetAuthSessionsForAccount_Response)},
+  { 349, 357, sizeof(::CAuthentication_MigrateMobileSession_Request)},
+  { 360, 367, sizeof(::CAuthentication_MigrateMobileSession_Response)},
+  { 369, 376, sizeof(::CAuthentication_Token_Revoke_Request)},
+  { 378, -1, sizeof(::CAuthentication_Token_Revoke_Response)},
+  { 383, 392, sizeof(::CAuthentication_RefreshToken_Revoke_Request)},
+  { 396, -1, sizeof(::CAuthentication_RefreshToken_Revoke_Response)},
+  { 401, 408, sizeof(::CAuthenticationSupport_QueryRefreshTokensByAccount_Request)},
+  { 410, 420, sizeof(::CSupportRefreshTokenDescription_TokenUsageEvent)},
+  { 425, 442, sizeof(::CSupportRefreshTokenDescription)},
+  { 454, 461, sizeof(::CAuthenticationSupport_QueryRefreshTokensByAccount_Response)},
+  { 463, 469, sizeof(::CAuthenticationSupport_QueryRefreshTokenByID_Request)},
+  { 470, -1, sizeof(::CAuthenticationSupport_QueryRefreshTokenByID_Response)},
+  { 476, 483, sizeof(::CAuthenticationSupport_RevokeToken_Request)},
+  { 485, -1, sizeof(::CAuthenticationSupport_RevokeToken_Response)},
+  { 490, 496, sizeof(::CAuthenticationSupport_GetTokenHistory_Request)},
+  { 497, 506, sizeof(::CSupportRefreshTokenAudit)},
+  { 510, -1, sizeof(::CAuthenticationSupport_GetTokenHistory_Response)},
+  { 516, 523, sizeof(::CAuthenticationSupport_MarkTokenCompromised_Request)},
+  { 525, -1, sizeof(::CAuthenticationSupport_MarkTokenCompromised_Response)},
+  { 530, 537, sizeof(::CCloudGaming_CreateNonce_Request)},
+  { 539, 546, sizeof(::CCloudGaming_CreateNonce_Response)},
+  { 548, 555, sizeof(::CCloudGaming_GetTimeRemaining_Request)},
+  { 557, 564, sizeof(::CCloudGaming_TimeRemaining)},
+  { 566, -1, sizeof(::CCloudGaming_GetTimeRemaining_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1295,6 +1391,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthentication_PollAuthSessionStatus_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthentication_GetAuthSessionInfo_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthentication_GetAuthSessionInfo_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthentication_GetAuthSessionRiskInfo_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthentication_GetAuthSessionRiskInfo_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request_default_instance_),
@@ -1324,6 +1422,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthenticationSupport_GetTokenHistory_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSupportRefreshTokenAudit_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthenticationSupport_GetTokenHistory_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthenticationSupport_MarkTokenCompromised_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAuthenticationSupport_MarkTokenCompromised_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloudGaming_CreateNonce_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloudGaming_CreateNonce_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloudGaming_GetTimeRemaining_Request_default_instance_),
@@ -1392,7 +1492,7 @@ const char descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto[
   "\022\026\n\016new_guard_data\030\007 \001(\t\022\035\n\025agreement_se"
   "ssion_url\030\010 \001(\t\"\?\n*CAuthentication_GetAu"
   "thSessionInfo_Request\022\021\n\tclient_id\030\001 \001(\004"
-  "\"\341\003\n+CAuthentication_GetAuthSessionInfo_"
+  "\"\367\003\n+CAuthentication_GetAuthSessionInfo_"
   "Response\022\n\n\002ip\030\001 \001(\t\022\016\n\006geoloc\030\002 \001(\t\022\014\n\004"
   "city\030\003 \001(\t\022\r\n\005state\030\004 \001(\t\022\017\n\007country\030\005 \001"
   "(\t\022N\n\rplatform_type\030\006 \001(\0162\027.EAuthTokenPl"
@@ -1404,213 +1504,231 @@ const char descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto[
   "n_mismatch\030\n \001(\010\022\030\n\020high_usage_login\030\013 \001"
   "(\010\022P\n\025requested_persistence\030\014 \001(\0162\024.ESes"
   "sionPersistence:\033ESessionPersistence_Inv"
-  "alid\"\354\001\n\?CAuthentication_UpdateAuthSessi"
-  "onWithMobileConfirmation_Request\022\017\n\007vers"
-  "ion\030\001 \001(\005\022\021\n\tclient_id\030\002 \001(\004\022\017\n\007steamid\030"
-  "\003 \001(\006\022\021\n\tsignature\030\004 \001(\014\022\026\n\007confirm\030\005 \001("
-  "\010:\005false\022I\n\013persistence\030\006 \001(\0162\024.ESession"
-  "Persistence:\036ESessionPersistence_Persist"
-  "ent\"B\n@CAuthentication_UpdateAuthSession"
-  "WithMobileConfirmation_Response\"\271\001\n;CAut"
-  "hentication_UpdateAuthSessionWithSteamGu"
-  "ardCode_Request\022\021\n\tclient_id\030\001 \001(\004\022\017\n\007st"
-  "eamid\030\002 \001(\006\022\014\n\004code\030\003 \001(\t\022H\n\tcode_type\030\004"
-  " \001(\0162\026.EAuthSessionGuardType:\035EAuthSessi"
-  "onGuardType_Unknown\"]\n<CAuthentication_U"
-  "pdateAuthSessionWithSteamGuardCode_Respo"
-  "nse\022\035\n\025agreement_session_url\030\007 \001(\t\"\236\001\n2C"
-  "Authentication_AccessToken_GenerateForAp"
-  "p_Request\022\025\n\rrefresh_token\030\001 \001(\t\022\017\n\007stea"
-  "mid\030\002 \001(\006\022@\n\014renewal_type\030\003 \001(\0162\022.EToken"
-  "RenewalType:\026ETokenRenewalType_None\"b\n3C"
-  "Authentication_AccessToken_GenerateForAp"
-  "p_Response\022\024\n\014access_token\030\001 \001(\t\022\025\n\rrefr"
-  "esh_token\030\002 \001(\t\"0\n.CAuthentication_Refre"
-  "shToken_Enumerate_Request\"\272\006\n/CAuthentic"
-  "ation_RefreshToken_Enumerate_Response\022`\n"
-  "\016refresh_tokens\030\001 \003(\0132H.CAuthentication_"
-  "RefreshToken_Enumerate_Response.RefreshT"
-  "okenDescription\022\030\n\020requesting_token\030\002 \001("
-  "\006\032y\n\017TokenUsageEvent\022\014\n\004time\030\001 \001(\r\022\032\n\002ip"
-  "\030\002 \001(\0132\016.CMsgIPAddress\022\016\n\006locale\030\003 \001(\t\022\017"
-  "\n\007country\030\004 \001(\t\022\r\n\005state\030\005 \001(\t\022\014\n\004city\030\006"
-  " \001(\t\032\217\004\n\027RefreshTokenDescription\022\020\n\010toke"
-  "n_id\030\001 \001(\006\022\031\n\021token_description\030\002 \001(\t\022\024\n"
-  "\014time_updated\030\003 \001(\r\022N\n\rplatform_type\030\004 \001"
-  "(\0162\027.EAuthTokenPlatformType:\036EAuthTokenP"
-  "latformType_Unknown\022\021\n\tlogged_in\030\005 \001(\010\022\023"
-  "\n\013os_platform\030\006 \001(\r\022\021\n\tauth_type\030\007 \001(\r\022\032"
-  "\n\022gaming_device_type\030\010 \001(\r\022T\n\nfirst_seen"
-  "\030\t \001(\0132@.CAuthentication_RefreshToken_En"
-  "umerate_Response.TokenUsageEvent\022S\n\tlast"
-  "_seen\030\n \001(\0132@.CAuthentication_RefreshTok"
-  "en_Enumerate_Response.TokenUsageEvent\022\017\n"
-  "\007os_type\030\013 \001(\005\022N\n\023authentication_type\030\014 "
-  "\001(\0162\024.EAuthenticationType:\033EAuthenticati"
-  "onType_Unknown\"3\n1CAuthentication_GetAut"
-  "hSessionsForAccount_Request\"H\n2CAuthenti"
-  "cation_GetAuthSessionsForAccount_Respons"
-  "e\022\022\n\nclient_ids\030\001 \003(\004\"a\n,CAuthentication"
-  "_MigrateMobileSession_Request\022\017\n\007steamid"
-  "\030\001 \001(\006\022\r\n\005token\030\002 \001(\t\022\021\n\tsignature\030\003 \001(\t"
-  "\"\\\n-CAuthentication_MigrateMobileSession"
-  "_Response\022\025\n\rrefresh_token\030\001 \001(\t\022\024\n\014acce"
-  "ss_token\030\002 \001(\t\"\200\001\n$CAuthentication_Token"
-  "_Revoke_Request\022\r\n\005token\030\001 \001(\t\022I\n\rrevoke"
-  "_action\030\002 \001(\0162\027.EAuthTokenRevokeAction:\031"
-  "EAuthTokenRevokePermanent\"\'\n%CAuthentica"
-  "tion_Token_Revoke_Response\"\256\001\n+CAuthenti"
-  "cation_RefreshToken_Revoke_Request\022\020\n\010to"
-  "ken_id\030\001 \001(\006\022\017\n\007steamid\030\002 \001(\006\022I\n\rrevoke_"
-  "action\030\003 \001(\0162\027.EAuthTokenRevokeAction:\031E"
-  "AuthTokenRevokePermanent\022\021\n\tsignature\030\004 "
-  "\001(\014\".\n,CAuthentication_RefreshToken_Revo"
-  "ke_Response\"m\n:CAuthenticationSupport_Qu"
-  "eryRefreshTokensByAccount_Request\022\017\n\007ste"
-  "amid\030\001 \001(\006\022\036\n\026include_revoked_tokens\030\002 \001"
-  "(\010\"\326\004\n\037CSupportRefreshTokenDescription\022\020"
-  "\n\010token_id\030\001 \001(\006\022\031\n\021token_description\030\002 "
-  "\001(\t\022\024\n\014time_updated\030\003 \001(\r\022N\n\rplatform_ty"
-  "pe\030\004 \001(\0162\027.EAuthTokenPlatformType:\036EAuth"
-  "TokenPlatformType_Unknown\022>\n\013token_state"
-  "\030\005 \001(\0162\020.EAuthTokenState:\027EAuthTokenStat"
-  "e_Invalid\022\025\n\rowner_steamid\030\006 \001(\006\022\023\n\013os_p"
-  "latform\030\007 \001(\r\022\017\n\007os_type\030\010 \001(\005\022\021\n\tauth_t"
-  "ype\030\t \001(\r\022\032\n\022gaming_device_type\030\n \001(\r\022D\n"
-  "\nfirst_seen\030\013 \001(\01320.CSupportRefreshToken"
-  "Description.TokenUsageEvent\022C\n\tlast_seen"
-  "\030\014 \001(\01320.CSupportRefreshTokenDescription"
-  ".TokenUsageEvent\032i\n\017TokenUsageEvent\022\014\n\004t"
-  "ime\030\001 \001(\r\022\032\n\002ip\030\002 \001(\0132\016.CMsgIPAddress\022\017\n"
-  "\007country\030\003 \001(\t\022\r\n\005state\030\004 \001(\t\022\014\n\004city\030\005 "
-  "\001(\t\"\221\001\n;CAuthenticationSupport_QueryRefr"
-  "eshTokensByAccount_Response\0228\n\016refresh_t"
-  "okens\030\001 \003(\0132 .CSupportRefreshTokenDescri"
-  "ption\022\030\n\020last_token_reset\030\002 \001(\005\"H\n4CAuth"
-  "enticationSupport_QueryRefreshTokenByID_"
-  "Request\022\020\n\010token_id\030\001 \001(\006\"q\n5CAuthentica"
-  "tionSupport_QueryRefreshTokenByID_Respon"
-  "se\0228\n\016refresh_tokens\030\001 \003(\0132 .CSupportRef"
-  "reshTokenDescription\"O\n*CAuthenticationS"
-  "upport_RevokeToken_Request\022\020\n\010token_id\030\001"
-  " \001(\006\022\017\n\007steamid\030\002 \001(\006\"-\n+CAuthentication"
-  "Support_RevokeToken_Response\"B\n.CAuthent"
-  "icationSupport_GetTokenHistory_Request\022\020"
-  "\n\010token_id\030\001 \001(\006\"d\n\031CSupportRefreshToken"
-  "Audit\022\016\n\006action\030\001 \001(\005\022\014\n\004time\030\002 \001(\r\022\032\n\002i"
-  "p\030\003 \001(\0132\016.CMsgIPAddress\022\r\n\005actor\030\004 \001(\006\"^"
-  "\n/CAuthenticationSupport_GetTokenHistory"
-  "_Response\022+\n\007history\030\001 \003(\0132\032.CSupportRef"
-  "reshTokenAudit\"C\n CCloudGaming_CreateNon"
-  "ce_Request\022\020\n\010platform\030\001 \001(\t\022\r\n\005appid\030\002 "
-  "\001(\r\"B\n!CCloudGaming_CreateNonce_Response"
-  "\022\r\n\005nonce\030\001 \001(\t\022\016\n\006expiry\030\002 \001(\r\"M\n%CClou"
-  "dGaming_GetTimeRemaining_Request\022\020\n\010plat"
-  "form\030\001 \001(\t\022\022\n\nappid_list\030\002 \003(\r\"F\n\032CCloud"
-  "Gaming_TimeRemaining\022\r\n\005appid\030\001 \001(\r\022\031\n\021m"
-  "inutes_remaining\030\002 \001(\r\"V\n&CCloudGaming_G"
-  "etTimeRemaining_Response\022,\n\007entries\030\002 \003("
-  "\0132\033.CCloudGaming_TimeRemaining*\261\001\n\026EAuth"
-  "TokenPlatformType\022\"\n\036EAuthTokenPlatformT"
-  "ype_Unknown\020\000\022&\n\"EAuthTokenPlatformType_"
-  "SteamClient\020\001\022%\n!EAuthTokenPlatformType_"
-  "WebBrowser\020\002\022$\n EAuthTokenPlatformType_M"
-  "obileApp\020\003*\325\002\n\025EAuthSessionGuardType\022!\n\035"
-  "EAuthSessionGuardType_Unknown\020\000\022\036\n\032EAuth"
-  "SessionGuardType_None\020\001\022#\n\037EAuthSessionG"
-  "uardType_EmailCode\020\002\022$\n EAuthSessionGuar"
-  "dType_DeviceCode\020\003\022,\n(EAuthSessionGuardT"
-  "ype_DeviceConfirmation\020\004\022+\n\'EAuthSession"
-  "GuardType_EmailConfirmation\020\005\022&\n\"EAuthSe"
-  "ssionGuardType_MachineToken\020\006\022+\n\'EAuthSe"
-  "ssionGuardType_LegacyMachineAuth\020\007*\246\001\n\033E"
-  "AuthSessionSecurityHistory\022\'\n#EAuthSessi"
-  "onSecurityHistory_Invalid\020\000\022.\n*EAuthSess"
-  "ionSecurityHistory_UsedPreviously\020\001\022.\n*E"
-  "AuthSessionSecurityHistory_NoPriorHistor"
-  "y\020\002*L\n\021ETokenRenewalType\022\032\n\026ETokenRenewa"
-  "lType_None\020\000\022\033\n\027ETokenRenewalType_Allow\020"
-  "\001*\303\001\n\023EAuthenticationType\022\037\n\033EAuthentica"
-  "tionType_Unknown\020\000\022 \n\034EAuthenticationTyp"
-  "e_Password\020\001\022\032\n\026EAuthenticationType_QR\020\002"
-  "\022\'\n#EAuthenticationType_AccountCreation\020"
-  "\003\022$\n EAuthenticationType_GuestAccount\020\004*"
-  "\237\002\n\026EAuthTokenRevokeAction\022\032\n\026EAuthToken"
-  "RevokeLogout\020\000\022\035\n\031EAuthTokenRevokePerman"
-  "ent\020\001\022\034\n\030EAuthTokenRevokeReplaced\020\002\022\033\n\027E"
-  "AuthTokenRevokeSupport\020\003\022\033\n\027EAuthTokenRe"
-  "vokeConsume\020\004\022\'\n#EAuthTokenRevokeNonReme"
-  "mberedLogout\020\005\022*\n&EAuthTokenRevokeNonRem"
-  "emberedPermanent\020\006\022\035\n\031EAuthTokenRevokeAu"
-  "tomatic\020\007*\370\001\n\017EAuthTokenState\022\033\n\027EAuthTo"
-  "kenState_Invalid\020\000\022\027\n\023EAuthTokenState_Ne"
-  "w\020\001\022\035\n\031EAuthTokenState_Confirmed\020\002\022\032\n\026EA"
-  "uthTokenState_Issued\020\003\022\032\n\026EAuthTokenStat"
-  "e_Denied\020\004\022\035\n\031EAuthTokenState_LoggedOut\020"
-  "\005\022\034\n\030EAuthTokenState_Consumed\020\006\022\033\n\027EAuth"
-  "TokenState_Revoked\020c2\257\r\n\016Authentication\022"
-  "~\n\027GetPasswordRSAPublicKey\0220.CAuthentica"
-  "tion_GetPasswordRSAPublicKey_Request\0321.C"
-  "Authentication_GetPasswordRSAPublicKey_R"
-  "esponse\022x\n\025BeginAuthSessionViaQR\022..CAuth"
-  "entication_BeginAuthSessionViaQR_Request"
-  "\032/.CAuthentication_BeginAuthSessionViaQR"
-  "_Response\022\223\001\n\036BeginAuthSessionViaCredent"
-  "ials\0227.CAuthentication_BeginAuthSessionV"
-  "iaCredentials_Request\0328.CAuthentication_"
-  "BeginAuthSessionViaCredentials_Response\022"
-  "x\n\025PollAuthSessionStatus\022..CAuthenticati"
-  "on_PollAuthSessionStatus_Request\032/.CAuth"
-  "entication_PollAuthSessionStatus_Respons"
-  "e\022o\n\022GetAuthSessionInfo\022+.CAuthenticatio"
-  "n_GetAuthSessionInfo_Request\032,.CAuthenti"
-  "cation_GetAuthSessionInfo_Response\022\256\001\n\'U"
-  "pdateAuthSessionWithMobileConfirmation\022@"
-  ".CAuthentication_UpdateAuthSessionWithMo"
-  "bileConfirmation_Request\032A.CAuthenticati"
-  "on_UpdateAuthSessionWithMobileConfirmati"
-  "on_Response\022\242\001\n#UpdateAuthSessionWithSte"
-  "amGuardCode\022<.CAuthentication_UpdateAuth"
-  "SessionWithSteamGuardCode_Request\032=.CAut"
-  "hentication_UpdateAuthSessionWithSteamGu"
-  "ardCode_Response\022\206\001\n\031GenerateAccessToken"
-  "ForApp\0223.CAuthentication_AccessToken_Gen"
-  "erateForApp_Request\0324.CAuthentication_Ac"
-  "cessToken_GenerateForApp_Response\022t\n\017Enu"
-  "merateTokens\022/.CAuthentication_RefreshTo"
-  "ken_Enumerate_Request\0320.CAuthentication_"
-  "RefreshToken_Enumerate_Response\022\204\001\n\031GetA"
-  "uthSessionsForAccount\0222.CAuthentication_"
-  "GetAuthSessionsForAccount_Request\0323.CAut"
-  "hentication_GetAuthSessionsForAccount_Re"
-  "sponse\022u\n\024MigrateMobileSession\022-.CAuthen"
-  "tication_MigrateMobileSession_Request\032.."
-  "CAuthentication_MigrateMobileSession_Res"
-  "ponse\022\\\n\013RevokeToken\022%.CAuthentication_T"
-  "oken_Revoke_Request\032&.CAuthentication_To"
-  "ken_Revoke_Response\022q\n\022RevokeRefreshToke"
-  "n\022,.CAuthentication_RefreshToken_Revoke_"
-  "Request\032-.CAuthentication_RefreshToken_R"
-  "evoke_Response2\233\004\n\025AuthenticationSupport"
-  "\022\230\001\n\033QueryRefreshTokensByAccount\022;.CAuth"
-  "enticationSupport_QueryRefreshTokensByAc"
-  "count_Request\032<.CAuthenticationSupport_Q"
-  "ueryRefreshTokensByAccount_Response\022\206\001\n\025"
-  "QueryRefreshTokenByID\0225.CAuthenticationS"
-  "upport_QueryRefreshTokenByID_Request\0326.C"
-  "AuthenticationSupport_QueryRefreshTokenB"
-  "yID_Response\022h\n\013RevokeToken\022+.CAuthentic"
-  "ationSupport_RevokeToken_Request\032,.CAuth"
-  "enticationSupport_RevokeToken_Response\022t"
-  "\n\017GetTokenHistory\022/.CAuthenticationSuppo"
-  "rt_GetTokenHistory_Request\0320.CAuthentica"
-  "tionSupport_GetTokenHistory_Response2\310\001\n"
-  "\013CloudGaming\022T\n\013CreateNonce\022!.CCloudGami"
-  "ng_CreateNonce_Request\032\".CCloudGaming_Cr"
-  "eateNonce_Response\022c\n\020GetTimeRemaining\022&"
-  ".CCloudGaming_GetTimeRemaining_Request\032\'"
-  ".CCloudGaming_GetTimeRemaining_ResponseB"
-  "\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "alid\022\024\n\014device_trust\030\r \001(\005\"U\n.CAuthentic"
+  "ation_GetAuthSessionRiskInfo_Request\022\021\n\t"
+  "client_id\030\001 \001(\004\022\020\n\010language\030\002 \001(\r\"\321\001\n/CA"
+  "uthentication_GetAuthSessionRiskInfo_Res"
+  "ponse\022\032\n\022location_confirmer\030\001 \001(\t\022\032\n\022loc"
+  "ation_requestor\030\002 \001(\t\022\026\n\016location_other\030"
+  "\003 \001(\t\022N\n\rplatform_type\030\004 \001(\0162\027.EAuthToke"
+  "nPlatformType:\036EAuthTokenPlatformType_Un"
+  "known\"\354\001\n\?CAuthentication_UpdateAuthSess"
+  "ionWithMobileConfirmation_Request\022\017\n\007ver"
+  "sion\030\001 \001(\005\022\021\n\tclient_id\030\002 \001(\004\022\017\n\007steamid"
+  "\030\003 \001(\006\022\021\n\tsignature\030\004 \001(\014\022\026\n\007confirm\030\005 \001"
+  "(\010:\005false\022I\n\013persistence\030\006 \001(\0162\024.ESessio"
+  "nPersistence:\036ESessionPersistence_Persis"
+  "tent\"B\n@CAuthentication_UpdateAuthSessio"
+  "nWithMobileConfirmation_Response\"\271\001\n;CAu"
+  "thentication_UpdateAuthSessionWithSteamG"
+  "uardCode_Request\022\021\n\tclient_id\030\001 \001(\004\022\017\n\007s"
+  "teamid\030\002 \001(\006\022\014\n\004code\030\003 \001(\t\022H\n\tcode_type\030"
+  "\004 \001(\0162\026.EAuthSessionGuardType:\035EAuthSess"
+  "ionGuardType_Unknown\"]\n<CAuthentication_"
+  "UpdateAuthSessionWithSteamGuardCode_Resp"
+  "onse\022\035\n\025agreement_session_url\030\007 \001(\t\"\236\001\n2"
+  "CAuthentication_AccessToken_GenerateForA"
+  "pp_Request\022\025\n\rrefresh_token\030\001 \001(\t\022\017\n\007ste"
+  "amid\030\002 \001(\006\022@\n\014renewal_type\030\003 \001(\0162\022.EToke"
+  "nRenewalType:\026ETokenRenewalType_None\"b\n3"
+  "CAuthentication_AccessToken_GenerateForA"
+  "pp_Response\022\024\n\014access_token\030\001 \001(\t\022\025\n\rref"
+  "resh_token\030\002 \001(\t\"0\n.CAuthentication_Refr"
+  "eshToken_Enumerate_Request\"\272\006\n/CAuthenti"
+  "cation_RefreshToken_Enumerate_Response\022`"
+  "\n\016refresh_tokens\030\001 \003(\0132H.CAuthentication"
+  "_RefreshToken_Enumerate_Response.Refresh"
+  "TokenDescription\022\030\n\020requesting_token\030\002 \001"
+  "(\006\032y\n\017TokenUsageEvent\022\014\n\004time\030\001 \001(\r\022\032\n\002i"
+  "p\030\002 \001(\0132\016.CMsgIPAddress\022\016\n\006locale\030\003 \001(\t\022"
+  "\017\n\007country\030\004 \001(\t\022\r\n\005state\030\005 \001(\t\022\014\n\004city\030"
+  "\006 \001(\t\032\217\004\n\027RefreshTokenDescription\022\020\n\010tok"
+  "en_id\030\001 \001(\006\022\031\n\021token_description\030\002 \001(\t\022\024"
+  "\n\014time_updated\030\003 \001(\r\022N\n\rplatform_type\030\004 "
+  "\001(\0162\027.EAuthTokenPlatformType:\036EAuthToken"
+  "PlatformType_Unknown\022\021\n\tlogged_in\030\005 \001(\010\022"
+  "\023\n\013os_platform\030\006 \001(\r\022\021\n\tauth_type\030\007 \001(\r\022"
+  "\032\n\022gaming_device_type\030\010 \001(\r\022T\n\nfirst_see"
+  "n\030\t \001(\0132@.CAuthentication_RefreshToken_E"
+  "numerate_Response.TokenUsageEvent\022S\n\tlas"
+  "t_seen\030\n \001(\0132@.CAuthentication_RefreshTo"
+  "ken_Enumerate_Response.TokenUsageEvent\022\017"
+  "\n\007os_type\030\013 \001(\005\022N\n\023authentication_type\030\014"
+  " \001(\0162\024.EAuthenticationType:\033EAuthenticat"
+  "ionType_Unknown\"3\n1CAuthentication_GetAu"
+  "thSessionsForAccount_Request\"H\n2CAuthent"
+  "ication_GetAuthSessionsForAccount_Respon"
+  "se\022\022\n\nclient_ids\030\001 \003(\004\"a\n,CAuthenticatio"
+  "n_MigrateMobileSession_Request\022\017\n\007steami"
+  "d\030\001 \001(\006\022\r\n\005token\030\002 \001(\t\022\021\n\tsignature\030\003 \001("
+  "\t\"\\\n-CAuthentication_MigrateMobileSessio"
+  "n_Response\022\025\n\rrefresh_token\030\001 \001(\t\022\024\n\014acc"
+  "ess_token\030\002 \001(\t\"\200\001\n$CAuthentication_Toke"
+  "n_Revoke_Request\022\r\n\005token\030\001 \001(\t\022I\n\rrevok"
+  "e_action\030\002 \001(\0162\027.EAuthTokenRevokeAction:"
+  "\031EAuthTokenRevokePermanent\"\'\n%CAuthentic"
+  "ation_Token_Revoke_Response\"\256\001\n+CAuthent"
+  "ication_RefreshToken_Revoke_Request\022\020\n\010t"
+  "oken_id\030\001 \001(\006\022\017\n\007steamid\030\002 \001(\006\022I\n\rrevoke"
+  "_action\030\003 \001(\0162\027.EAuthTokenRevokeAction:\031"
+  "EAuthTokenRevokePermanent\022\021\n\tsignature\030\004"
+  " \001(\014\".\n,CAuthentication_RefreshToken_Rev"
+  "oke_Response\"m\n:CAuthenticationSupport_Q"
+  "ueryRefreshTokensByAccount_Request\022\017\n\007st"
+  "eamid\030\001 \001(\006\022\036\n\026include_revoked_tokens\030\002 "
+  "\001(\010\"\326\004\n\037CSupportRefreshTokenDescription\022"
+  "\020\n\010token_id\030\001 \001(\006\022\031\n\021token_description\030\002"
+  " \001(\t\022\024\n\014time_updated\030\003 \001(\r\022N\n\rplatform_t"
+  "ype\030\004 \001(\0162\027.EAuthTokenPlatformType:\036EAut"
+  "hTokenPlatformType_Unknown\022>\n\013token_stat"
+  "e\030\005 \001(\0162\020.EAuthTokenState:\027EAuthTokenSta"
+  "te_Invalid\022\025\n\rowner_steamid\030\006 \001(\006\022\023\n\013os_"
+  "platform\030\007 \001(\r\022\017\n\007os_type\030\010 \001(\005\022\021\n\tauth_"
+  "type\030\t \001(\r\022\032\n\022gaming_device_type\030\n \001(\r\022D"
+  "\n\nfirst_seen\030\013 \001(\01320.CSupportRefreshToke"
+  "nDescription.TokenUsageEvent\022C\n\tlast_see"
+  "n\030\014 \001(\01320.CSupportRefreshTokenDescriptio"
+  "n.TokenUsageEvent\032i\n\017TokenUsageEvent\022\014\n\004"
+  "time\030\001 \001(\r\022\032\n\002ip\030\002 \001(\0132\016.CMsgIPAddress\022\017"
+  "\n\007country\030\003 \001(\t\022\r\n\005state\030\004 \001(\t\022\014\n\004city\030\005"
+  " \001(\t\"\221\001\n;CAuthenticationSupport_QueryRef"
+  "reshTokensByAccount_Response\0228\n\016refresh_"
+  "tokens\030\001 \003(\0132 .CSupportRefreshTokenDescr"
+  "iption\022\030\n\020last_token_reset\030\002 \001(\005\"H\n4CAut"
+  "henticationSupport_QueryRefreshTokenByID"
+  "_Request\022\020\n\010token_id\030\001 \001(\006\"q\n5CAuthentic"
+  "ationSupport_QueryRefreshTokenByID_Respo"
+  "nse\0228\n\016refresh_tokens\030\001 \003(\0132 .CSupportRe"
+  "freshTokenDescription\"O\n*CAuthentication"
+  "Support_RevokeToken_Request\022\020\n\010token_id\030"
+  "\001 \001(\006\022\017\n\007steamid\030\002 \001(\006\"-\n+CAuthenticatio"
+  "nSupport_RevokeToken_Response\"B\n.CAuthen"
+  "ticationSupport_GetTokenHistory_Request\022"
+  "\020\n\010token_id\030\001 \001(\006\"d\n\031CSupportRefreshToke"
+  "nAudit\022\016\n\006action\030\001 \001(\005\022\014\n\004time\030\002 \001(\r\022\032\n\002"
+  "ip\030\003 \001(\0132\016.CMsgIPAddress\022\r\n\005actor\030\004 \001(\006\""
+  "^\n/CAuthenticationSupport_GetTokenHistor"
+  "y_Response\022+\n\007history\030\001 \003(\0132\032.CSupportRe"
+  "freshTokenAudit\"X\n3CAuthenticationSuppor"
+  "t_MarkTokenCompromised_Request\022\017\n\007steami"
+  "d\030\001 \001(\006\022\020\n\010token_id\030\002 \001(\006\"6\n4CAuthentica"
+  "tionSupport_MarkTokenCompromised_Respons"
+  "e\"C\n CCloudGaming_CreateNonce_Request\022\020\n"
+  "\010platform\030\001 \001(\t\022\r\n\005appid\030\002 \001(\r\"B\n!CCloud"
+  "Gaming_CreateNonce_Response\022\r\n\005nonce\030\001 \001"
+  "(\t\022\016\n\006expiry\030\002 \001(\r\"M\n%CCloudGaming_GetTi"
+  "meRemaining_Request\022\020\n\010platform\030\001 \001(\t\022\022\n"
+  "\nappid_list\030\002 \003(\r\"F\n\032CCloudGaming_TimeRe"
+  "maining\022\r\n\005appid\030\001 \001(\r\022\031\n\021minutes_remain"
+  "ing\030\002 \001(\r\"V\n&CCloudGaming_GetTimeRemaini"
+  "ng_Response\022,\n\007entries\030\002 \003(\0132\033.CCloudGam"
+  "ing_TimeRemaining*\261\001\n\026EAuthTokenPlatform"
+  "Type\022\"\n\036EAuthTokenPlatformType_Unknown\020\000"
+  "\022&\n\"EAuthTokenPlatformType_SteamClient\020\001"
+  "\022%\n!EAuthTokenPlatformType_WebBrowser\020\002\022"
+  "$\n EAuthTokenPlatformType_MobileApp\020\003*\325\002"
+  "\n\025EAuthSessionGuardType\022!\n\035EAuthSessionG"
+  "uardType_Unknown\020\000\022\036\n\032EAuthSessionGuardT"
+  "ype_None\020\001\022#\n\037EAuthSessionGuardType_Emai"
+  "lCode\020\002\022$\n EAuthSessionGuardType_DeviceC"
+  "ode\020\003\022,\n(EAuthSessionGuardType_DeviceCon"
+  "firmation\020\004\022+\n\'EAuthSessionGuardType_Ema"
+  "ilConfirmation\020\005\022&\n\"EAuthSessionGuardTyp"
+  "e_MachineToken\020\006\022+\n\'EAuthSessionGuardTyp"
+  "e_LegacyMachineAuth\020\007*\246\001\n\033EAuthSessionSe"
+  "curityHistory\022\'\n#EAuthSessionSecurityHis"
+  "tory_Invalid\020\000\022.\n*EAuthSessionSecurityHi"
+  "story_UsedPreviously\020\001\022.\n*EAuthSessionSe"
+  "curityHistory_NoPriorHistory\020\002*L\n\021EToken"
+  "RenewalType\022\032\n\026ETokenRenewalType_None\020\000\022"
+  "\033\n\027ETokenRenewalType_Allow\020\001*\303\001\n\023EAuthen"
+  "ticationType\022\037\n\033EAuthenticationType_Unkn"
+  "own\020\000\022 \n\034EAuthenticationType_Password\020\001\022"
+  "\032\n\026EAuthenticationType_QR\020\002\022\'\n#EAuthenti"
+  "cationType_AccountCreation\020\003\022$\n EAuthent"
+  "icationType_GuestAccount\020\004*\237\002\n\026EAuthToke"
+  "nRevokeAction\022\032\n\026EAuthTokenRevokeLogout\020"
+  "\000\022\035\n\031EAuthTokenRevokePermanent\020\001\022\034\n\030EAut"
+  "hTokenRevokeReplaced\020\002\022\033\n\027EAuthTokenRevo"
+  "keSupport\020\003\022\033\n\027EAuthTokenRevokeConsume\020\004"
+  "\022\'\n#EAuthTokenRevokeNonRememberedLogout\020"
+  "\005\022*\n&EAuthTokenRevokeNonRememberedPerman"
+  "ent\020\006\022\035\n\031EAuthTokenRevokeAutomatic\020\007*\370\001\n"
+  "\017EAuthTokenState\022\033\n\027EAuthTokenState_Inva"
+  "lid\020\000\022\027\n\023EAuthTokenState_New\020\001\022\035\n\031EAuthT"
+  "okenState_Confirmed\020\002\022\032\n\026EAuthTokenState"
+  "_Issued\020\003\022\032\n\026EAuthTokenState_Denied\020\004\022\035\n"
+  "\031EAuthTokenState_LoggedOut\020\005\022\034\n\030EAuthTok"
+  "enState_Consumed\020\006\022\033\n\027EAuthTokenState_Re"
+  "voked\020c2\254\016\n\016Authentication\022~\n\027GetPasswor"
+  "dRSAPublicKey\0220.CAuthentication_GetPassw"
+  "ordRSAPublicKey_Request\0321.CAuthenticatio"
+  "n_GetPasswordRSAPublicKey_Response\022x\n\025Be"
+  "ginAuthSessionViaQR\022..CAuthentication_Be"
+  "ginAuthSessionViaQR_Request\032/.CAuthentic"
+  "ation_BeginAuthSessionViaQR_Response\022\223\001\n"
+  "\036BeginAuthSessionViaCredentials\0227.CAuthe"
+  "ntication_BeginAuthSessionViaCredentials"
+  "_Request\0328.CAuthentication_BeginAuthSess"
+  "ionViaCredentials_Response\022x\n\025PollAuthSe"
+  "ssionStatus\022..CAuthentication_PollAuthSe"
+  "ssionStatus_Request\032/.CAuthentication_Po"
+  "llAuthSessionStatus_Response\022o\n\022GetAuthS"
+  "essionInfo\022+.CAuthentication_GetAuthSess"
+  "ionInfo_Request\032,.CAuthentication_GetAut"
+  "hSessionInfo_Response\022{\n\026GetAuthSessionR"
+  "iskInfo\022/.CAuthentication_GetAuthSession"
+  "RiskInfo_Request\0320.CAuthentication_GetAu"
+  "thSessionRiskInfo_Response\022\256\001\n\'UpdateAut"
+  "hSessionWithMobileConfirmation\022@.CAuthen"
+  "tication_UpdateAuthSessionWithMobileConf"
+  "irmation_Request\032A.CAuthentication_Updat"
+  "eAuthSessionWithMobileConfirmation_Respo"
+  "nse\022\242\001\n#UpdateAuthSessionWithSteamGuardC"
+  "ode\022<.CAuthentication_UpdateAuthSessionW"
+  "ithSteamGuardCode_Request\032=.CAuthenticat"
+  "ion_UpdateAuthSessionWithSteamGuardCode_"
+  "Response\022\206\001\n\031GenerateAccessTokenForApp\0223"
+  ".CAuthentication_AccessToken_GenerateFor"
+  "App_Request\0324.CAuthentication_AccessToke"
+  "n_GenerateForApp_Response\022t\n\017EnumerateTo"
+  "kens\022/.CAuthentication_RefreshToken_Enum"
+  "erate_Request\0320.CAuthentication_RefreshT"
+  "oken_Enumerate_Response\022\204\001\n\031GetAuthSessi"
+  "onsForAccount\0222.CAuthentication_GetAuthS"
+  "essionsForAccount_Request\0323.CAuthenticat"
+  "ion_GetAuthSessionsForAccount_Response\022u"
+  "\n\024MigrateMobileSession\022-.CAuthentication"
+  "_MigrateMobileSession_Request\032..CAuthent"
+  "ication_MigrateMobileSession_Response\022\\\n"
+  "\013RevokeToken\022%.CAuthentication_Token_Rev"
+  "oke_Request\032&.CAuthentication_Token_Revo"
+  "ke_Response\022q\n\022RevokeRefreshToken\022,.CAut"
+  "hentication_RefreshToken_Revoke_Request\032"
+  "-.CAuthentication_RefreshToken_Revoke_Re"
+  "sponse2\241\005\n\025AuthenticationSupport\022\230\001\n\033Que"
+  "ryRefreshTokensByAccount\022;.CAuthenticati"
+  "onSupport_QueryRefreshTokensByAccount_Re"
+  "quest\032<.CAuthenticationSupport_QueryRefr"
+  "eshTokensByAccount_Response\022\206\001\n\025QueryRef"
+  "reshTokenByID\0225.CAuthenticationSupport_Q"
+  "ueryRefreshTokenByID_Request\0326.CAuthenti"
+  "cationSupport_QueryRefreshTokenByID_Resp"
+  "onse\022h\n\013RevokeToken\022+.CAuthenticationSup"
+  "port_RevokeToken_Request\032,.CAuthenticati"
+  "onSupport_RevokeToken_Response\022t\n\017GetTok"
+  "enHistory\022/.CAuthenticationSupport_GetTo"
+  "kenHistory_Request\0320.CAuthenticationSupp"
+  "ort_GetTokenHistory_Response\022\203\001\n\024MarkTok"
+  "enCompromised\0224.CAuthenticationSupport_M"
+  "arkTokenCompromised_Request\0325.CAuthentic"
+  "ationSupport_MarkTokenCompromised_Respon"
+  "se2\310\001\n\013CloudGaming\022T\n\013CreateNonce\022!.CClo"
+  "udGaming_CreateNonce_Request\032\".CCloudGam"
+  "ing_CreateNonce_Response\022c\n\020GetTimeRemai"
+  "ning\022&.CCloudGaming_GetTimeRemaining_Req"
+  "uest\032\'.CCloudGaming_GetTimeRemaining_Res"
+  "ponseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fauth_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -1620,8 +1738,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fauth_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fauth_2esteamclient_2eproto = {
-  false, false, 11150, descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto, "steammessages_auth.steamclient.proto", 
-  &descriptor_table_steammessages_5fauth_2esteamclient_2eproto_once, descriptor_table_steammessages_5fauth_2esteamclient_2eproto_deps, 4, 46,
+  false, false, 11876, descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto, "steammessages_auth.steamclient.proto", 
+  &descriptor_table_steammessages_5fauth_2esteamclient_2eproto_once, descriptor_table_steammessages_5fauth_2esteamclient_2eproto_deps, 4, 50,
   schemas, file_default_instances, TableStruct_steammessages_5fauth_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fauth_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fauth_2esteamclient_2eproto,
 };
@@ -5843,6 +5961,9 @@ class CAuthentication_GetAuthSessionInfo_Response::_Internal {
     (*has_bits)[0] |= 1024u;
   }
   static void set_has_requested_persistence(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
+  static void set_has_device_trust(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
 };
@@ -5902,8 +6023,8 @@ country_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlre
 device_friendly_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&platform_type_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&high_usage_login_) -
-    reinterpret_cast<char*>(&platform_type_)) + sizeof(high_usage_login_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&device_trust_) -
+    reinterpret_cast<char*>(&platform_type_)) + sizeof(device_trust_));
 requested_persistence_ = -1;
 }
 
@@ -5965,10 +6086,10 @@ void CAuthentication_GetAuthSessionInfo_Response::Clear() {
         reinterpret_cast<char*>(&version_) -
         reinterpret_cast<char*>(&platform_type_)) + sizeof(version_));
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     ::memset(&login_history_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&high_usage_login_) -
-        reinterpret_cast<char*>(&login_history_)) + sizeof(high_usage_login_));
+        reinterpret_cast<char*>(&device_trust_) -
+        reinterpret_cast<char*>(&login_history_)) + sizeof(device_trust_));
     requested_persistence_ = -1;
   }
   _has_bits_.Clear();
@@ -6109,6 +6230,14 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           }
         } else goto handle_unusual;
         continue;
+      // optional int32 device_trust = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          _Internal::set_has_device_trust(&has_bits);
+          device_trust_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -6232,10 +6361,16 @@ failure:
   }
 
   // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       12, this->_internal_requested_persistence(), target);
+  }
+
+  // optional int32 device_trust = 13;
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(13, this->_internal_device_trust(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6312,7 +6447,7 @@ size_t CAuthentication_GetAuthSessionInfo_Response::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid];
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
@@ -6329,8 +6464,15 @@ size_t CAuthentication_GetAuthSessionInfo_Response::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
+    // optional int32 device_trust = 13;
     if (cached_has_bits & 0x00000800u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_device_trust());
+    }
+
+    // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
+    if (cached_has_bits & 0x00001000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_requested_persistence());
     }
@@ -6395,7 +6537,7 @@ void CAuthentication_GetAuthSessionInfo_Response::MergeFrom(const CAuthenticatio
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
       login_history_ = from.login_history_;
     }
@@ -6406,6 +6548,9 @@ void CAuthentication_GetAuthSessionInfo_Response::MergeFrom(const CAuthenticatio
       high_usage_login_ = from.high_usage_login_;
     }
     if (cached_has_bits & 0x00000800u) {
+      device_trust_ = from.device_trust_;
+    }
+    if (cached_has_bits & 0x00001000u) {
       requested_persistence_ = from.requested_persistence_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -6441,8 +6586,8 @@ void CAuthentication_GetAuthSessionInfo_Response::InternalSwap(CAuthentication_G
   country_.Swap(&other->country_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   device_friendly_name_.Swap(&other->device_friendly_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CAuthentication_GetAuthSessionInfo_Response, high_usage_login_)
-      + sizeof(CAuthentication_GetAuthSessionInfo_Response::high_usage_login_)
+      PROTOBUF_FIELD_OFFSET(CAuthentication_GetAuthSessionInfo_Response, device_trust_)
+      + sizeof(CAuthentication_GetAuthSessionInfo_Response::device_trust_)
       - PROTOBUF_FIELD_OFFSET(CAuthentication_GetAuthSessionInfo_Response, platform_type_)>(
           reinterpret_cast<char*>(&platform_type_),
           reinterpret_cast<char*>(&other->platform_type_));
@@ -6450,6 +6595,604 @@ void CAuthentication_GetAuthSessionInfo_Response::InternalSwap(CAuthentication_G
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CAuthentication_GetAuthSessionInfo_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CAuthentication_GetAuthSessionRiskInfo_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CAuthentication_GetAuthSessionRiskInfo_Request>()._has_bits_);
+  static void set_has_client_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_language(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CAuthentication_GetAuthSessionRiskInfo_Request::CAuthentication_GetAuthSessionRiskInfo_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CAuthentication_GetAuthSessionRiskInfo_Request)
+}
+CAuthentication_GetAuthSessionRiskInfo_Request::CAuthentication_GetAuthSessionRiskInfo_Request(const CAuthentication_GetAuthSessionRiskInfo_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&client_id_, &from.client_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&language_) -
+    reinterpret_cast<char*>(&client_id_)) + sizeof(language_));
+  // @@protoc_insertion_point(copy_constructor:CAuthentication_GetAuthSessionRiskInfo_Request)
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&client_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&language_) -
+    reinterpret_cast<char*>(&client_id_)) + sizeof(language_));
+}
+
+CAuthentication_GetAuthSessionRiskInfo_Request::~CAuthentication_GetAuthSessionRiskInfo_Request() {
+  // @@protoc_insertion_point(destructor:CAuthentication_GetAuthSessionRiskInfo_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::ArenaDtor(void* object) {
+  CAuthentication_GetAuthSessionRiskInfo_Request* _this = reinterpret_cast< CAuthentication_GetAuthSessionRiskInfo_Request* >(object);
+  (void)_this;
+}
+void CAuthentication_GetAuthSessionRiskInfo_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CAuthentication_GetAuthSessionRiskInfo_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CAuthentication_GetAuthSessionRiskInfo_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&client_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&language_) -
+        reinterpret_cast<char*>(&client_id_)) + sizeof(language_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CAuthentication_GetAuthSessionRiskInfo_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 client_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_client_id(&has_bits);
+          client_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 language = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_language(&has_bits);
+          language_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CAuthentication_GetAuthSessionRiskInfo_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CAuthentication_GetAuthSessionRiskInfo_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 client_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_client_id(), target);
+  }
+
+  // optional uint32 language = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_language(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CAuthentication_GetAuthSessionRiskInfo_Request)
+  return target;
+}
+
+size_t CAuthentication_GetAuthSessionRiskInfo_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CAuthentication_GetAuthSessionRiskInfo_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint64 client_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_client_id());
+    }
+
+    // optional uint32 language = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_language());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CAuthentication_GetAuthSessionRiskInfo_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CAuthentication_GetAuthSessionRiskInfo_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CAuthentication_GetAuthSessionRiskInfo_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CAuthentication_GetAuthSessionRiskInfo_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CAuthentication_GetAuthSessionRiskInfo_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::MergeFrom(const CAuthentication_GetAuthSessionRiskInfo_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CAuthentication_GetAuthSessionRiskInfo_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      client_id_ = from.client_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      language_ = from.language_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CAuthentication_GetAuthSessionRiskInfo_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::CopyFrom(const CAuthentication_GetAuthSessionRiskInfo_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CAuthentication_GetAuthSessionRiskInfo_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CAuthentication_GetAuthSessionRiskInfo_Request::IsInitialized() const {
+  return true;
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Request::InternalSwap(CAuthentication_GetAuthSessionRiskInfo_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CAuthentication_GetAuthSessionRiskInfo_Request, language_)
+      + sizeof(CAuthentication_GetAuthSessionRiskInfo_Request::language_)
+      - PROTOBUF_FIELD_OFFSET(CAuthentication_GetAuthSessionRiskInfo_Request, client_id_)>(
+          reinterpret_cast<char*>(&client_id_),
+          reinterpret_cast<char*>(&other->client_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CAuthentication_GetAuthSessionRiskInfo_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CAuthentication_GetAuthSessionRiskInfo_Response::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CAuthentication_GetAuthSessionRiskInfo_Response>()._has_bits_);
+  static void set_has_location_confirmer(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_location_requestor(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_location_other(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_platform_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CAuthentication_GetAuthSessionRiskInfo_Response::CAuthentication_GetAuthSessionRiskInfo_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CAuthentication_GetAuthSessionRiskInfo_Response)
+}
+CAuthentication_GetAuthSessionRiskInfo_Response::CAuthentication_GetAuthSessionRiskInfo_Response(const CAuthentication_GetAuthSessionRiskInfo_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  location_confirmer_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_location_confirmer()) {
+    location_confirmer_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_location_confirmer(), 
+      GetArena());
+  }
+  location_requestor_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_location_requestor()) {
+    location_requestor_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_location_requestor(), 
+      GetArena());
+  }
+  location_other_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_location_other()) {
+    location_other_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_location_other(), 
+      GetArena());
+  }
+  platform_type_ = from.platform_type_;
+  // @@protoc_insertion_point(copy_constructor:CAuthentication_GetAuthSessionRiskInfo_Response)
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::SharedCtor() {
+location_confirmer_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+location_requestor_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+location_other_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+platform_type_ = 0;
+}
+
+CAuthentication_GetAuthSessionRiskInfo_Response::~CAuthentication_GetAuthSessionRiskInfo_Response() {
+  // @@protoc_insertion_point(destructor:CAuthentication_GetAuthSessionRiskInfo_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  location_confirmer_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  location_requestor_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  location_other_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::ArenaDtor(void* object) {
+  CAuthentication_GetAuthSessionRiskInfo_Response* _this = reinterpret_cast< CAuthentication_GetAuthSessionRiskInfo_Response* >(object);
+  (void)_this;
+}
+void CAuthentication_GetAuthSessionRiskInfo_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CAuthentication_GetAuthSessionRiskInfo_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CAuthentication_GetAuthSessionRiskInfo_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      location_confirmer_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      location_requestor_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      location_other_.ClearNonDefaultToEmpty();
+    }
+  }
+  platform_type_ = 0;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CAuthentication_GetAuthSessionRiskInfo_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string location_confirmer = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_location_confirmer();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAuthentication_GetAuthSessionRiskInfo_Response.location_confirmer");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string location_requestor = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_location_requestor();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAuthentication_GetAuthSessionRiskInfo_Response.location_requestor");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string location_other = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_location_other();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAuthentication_GetAuthSessionRiskInfo_Response.location_other");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown];
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EAuthTokenPlatformType_IsValid(val))) {
+            _internal_set_platform_type(static_cast<::EAuthTokenPlatformType>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(4, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CAuthentication_GetAuthSessionRiskInfo_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CAuthentication_GetAuthSessionRiskInfo_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string location_confirmer = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_location_confirmer().data(), static_cast<int>(this->_internal_location_confirmer().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CAuthentication_GetAuthSessionRiskInfo_Response.location_confirmer");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_location_confirmer(), target);
+  }
+
+  // optional string location_requestor = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_location_requestor().data(), static_cast<int>(this->_internal_location_requestor().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CAuthentication_GetAuthSessionRiskInfo_Response.location_requestor");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_location_requestor(), target);
+  }
+
+  // optional string location_other = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_location_other().data(), static_cast<int>(this->_internal_location_other().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CAuthentication_GetAuthSessionRiskInfo_Response.location_other");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_location_other(), target);
+  }
+
+  // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown];
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_platform_type(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CAuthentication_GetAuthSessionRiskInfo_Response)
+  return target;
+}
+
+size_t CAuthentication_GetAuthSessionRiskInfo_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CAuthentication_GetAuthSessionRiskInfo_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional string location_confirmer = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_location_confirmer());
+    }
+
+    // optional string location_requestor = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_location_requestor());
+    }
+
+    // optional string location_other = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_location_other());
+    }
+
+    // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platform_type());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CAuthentication_GetAuthSessionRiskInfo_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CAuthentication_GetAuthSessionRiskInfo_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CAuthentication_GetAuthSessionRiskInfo_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CAuthentication_GetAuthSessionRiskInfo_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CAuthentication_GetAuthSessionRiskInfo_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::MergeFrom(const CAuthentication_GetAuthSessionRiskInfo_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CAuthentication_GetAuthSessionRiskInfo_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_location_confirmer(from._internal_location_confirmer());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_location_requestor(from._internal_location_requestor());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _internal_set_location_other(from._internal_location_other());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      platform_type_ = from.platform_type_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CAuthentication_GetAuthSessionRiskInfo_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::CopyFrom(const CAuthentication_GetAuthSessionRiskInfo_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CAuthentication_GetAuthSessionRiskInfo_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CAuthentication_GetAuthSessionRiskInfo_Response::IsInitialized() const {
+  return true;
+}
+
+void CAuthentication_GetAuthSessionRiskInfo_Response::InternalSwap(CAuthentication_GetAuthSessionRiskInfo_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  location_confirmer_.Swap(&other->location_confirmer_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  location_requestor_.Swap(&other->location_requestor_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  location_other_.Swap(&other->location_other_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(platform_type_, other->platform_type_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CAuthentication_GetAuthSessionRiskInfo_Response::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -14287,6 +15030,408 @@ void CAuthenticationSupport_GetTokenHistory_Response::InternalSwap(CAuthenticati
 
 // ===================================================================
 
+class CAuthenticationSupport_MarkTokenCompromised_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CAuthenticationSupport_MarkTokenCompromised_Request>()._has_bits_);
+  static void set_has_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_token_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CAuthenticationSupport_MarkTokenCompromised_Request::CAuthenticationSupport_MarkTokenCompromised_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CAuthenticationSupport_MarkTokenCompromised_Request)
+}
+CAuthenticationSupport_MarkTokenCompromised_Request::CAuthenticationSupport_MarkTokenCompromised_Request(const CAuthenticationSupport_MarkTokenCompromised_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&steamid_, &from.steamid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&token_id_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(token_id_));
+  // @@protoc_insertion_point(copy_constructor:CAuthenticationSupport_MarkTokenCompromised_Request)
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&steamid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&token_id_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(token_id_));
+}
+
+CAuthenticationSupport_MarkTokenCompromised_Request::~CAuthenticationSupport_MarkTokenCompromised_Request() {
+  // @@protoc_insertion_point(destructor:CAuthenticationSupport_MarkTokenCompromised_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::ArenaDtor(void* object) {
+  CAuthenticationSupport_MarkTokenCompromised_Request* _this = reinterpret_cast< CAuthenticationSupport_MarkTokenCompromised_Request* >(object);
+  (void)_this;
+}
+void CAuthenticationSupport_MarkTokenCompromised_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CAuthenticationSupport_MarkTokenCompromised_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CAuthenticationSupport_MarkTokenCompromised_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&steamid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&token_id_) -
+        reinterpret_cast<char*>(&steamid_)) + sizeof(token_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CAuthenticationSupport_MarkTokenCompromised_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 steamid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_steamid(&has_bits);
+          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional fixed64 token_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          _Internal::set_has_token_id(&has_bits);
+          token_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CAuthenticationSupport_MarkTokenCompromised_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CAuthenticationSupport_MarkTokenCompromised_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 steamid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
+  }
+
+  // optional fixed64 token_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_token_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CAuthenticationSupport_MarkTokenCompromised_Request)
+  return target;
+}
+
+size_t CAuthenticationSupport_MarkTokenCompromised_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CAuthenticationSupport_MarkTokenCompromised_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional fixed64 steamid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional fixed64 token_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CAuthenticationSupport_MarkTokenCompromised_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CAuthenticationSupport_MarkTokenCompromised_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CAuthenticationSupport_MarkTokenCompromised_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CAuthenticationSupport_MarkTokenCompromised_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CAuthenticationSupport_MarkTokenCompromised_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::MergeFrom(const CAuthenticationSupport_MarkTokenCompromised_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CAuthenticationSupport_MarkTokenCompromised_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      steamid_ = from.steamid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      token_id_ = from.token_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CAuthenticationSupport_MarkTokenCompromised_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::CopyFrom(const CAuthenticationSupport_MarkTokenCompromised_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CAuthenticationSupport_MarkTokenCompromised_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CAuthenticationSupport_MarkTokenCompromised_Request::IsInitialized() const {
+  return true;
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Request::InternalSwap(CAuthenticationSupport_MarkTokenCompromised_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CAuthenticationSupport_MarkTokenCompromised_Request, token_id_)
+      + sizeof(CAuthenticationSupport_MarkTokenCompromised_Request::token_id_)
+      - PROTOBUF_FIELD_OFFSET(CAuthenticationSupport_MarkTokenCompromised_Request, steamid_)>(
+          reinterpret_cast<char*>(&steamid_),
+          reinterpret_cast<char*>(&other->steamid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CAuthenticationSupport_MarkTokenCompromised_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CAuthenticationSupport_MarkTokenCompromised_Response::_Internal {
+ public:
+};
+
+CAuthenticationSupport_MarkTokenCompromised_Response::CAuthenticationSupport_MarkTokenCompromised_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CAuthenticationSupport_MarkTokenCompromised_Response)
+}
+CAuthenticationSupport_MarkTokenCompromised_Response::CAuthenticationSupport_MarkTokenCompromised_Response(const CAuthenticationSupport_MarkTokenCompromised_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CAuthenticationSupport_MarkTokenCompromised_Response)
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::SharedCtor() {
+}
+
+CAuthenticationSupport_MarkTokenCompromised_Response::~CAuthenticationSupport_MarkTokenCompromised_Response() {
+  // @@protoc_insertion_point(destructor:CAuthenticationSupport_MarkTokenCompromised_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::ArenaDtor(void* object) {
+  CAuthenticationSupport_MarkTokenCompromised_Response* _this = reinterpret_cast< CAuthenticationSupport_MarkTokenCompromised_Response* >(object);
+  (void)_this;
+}
+void CAuthenticationSupport_MarkTokenCompromised_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CAuthenticationSupport_MarkTokenCompromised_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CAuthenticationSupport_MarkTokenCompromised_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CAuthenticationSupport_MarkTokenCompromised_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CAuthenticationSupport_MarkTokenCompromised_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CAuthenticationSupport_MarkTokenCompromised_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CAuthenticationSupport_MarkTokenCompromised_Response)
+  return target;
+}
+
+size_t CAuthenticationSupport_MarkTokenCompromised_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CAuthenticationSupport_MarkTokenCompromised_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CAuthenticationSupport_MarkTokenCompromised_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CAuthenticationSupport_MarkTokenCompromised_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CAuthenticationSupport_MarkTokenCompromised_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CAuthenticationSupport_MarkTokenCompromised_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CAuthenticationSupport_MarkTokenCompromised_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::MergeFrom(const CAuthenticationSupport_MarkTokenCompromised_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CAuthenticationSupport_MarkTokenCompromised_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CAuthenticationSupport_MarkTokenCompromised_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::CopyFrom(const CAuthenticationSupport_MarkTokenCompromised_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CAuthenticationSupport_MarkTokenCompromised_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CAuthenticationSupport_MarkTokenCompromised_Response::IsInitialized() const {
+  return true;
+}
+
+void CAuthenticationSupport_MarkTokenCompromised_Response::InternalSwap(CAuthenticationSupport_MarkTokenCompromised_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CAuthenticationSupport_MarkTokenCompromised_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CCloudGaming_CreateNonce_Request::_Internal {
  public:
   using HasBits = decltype(std::declval<CCloudGaming_CreateNonce_Request>()._has_bits_);
@@ -15538,6 +16683,14 @@ void Authentication::GetAuthSessionInfo(::PROTOBUF_NAMESPACE_ID::RpcController* 
   done->Run();
 }
 
+void Authentication::GetAuthSessionRiskInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CAuthentication_GetAuthSessionRiskInfo_Request*,
+                         ::CAuthentication_GetAuthSessionRiskInfo_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetAuthSessionRiskInfo() not implemented.");
+  done->Run();
+}
+
 void Authentication::UpdateAuthSessionWithMobileConfirmation(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request*,
                          ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response*,
@@ -15650,6 +16803,14 @@ void Authentication::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
              done);
       break;
     case 5:
+      GetAuthSessionRiskInfo(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_GetAuthSessionRiskInfo_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CAuthentication_GetAuthSessionRiskInfo_Response*>(
+                 response),
+             done);
+      break;
+    case 6:
       UpdateAuthSessionWithMobileConfirmation(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request*>(
                  request),
@@ -15657,7 +16818,7 @@ void Authentication::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                  response),
              done);
       break;
-    case 6:
+    case 7:
       UpdateAuthSessionWithSteamGuardCode(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request*>(
                  request),
@@ -15665,7 +16826,7 @@ void Authentication::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                  response),
              done);
       break;
-    case 7:
+    case 8:
       GenerateAccessTokenForApp(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_AccessToken_GenerateForApp_Request*>(
                  request),
@@ -15673,7 +16834,7 @@ void Authentication::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                  response),
              done);
       break;
-    case 8:
+    case 9:
       EnumerateTokens(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_RefreshToken_Enumerate_Request*>(
                  request),
@@ -15681,7 +16842,7 @@ void Authentication::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                  response),
              done);
       break;
-    case 9:
+    case 10:
       GetAuthSessionsForAccount(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_GetAuthSessionsForAccount_Request*>(
                  request),
@@ -15689,7 +16850,7 @@ void Authentication::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                  response),
              done);
       break;
-    case 10:
+    case 11:
       MigrateMobileSession(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_MigrateMobileSession_Request*>(
                  request),
@@ -15697,7 +16858,7 @@ void Authentication::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                  response),
              done);
       break;
-    case 11:
+    case 12:
       RevokeToken(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_Token_Revoke_Request*>(
                  request),
@@ -15705,7 +16866,7 @@ void Authentication::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                  response),
              done);
       break;
-    case 12:
+    case 13:
       RevokeRefreshToken(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthentication_RefreshToken_Revoke_Request*>(
                  request),
@@ -15734,20 +16895,22 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Authentication::GetRequestPrototype(
     case 4:
       return ::CAuthentication_GetAuthSessionInfo_Request::default_instance();
     case 5:
-      return ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::default_instance();
+      return ::CAuthentication_GetAuthSessionRiskInfo_Request::default_instance();
     case 6:
-      return ::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::default_instance();
+      return ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::default_instance();
     case 7:
-      return ::CAuthentication_AccessToken_GenerateForApp_Request::default_instance();
+      return ::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::default_instance();
     case 8:
-      return ::CAuthentication_RefreshToken_Enumerate_Request::default_instance();
+      return ::CAuthentication_AccessToken_GenerateForApp_Request::default_instance();
     case 9:
-      return ::CAuthentication_GetAuthSessionsForAccount_Request::default_instance();
+      return ::CAuthentication_RefreshToken_Enumerate_Request::default_instance();
     case 10:
-      return ::CAuthentication_MigrateMobileSession_Request::default_instance();
+      return ::CAuthentication_GetAuthSessionsForAccount_Request::default_instance();
     case 11:
-      return ::CAuthentication_Token_Revoke_Request::default_instance();
+      return ::CAuthentication_MigrateMobileSession_Request::default_instance();
     case 12:
+      return ::CAuthentication_Token_Revoke_Request::default_instance();
+    case 13:
       return ::CAuthentication_RefreshToken_Revoke_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -15771,20 +16934,22 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Authentication::GetResponsePrototype(
     case 4:
       return ::CAuthentication_GetAuthSessionInfo_Response::default_instance();
     case 5:
-      return ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response::default_instance();
+      return ::CAuthentication_GetAuthSessionRiskInfo_Response::default_instance();
     case 6:
-      return ::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response::default_instance();
+      return ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response::default_instance();
     case 7:
-      return ::CAuthentication_AccessToken_GenerateForApp_Response::default_instance();
+      return ::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response::default_instance();
     case 8:
-      return ::CAuthentication_RefreshToken_Enumerate_Response::default_instance();
+      return ::CAuthentication_AccessToken_GenerateForApp_Response::default_instance();
     case 9:
-      return ::CAuthentication_GetAuthSessionsForAccount_Response::default_instance();
+      return ::CAuthentication_RefreshToken_Enumerate_Response::default_instance();
     case 10:
-      return ::CAuthentication_MigrateMobileSession_Response::default_instance();
+      return ::CAuthentication_GetAuthSessionsForAccount_Response::default_instance();
     case 11:
-      return ::CAuthentication_Token_Revoke_Response::default_instance();
+      return ::CAuthentication_MigrateMobileSession_Response::default_instance();
     case 12:
+      return ::CAuthentication_Token_Revoke_Response::default_instance();
+    case 13:
       return ::CAuthentication_RefreshToken_Revoke_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -15839,60 +17004,67 @@ void Authentication_Stub::GetAuthSessionInfo(::PROTOBUF_NAMESPACE_ID::RpcControl
   channel_->CallMethod(descriptor()->method(4),
                        controller, request, response, done);
 }
+void Authentication_Stub::GetAuthSessionRiskInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CAuthentication_GetAuthSessionRiskInfo_Request* request,
+                              ::CAuthentication_GetAuthSessionRiskInfo_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(5),
+                       controller, request, response, done);
+}
 void Authentication_Stub::UpdateAuthSessionWithMobileConfirmation(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request* request,
                               ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(5),
+  channel_->CallMethod(descriptor()->method(6),
                        controller, request, response, done);
 }
 void Authentication_Stub::UpdateAuthSessionWithSteamGuardCode(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request* request,
                               ::CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(6),
+  channel_->CallMethod(descriptor()->method(7),
                        controller, request, response, done);
 }
 void Authentication_Stub::GenerateAccessTokenForApp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CAuthentication_AccessToken_GenerateForApp_Request* request,
                               ::CAuthentication_AccessToken_GenerateForApp_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(7),
+  channel_->CallMethod(descriptor()->method(8),
                        controller, request, response, done);
 }
 void Authentication_Stub::EnumerateTokens(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CAuthentication_RefreshToken_Enumerate_Request* request,
                               ::CAuthentication_RefreshToken_Enumerate_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(8),
+  channel_->CallMethod(descriptor()->method(9),
                        controller, request, response, done);
 }
 void Authentication_Stub::GetAuthSessionsForAccount(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CAuthentication_GetAuthSessionsForAccount_Request* request,
                               ::CAuthentication_GetAuthSessionsForAccount_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(9),
+  channel_->CallMethod(descriptor()->method(10),
                        controller, request, response, done);
 }
 void Authentication_Stub::MigrateMobileSession(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CAuthentication_MigrateMobileSession_Request* request,
                               ::CAuthentication_MigrateMobileSession_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(10),
+  channel_->CallMethod(descriptor()->method(11),
                        controller, request, response, done);
 }
 void Authentication_Stub::RevokeToken(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CAuthentication_Token_Revoke_Request* request,
                               ::CAuthentication_Token_Revoke_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(11),
+  channel_->CallMethod(descriptor()->method(12),
                        controller, request, response, done);
 }
 void Authentication_Stub::RevokeRefreshToken(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CAuthentication_RefreshToken_Revoke_Request* request,
                               ::CAuthentication_RefreshToken_Revoke_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(12),
+  channel_->CallMethod(descriptor()->method(13),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -15940,6 +17112,14 @@ void AuthenticationSupport::GetTokenHistory(::PROTOBUF_NAMESPACE_ID::RpcControll
   done->Run();
 }
 
+void AuthenticationSupport::MarkTokenCompromised(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CAuthenticationSupport_MarkTokenCompromised_Request*,
+                         ::CAuthenticationSupport_MarkTokenCompromised_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method MarkTokenCompromised() not implemented.");
+  done->Run();
+}
+
 void AuthenticationSupport::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -15979,6 +17159,14 @@ void AuthenticationSupport::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDesc
                  response),
              done);
       break;
+    case 4:
+      MarkTokenCompromised(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAuthenticationSupport_MarkTokenCompromised_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CAuthenticationSupport_MarkTokenCompromised_Response*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -15997,6 +17185,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& AuthenticationSupport::GetRequestPrototy
       return ::CAuthenticationSupport_RevokeToken_Request::default_instance();
     case 3:
       return ::CAuthenticationSupport_GetTokenHistory_Request::default_instance();
+    case 4:
+      return ::CAuthenticationSupport_MarkTokenCompromised_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -16016,6 +17206,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& AuthenticationSupport::GetResponseProtot
       return ::CAuthenticationSupport_RevokeToken_Response::default_instance();
     case 3:
       return ::CAuthenticationSupport_GetTokenHistory_Response::default_instance();
+    case 4:
+      return ::CAuthenticationSupport_MarkTokenCompromised_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -16060,6 +17252,13 @@ void AuthenticationSupport_Stub::GetTokenHistory(::PROTOBUF_NAMESPACE_ID::RpcCon
                               ::CAuthenticationSupport_GetTokenHistory_Response* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(3),
+                       controller, request, response, done);
+}
+void AuthenticationSupport_Stub::MarkTokenCompromised(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CAuthenticationSupport_MarkTokenCompromised_Request* request,
+                              ::CAuthenticationSupport_MarkTokenCompromised_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(4),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -16214,6 +17413,12 @@ template<> PROTOBUF_NOINLINE ::CAuthentication_GetAuthSessionInfo_Request* Arena
 template<> PROTOBUF_NOINLINE ::CAuthentication_GetAuthSessionInfo_Response* Arena::CreateMaybeMessage< ::CAuthentication_GetAuthSessionInfo_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CAuthentication_GetAuthSessionInfo_Response >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CAuthentication_GetAuthSessionRiskInfo_Request* Arena::CreateMaybeMessage< ::CAuthentication_GetAuthSessionRiskInfo_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CAuthentication_GetAuthSessionRiskInfo_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CAuthentication_GetAuthSessionRiskInfo_Response* Arena::CreateMaybeMessage< ::CAuthentication_GetAuthSessionRiskInfo_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CAuthentication_GetAuthSessionRiskInfo_Response >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request* Arena::CreateMaybeMessage< ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request >(arena);
 }
@@ -16300,6 +17505,12 @@ template<> PROTOBUF_NOINLINE ::CSupportRefreshTokenAudit* Arena::CreateMaybeMess
 }
 template<> PROTOBUF_NOINLINE ::CAuthenticationSupport_GetTokenHistory_Response* Arena::CreateMaybeMessage< ::CAuthenticationSupport_GetTokenHistory_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CAuthenticationSupport_GetTokenHistory_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CAuthenticationSupport_MarkTokenCompromised_Request* Arena::CreateMaybeMessage< ::CAuthenticationSupport_MarkTokenCompromised_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CAuthenticationSupport_MarkTokenCompromised_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CAuthenticationSupport_MarkTokenCompromised_Response* Arena::CreateMaybeMessage< ::CAuthenticationSupport_MarkTokenCompromised_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CAuthenticationSupport_MarkTokenCompromised_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CCloudGaming_CreateNonce_Request* Arena::CreateMaybeMessage< ::CCloudGaming_CreateNonce_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCloudGaming_CreateNonce_Request >(arena);

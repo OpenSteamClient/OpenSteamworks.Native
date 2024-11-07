@@ -54,7 +54,7 @@ struct TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[44]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[47]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -98,6 +98,15 @@ extern CStoreBrowse_GetItems_RequestDefaultTypeInternal _CStoreBrowse_GetItems_R
 class CStoreBrowse_GetItems_Response;
 struct CStoreBrowse_GetItems_ResponseDefaultTypeInternal;
 extern CStoreBrowse_GetItems_ResponseDefaultTypeInternal _CStoreBrowse_GetItems_Response_default_instance_;
+class CStoreBrowse_GetPriceStops_Request;
+struct CStoreBrowse_GetPriceStops_RequestDefaultTypeInternal;
+extern CStoreBrowse_GetPriceStops_RequestDefaultTypeInternal _CStoreBrowse_GetPriceStops_Request_default_instance_;
+class CStoreBrowse_GetPriceStops_Response;
+struct CStoreBrowse_GetPriceStops_ResponseDefaultTypeInternal;
+extern CStoreBrowse_GetPriceStops_ResponseDefaultTypeInternal _CStoreBrowse_GetPriceStops_Response_default_instance_;
+class CStoreBrowse_GetPriceStops_Response_PriceStop;
+struct CStoreBrowse_GetPriceStops_Response_PriceStopDefaultTypeInternal;
+extern CStoreBrowse_GetPriceStops_Response_PriceStopDefaultTypeInternal _CStoreBrowse_GetPriceStops_Response_PriceStop_default_instance_;
 class CStoreBrowse_GetStoreCategories_Request;
 struct CStoreBrowse_GetStoreCategories_RequestDefaultTypeInternal;
 extern CStoreBrowse_GetStoreCategories_RequestDefaultTypeInternal _CStoreBrowse_GetStoreCategories_Request_default_instance_;
@@ -207,6 +216,9 @@ template<> ::CStoreBrowse_GetHardwareItems_Request* Arena::CreateMaybeMessage<::
 template<> ::CStoreBrowse_GetHardwareItems_Response* Arena::CreateMaybeMessage<::CStoreBrowse_GetHardwareItems_Response>(Arena*);
 template<> ::CStoreBrowse_GetItems_Request* Arena::CreateMaybeMessage<::CStoreBrowse_GetItems_Request>(Arena*);
 template<> ::CStoreBrowse_GetItems_Response* Arena::CreateMaybeMessage<::CStoreBrowse_GetItems_Response>(Arena*);
+template<> ::CStoreBrowse_GetPriceStops_Request* Arena::CreateMaybeMessage<::CStoreBrowse_GetPriceStops_Request>(Arena*);
+template<> ::CStoreBrowse_GetPriceStops_Response* Arena::CreateMaybeMessage<::CStoreBrowse_GetPriceStops_Response>(Arena*);
+template<> ::CStoreBrowse_GetPriceStops_Response_PriceStop* Arena::CreateMaybeMessage<::CStoreBrowse_GetPriceStops_Response_PriceStop>(Arena*);
 template<> ::CStoreBrowse_GetStoreCategories_Request* Arena::CreateMaybeMessage<::CStoreBrowse_GetStoreCategories_Request>(Arena*);
 template<> ::CStoreBrowse_GetStoreCategories_Response* Arena::CreateMaybeMessage<::CStoreBrowse_GetStoreCategories_Response>(Arena*);
 template<> ::CStoreBrowse_GetStoreCategories_Response_Category* Arena::CreateMaybeMessage<::CStoreBrowse_GetStoreCategories_Response_Category>(Arena*);
@@ -371,7 +383,20 @@ enum EStoreLinkType : int {
   EStoreLinkType_Twitter = 3,
   EStoreLinkType_Twitch = 4,
   EStoreLinkType_Discord = 5,
-  EStoreLinkType_MAX = 6
+  EStoreLinkType_QQ = 6,
+  EStoreLinkType_VK = 7,
+  EStoreLinkType_Bilibili = 8,
+  EStoreLinkType_Weibo = 9,
+  EStoreLinkType_Reddit = 10,
+  EStoreLinkType_Instagram = 11,
+  EStoreLinkType_Tumblr = 12,
+  EStoreLinkType_Tieba = 13,
+  EStoreLinkType_Tiktok = 14,
+  EStoreLinkType_Telegram = 15,
+  EStoreLinkType_LinkedIn = 16,
+  EStoreLinkType_WeChat = 17,
+  EStoreLinkType_QQLink = 18,
+  EStoreLinkType_MAX = 19
 };
 bool EStoreLinkType_IsValid(int value);
 constexpr EStoreLinkType EStoreLinkType_MIN = EStoreLinkType_None;
@@ -1559,8 +1584,54 @@ class StoreItem_RelatedItems PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kDemoAppidFieldNumber = 2,
+    kStandaloneDemoAppidFieldNumber = 3,
     kParentAppidFieldNumber = 1,
   };
+  // repeated uint32 demo_appid = 2;
+  int demo_appid_size() const;
+  private:
+  int _internal_demo_appid_size() const;
+  public:
+  void clear_demo_appid();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_demo_appid(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_demo_appid() const;
+  void _internal_add_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_demo_appid();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 demo_appid(int index) const;
+  void set_demo_appid(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      demo_appid() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_demo_appid();
+
+  // repeated uint32 standalone_demo_appid = 3;
+  int standalone_demo_appid_size() const;
+  private:
+  int _internal_standalone_demo_appid_size() const;
+  public:
+  void clear_standalone_demo_appid();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_standalone_demo_appid(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_standalone_demo_appid() const;
+  void _internal_add_standalone_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_standalone_demo_appid();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 standalone_demo_appid(int index) const;
+  void set_standalone_demo_appid(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_standalone_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      standalone_demo_appid() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_standalone_demo_appid();
+
   // optional uint32 parent_appid = 1;
   bool has_parent_appid() const;
   private:
@@ -1583,6 +1654,8 @@ class StoreItem_RelatedItems PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > demo_appid_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > standalone_demo_appid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 parent_appid_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
@@ -4667,15 +4740,15 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
     kUserFinalPriceInCentsFieldNumber = 7,
     kDiscountPctFieldNumber = 10,
     kUserDiscountPctFieldNumber = 11,
+    kHideDiscountPctForComplianceFieldNumber = 42,
+    kRequiresShippingFieldNumber = 45,
     kBundleDiscountPctFieldNumber = 12,
     kUserCanPurchaseFieldNumber = 30,
     kUserCanPurchaseAsGiftFieldNumber = 31,
     kIsCommercialLicenseFieldNumber = 40,
     kShouldSuppressDiscountPctFieldNumber = 41,
-    kIncludedGameCountFieldNumber = 43,
-    kHideDiscountPctForComplianceFieldNumber = 42,
-    kRequiresShippingFieldNumber = 45,
     kLowestRecentPriceInCentsFieldNumber = 44,
+    kIncludedGameCountFieldNumber = 43,
   };
   // repeated .StoreItem.PurchaseOption.Discount active_discounts = 20;
   int active_discounts_size() const;
@@ -4900,6 +4973,32 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_user_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional bool hide_discount_pct_for_compliance = 42 [default = false];
+  bool has_hide_discount_pct_for_compliance() const;
+  private:
+  bool _internal_has_hide_discount_pct_for_compliance() const;
+  public:
+  void clear_hide_discount_pct_for_compliance();
+  bool hide_discount_pct_for_compliance() const;
+  void set_hide_discount_pct_for_compliance(bool value);
+  private:
+  bool _internal_hide_discount_pct_for_compliance() const;
+  void _internal_set_hide_discount_pct_for_compliance(bool value);
+  public:
+
+  // optional bool requires_shipping = 45;
+  bool has_requires_shipping() const;
+  private:
+  bool _internal_has_requires_shipping() const;
+  public:
+  void clear_requires_shipping();
+  bool requires_shipping() const;
+  void set_requires_shipping(bool value);
+  private:
+  bool _internal_requires_shipping() const;
+  void _internal_set_requires_shipping(bool value);
+  public:
+
   // optional int32 bundle_discount_pct = 12;
   bool has_bundle_discount_pct() const;
   private:
@@ -4965,45 +5064,6 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_should_suppress_discount_pct(bool value);
   public:
 
-  // optional int32 included_game_count = 43;
-  bool has_included_game_count() const;
-  private:
-  bool _internal_has_included_game_count() const;
-  public:
-  void clear_included_game_count();
-  ::PROTOBUF_NAMESPACE_ID::int32 included_game_count() const;
-  void set_included_game_count(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_included_game_count() const;
-  void _internal_set_included_game_count(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // optional bool hide_discount_pct_for_compliance = 42 [default = false];
-  bool has_hide_discount_pct_for_compliance() const;
-  private:
-  bool _internal_has_hide_discount_pct_for_compliance() const;
-  public:
-  void clear_hide_discount_pct_for_compliance();
-  bool hide_discount_pct_for_compliance() const;
-  void set_hide_discount_pct_for_compliance(bool value);
-  private:
-  bool _internal_hide_discount_pct_for_compliance() const;
-  void _internal_set_hide_discount_pct_for_compliance(bool value);
-  public:
-
-  // optional bool requires_shipping = 45;
-  bool has_requires_shipping() const;
-  private:
-  bool _internal_has_requires_shipping() const;
-  public:
-  void clear_requires_shipping();
-  bool requires_shipping() const;
-  void set_requires_shipping(bool value);
-  private:
-  bool _internal_requires_shipping() const;
-  void _internal_set_requires_shipping(bool value);
-  public:
-
   // optional int64 lowest_recent_price_in_cents = 44;
   bool has_lowest_recent_price_in_cents() const;
   private:
@@ -5015,6 +5075,19 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int64 _internal_lowest_recent_price_in_cents() const;
   void _internal_set_lowest_recent_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // optional int32 included_game_count = 43 [default = 1];
+  bool has_included_game_count() const;
+  private:
+  bool _internal_has_included_game_count() const;
+  public:
+  void clear_included_game_count();
+  ::PROTOBUF_NAMESPACE_ID::int32 included_game_count() const;
+  void set_included_game_count(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_included_game_count() const;
+  void _internal_set_included_game_count(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:StoreItem.PurchaseOption)
@@ -5040,15 +5113,15 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int64 user_final_price_in_cents_;
   ::PROTOBUF_NAMESPACE_ID::int32 discount_pct_;
   ::PROTOBUF_NAMESPACE_ID::int32 user_discount_pct_;
+  bool hide_discount_pct_for_compliance_;
+  bool requires_shipping_;
   ::PROTOBUF_NAMESPACE_ID::int32 bundle_discount_pct_;
   bool user_can_purchase_;
   bool user_can_purchase_as_gift_;
   bool is_commercial_license_;
   bool should_suppress_discount_pct_;
-  ::PROTOBUF_NAMESPACE_ID::int32 included_game_count_;
-  bool hide_discount_pct_for_compliance_;
-  bool requires_shipping_;
   ::PROTOBUF_NAMESPACE_ID::int64 lowest_recent_price_in_cents_;
+  ::PROTOBUF_NAMESPACE_ID::int32 included_game_count_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6566,6 +6639,7 @@ class StoreItem_Link PROTOBUF_FINAL :
 
   enum : int {
     kUrlFieldNumber = 2,
+    kTextFieldNumber = 3,
     kLintypeFieldNumber = 1,
   };
   // optional string url = 2;
@@ -6586,6 +6660,26 @@ class StoreItem_Link PROTOBUF_FINAL :
   const std::string& _internal_url() const;
   void _internal_set_url(const std::string& value);
   std::string* _internal_mutable_url();
+  public:
+
+  // optional string text = 3;
+  bool has_text() const;
+  private:
+  bool _internal_has_text() const;
+  public:
+  void clear_text();
+  const std::string& text() const;
+  void set_text(const std::string& value);
+  void set_text(std::string&& value);
+  void set_text(const char* value);
+  void set_text(const char* value, size_t size);
+  std::string* mutable_text();
+  std::string* release_text();
+  void set_allocated_text(std::string* text);
+  private:
+  const std::string& _internal_text() const;
+  void _internal_set_text(const std::string& value);
+  std::string* _internal_mutable_text();
   public:
 
   // optional .EStoreLinkType lintype = 1 [default = EStoreLinkType_None];
@@ -6611,6 +6705,7 @@ class StoreItem_Link PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr url_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr text_;
   int lintype_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
@@ -8913,6 +9008,533 @@ class CStoreBrowse_GetStoreCategories_Response PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CStoreBrowse_GetPriceStops_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetPriceStops_Request) */ {
+ public:
+  inline CStoreBrowse_GetPriceStops_Request() : CStoreBrowse_GetPriceStops_Request(nullptr) {}
+  virtual ~CStoreBrowse_GetPriceStops_Request();
+  explicit constexpr CStoreBrowse_GetPriceStops_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStoreBrowse_GetPriceStops_Request(const CStoreBrowse_GetPriceStops_Request& from);
+  CStoreBrowse_GetPriceStops_Request(CStoreBrowse_GetPriceStops_Request&& from) noexcept
+    : CStoreBrowse_GetPriceStops_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CStoreBrowse_GetPriceStops_Request& operator=(const CStoreBrowse_GetPriceStops_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStoreBrowse_GetPriceStops_Request& operator=(CStoreBrowse_GetPriceStops_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStoreBrowse_GetPriceStops_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStoreBrowse_GetPriceStops_Request* internal_default_instance() {
+    return reinterpret_cast<const CStoreBrowse_GetPriceStops_Request*>(
+               &_CStoreBrowse_GetPriceStops_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    34;
+
+  friend void swap(CStoreBrowse_GetPriceStops_Request& a, CStoreBrowse_GetPriceStops_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStoreBrowse_GetPriceStops_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStoreBrowse_GetPriceStops_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStoreBrowse_GetPriceStops_Request* New() const final {
+    return CreateMaybeMessage<CStoreBrowse_GetPriceStops_Request>(nullptr);
+  }
+
+  CStoreBrowse_GetPriceStops_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStoreBrowse_GetPriceStops_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStoreBrowse_GetPriceStops_Request& from);
+  void MergeFrom(const CStoreBrowse_GetPriceStops_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStoreBrowse_GetPriceStops_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStoreBrowse_GetPriceStops_Request";
+  }
+  protected:
+  explicit CStoreBrowse_GetPriceStops_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCountryCodeFieldNumber = 1,
+    kCurrencyCodeFieldNumber = 2,
+  };
+  // optional string country_code = 1;
+  bool has_country_code() const;
+  private:
+  bool _internal_has_country_code() const;
+  public:
+  void clear_country_code();
+  const std::string& country_code() const;
+  void set_country_code(const std::string& value);
+  void set_country_code(std::string&& value);
+  void set_country_code(const char* value);
+  void set_country_code(const char* value, size_t size);
+  std::string* mutable_country_code();
+  std::string* release_country_code();
+  void set_allocated_country_code(std::string* country_code);
+  private:
+  const std::string& _internal_country_code() const;
+  void _internal_set_country_code(const std::string& value);
+  std::string* _internal_mutable_country_code();
+  public:
+
+  // optional string currency_code = 2;
+  bool has_currency_code() const;
+  private:
+  bool _internal_has_currency_code() const;
+  public:
+  void clear_currency_code();
+  const std::string& currency_code() const;
+  void set_currency_code(const std::string& value);
+  void set_currency_code(std::string&& value);
+  void set_currency_code(const char* value);
+  void set_currency_code(const char* value, size_t size);
+  std::string* mutable_currency_code();
+  std::string* release_currency_code();
+  void set_allocated_currency_code(std::string* currency_code);
+  private:
+  const std::string& _internal_currency_code() const;
+  void _internal_set_currency_code(const std::string& value);
+  std::string* _internal_mutable_currency_code();
+  public:
+
+  // @@protoc_insertion_point(class_scope:CStoreBrowse_GetPriceStops_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr country_code_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr currency_code_;
+  friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CStoreBrowse_GetPriceStops_Response_PriceStop PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetPriceStops_Response.PriceStop) */ {
+ public:
+  inline CStoreBrowse_GetPriceStops_Response_PriceStop() : CStoreBrowse_GetPriceStops_Response_PriceStop(nullptr) {}
+  virtual ~CStoreBrowse_GetPriceStops_Response_PriceStop();
+  explicit constexpr CStoreBrowse_GetPriceStops_Response_PriceStop(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStoreBrowse_GetPriceStops_Response_PriceStop(const CStoreBrowse_GetPriceStops_Response_PriceStop& from);
+  CStoreBrowse_GetPriceStops_Response_PriceStop(CStoreBrowse_GetPriceStops_Response_PriceStop&& from) noexcept
+    : CStoreBrowse_GetPriceStops_Response_PriceStop() {
+    *this = ::std::move(from);
+  }
+
+  inline CStoreBrowse_GetPriceStops_Response_PriceStop& operator=(const CStoreBrowse_GetPriceStops_Response_PriceStop& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStoreBrowse_GetPriceStops_Response_PriceStop& operator=(CStoreBrowse_GetPriceStops_Response_PriceStop&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStoreBrowse_GetPriceStops_Response_PriceStop& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStoreBrowse_GetPriceStops_Response_PriceStop* internal_default_instance() {
+    return reinterpret_cast<const CStoreBrowse_GetPriceStops_Response_PriceStop*>(
+               &_CStoreBrowse_GetPriceStops_Response_PriceStop_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  friend void swap(CStoreBrowse_GetPriceStops_Response_PriceStop& a, CStoreBrowse_GetPriceStops_Response_PriceStop& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStoreBrowse_GetPriceStops_Response_PriceStop* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStoreBrowse_GetPriceStops_Response_PriceStop* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStoreBrowse_GetPriceStops_Response_PriceStop* New() const final {
+    return CreateMaybeMessage<CStoreBrowse_GetPriceStops_Response_PriceStop>(nullptr);
+  }
+
+  CStoreBrowse_GetPriceStops_Response_PriceStop* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStoreBrowse_GetPriceStops_Response_PriceStop>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStoreBrowse_GetPriceStops_Response_PriceStop& from);
+  void MergeFrom(const CStoreBrowse_GetPriceStops_Response_PriceStop& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStoreBrowse_GetPriceStops_Response_PriceStop* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStoreBrowse_GetPriceStops_Response.PriceStop";
+  }
+  protected:
+  explicit CStoreBrowse_GetPriceStops_Response_PriceStop(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFormattedAmountFieldNumber = 1,
+    kAmountInCentsFieldNumber = 2,
+  };
+  // optional string formatted_amount = 1;
+  bool has_formatted_amount() const;
+  private:
+  bool _internal_has_formatted_amount() const;
+  public:
+  void clear_formatted_amount();
+  const std::string& formatted_amount() const;
+  void set_formatted_amount(const std::string& value);
+  void set_formatted_amount(std::string&& value);
+  void set_formatted_amount(const char* value);
+  void set_formatted_amount(const char* value, size_t size);
+  std::string* mutable_formatted_amount();
+  std::string* release_formatted_amount();
+  void set_allocated_formatted_amount(std::string* formatted_amount);
+  private:
+  const std::string& _internal_formatted_amount() const;
+  void _internal_set_formatted_amount(const std::string& value);
+  std::string* _internal_mutable_formatted_amount();
+  public:
+
+  // optional int64 amount_in_cents = 2;
+  bool has_amount_in_cents() const;
+  private:
+  bool _internal_has_amount_in_cents() const;
+  public:
+  void clear_amount_in_cents();
+  ::PROTOBUF_NAMESPACE_ID::int64 amount_in_cents() const;
+  void set_amount_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_amount_in_cents() const;
+  void _internal_set_amount_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CStoreBrowse_GetPriceStops_Response.PriceStop)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr formatted_amount_;
+  ::PROTOBUF_NAMESPACE_ID::int64 amount_in_cents_;
+  friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CStoreBrowse_GetPriceStops_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetPriceStops_Response) */ {
+ public:
+  inline CStoreBrowse_GetPriceStops_Response() : CStoreBrowse_GetPriceStops_Response(nullptr) {}
+  virtual ~CStoreBrowse_GetPriceStops_Response();
+  explicit constexpr CStoreBrowse_GetPriceStops_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStoreBrowse_GetPriceStops_Response(const CStoreBrowse_GetPriceStops_Response& from);
+  CStoreBrowse_GetPriceStops_Response(CStoreBrowse_GetPriceStops_Response&& from) noexcept
+    : CStoreBrowse_GetPriceStops_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CStoreBrowse_GetPriceStops_Response& operator=(const CStoreBrowse_GetPriceStops_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStoreBrowse_GetPriceStops_Response& operator=(CStoreBrowse_GetPriceStops_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStoreBrowse_GetPriceStops_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStoreBrowse_GetPriceStops_Response* internal_default_instance() {
+    return reinterpret_cast<const CStoreBrowse_GetPriceStops_Response*>(
+               &_CStoreBrowse_GetPriceStops_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    36;
+
+  friend void swap(CStoreBrowse_GetPriceStops_Response& a, CStoreBrowse_GetPriceStops_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStoreBrowse_GetPriceStops_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStoreBrowse_GetPriceStops_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStoreBrowse_GetPriceStops_Response* New() const final {
+    return CreateMaybeMessage<CStoreBrowse_GetPriceStops_Response>(nullptr);
+  }
+
+  CStoreBrowse_GetPriceStops_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStoreBrowse_GetPriceStops_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStoreBrowse_GetPriceStops_Response& from);
+  void MergeFrom(const CStoreBrowse_GetPriceStops_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStoreBrowse_GetPriceStops_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStoreBrowse_GetPriceStops_Response";
+  }
+  protected:
+  explicit CStoreBrowse_GetPriceStops_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CStoreBrowse_GetPriceStops_Response_PriceStop PriceStop;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPriceStopsFieldNumber = 1,
+    kCurrencyCodeFieldNumber = 2,
+  };
+  // repeated .CStoreBrowse_GetPriceStops_Response.PriceStop price_stops = 1;
+  int price_stops_size() const;
+  private:
+  int _internal_price_stops_size() const;
+  public:
+  void clear_price_stops();
+  ::CStoreBrowse_GetPriceStops_Response_PriceStop* mutable_price_stops(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetPriceStops_Response_PriceStop >*
+      mutable_price_stops();
+  private:
+  const ::CStoreBrowse_GetPriceStops_Response_PriceStop& _internal_price_stops(int index) const;
+  ::CStoreBrowse_GetPriceStops_Response_PriceStop* _internal_add_price_stops();
+  public:
+  const ::CStoreBrowse_GetPriceStops_Response_PriceStop& price_stops(int index) const;
+  ::CStoreBrowse_GetPriceStops_Response_PriceStop* add_price_stops();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetPriceStops_Response_PriceStop >&
+      price_stops() const;
+
+  // optional string currency_code = 2;
+  bool has_currency_code() const;
+  private:
+  bool _internal_has_currency_code() const;
+  public:
+  void clear_currency_code();
+  const std::string& currency_code() const;
+  void set_currency_code(const std::string& value);
+  void set_currency_code(std::string&& value);
+  void set_currency_code(const char* value);
+  void set_currency_code(const char* value, size_t size);
+  std::string* mutable_currency_code();
+  std::string* release_currency_code();
+  void set_allocated_currency_code(std::string* currency_code);
+  private:
+  const std::string& _internal_currency_code() const;
+  void _internal_set_currency_code(const std::string& value);
+  std::string* _internal_mutable_currency_code();
+  public:
+
+  // @@protoc_insertion_point(class_scope:CStoreBrowse_GetPriceStops_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetPriceStops_Response_PriceStop > price_stops_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr currency_code_;
+  friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CStoreBrowse_GetDLCForApps_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetDLCForApps_Request) */ {
  public:
@@ -8963,7 +9585,7 @@ class CStoreBrowse_GetDLCForApps_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    37;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Request& a, CStoreBrowse_GetDLCForApps_Request& b) {
     a.Swap(&b);
@@ -9172,7 +9794,7 @@ class CStoreBrowse_GetDLCForApps_Response_DLCData PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_DLCData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    38;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response_DLCData& a, CStoreBrowse_GetDLCForApps_Response_DLCData& b) {
     a.Swap(&b);
@@ -9411,7 +10033,7 @@ class CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    39;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp& a, CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp& b) {
     a.Swap(&b);
@@ -9590,7 +10212,7 @@ class CStoreBrowse_GetDLCForApps_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    40;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response& a, CStoreBrowse_GetDLCForApps_Response& b) {
     a.Swap(&b);
@@ -9766,7 +10388,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    41;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Request& a, CStoreBrowse_GetDLCForAppsSolr_Request& b) {
     a.Swap(&b);
@@ -10001,7 +10623,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Response_DLCList PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Response_DLCList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    42;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Response_DLCList& a, CStoreBrowse_GetDLCForAppsSolr_Response_DLCList& b) {
     a.Swap(&b);
@@ -10174,7 +10796,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    43;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Response& a, CStoreBrowse_GetDLCForAppsSolr_Response& b) {
     a.Swap(&b);
@@ -10329,7 +10951,7 @@ class CStoreBrowse_GetHardwareItems_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetHardwareItems_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    44;
 
   friend void swap(CStoreBrowse_GetHardwareItems_Request& a, CStoreBrowse_GetHardwareItems_Request& b) {
     a.Swap(&b);
@@ -10507,7 +11129,7 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
                &_CHardwarePackageDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    45;
 
   friend void swap(CHardwarePackageDetails& a, CHardwarePackageDetails& b) {
     a.Swap(&b);
@@ -10888,7 +11510,7 @@ class CStoreBrowse_GetHardwareItems_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetHardwareItems_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    46;
 
   friend void swap(CStoreBrowse_GetHardwareItems_Response& a, CStoreBrowse_GetHardwareItems_Response& b) {
     a.Swap(&b);
@@ -11012,6 +11634,10 @@ class StoreBrowse : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CStoreBrowse_GetStoreCategories_Request* request,
                        ::CStoreBrowse_GetStoreCategories_Response* response,
                        ::google::protobuf::Closure* done);
+  virtual void GetPriceStops(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CStoreBrowse_GetPriceStops_Request* request,
+                       ::CStoreBrowse_GetPriceStops_Response* response,
+                       ::google::protobuf::Closure* done);
   virtual void GetDLCForApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStoreBrowse_GetDLCForApps_Request* request,
                        ::CStoreBrowse_GetDLCForApps_Response* response,
@@ -11060,6 +11686,10 @@ class StoreBrowse_Stub : public StoreBrowse {
   void GetStoreCategories(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStoreBrowse_GetStoreCategories_Request* request,
                        ::CStoreBrowse_GetStoreCategories_Response* response,
+                       ::google::protobuf::Closure* done);
+  void GetPriceStops(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CStoreBrowse_GetPriceStops_Request* request,
+                       ::CStoreBrowse_GetPriceStops_Response* response,
                        ::google::protobuf::Closure* done);
   void GetDLCForApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStoreBrowse_GetDLCForApps_Request* request,
@@ -12239,6 +12869,100 @@ inline void StoreItem_RelatedItems::_internal_set_parent_appid(::PROTOBUF_NAMESP
 inline void StoreItem_RelatedItems::set_parent_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_parent_appid(value);
   // @@protoc_insertion_point(field_set:StoreItem.RelatedItems.parent_appid)
+}
+
+// repeated uint32 demo_appid = 2;
+inline int StoreItem_RelatedItems::_internal_demo_appid_size() const {
+  return demo_appid_.size();
+}
+inline int StoreItem_RelatedItems::demo_appid_size() const {
+  return _internal_demo_appid_size();
+}
+inline void StoreItem_RelatedItems::clear_demo_appid() {
+  demo_appid_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem_RelatedItems::_internal_demo_appid(int index) const {
+  return demo_appid_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem_RelatedItems::demo_appid(int index) const {
+  // @@protoc_insertion_point(field_get:StoreItem.RelatedItems.demo_appid)
+  return _internal_demo_appid(index);
+}
+inline void StoreItem_RelatedItems::set_demo_appid(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  demo_appid_.Set(index, value);
+  // @@protoc_insertion_point(field_set:StoreItem.RelatedItems.demo_appid)
+}
+inline void StoreItem_RelatedItems::_internal_add_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  demo_appid_.Add(value);
+}
+inline void StoreItem_RelatedItems::add_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_demo_appid(value);
+  // @@protoc_insertion_point(field_add:StoreItem.RelatedItems.demo_appid)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+StoreItem_RelatedItems::_internal_demo_appid() const {
+  return demo_appid_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+StoreItem_RelatedItems::demo_appid() const {
+  // @@protoc_insertion_point(field_list:StoreItem.RelatedItems.demo_appid)
+  return _internal_demo_appid();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+StoreItem_RelatedItems::_internal_mutable_demo_appid() {
+  return &demo_appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+StoreItem_RelatedItems::mutable_demo_appid() {
+  // @@protoc_insertion_point(field_mutable_list:StoreItem.RelatedItems.demo_appid)
+  return _internal_mutable_demo_appid();
+}
+
+// repeated uint32 standalone_demo_appid = 3;
+inline int StoreItem_RelatedItems::_internal_standalone_demo_appid_size() const {
+  return standalone_demo_appid_.size();
+}
+inline int StoreItem_RelatedItems::standalone_demo_appid_size() const {
+  return _internal_standalone_demo_appid_size();
+}
+inline void StoreItem_RelatedItems::clear_standalone_demo_appid() {
+  standalone_demo_appid_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem_RelatedItems::_internal_standalone_demo_appid(int index) const {
+  return standalone_demo_appid_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem_RelatedItems::standalone_demo_appid(int index) const {
+  // @@protoc_insertion_point(field_get:StoreItem.RelatedItems.standalone_demo_appid)
+  return _internal_standalone_demo_appid(index);
+}
+inline void StoreItem_RelatedItems::set_standalone_demo_appid(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  standalone_demo_appid_.Set(index, value);
+  // @@protoc_insertion_point(field_set:StoreItem.RelatedItems.standalone_demo_appid)
+}
+inline void StoreItem_RelatedItems::_internal_add_standalone_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  standalone_demo_appid_.Add(value);
+}
+inline void StoreItem_RelatedItems::add_standalone_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_standalone_demo_appid(value);
+  // @@protoc_insertion_point(field_add:StoreItem.RelatedItems.standalone_demo_appid)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+StoreItem_RelatedItems::_internal_standalone_demo_appid() const {
+  return standalone_demo_appid_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+StoreItem_RelatedItems::standalone_demo_appid() const {
+  // @@protoc_insertion_point(field_list:StoreItem.RelatedItems.standalone_demo_appid)
+  return _internal_standalone_demo_appid();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+StoreItem_RelatedItems::_internal_mutable_standalone_demo_appid() {
+  return &standalone_demo_appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+StoreItem_RelatedItems::mutable_standalone_demo_appid() {
+  // @@protoc_insertion_point(field_mutable_list:StoreItem.RelatedItems.standalone_demo_appid)
+  return _internal_mutable_standalone_demo_appid();
 }
 
 // -------------------------------------------------------------------
@@ -15803,7 +16527,7 @@ inline void StoreItem_PurchaseOption::set_user_discount_pct(::PROTOBUF_NAMESPACE
 
 // optional int32 bundle_discount_pct = 12;
 inline bool StoreItem_PurchaseOption::_internal_has_bundle_discount_pct() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_bundle_discount_pct() const {
@@ -15811,7 +16535,7 @@ inline bool StoreItem_PurchaseOption::has_bundle_discount_pct() const {
 }
 inline void StoreItem_PurchaseOption::clear_bundle_discount_pct() {
   bundle_discount_pct_ = 0;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::_internal_bundle_discount_pct() const {
   return bundle_discount_pct_;
@@ -15821,7 +16545,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::bundle_discount_
   return _internal_bundle_discount_pct();
 }
 inline void StoreItem_PurchaseOption::_internal_set_bundle_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00002000u;
   bundle_discount_pct_ = value;
 }
 inline void StoreItem_PurchaseOption::set_bundle_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -15948,7 +16672,7 @@ StoreItem_PurchaseOption::inactive_discounts() const {
 
 // optional bool user_can_purchase = 30;
 inline bool StoreItem_PurchaseOption::_internal_has_user_can_purchase() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_user_can_purchase() const {
@@ -15956,7 +16680,7 @@ inline bool StoreItem_PurchaseOption::has_user_can_purchase() const {
 }
 inline void StoreItem_PurchaseOption::clear_user_can_purchase() {
   user_can_purchase_ = false;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_user_can_purchase() const {
   return user_can_purchase_;
@@ -15966,7 +16690,7 @@ inline bool StoreItem_PurchaseOption::user_can_purchase() const {
   return _internal_user_can_purchase();
 }
 inline void StoreItem_PurchaseOption::_internal_set_user_can_purchase(bool value) {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00004000u;
   user_can_purchase_ = value;
 }
 inline void StoreItem_PurchaseOption::set_user_can_purchase(bool value) {
@@ -15976,7 +16700,7 @@ inline void StoreItem_PurchaseOption::set_user_can_purchase(bool value) {
 
 // optional bool user_can_purchase_as_gift = 31;
 inline bool StoreItem_PurchaseOption::_internal_has_user_can_purchase_as_gift() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_user_can_purchase_as_gift() const {
@@ -15984,7 +16708,7 @@ inline bool StoreItem_PurchaseOption::has_user_can_purchase_as_gift() const {
 }
 inline void StoreItem_PurchaseOption::clear_user_can_purchase_as_gift() {
   user_can_purchase_as_gift_ = false;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_user_can_purchase_as_gift() const {
   return user_can_purchase_as_gift_;
@@ -15994,7 +16718,7 @@ inline bool StoreItem_PurchaseOption::user_can_purchase_as_gift() const {
   return _internal_user_can_purchase_as_gift();
 }
 inline void StoreItem_PurchaseOption::_internal_set_user_can_purchase_as_gift(bool value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00008000u;
   user_can_purchase_as_gift_ = value;
 }
 inline void StoreItem_PurchaseOption::set_user_can_purchase_as_gift(bool value) {
@@ -16004,7 +16728,7 @@ inline void StoreItem_PurchaseOption::set_user_can_purchase_as_gift(bool value) 
 
 // optional bool is_commercial_license = 40;
 inline bool StoreItem_PurchaseOption::_internal_has_is_commercial_license() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_is_commercial_license() const {
@@ -16012,7 +16736,7 @@ inline bool StoreItem_PurchaseOption::has_is_commercial_license() const {
 }
 inline void StoreItem_PurchaseOption::clear_is_commercial_license() {
   is_commercial_license_ = false;
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_is_commercial_license() const {
   return is_commercial_license_;
@@ -16022,7 +16746,7 @@ inline bool StoreItem_PurchaseOption::is_commercial_license() const {
   return _internal_is_commercial_license();
 }
 inline void StoreItem_PurchaseOption::_internal_set_is_commercial_license(bool value) {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00010000u;
   is_commercial_license_ = value;
 }
 inline void StoreItem_PurchaseOption::set_is_commercial_license(bool value) {
@@ -16032,7 +16756,7 @@ inline void StoreItem_PurchaseOption::set_is_commercial_license(bool value) {
 
 // optional bool should_suppress_discount_pct = 41;
 inline bool StoreItem_PurchaseOption::_internal_has_should_suppress_discount_pct() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_should_suppress_discount_pct() const {
@@ -16040,7 +16764,7 @@ inline bool StoreItem_PurchaseOption::has_should_suppress_discount_pct() const {
 }
 inline void StoreItem_PurchaseOption::clear_should_suppress_discount_pct() {
   should_suppress_discount_pct_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_should_suppress_discount_pct() const {
   return should_suppress_discount_pct_;
@@ -16050,7 +16774,7 @@ inline bool StoreItem_PurchaseOption::should_suppress_discount_pct() const {
   return _internal_should_suppress_discount_pct();
 }
 inline void StoreItem_PurchaseOption::_internal_set_should_suppress_discount_pct(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00020000u;
   should_suppress_discount_pct_ = value;
 }
 inline void StoreItem_PurchaseOption::set_should_suppress_discount_pct(bool value) {
@@ -16060,7 +16784,7 @@ inline void StoreItem_PurchaseOption::set_should_suppress_discount_pct(bool valu
 
 // optional bool hide_discount_pct_for_compliance = 42 [default = false];
 inline bool StoreItem_PurchaseOption::_internal_has_hide_discount_pct_for_compliance() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_hide_discount_pct_for_compliance() const {
@@ -16068,7 +16792,7 @@ inline bool StoreItem_PurchaseOption::has_hide_discount_pct_for_compliance() con
 }
 inline void StoreItem_PurchaseOption::clear_hide_discount_pct_for_compliance() {
   hide_discount_pct_for_compliance_ = false;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline bool StoreItem_PurchaseOption::_internal_hide_discount_pct_for_compliance() const {
   return hide_discount_pct_for_compliance_;
@@ -16078,7 +16802,7 @@ inline bool StoreItem_PurchaseOption::hide_discount_pct_for_compliance() const {
   return _internal_hide_discount_pct_for_compliance();
 }
 inline void StoreItem_PurchaseOption::_internal_set_hide_discount_pct_for_compliance(bool value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00000800u;
   hide_discount_pct_for_compliance_ = value;
 }
 inline void StoreItem_PurchaseOption::set_hide_discount_pct_for_compliance(bool value) {
@@ -16086,17 +16810,17 @@ inline void StoreItem_PurchaseOption::set_hide_discount_pct_for_compliance(bool 
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.hide_discount_pct_for_compliance)
 }
 
-// optional int32 included_game_count = 43;
+// optional int32 included_game_count = 43 [default = 1];
 inline bool StoreItem_PurchaseOption::_internal_has_included_game_count() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_included_game_count() const {
   return _internal_has_included_game_count();
 }
 inline void StoreItem_PurchaseOption::clear_included_game_count() {
-  included_game_count_ = 0;
-  _has_bits_[0] &= ~0x00010000u;
+  included_game_count_ = 1;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::_internal_included_game_count() const {
   return included_game_count_;
@@ -16106,7 +16830,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::included_game_co
   return _internal_included_game_count();
 }
 inline void StoreItem_PurchaseOption::_internal_set_included_game_count(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00080000u;
   included_game_count_ = value;
 }
 inline void StoreItem_PurchaseOption::set_included_game_count(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -16116,7 +16840,7 @@ inline void StoreItem_PurchaseOption::set_included_game_count(::PROTOBUF_NAMESPA
 
 // optional int64 lowest_recent_price_in_cents = 44;
 inline bool StoreItem_PurchaseOption::_internal_has_lowest_recent_price_in_cents() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_lowest_recent_price_in_cents() const {
@@ -16124,7 +16848,7 @@ inline bool StoreItem_PurchaseOption::has_lowest_recent_price_in_cents() const {
 }
 inline void StoreItem_PurchaseOption::clear_lowest_recent_price_in_cents() {
   lowest_recent_price_in_cents_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::_internal_lowest_recent_price_in_cents() const {
   return lowest_recent_price_in_cents_;
@@ -16134,7 +16858,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::lowest_recent_pr
   return _internal_lowest_recent_price_in_cents();
 }
 inline void StoreItem_PurchaseOption::_internal_set_lowest_recent_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00040000u;
   lowest_recent_price_in_cents_ = value;
 }
 inline void StoreItem_PurchaseOption::set_lowest_recent_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -16144,7 +16868,7 @@ inline void StoreItem_PurchaseOption::set_lowest_recent_price_in_cents(::PROTOBU
 
 // optional bool requires_shipping = 45;
 inline bool StoreItem_PurchaseOption::_internal_has_requires_shipping() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_requires_shipping() const {
@@ -16152,7 +16876,7 @@ inline bool StoreItem_PurchaseOption::has_requires_shipping() const {
 }
 inline void StoreItem_PurchaseOption::clear_requires_shipping() {
   requires_shipping_ = false;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_requires_shipping() const {
   return requires_shipping_;
@@ -16162,7 +16886,7 @@ inline bool StoreItem_PurchaseOption::requires_shipping() const {
   return _internal_requires_shipping();
 }
 inline void StoreItem_PurchaseOption::_internal_set_requires_shipping(bool value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00001000u;
   requires_shipping_ = value;
 }
 inline void StoreItem_PurchaseOption::set_requires_shipping(bool value) {
@@ -17396,7 +18120,7 @@ inline void StoreItem_FreeWeekend::set_allocated_text(std::string* text) {
 
 // optional .EStoreLinkType lintype = 1 [default = EStoreLinkType_None];
 inline bool StoreItem_Link::_internal_has_lintype() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool StoreItem_Link::has_lintype() const {
@@ -17404,7 +18128,7 @@ inline bool StoreItem_Link::has_lintype() const {
 }
 inline void StoreItem_Link::clear_lintype() {
   lintype_ = 0;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::EStoreLinkType StoreItem_Link::_internal_lintype() const {
   return static_cast< ::EStoreLinkType >(lintype_);
@@ -17415,7 +18139,7 @@ inline ::EStoreLinkType StoreItem_Link::lintype() const {
 }
 inline void StoreItem_Link::_internal_set_lintype(::EStoreLinkType value) {
   assert(::EStoreLinkType_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
   lintype_ = value;
 }
 inline void StoreItem_Link::set_lintype(::EStoreLinkType value) {
@@ -17494,6 +18218,79 @@ inline void StoreItem_Link::set_allocated_url(std::string* url) {
   url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), url,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Link.url)
+}
+
+// optional string text = 3;
+inline bool StoreItem_Link::_internal_has_text() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool StoreItem_Link::has_text() const {
+  return _internal_has_text();
+}
+inline void StoreItem_Link::clear_text() {
+  text_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& StoreItem_Link::text() const {
+  // @@protoc_insertion_point(field_get:StoreItem.Link.text)
+  return _internal_text();
+}
+inline void StoreItem_Link::set_text(const std::string& value) {
+  _internal_set_text(value);
+  // @@protoc_insertion_point(field_set:StoreItem.Link.text)
+}
+inline std::string* StoreItem_Link::mutable_text() {
+  // @@protoc_insertion_point(field_mutable:StoreItem.Link.text)
+  return _internal_mutable_text();
+}
+inline const std::string& StoreItem_Link::_internal_text() const {
+  return text_.Get();
+}
+inline void StoreItem_Link::_internal_set_text(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void StoreItem_Link::set_text(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  text_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:StoreItem.Link.text)
+}
+inline void StoreItem_Link::set_text(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:StoreItem.Link.text)
+}
+inline void StoreItem_Link::set_text(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:StoreItem.Link.text)
+}
+inline std::string* StoreItem_Link::_internal_mutable_text() {
+  _has_bits_[0] |= 0x00000002u;
+  return text_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* StoreItem_Link::release_text() {
+  // @@protoc_insertion_point(field_release:StoreItem.Link.text)
+  if (!_internal_has_text()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return text_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void StoreItem_Link::set_allocated_text(std::string* text) {
+  if (text != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  text_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), text,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:StoreItem.Link.text)
 }
 
 // -------------------------------------------------------------------
@@ -21287,6 +22084,377 @@ CStoreBrowse_GetStoreCategories_Response::categories() const {
 
 // -------------------------------------------------------------------
 
+// CStoreBrowse_GetPriceStops_Request
+
+// optional string country_code = 1;
+inline bool CStoreBrowse_GetPriceStops_Request::_internal_has_country_code() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetPriceStops_Request::has_country_code() const {
+  return _internal_has_country_code();
+}
+inline void CStoreBrowse_GetPriceStops_Request::clear_country_code() {
+  country_code_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CStoreBrowse_GetPriceStops_Request::country_code() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetPriceStops_Request.country_code)
+  return _internal_country_code();
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_country_code(const std::string& value) {
+  _internal_set_country_code(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetPriceStops_Request.country_code)
+}
+inline std::string* CStoreBrowse_GetPriceStops_Request::mutable_country_code() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetPriceStops_Request.country_code)
+  return _internal_mutable_country_code();
+}
+inline const std::string& CStoreBrowse_GetPriceStops_Request::_internal_country_code() const {
+  return country_code_.Get();
+}
+inline void CStoreBrowse_GetPriceStops_Request::_internal_set_country_code(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_country_code(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  country_code_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStoreBrowse_GetPriceStops_Request.country_code)
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_country_code(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStoreBrowse_GetPriceStops_Request.country_code)
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_country_code(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStoreBrowse_GetPriceStops_Request.country_code)
+}
+inline std::string* CStoreBrowse_GetPriceStops_Request::_internal_mutable_country_code() {
+  _has_bits_[0] |= 0x00000001u;
+  return country_code_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStoreBrowse_GetPriceStops_Request::release_country_code() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetPriceStops_Request.country_code)
+  if (!_internal_has_country_code()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return country_code_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_allocated_country_code(std::string* country_code) {
+  if (country_code != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  country_code_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), country_code,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetPriceStops_Request.country_code)
+}
+
+// optional string currency_code = 2;
+inline bool CStoreBrowse_GetPriceStops_Request::_internal_has_currency_code() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetPriceStops_Request::has_currency_code() const {
+  return _internal_has_currency_code();
+}
+inline void CStoreBrowse_GetPriceStops_Request::clear_currency_code() {
+  currency_code_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CStoreBrowse_GetPriceStops_Request::currency_code() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetPriceStops_Request.currency_code)
+  return _internal_currency_code();
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_currency_code(const std::string& value) {
+  _internal_set_currency_code(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetPriceStops_Request.currency_code)
+}
+inline std::string* CStoreBrowse_GetPriceStops_Request::mutable_currency_code() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetPriceStops_Request.currency_code)
+  return _internal_mutable_currency_code();
+}
+inline const std::string& CStoreBrowse_GetPriceStops_Request::_internal_currency_code() const {
+  return currency_code_.Get();
+}
+inline void CStoreBrowse_GetPriceStops_Request::_internal_set_currency_code(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  currency_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_currency_code(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  currency_code_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStoreBrowse_GetPriceStops_Request.currency_code)
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_currency_code(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  currency_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStoreBrowse_GetPriceStops_Request.currency_code)
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_currency_code(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  currency_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStoreBrowse_GetPriceStops_Request.currency_code)
+}
+inline std::string* CStoreBrowse_GetPriceStops_Request::_internal_mutable_currency_code() {
+  _has_bits_[0] |= 0x00000002u;
+  return currency_code_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStoreBrowse_GetPriceStops_Request::release_currency_code() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetPriceStops_Request.currency_code)
+  if (!_internal_has_currency_code()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return currency_code_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStoreBrowse_GetPriceStops_Request::set_allocated_currency_code(std::string* currency_code) {
+  if (currency_code != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  currency_code_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), currency_code,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetPriceStops_Request.currency_code)
+}
+
+// -------------------------------------------------------------------
+
+// CStoreBrowse_GetPriceStops_Response_PriceStop
+
+// optional string formatted_amount = 1;
+inline bool CStoreBrowse_GetPriceStops_Response_PriceStop::_internal_has_formatted_amount() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetPriceStops_Response_PriceStop::has_formatted_amount() const {
+  return _internal_has_formatted_amount();
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::clear_formatted_amount() {
+  formatted_amount_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CStoreBrowse_GetPriceStops_Response_PriceStop::formatted_amount() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetPriceStops_Response.PriceStop.formatted_amount)
+  return _internal_formatted_amount();
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::set_formatted_amount(const std::string& value) {
+  _internal_set_formatted_amount(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetPriceStops_Response.PriceStop.formatted_amount)
+}
+inline std::string* CStoreBrowse_GetPriceStops_Response_PriceStop::mutable_formatted_amount() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetPriceStops_Response.PriceStop.formatted_amount)
+  return _internal_mutable_formatted_amount();
+}
+inline const std::string& CStoreBrowse_GetPriceStops_Response_PriceStop::_internal_formatted_amount() const {
+  return formatted_amount_.Get();
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::_internal_set_formatted_amount(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  formatted_amount_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::set_formatted_amount(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  formatted_amount_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStoreBrowse_GetPriceStops_Response.PriceStop.formatted_amount)
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::set_formatted_amount(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  formatted_amount_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStoreBrowse_GetPriceStops_Response.PriceStop.formatted_amount)
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::set_formatted_amount(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  formatted_amount_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStoreBrowse_GetPriceStops_Response.PriceStop.formatted_amount)
+}
+inline std::string* CStoreBrowse_GetPriceStops_Response_PriceStop::_internal_mutable_formatted_amount() {
+  _has_bits_[0] |= 0x00000001u;
+  return formatted_amount_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStoreBrowse_GetPriceStops_Response_PriceStop::release_formatted_amount() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetPriceStops_Response.PriceStop.formatted_amount)
+  if (!_internal_has_formatted_amount()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return formatted_amount_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::set_allocated_formatted_amount(std::string* formatted_amount) {
+  if (formatted_amount != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  formatted_amount_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), formatted_amount,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetPriceStops_Response.PriceStop.formatted_amount)
+}
+
+// optional int64 amount_in_cents = 2;
+inline bool CStoreBrowse_GetPriceStops_Response_PriceStop::_internal_has_amount_in_cents() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetPriceStops_Response_PriceStop::has_amount_in_cents() const {
+  return _internal_has_amount_in_cents();
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::clear_amount_in_cents() {
+  amount_in_cents_ = PROTOBUF_LONGLONG(0);
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 CStoreBrowse_GetPriceStops_Response_PriceStop::_internal_amount_in_cents() const {
+  return amount_in_cents_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 CStoreBrowse_GetPriceStops_Response_PriceStop::amount_in_cents() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetPriceStops_Response.PriceStop.amount_in_cents)
+  return _internal_amount_in_cents();
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::_internal_set_amount_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  amount_in_cents_ = value;
+}
+inline void CStoreBrowse_GetPriceStops_Response_PriceStop::set_amount_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_amount_in_cents(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetPriceStops_Response.PriceStop.amount_in_cents)
+}
+
+// -------------------------------------------------------------------
+
+// CStoreBrowse_GetPriceStops_Response
+
+// repeated .CStoreBrowse_GetPriceStops_Response.PriceStop price_stops = 1;
+inline int CStoreBrowse_GetPriceStops_Response::_internal_price_stops_size() const {
+  return price_stops_.size();
+}
+inline int CStoreBrowse_GetPriceStops_Response::price_stops_size() const {
+  return _internal_price_stops_size();
+}
+inline void CStoreBrowse_GetPriceStops_Response::clear_price_stops() {
+  price_stops_.Clear();
+}
+inline ::CStoreBrowse_GetPriceStops_Response_PriceStop* CStoreBrowse_GetPriceStops_Response::mutable_price_stops(int index) {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetPriceStops_Response.price_stops)
+  return price_stops_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetPriceStops_Response_PriceStop >*
+CStoreBrowse_GetPriceStops_Response::mutable_price_stops() {
+  // @@protoc_insertion_point(field_mutable_list:CStoreBrowse_GetPriceStops_Response.price_stops)
+  return &price_stops_;
+}
+inline const ::CStoreBrowse_GetPriceStops_Response_PriceStop& CStoreBrowse_GetPriceStops_Response::_internal_price_stops(int index) const {
+  return price_stops_.Get(index);
+}
+inline const ::CStoreBrowse_GetPriceStops_Response_PriceStop& CStoreBrowse_GetPriceStops_Response::price_stops(int index) const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetPriceStops_Response.price_stops)
+  return _internal_price_stops(index);
+}
+inline ::CStoreBrowse_GetPriceStops_Response_PriceStop* CStoreBrowse_GetPriceStops_Response::_internal_add_price_stops() {
+  return price_stops_.Add();
+}
+inline ::CStoreBrowse_GetPriceStops_Response_PriceStop* CStoreBrowse_GetPriceStops_Response::add_price_stops() {
+  // @@protoc_insertion_point(field_add:CStoreBrowse_GetPriceStops_Response.price_stops)
+  return _internal_add_price_stops();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetPriceStops_Response_PriceStop >&
+CStoreBrowse_GetPriceStops_Response::price_stops() const {
+  // @@protoc_insertion_point(field_list:CStoreBrowse_GetPriceStops_Response.price_stops)
+  return price_stops_;
+}
+
+// optional string currency_code = 2;
+inline bool CStoreBrowse_GetPriceStops_Response::_internal_has_currency_code() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetPriceStops_Response::has_currency_code() const {
+  return _internal_has_currency_code();
+}
+inline void CStoreBrowse_GetPriceStops_Response::clear_currency_code() {
+  currency_code_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CStoreBrowse_GetPriceStops_Response::currency_code() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetPriceStops_Response.currency_code)
+  return _internal_currency_code();
+}
+inline void CStoreBrowse_GetPriceStops_Response::set_currency_code(const std::string& value) {
+  _internal_set_currency_code(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetPriceStops_Response.currency_code)
+}
+inline std::string* CStoreBrowse_GetPriceStops_Response::mutable_currency_code() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetPriceStops_Response.currency_code)
+  return _internal_mutable_currency_code();
+}
+inline const std::string& CStoreBrowse_GetPriceStops_Response::_internal_currency_code() const {
+  return currency_code_.Get();
+}
+inline void CStoreBrowse_GetPriceStops_Response::_internal_set_currency_code(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  currency_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStoreBrowse_GetPriceStops_Response::set_currency_code(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  currency_code_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStoreBrowse_GetPriceStops_Response.currency_code)
+}
+inline void CStoreBrowse_GetPriceStops_Response::set_currency_code(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  currency_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStoreBrowse_GetPriceStops_Response.currency_code)
+}
+inline void CStoreBrowse_GetPriceStops_Response::set_currency_code(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  currency_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStoreBrowse_GetPriceStops_Response.currency_code)
+}
+inline std::string* CStoreBrowse_GetPriceStops_Response::_internal_mutable_currency_code() {
+  _has_bits_[0] |= 0x00000001u;
+  return currency_code_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStoreBrowse_GetPriceStops_Response::release_currency_code() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetPriceStops_Response.currency_code)
+  if (!_internal_has_currency_code()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return currency_code_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStoreBrowse_GetPriceStops_Response::set_allocated_currency_code(std::string* currency_code) {
+  if (currency_code != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  currency_code_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), currency_code,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetPriceStops_Response.currency_code)
+}
+
+// -------------------------------------------------------------------
+
 // CStoreBrowse_GetDLCForApps_Request
 
 // optional .StoreBrowseContext context = 1;
@@ -23001,6 +24169,12 @@ CStoreBrowse_GetHardwareItems_Response::details() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

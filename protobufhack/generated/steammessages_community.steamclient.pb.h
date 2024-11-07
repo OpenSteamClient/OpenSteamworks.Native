@@ -265,11 +265,12 @@ enum EPartnerEventDisplayLocation : int {
   EPartnerEventDisplayLocation_CommunityHub = 6,
   EPartnerEventDisplayLocation_StoreFrontPage = 7,
   EPartnerEventDisplayLocation_NewsHub = 8,
-  EPartnerEventDisplayLocation_GamepadHome = 9
+  EPartnerEventDisplayLocation_GamepadHome = 9,
+  EPartnerEventDisplayLocation_StoreHub = 10
 };
 bool EPartnerEventDisplayLocation_IsValid(int value);
 constexpr EPartnerEventDisplayLocation EPartnerEventDisplayLocation_MIN = EPartnerEventDisplayLocation_Invalid;
-constexpr EPartnerEventDisplayLocation EPartnerEventDisplayLocation_MAX = EPartnerEventDisplayLocation_GamepadHome;
+constexpr EPartnerEventDisplayLocation EPartnerEventDisplayLocation_MAX = EPartnerEventDisplayLocation_StoreHub;
 constexpr int EPartnerEventDisplayLocation_ARRAYSIZE = EPartnerEventDisplayLocation_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EPartnerEventDisplayLocation_descriptor();

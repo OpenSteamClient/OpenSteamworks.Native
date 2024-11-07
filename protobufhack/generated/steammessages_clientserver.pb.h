@@ -49,7 +49,7 @@ struct TableStruct_steammessages_5fclientserver_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[52]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[51]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -84,9 +84,6 @@ extern CMsgClientAuthListDefaultTypeInternal _CMsgClientAuthList_default_instanc
 class CMsgClientAuthListAck;
 struct CMsgClientAuthListAckDefaultTypeInternal;
 extern CMsgClientAuthListAckDefaultTypeInternal _CMsgClientAuthListAck_default_instance_;
-class CMsgClientCMList;
-struct CMsgClientCMListDefaultTypeInternal;
-extern CMsgClientCMListDefaultTypeInternal _CMsgClientCMList_default_instance_;
 class CMsgClientChatInvite;
 struct CMsgClientChatInviteDefaultTypeInternal;
 extern CMsgClientChatInviteDefaultTypeInternal _CMsgClientChatInvite_default_instance_;
@@ -223,7 +220,6 @@ template<> ::CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameIns
 template<> ::CMsgClientAMGetPersonaNameHistory_IdInstance* Arena::CreateMaybeMessage<::CMsgClientAMGetPersonaNameHistory_IdInstance>(Arena*);
 template<> ::CMsgClientAuthList* Arena::CreateMaybeMessage<::CMsgClientAuthList>(Arena*);
 template<> ::CMsgClientAuthListAck* Arena::CreateMaybeMessage<::CMsgClientAuthListAck>(Arena*);
-template<> ::CMsgClientCMList* Arena::CreateMaybeMessage<::CMsgClientCMList>(Arena*);
 template<> ::CMsgClientChatInvite* Arena::CreateMaybeMessage<::CMsgClientChatInvite>(Arena*);
 template<> ::CMsgClientClanState* Arena::CreateMaybeMessage<::CMsgClientClanState>(Arena*);
 template<> ::CMsgClientClanState_Event* Arena::CreateMaybeMessage<::CMsgClientClanState_Event>(Arena*);
@@ -717,229 +713,6 @@ class CMsgClientTicketAuthComplete PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CMsgClientCMList PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientCMList) */ {
- public:
-  inline CMsgClientCMList() : CMsgClientCMList(nullptr) {}
-  virtual ~CMsgClientCMList();
-  explicit constexpr CMsgClientCMList(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgClientCMList(const CMsgClientCMList& from);
-  CMsgClientCMList(CMsgClientCMList&& from) noexcept
-    : CMsgClientCMList() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgClientCMList& operator=(const CMsgClientCMList& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgClientCMList& operator=(CMsgClientCMList&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CMsgClientCMList& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgClientCMList* internal_default_instance() {
-    return reinterpret_cast<const CMsgClientCMList*>(
-               &_CMsgClientCMList_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(CMsgClientCMList& a, CMsgClientCMList& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgClientCMList* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgClientCMList* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CMsgClientCMList* New() const final {
-    return CreateMaybeMessage<CMsgClientCMList>(nullptr);
-  }
-
-  CMsgClientCMList* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CMsgClientCMList>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CMsgClientCMList& from);
-  void MergeFrom(const CMsgClientCMList& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgClientCMList* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgClientCMList";
-  }
-  protected:
-  explicit CMsgClientCMList(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_steammessages_5fclientserver_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kCmAddressesFieldNumber = 1,
-    kCmPortsFieldNumber = 2,
-    kCmWebsocketAddressesFieldNumber = 3,
-    kPercentDefaultToWebsocketFieldNumber = 4,
-  };
-  // repeated uint32 cm_addresses = 1;
-  int cm_addresses_size() const;
-  private:
-  int _internal_cm_addresses_size() const;
-  public:
-  void clear_cm_addresses();
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cm_addresses(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      _internal_cm_addresses() const;
-  void _internal_add_cm_addresses(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      _internal_mutable_cm_addresses();
-  public:
-  ::PROTOBUF_NAMESPACE_ID::uint32 cm_addresses(int index) const;
-  void set_cm_addresses(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
-  void add_cm_addresses(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      cm_addresses() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      mutable_cm_addresses();
-
-  // repeated uint32 cm_ports = 2;
-  int cm_ports_size() const;
-  private:
-  int _internal_cm_ports_size() const;
-  public:
-  void clear_cm_ports();
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_cm_ports(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      _internal_cm_ports() const;
-  void _internal_add_cm_ports(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      _internal_mutable_cm_ports();
-  public:
-  ::PROTOBUF_NAMESPACE_ID::uint32 cm_ports(int index) const;
-  void set_cm_ports(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
-  void add_cm_ports(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      cm_ports() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      mutable_cm_ports();
-
-  // repeated string cm_websocket_addresses = 3;
-  int cm_websocket_addresses_size() const;
-  private:
-  int _internal_cm_websocket_addresses_size() const;
-  public:
-  void clear_cm_websocket_addresses();
-  const std::string& cm_websocket_addresses(int index) const;
-  std::string* mutable_cm_websocket_addresses(int index);
-  void set_cm_websocket_addresses(int index, const std::string& value);
-  void set_cm_websocket_addresses(int index, std::string&& value);
-  void set_cm_websocket_addresses(int index, const char* value);
-  void set_cm_websocket_addresses(int index, const char* value, size_t size);
-  std::string* add_cm_websocket_addresses();
-  void add_cm_websocket_addresses(const std::string& value);
-  void add_cm_websocket_addresses(std::string&& value);
-  void add_cm_websocket_addresses(const char* value);
-  void add_cm_websocket_addresses(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& cm_websocket_addresses() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_cm_websocket_addresses();
-  private:
-  const std::string& _internal_cm_websocket_addresses(int index) const;
-  std::string* _internal_add_cm_websocket_addresses();
-  public:
-
-  // optional uint32 percent_default_to_websocket = 4;
-  bool has_percent_default_to_websocket() const;
-  private:
-  bool _internal_has_percent_default_to_websocket() const;
-  public:
-  void clear_percent_default_to_websocket();
-  ::PROTOBUF_NAMESPACE_ID::uint32 percent_default_to_websocket() const;
-  void set_percent_default_to_websocket(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_percent_default_to_websocket() const;
-  void _internal_set_percent_default_to_websocket(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgClientCMList)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > cm_addresses_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > cm_ports_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> cm_websocket_addresses_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 percent_default_to_websocket_;
-  friend struct ::TableStruct_steammessages_5fclientserver_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgClientP2PConnectionInfo PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientP2PConnectionInfo) */ {
  public:
@@ -990,7 +763,7 @@ class CMsgClientP2PConnectionInfo PROTOBUF_FINAL :
                &_CMsgClientP2PConnectionInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   friend void swap(CMsgClientP2PConnectionInfo& a, CMsgClientP2PConnectionInfo& b) {
     a.Swap(&b);
@@ -1228,7 +1001,7 @@ class CMsgClientP2PConnectionFailInfo PROTOBUF_FINAL :
                &_CMsgClientP2PConnectionFailInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
   friend void swap(CMsgClientP2PConnectionFailInfo& a, CMsgClientP2PConnectionFailInfo& b) {
     a.Swap(&b);
@@ -1474,7 +1247,7 @@ class CMsgClientNetworkingCertRequest PROTOBUF_FINAL :
                &_CMsgClientNetworkingCertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   friend void swap(CMsgClientNetworkingCertRequest& a, CMsgClientNetworkingCertRequest& b) {
     a.Swap(&b);
@@ -1645,7 +1418,7 @@ class CMsgClientNetworkingCertReply PROTOBUF_FINAL :
                &_CMsgClientNetworkingCertReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
   friend void swap(CMsgClientNetworkingCertReply& a, CMsgClientNetworkingCertReply& b) {
     a.Swap(&b);
@@ -1838,7 +1611,7 @@ class CMsgClientNetworkingMobileCertRequest PROTOBUF_FINAL :
                &_CMsgClientNetworkingMobileCertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    6;
 
   friend void swap(CMsgClientNetworkingMobileCertRequest& a, CMsgClientNetworkingMobileCertRequest& b) {
     a.Swap(&b);
@@ -1987,7 +1760,7 @@ class CMsgClientNetworkingMobileCertReply PROTOBUF_FINAL :
                &_CMsgClientNetworkingMobileCertReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    7;
 
   friend void swap(CMsgClientNetworkingMobileCertReply& a, CMsgClientNetworkingMobileCertReply& b) {
     a.Swap(&b);
@@ -2143,7 +1916,7 @@ class CMsgClientGetAppOwnershipTicket PROTOBUF_FINAL :
                &_CMsgClientGetAppOwnershipTicket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    8;
 
   friend void swap(CMsgClientGetAppOwnershipTicket& a, CMsgClientGetAppOwnershipTicket& b) {
     a.Swap(&b);
@@ -2292,7 +2065,7 @@ class CMsgClientGetAppOwnershipTicketResponse PROTOBUF_FINAL :
                &_CMsgClientGetAppOwnershipTicketResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    9;
 
   friend void swap(CMsgClientGetAppOwnershipTicketResponse& a, CMsgClientGetAppOwnershipTicketResponse& b) {
     a.Swap(&b);
@@ -2478,7 +2251,7 @@ class CMsgClientSessionToken PROTOBUF_FINAL :
                &_CMsgClientSessionToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   friend void swap(CMsgClientSessionToken& a, CMsgClientSessionToken& b) {
     a.Swap(&b);
@@ -2627,7 +2400,7 @@ class CMsgClientGameConnectTokens PROTOBUF_FINAL :
                &_CMsgClientGameConnectTokens_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    11;
 
   friend void swap(CMsgClientGameConnectTokens& a, CMsgClientGameConnectTokens& b) {
     a.Swap(&b);
@@ -2802,7 +2575,7 @@ class CMsgClientGamesPlayed_ProcessInfo PROTOBUF_FINAL :
                &_CMsgClientGamesPlayed_ProcessInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    12;
 
   friend void swap(CMsgClientGamesPlayed_ProcessInfo& a, CMsgClientGamesPlayed_ProcessInfo& b) {
     a.Swap(&b);
@@ -2981,7 +2754,7 @@ class CMsgClientGamesPlayed_GamePlayed PROTOBUF_FINAL :
                &_CMsgClientGamesPlayed_GamePlayed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    13;
 
   friend void swap(CMsgClientGamesPlayed_GamePlayed& a, CMsgClientGamesPlayed_GamePlayed& b) {
     a.Swap(&b);
@@ -3661,7 +3434,7 @@ class CMsgClientGamesPlayed PROTOBUF_FINAL :
                &_CMsgClientGamesPlayed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    14;
 
   friend void swap(CMsgClientGamesPlayed& a, CMsgClientGamesPlayed& b) {
     a.Swap(&b);
@@ -3863,7 +3636,7 @@ class CMsgGSApprove PROTOBUF_FINAL :
                &_CMsgGSApprove_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    15;
 
   friend void swap(CMsgGSApprove& a, CMsgGSApprove& b) {
     a.Swap(&b);
@@ -4027,7 +3800,7 @@ class CMsgGSDeny PROTOBUF_FINAL :
                &_CMsgGSDeny_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    16;
 
   friend void swap(CMsgGSDeny& a, CMsgGSDeny& b) {
     a.Swap(&b);
@@ -4213,7 +3986,7 @@ class CMsgGSKick PROTOBUF_FINAL :
                &_CMsgGSKick_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    17;
 
   friend void swap(CMsgGSKick& a, CMsgGSKick& b) {
     a.Swap(&b);
@@ -4377,7 +4150,7 @@ class CMsgClientAuthList PROTOBUF_FINAL :
                &_CMsgClientAuthList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    18;
 
   friend void swap(CMsgClientAuthList& a, CMsgClientAuthList& b) {
     a.Swap(&b);
@@ -4630,7 +4403,7 @@ class CMsgClientAuthListAck PROTOBUF_FINAL :
                &_CMsgClientAuthListAck_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    19;
 
   friend void swap(CMsgClientAuthListAck& a, CMsgClientAuthListAck& b) {
     a.Swap(&b);
@@ -4827,7 +4600,7 @@ class CMsgClientLicenseList_License PROTOBUF_FINAL :
                &_CMsgClientLicenseList_License_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    20;
 
   friend void swap(CMsgClientLicenseList_License& a, CMsgClientLicenseList_License& b) {
     a.Swap(&b);
@@ -5238,7 +5011,7 @@ class CMsgClientLicenseList PROTOBUF_FINAL :
                &_CMsgClientLicenseList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    21;
 
   friend void swap(CMsgClientLicenseList& a, CMsgClientLicenseList& b) {
     a.Swap(&b);
@@ -5409,7 +5182,7 @@ class CMsgClientIsLimitedAccount PROTOBUF_FINAL :
                &_CMsgClientIsLimitedAccount_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    22;
 
   friend void swap(CMsgClientIsLimitedAccount& a, CMsgClientIsLimitedAccount& b) {
     a.Swap(&b);
@@ -5603,7 +5376,7 @@ class CMsgClientRequestedClientStats_StatsToSend PROTOBUF_FINAL :
                &_CMsgClientRequestedClientStats_StatsToSend_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    23;
 
   friend void swap(CMsgClientRequestedClientStats_StatsToSend& a, CMsgClientRequestedClientStats_StatsToSend& b) {
     a.Swap(&b);
@@ -5767,7 +5540,7 @@ class CMsgClientRequestedClientStats PROTOBUF_FINAL :
                &_CMsgClientRequestedClientStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    24;
 
   friend void swap(CMsgClientRequestedClientStats& a, CMsgClientRequestedClientStats& b) {
     a.Swap(&b);
@@ -5922,7 +5695,7 @@ class CMsgClientStat2_StatDetail PROTOBUF_FINAL :
                &_CMsgClientStat2_StatDetail_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    25;
 
   friend void swap(CMsgClientStat2_StatDetail& a, CMsgClientStat2_StatDetail& b) {
     a.Swap(&b);
@@ -6146,7 +5919,7 @@ class CMsgClientStat2 PROTOBUF_FINAL :
                &_CMsgClientStat2_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    26;
 
   friend void swap(CMsgClientStat2& a, CMsgClientStat2& b) {
     a.Swap(&b);
@@ -6301,7 +6074,7 @@ class CMsgClientInviteToGame PROTOBUF_FINAL :
                &_CMsgClientInviteToGame_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    27;
 
   friend void swap(CMsgClientInviteToGame& a, CMsgClientInviteToGame& b) {
     a.Swap(&b);
@@ -6509,7 +6282,7 @@ class CMsgClientChatInvite PROTOBUF_FINAL :
                &_CMsgClientChatInvite_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    28;
 
   friend void swap(CMsgClientChatInvite& a, CMsgClientChatInvite& b) {
     a.Swap(&b);
@@ -6755,7 +6528,7 @@ class CMsgClientConnectionStats_Stats_Logon PROTOBUF_FINAL :
                &_CMsgClientConnectionStats_Stats_Logon_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    29;
 
   friend void swap(CMsgClientConnectionStats_Stats_Logon& a, CMsgClientConnectionStats_Stats_Logon& b) {
     a.Swap(&b);
@@ -7054,7 +6827,7 @@ class CMsgClientConnectionStats_Stats_UDP PROTOBUF_FINAL :
                &_CMsgClientConnectionStats_Stats_UDP_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    30;
 
   friend void swap(CMsgClientConnectionStats_Stats_UDP& a, CMsgClientConnectionStats_Stats_UDP& b) {
     a.Swap(&b);
@@ -7263,7 +7036,7 @@ class CMsgClientConnectionStats_Stats_VConn PROTOBUF_FINAL :
                &_CMsgClientConnectionStats_Stats_VConn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    31;
 
   friend void swap(CMsgClientConnectionStats_Stats_VConn& a, CMsgClientConnectionStats_Stats_VConn& b) {
     a.Swap(&b);
@@ -7687,7 +7460,7 @@ class CMsgClientConnectionStats PROTOBUF_FINAL :
                &_CMsgClientConnectionStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    32;
 
   friend void swap(CMsgClientConnectionStats& a, CMsgClientConnectionStats& b) {
     a.Swap(&b);
@@ -7865,7 +7638,7 @@ class CMsgClientServersAvailable_Server_Types_Available PROTOBUF_FINAL :
                &_CMsgClientServersAvailable_Server_Types_Available_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    33;
 
   friend void swap(CMsgClientServersAvailable_Server_Types_Available& a, CMsgClientServersAvailable_Server_Types_Available& b) {
     a.Swap(&b);
@@ -8029,7 +7802,7 @@ class CMsgClientServersAvailable PROTOBUF_FINAL :
                &_CMsgClientServersAvailable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    34;
 
   friend void swap(CMsgClientServersAvailable& a, CMsgClientServersAvailable& b) {
     a.Swap(&b);
@@ -8200,7 +7973,7 @@ class CMsgClientReportOverlayDetourFailure PROTOBUF_FINAL :
                &_CMsgClientReportOverlayDetourFailure_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    35;
 
   friend void swap(CMsgClientReportOverlayDetourFailure& a, CMsgClientReportOverlayDetourFailure& b) {
     a.Swap(&b);
@@ -8359,7 +8132,7 @@ class CMsgClientRequestEncryptedAppTicket PROTOBUF_FINAL :
                &_CMsgClientRequestEncryptedAppTicket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    36;
 
   friend void swap(CMsgClientRequestEncryptedAppTicket& a, CMsgClientRequestEncryptedAppTicket& b) {
     a.Swap(&b);
@@ -8530,7 +8303,7 @@ class CMsgClientRequestEncryptedAppTicketResponse PROTOBUF_FINAL :
                &_CMsgClientRequestEncryptedAppTicketResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    37;
 
   friend void swap(CMsgClientRequestEncryptedAppTicketResponse& a, CMsgClientRequestEncryptedAppTicketResponse& b) {
     a.Swap(&b);
@@ -8714,7 +8487,7 @@ class CMsgClientWalletInfoUpdate PROTOBUF_FINAL :
                &_CMsgClientWalletInfoUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    38;
 
   friend void swap(CMsgClientWalletInfoUpdate& a, CMsgClientWalletInfoUpdate& b) {
     a.Swap(&b);
@@ -8953,7 +8726,7 @@ class CMsgClientAMGetClanOfficers PROTOBUF_FINAL :
                &_CMsgClientAMGetClanOfficers_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    39;
 
   friend void swap(CMsgClientAMGetClanOfficers& a, CMsgClientAMGetClanOfficers& b) {
     a.Swap(&b);
@@ -9102,7 +8875,7 @@ class CMsgClientAMGetClanOfficersResponse PROTOBUF_FINAL :
                &_CMsgClientAMGetClanOfficersResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    40;
 
   friend void swap(CMsgClientAMGetClanOfficersResponse& a, CMsgClientAMGetClanOfficersResponse& b) {
     a.Swap(&b);
@@ -9281,7 +9054,7 @@ class CMsgClientAMGetPersonaNameHistory_IdInstance PROTOBUF_FINAL :
                &_CMsgClientAMGetPersonaNameHistory_IdInstance_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    41;
 
   friend void swap(CMsgClientAMGetPersonaNameHistory_IdInstance& a, CMsgClientAMGetPersonaNameHistory_IdInstance& b) {
     a.Swap(&b);
@@ -9430,7 +9203,7 @@ class CMsgClientAMGetPersonaNameHistory PROTOBUF_FINAL :
                &_CMsgClientAMGetPersonaNameHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    42;
 
   friend void swap(CMsgClientAMGetPersonaNameHistory& a, CMsgClientAMGetPersonaNameHistory& b) {
     a.Swap(&b);
@@ -9601,7 +9374,7 @@ class CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance P
                &_CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    43;
 
   friend void swap(CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance& a, CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance& b) {
     a.Swap(&b);
@@ -9772,7 +9545,7 @@ class CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance PROTOBUF_FINAL
                &_CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    44;
 
   friend void swap(CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance& a, CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance& b) {
     a.Swap(&b);
@@ -9958,7 +9731,7 @@ class CMsgClientAMGetPersonaNameHistoryResponse PROTOBUF_FINAL :
                &_CMsgClientAMGetPersonaNameHistoryResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    45;
 
   friend void swap(CMsgClientAMGetPersonaNameHistoryResponse& a, CMsgClientAMGetPersonaNameHistoryResponse& b) {
     a.Swap(&b);
@@ -10113,7 +9886,7 @@ class CMsgClientDeregisterWithServer PROTOBUF_FINAL :
                &_CMsgClientDeregisterWithServer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    46;
 
   friend void swap(CMsgClientDeregisterWithServer& a, CMsgClientDeregisterWithServer& b) {
     a.Swap(&b);
@@ -10277,7 +10050,7 @@ class CMsgClientClanState_NameInfo PROTOBUF_FINAL :
                &_CMsgClientClanState_NameInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    47;
 
   friend void swap(CMsgClientClanState_NameInfo& a, CMsgClientClanState_NameInfo& b) {
     a.Swap(&b);
@@ -10455,7 +10228,7 @@ class CMsgClientClanState_UserCounts PROTOBUF_FINAL :
                &_CMsgClientClanState_UserCounts_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    48;
 
   friend void swap(CMsgClientClanState_UserCounts& a, CMsgClientClanState_UserCounts& b) {
     a.Swap(&b);
@@ -10664,7 +10437,7 @@ class CMsgClientClanState_Event PROTOBUF_FINAL :
                &_CMsgClientClanState_Event_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    49;
 
   friend void swap(CMsgClientClanState_Event& a, CMsgClientClanState_Event& b) {
     a.Swap(&b);
@@ -10880,7 +10653,7 @@ class CMsgClientClanState PROTOBUF_FINAL :
                &_CMsgClientClanState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    50;
 
   friend void swap(CMsgClientClanState& a, CMsgClientClanState& b) {
     a.Swap(&b);
@@ -11502,206 +11275,6 @@ inline void CMsgClientTicketAuthComplete::_internal_set_owner_steam_id(::PROTOBU
 inline void CMsgClientTicketAuthComplete::set_owner_steam_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_owner_steam_id(value);
   // @@protoc_insertion_point(field_set:CMsgClientTicketAuthComplete.owner_steam_id)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgClientCMList
-
-// repeated uint32 cm_addresses = 1;
-inline int CMsgClientCMList::_internal_cm_addresses_size() const {
-  return cm_addresses_.size();
-}
-inline int CMsgClientCMList::cm_addresses_size() const {
-  return _internal_cm_addresses_size();
-}
-inline void CMsgClientCMList::clear_cm_addresses() {
-  cm_addresses_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientCMList::_internal_cm_addresses(int index) const {
-  return cm_addresses_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientCMList::cm_addresses(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgClientCMList.cm_addresses)
-  return _internal_cm_addresses(index);
-}
-inline void CMsgClientCMList::set_cm_addresses(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  cm_addresses_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgClientCMList.cm_addresses)
-}
-inline void CMsgClientCMList::_internal_add_cm_addresses(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  cm_addresses_.Add(value);
-}
-inline void CMsgClientCMList::add_cm_addresses(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_add_cm_addresses(value);
-  // @@protoc_insertion_point(field_add:CMsgClientCMList.cm_addresses)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-CMsgClientCMList::_internal_cm_addresses() const {
-  return cm_addresses_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-CMsgClientCMList::cm_addresses() const {
-  // @@protoc_insertion_point(field_list:CMsgClientCMList.cm_addresses)
-  return _internal_cm_addresses();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-CMsgClientCMList::_internal_mutable_cm_addresses() {
-  return &cm_addresses_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-CMsgClientCMList::mutable_cm_addresses() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgClientCMList.cm_addresses)
-  return _internal_mutable_cm_addresses();
-}
-
-// repeated uint32 cm_ports = 2;
-inline int CMsgClientCMList::_internal_cm_ports_size() const {
-  return cm_ports_.size();
-}
-inline int CMsgClientCMList::cm_ports_size() const {
-  return _internal_cm_ports_size();
-}
-inline void CMsgClientCMList::clear_cm_ports() {
-  cm_ports_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientCMList::_internal_cm_ports(int index) const {
-  return cm_ports_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientCMList::cm_ports(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgClientCMList.cm_ports)
-  return _internal_cm_ports(index);
-}
-inline void CMsgClientCMList::set_cm_ports(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  cm_ports_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgClientCMList.cm_ports)
-}
-inline void CMsgClientCMList::_internal_add_cm_ports(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  cm_ports_.Add(value);
-}
-inline void CMsgClientCMList::add_cm_ports(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_add_cm_ports(value);
-  // @@protoc_insertion_point(field_add:CMsgClientCMList.cm_ports)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-CMsgClientCMList::_internal_cm_ports() const {
-  return cm_ports_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-CMsgClientCMList::cm_ports() const {
-  // @@protoc_insertion_point(field_list:CMsgClientCMList.cm_ports)
-  return _internal_cm_ports();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-CMsgClientCMList::_internal_mutable_cm_ports() {
-  return &cm_ports_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-CMsgClientCMList::mutable_cm_ports() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgClientCMList.cm_ports)
-  return _internal_mutable_cm_ports();
-}
-
-// repeated string cm_websocket_addresses = 3;
-inline int CMsgClientCMList::_internal_cm_websocket_addresses_size() const {
-  return cm_websocket_addresses_.size();
-}
-inline int CMsgClientCMList::cm_websocket_addresses_size() const {
-  return _internal_cm_websocket_addresses_size();
-}
-inline void CMsgClientCMList::clear_cm_websocket_addresses() {
-  cm_websocket_addresses_.Clear();
-}
-inline std::string* CMsgClientCMList::add_cm_websocket_addresses() {
-  // @@protoc_insertion_point(field_add_mutable:CMsgClientCMList.cm_websocket_addresses)
-  return _internal_add_cm_websocket_addresses();
-}
-inline const std::string& CMsgClientCMList::_internal_cm_websocket_addresses(int index) const {
-  return cm_websocket_addresses_.Get(index);
-}
-inline const std::string& CMsgClientCMList::cm_websocket_addresses(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgClientCMList.cm_websocket_addresses)
-  return _internal_cm_websocket_addresses(index);
-}
-inline std::string* CMsgClientCMList::mutable_cm_websocket_addresses(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgClientCMList.cm_websocket_addresses)
-  return cm_websocket_addresses_.Mutable(index);
-}
-inline void CMsgClientCMList::set_cm_websocket_addresses(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:CMsgClientCMList.cm_websocket_addresses)
-  cm_websocket_addresses_.Mutable(index)->assign(value);
-}
-inline void CMsgClientCMList::set_cm_websocket_addresses(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:CMsgClientCMList.cm_websocket_addresses)
-  cm_websocket_addresses_.Mutable(index)->assign(std::move(value));
-}
-inline void CMsgClientCMList::set_cm_websocket_addresses(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  cm_websocket_addresses_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:CMsgClientCMList.cm_websocket_addresses)
-}
-inline void CMsgClientCMList::set_cm_websocket_addresses(int index, const char* value, size_t size) {
-  cm_websocket_addresses_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:CMsgClientCMList.cm_websocket_addresses)
-}
-inline std::string* CMsgClientCMList::_internal_add_cm_websocket_addresses() {
-  return cm_websocket_addresses_.Add();
-}
-inline void CMsgClientCMList::add_cm_websocket_addresses(const std::string& value) {
-  cm_websocket_addresses_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:CMsgClientCMList.cm_websocket_addresses)
-}
-inline void CMsgClientCMList::add_cm_websocket_addresses(std::string&& value) {
-  cm_websocket_addresses_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:CMsgClientCMList.cm_websocket_addresses)
-}
-inline void CMsgClientCMList::add_cm_websocket_addresses(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  cm_websocket_addresses_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:CMsgClientCMList.cm_websocket_addresses)
-}
-inline void CMsgClientCMList::add_cm_websocket_addresses(const char* value, size_t size) {
-  cm_websocket_addresses_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:CMsgClientCMList.cm_websocket_addresses)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-CMsgClientCMList::cm_websocket_addresses() const {
-  // @@protoc_insertion_point(field_list:CMsgClientCMList.cm_websocket_addresses)
-  return cm_websocket_addresses_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-CMsgClientCMList::mutable_cm_websocket_addresses() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgClientCMList.cm_websocket_addresses)
-  return &cm_websocket_addresses_;
-}
-
-// optional uint32 percent_default_to_websocket = 4;
-inline bool CMsgClientCMList::_internal_has_percent_default_to_websocket() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgClientCMList::has_percent_default_to_websocket() const {
-  return _internal_has_percent_default_to_websocket();
-}
-inline void CMsgClientCMList::clear_percent_default_to_websocket() {
-  percent_default_to_websocket_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientCMList::_internal_percent_default_to_websocket() const {
-  return percent_default_to_websocket_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientCMList::percent_default_to_websocket() const {
-  // @@protoc_insertion_point(field_get:CMsgClientCMList.percent_default_to_websocket)
-  return _internal_percent_default_to_websocket();
-}
-inline void CMsgClientCMList::_internal_set_percent_default_to_websocket(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000001u;
-  percent_default_to_websocket_ = value;
-}
-inline void CMsgClientCMList::set_percent_default_to_websocket(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_percent_default_to_websocket(value);
-  // @@protoc_insertion_point(field_set:CMsgClientCMList.percent_default_to_websocket)
 }
 
 // -------------------------------------------------------------------
@@ -19776,8 +19349,6 @@ inline void CMsgClientClanState::set_chat_room_private(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

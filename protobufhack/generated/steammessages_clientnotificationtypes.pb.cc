@@ -516,7 +516,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientNotificationGameRecordin
 constexpr CClientNotificationGameRecordingStop::CClientNotificationGameRecordingStop(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : clip_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , game_id_(PROTOBUF_ULONGLONG(0)){}
+  , game_id_(PROTOBUF_ULONGLONG(0))
+  , duration_secs_(0){}
 struct CClientNotificationGameRecordingStopDefaultTypeInternal {
   constexpr CClientNotificationGameRecordingStopDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -541,7 +542,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientNotificationGameRecordin
 constexpr CClientNotificationGameRecordingInstantClip::CClientNotificationGameRecordingInstantClip(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : clip_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , game_id_(PROTOBUF_ULONGLONG(0)){}
+  , game_id_(PROTOBUF_ULONGLONG(0))
+  , duration_secs_(0){}
 struct CClientNotificationGameRecordingInstantClipDefaultTypeInternal {
   constexpr CClientNotificationGameRecordingInstantClipDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -907,8 +909,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientnotifica
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CClientNotificationGameRecordingStop, game_id_),
   PROTOBUF_FIELD_OFFSET(::CClientNotificationGameRecordingStop, clip_id_),
+  PROTOBUF_FIELD_OFFSET(::CClientNotificationGameRecordingStop, duration_secs_),
   1,
   0,
+  2,
   PROTOBUF_FIELD_OFFSET(::CClientNotificationGameRecordingUserMarkerAdded, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CClientNotificationGameRecordingUserMarkerAdded, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -923,8 +927,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientnotifica
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CClientNotificationGameRecordingInstantClip, game_id_),
   PROTOBUF_FIELD_OFFSET(::CClientNotificationGameRecordingInstantClip, clip_id_),
+  PROTOBUF_FIELD_OFFSET(::CClientNotificationGameRecordingInstantClip, duration_secs_),
   1,
   0,
+  2,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 6, sizeof(::CClientNotificationCloudSyncFailure)},
@@ -965,9 +971,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 319, 326, sizeof(::CClientNotificationPlaytimeWarning)},
   { 328, 335, sizeof(::CClientNotificationGameRecordingError)},
   { 337, 343, sizeof(::CClientNotificationGameRecordingStart)},
-  { 344, 351, sizeof(::CClientNotificationGameRecordingStop)},
-  { 353, 359, sizeof(::CClientNotificationGameRecordingUserMarkerAdded)},
-  { 360, 367, sizeof(::CClientNotificationGameRecordingInstantClip)},
+  { 344, 352, sizeof(::CClientNotificationGameRecordingStop)},
+  { 355, 361, sizeof(::CClientNotificationGameRecordingUserMarkerAdded)},
+  { 362, 370, sizeof(::CClientNotificationGameRecordingInstantClip)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1097,98 +1103,99 @@ const char descriptor_table_protodef_steammessages_5fclientnotificationtypes_2ep
   "\022\017\n\007game_id\030\001 \001(\006\022H\n\nerror_type\030\002 \001(\0162\030."
   "EGameRecordingErrorType:\032EGameRecordingE"
   "rrorGeneral\"8\n%CClientNotificationGameRe"
-  "cordingStart\022\017\n\007game_id\030\001 \001(\006\"H\n$CClient"
+  "cordingStart\022\017\n\007game_id\030\001 \001(\006\"_\n$CClient"
   "NotificationGameRecordingStop\022\017\n\007game_id"
-  "\030\001 \001(\006\022\017\n\007clip_id\030\002 \001(\t\"B\n/CClientNotifi"
-  "cationGameRecordingUserMarkerAdded\022\017\n\007ga"
-  "me_id\030\001 \001(\006\"O\n+CClientNotificationGameRe"
-  "cordingInstantClip\022\017\n\007game_id\030\001 \001(\006\022\017\n\007c"
-  "lip_id\030\002 \001(\t*\375\025\n\027EClientNotificationType"
-  "\022#\n\037EClientNotificationType_Invalid\020\000\022-\n"
-  ")EClientNotificationType_DownloadComplet"
-  "ed\020\001\022(\n$EClientNotificationType_FriendIn"
-  "vite\020\002\022(\n$EClientNotificationType_Friend"
-  "InGame\020\003\022(\n$EClientNotificationType_Frie"
-  "ndOnline\020\004\022\'\n#EClientNotificationType_Ac"
-  "hievement\020\005\022&\n\"EClientNotificationType_L"
-  "owBattery\020\006\022(\n$EClientNotificationType_S"
-  "ystemUpdate\020\007\022)\n%EClientNotificationType"
-  "_FriendMessage\020\010\022,\n(EClientNotificationT"
-  "ype_GroupChatMessage\020\t\022.\n*EClientNotific"
-  "ationType_FriendInviteRollup\020\n\022C\n\?EClien"
-  "tNotificationType_FamilySharingDeviceAut"
-  "horizationChanged\020\013\0224\n0EClientNotificati"
-  "onType_FamilySharingStopPlaying\020\014\0229\n5ECl"
-  "ientNotificationType_FamilySharingLibrar"
-  "yAvailable\020\r\022&\n\"EClientNotificationType_"
-  "Screenshot\020\016\022,\n(EClientNotificationType_"
-  "CloudSyncFailure\020\017\022-\n)EClientNotificatio"
-  "nType_CloudSyncConflict\020\020\022-\n)EClientNoti"
-  "ficationType_IncomingVoiceChat\020\021\0221\n-ECli"
-  "entNotificationType_ClaimSteamDeckReward"
-  "s\020\022\022(\n$EClientNotificationType_GiftRecei"
-  "ved\020\023\022,\n(EClientNotificationType_ItemAnn"
-  "ouncement\020\024\022*\n&EClientNotificationType_H"
-  "ardwareSurvey\020\025\022(\n$EClientNotificationTy"
-  "pe_LowDiskSpace\020\026\022.\n*EClientNotification"
-  "Type_BatteryTemperature\020\027\0223\n/EClientNoti"
-  "ficationType_DockUnsupportedFirmware\020\030\022-"
-  "\n)EClientNotificationType_PeerContentUpl"
-  "oad\020\031\022;\n7EClientNotificationType_CannotR"
-  "eadControllerGuideButton\020\032\022#\n\037EClientNot"
-  "ificationType_Comment\020\033\022$\n EClientNotifi"
-  "cationType_Wishlist\020\034\022&\n\"EClientNotifica"
-  "tionType_TradeOffer\020\035\022%\n!EClientNotifica"
-  "tionType_AsyncGame\020\036\022#\n\037EClientNotificat"
-  "ionType_General\020\037\022\'\n#EClientNotification"
-  "Type_HelpRequest\020 \022/\n+EClientNotificatio"
-  "nType_OverlaySplashScreen\020!\0225\n1EClientNo"
-  "tificationType_BroadcastAvailableToWatch"
-  "\020\"\022/\n+EClientNotificationType_TimedTrial"
-  "Remaining\020#\022(\n$EClientNotificationType_L"
-  "oginRefresh\020$\022%\n!EClientNotificationType"
-  "_MajorSale\020%\022(\n$EClientNotificationType_"
-  "TimerExpired\020&\022(\n$EClientNotificationTyp"
-  "e_ModeratorMsg\020\'\0226\n2EClientNotificationT"
-  "ype_SteamInputActionSetChanged\020(\0222\n.ECli"
-  "entNotificationType_RemoteClientConnecti"
-  "on\020)\0223\n/EClientNotificationType_RemoteCl"
-  "ientStartStream\020*\0225\n1EClientNotification"
-  "Type_StreamingClientConnection\020+\022(\n$ECli"
-  "entNotificationType_FamilyInvite\020,\022+\n\'EC"
-  "lientNotificationType_PlaytimeWarning\020-\022"
-  "1\n-EClientNotificationType_FamilyPurchas"
-  "eRequest\020.\0229\n5EClientNotificationType_Fa"
-  "milyPurchaseRequestResponse\020/\0222\n.EClient"
-  "NotificationType_ParentalFeatureRequest\020"
-  "0\0223\n/EClientNotificationType_ParentalPla"
-  "ytimeRequest\0201\022.\n*EClientNotificationTyp"
-  "e_GameRecordingError\0202\0223\n/EClientNotific"
-  "ationType_ParentalFeatureResponse\0203\0224\n0E"
-  "ClientNotificationType_ParentalPlaytimeR"
-  "esponse\0204\022.\n*EClientNotificationType_Req"
-  "uestedGameAdded\0205\022*\n&EClientNotification"
-  "Type_ClipDownloaded\0206\022.\n*EClientNotifica"
-  "tionType_GameRecordingStart\0207\022-\n)EClient"
-  "NotificationType_GameRecordingStop\0208\0228\n4"
-  "EClientNotificationType_GameRecordingUse"
-  "rMarkerAdded\0209\0224\n0EClientNotificationTyp"
-  "e_GameRecordingInstantClip\020:*\247\001\n\035ESystem"
-  "UpdateNotificationType\022)\n%ESystemUpdateN"
-  "otificationType_Invalid\020\000\022+\n\'ESystemUpda"
-  "teNotificationType_Available\020\001\022.\n*ESyste"
-  "mUpdateNotificationType_NeedsRestart\020\002*^"
-  "\n\027EGameRecordingErrorType\022\036\n\032EGameRecord"
-  "ingErrorGeneral\020\001\022#\n\037EGameRecordingError"
-  "LowDiskSpace\020\002B\037H\001\200\001\001\252\002\027OpenSteamworks.P"
-  "rotobuf"
+  "\030\001 \001(\006\022\017\n\007clip_id\030\002 \001(\t\022\025\n\rduration_secs"
+  "\030\003 \001(\002\"B\n/CClientNotificationGameRecordi"
+  "ngUserMarkerAdded\022\017\n\007game_id\030\001 \001(\006\"f\n+CC"
+  "lientNotificationGameRecordingInstantCli"
+  "p\022\017\n\007game_id\030\001 \001(\006\022\017\n\007clip_id\030\002 \001(\t\022\025\n\rd"
+  "uration_secs\030\003 \001(\002*\375\025\n\027EClientNotificati"
+  "onType\022#\n\037EClientNotificationType_Invali"
+  "d\020\000\022-\n)EClientNotificationType_DownloadC"
+  "ompleted\020\001\022(\n$EClientNotificationType_Fr"
+  "iendInvite\020\002\022(\n$EClientNotificationType_"
+  "FriendInGame\020\003\022(\n$EClientNotificationTyp"
+  "e_FriendOnline\020\004\022\'\n#EClientNotificationT"
+  "ype_Achievement\020\005\022&\n\"EClientNotification"
+  "Type_LowBattery\020\006\022(\n$EClientNotification"
+  "Type_SystemUpdate\020\007\022)\n%EClientNotificati"
+  "onType_FriendMessage\020\010\022,\n(EClientNotific"
+  "ationType_GroupChatMessage\020\t\022.\n*EClientN"
+  "otificationType_FriendInviteRollup\020\n\022C\n\?"
+  "EClientNotificationType_FamilySharingDev"
+  "iceAuthorizationChanged\020\013\0224\n0EClientNoti"
+  "ficationType_FamilySharingStopPlaying\020\014\022"
+  "9\n5EClientNotificationType_FamilySharing"
+  "LibraryAvailable\020\r\022&\n\"EClientNotificatio"
+  "nType_Screenshot\020\016\022,\n(EClientNotificatio"
+  "nType_CloudSyncFailure\020\017\022-\n)EClientNotif"
+  "icationType_CloudSyncConflict\020\020\022-\n)EClie"
+  "ntNotificationType_IncomingVoiceChat\020\021\0221"
+  "\n-EClientNotificationType_ClaimSteamDeck"
+  "Rewards\020\022\022(\n$EClientNotificationType_Gif"
+  "tReceived\020\023\022,\n(EClientNotificationType_I"
+  "temAnnouncement\020\024\022*\n&EClientNotification"
+  "Type_HardwareSurvey\020\025\022(\n$EClientNotifica"
+  "tionType_LowDiskSpace\020\026\022.\n*EClientNotifi"
+  "cationType_BatteryTemperature\020\027\0223\n/EClie"
+  "ntNotificationType_DockUnsupportedFirmwa"
+  "re\020\030\022-\n)EClientNotificationType_PeerCont"
+  "entUpload\020\031\022;\n7EClientNotificationType_C"
+  "annotReadControllerGuideButton\020\032\022#\n\037ECli"
+  "entNotificationType_Comment\020\033\022$\n EClient"
+  "NotificationType_Wishlist\020\034\022&\n\"EClientNo"
+  "tificationType_TradeOffer\020\035\022%\n!EClientNo"
+  "tificationType_AsyncGame\020\036\022#\n\037EClientNot"
+  "ificationType_General\020\037\022\'\n#EClientNotifi"
+  "cationType_HelpRequest\020 \022/\n+EClientNotif"
+  "icationType_OverlaySplashScreen\020!\0225\n1ECl"
+  "ientNotificationType_BroadcastAvailableT"
+  "oWatch\020\"\022/\n+EClientNotificationType_Time"
+  "dTrialRemaining\020#\022(\n$EClientNotification"
+  "Type_LoginRefresh\020$\022%\n!EClientNotificati"
+  "onType_MajorSale\020%\022(\n$EClientNotificatio"
+  "nType_TimerExpired\020&\022(\n$EClientNotificat"
+  "ionType_ModeratorMsg\020\'\0226\n2EClientNotific"
+  "ationType_SteamInputActionSetChanged\020(\0222"
+  "\n.EClientNotificationType_RemoteClientCo"
+  "nnection\020)\0223\n/EClientNotificationType_Re"
+  "moteClientStartStream\020*\0225\n1EClientNotifi"
+  "cationType_StreamingClientConnection\020+\022("
+  "\n$EClientNotificationType_FamilyInvite\020,"
+  "\022+\n\'EClientNotificationType_PlaytimeWarn"
+  "ing\020-\0221\n-EClientNotificationType_FamilyP"
+  "urchaseRequest\020.\0229\n5EClientNotificationT"
+  "ype_FamilyPurchaseRequestResponse\020/\0222\n.E"
+  "ClientNotificationType_ParentalFeatureRe"
+  "quest\0200\0223\n/EClientNotificationType_Paren"
+  "talPlaytimeRequest\0201\022.\n*EClientNotificat"
+  "ionType_GameRecordingError\0202\0223\n/EClientN"
+  "otificationType_ParentalFeatureResponse\020"
+  "3\0224\n0EClientNotificationType_ParentalPla"
+  "ytimeResponse\0204\022.\n*EClientNotificationTy"
+  "pe_RequestedGameAdded\0205\022*\n&EClientNotifi"
+  "cationType_ClipDownloaded\0206\022.\n*EClientNo"
+  "tificationType_GameRecordingStart\0207\022-\n)E"
+  "ClientNotificationType_GameRecordingStop"
+  "\0208\0228\n4EClientNotificationType_GameRecord"
+  "ingUserMarkerAdded\0209\0224\n0EClientNotificat"
+  "ionType_GameRecordingInstantClip\020:*\247\001\n\035E"
+  "SystemUpdateNotificationType\022)\n%ESystemU"
+  "pdateNotificationType_Invalid\020\000\022+\n\'ESyst"
+  "emUpdateNotificationType_Available\020\001\022.\n*"
+  "ESystemUpdateNotificationType_NeedsResta"
+  "rt\020\002*^\n\027EGameRecordingErrorType\022\036\n\032EGame"
+  "RecordingErrorGeneral\020\001\022#\n\037EGameRecordin"
+  "gErrorLowDiskSpace\020\002B\037H\001\200\001\001\252\002\027OpenSteamw"
+  "orks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientnotificationtypes_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientnotificationtypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientnotificationtypes_2eproto = {
-  false, false, 6647, descriptor_table_protodef_steammessages_5fclientnotificationtypes_2eproto, "steammessages_clientnotificationtypes.proto", 
+  false, false, 6693, descriptor_table_protodef_steammessages_5fclientnotificationtypes_2eproto, "steammessages_clientnotificationtypes.proto", 
   &descriptor_table_steammessages_5fclientnotificationtypes_2eproto_once, descriptor_table_steammessages_5fclientnotificationtypes_2eproto_deps, 1, 41,
   schemas, file_default_instances, TableStruct_steammessages_5fclientnotificationtypes_2eproto::offsets,
   file_level_metadata_steammessages_5fclientnotificationtypes_2eproto, file_level_enum_descriptors_steammessages_5fclientnotificationtypes_2eproto, file_level_service_descriptors_steammessages_5fclientnotificationtypes_2eproto,
@@ -10695,6 +10702,9 @@ class CClientNotificationGameRecordingStop::_Internal {
   static void set_has_clip_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_duration_secs(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 CClientNotificationGameRecordingStop::CClientNotificationGameRecordingStop(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -10712,13 +10722,18 @@ CClientNotificationGameRecordingStop::CClientNotificationGameRecordingStop(const
     clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_clip_id(), 
       GetArena());
   }
-  game_id_ = from.game_id_;
+  ::memcpy(&game_id_, &from.game_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&duration_secs_) -
+    reinterpret_cast<char*>(&game_id_)) + sizeof(duration_secs_));
   // @@protoc_insertion_point(copy_constructor:CClientNotificationGameRecordingStop)
 }
 
 void CClientNotificationGameRecordingStop::SharedCtor() {
 clip_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-game_id_ = PROTOBUF_ULONGLONG(0);
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&game_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&duration_secs_) -
+    reinterpret_cast<char*>(&game_id_)) + sizeof(duration_secs_));
 }
 
 CClientNotificationGameRecordingStop::~CClientNotificationGameRecordingStop() {
@@ -10752,7 +10767,11 @@ void CClientNotificationGameRecordingStop::Clear() {
   if (cached_has_bits & 0x00000001u) {
     clip_id_.ClearNonDefaultToEmpty();
   }
-  game_id_ = PROTOBUF_ULONGLONG(0);
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&game_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&duration_secs_) -
+        reinterpret_cast<char*>(&game_id_)) + sizeof(duration_secs_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -10782,6 +10801,14 @@ const char* CClientNotificationGameRecordingStop::_InternalParse(const char* ptr
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CClientNotificationGameRecordingStop.clip_id");
           #endif  // !NDEBUG
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional float duration_secs = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
+          _Internal::set_has_duration_secs(&has_bits);
+          duration_secs_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
       default: {
@@ -10830,6 +10857,12 @@ failure:
         2, this->_internal_clip_id(), target);
   }
 
+  // optional float duration_secs = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_duration_secs(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10847,7 +10880,7 @@ size_t CClientNotificationGameRecordingStop::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     // optional string clip_id = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -10858,6 +10891,11 @@ size_t CClientNotificationGameRecordingStop::ByteSizeLong() const {
     // optional fixed64 game_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
+    }
+
+    // optional float duration_secs = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 4;
     }
 
   }
@@ -10893,12 +10931,15 @@ void CClientNotificationGameRecordingStop::MergeFrom(const CClientNotificationGa
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_clip_id(from._internal_clip_id());
     }
     if (cached_has_bits & 0x00000002u) {
       game_id_ = from.game_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      duration_secs_ = from.duration_secs_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -10927,7 +10968,12 @@ void CClientNotificationGameRecordingStop::InternalSwap(CClientNotificationGameR
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   clip_id_.Swap(&other->clip_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(game_id_, other->game_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CClientNotificationGameRecordingStop, duration_secs_)
+      + sizeof(CClientNotificationGameRecordingStop::duration_secs_)
+      - PROTOBUF_FIELD_OFFSET(CClientNotificationGameRecordingStop, game_id_)>(
+          reinterpret_cast<char*>(&game_id_),
+          reinterpret_cast<char*>(&other->game_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CClientNotificationGameRecordingStop::GetMetadata() const {
@@ -11145,6 +11191,9 @@ class CClientNotificationGameRecordingInstantClip::_Internal {
   static void set_has_clip_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_duration_secs(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 CClientNotificationGameRecordingInstantClip::CClientNotificationGameRecordingInstantClip(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -11162,13 +11211,18 @@ CClientNotificationGameRecordingInstantClip::CClientNotificationGameRecordingIns
     clip_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_clip_id(), 
       GetArena());
   }
-  game_id_ = from.game_id_;
+  ::memcpy(&game_id_, &from.game_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&duration_secs_) -
+    reinterpret_cast<char*>(&game_id_)) + sizeof(duration_secs_));
   // @@protoc_insertion_point(copy_constructor:CClientNotificationGameRecordingInstantClip)
 }
 
 void CClientNotificationGameRecordingInstantClip::SharedCtor() {
 clip_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-game_id_ = PROTOBUF_ULONGLONG(0);
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&game_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&duration_secs_) -
+    reinterpret_cast<char*>(&game_id_)) + sizeof(duration_secs_));
 }
 
 CClientNotificationGameRecordingInstantClip::~CClientNotificationGameRecordingInstantClip() {
@@ -11202,7 +11256,11 @@ void CClientNotificationGameRecordingInstantClip::Clear() {
   if (cached_has_bits & 0x00000001u) {
     clip_id_.ClearNonDefaultToEmpty();
   }
-  game_id_ = PROTOBUF_ULONGLONG(0);
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&game_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&duration_secs_) -
+        reinterpret_cast<char*>(&game_id_)) + sizeof(duration_secs_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -11232,6 +11290,14 @@ const char* CClientNotificationGameRecordingInstantClip::_InternalParse(const ch
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CClientNotificationGameRecordingInstantClip.clip_id");
           #endif  // !NDEBUG
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional float duration_secs = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
+          _Internal::set_has_duration_secs(&has_bits);
+          duration_secs_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
       default: {
@@ -11280,6 +11346,12 @@ failure:
         2, this->_internal_clip_id(), target);
   }
 
+  // optional float duration_secs = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_duration_secs(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -11297,7 +11369,7 @@ size_t CClientNotificationGameRecordingInstantClip::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     // optional string clip_id = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -11308,6 +11380,11 @@ size_t CClientNotificationGameRecordingInstantClip::ByteSizeLong() const {
     // optional fixed64 game_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
+    }
+
+    // optional float duration_secs = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 4;
     }
 
   }
@@ -11343,12 +11420,15 @@ void CClientNotificationGameRecordingInstantClip::MergeFrom(const CClientNotific
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_clip_id(from._internal_clip_id());
     }
     if (cached_has_bits & 0x00000002u) {
       game_id_ = from.game_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      duration_secs_ = from.duration_secs_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -11377,7 +11457,12 @@ void CClientNotificationGameRecordingInstantClip::InternalSwap(CClientNotificati
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   clip_id_.Swap(&other->clip_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(game_id_, other->game_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CClientNotificationGameRecordingInstantClip, duration_secs_)
+      + sizeof(CClientNotificationGameRecordingInstantClip::duration_secs_)
+      - PROTOBUF_FIELD_OFFSET(CClientNotificationGameRecordingInstantClip, game_id_)>(
+          reinterpret_cast<char*>(&game_id_),
+          reinterpret_cast<char*>(&other->game_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CClientNotificationGameRecordingInstantClip::GetMetadata() const {

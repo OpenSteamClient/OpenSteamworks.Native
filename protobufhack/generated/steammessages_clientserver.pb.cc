@@ -49,21 +49,6 @@ struct CMsgClientTicketAuthCompleteDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientTicketAuthCompleteDefaultTypeInternal _CMsgClientTicketAuthComplete_default_instance_;
-constexpr CMsgClientCMList::CMsgClientCMList(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : cm_addresses_()
-  , cm_ports_()
-  , cm_websocket_addresses_()
-  , percent_default_to_websocket_(0u){}
-struct CMsgClientCMListDefaultTypeInternal {
-  constexpr CMsgClientCMListDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgClientCMListDefaultTypeInternal() {}
-  union {
-    CMsgClientCMList _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientCMListDefaultTypeInternal _CMsgClientCMList_default_instance_;
 constexpr CMsgClientP2PConnectionInfo::CMsgClientP2PConnectionInfo(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : candidate_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -819,7 +804,7 @@ struct CMsgClientClanStateDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientClanStateDefaultTypeInternal _CMsgClientClanState_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientserver_2eproto[52];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientserver_2eproto[51];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_steammessages_5fclientserver_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fclientserver_2eproto = nullptr;
 
@@ -856,19 +841,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_2
   5,
   6,
   7,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientCMList, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientCMList, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientCMList, cm_addresses_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientCMList, cm_ports_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientCMList, cm_websocket_addresses_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientCMList, percent_default_to_websocket_),
-  ~0u,
-  ~0u,
-  ~0u,
-  0,
   PROTOBUF_FIELD_OFFSET(::CMsgClientP2PConnectionInfo, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientP2PConnectionInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1546,62 +1518,60 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_2
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, sizeof(::CMsgClientRegisterAuthTicketWithCM)},
   { 11, 24, sizeof(::CMsgClientTicketAuthComplete)},
-  { 32, 41, sizeof(::CMsgClientCMList)},
-  { 45, 56, sizeof(::CMsgClientP2PConnectionInfo)},
-  { 62, 74, sizeof(::CMsgClientP2PConnectionFailInfo)},
-  { 81, 88, sizeof(::CMsgClientNetworkingCertRequest)},
-  { 90, 98, sizeof(::CMsgClientNetworkingCertReply)},
-  { 101, 107, sizeof(::CMsgClientNetworkingMobileCertRequest)},
-  { 108, 114, sizeof(::CMsgClientNetworkingMobileCertReply)},
-  { 115, 121, sizeof(::CMsgClientGetAppOwnershipTicket)},
-  { 122, 130, sizeof(::CMsgClientGetAppOwnershipTicketResponse)},
-  { 133, 139, sizeof(::CMsgClientSessionToken)},
-  { 140, 147, sizeof(::CMsgClientGameConnectTokens)},
-  { 149, 157, sizeof(::CMsgClientGamesPlayed_ProcessInfo)},
-  { 160, 197, sizeof(::CMsgClientGamesPlayed_GamePlayed)},
-  { 229, 238, sizeof(::CMsgClientGamesPlayed)},
-  { 242, 249, sizeof(::CMsgGSApprove)},
-  { 251, 259, sizeof(::CMsgGSDeny)},
-  { 262, 269, sizeof(::CMsgGSKick)},
-  { 271, 283, sizeof(::CMsgClientAuthList)},
-  { 290, 298, sizeof(::CMsgClientAuthListAck)},
-  { 301, 324, sizeof(::CMsgClientLicenseList_License)},
-  { 342, 349, sizeof(::CMsgClientLicenseList)},
-  { 351, 360, sizeof(::CMsgClientIsLimitedAccount)},
-  { 364, 371, sizeof(::CMsgClientRequestedClientStats_StatsToSend)},
-  { 373, -1, sizeof(::CMsgClientRequestedClientStats)},
-  { 379, 390, sizeof(::CMsgClientStat2_StatDetail)},
-  { 396, -1, sizeof(::CMsgClientStat2)},
-  { 402, 411, sizeof(::CMsgClientInviteToGame)},
-  { 415, 427, sizeof(::CMsgClientChatInvite)},
-  { 434, 450, sizeof(::CMsgClientConnectionStats_Stats_Logon)},
-  { 461, 471, sizeof(::CMsgClientConnectionStats_Stats_UDP)},
-  { 476, 500, sizeof(::CMsgClientConnectionStats_Stats_VConn)},
-  { 519, 526, sizeof(::CMsgClientConnectionStats)},
-  { 528, 535, sizeof(::CMsgClientServersAvailable_Server_Types_Available)},
-  { 537, 544, sizeof(::CMsgClientServersAvailable)},
-  { 546, -1, sizeof(::CMsgClientReportOverlayDetourFailure)},
-  { 552, 559, sizeof(::CMsgClientRequestEncryptedAppTicket)},
-  { 561, 569, sizeof(::CMsgClientRequestEncryptedAppTicketResponse)},
-  { 572, 584, sizeof(::CMsgClientWalletInfoUpdate)},
-  { 591, 597, sizeof(::CMsgClientAMGetClanOfficers)},
-  { 598, 606, sizeof(::CMsgClientAMGetClanOfficersResponse)},
-  { 609, 615, sizeof(::CMsgClientAMGetPersonaNameHistory_IdInstance)},
-  { 616, 623, sizeof(::CMsgClientAMGetPersonaNameHistory)},
-  { 625, 632, sizeof(::CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance)},
-  { 634, 642, sizeof(::CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance)},
-  { 645, -1, sizeof(::CMsgClientAMGetPersonaNameHistoryResponse)},
-  { 651, 658, sizeof(::CMsgClientDeregisterWithServer)},
-  { 660, 667, sizeof(::CMsgClientClanState_NameInfo)},
-  { 669, 679, sizeof(::CMsgClientClanState_UserCounts)},
-  { 684, 694, sizeof(::CMsgClientClanState_Event)},
-  { 699, 711, sizeof(::CMsgClientClanState)},
+  { 32, 43, sizeof(::CMsgClientP2PConnectionInfo)},
+  { 49, 61, sizeof(::CMsgClientP2PConnectionFailInfo)},
+  { 68, 75, sizeof(::CMsgClientNetworkingCertRequest)},
+  { 77, 85, sizeof(::CMsgClientNetworkingCertReply)},
+  { 88, 94, sizeof(::CMsgClientNetworkingMobileCertRequest)},
+  { 95, 101, sizeof(::CMsgClientNetworkingMobileCertReply)},
+  { 102, 108, sizeof(::CMsgClientGetAppOwnershipTicket)},
+  { 109, 117, sizeof(::CMsgClientGetAppOwnershipTicketResponse)},
+  { 120, 126, sizeof(::CMsgClientSessionToken)},
+  { 127, 134, sizeof(::CMsgClientGameConnectTokens)},
+  { 136, 144, sizeof(::CMsgClientGamesPlayed_ProcessInfo)},
+  { 147, 184, sizeof(::CMsgClientGamesPlayed_GamePlayed)},
+  { 216, 225, sizeof(::CMsgClientGamesPlayed)},
+  { 229, 236, sizeof(::CMsgGSApprove)},
+  { 238, 246, sizeof(::CMsgGSDeny)},
+  { 249, 256, sizeof(::CMsgGSKick)},
+  { 258, 270, sizeof(::CMsgClientAuthList)},
+  { 277, 285, sizeof(::CMsgClientAuthListAck)},
+  { 288, 311, sizeof(::CMsgClientLicenseList_License)},
+  { 329, 336, sizeof(::CMsgClientLicenseList)},
+  { 338, 347, sizeof(::CMsgClientIsLimitedAccount)},
+  { 351, 358, sizeof(::CMsgClientRequestedClientStats_StatsToSend)},
+  { 360, -1, sizeof(::CMsgClientRequestedClientStats)},
+  { 366, 377, sizeof(::CMsgClientStat2_StatDetail)},
+  { 383, -1, sizeof(::CMsgClientStat2)},
+  { 389, 398, sizeof(::CMsgClientInviteToGame)},
+  { 402, 414, sizeof(::CMsgClientChatInvite)},
+  { 421, 437, sizeof(::CMsgClientConnectionStats_Stats_Logon)},
+  { 448, 458, sizeof(::CMsgClientConnectionStats_Stats_UDP)},
+  { 463, 487, sizeof(::CMsgClientConnectionStats_Stats_VConn)},
+  { 506, 513, sizeof(::CMsgClientConnectionStats)},
+  { 515, 522, sizeof(::CMsgClientServersAvailable_Server_Types_Available)},
+  { 524, 531, sizeof(::CMsgClientServersAvailable)},
+  { 533, -1, sizeof(::CMsgClientReportOverlayDetourFailure)},
+  { 539, 546, sizeof(::CMsgClientRequestEncryptedAppTicket)},
+  { 548, 556, sizeof(::CMsgClientRequestEncryptedAppTicketResponse)},
+  { 559, 571, sizeof(::CMsgClientWalletInfoUpdate)},
+  { 578, 584, sizeof(::CMsgClientAMGetClanOfficers)},
+  { 585, 593, sizeof(::CMsgClientAMGetClanOfficersResponse)},
+  { 596, 602, sizeof(::CMsgClientAMGetPersonaNameHistory_IdInstance)},
+  { 603, 610, sizeof(::CMsgClientAMGetPersonaNameHistory)},
+  { 612, 619, sizeof(::CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance)},
+  { 621, 629, sizeof(::CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance)},
+  { 632, -1, sizeof(::CMsgClientAMGetPersonaNameHistoryResponse)},
+  { 638, 645, sizeof(::CMsgClientDeregisterWithServer)},
+  { 647, 654, sizeof(::CMsgClientClanState_NameInfo)},
+  { 656, 666, sizeof(::CMsgClientClanState_UserCounts)},
+  { 671, 681, sizeof(::CMsgClientClanState_Event)},
+  { 686, 698, sizeof(::CMsgClientClanState)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRegisterAuthTicketWithCM_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientTicketAuthComplete_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientCMList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientP2PConnectionInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientP2PConnectionFailInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientNetworkingCertRequest_default_instance_),
@@ -1665,186 +1635,183 @@ const char descriptor_table_protodef_steammessages_5fclientserver_2eproto[] PROT
   "uth_session_response\030\004 \001(\r\022\031\n\021DEPRECATED"
   "_ticket\030\005 \001(\014\022\022\n\nticket_crc\030\006 \001(\r\022\027\n\017tic"
   "ket_sequence\030\007 \001(\r\022\026\n\016owner_steam_id\030\010 \001"
-  "(\006\"\200\001\n\020CMsgClientCMList\022\024\n\014cm_addresses\030"
-  "\001 \003(\r\022\020\n\010cm_ports\030\002 \003(\r\022\036\n\026cm_websocket_"
-  "addresses\030\003 \003(\t\022$\n\034percent_default_to_we"
-  "bsocket\030\004 \001(\r\"\243\001\n\033CMsgClientP2PConnectio"
-  "nInfo\022\025\n\rsteam_id_dest\030\001 \001(\006\022\024\n\014steam_id"
-  "_src\030\002 \001(\006\022\016\n\006app_id\030\003 \001(\r\022\021\n\tcandidate\030"
-  "\004 \001(\014\022 \n\030legacy_connection_id_src\030\005 \001(\006\022"
-  "\022\n\nrendezvous\030\006 \001(\014\"\303\001\n\037CMsgClientP2PCon"
-  "nectionFailInfo\022\025\n\rsteam_id_dest\030\001 \001(\006\022\024"
-  "\n\014steam_id_src\030\002 \001(\006\022\016\n\006app_id\030\003 \001(\r\022\032\n\022"
-  "ep2p_session_error\030\004 \001(\r\022\032\n\022connection_i"
-  "d_dest\030\005 \001(\006\022\024\n\014close_reason\030\007 \001(\r\022\025\n\rcl"
-  "ose_message\030\010 \001(\t\"C\n\037CMsgClientNetworkin"
-  "gCertRequest\022\020\n\010key_data\030\002 \001(\014\022\016\n\006app_id"
-  "\030\003 \001(\r\"V\n\035CMsgClientNetworkingCertReply\022"
-  "\014\n\004cert\030\004 \001(\014\022\021\n\tca_key_id\030\005 \001(\006\022\024\n\014ca_s"
-  "ignature\030\006 \001(\014\"7\n%CMsgClientNetworkingMo"
-  "bileCertRequest\022\016\n\006app_id\030\001 \001(\r\";\n#CMsgC"
-  "lientNetworkingMobileCertReply\022\024\n\014encode"
-  "d_cert\030\001 \001(\t\"1\n\037CMsgClientGetAppOwnershi"
-  "pTicket\022\016\n\006app_id\030\001 \001(\r\"]\n\'CMsgClientGet"
-  "AppOwnershipTicketResponse\022\022\n\007eresult\030\001 "
-  "\001(\r:\0012\022\016\n\006app_id\030\002 \001(\r\022\016\n\006ticket\030\003 \001(\014\"\'"
-  "\n\026CMsgClientSessionToken\022\r\n\005token\030\001 \001(\004\""
-  "M\n\033CMsgClientGameConnectTokens\022\036\n\022max_to"
-  "kens_to_keep\030\001 \001(\r:\00210\022\016\n\006tokens\030\002 \003(\014\"\231"
-  "\t\n\025CMsgClientGamesPlayed\0227\n\014games_played"
-  "\030\001 \003(\0132!.CMsgClientGamesPlayed.GamePlaye"
-  "d\022\026\n\016client_os_type\030\002 \001(\r\022\035\n\025cloud_gamin"
-  "g_platform\030\003 \001(\r\022\037\n\027recent_reauthenticat"
-  "ion\030\004 \001(\010\032U\n\013ProcessInfo\022\022\n\nprocess_id\030\001"
-  " \001(\r\022\031\n\021process_id_parent\030\002 \001(\r\022\027\n\017paren"
-  "t_is_steam\030\003 \001(\010\032\227\007\n\nGamePlayed\022\023\n\013steam"
-  "_id_gs\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\006\022\"\n\032depreca"
-  "ted_game_ip_address\030\003 \001(\r\022\021\n\tgame_port\030\004"
-  " \001(\r\022\021\n\tis_secure\030\005 \001(\010\022\r\n\005token\030\006 \001(\014\022\027"
-  "\n\017game_extra_info\030\007 \001(\t\022\026\n\016game_data_blo"
-  "b\030\010 \001(\014\022\022\n\nprocess_id\030\t \001(\r\022\035\n\025streaming"
-  "_provider_id\030\n \001(\r\022\022\n\ngame_flags\030\013 \001(\r\022\020"
-  "\n\010owner_id\030\014 \001(\r\022\025\n\rvr_hmd_vendor\030\r \001(\t\022"
-  "\024\n\014vr_hmd_model\030\016 \001(\t\022\035\n\022launch_option_t"
-  "ype\030\017 \001(\r:\0010\022#\n\027primary_controller_type\030"
-  "\020 \001(\005:\002-1\022\'\n\037primary_steam_controller_se"
-  "rial\030\021 \001(\t\022\'\n\034total_steam_controller_cou"
-  "nt\030\022 \001(\r:\0010\022+\n total_non_steam_controlle"
-  "r_count\030\023 \001(\r:\0010\022&\n\033controller_workshop_"
-  "file_id\030\024 \001(\004:\0010\022\030\n\rlaunch_source\030\025 \001(\r:"
-  "\0010\022\026\n\016vr_hmd_runtime\030\026 \001(\r\022\'\n\017game_ip_ad"
-  "dress\030\027 \001(\0132\016.CMsgIPAddress\022%\n\032controlle"
-  "r_connection_type\030\030 \001(\r:\0010\022\030\n\020game_os_pl"
-  "atform\030\031 \001(\005\022\025\n\rgame_build_id\030\032 \001(\r\022\031\n\016c"
-  "ompat_tool_id\030\033 \001(\r:\0010\022\027\n\017compat_tool_cm"
-  "d\030\034 \001(\t\022\034\n\024compat_tool_build_id\030\035 \001(\r\022\021\n"
-  "\tbeta_name\030\036 \001(\t\022\023\n\013dlc_context\030\037 \001(\r\022;\n"
-  "\017process_id_list\030  \003(\0132\".CMsgClientGames"
-  "Played.ProcessInfo\"9\n\rCMsgGSApprove\022\020\n\010s"
-  "team_id\030\001 \001(\006\022\026\n\016owner_steam_id\030\002 \001(\006\"I\n"
-  "\nCMsgGSDeny\022\020\n\010steam_id\030\001 \001(\006\022\024\n\014edeny_r"
-  "eason\030\002 \001(\005\022\023\n\013deny_string\030\003 \001(\t\"4\n\nCMsg"
-  "GSKick\022\020\n\010steam_id\030\001 \001(\006\022\024\n\014edeny_reason"
-  "\030\002 \001(\005\"\310\001\n\022CMsgClientAuthList\022\023\n\013tokens_"
-  "left\030\001 \001(\r\022\030\n\020last_request_seq\030\002 \001(\r\022$\n\034"
-  "last_request_seq_from_server\030\003 \001(\r\022 \n\007ti"
-  "ckets\030\004 \003(\0132\017.CMsgAuthTicket\022\017\n\007app_ids\030"
-  "\005 \003(\r\022\030\n\020message_sequence\030\006 \001(\r\022\020\n\010filte"
-  "red\030\007 \001(\010\"V\n\025CMsgClientAuthListAck\022\022\n\nti"
-  "cket_crc\030\001 \003(\r\022\017\n\007app_ids\030\002 \003(\r\022\030\n\020messa"
-  "ge_sequence\030\003 \001(\r\"\216\004\n\025CMsgClientLicenseL"
-  "ist\022\022\n\007eresult\030\001 \001(\005:\0012\0220\n\010licenses\030\002 \003("
-  "\0132\036.CMsgClientLicenseList.License\032\256\003\n\007Li"
-  "cense\022\022\n\npackage_id\030\001 \001(\r\022\024\n\014time_create"
-  "d\030\002 \001(\007\022\031\n\021time_next_process\030\003 \001(\007\022\024\n\014mi"
-  "nute_limit\030\004 \001(\005\022\024\n\014minutes_used\030\005 \001(\005\022\026"
-  "\n\016payment_method\030\006 \001(\r\022\r\n\005flags\030\007 \001(\r\022\035\n"
-  "\025purchase_country_code\030\010 \001(\t\022\024\n\014license_"
-  "type\030\t \001(\r\022\026\n\016territory_code\030\n \001(\005\022\025\n\rch"
-  "ange_number\030\013 \001(\005\022\020\n\010owner_id\030\014 \001(\r\022\026\n\016i"
-  "nitial_period\030\r \001(\r\022\031\n\021initial_time_unit"
-  "\030\016 \001(\r\022\026\n\016renewal_period\030\017 \001(\r\022\031\n\021renewa"
-  "l_time_unit\030\020 \001(\r\022\024\n\014access_token\030\021 \001(\004\022"
-  "\031\n\021master_package_id\030\022 \001(\r\"\252\001\n\032CMsgClien"
-  "tIsLimitedAccount\022\033\n\023bis_limited_account"
-  "\030\001 \001(\010\022\034\n\024bis_community_banned\030\002 \001(\010\022\032\n\022"
-  "bis_locked_account\030\003 \001(\010\0225\n-bis_limited_"
-  "account_allowed_to_invite_friends\030\004 \001(\010\""
-  "\247\001\n\036CMsgClientRequestedClientStats\022B\n\rst"
-  "ats_to_send\030\001 \003(\0132+.CMsgClientRequestedC"
-  "lientStats.StatsToSend\032A\n\013StatsToSend\022\023\n"
-  "\013client_stat\030\001 \001(\r\022\035\n\025stat_aggregate_met"
-  "hod\030\002 \001(\r\"\300\001\n\017CMsgClientStat2\0220\n\013stat_de"
-  "tail\030\001 \003(\0132\033.CMsgClientStat2.StatDetail\032"
-  "{\n\nStatDetail\022\023\n\013client_stat\030\001 \001(\r\022\020\n\010ll"
-  "_value\030\002 \001(\003\022\023\n\013time_of_day\030\003 \001(\r\022\017\n\007cel"
-  "l_id\030\004 \001(\r\022\020\n\010depot_id\030\005 \001(\r\022\016\n\006app_id\030\006"
-  " \001(\r\"r\n\026CMsgClientInviteToGame\022\025\n\rsteam_"
-  "id_dest\030\001 \001(\006\022\024\n\014steam_id_src\030\002 \001(\006\022\026\n\016c"
-  "onnect_string\030\003 \001(\t\022\023\n\013remote_play\030\004 \001(\t"
-  "\"\271\001\n\024CMsgClientChatInvite\022\030\n\020steam_id_in"
-  "vited\030\001 \001(\006\022\025\n\rsteam_id_chat\030\002 \001(\006\022\027\n\017st"
-  "eam_id_patron\030\003 \001(\006\022\025\n\rchatroom_type\030\004 \001"
-  "(\005\022\034\n\024steam_id_friend_chat\030\005 \001(\006\022\021\n\tchat"
-  "_name\030\006 \001(\t\022\017\n\007game_id\030\007 \001(\006\"\371\010\n\031CMsgCli"
-  "entConnectionStats\022;\n\013stats_logon\030\001 \001(\0132"
-  "&.CMsgClientConnectionStats.Stats_Logon\022"
-  ";\n\013stats_vconn\030\002 \001(\0132&.CMsgClientConnect"
-  "ionStats.Stats_VConn\032\323\002\n\013Stats_Logon\022\030\n\020"
-  "connect_attempts\030\001 \001(\005\022\031\n\021connect_succes"
-  "ses\030\002 \001(\005\022\030\n\020connect_failures\030\003 \001(\005\022\033\n\023c"
-  "onnections_dropped\030\004 \001(\005\022\027\n\017seconds_runn"
-  "ing\030\005 \001(\r\022\034\n\024msec_tologonthistime\030\006 \001(\r\022"
-  "\025\n\rcount_bad_cms\030\007 \001(\r\022\033\n\023no_udp_connect"
-  "ivity\030\010 \001(\010\022\033\n\023no_tcp_connectivity\030\t \001(\010"
-  "\022%\n\035no_websocket_443_connectivity\030\n \001(\010\022"
-  ")\n!no_websocket_non_443_connectivity\030\013 \001"
-  "(\010\032q\n\tStats_UDP\022\021\n\tpkts_sent\030\001 \001(\004\022\022\n\nby"
-  "tes_sent\030\002 \001(\004\022\021\n\tpkts_recv\030\003 \001(\004\022\026\n\016pkt"
-  "s_processed\030\004 \001(\004\022\022\n\nbytes_recv\030\005 \001(\004\032\230\004"
-  "\n\013Stats_VConn\022\027\n\017connections_udp\030\001 \001(\r\022\027"
-  "\n\017connections_tcp\030\002 \001(\r\0227\n\tstats_udp\030\003 \001"
-  "(\0132$.CMsgClientConnectionStats.Stats_UDP"
-  "\022\026\n\016pkts_abandoned\030\004 \001(\004\022\031\n\021conn_req_rec"
-  "eived\030\005 \001(\004\022\023\n\013pkts_resent\030\006 \001(\004\022\021\n\tmsgs"
-  "_sent\030\007 \001(\004\022\030\n\020msgs_sent_failed\030\010 \001(\004\022\021\n"
-  "\tmsgs_recv\030\t \001(\004\022\026\n\016datagrams_sent\030\n \001(\004"
-  "\022\026\n\016datagrams_recv\030\013 \001(\004\022\025\n\rbad_pkts_rec"
-  "v\030\014 \001(\004\022\036\n\026unknown_conn_pkts_recv\030\r \001(\004\022"
-  "\030\n\020missed_pkts_recv\030\016 \001(\004\022\025\n\rdup_pkts_re"
-  "cv\030\017 \001(\004\022!\n\031failed_connect_challenges\030\020 "
-  "\001(\004\022\035\n\025micro_sec_avg_latency\030\021 \001(\r\022\035\n\025mi"
-  "cro_sec_min_latency\030\022 \001(\r\022\035\n\025micro_sec_m"
-  "ax_latency\030\023 \001(\r\"\322\001\n\032CMsgClientServersAv"
-  "ailable\022R\n\026server_types_available\030\001 \003(\0132"
-  "2.CMsgClientServersAvailable.Server_Type"
-  "s_Available\022%\n\035server_type_for_auth_serv"
-  "ices\030\002 \001(\r\0329\n\026Server_Types_Available\022\016\n\006"
-  "server\030\001 \001(\r\022\017\n\007changed\030\002 \001(\010\"\?\n$CMsgCli"
-  "entReportOverlayDetourFailure\022\027\n\017failure"
-  "_strings\030\001 \003(\t\"G\n#CMsgClientRequestEncry"
-  "ptedAppTicket\022\016\n\006app_id\030\001 \001(\r\022\020\n\010userdat"
-  "a\030\002 \001(\014\"\204\001\n+CMsgClientRequestEncryptedAp"
-  "pTicketResponse\022\016\n\006app_id\030\001 \001(\r\022\022\n\007eresu"
-  "lt\030\002 \001(\005:\0012\0221\n\024encrypted_app_ticket\030\003 \001("
-  "\0132\023.EncryptedAppTicket\"\265\001\n\032CMsgClientWal"
-  "letInfoUpdate\022\022\n\nhas_wallet\030\001 \001(\010\022\017\n\007bal"
-  "ance\030\002 \001(\005\022\020\n\010currency\030\003 \001(\005\022\027\n\017balance_"
-  "delayed\030\004 \001(\005\022\027\n\tbalance64\030\005 \001(\003B\004\240\266\030\001\022\037"
-  "\n\021balance64_delayed\030\006 \001(\003B\004\240\266\030\001\022\r\n\005realm"
-  "\030\007 \001(\005\"3\n\033CMsgClientAMGetClanOfficers\022\024\n"
-  "\014steamid_clan\030\001 \001(\006\"f\n#CMsgClientAMGetCl"
-  "anOfficersResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022\024"
-  "\n\014steamid_clan\030\002 \001(\006\022\025\n\rofficer_count\030\003 "
-  "\001(\005\"\220\001\n!CMsgClientAMGetPersonaNameHistor"
-  "y\022\020\n\010id_count\030\001 \001(\005\022:\n\003Ids\030\002 \003(\0132-.CMsgC"
-  "lientAMGetPersonaNameHistory.IdInstance\032"
-  "\035\n\nIdInstance\022\017\n\007steamid\030\001 \001(\006\"\303\002\n)CMsgC"
-  "lientAMGetPersonaNameHistoryResponse\022O\n\t"
-  "responses\030\002 \003(\0132<.CMsgClientAMGetPersona"
-  "NameHistoryResponse.NameTableInstance\032\304\001"
-  "\n\021NameTableInstance\022\022\n\007eresult\030\001 \001(\005:\0012\022"
-  "\017\n\007steamid\030\002 \001(\006\022X\n\005names\030\003 \003(\0132I.CMsgCl"
-  "ientAMGetPersonaNameHistoryResponse.Name"
-  "TableInstance.NameInstance\0320\n\014NameInstan"
-  "ce\022\022\n\nname_since\030\001 \001(\007\022\014\n\004name\030\002 \001(\t\"E\n\036"
-  "CMsgClientDeregisterWithServer\022\023\n\013eserve"
-  "rtype\030\001 \001(\r\022\016\n\006app_id\030\002 \001(\r\"\253\004\n\023CMsgClie"
-  "ntClanState\022\024\n\014steamid_clan\030\001 \001(\006\022\032\n\022cla"
-  "n_account_flags\030\003 \001(\r\0220\n\tname_info\030\004 \001(\013"
-  "2\035.CMsgClientClanState.NameInfo\0224\n\013user_"
-  "counts\030\005 \001(\0132\037.CMsgClientClanState.UserC"
-  "ounts\022*\n\006events\030\006 \003(\0132\032.CMsgClientClanSt"
-  "ate.Event\0221\n\rannouncements\030\007 \003(\0132\032.CMsgC"
-  "lientClanState.Event\022\031\n\021chat_room_privat"
-  "e\030\010 \001(\010\0321\n\010NameInfo\022\021\n\tclan_name\030\001 \001(\t\022\022"
-  "\n\nsha_avatar\030\002 \001(\014\032k\n\nUserCounts\022\017\n\007memb"
-  "ers\030\001 \001(\r\022\016\n\006online\030\002 \001(\r\022\020\n\010chatting\030\003 "
-  "\001(\r\022\017\n\007in_game\030\004 \001(\r\022\031\n\021chat_room_member"
-  "s\030\005 \001(\r\032`\n\005Event\022\013\n\003gid\030\001 \001(\006\022\022\n\nevent_t"
-  "ime\030\002 \001(\r\022\020\n\010headline\030\003 \001(\t\022\017\n\007game_id\030\004"
-  " \001(\006\022\023\n\013just_posted\030\005 \001(\010B\037H\001\200\001\000\252\002\027OpenS"
-  "teamworks.Protobuf"
+  "(\006\"\243\001\n\033CMsgClientP2PConnectionInfo\022\025\n\rst"
+  "eam_id_dest\030\001 \001(\006\022\024\n\014steam_id_src\030\002 \001(\006\022"
+  "\016\n\006app_id\030\003 \001(\r\022\021\n\tcandidate\030\004 \001(\014\022 \n\030le"
+  "gacy_connection_id_src\030\005 \001(\006\022\022\n\nrendezvo"
+  "us\030\006 \001(\014\"\303\001\n\037CMsgClientP2PConnectionFail"
+  "Info\022\025\n\rsteam_id_dest\030\001 \001(\006\022\024\n\014steam_id_"
+  "src\030\002 \001(\006\022\016\n\006app_id\030\003 \001(\r\022\032\n\022ep2p_sessio"
+  "n_error\030\004 \001(\r\022\032\n\022connection_id_dest\030\005 \001("
+  "\006\022\024\n\014close_reason\030\007 \001(\r\022\025\n\rclose_message"
+  "\030\010 \001(\t\"C\n\037CMsgClientNetworkingCertReques"
+  "t\022\020\n\010key_data\030\002 \001(\014\022\016\n\006app_id\030\003 \001(\r\"V\n\035C"
+  "MsgClientNetworkingCertReply\022\014\n\004cert\030\004 \001"
+  "(\014\022\021\n\tca_key_id\030\005 \001(\006\022\024\n\014ca_signature\030\006 "
+  "\001(\014\"7\n%CMsgClientNetworkingMobileCertReq"
+  "uest\022\016\n\006app_id\030\001 \001(\r\";\n#CMsgClientNetwor"
+  "kingMobileCertReply\022\024\n\014encoded_cert\030\001 \001("
+  "\t\"1\n\037CMsgClientGetAppOwnershipTicket\022\016\n\006"
+  "app_id\030\001 \001(\r\"]\n\'CMsgClientGetAppOwnershi"
+  "pTicketResponse\022\022\n\007eresult\030\001 \001(\r:\0012\022\016\n\006a"
+  "pp_id\030\002 \001(\r\022\016\n\006ticket\030\003 \001(\014\"\'\n\026CMsgClien"
+  "tSessionToken\022\r\n\005token\030\001 \001(\004\"M\n\033CMsgClie"
+  "ntGameConnectTokens\022\036\n\022max_tokens_to_kee"
+  "p\030\001 \001(\r:\00210\022\016\n\006tokens\030\002 \003(\014\"\231\t\n\025CMsgClie"
+  "ntGamesPlayed\0227\n\014games_played\030\001 \003(\0132!.CM"
+  "sgClientGamesPlayed.GamePlayed\022\026\n\016client"
+  "_os_type\030\002 \001(\r\022\035\n\025cloud_gaming_platform\030"
+  "\003 \001(\r\022\037\n\027recent_reauthentication\030\004 \001(\010\032U"
+  "\n\013ProcessInfo\022\022\n\nprocess_id\030\001 \001(\r\022\031\n\021pro"
+  "cess_id_parent\030\002 \001(\r\022\027\n\017parent_is_steam\030"
+  "\003 \001(\010\032\227\007\n\nGamePlayed\022\023\n\013steam_id_gs\030\001 \001("
+  "\004\022\017\n\007game_id\030\002 \001(\006\022\"\n\032deprecated_game_ip"
+  "_address\030\003 \001(\r\022\021\n\tgame_port\030\004 \001(\r\022\021\n\tis_"
+  "secure\030\005 \001(\010\022\r\n\005token\030\006 \001(\014\022\027\n\017game_extr"
+  "a_info\030\007 \001(\t\022\026\n\016game_data_blob\030\010 \001(\014\022\022\n\n"
+  "process_id\030\t \001(\r\022\035\n\025streaming_provider_i"
+  "d\030\n \001(\r\022\022\n\ngame_flags\030\013 \001(\r\022\020\n\010owner_id\030"
+  "\014 \001(\r\022\025\n\rvr_hmd_vendor\030\r \001(\t\022\024\n\014vr_hmd_m"
+  "odel\030\016 \001(\t\022\035\n\022launch_option_type\030\017 \001(\r:\001"
+  "0\022#\n\027primary_controller_type\030\020 \001(\005:\002-1\022\'"
+  "\n\037primary_steam_controller_serial\030\021 \001(\t\022"
+  "\'\n\034total_steam_controller_count\030\022 \001(\r:\0010"
+  "\022+\n total_non_steam_controller_count\030\023 \001"
+  "(\r:\0010\022&\n\033controller_workshop_file_id\030\024 \001"
+  "(\004:\0010\022\030\n\rlaunch_source\030\025 \001(\r:\0010\022\026\n\016vr_hm"
+  "d_runtime\030\026 \001(\r\022\'\n\017game_ip_address\030\027 \001(\013"
+  "2\016.CMsgIPAddress\022%\n\032controller_connectio"
+  "n_type\030\030 \001(\r:\0010\022\030\n\020game_os_platform\030\031 \001("
+  "\005\022\025\n\rgame_build_id\030\032 \001(\r\022\031\n\016compat_tool_"
+  "id\030\033 \001(\r:\0010\022\027\n\017compat_tool_cmd\030\034 \001(\t\022\034\n\024"
+  "compat_tool_build_id\030\035 \001(\r\022\021\n\tbeta_name\030"
+  "\036 \001(\t\022\023\n\013dlc_context\030\037 \001(\r\022;\n\017process_id"
+  "_list\030  \003(\0132\".CMsgClientGamesPlayed.Proc"
+  "essInfo\"9\n\rCMsgGSApprove\022\020\n\010steam_id\030\001 \001"
+  "(\006\022\026\n\016owner_steam_id\030\002 \001(\006\"I\n\nCMsgGSDeny"
+  "\022\020\n\010steam_id\030\001 \001(\006\022\024\n\014edeny_reason\030\002 \001(\005"
+  "\022\023\n\013deny_string\030\003 \001(\t\"4\n\nCMsgGSKick\022\020\n\010s"
+  "team_id\030\001 \001(\006\022\024\n\014edeny_reason\030\002 \001(\005\"\310\001\n\022"
+  "CMsgClientAuthList\022\023\n\013tokens_left\030\001 \001(\r\022"
+  "\030\n\020last_request_seq\030\002 \001(\r\022$\n\034last_reques"
+  "t_seq_from_server\030\003 \001(\r\022 \n\007tickets\030\004 \003(\013"
+  "2\017.CMsgAuthTicket\022\017\n\007app_ids\030\005 \003(\r\022\030\n\020me"
+  "ssage_sequence\030\006 \001(\r\022\020\n\010filtered\030\007 \001(\010\"V"
+  "\n\025CMsgClientAuthListAck\022\022\n\nticket_crc\030\001 "
+  "\003(\r\022\017\n\007app_ids\030\002 \003(\r\022\030\n\020message_sequence"
+  "\030\003 \001(\r\"\216\004\n\025CMsgClientLicenseList\022\022\n\007eres"
+  "ult\030\001 \001(\005:\0012\0220\n\010licenses\030\002 \003(\0132\036.CMsgCli"
+  "entLicenseList.License\032\256\003\n\007License\022\022\n\npa"
+  "ckage_id\030\001 \001(\r\022\024\n\014time_created\030\002 \001(\007\022\031\n\021"
+  "time_next_process\030\003 \001(\007\022\024\n\014minute_limit\030"
+  "\004 \001(\005\022\024\n\014minutes_used\030\005 \001(\005\022\026\n\016payment_m"
+  "ethod\030\006 \001(\r\022\r\n\005flags\030\007 \001(\r\022\035\n\025purchase_c"
+  "ountry_code\030\010 \001(\t\022\024\n\014license_type\030\t \001(\r\022"
+  "\026\n\016territory_code\030\n \001(\005\022\025\n\rchange_number"
+  "\030\013 \001(\005\022\020\n\010owner_id\030\014 \001(\r\022\026\n\016initial_peri"
+  "od\030\r \001(\r\022\031\n\021initial_time_unit\030\016 \001(\r\022\026\n\016r"
+  "enewal_period\030\017 \001(\r\022\031\n\021renewal_time_unit"
+  "\030\020 \001(\r\022\024\n\014access_token\030\021 \001(\004\022\031\n\021master_p"
+  "ackage_id\030\022 \001(\r\"\252\001\n\032CMsgClientIsLimitedA"
+  "ccount\022\033\n\023bis_limited_account\030\001 \001(\010\022\034\n\024b"
+  "is_community_banned\030\002 \001(\010\022\032\n\022bis_locked_"
+  "account\030\003 \001(\010\0225\n-bis_limited_account_all"
+  "owed_to_invite_friends\030\004 \001(\010\"\247\001\n\036CMsgCli"
+  "entRequestedClientStats\022B\n\rstats_to_send"
+  "\030\001 \003(\0132+.CMsgClientRequestedClientStats."
+  "StatsToSend\032A\n\013StatsToSend\022\023\n\013client_sta"
+  "t\030\001 \001(\r\022\035\n\025stat_aggregate_method\030\002 \001(\r\"\300"
+  "\001\n\017CMsgClientStat2\0220\n\013stat_detail\030\001 \003(\0132"
+  "\033.CMsgClientStat2.StatDetail\032{\n\nStatDeta"
+  "il\022\023\n\013client_stat\030\001 \001(\r\022\020\n\010ll_value\030\002 \001("
+  "\003\022\023\n\013time_of_day\030\003 \001(\r\022\017\n\007cell_id\030\004 \001(\r\022"
+  "\020\n\010depot_id\030\005 \001(\r\022\016\n\006app_id\030\006 \001(\r\"r\n\026CMs"
+  "gClientInviteToGame\022\025\n\rsteam_id_dest\030\001 \001"
+  "(\006\022\024\n\014steam_id_src\030\002 \001(\006\022\026\n\016connect_stri"
+  "ng\030\003 \001(\t\022\023\n\013remote_play\030\004 \001(\t\"\271\001\n\024CMsgCl"
+  "ientChatInvite\022\030\n\020steam_id_invited\030\001 \001(\006"
+  "\022\025\n\rsteam_id_chat\030\002 \001(\006\022\027\n\017steam_id_patr"
+  "on\030\003 \001(\006\022\025\n\rchatroom_type\030\004 \001(\005\022\034\n\024steam"
+  "_id_friend_chat\030\005 \001(\006\022\021\n\tchat_name\030\006 \001(\t"
+  "\022\017\n\007game_id\030\007 \001(\006\"\371\010\n\031CMsgClientConnecti"
+  "onStats\022;\n\013stats_logon\030\001 \001(\0132&.CMsgClien"
+  "tConnectionStats.Stats_Logon\022;\n\013stats_vc"
+  "onn\030\002 \001(\0132&.CMsgClientConnectionStats.St"
+  "ats_VConn\032\323\002\n\013Stats_Logon\022\030\n\020connect_att"
+  "empts\030\001 \001(\005\022\031\n\021connect_successes\030\002 \001(\005\022\030"
+  "\n\020connect_failures\030\003 \001(\005\022\033\n\023connections_"
+  "dropped\030\004 \001(\005\022\027\n\017seconds_running\030\005 \001(\r\022\034"
+  "\n\024msec_tologonthistime\030\006 \001(\r\022\025\n\rcount_ba"
+  "d_cms\030\007 \001(\r\022\033\n\023no_udp_connectivity\030\010 \001(\010"
+  "\022\033\n\023no_tcp_connectivity\030\t \001(\010\022%\n\035no_webs"
+  "ocket_443_connectivity\030\n \001(\010\022)\n!no_webso"
+  "cket_non_443_connectivity\030\013 \001(\010\032q\n\tStats"
+  "_UDP\022\021\n\tpkts_sent\030\001 \001(\004\022\022\n\nbytes_sent\030\002 "
+  "\001(\004\022\021\n\tpkts_recv\030\003 \001(\004\022\026\n\016pkts_processed"
+  "\030\004 \001(\004\022\022\n\nbytes_recv\030\005 \001(\004\032\230\004\n\013Stats_VCo"
+  "nn\022\027\n\017connections_udp\030\001 \001(\r\022\027\n\017connectio"
+  "ns_tcp\030\002 \001(\r\0227\n\tstats_udp\030\003 \001(\0132$.CMsgCl"
+  "ientConnectionStats.Stats_UDP\022\026\n\016pkts_ab"
+  "andoned\030\004 \001(\004\022\031\n\021conn_req_received\030\005 \001(\004"
+  "\022\023\n\013pkts_resent\030\006 \001(\004\022\021\n\tmsgs_sent\030\007 \001(\004"
+  "\022\030\n\020msgs_sent_failed\030\010 \001(\004\022\021\n\tmsgs_recv\030"
+  "\t \001(\004\022\026\n\016datagrams_sent\030\n \001(\004\022\026\n\016datagra"
+  "ms_recv\030\013 \001(\004\022\025\n\rbad_pkts_recv\030\014 \001(\004\022\036\n\026"
+  "unknown_conn_pkts_recv\030\r \001(\004\022\030\n\020missed_p"
+  "kts_recv\030\016 \001(\004\022\025\n\rdup_pkts_recv\030\017 \001(\004\022!\n"
+  "\031failed_connect_challenges\030\020 \001(\004\022\035\n\025micr"
+  "o_sec_avg_latency\030\021 \001(\r\022\035\n\025micro_sec_min"
+  "_latency\030\022 \001(\r\022\035\n\025micro_sec_max_latency\030"
+  "\023 \001(\r\"\322\001\n\032CMsgClientServersAvailable\022R\n\026"
+  "server_types_available\030\001 \003(\01322.CMsgClien"
+  "tServersAvailable.Server_Types_Available"
+  "\022%\n\035server_type_for_auth_services\030\002 \001(\r\032"
+  "9\n\026Server_Types_Available\022\016\n\006server\030\001 \001("
+  "\r\022\017\n\007changed\030\002 \001(\010\"\?\n$CMsgClientReportOv"
+  "erlayDetourFailure\022\027\n\017failure_strings\030\001 "
+  "\003(\t\"G\n#CMsgClientRequestEncryptedAppTick"
+  "et\022\016\n\006app_id\030\001 \001(\r\022\020\n\010userdata\030\002 \001(\014\"\204\001\n"
+  "+CMsgClientRequestEncryptedAppTicketResp"
+  "onse\022\016\n\006app_id\030\001 \001(\r\022\022\n\007eresult\030\002 \001(\005:\0012"
+  "\0221\n\024encrypted_app_ticket\030\003 \001(\0132\023.Encrypt"
+  "edAppTicket\"\265\001\n\032CMsgClientWalletInfoUpda"
+  "te\022\022\n\nhas_wallet\030\001 \001(\010\022\017\n\007balance\030\002 \001(\005\022"
+  "\020\n\010currency\030\003 \001(\005\022\027\n\017balance_delayed\030\004 \001"
+  "(\005\022\027\n\tbalance64\030\005 \001(\003B\004\240\266\030\001\022\037\n\021balance64"
+  "_delayed\030\006 \001(\003B\004\240\266\030\001\022\r\n\005realm\030\007 \001(\005\"3\n\033C"
+  "MsgClientAMGetClanOfficers\022\024\n\014steamid_cl"
+  "an\030\001 \001(\006\"f\n#CMsgClientAMGetClanOfficersR"
+  "esponse\022\022\n\007eresult\030\001 \001(\005:\0012\022\024\n\014steamid_c"
+  "lan\030\002 \001(\006\022\025\n\rofficer_count\030\003 \001(\005\"\220\001\n!CMs"
+  "gClientAMGetPersonaNameHistory\022\020\n\010id_cou"
+  "nt\030\001 \001(\005\022:\n\003Ids\030\002 \003(\0132-.CMsgClientAMGetP"
+  "ersonaNameHistory.IdInstance\032\035\n\nIdInstan"
+  "ce\022\017\n\007steamid\030\001 \001(\006\"\303\002\n)CMsgClientAMGetP"
+  "ersonaNameHistoryResponse\022O\n\tresponses\030\002"
+  " \003(\0132<.CMsgClientAMGetPersonaNameHistory"
+  "Response.NameTableInstance\032\304\001\n\021NameTable"
+  "Instance\022\022\n\007eresult\030\001 \001(\005:\0012\022\017\n\007steamid\030"
+  "\002 \001(\006\022X\n\005names\030\003 \003(\0132I.CMsgClientAMGetPe"
+  "rsonaNameHistoryResponse.NameTableInstan"
+  "ce.NameInstance\0320\n\014NameInstance\022\022\n\nname_"
+  "since\030\001 \001(\007\022\014\n\004name\030\002 \001(\t\"E\n\036CMsgClientD"
+  "eregisterWithServer\022\023\n\013eservertype\030\001 \001(\r"
+  "\022\016\n\006app_id\030\002 \001(\r\"\253\004\n\023CMsgClientClanState"
+  "\022\024\n\014steamid_clan\030\001 \001(\006\022\032\n\022clan_account_f"
+  "lags\030\003 \001(\r\0220\n\tname_info\030\004 \001(\0132\035.CMsgClie"
+  "ntClanState.NameInfo\0224\n\013user_counts\030\005 \001("
+  "\0132\037.CMsgClientClanState.UserCounts\022*\n\006ev"
+  "ents\030\006 \003(\0132\032.CMsgClientClanState.Event\0221"
+  "\n\rannouncements\030\007 \003(\0132\032.CMsgClientClanSt"
+  "ate.Event\022\031\n\021chat_room_private\030\010 \001(\010\0321\n\010"
+  "NameInfo\022\021\n\tclan_name\030\001 \001(\t\022\022\n\nsha_avata"
+  "r\030\002 \001(\014\032k\n\nUserCounts\022\017\n\007members\030\001 \001(\r\022\016"
+  "\n\006online\030\002 \001(\r\022\020\n\010chatting\030\003 \001(\r\022\017\n\007in_g"
+  "ame\030\004 \001(\r\022\031\n\021chat_room_members\030\005 \001(\r\032`\n\005"
+  "Event\022\013\n\003gid\030\001 \001(\006\022\022\n\nevent_time\030\002 \001(\r\022\020"
+  "\n\010headline\030\003 \001(\t\022\017\n\007game_id\030\004 \001(\006\022\023\n\013jus"
+  "t_posted\030\005 \001(\010B\037H\001\200\001\000\252\002\027OpenSteamworks.P"
+  "rotobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_2eproto_deps[3] = {
   &::descriptor_table_encrypted_5fapp_5fticket_2eproto,
@@ -1853,8 +1820,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_2eproto = {
-  false, false, 7618, descriptor_table_protodef_steammessages_5fclientserver_2eproto, "steammessages_clientserver.proto", 
-  &descriptor_table_steammessages_5fclientserver_2eproto_once, descriptor_table_steammessages_5fclientserver_2eproto_deps, 3, 52,
+  false, false, 7487, descriptor_table_protodef_steammessages_5fclientserver_2eproto, "steammessages_clientserver.proto", 
+  &descriptor_table_steammessages_5fclientserver_2eproto_once, descriptor_table_steammessages_5fclientserver_2eproto_deps, 3, 51,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_2eproto, file_level_service_descriptors_steammessages_5fclientserver_2eproto,
 };
@@ -2566,316 +2533,6 @@ void CMsgClientTicketAuthComplete::InternalSwap(CMsgClientTicketAuthComplete* ot
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientTicketAuthComplete::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgClientCMList::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgClientCMList>()._has_bits_);
-  static void set_has_percent_default_to_websocket(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-};
-
-CMsgClientCMList::CMsgClientCMList(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  cm_addresses_(arena),
-  cm_ports_(arena),
-  cm_websocket_addresses_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientCMList)
-}
-CMsgClientCMList::CMsgClientCMList(const CMsgClientCMList& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
-      cm_addresses_(from.cm_addresses_),
-      cm_ports_(from.cm_ports_),
-      cm_websocket_addresses_(from.cm_websocket_addresses_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  percent_default_to_websocket_ = from.percent_default_to_websocket_;
-  // @@protoc_insertion_point(copy_constructor:CMsgClientCMList)
-}
-
-void CMsgClientCMList::SharedCtor() {
-percent_default_to_websocket_ = 0u;
-}
-
-CMsgClientCMList::~CMsgClientCMList() {
-  // @@protoc_insertion_point(destructor:CMsgClientCMList)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgClientCMList::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CMsgClientCMList::ArenaDtor(void* object) {
-  CMsgClientCMList* _this = reinterpret_cast< CMsgClientCMList* >(object);
-  (void)_this;
-}
-void CMsgClientCMList::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgClientCMList::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgClientCMList::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientCMList)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cm_addresses_.Clear();
-  cm_ports_.Clear();
-  cm_websocket_addresses_.Clear();
-  percent_default_to_websocket_ = 0u;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgClientCMList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated uint32 cm_addresses = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_cm_addresses(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<8>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_cm_addresses(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated uint32 cm_ports = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_cm_ports(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<16>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_cm_ports(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated string cm_websocket_addresses = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_cm_websocket_addresses();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            #ifndef NDEBUG
-            ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientCMList.cm_websocket_addresses");
-            #endif  // !NDEBUG
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 percent_default_to_websocket = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          _Internal::set_has_percent_default_to_websocket(&has_bits);
-          percent_default_to_websocket_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientCMList::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientCMList)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated uint32 cm_addresses = 1;
-  for (int i = 0, n = this->_internal_cm_addresses_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_cm_addresses(i), target);
-  }
-
-  // repeated uint32 cm_ports = 2;
-  for (int i = 0, n = this->_internal_cm_ports_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_cm_ports(i), target);
-  }
-
-  // repeated string cm_websocket_addresses = 3;
-  for (int i = 0, n = this->_internal_cm_websocket_addresses_size(); i < n; i++) {
-    const auto& s = this->_internal_cm_websocket_addresses(i);
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      s.data(), static_cast<int>(s.length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientCMList.cm_websocket_addresses");
-    target = stream->WriteString(3, s, target);
-  }
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 percent_default_to_websocket = 4;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_percent_default_to_websocket(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientCMList)
-  return target;
-}
-
-size_t CMsgClientCMList::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientCMList)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated uint32 cm_addresses = 1;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->cm_addresses_);
-    total_size += 1 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_cm_addresses_size());
-    total_size += data_size;
-  }
-
-  // repeated uint32 cm_ports = 2;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->cm_ports_);
-    total_size += 1 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_cm_ports_size());
-    total_size += data_size;
-  }
-
-  // repeated string cm_websocket_addresses = 3;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(cm_websocket_addresses_.size());
-  for (int i = 0, n = cm_websocket_addresses_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      cm_websocket_addresses_.Get(i));
-  }
-
-  // optional uint32 percent_default_to_websocket = 4;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_percent_default_to_websocket());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgClientCMList::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientCMList)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgClientCMList* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientCMList>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientCMList)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientCMList)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgClientCMList::MergeFrom(const CMsgClientCMList& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientCMList)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cm_addresses_.MergeFrom(from.cm_addresses_);
-  cm_ports_.MergeFrom(from.cm_ports_);
-  cm_websocket_addresses_.MergeFrom(from.cm_websocket_addresses_);
-  if (from._internal_has_percent_default_to_websocket()) {
-    _internal_set_percent_default_to_websocket(from._internal_percent_default_to_websocket());
-  }
-}
-
-void CMsgClientCMList::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientCMList)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgClientCMList::CopyFrom(const CMsgClientCMList& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientCMList)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgClientCMList::IsInitialized() const {
-  return true;
-}
-
-void CMsgClientCMList::InternalSwap(CMsgClientCMList* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  cm_addresses_.InternalSwap(&other->cm_addresses_);
-  cm_ports_.InternalSwap(&other->cm_ports_);
-  cm_websocket_addresses_.InternalSwap(&other->cm_websocket_addresses_);
-  swap(percent_default_to_websocket_, other->percent_default_to_websocket_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientCMList::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -18434,9 +18091,6 @@ template<> PROTOBUF_NOINLINE ::CMsgClientRegisterAuthTicketWithCM* Arena::Create
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientTicketAuthComplete* Arena::CreateMaybeMessage< ::CMsgClientTicketAuthComplete >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientTicketAuthComplete >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgClientCMList* Arena::CreateMaybeMessage< ::CMsgClientCMList >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientCMList >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientP2PConnectionInfo* Arena::CreateMaybeMessage< ::CMsgClientP2PConnectionInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientP2PConnectionInfo >(arena);

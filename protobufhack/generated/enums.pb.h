@@ -1192,6 +1192,112 @@ inline bool EOSBranch_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EOSBranch>(
     EOSBranch_descriptor(), name, value);
 }
+enum EBrowserGPUStatus : int {
+  EBrowserGPUStatus_Invalid = 0,
+  EBrowserGPUStatus_Enabled = 1,
+  EBrowserGPUStatus_DisabledUnknown = 2,
+  EBrowserGPUStatus_DisabledCrashCount = 4,
+  EBrowserGPUStatus_DisabledBlocklist = 5,
+  EBrowserGPUStatus_DisabledDebugRequest = 6,
+  EBrowserGPUStatus_DisabledCommandLine = 7,
+  EBrowserGPUStatus_DisabledRuntimeDetect = 8,
+  EBrowserGPUStatus_DisabledChildCommandLine = 9
+};
+bool EBrowserGPUStatus_IsValid(int value);
+constexpr EBrowserGPUStatus EBrowserGPUStatus_MIN = EBrowserGPUStatus_Invalid;
+constexpr EBrowserGPUStatus EBrowserGPUStatus_MAX = EBrowserGPUStatus_DisabledChildCommandLine;
+constexpr int EBrowserGPUStatus_ARRAYSIZE = EBrowserGPUStatus_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBrowserGPUStatus_descriptor();
+template<typename T>
+inline const std::string& EBrowserGPUStatus_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EBrowserGPUStatus>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EBrowserGPUStatus_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EBrowserGPUStatus_descriptor(), enum_t_value);
+}
+inline bool EBrowserGPUStatus_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EBrowserGPUStatus* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EBrowserGPUStatus>(
+    EBrowserGPUStatus_descriptor(), name, value);
+}
+enum EBrowserFeatureStatus : int {
+  EBrowserFeatureStatus_Invalid = 0,
+  EBrowserFeatureStatus_NotFound = 1,
+  EBrowserFeatureStatus_Unknown = 2,
+  EBrowserFeatureStatus_DisabledSoftware = 3,
+  EBrowserFeatureStatus_DisabledOff = 4,
+  EBrowserFeatureStatus_DisabledOffOk = 5,
+  EBrowserFeatureStatus_UnavailableSoftware = 6,
+  EBrowserFeatureStatus_UnavailableOff = 7,
+  EBrowserFeatureStatus_UnavailableOffOk = 8,
+  EBrowserFeatureStatus_EnabledReadback = 9,
+  EBrowserFeatureStatus_EnabledForce = 10,
+  EBrowserFeatureStatus_Enabled = 11,
+  EBrowserFeatureStatus_EnabledOn = 12,
+  EBrowserFeatureStatus_EnabledForceOn = 13
+};
+bool EBrowserFeatureStatus_IsValid(int value);
+constexpr EBrowserFeatureStatus EBrowserFeatureStatus_MIN = EBrowserFeatureStatus_Invalid;
+constexpr EBrowserFeatureStatus EBrowserFeatureStatus_MAX = EBrowserFeatureStatus_EnabledForceOn;
+constexpr int EBrowserFeatureStatus_ARRAYSIZE = EBrowserFeatureStatus_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBrowserFeatureStatus_descriptor();
+template<typename T>
+inline const std::string& EBrowserFeatureStatus_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EBrowserFeatureStatus>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EBrowserFeatureStatus_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EBrowserFeatureStatus_descriptor(), enum_t_value);
+}
+inline bool EBrowserFeatureStatus_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EBrowserFeatureStatus* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EBrowserFeatureStatus>(
+    EBrowserFeatureStatus_descriptor(), name, value);
+}
+enum EGpuDriverId : int {
+  EGpuDriverId_Invalid = 0,
+  EGpuDriverId_Unknown = 1,
+  EGpuDriverId_AmdProprietary = 2,
+  EGpuDriverId_AmdOpenSource = 3,
+  EGpuDriverId_MesaRadv = 4,
+  EGpuDriverId_NvidiaProprietary = 5,
+  EGpuDriverId_IntelPropietary = 6,
+  EGpuDriverId_MesaIntel = 7,
+  EGpuDriverId_QualcommProprietary = 8,
+  EGpuDriverId_ArmProprietary = 9,
+  EGpuDriverId_GoogleSwiftshader = 10,
+  EGpuDriverId_BroadcomProprietary = 11,
+  EGpuDriverId_MesaLLVMPipe = 12,
+  EGpuDriverId_MoltenVK = 13,
+  EGpuDriverId_MesaTurnip = 14,
+  EGpuDriverId_MesaPanVK = 15,
+  EGpuDriverId_MesaVenus = 16,
+  EGpuDriverId_MesaDozen = 17,
+  EGpuDriverId_MesaNVK = 18,
+  EGpuDriverId_MesaHoneyKrisp = 19
+};
+bool EGpuDriverId_IsValid(int value);
+constexpr EGpuDriverId EGpuDriverId_MIN = EGpuDriverId_Invalid;
+constexpr EGpuDriverId EGpuDriverId_MAX = EGpuDriverId_MesaHoneyKrisp;
+constexpr int EGpuDriverId_ARRAYSIZE = EGpuDriverId_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGpuDriverId_descriptor();
+template<typename T>
+inline const std::string& EGpuDriverId_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EGpuDriverId>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EGpuDriverId_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EGpuDriverId_descriptor(), enum_t_value);
+}
+inline bool EGpuDriverId_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EGpuDriverId* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EGpuDriverId>(
+    EGpuDriverId_descriptor(), name, value);
+}
 enum ECommunityItemClass : int {
   ECommunityItemClass_Invalid = 0,
   ECommunityItemClass_Badge = 1,
@@ -1514,11 +1620,13 @@ enum ECompromiseDetectionType : int {
   ECompromiseDetectionType_None = 0,
   ECompromiseDetectionType_TradeEvent = 1,
   ECompromiseDetectionType_ApiCallRate = 2,
-  ECompromiseDetectionType_Manual = 3
+  ECompromiseDetectionType_Manual = 3,
+  ECompromiseDetectionType_TicketAction = 4,
+  ECompromiseDetectionType_MaliciousRefund = 5
 };
 bool ECompromiseDetectionType_IsValid(int value);
 constexpr ECompromiseDetectionType ECompromiseDetectionType_MIN = ECompromiseDetectionType_None;
-constexpr ECompromiseDetectionType ECompromiseDetectionType_MAX = ECompromiseDetectionType_Manual;
+constexpr ECompromiseDetectionType ECompromiseDetectionType_MAX = ECompromiseDetectionType_MaliciousRefund;
 constexpr int ECompromiseDetectionType_ARRAYSIZE = ECompromiseDetectionType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECompromiseDetectionType_descriptor();
@@ -1609,6 +1717,30 @@ inline bool EGameRecordingType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EGameRecordingType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EGameRecordingType>(
     EGameRecordingType_descriptor(), name, value);
+}
+enum EExportCodec : int {
+  EExportCodec_Default = 0,
+  EExportCodec_H264 = 1,
+  EExportCodec_H265 = 2
+};
+bool EExportCodec_IsValid(int value);
+constexpr EExportCodec EExportCodec_MIN = EExportCodec_Default;
+constexpr EExportCodec EExportCodec_MAX = EExportCodec_H265;
+constexpr int EExportCodec_ARRAYSIZE = EExportCodec_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EExportCodec_descriptor();
+template<typename T>
+inline const std::string& EExportCodec_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EExportCodec>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EExportCodec_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EExportCodec_descriptor(), enum_t_value);
+}
+inline bool EExportCodec_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EExportCodec* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EExportCodec>(
+    EExportCodec_descriptor(), name, value);
 }
 enum EProtoAppType : int {
   EAppTypeInvalid = 0,
@@ -1959,6 +2091,21 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EOSBranch>() {
   return ::EOSBranch_descriptor();
 }
+template <> struct is_proto_enum< ::EBrowserGPUStatus> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EBrowserGPUStatus>() {
+  return ::EBrowserGPUStatus_descriptor();
+}
+template <> struct is_proto_enum< ::EBrowserFeatureStatus> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EBrowserFeatureStatus>() {
+  return ::EBrowserFeatureStatus_descriptor();
+}
+template <> struct is_proto_enum< ::EGpuDriverId> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EGpuDriverId>() {
+  return ::EGpuDriverId_descriptor();
+}
 template <> struct is_proto_enum< ::ECommunityItemClass> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ECommunityItemClass>() {
@@ -2033,6 +2180,11 @@ template <> struct is_proto_enum< ::EGameRecordingType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EGameRecordingType>() {
   return ::EGameRecordingType_descriptor();
+}
+template <> struct is_proto_enum< ::EExportCodec> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EExportCodec>() {
+  return ::EExportCodec_descriptor();
 }
 template <> struct is_proto_enum< ::EProtoAppType> : ::std::true_type {};
 template <>

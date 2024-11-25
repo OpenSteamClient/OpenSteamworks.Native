@@ -32,7 +32,6 @@ void handle_sigint(int sig)
 }
 
 // Find this by looking at SteamService_StartThread with Ghidra and seeing what function it calls
-//TODO: use signature scanning to avoid having to manually decompile every time
 int (*SteamServiceInternal_StartThread)(void* ipcServerPtr, const char *pszIPCName, bool bCrossProcess, bool bCrossSession, bool unknown);
 
 // Unused on Windows, but could theoretically be used to allow usermode steamservice

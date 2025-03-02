@@ -459,11 +459,12 @@ enum EBroadcastWatchLocation : int {
   EBroadcastWatchLocation_DeveloperPage = 11,
   EBroadcastWatchLocation_Chat_Friends = 12,
   EBroadcastWatchLocation_SteamTV_Web = 13,
-  EBroadcastWatchLocation_DesktopUI_Overlay = 14
+  EBroadcastWatchLocation_DesktopUI_Overlay = 14,
+  EBroadcastWatchLocation_TrailerCarousel = 15
 };
 bool EBroadcastWatchLocation_IsValid(int value);
 constexpr EBroadcastWatchLocation EBroadcastWatchLocation_MIN = EBroadcastWatchLocation_Invalid;
-constexpr EBroadcastWatchLocation EBroadcastWatchLocation_MAX = EBroadcastWatchLocation_DesktopUI_Overlay;
+constexpr EBroadcastWatchLocation EBroadcastWatchLocation_MAX = EBroadcastWatchLocation_TrailerCarousel;
 constexpr int EBroadcastWatchLocation_ARRAYSIZE = EBroadcastWatchLocation_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBroadcastWatchLocation_descriptor();

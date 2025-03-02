@@ -481,6 +481,7 @@ class CContentBuilder_InitDepotBuild_Response PROTOBUF_FINAL :
     kOffsetDetectionBlastRadiusPostFieldNumber = 9,
     kOffsetDetectionMaxDistancePreFieldNumber = 10,
     kOffsetDetectionMaxDistancePostFieldNumber = 11,
+    kCompressionMethodFieldNumber = 12,
   };
   // optional bytes aes_key = 3;
   bool has_aes_key() const;
@@ -646,6 +647,19 @@ class CContentBuilder_InitDepotBuild_Response PROTOBUF_FINAL :
   void _internal_set_offset_detection_max_distance_post(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 compression_method = 12;
+  bool has_compression_method() const;
+  private:
+  bool _internal_has_compression_method() const;
+  public:
+  void clear_compression_method();
+  ::PROTOBUF_NAMESPACE_ID::uint32 compression_method() const;
+  void set_compression_method(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_compression_method() const;
+  void _internal_set_compression_method(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CContentBuilder_InitDepotBuild_Response)
  private:
   class _Internal;
@@ -666,6 +680,7 @@ class CContentBuilder_InitDepotBuild_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 offset_detection_blast_radius_post_;
   ::PROTOBUF_NAMESPACE_ID::uint32 offset_detection_max_distance_pre_;
   ::PROTOBUF_NAMESPACE_ID::uint32 offset_detection_max_distance_post_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 compression_method_;
   friend struct ::TableStruct_steammessages_5fdepotbuilder_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2167,6 +2182,7 @@ class CContentBuilder_CommitAppBuild_Request PROTOBUF_FINAL :
     kBuildNotesFieldNumber = 4,
     kLiveBranchFieldNumber = 5,
     kAppidFieldNumber = 1,
+    kForLocalCsFieldNumber = 6,
   };
   // repeated .CContentBuilder_CommitAppBuild_Request.Depots depot_manifests = 2;
   int depot_manifests_size() const;
@@ -2239,6 +2255,19 @@ class CContentBuilder_CommitAppBuild_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional bool for_local_cs = 6;
+  bool has_for_local_cs() const;
+  private:
+  bool _internal_has_for_local_cs() const;
+  public:
+  void clear_for_local_cs();
+  bool for_local_cs() const;
+  void set_for_local_cs(bool value);
+  private:
+  bool _internal_for_local_cs() const;
+  void _internal_set_for_local_cs(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CContentBuilder_CommitAppBuild_Request)
  private:
   class _Internal;
@@ -2252,6 +2281,7 @@ class CContentBuilder_CommitAppBuild_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr build_notes_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr live_branch_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  bool for_local_cs_;
   friend struct ::TableStruct_steammessages_5fdepotbuilder_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3515,6 +3545,34 @@ inline void CContentBuilder_InitDepotBuild_Response::set_offset_detection_max_di
   // @@protoc_insertion_point(field_set:CContentBuilder_InitDepotBuild_Response.offset_detection_max_distance_post)
 }
 
+// optional uint32 compression_method = 12;
+inline bool CContentBuilder_InitDepotBuild_Response::_internal_has_compression_method() const {
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CContentBuilder_InitDepotBuild_Response::has_compression_method() const {
+  return _internal_has_compression_method();
+}
+inline void CContentBuilder_InitDepotBuild_Response::clear_compression_method() {
+  compression_method_ = 0u;
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CContentBuilder_InitDepotBuild_Response::_internal_compression_method() const {
+  return compression_method_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CContentBuilder_InitDepotBuild_Response::compression_method() const {
+  // @@protoc_insertion_point(field_get:CContentBuilder_InitDepotBuild_Response.compression_method)
+  return _internal_compression_method();
+}
+inline void CContentBuilder_InitDepotBuild_Response::_internal_set_compression_method(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000800u;
+  compression_method_ = value;
+}
+inline void CContentBuilder_InitDepotBuild_Response::set_compression_method(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_compression_method(value);
+  // @@protoc_insertion_point(field_set:CContentBuilder_InitDepotBuild_Response.compression_method)
+}
+
 // -------------------------------------------------------------------
 
 // CContentBuilder_StartDepotUpload_Request
@@ -4350,6 +4408,34 @@ inline void CContentBuilder_CommitAppBuild_Request::set_allocated_live_branch(st
   live_branch_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), live_branch,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CContentBuilder_CommitAppBuild_Request.live_branch)
+}
+
+// optional bool for_local_cs = 6;
+inline bool CContentBuilder_CommitAppBuild_Request::_internal_has_for_local_cs() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CContentBuilder_CommitAppBuild_Request::has_for_local_cs() const {
+  return _internal_has_for_local_cs();
+}
+inline void CContentBuilder_CommitAppBuild_Request::clear_for_local_cs() {
+  for_local_cs_ = false;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline bool CContentBuilder_CommitAppBuild_Request::_internal_for_local_cs() const {
+  return for_local_cs_;
+}
+inline bool CContentBuilder_CommitAppBuild_Request::for_local_cs() const {
+  // @@protoc_insertion_point(field_get:CContentBuilder_CommitAppBuild_Request.for_local_cs)
+  return _internal_for_local_cs();
+}
+inline void CContentBuilder_CommitAppBuild_Request::_internal_set_for_local_cs(bool value) {
+  _has_bits_[0] |= 0x00000008u;
+  for_local_cs_ = value;
+}
+inline void CContentBuilder_CommitAppBuild_Request::set_for_local_cs(bool value) {
+  _internal_set_for_local_cs(value);
+  // @@protoc_insertion_point(field_set:CContentBuilder_CommitAppBuild_Request.for_local_cs)
 }
 
 // -------------------------------------------------------------------

@@ -8486,6 +8486,8 @@ class CInputKeyDownMsg PROTOBUF_FINAL :
   enum : int {
     kInputMarkFieldNumber = 1,
     kScancodeFieldNumber = 2,
+    kModifiersFieldNumber = 3,
+    kKeycodeFieldNumber = 4,
   };
   // optional uint32 input_mark = 1;
   bool has_input_mark() const;
@@ -8513,6 +8515,32 @@ class CInputKeyDownMsg PROTOBUF_FINAL :
   void _internal_set_scancode(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 modifiers = 3;
+  bool has_modifiers() const;
+  private:
+  bool _internal_has_modifiers() const;
+  public:
+  void clear_modifiers();
+  ::PROTOBUF_NAMESPACE_ID::uint32 modifiers() const;
+  void set_modifiers(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_modifiers() const;
+  void _internal_set_modifiers(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 keycode = 4;
+  bool has_keycode() const;
+  private:
+  bool _internal_has_keycode() const;
+  public:
+  void clear_keycode();
+  ::PROTOBUF_NAMESPACE_ID::uint32 keycode() const;
+  void set_keycode(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_keycode() const;
+  void _internal_set_keycode(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CInputKeyDownMsg)
  private:
   class _Internal;
@@ -8524,6 +8552,8 @@ class CInputKeyDownMsg PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 input_mark_;
   ::PROTOBUF_NAMESPACE_ID::uint32 scancode_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 modifiers_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 keycode_;
   friend struct ::TableStruct_steammessages_5fremoteplay_2eproto;
 };
 // -------------------------------------------------------------------
@@ -8650,6 +8680,8 @@ class CInputKeyUpMsg PROTOBUF_FINAL :
   enum : int {
     kInputMarkFieldNumber = 1,
     kScancodeFieldNumber = 2,
+    kModifiersFieldNumber = 3,
+    kKeycodeFieldNumber = 4,
   };
   // optional uint32 input_mark = 1;
   bool has_input_mark() const;
@@ -8677,6 +8709,32 @@ class CInputKeyUpMsg PROTOBUF_FINAL :
   void _internal_set_scancode(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 modifiers = 3;
+  bool has_modifiers() const;
+  private:
+  bool _internal_has_modifiers() const;
+  public:
+  void clear_modifiers();
+  ::PROTOBUF_NAMESPACE_ID::uint32 modifiers() const;
+  void set_modifiers(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_modifiers() const;
+  void _internal_set_modifiers(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 keycode = 4;
+  bool has_keycode() const;
+  private:
+  bool _internal_has_keycode() const;
+  public:
+  void clear_keycode();
+  ::PROTOBUF_NAMESPACE_ID::uint32 keycode() const;
+  void set_keycode(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_keycode() const;
+  void _internal_set_keycode(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CInputKeyUpMsg)
  private:
   class _Internal;
@@ -8688,6 +8746,8 @@ class CInputKeyUpMsg PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 input_mark_;
   ::PROTOBUF_NAMESPACE_ID::uint32 scancode_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 modifiers_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 keycode_;
   friend struct ::TableStruct_steammessages_5fremoteplay_2eproto;
 };
 // -------------------------------------------------------------------
@@ -17187,6 +17247,7 @@ class CRemotePlayTogetherGroupUpdateMsg PROTOBUF_FINAL :
     kGameNameFieldNumber = 4,
     kAvatarLocationFieldNumber = 5,
     kPlayerIndexFieldNumber = 2,
+    kDirectInputFieldNumber = 6,
   };
   // repeated .CRemotePlayTogetherGroupUpdateMsg.Player players = 1;
   int players_size() const;
@@ -17279,6 +17340,19 @@ class CRemotePlayTogetherGroupUpdateMsg PROTOBUF_FINAL :
   void _internal_set_player_index(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional bool direct_input = 6;
+  bool has_direct_input() const;
+  private:
+  bool _internal_has_direct_input() const;
+  public:
+  void clear_direct_input();
+  bool direct_input() const;
+  void set_direct_input(bool value);
+  private:
+  bool _internal_direct_input() const;
+  void _internal_set_direct_input(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CRemotePlayTogetherGroupUpdateMsg)
  private:
   class _Internal;
@@ -17293,6 +17367,7 @@ class CRemotePlayTogetherGroupUpdateMsg PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_location_;
   ::PROTOBUF_NAMESPACE_ID::int32 player_index_;
+  bool direct_input_;
   friend struct ::TableStruct_steammessages_5fremoteplay_2eproto;
 };
 // -------------------------------------------------------------------
@@ -27570,6 +27645,62 @@ inline void CInputKeyDownMsg::set_scancode(::PROTOBUF_NAMESPACE_ID::uint32 value
   // @@protoc_insertion_point(field_set:CInputKeyDownMsg.scancode)
 }
 
+// optional uint32 modifiers = 3;
+inline bool CInputKeyDownMsg::_internal_has_modifiers() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CInputKeyDownMsg::has_modifiers() const {
+  return _internal_has_modifiers();
+}
+inline void CInputKeyDownMsg::clear_modifiers() {
+  modifiers_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInputKeyDownMsg::_internal_modifiers() const {
+  return modifiers_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInputKeyDownMsg::modifiers() const {
+  // @@protoc_insertion_point(field_get:CInputKeyDownMsg.modifiers)
+  return _internal_modifiers();
+}
+inline void CInputKeyDownMsg::_internal_set_modifiers(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  modifiers_ = value;
+}
+inline void CInputKeyDownMsg::set_modifiers(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_modifiers(value);
+  // @@protoc_insertion_point(field_set:CInputKeyDownMsg.modifiers)
+}
+
+// optional uint32 keycode = 4;
+inline bool CInputKeyDownMsg::_internal_has_keycode() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CInputKeyDownMsg::has_keycode() const {
+  return _internal_has_keycode();
+}
+inline void CInputKeyDownMsg::clear_keycode() {
+  keycode_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInputKeyDownMsg::_internal_keycode() const {
+  return keycode_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInputKeyDownMsg::keycode() const {
+  // @@protoc_insertion_point(field_get:CInputKeyDownMsg.keycode)
+  return _internal_keycode();
+}
+inline void CInputKeyDownMsg::_internal_set_keycode(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  keycode_ = value;
+}
+inline void CInputKeyDownMsg::set_keycode(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_keycode(value);
+  // @@protoc_insertion_point(field_set:CInputKeyDownMsg.keycode)
+}
+
 // -------------------------------------------------------------------
 
 // CInputKeyUpMsg
@@ -27628,6 +27759,62 @@ inline void CInputKeyUpMsg::_internal_set_scancode(::PROTOBUF_NAMESPACE_ID::uint
 inline void CInputKeyUpMsg::set_scancode(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_scancode(value);
   // @@protoc_insertion_point(field_set:CInputKeyUpMsg.scancode)
+}
+
+// optional uint32 modifiers = 3;
+inline bool CInputKeyUpMsg::_internal_has_modifiers() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CInputKeyUpMsg::has_modifiers() const {
+  return _internal_has_modifiers();
+}
+inline void CInputKeyUpMsg::clear_modifiers() {
+  modifiers_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInputKeyUpMsg::_internal_modifiers() const {
+  return modifiers_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInputKeyUpMsg::modifiers() const {
+  // @@protoc_insertion_point(field_get:CInputKeyUpMsg.modifiers)
+  return _internal_modifiers();
+}
+inline void CInputKeyUpMsg::_internal_set_modifiers(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  modifiers_ = value;
+}
+inline void CInputKeyUpMsg::set_modifiers(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_modifiers(value);
+  // @@protoc_insertion_point(field_set:CInputKeyUpMsg.modifiers)
+}
+
+// optional uint32 keycode = 4;
+inline bool CInputKeyUpMsg::_internal_has_keycode() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CInputKeyUpMsg::has_keycode() const {
+  return _internal_has_keycode();
+}
+inline void CInputKeyUpMsg::clear_keycode() {
+  keycode_ = 0u;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInputKeyUpMsg::_internal_keycode() const {
+  return keycode_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CInputKeyUpMsg::keycode() const {
+  // @@protoc_insertion_point(field_get:CInputKeyUpMsg.keycode)
+  return _internal_keycode();
+}
+inline void CInputKeyUpMsg::_internal_set_keycode(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  keycode_ = value;
+}
+inline void CInputKeyUpMsg::set_keycode(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_keycode(value);
+  // @@protoc_insertion_point(field_set:CInputKeyUpMsg.keycode)
 }
 
 // -------------------------------------------------------------------
@@ -31485,6 +31672,34 @@ inline void CRemotePlayTogetherGroupUpdateMsg::set_allocated_avatar_location(std
   avatar_location_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), avatar_location,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CRemotePlayTogetherGroupUpdateMsg.avatar_location)
+}
+
+// optional bool direct_input = 6;
+inline bool CRemotePlayTogetherGroupUpdateMsg::_internal_has_direct_input() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CRemotePlayTogetherGroupUpdateMsg::has_direct_input() const {
+  return _internal_has_direct_input();
+}
+inline void CRemotePlayTogetherGroupUpdateMsg::clear_direct_input() {
+  direct_input_ = false;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline bool CRemotePlayTogetherGroupUpdateMsg::_internal_direct_input() const {
+  return direct_input_;
+}
+inline bool CRemotePlayTogetherGroupUpdateMsg::direct_input() const {
+  // @@protoc_insertion_point(field_get:CRemotePlayTogetherGroupUpdateMsg.direct_input)
+  return _internal_direct_input();
+}
+inline void CRemotePlayTogetherGroupUpdateMsg::_internal_set_direct_input(bool value) {
+  _has_bits_[0] |= 0x00000010u;
+  direct_input_ = value;
+}
+inline void CRemotePlayTogetherGroupUpdateMsg::set_direct_input(bool value) {
+  _internal_set_direct_input(value);
+  // @@protoc_insertion_point(field_set:CRemotePlayTogetherGroupUpdateMsg.direct_input)
 }
 
 // -------------------------------------------------------------------

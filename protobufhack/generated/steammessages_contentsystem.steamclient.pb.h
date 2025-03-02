@@ -30,6 +30,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/service.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/descriptor.pb.h>
@@ -50,7 +51,7 @@ struct TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[16]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[21]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -106,6 +107,21 @@ extern CContentServerDirectory_RequestPeerContentServer_ResponseDefaultTypeInter
 class CContentServerDirectory_ServerInfo;
 struct CContentServerDirectory_ServerInfoDefaultTypeInternal;
 extern CContentServerDirectory_ServerInfoDefaultTypeInternal _CContentServerDirectory_ServerInfo_default_instance_;
+class CDepotContentDetection_GetAllDetectedAppContent_Request;
+struct CDepotContentDetection_GetAllDetectedAppContent_RequestDefaultTypeInternal;
+extern CDepotContentDetection_GetAllDetectedAppContent_RequestDefaultTypeInternal _CDepotContentDetection_GetAllDetectedAppContent_Request_default_instance_;
+class CDepotContentDetection_GetAllDetectedAppContent_Response;
+struct CDepotContentDetection_GetAllDetectedAppContent_ResponseDefaultTypeInternal;
+extern CDepotContentDetection_GetAllDetectedAppContent_ResponseDefaultTypeInternal _CDepotContentDetection_GetAllDetectedAppContent_Response_default_instance_;
+class CDepotContentDetection_GetDetectedContentSingleApp_Request;
+struct CDepotContentDetection_GetDetectedContentSingleApp_RequestDefaultTypeInternal;
+extern CDepotContentDetection_GetDetectedContentSingleApp_RequestDefaultTypeInternal _CDepotContentDetection_GetDetectedContentSingleApp_Request_default_instance_;
+class CDepotContentDetection_GetDetectedContentSingleApp_Response;
+struct CDepotContentDetection_GetDetectedContentSingleApp_ResponseDefaultTypeInternal;
+extern CDepotContentDetection_GetDetectedContentSingleApp_ResponseDefaultTypeInternal _CDepotContentDetection_GetDetectedContentSingleApp_Response_default_instance_;
+class DetectedAppContent;
+struct DetectedAppContentDefaultTypeInternal;
+extern DetectedAppContentDefaultTypeInternal _DetectedAppContent_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::CContentServerDirectory_ConnectedSteamPipeServerInfo* Arena::CreateMaybeMessage<::CContentServerDirectory_ConnectedSteamPipeServerInfo>(Arena*);
 template<> ::CContentServerDirectory_GetCDNAuthToken_Request* Arena::CreateMaybeMessage<::CContentServerDirectory_GetCDNAuthToken_Request>(Arena*);
@@ -123,8 +139,92 @@ template<> ::CContentServerDirectory_GetServersForSteamPipe_Response* Arena::Cre
 template<> ::CContentServerDirectory_RequestPeerContentServer_Request* Arena::CreateMaybeMessage<::CContentServerDirectory_RequestPeerContentServer_Request>(Arena*);
 template<> ::CContentServerDirectory_RequestPeerContentServer_Response* Arena::CreateMaybeMessage<::CContentServerDirectory_RequestPeerContentServer_Response>(Arena*);
 template<> ::CContentServerDirectory_ServerInfo* Arena::CreateMaybeMessage<::CContentServerDirectory_ServerInfo>(Arena*);
+template<> ::CDepotContentDetection_GetAllDetectedAppContent_Request* Arena::CreateMaybeMessage<::CDepotContentDetection_GetAllDetectedAppContent_Request>(Arena*);
+template<> ::CDepotContentDetection_GetAllDetectedAppContent_Response* Arena::CreateMaybeMessage<::CDepotContentDetection_GetAllDetectedAppContent_Response>(Arena*);
+template<> ::CDepotContentDetection_GetDetectedContentSingleApp_Request* Arena::CreateMaybeMessage<::CDepotContentDetection_GetDetectedContentSingleApp_Request>(Arena*);
+template<> ::CDepotContentDetection_GetDetectedContentSingleApp_Response* Arena::CreateMaybeMessage<::CDepotContentDetection_GetDetectedContentSingleApp_Response>(Arena*);
+template<> ::DetectedAppContent* Arena::CreateMaybeMessage<::DetectedAppContent>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
+enum EAppContentDetectionType : int {
+  EAppContentDetectionType_None = 0,
+  EAppContentDetectionType_AntiCheat = 1,
+  EAppContentDetectionType_GameEngine = 2
+};
+bool EAppContentDetectionType_IsValid(int value);
+constexpr EAppContentDetectionType EAppContentDetectionType_MIN = EAppContentDetectionType_None;
+constexpr EAppContentDetectionType EAppContentDetectionType_MAX = EAppContentDetectionType_GameEngine;
+constexpr int EAppContentDetectionType_ARRAYSIZE = EAppContentDetectionType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAppContentDetectionType_descriptor();
+template<typename T>
+inline const std::string& EAppContentDetectionType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EAppContentDetectionType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EAppContentDetectionType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EAppContentDetectionType_descriptor(), enum_t_value);
+}
+inline bool EAppContentDetectionType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAppContentDetectionType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAppContentDetectionType>(
+    EAppContentDetectionType_descriptor(), name, value);
+}
+enum EAppAntiCheatType : int {
+  EAppAntiCheatTypeNone = 0,
+  EAppAntiCheatTypeEasyAC = 1,
+  EAppAntiCheatTypeDenuvo = 2,
+  EAppAntiCheatTypeBattlEye = 3,
+  EAppAntiCheatTypeXignCode = 4,
+  EAppAntiCheatTypePunkBuster = 5,
+  EAppAntiCheatTypeVAC = 6,
+  EAppAntiCheatTypeGameGuard = 7,
+  EAppAntiCheatTypeHackShield = 8,
+  EAppAntiCheatTypeAntiCheatExpert = 9,
+  EAppAntiCheatTypeOther = 10
+};
+bool EAppAntiCheatType_IsValid(int value);
+constexpr EAppAntiCheatType EAppAntiCheatType_MIN = EAppAntiCheatTypeNone;
+constexpr EAppAntiCheatType EAppAntiCheatType_MAX = EAppAntiCheatTypeOther;
+constexpr int EAppAntiCheatType_ARRAYSIZE = EAppAntiCheatType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAppAntiCheatType_descriptor();
+template<typename T>
+inline const std::string& EAppAntiCheatType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EAppAntiCheatType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EAppAntiCheatType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EAppAntiCheatType_descriptor(), enum_t_value);
+}
+inline bool EAppAntiCheatType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAppAntiCheatType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAppAntiCheatType>(
+    EAppAntiCheatType_descriptor(), name, value);
+}
+enum EAppGameEngineType : int {
+  EAppGameEngineTypeNone = 0,
+  EAppGameEngineTypeUnreal = 1
+};
+bool EAppGameEngineType_IsValid(int value);
+constexpr EAppGameEngineType EAppGameEngineType_MIN = EAppGameEngineTypeNone;
+constexpr EAppGameEngineType EAppGameEngineType_MAX = EAppGameEngineTypeUnreal;
+constexpr int EAppGameEngineType_ARRAYSIZE = EAppGameEngineType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAppGameEngineType_descriptor();
+template<typename T>
+inline const std::string& EAppGameEngineType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EAppGameEngineType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EAppGameEngineType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EAppGameEngineType_descriptor(), enum_t_value);
+}
+inline bool EAppGameEngineType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAppGameEngineType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAppGameEngineType>(
+    EAppGameEngineType_descriptor(), name, value);
+}
 // ===================================================================
 
 class CContentServerDirectory_ConnectedSteamPipeServerInfo PROTOBUF_FINAL :
@@ -3351,6 +3451,800 @@ class CContentServerDirectory_GetPeerContentInfo_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ip_public_;
   friend struct ::TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CDepotContentDetection_GetAllDetectedAppContent_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDepotContentDetection_GetAllDetectedAppContent_Request) */ {
+ public:
+  inline CDepotContentDetection_GetAllDetectedAppContent_Request() : CDepotContentDetection_GetAllDetectedAppContent_Request(nullptr) {}
+  virtual ~CDepotContentDetection_GetAllDetectedAppContent_Request();
+  explicit constexpr CDepotContentDetection_GetAllDetectedAppContent_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDepotContentDetection_GetAllDetectedAppContent_Request(const CDepotContentDetection_GetAllDetectedAppContent_Request& from);
+  CDepotContentDetection_GetAllDetectedAppContent_Request(CDepotContentDetection_GetAllDetectedAppContent_Request&& from) noexcept
+    : CDepotContentDetection_GetAllDetectedAppContent_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CDepotContentDetection_GetAllDetectedAppContent_Request& operator=(const CDepotContentDetection_GetAllDetectedAppContent_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDepotContentDetection_GetAllDetectedAppContent_Request& operator=(CDepotContentDetection_GetAllDetectedAppContent_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CDepotContentDetection_GetAllDetectedAppContent_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDepotContentDetection_GetAllDetectedAppContent_Request* internal_default_instance() {
+    return reinterpret_cast<const CDepotContentDetection_GetAllDetectedAppContent_Request*>(
+               &_CDepotContentDetection_GetAllDetectedAppContent_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(CDepotContentDetection_GetAllDetectedAppContent_Request& a, CDepotContentDetection_GetAllDetectedAppContent_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDepotContentDetection_GetAllDetectedAppContent_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDepotContentDetection_GetAllDetectedAppContent_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CDepotContentDetection_GetAllDetectedAppContent_Request* New() const final {
+    return CreateMaybeMessage<CDepotContentDetection_GetAllDetectedAppContent_Request>(nullptr);
+  }
+
+  CDepotContentDetection_GetAllDetectedAppContent_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CDepotContentDetection_GetAllDetectedAppContent_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CDepotContentDetection_GetAllDetectedAppContent_Request& from);
+  void MergeFrom(const CDepotContentDetection_GetAllDetectedAppContent_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDepotContentDetection_GetAllDetectedAppContent_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDepotContentDetection_GetAllDetectedAppContent_Request";
+  }
+  protected:
+  explicit CDepotContentDetection_GetAllDetectedAppContent_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDetectionTypeFieldNumber = 1,
+  };
+  // optional .EAppContentDetectionType detection_type = 1 [default = EAppContentDetectionType_None];
+  bool has_detection_type() const;
+  private:
+  bool _internal_has_detection_type() const;
+  public:
+  void clear_detection_type();
+  ::EAppContentDetectionType detection_type() const;
+  void set_detection_type(::EAppContentDetectionType value);
+  private:
+  ::EAppContentDetectionType _internal_detection_type() const;
+  void _internal_set_detection_type(::EAppContentDetectionType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDepotContentDetection_GetAllDetectedAppContent_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int detection_type_;
+  friend struct ::TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DetectedAppContent PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DetectedAppContent) */ {
+ public:
+  inline DetectedAppContent() : DetectedAppContent(nullptr) {}
+  virtual ~DetectedAppContent();
+  explicit constexpr DetectedAppContent(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DetectedAppContent(const DetectedAppContent& from);
+  DetectedAppContent(DetectedAppContent&& from) noexcept
+    : DetectedAppContent() {
+    *this = ::std::move(from);
+  }
+
+  inline DetectedAppContent& operator=(const DetectedAppContent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DetectedAppContent& operator=(DetectedAppContent&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DetectedAppContent& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DetectedAppContent* internal_default_instance() {
+    return reinterpret_cast<const DetectedAppContent*>(
+               &_DetectedAppContent_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(DetectedAppContent& a, DetectedAppContent& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DetectedAppContent* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DetectedAppContent* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DetectedAppContent* New() const final {
+    return CreateMaybeMessage<DetectedAppContent>(nullptr);
+  }
+
+  DetectedAppContent* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DetectedAppContent>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DetectedAppContent& from);
+  void MergeFrom(const DetectedAppContent& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DetectedAppContent* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DetectedAppContent";
+  }
+  protected:
+  explicit DetectedAppContent(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAppIdFieldNumber = 1,
+    kDepotIdFieldNumber = 2,
+    kDetectedContentFieldNumber = 3,
+  };
+  // optional uint32 app_id = 1;
+  bool has_app_id() const;
+  private:
+  bool _internal_has_app_id() const;
+  public:
+  void clear_app_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 app_id() const;
+  void set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_app_id() const;
+  void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 depot_id = 2;
+  bool has_depot_id() const;
+  private:
+  bool _internal_has_depot_id() const;
+  public:
+  void clear_depot_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 depot_id() const;
+  void set_depot_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_depot_id() const;
+  void _internal_set_depot_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional int32 detected_content = 3;
+  bool has_detected_content() const;
+  private:
+  bool _internal_has_detected_content() const;
+  public:
+  void clear_detected_content();
+  ::PROTOBUF_NAMESPACE_ID::int32 detected_content() const;
+  void set_detected_content(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_detected_content() const;
+  void _internal_set_detected_content(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:DetectedAppContent)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 depot_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 detected_content_;
+  friend struct ::TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CDepotContentDetection_GetAllDetectedAppContent_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDepotContentDetection_GetAllDetectedAppContent_Response) */ {
+ public:
+  inline CDepotContentDetection_GetAllDetectedAppContent_Response() : CDepotContentDetection_GetAllDetectedAppContent_Response(nullptr) {}
+  virtual ~CDepotContentDetection_GetAllDetectedAppContent_Response();
+  explicit constexpr CDepotContentDetection_GetAllDetectedAppContent_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDepotContentDetection_GetAllDetectedAppContent_Response(const CDepotContentDetection_GetAllDetectedAppContent_Response& from);
+  CDepotContentDetection_GetAllDetectedAppContent_Response(CDepotContentDetection_GetAllDetectedAppContent_Response&& from) noexcept
+    : CDepotContentDetection_GetAllDetectedAppContent_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CDepotContentDetection_GetAllDetectedAppContent_Response& operator=(const CDepotContentDetection_GetAllDetectedAppContent_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDepotContentDetection_GetAllDetectedAppContent_Response& operator=(CDepotContentDetection_GetAllDetectedAppContent_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CDepotContentDetection_GetAllDetectedAppContent_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDepotContentDetection_GetAllDetectedAppContent_Response* internal_default_instance() {
+    return reinterpret_cast<const CDepotContentDetection_GetAllDetectedAppContent_Response*>(
+               &_CDepotContentDetection_GetAllDetectedAppContent_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(CDepotContentDetection_GetAllDetectedAppContent_Response& a, CDepotContentDetection_GetAllDetectedAppContent_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDepotContentDetection_GetAllDetectedAppContent_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDepotContentDetection_GetAllDetectedAppContent_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CDepotContentDetection_GetAllDetectedAppContent_Response* New() const final {
+    return CreateMaybeMessage<CDepotContentDetection_GetAllDetectedAppContent_Response>(nullptr);
+  }
+
+  CDepotContentDetection_GetAllDetectedAppContent_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CDepotContentDetection_GetAllDetectedAppContent_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CDepotContentDetection_GetAllDetectedAppContent_Response& from);
+  void MergeFrom(const CDepotContentDetection_GetAllDetectedAppContent_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDepotContentDetection_GetAllDetectedAppContent_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDepotContentDetection_GetAllDetectedAppContent_Response";
+  }
+  protected:
+  explicit CDepotContentDetection_GetAllDetectedAppContent_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDetectedAppContentFieldNumber = 1,
+  };
+  // repeated .DetectedAppContent detected_app_content = 1;
+  int detected_app_content_size() const;
+  private:
+  int _internal_detected_app_content_size() const;
+  public:
+  void clear_detected_app_content();
+  ::DetectedAppContent* mutable_detected_app_content(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DetectedAppContent >*
+      mutable_detected_app_content();
+  private:
+  const ::DetectedAppContent& _internal_detected_app_content(int index) const;
+  ::DetectedAppContent* _internal_add_detected_app_content();
+  public:
+  const ::DetectedAppContent& detected_app_content(int index) const;
+  ::DetectedAppContent* add_detected_app_content();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DetectedAppContent >&
+      detected_app_content() const;
+
+  // @@protoc_insertion_point(class_scope:CDepotContentDetection_GetAllDetectedAppContent_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DetectedAppContent > detected_app_content_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CDepotContentDetection_GetDetectedContentSingleApp_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDepotContentDetection_GetDetectedContentSingleApp_Request) */ {
+ public:
+  inline CDepotContentDetection_GetDetectedContentSingleApp_Request() : CDepotContentDetection_GetDetectedContentSingleApp_Request(nullptr) {}
+  virtual ~CDepotContentDetection_GetDetectedContentSingleApp_Request();
+  explicit constexpr CDepotContentDetection_GetDetectedContentSingleApp_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDepotContentDetection_GetDetectedContentSingleApp_Request(const CDepotContentDetection_GetDetectedContentSingleApp_Request& from);
+  CDepotContentDetection_GetDetectedContentSingleApp_Request(CDepotContentDetection_GetDetectedContentSingleApp_Request&& from) noexcept
+    : CDepotContentDetection_GetDetectedContentSingleApp_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CDepotContentDetection_GetDetectedContentSingleApp_Request& operator=(const CDepotContentDetection_GetDetectedContentSingleApp_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDepotContentDetection_GetDetectedContentSingleApp_Request& operator=(CDepotContentDetection_GetDetectedContentSingleApp_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CDepotContentDetection_GetDetectedContentSingleApp_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDepotContentDetection_GetDetectedContentSingleApp_Request* internal_default_instance() {
+    return reinterpret_cast<const CDepotContentDetection_GetDetectedContentSingleApp_Request*>(
+               &_CDepotContentDetection_GetDetectedContentSingleApp_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(CDepotContentDetection_GetDetectedContentSingleApp_Request& a, CDepotContentDetection_GetDetectedContentSingleApp_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDepotContentDetection_GetDetectedContentSingleApp_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDepotContentDetection_GetDetectedContentSingleApp_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CDepotContentDetection_GetDetectedContentSingleApp_Request* New() const final {
+    return CreateMaybeMessage<CDepotContentDetection_GetDetectedContentSingleApp_Request>(nullptr);
+  }
+
+  CDepotContentDetection_GetDetectedContentSingleApp_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CDepotContentDetection_GetDetectedContentSingleApp_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CDepotContentDetection_GetDetectedContentSingleApp_Request& from);
+  void MergeFrom(const CDepotContentDetection_GetDetectedContentSingleApp_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDepotContentDetection_GetDetectedContentSingleApp_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDepotContentDetection_GetDetectedContentSingleApp_Request";
+  }
+  protected:
+  explicit CDepotContentDetection_GetDetectedContentSingleApp_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAppidFieldNumber = 1,
+  };
+  // optional uint32 appid = 1;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
+  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
+  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDepotContentDetection_GetDetectedContentSingleApp_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  friend struct ::TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CDepotContentDetection_GetDetectedContentSingleApp_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDepotContentDetection_GetDetectedContentSingleApp_Response) */ {
+ public:
+  inline CDepotContentDetection_GetDetectedContentSingleApp_Response() : CDepotContentDetection_GetDetectedContentSingleApp_Response(nullptr) {}
+  virtual ~CDepotContentDetection_GetDetectedContentSingleApp_Response();
+  explicit constexpr CDepotContentDetection_GetDetectedContentSingleApp_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDepotContentDetection_GetDetectedContentSingleApp_Response(const CDepotContentDetection_GetDetectedContentSingleApp_Response& from);
+  CDepotContentDetection_GetDetectedContentSingleApp_Response(CDepotContentDetection_GetDetectedContentSingleApp_Response&& from) noexcept
+    : CDepotContentDetection_GetDetectedContentSingleApp_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CDepotContentDetection_GetDetectedContentSingleApp_Response& operator=(const CDepotContentDetection_GetDetectedContentSingleApp_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDepotContentDetection_GetDetectedContentSingleApp_Response& operator=(CDepotContentDetection_GetDetectedContentSingleApp_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CDepotContentDetection_GetDetectedContentSingleApp_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDepotContentDetection_GetDetectedContentSingleApp_Response* internal_default_instance() {
+    return reinterpret_cast<const CDepotContentDetection_GetDetectedContentSingleApp_Response*>(
+               &_CDepotContentDetection_GetDetectedContentSingleApp_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(CDepotContentDetection_GetDetectedContentSingleApp_Response& a, CDepotContentDetection_GetDetectedContentSingleApp_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDepotContentDetection_GetDetectedContentSingleApp_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDepotContentDetection_GetDetectedContentSingleApp_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CDepotContentDetection_GetDetectedContentSingleApp_Response* New() const final {
+    return CreateMaybeMessage<CDepotContentDetection_GetDetectedContentSingleApp_Response>(nullptr);
+  }
+
+  CDepotContentDetection_GetDetectedContentSingleApp_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CDepotContentDetection_GetDetectedContentSingleApp_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CDepotContentDetection_GetDetectedContentSingleApp_Response& from);
+  void MergeFrom(const CDepotContentDetection_GetDetectedContentSingleApp_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDepotContentDetection_GetDetectedContentSingleApp_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDepotContentDetection_GetDetectedContentSingleApp_Response";
+  }
+  protected:
+  explicit CDepotContentDetection_GetDetectedContentSingleApp_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDetectedAnticheatFieldNumber = 1,
+    kDetectedGameengineFieldNumber = 2,
+  };
+  // optional .EAppAntiCheatType detected_anticheat = 1 [default = EAppAntiCheatTypeNone];
+  bool has_detected_anticheat() const;
+  private:
+  bool _internal_has_detected_anticheat() const;
+  public:
+  void clear_detected_anticheat();
+  ::EAppAntiCheatType detected_anticheat() const;
+  void set_detected_anticheat(::EAppAntiCheatType value);
+  private:
+  ::EAppAntiCheatType _internal_detected_anticheat() const;
+  void _internal_set_detected_anticheat(::EAppAntiCheatType value);
+  public:
+
+  // optional .EAppGameEngineType detected_gameengine = 2 [default = EAppGameEngineTypeNone];
+  bool has_detected_gameengine() const;
+  private:
+  bool _internal_has_detected_gameengine() const;
+  public:
+  void clear_detected_gameengine();
+  ::EAppGameEngineType detected_gameengine() const;
+  void set_detected_gameengine(::EAppGameEngineType value);
+  private:
+  ::EAppGameEngineType _internal_detected_gameengine() const;
+  void _internal_set_detected_gameengine(::EAppGameEngineType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDepotContentDetection_GetDetectedContentSingleApp_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int detected_anticheat_;
+  int detected_gameengine_;
+  friend struct ::TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto;
+};
 // ===================================================================
 
 class ContentServerDirectory_Stub;
@@ -3455,6 +4349,73 @@ class ContentServerDirectory_Stub : public ContentServerDirectory {
   ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
   bool owns_channel_;
   GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(ContentServerDirectory_Stub);
+};
+
+
+// -------------------------------------------------------------------
+
+class DepotContentDetection_Stub;
+
+class DepotContentDetection : public ::PROTOBUF_NAMESPACE_ID::Service {
+ protected:
+  // This class should be treated as an abstract interface.
+  inline DepotContentDetection() {};
+ public:
+  virtual ~DepotContentDetection();
+
+  typedef DepotContentDetection_Stub Stub;
+
+  static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* descriptor();
+
+  virtual void GetAllDetectedAppContent(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CDepotContentDetection_GetAllDetectedAppContent_Request* request,
+                       ::CDepotContentDetection_GetAllDetectedAppContent_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void GetDetectedContentSingleApp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CDepotContentDetection_GetDetectedContentSingleApp_Request* request,
+                       ::CDepotContentDetection_GetDetectedContentSingleApp_Response* response,
+                       ::google::protobuf::Closure* done);
+
+  // implements Service ----------------------------------------------
+
+  const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* GetDescriptor();
+  void CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
+                  ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                  const ::PROTOBUF_NAMESPACE_ID::Message* request,
+                  ::PROTOBUF_NAMESPACE_ID::Message* response,
+                  ::google::protobuf::Closure* done);
+  const ::PROTOBUF_NAMESPACE_ID::Message& GetRequestPrototype(
+    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method) const;
+  const ::PROTOBUF_NAMESPACE_ID::Message& GetResponsePrototype(
+    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method) const;
+
+ private:
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(DepotContentDetection);
+};
+
+class DepotContentDetection_Stub : public DepotContentDetection {
+ public:
+  DepotContentDetection_Stub(::PROTOBUF_NAMESPACE_ID::RpcChannel* channel);
+  DepotContentDetection_Stub(::PROTOBUF_NAMESPACE_ID::RpcChannel* channel,
+                   ::PROTOBUF_NAMESPACE_ID::Service::ChannelOwnership ownership);
+  ~DepotContentDetection_Stub();
+
+  inline ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel() { return channel_; }
+
+  // implements DepotContentDetection ------------------------------------------
+
+  void GetAllDetectedAppContent(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CDepotContentDetection_GetAllDetectedAppContent_Request* request,
+                       ::CDepotContentDetection_GetAllDetectedAppContent_Response* response,
+                       ::google::protobuf::Closure* done);
+  void GetDetectedContentSingleApp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CDepotContentDetection_GetDetectedContentSingleApp_Request* request,
+                       ::CDepotContentDetection_GetDetectedContentSingleApp_Response* response,
+                       ::google::protobuf::Closure* done);
+ private:
+  ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
+  bool owns_channel_;
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(DepotContentDetection_Stub);
 };
 
 
@@ -6127,6 +7088,264 @@ inline void CContentServerDirectory_GetPeerContentInfo_Response::set_allocated_i
   // @@protoc_insertion_point(field_set_allocated:CContentServerDirectory_GetPeerContentInfo_Response.ip_public)
 }
 
+// -------------------------------------------------------------------
+
+// CDepotContentDetection_GetAllDetectedAppContent_Request
+
+// optional .EAppContentDetectionType detection_type = 1 [default = EAppContentDetectionType_None];
+inline bool CDepotContentDetection_GetAllDetectedAppContent_Request::_internal_has_detection_type() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDepotContentDetection_GetAllDetectedAppContent_Request::has_detection_type() const {
+  return _internal_has_detection_type();
+}
+inline void CDepotContentDetection_GetAllDetectedAppContent_Request::clear_detection_type() {
+  detection_type_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::EAppContentDetectionType CDepotContentDetection_GetAllDetectedAppContent_Request::_internal_detection_type() const {
+  return static_cast< ::EAppContentDetectionType >(detection_type_);
+}
+inline ::EAppContentDetectionType CDepotContentDetection_GetAllDetectedAppContent_Request::detection_type() const {
+  // @@protoc_insertion_point(field_get:CDepotContentDetection_GetAllDetectedAppContent_Request.detection_type)
+  return _internal_detection_type();
+}
+inline void CDepotContentDetection_GetAllDetectedAppContent_Request::_internal_set_detection_type(::EAppContentDetectionType value) {
+  assert(::EAppContentDetectionType_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  detection_type_ = value;
+}
+inline void CDepotContentDetection_GetAllDetectedAppContent_Request::set_detection_type(::EAppContentDetectionType value) {
+  _internal_set_detection_type(value);
+  // @@protoc_insertion_point(field_set:CDepotContentDetection_GetAllDetectedAppContent_Request.detection_type)
+}
+
+// -------------------------------------------------------------------
+
+// DetectedAppContent
+
+// optional uint32 app_id = 1;
+inline bool DetectedAppContent::_internal_has_app_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool DetectedAppContent::has_app_id() const {
+  return _internal_has_app_id();
+}
+inline void DetectedAppContent::clear_app_id() {
+  app_id_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 DetectedAppContent::_internal_app_id() const {
+  return app_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 DetectedAppContent::app_id() const {
+  // @@protoc_insertion_point(field_get:DetectedAppContent.app_id)
+  return _internal_app_id();
+}
+inline void DetectedAppContent::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  app_id_ = value;
+}
+inline void DetectedAppContent::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_app_id(value);
+  // @@protoc_insertion_point(field_set:DetectedAppContent.app_id)
+}
+
+// optional uint32 depot_id = 2;
+inline bool DetectedAppContent::_internal_has_depot_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool DetectedAppContent::has_depot_id() const {
+  return _internal_has_depot_id();
+}
+inline void DetectedAppContent::clear_depot_id() {
+  depot_id_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 DetectedAppContent::_internal_depot_id() const {
+  return depot_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 DetectedAppContent::depot_id() const {
+  // @@protoc_insertion_point(field_get:DetectedAppContent.depot_id)
+  return _internal_depot_id();
+}
+inline void DetectedAppContent::_internal_set_depot_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  depot_id_ = value;
+}
+inline void DetectedAppContent::set_depot_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_depot_id(value);
+  // @@protoc_insertion_point(field_set:DetectedAppContent.depot_id)
+}
+
+// optional int32 detected_content = 3;
+inline bool DetectedAppContent::_internal_has_detected_content() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool DetectedAppContent::has_detected_content() const {
+  return _internal_has_detected_content();
+}
+inline void DetectedAppContent::clear_detected_content() {
+  detected_content_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DetectedAppContent::_internal_detected_content() const {
+  return detected_content_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DetectedAppContent::detected_content() const {
+  // @@protoc_insertion_point(field_get:DetectedAppContent.detected_content)
+  return _internal_detected_content();
+}
+inline void DetectedAppContent::_internal_set_detected_content(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  detected_content_ = value;
+}
+inline void DetectedAppContent::set_detected_content(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_detected_content(value);
+  // @@protoc_insertion_point(field_set:DetectedAppContent.detected_content)
+}
+
+// -------------------------------------------------------------------
+
+// CDepotContentDetection_GetAllDetectedAppContent_Response
+
+// repeated .DetectedAppContent detected_app_content = 1;
+inline int CDepotContentDetection_GetAllDetectedAppContent_Response::_internal_detected_app_content_size() const {
+  return detected_app_content_.size();
+}
+inline int CDepotContentDetection_GetAllDetectedAppContent_Response::detected_app_content_size() const {
+  return _internal_detected_app_content_size();
+}
+inline void CDepotContentDetection_GetAllDetectedAppContent_Response::clear_detected_app_content() {
+  detected_app_content_.Clear();
+}
+inline ::DetectedAppContent* CDepotContentDetection_GetAllDetectedAppContent_Response::mutable_detected_app_content(int index) {
+  // @@protoc_insertion_point(field_mutable:CDepotContentDetection_GetAllDetectedAppContent_Response.detected_app_content)
+  return detected_app_content_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DetectedAppContent >*
+CDepotContentDetection_GetAllDetectedAppContent_Response::mutable_detected_app_content() {
+  // @@protoc_insertion_point(field_mutable_list:CDepotContentDetection_GetAllDetectedAppContent_Response.detected_app_content)
+  return &detected_app_content_;
+}
+inline const ::DetectedAppContent& CDepotContentDetection_GetAllDetectedAppContent_Response::_internal_detected_app_content(int index) const {
+  return detected_app_content_.Get(index);
+}
+inline const ::DetectedAppContent& CDepotContentDetection_GetAllDetectedAppContent_Response::detected_app_content(int index) const {
+  // @@protoc_insertion_point(field_get:CDepotContentDetection_GetAllDetectedAppContent_Response.detected_app_content)
+  return _internal_detected_app_content(index);
+}
+inline ::DetectedAppContent* CDepotContentDetection_GetAllDetectedAppContent_Response::_internal_add_detected_app_content() {
+  return detected_app_content_.Add();
+}
+inline ::DetectedAppContent* CDepotContentDetection_GetAllDetectedAppContent_Response::add_detected_app_content() {
+  // @@protoc_insertion_point(field_add:CDepotContentDetection_GetAllDetectedAppContent_Response.detected_app_content)
+  return _internal_add_detected_app_content();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DetectedAppContent >&
+CDepotContentDetection_GetAllDetectedAppContent_Response::detected_app_content() const {
+  // @@protoc_insertion_point(field_list:CDepotContentDetection_GetAllDetectedAppContent_Response.detected_app_content)
+  return detected_app_content_;
+}
+
+// -------------------------------------------------------------------
+
+// CDepotContentDetection_GetDetectedContentSingleApp_Request
+
+// optional uint32 appid = 1;
+inline bool CDepotContentDetection_GetDetectedContentSingleApp_Request::_internal_has_appid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDepotContentDetection_GetDetectedContentSingleApp_Request::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Request::clear_appid() {
+  appid_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CDepotContentDetection_GetDetectedContentSingleApp_Request::_internal_appid() const {
+  return appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CDepotContentDetection_GetDetectedContentSingleApp_Request::appid() const {
+  // @@protoc_insertion_point(field_get:CDepotContentDetection_GetDetectedContentSingleApp_Request.appid)
+  return _internal_appid();
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  appid_ = value;
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CDepotContentDetection_GetDetectedContentSingleApp_Request.appid)
+}
+
+// -------------------------------------------------------------------
+
+// CDepotContentDetection_GetDetectedContentSingleApp_Response
+
+// optional .EAppAntiCheatType detected_anticheat = 1 [default = EAppAntiCheatTypeNone];
+inline bool CDepotContentDetection_GetDetectedContentSingleApp_Response::_internal_has_detected_anticheat() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDepotContentDetection_GetDetectedContentSingleApp_Response::has_detected_anticheat() const {
+  return _internal_has_detected_anticheat();
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Response::clear_detected_anticheat() {
+  detected_anticheat_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::EAppAntiCheatType CDepotContentDetection_GetDetectedContentSingleApp_Response::_internal_detected_anticheat() const {
+  return static_cast< ::EAppAntiCheatType >(detected_anticheat_);
+}
+inline ::EAppAntiCheatType CDepotContentDetection_GetDetectedContentSingleApp_Response::detected_anticheat() const {
+  // @@protoc_insertion_point(field_get:CDepotContentDetection_GetDetectedContentSingleApp_Response.detected_anticheat)
+  return _internal_detected_anticheat();
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Response::_internal_set_detected_anticheat(::EAppAntiCheatType value) {
+  assert(::EAppAntiCheatType_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  detected_anticheat_ = value;
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Response::set_detected_anticheat(::EAppAntiCheatType value) {
+  _internal_set_detected_anticheat(value);
+  // @@protoc_insertion_point(field_set:CDepotContentDetection_GetDetectedContentSingleApp_Response.detected_anticheat)
+}
+
+// optional .EAppGameEngineType detected_gameengine = 2 [default = EAppGameEngineTypeNone];
+inline bool CDepotContentDetection_GetDetectedContentSingleApp_Response::_internal_has_detected_gameengine() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDepotContentDetection_GetDetectedContentSingleApp_Response::has_detected_gameengine() const {
+  return _internal_has_detected_gameengine();
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Response::clear_detected_gameengine() {
+  detected_gameengine_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::EAppGameEngineType CDepotContentDetection_GetDetectedContentSingleApp_Response::_internal_detected_gameengine() const {
+  return static_cast< ::EAppGameEngineType >(detected_gameengine_);
+}
+inline ::EAppGameEngineType CDepotContentDetection_GetDetectedContentSingleApp_Response::detected_gameengine() const {
+  // @@protoc_insertion_point(field_get:CDepotContentDetection_GetDetectedContentSingleApp_Response.detected_gameengine)
+  return _internal_detected_gameengine();
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Response::_internal_set_detected_gameengine(::EAppGameEngineType value) {
+  assert(::EAppGameEngineType_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  detected_gameengine_ = value;
+}
+inline void CDepotContentDetection_GetDetectedContentSingleApp_Response::set_detected_gameengine(::EAppGameEngineType value) {
+  _internal_set_detected_gameengine(value);
+  // @@protoc_insertion_point(field_set:CDepotContentDetection_GetDetectedContentSingleApp_Response.detected_gameengine)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -6160,9 +7379,39 @@ inline void CContentServerDirectory_GetPeerContentInfo_Response::set_allocated_i
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::EAppContentDetectionType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EAppContentDetectionType>() {
+  return ::EAppContentDetectionType_descriptor();
+}
+template <> struct is_proto_enum< ::EAppAntiCheatType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EAppAntiCheatType>() {
+  return ::EAppAntiCheatType_descriptor();
+}
+template <> struct is_proto_enum< ::EAppGameEngineType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EAppGameEngineType>() {
+  return ::EAppGameEngineType_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

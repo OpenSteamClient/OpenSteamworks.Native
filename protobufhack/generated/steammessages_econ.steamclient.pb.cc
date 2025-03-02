@@ -76,7 +76,8 @@ constexpr CEconItem_DescriptionLine::CEconItem_DescriptionLine(
   : type_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , value_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , color_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , label_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+  , label_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct CEconItem_DescriptionLineDefaultTypeInternal {
   constexpr CEconItem_DescriptionLineDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -130,7 +131,8 @@ constexpr CEconItem_Description::CEconItem_Description(
   , marketable_(false)
   , market_tradable_restriction_(0)
   , market_marketable_restriction_(0)
-  , market_fee_app_(0){}
+  , market_fee_app_(0)
+  , sealed_(false){}
 struct CEconItem_DescriptionDefaultTypeInternal {
   constexpr CEconItem_DescriptionDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -335,10 +337,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fecon_2esteamcl
   PROTOBUF_FIELD_OFFSET(::CEconItem_DescriptionLine, value_),
   PROTOBUF_FIELD_OFFSET(::CEconItem_DescriptionLine, color_),
   PROTOBUF_FIELD_OFFSET(::CEconItem_DescriptionLine, label_),
+  PROTOBUF_FIELD_OFFSET(::CEconItem_DescriptionLine, name_),
   0,
   1,
   2,
   3,
+  4,
   PROTOBUF_FIELD_OFFSET(::CEconItem_Action, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CEconItem_Action, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -383,6 +387,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fecon_2esteamcl
   PROTOBUF_FIELD_OFFSET(::CEconItem_Description, item_expiration_),
   PROTOBUF_FIELD_OFFSET(::CEconItem_Description, market_buy_country_restriction_),
   PROTOBUF_FIELD_OFFSET(::CEconItem_Description, market_sell_country_restriction_),
+  PROTOBUF_FIELD_OFFSET(::CEconItem_Description, sealed_),
   15,
   13,
   14,
@@ -413,6 +418,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fecon_2esteamcl
   9,
   10,
   11,
+  23,
   PROTOBUF_FIELD_OFFSET(::CEconItem_Tag, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CEconItem_Tag, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -508,18 +514,18 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, 9, sizeof(::CEcon_GetInventoryItemsWithDescriptions_Request_FilterOptions)},
   { 13, 27, sizeof(::CEcon_GetInventoryItemsWithDescriptions_Request)},
   { 36, 50, sizeof(::CEcon_Asset)},
-  { 59, 68, sizeof(::CEconItem_DescriptionLine)},
-  { 72, 79, sizeof(::CEconItem_Action)},
-  { 81, 116, sizeof(::CEconItem_Description)},
-  { 146, 157, sizeof(::CEconItem_Tag)},
-  { 163, 174, sizeof(::CEcon_GetInventoryItemsWithDescriptions_Response)},
-  { 180, 186, sizeof(::CEcon_GetTradeOfferAccessToken_Request)},
-  { 187, 193, sizeof(::CEcon_GetTradeOfferAccessToken_Response)},
-  { 194, 200, sizeof(::CEcon_ClientGetItemShopOverlayAuthURL_Request)},
-  { 201, 207, sizeof(::CEcon_ClientGetItemShopOverlayAuthURL_Response)},
-  { 208, 215, sizeof(::CEcon_GetAssetClassInfo_Request_Class)},
-  { 217, 226, sizeof(::CEcon_GetAssetClassInfo_Request)},
-  { 230, -1, sizeof(::CEcon_GetAssetClassInfo_Response)},
+  { 59, 69, sizeof(::CEconItem_DescriptionLine)},
+  { 74, 81, sizeof(::CEconItem_Action)},
+  { 83, 119, sizeof(::CEconItem_Description)},
+  { 150, 161, sizeof(::CEconItem_Tag)},
+  { 167, 178, sizeof(::CEcon_GetInventoryItemsWithDescriptions_Response)},
+  { 184, 190, sizeof(::CEcon_GetTradeOfferAccessToken_Request)},
+  { 191, 197, sizeof(::CEcon_GetTradeOfferAccessToken_Response)},
+  { 198, 204, sizeof(::CEcon_ClientGetItemShopOverlayAuthURL_Request)},
+  { 205, 211, sizeof(::CEcon_ClientGetItemShopOverlayAuthURL_Response)},
+  { 212, 219, sizeof(::CEcon_GetAssetClassInfo_Request_Class)},
+  { 221, 230, sizeof(::CEcon_GetAssetClassInfo_Request)},
+  { 234, -1, sizeof(::CEcon_GetAssetClassInfo_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -559,68 +565,69 @@ const char descriptor_table_protodef_steammessages_5fecon_2esteamclient_2eproto[
   "(\004\022\017\n\007assetid\030\003 \001(\004\022\017\n\007classid\030\004 \001(\004\022\022\n\n"
   "instanceid\030\005 \001(\004\022\022\n\ncurrencyid\030\006 \001(\r\022\016\n\006"
   "amount\030\007 \001(\003\022\017\n\007missing\030\010 \001(\010\022\017\n\007est_usd"
-  "\030\t \001(\003\"V\n\031CEconItem_DescriptionLine\022\014\n\004t"
+  "\030\t \001(\003\"d\n\031CEconItem_DescriptionLine\022\014\n\004t"
   "ype\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\022\r\n\005color\030\003 \001(\t\022"
-  "\r\n\005label\030\004 \001(\t\".\n\020CEconItem_Action\022\014\n\004li"
-  "nk\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"\343\006\n\025CEconItem_Des"
-  "cription\022\r\n\005appid\030\001 \001(\005\022\017\n\007classid\030\002 \001(\004"
-  "\022\022\n\ninstanceid\030\003 \001(\004\022\020\n\010currency\030\004 \001(\010\022\030"
-  "\n\020background_color\030\005 \001(\t\022\020\n\010icon_url\030\006 \001"
-  "(\t\022\026\n\016icon_url_large\030\007 \001(\t\0220\n\014descriptio"
-  "ns\030\010 \003(\0132\032.CEconItem_DescriptionLine\022\020\n\010"
-  "tradable\030\t \001(\010\022\"\n\007actions\030\n \003(\0132\021.CEconI"
-  "tem_Action\0226\n\022owner_descriptions\030\013 \003(\0132\032"
-  ".CEconItem_DescriptionLine\022(\n\rowner_acti"
-  "ons\030\014 \003(\0132\021.CEconItem_Action\022\025\n\rfraudwar"
-  "nings\030\r \003(\t\022\014\n\004name\030\016 \001(\t\022\022\n\nname_color\030"
-  "\017 \001(\t\022\014\n\004type\030\020 \001(\t\022\023\n\013market_name\030\021 \001(\t"
-  "\022\030\n\020market_hash_name\030\022 \001(\t\022\022\n\nmarket_fee"
-  "\030\023 \001(\t\022\026\n\016market_fee_app\030\034 \001(\005\022.\n\016contai"
-  "ned_item\030\024 \001(\0132\026.CEconItem_Description\022)"
-  "\n\016market_actions\030\025 \003(\0132\021.CEconItem_Actio"
-  "n\022\021\n\tcommodity\030\026 \001(\010\022#\n\033market_tradable_"
-  "restriction\030\027 \001(\005\022%\n\035market_marketable_r"
-  "estriction\030\030 \001(\005\022\022\n\nmarketable\030\031 \001(\010\022\034\n\004"
-  "tags\030\032 \003(\0132\016.CEconItem_Tag\022\027\n\017item_expir"
-  "ation\030\033 \001(\t\022&\n\036market_buy_country_restri"
-  "ction\030\036 \001(\t\022\'\n\037market_sell_country_restr"
-  "iction\030\037 \001(\t\"\223\001\n\rCEconItem_Tag\022\r\n\005appid\030"
-  "\001 \001(\r\022\020\n\010category\030\002 \001(\t\022\025\n\rinternal_name"
-  "\030\003 \001(\t\022\037\n\027localized_category_name\030\004 \001(\t\022"
-  "\032\n\022localized_tag_name\030\005 \001(\t\022\r\n\005color\030\006 \001"
-  "(\t\"\355\001\n0CEcon_GetInventoryItemsWithDescri"
-  "ptions_Response\022\034\n\006assets\030\001 \003(\0132\014.CEcon_"
-  "Asset\022,\n\014descriptions\030\002 \003(\0132\026.CEconItem_"
-  "Description\022$\n\016missing_assets\030\003 \003(\0132\014.CE"
-  "con_Asset\022\022\n\nmore_items\030\004 \001(\010\022\024\n\014last_as"
-  "setid\030\005 \001(\004\022\035\n\025total_inventory_count\030\006 \001"
-  "(\r\"D\n&CEcon_GetTradeOfferAccessToken_Req"
-  "uest\022\032\n\022generate_new_token\030\001 \001(\010\"K\n\'CEco"
-  "n_GetTradeOfferAccessToken_Response\022 \n\030t"
-  "rade_offer_access_token\030\001 \001(\t\"C\n-CEcon_C"
-  "lientGetItemShopOverlayAuthURL_Request\022\022"
-  "\n\nreturn_url\030\001 \001(\t\"=\n.CEcon_ClientGetIte"
-  "mShopOverlayAuthURL_Response\022\013\n\003url\030\001 \001("
-  "\t\"\273\001\n\037CEcon_GetAssetClassInfo_Request\022\020\n"
-  "\010language\030\001 \001(\t\022\r\n\005appid\030\002 \001(\r\0227\n\007classe"
-  "s\030\003 \003(\0132&.CEcon_GetAssetClassInfo_Reques"
-  "t.Class\022\020\n\010high_pri\030\004 \001(\010\032,\n\005Class\022\017\n\007cl"
-  "assid\030\001 \001(\004\022\022\n\ninstanceid\030\002 \001(\004\"P\n CEcon"
-  "_GetAssetClassInfo_Response\022,\n\014descripti"
-  "ons\030\001 \003(\0132\026.CEconItem_Description2\337\003\n\004Ec"
-  "on\022\210\001\n!GetInventoryItemsWithDescriptions"
-  "\0220.CEcon_GetInventoryItemsWithDescriptio"
-  "ns_Request\0321.CEcon_GetInventoryItemsWith"
-  "Descriptions_Response\022m\n\030GetTradeOfferAc"
-  "cessToken\022\'.CEcon_GetTradeOfferAccessTok"
-  "en_Request\032(.CEcon_GetTradeOfferAccessTo"
-  "ken_Response\022\202\001\n\037ClientGetItemShopOverla"
-  "yAuthURL\022..CEcon_ClientGetItemShopOverla"
-  "yAuthURL_Request\032/.CEcon_ClientGetItemSh"
-  "opOverlayAuthURL_Response\022X\n\021GetAssetCla"
-  "ssInfo\022 .CEcon_GetAssetClassInfo_Request"
-  "\032!.CEcon_GetAssetClassInfo_ResponseB\035\200\001\001"
-  "\252\002\027OpenSteamworks.Protobuf"
+  "\r\n\005label\030\004 \001(\t\022\014\n\004name\030\005 \001(\t\".\n\020CEconIte"
+  "m_Action\022\014\n\004link\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"\363\006\n"
+  "\025CEconItem_Description\022\r\n\005appid\030\001 \001(\005\022\017\n"
+  "\007classid\030\002 \001(\004\022\022\n\ninstanceid\030\003 \001(\004\022\020\n\010cu"
+  "rrency\030\004 \001(\010\022\030\n\020background_color\030\005 \001(\t\022\020"
+  "\n\010icon_url\030\006 \001(\t\022\026\n\016icon_url_large\030\007 \001(\t"
+  "\0220\n\014descriptions\030\010 \003(\0132\032.CEconItem_Descr"
+  "iptionLine\022\020\n\010tradable\030\t \001(\010\022\"\n\007actions\030"
+  "\n \003(\0132\021.CEconItem_Action\0226\n\022owner_descri"
+  "ptions\030\013 \003(\0132\032.CEconItem_DescriptionLine"
+  "\022(\n\rowner_actions\030\014 \003(\0132\021.CEconItem_Acti"
+  "on\022\025\n\rfraudwarnings\030\r \003(\t\022\014\n\004name\030\016 \001(\t\022"
+  "\022\n\nname_color\030\017 \001(\t\022\014\n\004type\030\020 \001(\t\022\023\n\013mar"
+  "ket_name\030\021 \001(\t\022\030\n\020market_hash_name\030\022 \001(\t"
+  "\022\022\n\nmarket_fee\030\023 \001(\t\022\026\n\016market_fee_app\030\034"
+  " \001(\005\022.\n\016contained_item\030\024 \001(\0132\026.CEconItem"
+  "_Description\022)\n\016market_actions\030\025 \003(\0132\021.C"
+  "EconItem_Action\022\021\n\tcommodity\030\026 \001(\010\022#\n\033ma"
+  "rket_tradable_restriction\030\027 \001(\005\022%\n\035marke"
+  "t_marketable_restriction\030\030 \001(\005\022\022\n\nmarket"
+  "able\030\031 \001(\010\022\034\n\004tags\030\032 \003(\0132\016.CEconItem_Tag"
+  "\022\027\n\017item_expiration\030\033 \001(\t\022&\n\036market_buy_"
+  "country_restriction\030\036 \001(\t\022\'\n\037market_sell"
+  "_country_restriction\030\037 \001(\t\022\016\n\006sealed\030  \001"
+  "(\010\"\223\001\n\rCEconItem_Tag\022\r\n\005appid\030\001 \001(\r\022\020\n\010c"
+  "ategory\030\002 \001(\t\022\025\n\rinternal_name\030\003 \001(\t\022\037\n\027"
+  "localized_category_name\030\004 \001(\t\022\032\n\022localiz"
+  "ed_tag_name\030\005 \001(\t\022\r\n\005color\030\006 \001(\t\"\355\001\n0CEc"
+  "on_GetInventoryItemsWithDescriptions_Res"
+  "ponse\022\034\n\006assets\030\001 \003(\0132\014.CEcon_Asset\022,\n\014d"
+  "escriptions\030\002 \003(\0132\026.CEconItem_Descriptio"
+  "n\022$\n\016missing_assets\030\003 \003(\0132\014.CEcon_Asset\022"
+  "\022\n\nmore_items\030\004 \001(\010\022\024\n\014last_assetid\030\005 \001("
+  "\004\022\035\n\025total_inventory_count\030\006 \001(\r\"D\n&CEco"
+  "n_GetTradeOfferAccessToken_Request\022\032\n\022ge"
+  "nerate_new_token\030\001 \001(\010\"K\n\'CEcon_GetTrade"
+  "OfferAccessToken_Response\022 \n\030trade_offer"
+  "_access_token\030\001 \001(\t\"C\n-CEcon_ClientGetIt"
+  "emShopOverlayAuthURL_Request\022\022\n\nreturn_u"
+  "rl\030\001 \001(\t\"=\n.CEcon_ClientGetItemShopOverl"
+  "ayAuthURL_Response\022\013\n\003url\030\001 \001(\t\"\273\001\n\037CEco"
+  "n_GetAssetClassInfo_Request\022\020\n\010language\030"
+  "\001 \001(\t\022\r\n\005appid\030\002 \001(\r\0227\n\007classes\030\003 \003(\0132&."
+  "CEcon_GetAssetClassInfo_Request.Class\022\020\n"
+  "\010high_pri\030\004 \001(\010\032,\n\005Class\022\017\n\007classid\030\001 \001("
+  "\004\022\022\n\ninstanceid\030\002 \001(\004\"P\n CEcon_GetAssetC"
+  "lassInfo_Response\022,\n\014descriptions\030\001 \003(\0132"
+  "\026.CEconItem_Description2\337\003\n\004Econ\022\210\001\n!Get"
+  "InventoryItemsWithDescriptions\0220.CEcon_G"
+  "etInventoryItemsWithDescriptions_Request"
+  "\0321.CEcon_GetInventoryItemsWithDescriptio"
+  "ns_Response\022m\n\030GetTradeOfferAccessToken\022"
+  "\'.CEcon_GetTradeOfferAccessToken_Request"
+  "\032(.CEcon_GetTradeOfferAccessToken_Respon"
+  "se\022\202\001\n\037ClientGetItemShopOverlayAuthURL\022."
+  ".CEcon_ClientGetItemShopOverlayAuthURL_R"
+  "equest\032/.CEcon_ClientGetItemShopOverlayA"
+  "uthURL_Response\022X\n\021GetAssetClassInfo\022 .C"
+  "Econ_GetAssetClassInfo_Request\032!.CEcon_G"
+  "etAssetClassInfo_ResponseB\035\200\001\001\252\002\027OpenSte"
+  "amworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fecon_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -629,7 +636,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fecon_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fecon_2esteamclient_2eproto = {
-  false, false, 3186, descriptor_table_protodef_steammessages_5fecon_2esteamclient_2eproto, "steammessages_econ.steamclient.proto", 
+  false, false, 3216, descriptor_table_protodef_steammessages_5fecon_2esteamclient_2eproto, "steammessages_econ.steamclient.proto", 
   &descriptor_table_steammessages_5fecon_2esteamclient_2eproto_once, descriptor_table_steammessages_5fecon_2esteamclient_2eproto_deps, 3, 15,
   schemas, file_default_instances, TableStruct_steammessages_5fecon_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fecon_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fecon_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fecon_2esteamclient_2eproto,
@@ -1878,6 +1885,9 @@ class CEconItem_DescriptionLine::_Internal {
   static void set_has_label(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
+  static void set_has_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
 };
 
 CEconItem_DescriptionLine::CEconItem_DescriptionLine(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -1910,6 +1920,11 @@ CEconItem_DescriptionLine::CEconItem_DescriptionLine(const CEconItem_Description
     label_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_label(), 
       GetArena());
   }
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_name()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
   // @@protoc_insertion_point(copy_constructor:CEconItem_DescriptionLine)
 }
 
@@ -1918,6 +1933,7 @@ type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlready
 value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 color_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 label_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 CEconItem_DescriptionLine::~CEconItem_DescriptionLine() {
@@ -1932,6 +1948,7 @@ void CEconItem_DescriptionLine::SharedDtor() {
   value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   color_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   label_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void CEconItem_DescriptionLine::ArenaDtor(void* object) {
@@ -1951,7 +1968,7 @@ void CEconItem_DescriptionLine::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       type_.ClearNonDefaultToEmpty();
     }
@@ -1963,6 +1980,9 @@ void CEconItem_DescriptionLine::Clear() {
     }
     if (cached_has_bits & 0x00000008u) {
       label_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000010u) {
+      name_.ClearNonDefaultToEmpty();
     }
   }
   _has_bits_.Clear();
@@ -2017,6 +2037,17 @@ const char* CEconItem_DescriptionLine::_InternalParse(const char* ptr, ::PROTOBU
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           #ifndef NDEBUG
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CEconItem_DescriptionLine.label");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string name = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CEconItem_DescriptionLine.name");
           #endif  // !NDEBUG
           CHK_(ptr);
         } else goto handle_unusual;
@@ -2091,6 +2122,16 @@ failure:
         4, this->_internal_label(), target);
   }
 
+  // optional string name = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CEconItem_DescriptionLine.name");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_name(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2108,7 +2149,7 @@ size_t CEconItem_DescriptionLine::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     // optional string type = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -2135,6 +2176,13 @@ size_t CEconItem_DescriptionLine::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_label());
+    }
+
+    // optional string name = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_name());
     }
 
   }
@@ -2170,7 +2218,7 @@ void CEconItem_DescriptionLine::MergeFrom(const CEconItem_DescriptionLine& from)
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_type(from._internal_type());
     }
@@ -2182,6 +2230,9 @@ void CEconItem_DescriptionLine::MergeFrom(const CEconItem_DescriptionLine& from)
     }
     if (cached_has_bits & 0x00000008u) {
       _internal_set_label(from._internal_label());
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _internal_set_name(from._internal_name());
     }
   }
 }
@@ -2212,6 +2263,7 @@ void CEconItem_DescriptionLine::InternalSwap(CEconItem_DescriptionLine* other) {
   value_.Swap(&other->value_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   color_.Swap(&other->color_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   label_.Swap(&other->label_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CEconItem_DescriptionLine::GetMetadata() const {
@@ -2562,6 +2614,9 @@ class CEconItem_Description::_Internal {
   static void set_has_market_sell_country_restriction(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
+  static void set_has_sealed(HasBits* has_bits) {
+    (*has_bits)[0] |= 8388608u;
+  }
 };
 
 const ::CEconItem_Description&
@@ -2658,8 +2713,8 @@ CEconItem_Description::CEconItem_Description(const CEconItem_Description& from)
     contained_item_ = nullptr;
   }
   ::memcpy(&classid_, &from.classid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&market_fee_app_) -
-    reinterpret_cast<char*>(&classid_)) + sizeof(market_fee_app_));
+    static_cast<size_t>(reinterpret_cast<char*>(&sealed_) -
+    reinterpret_cast<char*>(&classid_)) + sizeof(sealed_));
   // @@protoc_insertion_point(copy_constructor:CEconItem_Description)
 }
 
@@ -2678,8 +2733,8 @@ market_buy_country_restriction_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::inter
 market_sell_country_restriction_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&contained_item_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&market_fee_app_) -
-    reinterpret_cast<char*>(&contained_item_)) + sizeof(market_fee_app_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&sealed_) -
+    reinterpret_cast<char*>(&contained_item_)) + sizeof(sealed_));
 }
 
 CEconItem_Description::~CEconItem_Description() {
@@ -2778,10 +2833,10 @@ void CEconItem_Description::Clear() {
         reinterpret_cast<char*>(&appid_) -
         reinterpret_cast<char*>(&classid_)) + sizeof(appid_));
   }
-  if (cached_has_bits & 0x007f0000u) {
+  if (cached_has_bits & 0x00ff0000u) {
     ::memset(&currency_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&market_fee_app_) -
-        reinterpret_cast<char*>(&currency_)) + sizeof(market_fee_app_));
+        reinterpret_cast<char*>(&sealed_) -
+        reinterpret_cast<char*>(&currency_)) + sizeof(sealed_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -3102,6 +3157,14 @@ const char* CEconItem_Description::_InternalParse(const char* ptr, ::PROTOBUF_NA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool sealed = 32;
+      case 32:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 0)) {
+          _Internal::set_has_sealed(&has_bits);
+          sealed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -3378,6 +3441,12 @@ failure:
         31, this->_internal_market_sell_country_restriction(), target);
   }
 
+  // optional bool sealed = 32;
+  if (cached_has_bits & 0x00800000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(32, this->_internal_sealed(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3561,7 +3630,7 @@ size_t CEconItem_Description::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x007f0000u) {
+  if (cached_has_bits & 0x00ff0000u) {
     // optional bool currency = 4;
     if (cached_has_bits & 0x00010000u) {
       total_size += 1 + 1;
@@ -3601,6 +3670,11 @@ size_t CEconItem_Description::ByteSizeLong() const {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_market_fee_app());
+    }
+
+    // optional bool sealed = 32;
+    if (cached_has_bits & 0x00800000u) {
+      total_size += 2 + 1;
     }
 
   }
@@ -3696,7 +3770,7 @@ void CEconItem_Description::MergeFrom(const CEconItem_Description& from) {
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x007f0000u) {
+  if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
       currency_ = from.currency_;
     }
@@ -3717,6 +3791,9 @@ void CEconItem_Description::MergeFrom(const CEconItem_Description& from) {
     }
     if (cached_has_bits & 0x00400000u) {
       market_fee_app_ = from.market_fee_app_;
+    }
+    if (cached_has_bits & 0x00800000u) {
+      sealed_ = from.sealed_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -3764,8 +3841,8 @@ void CEconItem_Description::InternalSwap(CEconItem_Description* other) {
   market_buy_country_restriction_.Swap(&other->market_buy_country_restriction_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   market_sell_country_restriction_.Swap(&other->market_sell_country_restriction_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CEconItem_Description, market_fee_app_)
-      + sizeof(CEconItem_Description::market_fee_app_)
+      PROTOBUF_FIELD_OFFSET(CEconItem_Description, sealed_)
+      + sizeof(CEconItem_Description::sealed_)
       - PROTOBUF_FIELD_OFFSET(CEconItem_Description, contained_item_)>(
           reinterpret_cast<char*>(&contained_item_),
           reinterpret_cast<char*>(&other->contained_item_));

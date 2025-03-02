@@ -52,7 +52,7 @@ struct TableStruct_steammessages_5fauth_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[50]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[52]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -144,6 +144,12 @@ extern CAuthentication_MigrateMobileSession_RequestDefaultTypeInternal _CAuthent
 class CAuthentication_MigrateMobileSession_Response;
 struct CAuthentication_MigrateMobileSession_ResponseDefaultTypeInternal;
 extern CAuthentication_MigrateMobileSession_ResponseDefaultTypeInternal _CAuthentication_MigrateMobileSession_Response_default_instance_;
+class CAuthentication_NotifyRiskQuizResults_Notification;
+struct CAuthentication_NotifyRiskQuizResults_NotificationDefaultTypeInternal;
+extern CAuthentication_NotifyRiskQuizResults_NotificationDefaultTypeInternal _CAuthentication_NotifyRiskQuizResults_Notification_default_instance_;
+class CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults;
+struct CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResultsDefaultTypeInternal;
+extern CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResultsDefaultTypeInternal _CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults_default_instance_;
 class CAuthentication_PollAuthSessionStatus_Request;
 struct CAuthentication_PollAuthSessionStatus_RequestDefaultTypeInternal;
 extern CAuthentication_PollAuthSessionStatus_RequestDefaultTypeInternal _CAuthentication_PollAuthSessionStatus_Request_default_instance_;
@@ -239,6 +245,8 @@ template<> ::CAuthentication_GetPasswordRSAPublicKey_Request* Arena::CreateMaybe
 template<> ::CAuthentication_GetPasswordRSAPublicKey_Response* Arena::CreateMaybeMessage<::CAuthentication_GetPasswordRSAPublicKey_Response>(Arena*);
 template<> ::CAuthentication_MigrateMobileSession_Request* Arena::CreateMaybeMessage<::CAuthentication_MigrateMobileSession_Request>(Arena*);
 template<> ::CAuthentication_MigrateMobileSession_Response* Arena::CreateMaybeMessage<::CAuthentication_MigrateMobileSession_Response>(Arena*);
+template<> ::CAuthentication_NotifyRiskQuizResults_Notification* Arena::CreateMaybeMessage<::CAuthentication_NotifyRiskQuizResults_Notification>(Arena*);
+template<> ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* Arena::CreateMaybeMessage<::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults>(Arena*);
 template<> ::CAuthentication_PollAuthSessionStatus_Request* Arena::CreateMaybeMessage<::CAuthentication_PollAuthSessionStatus_Request>(Arena*);
 template<> ::CAuthentication_PollAuthSessionStatus_Response* Arena::CreateMaybeMessage<::CAuthentication_PollAuthSessionStatus_Response>(Arena*);
 template<> ::CAuthentication_RefreshToken_Enumerate_Request* Arena::CreateMaybeMessage<::CAuthentication_RefreshToken_Enumerate_Request>(Arena*);
@@ -287,6 +295,30 @@ inline bool EAuthTokenPlatformType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAuthTokenPlatformType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAuthTokenPlatformType>(
     EAuthTokenPlatformType_descriptor(), name, value);
+}
+enum EAuthTokenAppType : int {
+  EAuthTokenAppType_Unknown = 0,
+  EAuthTokenAppType_Mobile_SteamApp = 1,
+  EAuthTokenAppType_Mobile_ChatApp = 2
+};
+bool EAuthTokenAppType_IsValid(int value);
+constexpr EAuthTokenAppType EAuthTokenAppType_MIN = EAuthTokenAppType_Unknown;
+constexpr EAuthTokenAppType EAuthTokenAppType_MAX = EAuthTokenAppType_Mobile_ChatApp;
+constexpr int EAuthTokenAppType_ARRAYSIZE = EAuthTokenAppType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAuthTokenAppType_descriptor();
+template<typename T>
+inline const std::string& EAuthTokenAppType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EAuthTokenAppType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EAuthTokenAppType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EAuthTokenAppType_descriptor(), enum_t_value);
+}
+inline bool EAuthTokenAppType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAuthTokenAppType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAuthTokenAppType>(
+    EAuthTokenAppType_descriptor(), name, value);
 }
 enum EAuthSessionGuardType : int {
   EAuthSessionGuardType_Unknown = 0,
@@ -925,6 +957,7 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
     kOsTypeFieldNumber = 3,
     kGamingDeviceTypeFieldNumber = 4,
     kClientCountFieldNumber = 5,
+    kAppTypeFieldNumber = 7,
   };
   // optional string device_friendly_name = 1;
   bool has_device_friendly_name() const;
@@ -1018,6 +1051,19 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
   void _internal_set_client_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional .EAuthTokenAppType app_type = 7 [default = EAuthTokenAppType_Unknown];
+  bool has_app_type() const;
+  private:
+  bool _internal_has_app_type() const;
+  public:
+  void clear_app_type();
+  ::EAuthTokenAppType app_type() const;
+  void set_app_type(::EAuthTokenAppType value);
+  private:
+  ::EAuthTokenAppType _internal_app_type() const;
+  void _internal_set_app_type(::EAuthTokenAppType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CAuthentication_DeviceDetails)
  private:
   class _Internal;
@@ -1033,6 +1079,7 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 os_type_;
   ::PROTOBUF_NAMESPACE_ID::uint32 gaming_device_type_;
   ::PROTOBUF_NAMESPACE_ID::uint32 client_count_;
+  int app_type_;
   friend struct ::TableStruct_steammessages_5fauth_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3070,6 +3117,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
     kRequestorLocationMismatchFieldNumber = 10,
     kHighUsageLoginFieldNumber = 11,
     kDeviceTrustFieldNumber = 13,
+    kAppTypeFieldNumber = 14,
     kRequestedPersistenceFieldNumber = 12,
   };
   // optional string ip = 1;
@@ -3270,6 +3318,19 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   void _internal_set_device_trust(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional .EAuthTokenAppType app_type = 14 [default = EAuthTokenAppType_Unknown];
+  bool has_app_type() const;
+  private:
+  bool _internal_has_app_type() const;
+  public:
+  void clear_app_type();
+  ::EAuthTokenAppType app_type() const;
+  void set_app_type(::EAuthTokenAppType value);
+  private:
+  ::EAuthTokenAppType _internal_app_type() const;
+  void _internal_set_app_type(::EAuthTokenAppType value);
+  public:
+
   // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
   bool has_requested_persistence() const;
   private:
@@ -3304,6 +3365,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   bool requestor_location_mismatch_;
   bool high_usage_login_;
   ::PROTOBUF_NAMESPACE_ID::int32 device_trust_;
+  int app_type_;
   int requested_persistence_;
   friend struct ::TableStruct_steammessages_5fauth_2esteamclient_2eproto;
 };
@@ -3688,6 +3750,393 @@ class CAuthentication_GetAuthSessionRiskInfo_Response PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults) */ {
+ public:
+  inline CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults() : CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults(nullptr) {}
+  virtual ~CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults();
+  explicit constexpr CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults(const CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& from);
+  CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults(CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults&& from) noexcept
+    : CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults() {
+    *this = ::std::move(from);
+  }
+
+  inline CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& operator=(const CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& operator=(CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* internal_default_instance() {
+    return reinterpret_cast<const CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults*>(
+               &_CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& a, CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* New() const final {
+    return CreateMaybeMessage<CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults>(nullptr);
+  }
+
+  CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& from);
+  void MergeFrom(const CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults";
+  }
+  protected:
+  explicit CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fauth_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlatformFieldNumber = 1,
+    kLocationFieldNumber = 2,
+    kActionFieldNumber = 3,
+  };
+  // optional bool platform = 1;
+  bool has_platform() const;
+  private:
+  bool _internal_has_platform() const;
+  public:
+  void clear_platform();
+  bool platform() const;
+  void set_platform(bool value);
+  private:
+  bool _internal_platform() const;
+  void _internal_set_platform(bool value);
+  public:
+
+  // optional bool location = 2;
+  bool has_location() const;
+  private:
+  bool _internal_has_location() const;
+  public:
+  void clear_location();
+  bool location() const;
+  void set_location(bool value);
+  private:
+  bool _internal_location() const;
+  void _internal_set_location(bool value);
+  public:
+
+  // optional bool action = 3;
+  bool has_action() const;
+  private:
+  bool _internal_has_action() const;
+  public:
+  void clear_action();
+  bool action() const;
+  void set_action(bool value);
+  private:
+  bool _internal_action() const;
+  void _internal_set_action(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  bool platform_;
+  bool location_;
+  bool action_;
+  friend struct ::TableStruct_steammessages_5fauth_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CAuthentication_NotifyRiskQuizResults_Notification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CAuthentication_NotifyRiskQuizResults_Notification) */ {
+ public:
+  inline CAuthentication_NotifyRiskQuizResults_Notification() : CAuthentication_NotifyRiskQuizResults_Notification(nullptr) {}
+  virtual ~CAuthentication_NotifyRiskQuizResults_Notification();
+  explicit constexpr CAuthentication_NotifyRiskQuizResults_Notification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CAuthentication_NotifyRiskQuizResults_Notification(const CAuthentication_NotifyRiskQuizResults_Notification& from);
+  CAuthentication_NotifyRiskQuizResults_Notification(CAuthentication_NotifyRiskQuizResults_Notification&& from) noexcept
+    : CAuthentication_NotifyRiskQuizResults_Notification() {
+    *this = ::std::move(from);
+  }
+
+  inline CAuthentication_NotifyRiskQuizResults_Notification& operator=(const CAuthentication_NotifyRiskQuizResults_Notification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CAuthentication_NotifyRiskQuizResults_Notification& operator=(CAuthentication_NotifyRiskQuizResults_Notification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CAuthentication_NotifyRiskQuizResults_Notification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CAuthentication_NotifyRiskQuizResults_Notification* internal_default_instance() {
+    return reinterpret_cast<const CAuthentication_NotifyRiskQuizResults_Notification*>(
+               &_CAuthentication_NotifyRiskQuizResults_Notification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(CAuthentication_NotifyRiskQuizResults_Notification& a, CAuthentication_NotifyRiskQuizResults_Notification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CAuthentication_NotifyRiskQuizResults_Notification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CAuthentication_NotifyRiskQuizResults_Notification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CAuthentication_NotifyRiskQuizResults_Notification* New() const final {
+    return CreateMaybeMessage<CAuthentication_NotifyRiskQuizResults_Notification>(nullptr);
+  }
+
+  CAuthentication_NotifyRiskQuizResults_Notification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CAuthentication_NotifyRiskQuizResults_Notification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CAuthentication_NotifyRiskQuizResults_Notification& from);
+  void MergeFrom(const CAuthentication_NotifyRiskQuizResults_Notification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CAuthentication_NotifyRiskQuizResults_Notification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CAuthentication_NotifyRiskQuizResults_Notification";
+  }
+  protected:
+  explicit CAuthentication_NotifyRiskQuizResults_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fauth_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults RiskQuizResults;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSelectedActionFieldNumber = 3,
+    kResultsFieldNumber = 2,
+    kClientIdFieldNumber = 1,
+    kDidConfirmLoginFieldNumber = 4,
+  };
+  // optional string selected_action = 3;
+  bool has_selected_action() const;
+  private:
+  bool _internal_has_selected_action() const;
+  public:
+  void clear_selected_action();
+  const std::string& selected_action() const;
+  void set_selected_action(const std::string& value);
+  void set_selected_action(std::string&& value);
+  void set_selected_action(const char* value);
+  void set_selected_action(const char* value, size_t size);
+  std::string* mutable_selected_action();
+  std::string* release_selected_action();
+  void set_allocated_selected_action(std::string* selected_action);
+  private:
+  const std::string& _internal_selected_action() const;
+  void _internal_set_selected_action(const std::string& value);
+  std::string* _internal_mutable_selected_action();
+  public:
+
+  // optional .CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults results = 2;
+  bool has_results() const;
+  private:
+  bool _internal_has_results() const;
+  public:
+  void clear_results();
+  const ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& results() const;
+  ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* release_results();
+  ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* mutable_results();
+  void set_allocated_results(::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* results);
+  private:
+  const ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& _internal_results() const;
+  ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* _internal_mutable_results();
+  public:
+  void unsafe_arena_set_allocated_results(
+      ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* results);
+  ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* unsafe_arena_release_results();
+
+  // optional uint64 client_id = 1;
+  bool has_client_id() const;
+  private:
+  bool _internal_has_client_id() const;
+  public:
+  void clear_client_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 client_id() const;
+  void set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_client_id() const;
+  void _internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional bool did_confirm_login = 4;
+  bool has_did_confirm_login() const;
+  private:
+  bool _internal_has_did_confirm_login() const;
+  public:
+  void clear_did_confirm_login();
+  bool did_confirm_login() const;
+  void set_did_confirm_login(bool value);
+  private:
+  bool _internal_did_confirm_login() const;
+  void _internal_set_did_confirm_login(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CAuthentication_NotifyRiskQuizResults_Notification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr selected_action_;
+  ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* results_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 client_id_;
+  bool did_confirm_login_;
+  friend struct ::TableStruct_steammessages_5fauth_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request) */ {
  public:
@@ -3738,7 +4187,7 @@ class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request PROTOBUF_F
                &_CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request& a, CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request& b) {
     a.Swap(&b);
@@ -3969,7 +4418,7 @@ class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response PROTOBUF_
                &_CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response& a, CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response& b) {
     a.Swap(&b);
@@ -4100,7 +4549,7 @@ class CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request PROTOBUF_FINAL
                &_CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request& a, CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request& b) {
     a.Swap(&b);
@@ -4301,7 +4750,7 @@ class CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response PROTOBUF_FINA
                &_CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response& a, CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response& b) {
     a.Swap(&b);
@@ -4457,7 +4906,7 @@ class CAuthentication_AccessToken_GenerateForApp_Request PROTOBUF_FINAL :
                &_CAuthentication_AccessToken_GenerateForApp_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(CAuthentication_AccessToken_GenerateForApp_Request& a, CAuthentication_AccessToken_GenerateForApp_Request& b) {
     a.Swap(&b);
@@ -4643,7 +5092,7 @@ class CAuthentication_AccessToken_GenerateForApp_Response PROTOBUF_FINAL :
                &_CAuthentication_AccessToken_GenerateForApp_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(CAuthentication_AccessToken_GenerateForApp_Response& a, CAuthentication_AccessToken_GenerateForApp_Response& b) {
     a.Swap(&b);
@@ -4821,7 +5270,7 @@ class CAuthentication_RefreshToken_Enumerate_Request PROTOBUF_FINAL :
                &_CAuthentication_RefreshToken_Enumerate_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(CAuthentication_RefreshToken_Enumerate_Request& a, CAuthentication_RefreshToken_Enumerate_Request& b) {
     a.Swap(&b);
@@ -4952,7 +5401,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent PROTOBUF_F
                &_CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent& a, CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent& b) {
     a.Swap(&b);
@@ -5209,7 +5658,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
                &_CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription& a, CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription& b) {
     a.Swap(&b);
@@ -5540,7 +5989,7 @@ class CAuthentication_RefreshToken_Enumerate_Response PROTOBUF_FINAL :
                &_CAuthentication_RefreshToken_Enumerate_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(CAuthentication_RefreshToken_Enumerate_Response& a, CAuthentication_RefreshToken_Enumerate_Response& b) {
     a.Swap(&b);
@@ -5712,7 +6161,7 @@ class CAuthentication_GetAuthSessionsForAccount_Request PROTOBUF_FINAL :
                &_CAuthentication_GetAuthSessionsForAccount_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(CAuthentication_GetAuthSessionsForAccount_Request& a, CAuthentication_GetAuthSessionsForAccount_Request& b) {
     a.Swap(&b);
@@ -5843,7 +6292,7 @@ class CAuthentication_GetAuthSessionsForAccount_Response PROTOBUF_FINAL :
                &_CAuthentication_GetAuthSessionsForAccount_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(CAuthentication_GetAuthSessionsForAccount_Response& a, CAuthentication_GetAuthSessionsForAccount_Response& b) {
     a.Swap(&b);
@@ -6000,7 +6449,7 @@ class CAuthentication_MigrateMobileSession_Request PROTOBUF_FINAL :
                &_CAuthentication_MigrateMobileSession_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(CAuthentication_MigrateMobileSession_Request& a, CAuthentication_MigrateMobileSession_Request& b) {
     a.Swap(&b);
@@ -6193,7 +6642,7 @@ class CAuthentication_MigrateMobileSession_Response PROTOBUF_FINAL :
                &_CAuthentication_MigrateMobileSession_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(CAuthentication_MigrateMobileSession_Response& a, CAuthentication_MigrateMobileSession_Response& b) {
     a.Swap(&b);
@@ -6371,7 +6820,7 @@ class CAuthentication_Token_Revoke_Request PROTOBUF_FINAL :
                &_CAuthentication_Token_Revoke_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(CAuthentication_Token_Revoke_Request& a, CAuthentication_Token_Revoke_Request& b) {
     a.Swap(&b);
@@ -6542,7 +6991,7 @@ class CAuthentication_Token_Revoke_Response PROTOBUF_FINAL :
                &_CAuthentication_Token_Revoke_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(CAuthentication_Token_Revoke_Response& a, CAuthentication_Token_Revoke_Response& b) {
     a.Swap(&b);
@@ -6673,7 +7122,7 @@ class CAuthentication_RefreshToken_Revoke_Request PROTOBUF_FINAL :
                &_CAuthentication_RefreshToken_Revoke_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(CAuthentication_RefreshToken_Revoke_Request& a, CAuthentication_RefreshToken_Revoke_Request& b) {
     a.Swap(&b);
@@ -6874,7 +7323,7 @@ class CAuthentication_RefreshToken_Revoke_Response PROTOBUF_FINAL :
                &_CAuthentication_RefreshToken_Revoke_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(CAuthentication_RefreshToken_Revoke_Response& a, CAuthentication_RefreshToken_Revoke_Response& b) {
     a.Swap(&b);
@@ -7005,7 +7454,7 @@ class CAuthenticationSupport_QueryRefreshTokensByAccount_Request PROTOBUF_FINAL 
                &_CAuthenticationSupport_QueryRefreshTokensByAccount_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(CAuthenticationSupport_QueryRefreshTokensByAccount_Request& a, CAuthenticationSupport_QueryRefreshTokensByAccount_Request& b) {
     a.Swap(&b);
@@ -7169,7 +7618,7 @@ class CSupportRefreshTokenDescription_TokenUsageEvent PROTOBUF_FINAL :
                &_CSupportRefreshTokenDescription_TokenUsageEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(CSupportRefreshTokenDescription_TokenUsageEvent& a, CSupportRefreshTokenDescription_TokenUsageEvent& b) {
     a.Swap(&b);
@@ -7404,7 +7853,7 @@ class CSupportRefreshTokenDescription PROTOBUF_FINAL :
                &_CSupportRefreshTokenDescription_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(CSupportRefreshTokenDescription& a, CSupportRefreshTokenDescription& b) {
     a.Swap(&b);
@@ -7737,7 +8186,7 @@ class CAuthenticationSupport_QueryRefreshTokensByAccount_Response PROTOBUF_FINAL
                &_CAuthenticationSupport_QueryRefreshTokensByAccount_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(CAuthenticationSupport_QueryRefreshTokensByAccount_Response& a, CAuthenticationSupport_QueryRefreshTokensByAccount_Response& b) {
     a.Swap(&b);
@@ -7906,7 +8355,7 @@ class CAuthenticationSupport_QueryRefreshTokenByID_Request PROTOBUF_FINAL :
                &_CAuthenticationSupport_QueryRefreshTokenByID_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(CAuthenticationSupport_QueryRefreshTokenByID_Request& a, CAuthenticationSupport_QueryRefreshTokenByID_Request& b) {
     a.Swap(&b);
@@ -8055,7 +8504,7 @@ class CAuthenticationSupport_QueryRefreshTokenByID_Response PROTOBUF_FINAL :
                &_CAuthenticationSupport_QueryRefreshTokenByID_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(CAuthenticationSupport_QueryRefreshTokenByID_Response& a, CAuthenticationSupport_QueryRefreshTokenByID_Response& b) {
     a.Swap(&b);
@@ -8208,7 +8657,7 @@ class CAuthenticationSupport_RevokeToken_Request PROTOBUF_FINAL :
                &_CAuthenticationSupport_RevokeToken_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(CAuthenticationSupport_RevokeToken_Request& a, CAuthenticationSupport_RevokeToken_Request& b) {
     a.Swap(&b);
@@ -8372,7 +8821,7 @@ class CAuthenticationSupport_RevokeToken_Response PROTOBUF_FINAL :
                &_CAuthenticationSupport_RevokeToken_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(CAuthenticationSupport_RevokeToken_Response& a, CAuthenticationSupport_RevokeToken_Response& b) {
     a.Swap(&b);
@@ -8503,7 +8952,7 @@ class CAuthenticationSupport_GetTokenHistory_Request PROTOBUF_FINAL :
                &_CAuthenticationSupport_GetTokenHistory_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(CAuthenticationSupport_GetTokenHistory_Request& a, CAuthenticationSupport_GetTokenHistory_Request& b) {
     a.Swap(&b);
@@ -8652,7 +9101,7 @@ class CSupportRefreshTokenAudit PROTOBUF_FINAL :
                &_CSupportRefreshTokenAudit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    43;
 
   friend void swap(CSupportRefreshTokenAudit& a, CSupportRefreshTokenAudit& b) {
     a.Swap(&b);
@@ -8851,7 +9300,7 @@ class CAuthenticationSupport_GetTokenHistory_Response PROTOBUF_FINAL :
                &_CAuthenticationSupport_GetTokenHistory_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    44;
 
   friend void swap(CAuthenticationSupport_GetTokenHistory_Response& a, CAuthenticationSupport_GetTokenHistory_Response& b) {
     a.Swap(&b);
@@ -9004,7 +9453,7 @@ class CAuthenticationSupport_MarkTokenCompromised_Request PROTOBUF_FINAL :
                &_CAuthenticationSupport_MarkTokenCompromised_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(CAuthenticationSupport_MarkTokenCompromised_Request& a, CAuthenticationSupport_MarkTokenCompromised_Request& b) {
     a.Swap(&b);
@@ -9168,7 +9617,7 @@ class CAuthenticationSupport_MarkTokenCompromised_Response PROTOBUF_FINAL :
                &_CAuthenticationSupport_MarkTokenCompromised_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    46;
 
   friend void swap(CAuthenticationSupport_MarkTokenCompromised_Response& a, CAuthenticationSupport_MarkTokenCompromised_Response& b) {
     a.Swap(&b);
@@ -9299,7 +9748,7 @@ class CCloudGaming_CreateNonce_Request PROTOBUF_FINAL :
                &_CCloudGaming_CreateNonce_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    47;
 
   friend void swap(CCloudGaming_CreateNonce_Request& a, CCloudGaming_CreateNonce_Request& b) {
     a.Swap(&b);
@@ -9470,7 +9919,7 @@ class CCloudGaming_CreateNonce_Response PROTOBUF_FINAL :
                &_CCloudGaming_CreateNonce_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    48;
 
   friend void swap(CCloudGaming_CreateNonce_Response& a, CCloudGaming_CreateNonce_Response& b) {
     a.Swap(&b);
@@ -9641,7 +10090,7 @@ class CCloudGaming_GetTimeRemaining_Request PROTOBUF_FINAL :
                &_CCloudGaming_GetTimeRemaining_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    49;
 
   friend void swap(CCloudGaming_GetTimeRemaining_Request& a, CCloudGaming_GetTimeRemaining_Request& b) {
     a.Swap(&b);
@@ -9821,7 +10270,7 @@ class CCloudGaming_TimeRemaining PROTOBUF_FINAL :
                &_CCloudGaming_TimeRemaining_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    50;
 
   friend void swap(CCloudGaming_TimeRemaining& a, CCloudGaming_TimeRemaining& b) {
     a.Swap(&b);
@@ -9985,7 +10434,7 @@ class CCloudGaming_GetTimeRemaining_Response PROTOBUF_FINAL :
                &_CCloudGaming_GetTimeRemaining_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    51;
 
   friend void swap(CCloudGaming_GetTimeRemaining_Response& a, CCloudGaming_GetTimeRemaining_Response& b) {
     a.Swap(&b);
@@ -10125,6 +10574,10 @@ class Authentication : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CAuthentication_GetAuthSessionRiskInfo_Request* request,
                        ::CAuthentication_GetAuthSessionRiskInfo_Response* response,
                        ::google::protobuf::Closure* done);
+  virtual void NotifyRiskQuizResults(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CAuthentication_NotifyRiskQuizResults_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
   virtual void UpdateAuthSessionWithMobileConfirmation(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request* request,
                        ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response* response,
@@ -10209,6 +10662,10 @@ class Authentication_Stub : public Authentication {
   void GetAuthSessionRiskInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CAuthentication_GetAuthSessionRiskInfo_Request* request,
                        ::CAuthentication_GetAuthSessionRiskInfo_Response* response,
+                       ::google::protobuf::Closure* done);
+  void NotifyRiskQuizResults(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CAuthentication_NotifyRiskQuizResults_Notification* request,
+                       ::NoResponse* response,
                        ::google::protobuf::Closure* done);
   void UpdateAuthSessionWithMobileConfirmation(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request* request,
@@ -10930,6 +11387,35 @@ inline void CAuthentication_DeviceDetails::set_allocated_machine_id(std::string*
   machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_DeviceDetails.machine_id)
+}
+
+// optional .EAuthTokenAppType app_type = 7 [default = EAuthTokenAppType_Unknown];
+inline bool CAuthentication_DeviceDetails::_internal_has_app_type() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CAuthentication_DeviceDetails::has_app_type() const {
+  return _internal_has_app_type();
+}
+inline void CAuthentication_DeviceDetails::clear_app_type() {
+  app_type_ = 0;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline ::EAuthTokenAppType CAuthentication_DeviceDetails::_internal_app_type() const {
+  return static_cast< ::EAuthTokenAppType >(app_type_);
+}
+inline ::EAuthTokenAppType CAuthentication_DeviceDetails::app_type() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_DeviceDetails.app_type)
+  return _internal_app_type();
+}
+inline void CAuthentication_DeviceDetails::_internal_set_app_type(::EAuthTokenAppType value) {
+  assert(::EAuthTokenAppType_IsValid(value));
+  _has_bits_[0] |= 0x00000040u;
+  app_type_ = value;
+}
+inline void CAuthentication_DeviceDetails::set_app_type(::EAuthTokenAppType value) {
+  _internal_set_app_type(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_DeviceDetails.app_type)
 }
 
 // -------------------------------------------------------------------
@@ -13865,7 +14351,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_high_usage_login(bo
 
 // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_requested_persistence() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CAuthentication_GetAuthSessionInfo_Response::has_requested_persistence() const {
@@ -13873,7 +14359,7 @@ inline bool CAuthentication_GetAuthSessionInfo_Response::has_requested_persisten
 }
 inline void CAuthentication_GetAuthSessionInfo_Response::clear_requested_persistence() {
   requested_persistence_ = -1;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline ::ESessionPersistence CAuthentication_GetAuthSessionInfo_Response::_internal_requested_persistence() const {
   return static_cast< ::ESessionPersistence >(requested_persistence_);
@@ -13884,7 +14370,7 @@ inline ::ESessionPersistence CAuthentication_GetAuthSessionInfo_Response::reques
 }
 inline void CAuthentication_GetAuthSessionInfo_Response::_internal_set_requested_persistence(::ESessionPersistence value) {
   assert(::ESessionPersistence_IsValid(value));
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
   requested_persistence_ = value;
 }
 inline void CAuthentication_GetAuthSessionInfo_Response::set_requested_persistence(::ESessionPersistence value) {
@@ -13918,6 +14404,35 @@ inline void CAuthentication_GetAuthSessionInfo_Response::_internal_set_device_tr
 inline void CAuthentication_GetAuthSessionInfo_Response::set_device_trust(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_device_trust(value);
   // @@protoc_insertion_point(field_set:CAuthentication_GetAuthSessionInfo_Response.device_trust)
+}
+
+// optional .EAuthTokenAppType app_type = 14 [default = EAuthTokenAppType_Unknown];
+inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_app_type() const {
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CAuthentication_GetAuthSessionInfo_Response::has_app_type() const {
+  return _internal_has_app_type();
+}
+inline void CAuthentication_GetAuthSessionInfo_Response::clear_app_type() {
+  app_type_ = 0;
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline ::EAuthTokenAppType CAuthentication_GetAuthSessionInfo_Response::_internal_app_type() const {
+  return static_cast< ::EAuthTokenAppType >(app_type_);
+}
+inline ::EAuthTokenAppType CAuthentication_GetAuthSessionInfo_Response::app_type() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_GetAuthSessionInfo_Response.app_type)
+  return _internal_app_type();
+}
+inline void CAuthentication_GetAuthSessionInfo_Response::_internal_set_app_type(::EAuthTokenAppType value) {
+  assert(::EAuthTokenAppType_IsValid(value));
+  _has_bits_[0] |= 0x00001000u;
+  app_type_ = value;
+}
+inline void CAuthentication_GetAuthSessionInfo_Response::set_app_type(::EAuthTokenAppType value) {
+  _internal_set_app_type(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_GetAuthSessionInfo_Response.app_type)
 }
 
 // -------------------------------------------------------------------
@@ -14230,6 +14745,310 @@ inline void CAuthentication_GetAuthSessionRiskInfo_Response::_internal_set_platf
 inline void CAuthentication_GetAuthSessionRiskInfo_Response::set_platform_type(::EAuthTokenPlatformType value) {
   _internal_set_platform_type(value);
   // @@protoc_insertion_point(field_set:CAuthentication_GetAuthSessionRiskInfo_Response.platform_type)
+}
+
+// -------------------------------------------------------------------
+
+// CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults
+
+// optional bool platform = 1;
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_has_platform() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::has_platform() const {
+  return _internal_has_platform();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::clear_platform() {
+  platform_ = false;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_platform() const {
+  return platform_;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::platform() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults.platform)
+  return _internal_platform();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_set_platform(bool value) {
+  _has_bits_[0] |= 0x00000001u;
+  platform_ = value;
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::set_platform(bool value) {
+  _internal_set_platform(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults.platform)
+}
+
+// optional bool location = 2;
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_has_location() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::has_location() const {
+  return _internal_has_location();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::clear_location() {
+  location_ = false;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_location() const {
+  return location_;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::location() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults.location)
+  return _internal_location();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_set_location(bool value) {
+  _has_bits_[0] |= 0x00000002u;
+  location_ = value;
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::set_location(bool value) {
+  _internal_set_location(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults.location)
+}
+
+// optional bool action = 3;
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_has_action() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::has_action() const {
+  return _internal_has_action();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::clear_action() {
+  action_ = false;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_action() const {
+  return action_;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::action() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults.action)
+  return _internal_action();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::_internal_set_action(bool value) {
+  _has_bits_[0] |= 0x00000004u;
+  action_ = value;
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults::set_action(bool value) {
+  _internal_set_action(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults.action)
+}
+
+// -------------------------------------------------------------------
+
+// CAuthentication_NotifyRiskQuizResults_Notification
+
+// optional uint64 client_id = 1;
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::_internal_has_client_id() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::has_client_id() const {
+  return _internal_has_client_id();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::clear_client_id() {
+  client_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CAuthentication_NotifyRiskQuizResults_Notification::_internal_client_id() const {
+  return client_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CAuthentication_NotifyRiskQuizResults_Notification::client_id() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_NotifyRiskQuizResults_Notification.client_id)
+  return _internal_client_id();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::_internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000004u;
+  client_id_ = value;
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_client_id(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_NotifyRiskQuizResults_Notification.client_id)
+}
+
+// optional .CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults results = 2;
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::_internal_has_results() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || results_ != nullptr);
+  return value;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::has_results() const {
+  return _internal_has_results();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::clear_results() {
+  if (results_ != nullptr) results_->Clear();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& CAuthentication_NotifyRiskQuizResults_Notification::_internal_results() const {
+  const ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* p = results_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults&>(
+      ::_CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults_default_instance_);
+}
+inline const ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults& CAuthentication_NotifyRiskQuizResults_Notification::results() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_NotifyRiskQuizResults_Notification.results)
+  return _internal_results();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::unsafe_arena_set_allocated_results(
+    ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* results) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(results_);
+  }
+  results_ = results;
+  if (results) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CAuthentication_NotifyRiskQuizResults_Notification.results)
+}
+inline ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* CAuthentication_NotifyRiskQuizResults_Notification::release_results() {
+  _has_bits_[0] &= ~0x00000002u;
+  ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* temp = results_;
+  results_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* CAuthentication_NotifyRiskQuizResults_Notification::unsafe_arena_release_results() {
+  // @@protoc_insertion_point(field_release:CAuthentication_NotifyRiskQuizResults_Notification.results)
+  _has_bits_[0] &= ~0x00000002u;
+  ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* temp = results_;
+  results_ = nullptr;
+  return temp;
+}
+inline ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* CAuthentication_NotifyRiskQuizResults_Notification::_internal_mutable_results() {
+  _has_bits_[0] |= 0x00000002u;
+  if (results_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults>(GetArena());
+    results_ = p;
+  }
+  return results_;
+}
+inline ::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* CAuthentication_NotifyRiskQuizResults_Notification::mutable_results() {
+  // @@protoc_insertion_point(field_mutable:CAuthentication_NotifyRiskQuizResults_Notification.results)
+  return _internal_mutable_results();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::set_allocated_results(::CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* results) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete results_;
+  }
+  if (results) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(results);
+    if (message_arena != submessage_arena) {
+      results = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, results, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  results_ = results;
+  // @@protoc_insertion_point(field_set_allocated:CAuthentication_NotifyRiskQuizResults_Notification.results)
+}
+
+// optional string selected_action = 3;
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::_internal_has_selected_action() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::has_selected_action() const {
+  return _internal_has_selected_action();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::clear_selected_action() {
+  selected_action_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CAuthentication_NotifyRiskQuizResults_Notification::selected_action() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_NotifyRiskQuizResults_Notification.selected_action)
+  return _internal_selected_action();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::set_selected_action(const std::string& value) {
+  _internal_set_selected_action(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_NotifyRiskQuizResults_Notification.selected_action)
+}
+inline std::string* CAuthentication_NotifyRiskQuizResults_Notification::mutable_selected_action() {
+  // @@protoc_insertion_point(field_mutable:CAuthentication_NotifyRiskQuizResults_Notification.selected_action)
+  return _internal_mutable_selected_action();
+}
+inline const std::string& CAuthentication_NotifyRiskQuizResults_Notification::_internal_selected_action() const {
+  return selected_action_.Get();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::_internal_set_selected_action(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  selected_action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::set_selected_action(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  selected_action_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CAuthentication_NotifyRiskQuizResults_Notification.selected_action)
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::set_selected_action(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  selected_action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CAuthentication_NotifyRiskQuizResults_Notification.selected_action)
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::set_selected_action(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  selected_action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CAuthentication_NotifyRiskQuizResults_Notification.selected_action)
+}
+inline std::string* CAuthentication_NotifyRiskQuizResults_Notification::_internal_mutable_selected_action() {
+  _has_bits_[0] |= 0x00000001u;
+  return selected_action_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CAuthentication_NotifyRiskQuizResults_Notification::release_selected_action() {
+  // @@protoc_insertion_point(field_release:CAuthentication_NotifyRiskQuizResults_Notification.selected_action)
+  if (!_internal_has_selected_action()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return selected_action_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::set_allocated_selected_action(std::string* selected_action) {
+  if (selected_action != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  selected_action_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), selected_action,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CAuthentication_NotifyRiskQuizResults_Notification.selected_action)
+}
+
+// optional bool did_confirm_login = 4;
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::_internal_has_did_confirm_login() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::has_did_confirm_login() const {
+  return _internal_has_did_confirm_login();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::clear_did_confirm_login() {
+  did_confirm_login_ = false;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::_internal_did_confirm_login() const {
+  return did_confirm_login_;
+}
+inline bool CAuthentication_NotifyRiskQuizResults_Notification::did_confirm_login() const {
+  // @@protoc_insertion_point(field_get:CAuthentication_NotifyRiskQuizResults_Notification.did_confirm_login)
+  return _internal_did_confirm_login();
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::_internal_set_did_confirm_login(bool value) {
+  _has_bits_[0] |= 0x00000008u;
+  did_confirm_login_ = value;
+}
+inline void CAuthentication_NotifyRiskQuizResults_Notification::set_did_confirm_login(bool value) {
+  _internal_set_did_confirm_login(value);
+  // @@protoc_insertion_point(field_set:CAuthentication_NotifyRiskQuizResults_Notification.did_confirm_login)
 }
 
 // -------------------------------------------------------------------
@@ -18552,6 +19371,10 @@ CCloudGaming_GetTimeRemaining_Response::entries() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -18562,6 +19385,11 @@ template <> struct is_proto_enum< ::EAuthTokenPlatformType> : ::std::true_type {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EAuthTokenPlatformType>() {
   return ::EAuthTokenPlatformType_descriptor();
+}
+template <> struct is_proto_enum< ::EAuthTokenAppType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EAuthTokenAppType>() {
+  return ::EAuthTokenAppType_descriptor();
 }
 template <> struct is_proto_enum< ::EAuthSessionGuardType> : ::std::true_type {};
 template <>

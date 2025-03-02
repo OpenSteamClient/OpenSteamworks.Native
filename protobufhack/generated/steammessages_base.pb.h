@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fbase_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[21]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[23]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -101,6 +101,12 @@ extern CMsgKeyValuePairDefaultTypeInternal _CMsgKeyValuePair_default_instance_;
 class CMsgKeyValueSet;
 struct CMsgKeyValueSetDefaultTypeInternal;
 extern CMsgKeyValueSetDefaultTypeInternal _CMsgKeyValueSet_default_instance_;
+class CMsgKubeRPCPacket;
+struct CMsgKubeRPCPacketDefaultTypeInternal;
+extern CMsgKubeRPCPacketDefaultTypeInternal _CMsgKubeRPCPacket_default_instance_;
+class CMsgKubeRPCPacket_Hdr;
+struct CMsgKubeRPCPacket_HdrDefaultTypeInternal;
+extern CMsgKubeRPCPacket_HdrDefaultTypeInternal _CMsgKubeRPCPacket_Hdr_default_instance_;
 class CMsgMulti;
 struct CMsgMultiDefaultTypeInternal;
 extern CMsgMultiDefaultTypeInternal _CMsgMulti_default_instance_;
@@ -135,6 +141,8 @@ template<> ::CMsgIPAddress* Arena::CreateMaybeMessage<::CMsgIPAddress>(Arena*);
 template<> ::CMsgIPAddressBucket* Arena::CreateMaybeMessage<::CMsgIPAddressBucket>(Arena*);
 template<> ::CMsgKeyValuePair* Arena::CreateMaybeMessage<::CMsgKeyValuePair>(Arena*);
 template<> ::CMsgKeyValueSet* Arena::CreateMaybeMessage<::CMsgKeyValueSet>(Arena*);
+template<> ::CMsgKubeRPCPacket* Arena::CreateMaybeMessage<::CMsgKubeRPCPacket>(Arena*);
+template<> ::CMsgKubeRPCPacket_Hdr* Arena::CreateMaybeMessage<::CMsgKubeRPCPacket_Hdr>(Arena*);
 template<> ::CMsgMulti* Arena::CreateMaybeMessage<::CMsgMulti>(Arena*);
 template<> ::CMsgProtoBufHeader* Arena::CreateMaybeMessage<::CMsgProtoBufHeader>(Arena*);
 template<> ::CMsgProtobufWrapped* Arena::CreateMaybeMessage<::CMsgProtobufWrapped>(Arena*);
@@ -982,6 +990,7 @@ class CMsgProtoBufHeader PROTOBUF_FINAL :
     kTokenIdFieldNumber = 36,
     kDebugSourceStringIndexFieldNumber = 35,
     kSessionDispositionFieldNumber = 38,
+    kAdminRequestSpoofingSteamidFieldNumber = 43,
     kTimeoutMsFieldNumber = 33,
     kJobidSourceFieldNumber = 10,
     kJobidTargetFieldNumber = 11,
@@ -1387,6 +1396,19 @@ class CMsgProtoBufHeader PROTOBUF_FINAL :
   void _internal_set_session_disposition(::CMsgProtoBufHeader_ESessionDisposition value);
   public:
 
+  // optional fixed64 admin_request_spoofing_steamid = 43;
+  bool has_admin_request_spoofing_steamid() const;
+  private:
+  bool _internal_has_admin_request_spoofing_steamid() const;
+  public:
+  void clear_admin_request_spoofing_steamid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 admin_request_spoofing_steamid() const;
+  void set_admin_request_spoofing_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_admin_request_spoofing_steamid() const;
+  void _internal_set_admin_request_spoofing_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // optional int32 timeout_ms = 33 [default = -1];
   bool has_timeout_ms() const;
   private:
@@ -1540,6 +1562,7 @@ class CMsgProtoBufHeader PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 token_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 debug_source_string_index_;
   int session_disposition_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 admin_request_spoofing_steamid_;
   ::PROTOBUF_NAMESPACE_ID::int32 timeout_ms_;
   ::PROTOBUF_NAMESPACE_ID::uint64 jobid_source_;
   ::PROTOBUF_NAMESPACE_ID::uint64 jobid_target_;
@@ -1554,6 +1577,429 @@ class CMsgProtoBufHeader PROTOBUF_FINAL :
   } ip_addr_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
 
+  friend struct ::TableStruct_steammessages_5fbase_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgKubeRPCPacket_Hdr PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgKubeRPCPacket.Hdr) */ {
+ public:
+  inline CMsgKubeRPCPacket_Hdr() : CMsgKubeRPCPacket_Hdr(nullptr) {}
+  virtual ~CMsgKubeRPCPacket_Hdr();
+  explicit constexpr CMsgKubeRPCPacket_Hdr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgKubeRPCPacket_Hdr(const CMsgKubeRPCPacket_Hdr& from);
+  CMsgKubeRPCPacket_Hdr(CMsgKubeRPCPacket_Hdr&& from) noexcept
+    : CMsgKubeRPCPacket_Hdr() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgKubeRPCPacket_Hdr& operator=(const CMsgKubeRPCPacket_Hdr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgKubeRPCPacket_Hdr& operator=(CMsgKubeRPCPacket_Hdr&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgKubeRPCPacket_Hdr& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgKubeRPCPacket_Hdr* internal_default_instance() {
+    return reinterpret_cast<const CMsgKubeRPCPacket_Hdr*>(
+               &_CMsgKubeRPCPacket_Hdr_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(CMsgKubeRPCPacket_Hdr& a, CMsgKubeRPCPacket_Hdr& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgKubeRPCPacket_Hdr* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgKubeRPCPacket_Hdr* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgKubeRPCPacket_Hdr* New() const final {
+    return CreateMaybeMessage<CMsgKubeRPCPacket_Hdr>(nullptr);
+  }
+
+  CMsgKubeRPCPacket_Hdr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgKubeRPCPacket_Hdr>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgKubeRPCPacket_Hdr& from);
+  void MergeFrom(const CMsgKubeRPCPacket_Hdr& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgKubeRPCPacket_Hdr* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgKubeRPCPacket.Hdr";
+  }
+  protected:
+  explicit CMsgKubeRPCPacket_Hdr(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fbase_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTargetJobNameFieldNumber = 12,
+    kErrorMessageFieldNumber = 14,
+    kReplyAddressFieldNumber = 42,
+    kEresultFieldNumber = 13,
+    kJobidSourceFieldNumber = 10,
+    kJobidTargetFieldNumber = 11,
+  };
+  // optional string target_job_name = 12;
+  bool has_target_job_name() const;
+  private:
+  bool _internal_has_target_job_name() const;
+  public:
+  void clear_target_job_name();
+  const std::string& target_job_name() const;
+  void set_target_job_name(const std::string& value);
+  void set_target_job_name(std::string&& value);
+  void set_target_job_name(const char* value);
+  void set_target_job_name(const char* value, size_t size);
+  std::string* mutable_target_job_name();
+  std::string* release_target_job_name();
+  void set_allocated_target_job_name(std::string* target_job_name);
+  private:
+  const std::string& _internal_target_job_name() const;
+  void _internal_set_target_job_name(const std::string& value);
+  std::string* _internal_mutable_target_job_name();
+  public:
+
+  // optional string error_message = 14;
+  bool has_error_message() const;
+  private:
+  bool _internal_has_error_message() const;
+  public:
+  void clear_error_message();
+  const std::string& error_message() const;
+  void set_error_message(const std::string& value);
+  void set_error_message(std::string&& value);
+  void set_error_message(const char* value);
+  void set_error_message(const char* value, size_t size);
+  std::string* mutable_error_message();
+  std::string* release_error_message();
+  void set_allocated_error_message(std::string* error_message);
+  private:
+  const std::string& _internal_error_message() const;
+  void _internal_set_error_message(const std::string& value);
+  std::string* _internal_mutable_error_message();
+  public:
+
+  // optional string reply_address = 42;
+  bool has_reply_address() const;
+  private:
+  bool _internal_has_reply_address() const;
+  public:
+  void clear_reply_address();
+  const std::string& reply_address() const;
+  void set_reply_address(const std::string& value);
+  void set_reply_address(std::string&& value);
+  void set_reply_address(const char* value);
+  void set_reply_address(const char* value, size_t size);
+  std::string* mutable_reply_address();
+  std::string* release_reply_address();
+  void set_allocated_reply_address(std::string* reply_address);
+  private:
+  const std::string& _internal_reply_address() const;
+  void _internal_set_reply_address(const std::string& value);
+  std::string* _internal_mutable_reply_address();
+  public:
+
+  // optional int32 eresult = 13 [default = 2];
+  bool has_eresult() const;
+  private:
+  bool _internal_has_eresult() const;
+  public:
+  void clear_eresult();
+  ::PROTOBUF_NAMESPACE_ID::int32 eresult() const;
+  void set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_eresult() const;
+  void _internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional fixed64 jobid_source = 10 [default = 18446744073709551615];
+  bool has_jobid_source() const;
+  private:
+  bool _internal_has_jobid_source() const;
+  public:
+  void clear_jobid_source();
+  ::PROTOBUF_NAMESPACE_ID::uint64 jobid_source() const;
+  void set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_jobid_source() const;
+  void _internal_set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional fixed64 jobid_target = 11 [default = 18446744073709551615];
+  bool has_jobid_target() const;
+  private:
+  bool _internal_has_jobid_target() const;
+  public:
+  void clear_jobid_target();
+  ::PROTOBUF_NAMESPACE_ID::uint64 jobid_target() const;
+  void set_jobid_target(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_jobid_target() const;
+  void _internal_set_jobid_target(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgKubeRPCPacket.Hdr)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr target_job_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr error_message_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr reply_address_;
+  ::PROTOBUF_NAMESPACE_ID::int32 eresult_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 jobid_source_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 jobid_target_;
+  friend struct ::TableStruct_steammessages_5fbase_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgKubeRPCPacket PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgKubeRPCPacket) */ {
+ public:
+  inline CMsgKubeRPCPacket() : CMsgKubeRPCPacket(nullptr) {}
+  virtual ~CMsgKubeRPCPacket();
+  explicit constexpr CMsgKubeRPCPacket(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgKubeRPCPacket(const CMsgKubeRPCPacket& from);
+  CMsgKubeRPCPacket(CMsgKubeRPCPacket&& from) noexcept
+    : CMsgKubeRPCPacket() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgKubeRPCPacket& operator=(const CMsgKubeRPCPacket& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgKubeRPCPacket& operator=(CMsgKubeRPCPacket&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgKubeRPCPacket& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgKubeRPCPacket* internal_default_instance() {
+    return reinterpret_cast<const CMsgKubeRPCPacket*>(
+               &_CMsgKubeRPCPacket_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(CMsgKubeRPCPacket& a, CMsgKubeRPCPacket& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgKubeRPCPacket* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgKubeRPCPacket* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgKubeRPCPacket* New() const final {
+    return CreateMaybeMessage<CMsgKubeRPCPacket>(nullptr);
+  }
+
+  CMsgKubeRPCPacket* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgKubeRPCPacket>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgKubeRPCPacket& from);
+  void MergeFrom(const CMsgKubeRPCPacket& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgKubeRPCPacket* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgKubeRPCPacket";
+  }
+  protected:
+  explicit CMsgKubeRPCPacket(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fbase_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgKubeRPCPacket_Hdr Hdr;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPayloadFieldNumber = 2,
+    kHdrFieldNumber = 1,
+  };
+  // optional bytes payload = 2;
+  bool has_payload() const;
+  private:
+  bool _internal_has_payload() const;
+  public:
+  void clear_payload();
+  const std::string& payload() const;
+  void set_payload(const std::string& value);
+  void set_payload(std::string&& value);
+  void set_payload(const char* value);
+  void set_payload(const void* value, size_t size);
+  std::string* mutable_payload();
+  std::string* release_payload();
+  void set_allocated_payload(std::string* payload);
+  private:
+  const std::string& _internal_payload() const;
+  void _internal_set_payload(const std::string& value);
+  std::string* _internal_mutable_payload();
+  public:
+
+  // optional .CMsgKubeRPCPacket.Hdr hdr = 1;
+  bool has_hdr() const;
+  private:
+  bool _internal_has_hdr() const;
+  public:
+  void clear_hdr();
+  const ::CMsgKubeRPCPacket_Hdr& hdr() const;
+  ::CMsgKubeRPCPacket_Hdr* release_hdr();
+  ::CMsgKubeRPCPacket_Hdr* mutable_hdr();
+  void set_allocated_hdr(::CMsgKubeRPCPacket_Hdr* hdr);
+  private:
+  const ::CMsgKubeRPCPacket_Hdr& _internal_hdr() const;
+  ::CMsgKubeRPCPacket_Hdr* _internal_mutable_hdr();
+  public:
+  void unsafe_arena_set_allocated_hdr(
+      ::CMsgKubeRPCPacket_Hdr* hdr);
+  ::CMsgKubeRPCPacket_Hdr* unsafe_arena_release_hdr();
+
+  // @@protoc_insertion_point(class_scope:CMsgKubeRPCPacket)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+  ::CMsgKubeRPCPacket_Hdr* hdr_;
   friend struct ::TableStruct_steammessages_5fbase_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1608,7 +2054,7 @@ class CMsgMulti PROTOBUF_FINAL :
                &_CMsgMulti_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(CMsgMulti& a, CMsgMulti& b) {
     a.Swap(&b);
@@ -1779,7 +2225,7 @@ class CMsgProtobufWrapped PROTOBUF_FINAL :
                &_CMsgProtobufWrapped_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(CMsgProtobufWrapped& a, CMsgProtobufWrapped& b) {
     a.Swap(&b);
@@ -1935,7 +2381,7 @@ class CMsgAuthTicket PROTOBUF_FINAL :
                &_CMsgAuthTicket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(CMsgAuthTicket& a, CMsgAuthTicket& b) {
     a.Swap(&b);
@@ -2218,7 +2664,7 @@ class CCDDBAppDetailCommon PROTOBUF_FINAL :
                &_CCDDBAppDetailCommon_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(CCDDBAppDetailCommon& a, CCDDBAppDetailCommon& b) {
     a.Swap(&b);
@@ -2614,7 +3060,7 @@ class CMsgAppRights PROTOBUF_FINAL :
                &_CMsgAppRights_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(CMsgAppRights& a, CMsgAppRights& b) {
     a.Swap(&b);
@@ -3003,7 +3449,7 @@ class CCuratorPreferences PROTOBUF_FINAL :
                &_CCuratorPreferences_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(CCuratorPreferences& a, CCuratorPreferences& b) {
     a.Swap(&b);
@@ -3386,7 +3832,7 @@ class CLocalizationToken PROTOBUF_FINAL :
                &_CLocalizationToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(CLocalizationToken& a, CLocalizationToken& b) {
     a.Swap(&b);
@@ -3557,7 +4003,7 @@ class CClanEventUserNewsTuple PROTOBUF_FINAL :
                &_CClanEventUserNewsTuple_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(CClanEventUserNewsTuple& a, CClanEventUserNewsTuple& b) {
     a.Swap(&b);
@@ -3841,7 +4287,7 @@ class CClanMatchEventByRange PROTOBUF_FINAL :
                &_CClanMatchEventByRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(CClanMatchEventByRange& a, CClanMatchEventByRange& b) {
     a.Swap(&b);
@@ -4040,7 +4486,7 @@ class CCommunity_ClanAnnouncementInfo PROTOBUF_FINAL :
                &_CCommunity_ClanAnnouncementInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(CCommunity_ClanAnnouncementInfo& a, CCommunity_ClanAnnouncementInfo& b) {
     a.Swap(&b);
@@ -4454,7 +4900,7 @@ class CClanEventData PROTOBUF_FINAL :
                &_CClanEventData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(CClanEventData& a, CClanEventData& b) {
     a.Swap(&b);
@@ -4540,12 +4986,13 @@ class CClanEventData PROTOBUF_FINAL :
     kCommentCountFieldNumber = 10,
     kCreatorSteamidFieldNumber = 11,
     kLastUpdateSteamidFieldNumber = 12,
-    kPublishedFieldNumber = 16,
-    kHiddenFieldNumber = 17,
     kRtime32VisibilityStartFieldNumber = 18,
     kRtime32VisibilityEndFieldNumber = 19,
     kBroadcasterAccountidFieldNumber = 20,
     kFollowerCountFieldNumber = 21,
+    kPublishedFieldNumber = 16,
+    kHiddenFieldNumber = 17,
+    kUnlistedFieldNumber = 31,
     kIgnoreCountFieldNumber = 22,
     kForumTopicIdFieldNumber = 23,
     kNewsPostGidFieldNumber = 25,
@@ -4819,32 +5266,6 @@ class CClanEventData PROTOBUF_FINAL :
   void _internal_set_last_update_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool published = 16;
-  bool has_published() const;
-  private:
-  bool _internal_has_published() const;
-  public:
-  void clear_published();
-  bool published() const;
-  void set_published(bool value);
-  private:
-  bool _internal_published() const;
-  void _internal_set_published(bool value);
-  public:
-
-  // optional bool hidden = 17;
-  bool has_hidden() const;
-  private:
-  bool _internal_has_hidden() const;
-  public:
-  void clear_hidden();
-  bool hidden() const;
-  void set_hidden(bool value);
-  private:
-  bool _internal_hidden() const;
-  void _internal_set_hidden(bool value);
-  public:
-
   // optional uint32 rtime32_visibility_start = 18;
   bool has_rtime32_visibility_start() const;
   private:
@@ -4895,6 +5316,45 @@ class CClanEventData PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::uint32 _internal_follower_count() const;
   void _internal_set_follower_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional bool published = 16;
+  bool has_published() const;
+  private:
+  bool _internal_has_published() const;
+  public:
+  void clear_published();
+  bool published() const;
+  void set_published(bool value);
+  private:
+  bool _internal_published() const;
+  void _internal_set_published(bool value);
+  public:
+
+  // optional bool hidden = 17;
+  bool has_hidden() const;
+  private:
+  bool _internal_has_hidden() const;
+  public:
+  void clear_hidden();
+  bool hidden() const;
+  void set_hidden(bool value);
+  private:
+  bool _internal_hidden() const;
+  void _internal_set_hidden(bool value);
+  public:
+
+  // optional bool unlisted = 31;
+  bool has_unlisted() const;
+  private:
+  bool _internal_has_unlisted() const;
+  public:
+  void clear_unlisted();
+  bool unlisted() const;
+  void set_unlisted(bool value);
+  private:
+  bool _internal_unlisted() const;
+  void _internal_set_unlisted(bool value);
   public:
 
   // optional uint32 ignore_count = 22;
@@ -5026,12 +5486,13 @@ class CClanEventData PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 comment_count_;
   ::PROTOBUF_NAMESPACE_ID::uint64 creator_steamid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 last_update_steamid_;
-  bool published_;
-  bool hidden_;
   ::PROTOBUF_NAMESPACE_ID::uint32 rtime32_visibility_start_;
   ::PROTOBUF_NAMESPACE_ID::uint32 rtime32_visibility_end_;
   ::PROTOBUF_NAMESPACE_ID::uint32 broadcaster_accountid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 follower_count_;
+  bool published_;
+  bool hidden_;
+  bool unlisted_;
   ::PROTOBUF_NAMESPACE_ID::uint32 ignore_count_;
   ::PROTOBUF_NAMESPACE_ID::uint64 forum_topic_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 news_post_gid_;
@@ -5094,7 +5555,7 @@ class CBilling_Address PROTOBUF_FINAL :
                &_CBilling_Address_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(CBilling_Address& a, CBilling_Address& b) {
     a.Swap(&b);
@@ -5441,7 +5902,7 @@ class CPackageReservationStatus PROTOBUF_FINAL :
                &_CPackageReservationStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(CPackageReservationStatus& a, CPackageReservationStatus& b) {
     a.Swap(&b);
@@ -5739,7 +6200,7 @@ class CMsgKeyValuePair PROTOBUF_FINAL :
                &_CMsgKeyValuePair_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(CMsgKeyValuePair& a, CMsgKeyValuePair& b) {
     a.Swap(&b);
@@ -5917,7 +6378,7 @@ class CMsgKeyValueSet PROTOBUF_FINAL :
                &_CMsgKeyValueSet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(CMsgKeyValueSet& a, CMsgKeyValueSet& b) {
     a.Swap(&b);
@@ -6070,7 +6531,7 @@ class UserContentDescriptorPreferences_ContentDescriptor PROTOBUF_FINAL :
                &_UserContentDescriptorPreferences_ContentDescriptor_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(UserContentDescriptorPreferences_ContentDescriptor& a, UserContentDescriptorPreferences_ContentDescriptor& b) {
     a.Swap(&b);
@@ -6234,7 +6695,7 @@ class UserContentDescriptorPreferences PROTOBUF_FINAL :
                &_UserContentDescriptorPreferences_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(UserContentDescriptorPreferences& a, UserContentDescriptorPreferences& b) {
     a.Swap(&b);
@@ -6790,7 +7251,7 @@ inline void CMsgProtoBufHeader::set_routing_appid(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional fixed64 jobid_source = 10 [default = 18446744073709551615];
 inline bool CMsgProtoBufHeader::_internal_has_jobid_source() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_jobid_source() const {
@@ -6798,7 +7259,7 @@ inline bool CMsgProtoBufHeader::has_jobid_source() const {
 }
 inline void CMsgProtoBufHeader::clear_jobid_source() {
   jobid_source_ = PROTOBUF_ULONGLONG(18446744073709551615);
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_jobid_source() const {
   return jobid_source_;
@@ -6808,7 +7269,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::jobid_source() const 
   return _internal_jobid_source();
 }
 inline void CMsgProtoBufHeader::_internal_set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
   jobid_source_ = value;
 }
 inline void CMsgProtoBufHeader::set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -6818,7 +7279,7 @@ inline void CMsgProtoBufHeader::set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64
 
 // optional fixed64 jobid_target = 11 [default = 18446744073709551615];
 inline bool CMsgProtoBufHeader::_internal_has_jobid_target() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_jobid_target() const {
@@ -6826,7 +7287,7 @@ inline bool CMsgProtoBufHeader::has_jobid_target() const {
 }
 inline void CMsgProtoBufHeader::clear_jobid_target() {
   jobid_target_ = PROTOBUF_ULONGLONG(18446744073709551615);
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_jobid_target() const {
   return jobid_target_;
@@ -6836,7 +7297,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::jobid_target() const 
   return _internal_jobid_target();
 }
 inline void CMsgProtoBufHeader::_internal_set_jobid_target(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
   jobid_target_ = value;
 }
 inline void CMsgProtoBufHeader::set_jobid_target(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -6947,7 +7408,7 @@ inline void CMsgProtoBufHeader::set_seq_num(::PROTOBUF_NAMESPACE_ID::int32 value
 
 // optional int32 eresult = 13 [default = 2];
 inline bool CMsgProtoBufHeader::_internal_has_eresult() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_eresult() const {
@@ -6955,7 +7416,7 @@ inline bool CMsgProtoBufHeader::has_eresult() const {
 }
 inline void CMsgProtoBufHeader::clear_eresult() {
   eresult_ = 2;
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::_internal_eresult() const {
   return eresult_;
@@ -6965,7 +7426,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::eresult() const {
   return _internal_eresult();
 }
 inline void CMsgProtoBufHeader::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
   eresult_ = value;
 }
 inline void CMsgProtoBufHeader::set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -7132,7 +7593,7 @@ inline void CMsgProtoBufHeader::set_admin_spoofing_user(bool value) {
 
 // optional int32 transport_error = 17 [default = 1];
 inline bool CMsgProtoBufHeader::_internal_has_transport_error() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_transport_error() const {
@@ -7140,7 +7601,7 @@ inline bool CMsgProtoBufHeader::has_transport_error() const {
 }
 inline void CMsgProtoBufHeader::clear_transport_error() {
   transport_error_ = 1;
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::_internal_transport_error() const {
   return transport_error_;
@@ -7150,7 +7611,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::transport_error() cons
   return _internal_transport_error();
 }
 inline void CMsgProtoBufHeader::_internal_set_transport_error(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
   transport_error_ = value;
 }
 inline void CMsgProtoBufHeader::set_transport_error(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -7160,7 +7621,7 @@ inline void CMsgProtoBufHeader::set_transport_error(::PROTOBUF_NAMESPACE_ID::int
 
 // optional uint64 messageid = 18 [default = 18446744073709551615];
 inline bool CMsgProtoBufHeader::_internal_has_messageid() const {
-  bool value = (_has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_messageid() const {
@@ -7168,7 +7629,7 @@ inline bool CMsgProtoBufHeader::has_messageid() const {
 }
 inline void CMsgProtoBufHeader::clear_messageid() {
   messageid_ = PROTOBUF_ULONGLONG(18446744073709551615);
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_messageid() const {
   return messageid_;
@@ -7178,7 +7639,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::messageid() const {
   return _internal_messageid();
 }
 inline void CMsgProtoBufHeader::_internal_set_messageid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
   messageid_ = value;
 }
 inline void CMsgProtoBufHeader::set_messageid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -7459,7 +7920,7 @@ inline void CMsgProtoBufHeader::set_realm(::PROTOBUF_NAMESPACE_ID::uint32 value)
 
 // optional int32 timeout_ms = 33 [default = -1];
 inline bool CMsgProtoBufHeader::_internal_has_timeout_ms() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_timeout_ms() const {
@@ -7467,7 +7928,7 @@ inline bool CMsgProtoBufHeader::has_timeout_ms() const {
 }
 inline void CMsgProtoBufHeader::clear_timeout_ms() {
   timeout_ms_ = -1;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::_internal_timeout_ms() const {
   return timeout_ms_;
@@ -7477,7 +7938,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::timeout_ms() const {
   return _internal_timeout_ms();
 }
 inline void CMsgProtoBufHeader::_internal_set_timeout_ms(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
   timeout_ms_ = value;
 }
 inline void CMsgProtoBufHeader::set_timeout_ms(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -7919,6 +8380,34 @@ CMsgProtoBufHeader::mutable_exclude_client_sessionids() {
   return _internal_mutable_exclude_client_sessionids();
 }
 
+// optional fixed64 admin_request_spoofing_steamid = 43;
+inline bool CMsgProtoBufHeader::_internal_has_admin_request_spoofing_steamid() const {
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  return value;
+}
+inline bool CMsgProtoBufHeader::has_admin_request_spoofing_steamid() const {
+  return _internal_has_admin_request_spoofing_steamid();
+}
+inline void CMsgProtoBufHeader::clear_admin_request_spoofing_steamid() {
+  admin_request_spoofing_steamid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x01000000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_admin_request_spoofing_steamid() const {
+  return admin_request_spoofing_steamid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::admin_request_spoofing_steamid() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.admin_request_spoofing_steamid)
+  return _internal_admin_request_spoofing_steamid();
+}
+inline void CMsgProtoBufHeader::_internal_set_admin_request_spoofing_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x01000000u;
+  admin_request_spoofing_steamid_ = value;
+}
+inline void CMsgProtoBufHeader::set_admin_request_spoofing_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_admin_request_spoofing_steamid(value);
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.admin_request_spoofing_steamid)
+}
+
 // uint32 ip = 15;
 inline bool CMsgProtoBufHeader::_internal_has_ip() const {
   return ip_addr_case() == kIp;
@@ -8076,6 +8565,473 @@ inline void CMsgProtoBufHeader::clear_has_ip_addr() {
 inline CMsgProtoBufHeader::IpAddrCase CMsgProtoBufHeader::ip_addr_case() const {
   return CMsgProtoBufHeader::IpAddrCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// CMsgKubeRPCPacket_Hdr
+
+// optional fixed64 jobid_source = 10 [default = 18446744073709551615];
+inline bool CMsgKubeRPCPacket_Hdr::_internal_has_jobid_source() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgKubeRPCPacket_Hdr::has_jobid_source() const {
+  return _internal_has_jobid_source();
+}
+inline void CMsgKubeRPCPacket_Hdr::clear_jobid_source() {
+  jobid_source_ = PROTOBUF_ULONGLONG(18446744073709551615);
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgKubeRPCPacket_Hdr::_internal_jobid_source() const {
+  return jobid_source_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgKubeRPCPacket_Hdr::jobid_source() const {
+  // @@protoc_insertion_point(field_get:CMsgKubeRPCPacket.Hdr.jobid_source)
+  return _internal_jobid_source();
+}
+inline void CMsgKubeRPCPacket_Hdr::_internal_set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000010u;
+  jobid_source_ = value;
+}
+inline void CMsgKubeRPCPacket_Hdr::set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_jobid_source(value);
+  // @@protoc_insertion_point(field_set:CMsgKubeRPCPacket.Hdr.jobid_source)
+}
+
+// optional fixed64 jobid_target = 11 [default = 18446744073709551615];
+inline bool CMsgKubeRPCPacket_Hdr::_internal_has_jobid_target() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgKubeRPCPacket_Hdr::has_jobid_target() const {
+  return _internal_has_jobid_target();
+}
+inline void CMsgKubeRPCPacket_Hdr::clear_jobid_target() {
+  jobid_target_ = PROTOBUF_ULONGLONG(18446744073709551615);
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgKubeRPCPacket_Hdr::_internal_jobid_target() const {
+  return jobid_target_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgKubeRPCPacket_Hdr::jobid_target() const {
+  // @@protoc_insertion_point(field_get:CMsgKubeRPCPacket.Hdr.jobid_target)
+  return _internal_jobid_target();
+}
+inline void CMsgKubeRPCPacket_Hdr::_internal_set_jobid_target(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000020u;
+  jobid_target_ = value;
+}
+inline void CMsgKubeRPCPacket_Hdr::set_jobid_target(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_jobid_target(value);
+  // @@protoc_insertion_point(field_set:CMsgKubeRPCPacket.Hdr.jobid_target)
+}
+
+// optional int32 eresult = 13 [default = 2];
+inline bool CMsgKubeRPCPacket_Hdr::_internal_has_eresult() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgKubeRPCPacket_Hdr::has_eresult() const {
+  return _internal_has_eresult();
+}
+inline void CMsgKubeRPCPacket_Hdr::clear_eresult() {
+  eresult_ = 2;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgKubeRPCPacket_Hdr::_internal_eresult() const {
+  return eresult_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgKubeRPCPacket_Hdr::eresult() const {
+  // @@protoc_insertion_point(field_get:CMsgKubeRPCPacket.Hdr.eresult)
+  return _internal_eresult();
+}
+inline void CMsgKubeRPCPacket_Hdr::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  eresult_ = value;
+}
+inline void CMsgKubeRPCPacket_Hdr::set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_eresult(value);
+  // @@protoc_insertion_point(field_set:CMsgKubeRPCPacket.Hdr.eresult)
+}
+
+// optional string target_job_name = 12;
+inline bool CMsgKubeRPCPacket_Hdr::_internal_has_target_job_name() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgKubeRPCPacket_Hdr::has_target_job_name() const {
+  return _internal_has_target_job_name();
+}
+inline void CMsgKubeRPCPacket_Hdr::clear_target_job_name() {
+  target_job_name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgKubeRPCPacket_Hdr::target_job_name() const {
+  // @@protoc_insertion_point(field_get:CMsgKubeRPCPacket.Hdr.target_job_name)
+  return _internal_target_job_name();
+}
+inline void CMsgKubeRPCPacket_Hdr::set_target_job_name(const std::string& value) {
+  _internal_set_target_job_name(value);
+  // @@protoc_insertion_point(field_set:CMsgKubeRPCPacket.Hdr.target_job_name)
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::mutable_target_job_name() {
+  // @@protoc_insertion_point(field_mutable:CMsgKubeRPCPacket.Hdr.target_job_name)
+  return _internal_mutable_target_job_name();
+}
+inline const std::string& CMsgKubeRPCPacket_Hdr::_internal_target_job_name() const {
+  return target_job_name_.Get();
+}
+inline void CMsgKubeRPCPacket_Hdr::_internal_set_target_job_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  target_job_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgKubeRPCPacket_Hdr::set_target_job_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  target_job_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgKubeRPCPacket.Hdr.target_job_name)
+}
+inline void CMsgKubeRPCPacket_Hdr::set_target_job_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  target_job_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgKubeRPCPacket.Hdr.target_job_name)
+}
+inline void CMsgKubeRPCPacket_Hdr::set_target_job_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  target_job_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgKubeRPCPacket.Hdr.target_job_name)
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::_internal_mutable_target_job_name() {
+  _has_bits_[0] |= 0x00000001u;
+  return target_job_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::release_target_job_name() {
+  // @@protoc_insertion_point(field_release:CMsgKubeRPCPacket.Hdr.target_job_name)
+  if (!_internal_has_target_job_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return target_job_name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgKubeRPCPacket_Hdr::set_allocated_target_job_name(std::string* target_job_name) {
+  if (target_job_name != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  target_job_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), target_job_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgKubeRPCPacket.Hdr.target_job_name)
+}
+
+// optional string error_message = 14;
+inline bool CMsgKubeRPCPacket_Hdr::_internal_has_error_message() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgKubeRPCPacket_Hdr::has_error_message() const {
+  return _internal_has_error_message();
+}
+inline void CMsgKubeRPCPacket_Hdr::clear_error_message() {
+  error_message_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CMsgKubeRPCPacket_Hdr::error_message() const {
+  // @@protoc_insertion_point(field_get:CMsgKubeRPCPacket.Hdr.error_message)
+  return _internal_error_message();
+}
+inline void CMsgKubeRPCPacket_Hdr::set_error_message(const std::string& value) {
+  _internal_set_error_message(value);
+  // @@protoc_insertion_point(field_set:CMsgKubeRPCPacket.Hdr.error_message)
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::mutable_error_message() {
+  // @@protoc_insertion_point(field_mutable:CMsgKubeRPCPacket.Hdr.error_message)
+  return _internal_mutable_error_message();
+}
+inline const std::string& CMsgKubeRPCPacket_Hdr::_internal_error_message() const {
+  return error_message_.Get();
+}
+inline void CMsgKubeRPCPacket_Hdr::_internal_set_error_message(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  error_message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgKubeRPCPacket_Hdr::set_error_message(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  error_message_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgKubeRPCPacket.Hdr.error_message)
+}
+inline void CMsgKubeRPCPacket_Hdr::set_error_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  error_message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgKubeRPCPacket.Hdr.error_message)
+}
+inline void CMsgKubeRPCPacket_Hdr::set_error_message(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  error_message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgKubeRPCPacket.Hdr.error_message)
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::_internal_mutable_error_message() {
+  _has_bits_[0] |= 0x00000002u;
+  return error_message_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::release_error_message() {
+  // @@protoc_insertion_point(field_release:CMsgKubeRPCPacket.Hdr.error_message)
+  if (!_internal_has_error_message()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return error_message_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgKubeRPCPacket_Hdr::set_allocated_error_message(std::string* error_message) {
+  if (error_message != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  error_message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), error_message,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgKubeRPCPacket.Hdr.error_message)
+}
+
+// optional string reply_address = 42;
+inline bool CMsgKubeRPCPacket_Hdr::_internal_has_reply_address() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgKubeRPCPacket_Hdr::has_reply_address() const {
+  return _internal_has_reply_address();
+}
+inline void CMsgKubeRPCPacket_Hdr::clear_reply_address() {
+  reply_address_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& CMsgKubeRPCPacket_Hdr::reply_address() const {
+  // @@protoc_insertion_point(field_get:CMsgKubeRPCPacket.Hdr.reply_address)
+  return _internal_reply_address();
+}
+inline void CMsgKubeRPCPacket_Hdr::set_reply_address(const std::string& value) {
+  _internal_set_reply_address(value);
+  // @@protoc_insertion_point(field_set:CMsgKubeRPCPacket.Hdr.reply_address)
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::mutable_reply_address() {
+  // @@protoc_insertion_point(field_mutable:CMsgKubeRPCPacket.Hdr.reply_address)
+  return _internal_mutable_reply_address();
+}
+inline const std::string& CMsgKubeRPCPacket_Hdr::_internal_reply_address() const {
+  return reply_address_.Get();
+}
+inline void CMsgKubeRPCPacket_Hdr::_internal_set_reply_address(const std::string& value) {
+  _has_bits_[0] |= 0x00000004u;
+  reply_address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgKubeRPCPacket_Hdr::set_reply_address(std::string&& value) {
+  _has_bits_[0] |= 0x00000004u;
+  reply_address_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgKubeRPCPacket.Hdr.reply_address)
+}
+inline void CMsgKubeRPCPacket_Hdr::set_reply_address(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000004u;
+  reply_address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgKubeRPCPacket.Hdr.reply_address)
+}
+inline void CMsgKubeRPCPacket_Hdr::set_reply_address(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000004u;
+  reply_address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgKubeRPCPacket.Hdr.reply_address)
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::_internal_mutable_reply_address() {
+  _has_bits_[0] |= 0x00000004u;
+  return reply_address_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgKubeRPCPacket_Hdr::release_reply_address() {
+  // @@protoc_insertion_point(field_release:CMsgKubeRPCPacket.Hdr.reply_address)
+  if (!_internal_has_reply_address()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000004u;
+  return reply_address_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgKubeRPCPacket_Hdr::set_allocated_reply_address(std::string* reply_address) {
+  if (reply_address != nullptr) {
+    _has_bits_[0] |= 0x00000004u;
+  } else {
+    _has_bits_[0] &= ~0x00000004u;
+  }
+  reply_address_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), reply_address,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgKubeRPCPacket.Hdr.reply_address)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgKubeRPCPacket
+
+// optional .CMsgKubeRPCPacket.Hdr hdr = 1;
+inline bool CMsgKubeRPCPacket::_internal_has_hdr() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || hdr_ != nullptr);
+  return value;
+}
+inline bool CMsgKubeRPCPacket::has_hdr() const {
+  return _internal_has_hdr();
+}
+inline void CMsgKubeRPCPacket::clear_hdr() {
+  if (hdr_ != nullptr) hdr_->Clear();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CMsgKubeRPCPacket_Hdr& CMsgKubeRPCPacket::_internal_hdr() const {
+  const ::CMsgKubeRPCPacket_Hdr* p = hdr_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgKubeRPCPacket_Hdr&>(
+      ::_CMsgKubeRPCPacket_Hdr_default_instance_);
+}
+inline const ::CMsgKubeRPCPacket_Hdr& CMsgKubeRPCPacket::hdr() const {
+  // @@protoc_insertion_point(field_get:CMsgKubeRPCPacket.hdr)
+  return _internal_hdr();
+}
+inline void CMsgKubeRPCPacket::unsafe_arena_set_allocated_hdr(
+    ::CMsgKubeRPCPacket_Hdr* hdr) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(hdr_);
+  }
+  hdr_ = hdr;
+  if (hdr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgKubeRPCPacket.hdr)
+}
+inline ::CMsgKubeRPCPacket_Hdr* CMsgKubeRPCPacket::release_hdr() {
+  _has_bits_[0] &= ~0x00000002u;
+  ::CMsgKubeRPCPacket_Hdr* temp = hdr_;
+  hdr_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::CMsgKubeRPCPacket_Hdr* CMsgKubeRPCPacket::unsafe_arena_release_hdr() {
+  // @@protoc_insertion_point(field_release:CMsgKubeRPCPacket.hdr)
+  _has_bits_[0] &= ~0x00000002u;
+  ::CMsgKubeRPCPacket_Hdr* temp = hdr_;
+  hdr_ = nullptr;
+  return temp;
+}
+inline ::CMsgKubeRPCPacket_Hdr* CMsgKubeRPCPacket::_internal_mutable_hdr() {
+  _has_bits_[0] |= 0x00000002u;
+  if (hdr_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgKubeRPCPacket_Hdr>(GetArena());
+    hdr_ = p;
+  }
+  return hdr_;
+}
+inline ::CMsgKubeRPCPacket_Hdr* CMsgKubeRPCPacket::mutable_hdr() {
+  // @@protoc_insertion_point(field_mutable:CMsgKubeRPCPacket.hdr)
+  return _internal_mutable_hdr();
+}
+inline void CMsgKubeRPCPacket::set_allocated_hdr(::CMsgKubeRPCPacket_Hdr* hdr) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete hdr_;
+  }
+  if (hdr) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(hdr);
+    if (message_arena != submessage_arena) {
+      hdr = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, hdr, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  hdr_ = hdr;
+  // @@protoc_insertion_point(field_set_allocated:CMsgKubeRPCPacket.hdr)
+}
+
+// optional bytes payload = 2;
+inline bool CMsgKubeRPCPacket::_internal_has_payload() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgKubeRPCPacket::has_payload() const {
+  return _internal_has_payload();
+}
+inline void CMsgKubeRPCPacket::clear_payload() {
+  payload_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgKubeRPCPacket::payload() const {
+  // @@protoc_insertion_point(field_get:CMsgKubeRPCPacket.payload)
+  return _internal_payload();
+}
+inline void CMsgKubeRPCPacket::set_payload(const std::string& value) {
+  _internal_set_payload(value);
+  // @@protoc_insertion_point(field_set:CMsgKubeRPCPacket.payload)
+}
+inline std::string* CMsgKubeRPCPacket::mutable_payload() {
+  // @@protoc_insertion_point(field_mutable:CMsgKubeRPCPacket.payload)
+  return _internal_mutable_payload();
+}
+inline const std::string& CMsgKubeRPCPacket::_internal_payload() const {
+  return payload_.Get();
+}
+inline void CMsgKubeRPCPacket::_internal_set_payload(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  payload_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgKubeRPCPacket::set_payload(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  payload_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgKubeRPCPacket.payload)
+}
+inline void CMsgKubeRPCPacket::set_payload(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  payload_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgKubeRPCPacket.payload)
+}
+inline void CMsgKubeRPCPacket::set_payload(const void* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  payload_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgKubeRPCPacket.payload)
+}
+inline std::string* CMsgKubeRPCPacket::_internal_mutable_payload() {
+  _has_bits_[0] |= 0x00000001u;
+  return payload_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgKubeRPCPacket::release_payload() {
+  // @@protoc_insertion_point(field_release:CMsgKubeRPCPacket.payload)
+  if (!_internal_has_payload()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return payload_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgKubeRPCPacket::set_allocated_payload(std::string* payload) {
+  if (payload != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  payload_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), payload,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgKubeRPCPacket.payload)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgMulti
@@ -11544,7 +12500,7 @@ inline void CClanEventData::set_allocated_event_name(std::string* event_name) {
 
 // optional .EProtoClanEventType event_type = 4 [default = EClanOtherEvent];
 inline bool CClanEventData::_internal_has_event_type() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_event_type() const {
@@ -11552,7 +12508,7 @@ inline bool CClanEventData::has_event_type() const {
 }
 inline void CClanEventData::clear_event_type() {
   event_type_ = 1;
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline ::EProtoClanEventType CClanEventData::_internal_event_type() const {
   return static_cast< ::EProtoClanEventType >(event_type_);
@@ -11563,7 +12519,7 @@ inline ::EProtoClanEventType CClanEventData::event_type() const {
 }
 inline void CClanEventData::_internal_set_event_type(::EProtoClanEventType value) {
   assert(::EProtoClanEventType_IsValid(value));
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
   event_type_ = value;
 }
 inline void CClanEventData::set_event_type(::EProtoClanEventType value) {
@@ -12116,7 +13072,7 @@ inline void CClanEventData::set_allocated_announcement_body(::CCommunity_ClanAnn
 
 // optional bool published = 16;
 inline bool CClanEventData::_internal_has_published() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_published() const {
@@ -12124,7 +13080,7 @@ inline bool CClanEventData::has_published() const {
 }
 inline void CClanEventData::clear_published() {
   published_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline bool CClanEventData::_internal_published() const {
   return published_;
@@ -12134,7 +13090,7 @@ inline bool CClanEventData::published() const {
   return _internal_published();
 }
 inline void CClanEventData::_internal_set_published(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00080000u;
   published_ = value;
 }
 inline void CClanEventData::set_published(bool value) {
@@ -12144,7 +13100,7 @@ inline void CClanEventData::set_published(bool value) {
 
 // optional bool hidden = 17;
 inline bool CClanEventData::_internal_has_hidden() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_hidden() const {
@@ -12152,7 +13108,7 @@ inline bool CClanEventData::has_hidden() const {
 }
 inline void CClanEventData::clear_hidden() {
   hidden_ = false;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline bool CClanEventData::_internal_hidden() const {
   return hidden_;
@@ -12162,7 +13118,7 @@ inline bool CClanEventData::hidden() const {
   return _internal_hidden();
 }
 inline void CClanEventData::_internal_set_hidden(bool value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00100000u;
   hidden_ = value;
 }
 inline void CClanEventData::set_hidden(bool value) {
@@ -12172,7 +13128,7 @@ inline void CClanEventData::set_hidden(bool value) {
 
 // optional uint32 rtime32_visibility_start = 18;
 inline bool CClanEventData::_internal_has_rtime32_visibility_start() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_rtime32_visibility_start() const {
@@ -12180,7 +13136,7 @@ inline bool CClanEventData::has_rtime32_visibility_start() const {
 }
 inline void CClanEventData::clear_rtime32_visibility_start() {
   rtime32_visibility_start_ = 0u;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_rtime32_visibility_start() const {
   return rtime32_visibility_start_;
@@ -12190,7 +13146,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::rtime32_visibility_start(
   return _internal_rtime32_visibility_start();
 }
 inline void CClanEventData::_internal_set_rtime32_visibility_start(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00008000u;
   rtime32_visibility_start_ = value;
 }
 inline void CClanEventData::set_rtime32_visibility_start(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12200,7 +13156,7 @@ inline void CClanEventData::set_rtime32_visibility_start(::PROTOBUF_NAMESPACE_ID
 
 // optional uint32 rtime32_visibility_end = 19;
 inline bool CClanEventData::_internal_has_rtime32_visibility_end() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_rtime32_visibility_end() const {
@@ -12208,7 +13164,7 @@ inline bool CClanEventData::has_rtime32_visibility_end() const {
 }
 inline void CClanEventData::clear_rtime32_visibility_end() {
   rtime32_visibility_end_ = 0u;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_rtime32_visibility_end() const {
   return rtime32_visibility_end_;
@@ -12218,7 +13174,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::rtime32_visibility_end() 
   return _internal_rtime32_visibility_end();
 }
 inline void CClanEventData::_internal_set_rtime32_visibility_end(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00010000u;
   rtime32_visibility_end_ = value;
 }
 inline void CClanEventData::set_rtime32_visibility_end(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12228,7 +13184,7 @@ inline void CClanEventData::set_rtime32_visibility_end(::PROTOBUF_NAMESPACE_ID::
 
 // optional uint32 broadcaster_accountid = 20;
 inline bool CClanEventData::_internal_has_broadcaster_accountid() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_broadcaster_accountid() const {
@@ -12236,7 +13192,7 @@ inline bool CClanEventData::has_broadcaster_accountid() const {
 }
 inline void CClanEventData::clear_broadcaster_accountid() {
   broadcaster_accountid_ = 0u;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_broadcaster_accountid() const {
   return broadcaster_accountid_;
@@ -12246,7 +13202,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::broadcaster_accountid() c
   return _internal_broadcaster_accountid();
 }
 inline void CClanEventData::_internal_set_broadcaster_accountid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00020000u;
   broadcaster_accountid_ = value;
 }
 inline void CClanEventData::set_broadcaster_accountid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12256,7 +13212,7 @@ inline void CClanEventData::set_broadcaster_accountid(::PROTOBUF_NAMESPACE_ID::u
 
 // optional uint32 follower_count = 21;
 inline bool CClanEventData::_internal_has_follower_count() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_follower_count() const {
@@ -12264,7 +13220,7 @@ inline bool CClanEventData::has_follower_count() const {
 }
 inline void CClanEventData::clear_follower_count() {
   follower_count_ = 0u;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_follower_count() const {
   return follower_count_;
@@ -12274,7 +13230,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::follower_count() const {
   return _internal_follower_count();
 }
 inline void CClanEventData::_internal_set_follower_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00040000u;
   follower_count_ = value;
 }
 inline void CClanEventData::set_follower_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12284,7 +13240,7 @@ inline void CClanEventData::set_follower_count(::PROTOBUF_NAMESPACE_ID::uint32 v
 
 // optional uint32 ignore_count = 22;
 inline bool CClanEventData::_internal_has_ignore_count() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_ignore_count() const {
@@ -12292,7 +13248,7 @@ inline bool CClanEventData::has_ignore_count() const {
 }
 inline void CClanEventData::clear_ignore_count() {
   ignore_count_ = 0u;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_ignore_count() const {
   return ignore_count_;
@@ -12302,7 +13258,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::ignore_count() const {
   return _internal_ignore_count();
 }
 inline void CClanEventData::_internal_set_ignore_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
   ignore_count_ = value;
 }
 inline void CClanEventData::set_ignore_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12312,7 +13268,7 @@ inline void CClanEventData::set_ignore_count(::PROTOBUF_NAMESPACE_ID::uint32 val
 
 // optional fixed64 forum_topic_id = 23;
 inline bool CClanEventData::_internal_has_forum_topic_id() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_forum_topic_id() const {
@@ -12320,7 +13276,7 @@ inline bool CClanEventData::has_forum_topic_id() const {
 }
 inline void CClanEventData::clear_forum_topic_id() {
   forum_topic_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CClanEventData::_internal_forum_topic_id() const {
   return forum_topic_id_;
@@ -12330,7 +13286,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CClanEventData::forum_topic_id() const {
   return _internal_forum_topic_id();
 }
 inline void CClanEventData::_internal_set_forum_topic_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
   forum_topic_id_ = value;
 }
 inline void CClanEventData::set_forum_topic_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -12340,7 +13296,7 @@ inline void CClanEventData::set_forum_topic_id(::PROTOBUF_NAMESPACE_ID::uint64 v
 
 // optional uint32 rtime32_last_modified = 24;
 inline bool CClanEventData::_internal_has_rtime32_last_modified() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_rtime32_last_modified() const {
@@ -12348,7 +13304,7 @@ inline bool CClanEventData::has_rtime32_last_modified() const {
 }
 inline void CClanEventData::clear_rtime32_last_modified() {
   rtime32_last_modified_ = 0u;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_rtime32_last_modified() const {
   return rtime32_last_modified_;
@@ -12358,7 +13314,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::rtime32_last_modified() c
   return _internal_rtime32_last_modified();
 }
 inline void CClanEventData::_internal_set_rtime32_last_modified(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
   rtime32_last_modified_ = value;
 }
 inline void CClanEventData::set_rtime32_last_modified(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12368,7 +13324,7 @@ inline void CClanEventData::set_rtime32_last_modified(::PROTOBUF_NAMESPACE_ID::u
 
 // optional fixed64 news_post_gid = 25;
 inline bool CClanEventData::_internal_has_news_post_gid() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_news_post_gid() const {
@@ -12376,7 +13332,7 @@ inline bool CClanEventData::has_news_post_gid() const {
 }
 inline void CClanEventData::clear_news_post_gid() {
   news_post_gid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CClanEventData::_internal_news_post_gid() const {
   return news_post_gid_;
@@ -12386,7 +13342,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CClanEventData::news_post_gid() const {
   return _internal_news_post_gid();
 }
 inline void CClanEventData::_internal_set_news_post_gid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
   news_post_gid_ = value;
 }
 inline void CClanEventData::set_news_post_gid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -12396,7 +13352,7 @@ inline void CClanEventData::set_news_post_gid(::PROTOBUF_NAMESPACE_ID::uint64 va
 
 // optional uint32 rtime_mod_reviewed = 26;
 inline bool CClanEventData::_internal_has_rtime_mod_reviewed() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_rtime_mod_reviewed() const {
@@ -12404,7 +13360,7 @@ inline bool CClanEventData::has_rtime_mod_reviewed() const {
 }
 inline void CClanEventData::clear_rtime_mod_reviewed() {
   rtime_mod_reviewed_ = 0u;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_rtime_mod_reviewed() const {
   return rtime_mod_reviewed_;
@@ -12414,7 +13370,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::rtime_mod_reviewed() cons
   return _internal_rtime_mod_reviewed();
 }
 inline void CClanEventData::_internal_set_rtime_mod_reviewed(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
   rtime_mod_reviewed_ = value;
 }
 inline void CClanEventData::set_rtime_mod_reviewed(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12424,7 +13380,7 @@ inline void CClanEventData::set_rtime_mod_reviewed(::PROTOBUF_NAMESPACE_ID::uint
 
 // optional uint32 featured_app_tagid = 27;
 inline bool CClanEventData::_internal_has_featured_app_tagid() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_featured_app_tagid() const {
@@ -12432,7 +13388,7 @@ inline bool CClanEventData::has_featured_app_tagid() const {
 }
 inline void CClanEventData::clear_featured_app_tagid() {
   featured_app_tagid_ = 0u;
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_featured_app_tagid() const {
   return featured_app_tagid_;
@@ -12442,7 +13398,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::featured_app_tagid() cons
   return _internal_featured_app_tagid();
 }
 inline void CClanEventData::_internal_set_featured_app_tagid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
   featured_app_tagid_ = value;
 }
 inline void CClanEventData::set_featured_app_tagid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12499,7 +13455,7 @@ CClanEventData::mutable_referenced_appids() {
 
 // optional uint32 build_id = 29;
 inline bool CClanEventData::_internal_has_build_id() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CClanEventData::has_build_id() const {
@@ -12507,7 +13463,7 @@ inline bool CClanEventData::has_build_id() const {
 }
 inline void CClanEventData::clear_build_id() {
   build_id_ = 0u;
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::_internal_build_id() const {
   return build_id_;
@@ -12517,7 +13473,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClanEventData::build_id() const {
   return _internal_build_id();
 }
 inline void CClanEventData::_internal_set_build_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
   build_id_ = value;
 }
 inline void CClanEventData::set_build_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -12596,6 +13552,34 @@ inline void CClanEventData::set_allocated_build_branch(std::string* build_branch
   build_branch_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), build_branch,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CClanEventData.build_branch)
+}
+
+// optional bool unlisted = 31;
+inline bool CClanEventData::_internal_has_unlisted() const {
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  return value;
+}
+inline bool CClanEventData::has_unlisted() const {
+  return _internal_has_unlisted();
+}
+inline void CClanEventData::clear_unlisted() {
+  unlisted_ = false;
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline bool CClanEventData::_internal_unlisted() const {
+  return unlisted_;
+}
+inline bool CClanEventData::unlisted() const {
+  // @@protoc_insertion_point(field_get:CClanEventData.unlisted)
+  return _internal_unlisted();
+}
+inline void CClanEventData::_internal_set_unlisted(bool value) {
+  _has_bits_[0] |= 0x00200000u;
+  unlisted_ = value;
+}
+inline void CClanEventData::set_unlisted(bool value) {
+  _internal_set_unlisted(value);
+  // @@protoc_insertion_point(field_set:CClanEventData.unlisted)
 }
 
 // -------------------------------------------------------------------
@@ -13960,6 +14944,10 @@ UserContentDescriptorPreferences::content_descriptors_to_exclude() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -317,26 +317,25 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StoreItem_PurchaseOption_Recurr
 constexpr StoreItem_PurchaseOption::StoreItem_PurchaseOption(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : active_discounts_()
-  , user_active_discounts_()
-  , inactive_discounts_()
   , purchase_option_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , formatted_final_price_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , formatted_original_price_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , formatted_price_before_bundle_discount_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , recurrence_info_(nullptr)
   , packageid_(0)
   , bundleid_(0)
   , final_price_in_cents_(PROTOBUF_LONGLONG(0))
   , original_price_in_cents_(PROTOBUF_LONGLONG(0))
-  , user_final_price_in_cents_(PROTOBUF_LONGLONG(0))
   , discount_pct_(0)
-  , user_discount_pct_(0)
-  , hide_discount_pct_for_compliance_(false)
-  , requires_shipping_(false)
   , bundle_discount_pct_(0)
-  , user_can_purchase_(false)
+  , price_before_bundle_discount_(PROTOBUF_LONGLONG(0))
+  , free_to_keep_ends_(0u)
+  , is_free_to_keep_(false)
   , user_can_purchase_as_gift_(false)
   , is_commercial_license_(false)
   , should_suppress_discount_pct_(false)
+  , hide_discount_pct_for_compliance_(false)
+  , requires_shipping_(false)
   , lowest_recent_price_in_cents_(PROTOBUF_LONGLONG(0))
   , included_game_count_(1){}
 struct StoreItem_PurchaseOptionDefaultTypeInternal {
@@ -396,7 +395,9 @@ constexpr StoreItem_Trailers_Trailer::StoreItem_Trailers_Trailer(
   , trailer_url_format_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , screenshot_medium_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , screenshot_full_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , trailer_base_id_(0){}
+  , trailer_base_id_(0)
+  , trailer_category_(0)
+{}
 struct StoreItem_Trailers_TrailerDefaultTypeInternal {
   constexpr StoreItem_Trailers_TrailerDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -505,9 +506,10 @@ constexpr StoreItem::StoreItem(
   , is_early_access_(false)
   , type_(0)
 
-  , game_count_(0u)
+  , is_coming_soon_(false)
   , unlisted_(false)
   , is_free_temporarily_(false)
+  , game_count_(0u)
   , item_type_(-1)
 {}
 struct StoreItemDefaultTypeInternal {
@@ -591,11 +593,13 @@ constexpr CStoreBrowse_GetStoreCategories_Response_Category::CStoreBrowse_GetSto
   : internal_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , display_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , image_url_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , edit_url_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , categoryid_(0u)
   , type_(0)
 
   , show_in_search_(false)
-  , computed_(false){}
+  , computed_(false)
+  , edit_sort_order_(0u){}
 struct CStoreBrowse_GetStoreCategories_Response_CategoryDefaultTypeInternal {
   constexpr CStoreBrowse_GetStoreCategories_Response_CategoryDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -810,7 +814,7 @@ struct CStoreBrowse_GetHardwareItems_ResponseDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStoreBrowse_GetHardwareItems_ResponseDefaultTypeInternal _CStoreBrowse_GetHardwareItems_Response_default_instance_;
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fstorebrowse_2esteamclient_2eproto[47];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[6];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[7];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[1];
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -1105,16 +1109,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, purchase_option_name_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, final_price_in_cents_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, original_price_in_cents_),
-  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, user_final_price_in_cents_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, formatted_final_price_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, formatted_original_price_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, discount_pct_),
-  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, user_discount_pct_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, bundle_discount_pct_),
+  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, is_free_to_keep_),
+  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, price_before_bundle_discount_),
+  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, formatted_price_before_bundle_discount_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, active_discounts_),
-  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, user_active_discounts_),
-  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, inactive_discounts_),
-  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, user_can_purchase_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, user_can_purchase_as_gift_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, is_commercial_license_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, should_suppress_discount_pct_),
@@ -1123,10 +1125,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, lowest_recent_price_in_cents_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, requires_shipping_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, recurrence_info_),
-  4,
+  PROTOBUF_FIELD_OFFSET(::StoreItem_PurchaseOption, free_to_keep_ends_),
   5,
-  0,
   6,
+  0,
   7,
   8,
   1,
@@ -1134,18 +1136,18 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   9,
   10,
   13,
-  ~0u,
-  ~0u,
+  11,
+  3,
   ~0u,
   14,
   15,
   16,
   17,
-  11,
+  20,
   19,
   18,
+  4,
   12,
-  3,
   PROTOBUF_FIELD_OFFSET(::StoreItem_Screenshots_Screenshot, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_Screenshots_Screenshot, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1178,6 +1180,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::StoreItem_Trailers_Trailer, trailer_name_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_Trailers_Trailer, trailer_url_format_),
+  PROTOBUF_FIELD_OFFSET(::StoreItem_Trailers_Trailer, trailer_category_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_Trailers_Trailer, trailer_480p_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_Trailers_Trailer, trailer_max_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_Trailers_Trailer, microtrailer_),
@@ -1186,6 +1189,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   PROTOBUF_FIELD_OFFSET(::StoreItem_Trailers_Trailer, trailer_base_id_),
   0,
   1,
+  5,
   ~0u,
   ~0u,
   ~0u,
@@ -1266,6 +1270,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   PROTOBUF_FIELD_OFFSET(::StoreItem, release_),
   PROTOBUF_FIELD_OFFSET(::StoreItem, platforms_),
   PROTOBUF_FIELD_OFFSET(::StoreItem, game_rating_),
+  PROTOBUF_FIELD_OFFSET(::StoreItem, is_coming_soon_),
   PROTOBUF_FIELD_OFFSET(::StoreItem, best_purchase_option_),
   PROTOBUF_FIELD_OFFSET(::StoreItem, purchase_options_),
   PROTOBUF_FIELD_OFFSET(::StoreItem, accessories_),
@@ -1283,7 +1288,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   PROTOBUF_FIELD_OFFSET(::StoreItem, assets_without_overrides_),
   PROTOBUF_FIELD_OFFSET(::StoreItem, user_filter_failure_),
   PROTOBUF_FIELD_OFFSET(::StoreItem, links_),
-  32,
+  33,
   21,
   22,
   24,
@@ -1308,6 +1313,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   11,
   12,
   13,
+  29,
   14,
   ~0u,
   ~0u,
@@ -1318,7 +1324,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   2,
   18,
   30,
-  29,
+  32,
   3,
   4,
   31,
@@ -1400,13 +1406,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetStoreCategories_Response_Category, image_url_),
   PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetStoreCategories_Response_Category, show_in_search_),
   PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetStoreCategories_Response_Category, computed_),
-  3,
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetStoreCategories_Response_Category, edit_url_),
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetStoreCategories_Response_Category, edit_sort_order_),
   4,
+  5,
   0,
   1,
   2,
-  5,
   6,
+  7,
+  3,
+  8,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetStoreCategories_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1592,35 +1602,35 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 238, 248, sizeof(::StoreItem_Platforms)},
   { 253, 261, sizeof(::StoreItem_PurchaseOption_Discount)},
   { 264, 275, sizeof(::StoreItem_PurchaseOption_RecurrenceInfo)},
-  { 281, 309, sizeof(::StoreItem_PurchaseOption)},
-  { 332, 339, sizeof(::StoreItem_Screenshots_Screenshot)},
-  { 341, -1, sizeof(::StoreItem_Screenshots)},
-  { 348, 355, sizeof(::StoreItem_Trailers_VideoSource)},
-  { 357, 370, sizeof(::StoreItem_Trailers_Trailer)},
+  { 281, 308, sizeof(::StoreItem_PurchaseOption)},
+  { 330, 337, sizeof(::StoreItem_Screenshots_Screenshot)},
+  { 339, -1, sizeof(::StoreItem_Screenshots)},
+  { 346, 353, sizeof(::StoreItem_Trailers_VideoSource)},
+  { 355, 369, sizeof(::StoreItem_Trailers_Trailer)},
   { 378, -1, sizeof(::StoreItem_Trailers)},
   { 385, 395, sizeof(::StoreItem_SupportedLanguage)},
   { 400, 408, sizeof(::StoreItem_FreeWeekend)},
   { 411, 419, sizeof(::StoreItem_Link)},
-  { 422, 469, sizeof(::StoreItem)},
-  { 511, 524, sizeof(::StoreGameRating)},
-  { 532, 548, sizeof(::StoreBrowseFilterFailure)},
-  { 559, -1, sizeof(::CStoreBrowse_GetItems_Response)},
-  { 565, 572, sizeof(::CStoreBrowse_GetStoreCategories_Request)},
-  { 574, 586, sizeof(::CStoreBrowse_GetStoreCategories_Response_Category)},
-  { 593, -1, sizeof(::CStoreBrowse_GetStoreCategories_Response)},
-  { 599, 606, sizeof(::CStoreBrowse_GetPriceStops_Request)},
-  { 608, 615, sizeof(::CStoreBrowse_GetPriceStops_Response_PriceStop)},
-  { 617, 624, sizeof(::CStoreBrowse_GetPriceStops_Response)},
-  { 626, 635, sizeof(::CStoreBrowse_GetDLCForApps_Request)},
-  { 639, 651, sizeof(::CStoreBrowse_GetDLCForApps_Response_DLCData)},
-  { 658, 666, sizeof(::CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp)},
-  { 669, -1, sizeof(::CStoreBrowse_GetDLCForApps_Response)},
-  { 676, 686, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Request)},
-  { 691, 698, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Response_DLCList)},
-  { 700, -1, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Response)},
-  { 706, 713, sizeof(::CStoreBrowse_GetHardwareItems_Request)},
-  { 715, 736, sizeof(::CHardwarePackageDetails)},
-  { 752, -1, sizeof(::CStoreBrowse_GetHardwareItems_Response)},
+  { 422, 470, sizeof(::StoreItem)},
+  { 513, 526, sizeof(::StoreGameRating)},
+  { 534, 550, sizeof(::StoreBrowseFilterFailure)},
+  { 561, -1, sizeof(::CStoreBrowse_GetItems_Response)},
+  { 567, 574, sizeof(::CStoreBrowse_GetStoreCategories_Request)},
+  { 576, 590, sizeof(::CStoreBrowse_GetStoreCategories_Response_Category)},
+  { 599, -1, sizeof(::CStoreBrowse_GetStoreCategories_Response)},
+  { 605, 612, sizeof(::CStoreBrowse_GetPriceStops_Request)},
+  { 614, 621, sizeof(::CStoreBrowse_GetPriceStops_Response_PriceStop)},
+  { 623, 630, sizeof(::CStoreBrowse_GetPriceStops_Response)},
+  { 632, 641, sizeof(::CStoreBrowse_GetDLCForApps_Request)},
+  { 645, 657, sizeof(::CStoreBrowse_GetDLCForApps_Response_DLCData)},
+  { 664, 672, sizeof(::CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp)},
+  { 675, -1, sizeof(::CStoreBrowse_GetDLCForApps_Response)},
+  { 682, 692, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Request)},
+  { 697, 704, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Response_DLCList)},
+  { 706, -1, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Response)},
+  { 712, 719, sizeof(::CStoreBrowse_GetHardwareItems_Request)},
+  { 721, 742, sizeof(::CHardwarePackageDetails)},
+  { 758, -1, sizeof(::CStoreBrowse_GetHardwareItems_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1702,7 +1712,7 @@ const char descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2
   "\"\223\001\n\035CStoreBrowse_GetItems_Request\022\031\n\003id"
   "s\030\001 \003(\0132\014.StoreItemID\022$\n\007context\030\002 \001(\0132\023"
   ".StoreBrowseContext\0221\n\014data_request\030\003 \001("
-  "\0132\033.StoreBrowseItemDataRequest\"\370+\n\tStore"
+  "\0132\033.StoreBrowseItemDataRequest\"\205,\n\tStore"
   "Item\022:\n\titem_type\030\001 \001(\0162\017.EStoreItemType"
   ":\026EStoreItemType_Invalid\022\n\n\002id\030\002 \001(\r\022\017\n\007"
   "success\030\003 \001(\r\022\017\n\007visible\030\004 \001(\010\022*\n\"unvail"
@@ -1724,268 +1734,278 @@ const char descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2
   "\'\n\007release\030\037 \001(\0132\026.StoreItem.ReleaseInfo"
   "\022\'\n\tplatforms\030  \001(\0132\024.StoreItem.Platform"
   "s\022%\n\013game_rating\030! \001(\0132\020.StoreGameRating"
-  "\0227\n\024best_purchase_option\030( \001(\0132\031.StoreIt"
-  "em.PurchaseOption\0223\n\020purchase_options\030) "
-  "\003(\0132\031.StoreItem.PurchaseOption\022.\n\013access"
-  "ories\030* \003(\0132\031.StoreItem.PurchaseOption\0227"
-  "\n\024self_purchase_option\030+ \001(\0132\031.StoreItem"
-  ".PurchaseOption\022+\n\013screenshots\0302 \001(\0132\026.S"
-  "toreItem.Screenshots\022%\n\010trailers\0303 \001(\0132\023"
-  ".StoreItem.Trailers\0229\n\023supported_languag"
-  "es\0304 \003(\0132\034.StoreItem.SupportedLanguage\022\037"
-  "\n\027store_url_path_override\0305 \001(\t\022,\n\014free_"
-  "weekend\0306 \001(\0132\026.StoreItem.FreeWeekend\022\020\n"
-  "\010unlisted\0307 \001(\010\022\022\n\ngame_count\0308 \001(\r\022\025\n\ri"
-  "nternal_name\0309 \001(\t\022\030\n\020full_description\030:"
-  " \001(\t\022\033\n\023is_free_temporarily\030; \001(\010\0223\n\030ass"
-  "ets_without_overrides\030< \001(\0132\021.StoreItem."
-  "Assets\0226\n\023user_filter_failure\030F \001(\0132\031.St"
-  "oreBrowseFilterFailure\022\036\n\005links\030G \003(\0132\017."
-  "StoreItem.Link\032W\n\014RelatedItems\022\024\n\014parent"
-  "_appid\030\001 \001(\r\022\022\n\ndemo_appid\030\002 \003(\r\022\035\n\025stan"
-  "dalone_demo_appid\030\003 \003(\r\032Y\n\rIncludedItems"
-  "\022!\n\rincluded_apps\030\001 \003(\0132\n.StoreItem\022%\n\021i"
-  "ncluded_packages\030\002 \003(\0132\n.StoreItem\032o\n\nCa"
-  "tegories\022$\n\034supported_player_categoryids"
-  "\030\002 \003(\r\022\033\n\023feature_categoryids\030\003 \003(\r\022\036\n\026c"
-  "ontroller_categoryids\030\004 \003(\r\032\260\002\n\007Reviews\022"
-  "\?\n\020summary_filtered\030\001 \001(\0132%.StoreItem.Re"
-  "views.StoreReviewSummary\022A\n\022summary_unfi"
-  "ltered\030\002 \001(\0132%.StoreItem.Reviews.StoreRe"
-  "viewSummary\032\240\001\n\022StoreReviewSummary\022\024\n\014re"
-  "view_count\030\001 \001(\r\022\030\n\020percent_positive\030\002 \001"
-  "(\005\022>\n\014review_score\030\003 \001(\0162\021.EUserReviewSc"
-  "ore:\025EUserReviewScore_None\022\032\n\022review_sco"
-  "re_label\030\004 \001(\t\032\260\002\n\tBasicInfo\022\031\n\021short_de"
-  "scription\030\001 \001(\t\0228\n\npublishers\030\002 \003(\0132$.St"
-  "oreItem.BasicInfo.CreatorHomeLink\0228\n\ndev"
-  "elopers\030\003 \003(\0132$.StoreItem.BasicInfo.Crea"
-  "torHomeLink\0228\n\nfranchises\030\004 \003(\0132$.StoreI"
-  "tem.BasicInfo.CreatorHomeLink\022\030\n\020capsule"
-  "_headline\030\005 \001(\t\032@\n\017CreatorHomeLink\022\014\n\004na"
-  "me\030\001 \001(\t\022\037\n\027creator_clan_account_id\030\002 \001("
-  "\r\032$\n\003Tag\022\r\n\005tagid\030\001 \001(\r\022\016\n\006weight\030\002 \001(\r\032"
-  "\320\002\n\006Assets\022\030\n\020asset_url_format\030\001 \001(\t\022\024\n\014"
-  "main_capsule\030\002 \001(\t\022\025\n\rsmall_capsule\030\003 \001("
-  "\t\022\016\n\006header\030\004 \001(\t\022\026\n\016package_header\030\005 \001("
-  "\t\022\027\n\017page_background\030\006 \001(\t\022\024\n\014hero_capsu"
-  "le\030\007 \001(\t\022\027\n\017hero_capsule_2x\030\010 \001(\t\022\027\n\017lib"
-  "rary_capsule\030\t \001(\t\022\032\n\022library_capsule_2x"
-  "\030\n \001(\t\022\024\n\014library_hero\030\013 \001(\t\022\027\n\017library_"
-  "hero_2x\030\014 \001(\t\022\026\n\016community_icon\030\r \001(\t\022\023\n"
-  "\013clan_avatar\030\016 \001(\t\032\314\002\n\013ReleaseInfo\022\032\n\022st"
-  "eam_release_date\030\001 \001(\r\022\035\n\025original_relea"
-  "se_date\030\002 \001(\r\022#\n\033original_steam_release_"
-  "date\030\003 \001(\r\022\026\n\016is_coming_soon\030\004 \001(\010\022\022\n\nis"
-  "_preload\030\005 \001(\010\022#\n\033custom_release_date_me"
-  "ssage\030\006 \001(\t\022 \n\030is_abridged_release_date\030"
-  "\007 \001(\010\022\033\n\023coming_soon_display\030\010 \001(\t\022\027\n\017is"
-  "_early_access\030\n \001(\010\022\030\n\020mac_release_date\030"
-  "\024 \001(\r\022\032\n\022linux_release_date\030\025 \001(\r\032\341\002\n\tPl"
-  "atforms\022\017\n\007windows\030\001 \001(\010\022\013\n\003mac\030\002 \001(\010\022\025\n"
-  "\rsteamos_linux\030\003 \001(\010\0222\n\nvr_support\030\n \001(\013"
-  "2\036.StoreItem.Platforms.VRSupport\022k\n\030stea"
-  "m_deccompat_category\030\013 \001(\0162 .ESteamDeckC"
-  "ompatibilityCategory:\'ESteamDeckCompatib"
-  "ilityCategory_Unknown\032~\n\tVRSupport\022\r\n\005vr"
-  "hmd\030\001 \001(\010\022\022\n\nvrhmd_only\030\002 \001(\010\022\020\n\010htc_viv"
-  "e\030( \001(\010\022\023\n\013oculus_rift\030) \001(\010\022\022\n\nwindows_"
-  "mr\030* \001(\010\022\023\n\013valve_index\030+ \001(\010\032\372\010\n\016Purcha"
-  "seOption\022\021\n\tpackageid\030\001 \001(\005\022\020\n\010bundleid\030"
-  "\002 \001(\005\022\034\n\024purchase_option_name\030\003 \001(\t\022\034\n\024f"
-  "inal_price_in_cents\030\005 \001(\003\022\037\n\027original_pr"
-  "ice_in_cents\030\006 \001(\003\022!\n\031user_final_price_i"
-  "n_cents\030\007 \001(\003\022\035\n\025formatted_final_price\030\010"
-  " \001(\t\022 \n\030formatted_original_price\030\t \001(\t\022\024"
-  "\n\014discount_pct\030\n \001(\005\022\031\n\021user_discount_pc"
-  "t\030\013 \001(\005\022\033\n\023bundle_discount_pct\030\014 \001(\005\022<\n\020"
-  "active_discounts\030\024 \003(\0132\".StoreItem.Purch"
-  "aseOption.Discount\022A\n\025user_active_discou"
-  "nts\030\025 \003(\0132\".StoreItem.PurchaseOption.Dis"
-  "count\022>\n\022inactive_discounts\030\026 \003(\0132\".Stor"
-  "eItem.PurchaseOption.Discount\022\031\n\021user_ca"
-  "n_purchase\030\036 \001(\010\022!\n\031user_can_purchase_as"
-  "_gift\030\037 \001(\010\022\035\n\025is_commercial_license\030( \001"
-  "(\010\022$\n\034should_suppress_discount_pct\030) \001(\010"
-  "\022/\n hide_discount_pct_for_compliance\030* \001"
-  "(\010:\005false\022\036\n\023included_game_count\030+ \001(\005:\001"
-  "1\022$\n\034lowest_recent_price_in_cents\030, \001(\003\022"
-  "\031\n\021requires_shipping\030- \001(\010\022A\n\017recurrence"
-  "_info\030. \001(\0132(.StoreItem.PurchaseOption.R"
-  "ecurrenceInfo\032\\\n\010Discount\022\027\n\017discount_am"
-  "ount\030\001 \001(\003\022\034\n\024discount_description\030\002 \001(\t"
-  "\022\031\n\021discount_end_date\030\003 \001(\r\032\274\001\n\016Recurren"
-  "ceInfo\022\021\n\tpackageid\030\001 \001(\005\022\036\n\026billing_agr"
-  "eement_type\030\002 \001(\005\022\031\n\021renewal_time_unit\030\003"
-  " \001(\005\022\033\n\023renewal_time_period\030\004 \001(\005\022\036\n\026ren"
-  "ewal_price_in_cents\030\005 \001(\003\022\037\n\027formatted_r"
-  "enewal_price\030\006 \001(\t\032\306\001\n\013Screenshots\022\?\n\024al"
-  "l_ages_screenshots\030\002 \003(\0132!.StoreItem.Scr"
-  "eenshots.Screenshot\022E\n\032mature_content_sc"
-  "reenshots\030\003 \003(\0132!.StoreItem.Screenshots."
-  "Screenshot\032/\n\nScreenshot\022\020\n\010filename\030\001 \001"
-  "(\t\022\017\n\007ordinal\030\002 \001(\005\032\316\003\n\010Trailers\022/\n\nhigh"
-  "lights\030\001 \003(\0132\033.StoreItem.Trailers.Traile"
-  "r\0223\n\016other_trailers\030\002 \003(\0132\033.StoreItem.Tr"
-  "ailers.Trailer\032-\n\013VideoSource\022\020\n\010filenam"
-  "e\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\032\254\002\n\007Trailer\022\024\n\014tra"
-  "iler_name\030\001 \001(\t\022\032\n\022trailer_url_format\030\002 "
-  "\001(\t\0225\n\014trailer_480p\030\003 \003(\0132\037.StoreItem.Tr"
-  "ailers.VideoSource\0224\n\013trailer_max\030\004 \003(\0132"
-  "\037.StoreItem.Trailers.VideoSource\0225\n\014micr"
-  "otrailer\030\005 \003(\0132\037.StoreItem.Trailers.Vide"
-  "oSource\022\031\n\021screenshot_medium\030\n \001(\t\022\027\n\017sc"
-  "reenshot_full\030\013 \001(\t\022\027\n\017trailer_base_id\030\014"
-  " \001(\005\032\205\001\n\021SupportedLanguage\022\025\n\telanguage\030"
-  "\001 \001(\005:\002-1\022\037\n\023eadditionallanguage\030\005 \001(\005:\002"
-  "-1\022\021\n\tsupported\030\002 \001(\010\022\022\n\nfull_audio\030\003 \001("
-  "\010\022\021\n\tsubtitles\030\004 \001(\010\032A\n\013FreeWeekend\022\022\n\ns"
-  "tart_time\030\001 \001(\r\022\020\n\010end_time\030\002 \001(\r\022\014\n\004tex"
-  "t\030\003 \001(\t\032X\n\004Link\0225\n\007lintype\030\001 \001(\0162\017.EStor"
-  "eLinkType:\023EStoreLinkType_None\022\013\n\003url\030\002 "
-  "\001(\t\022\014\n\004text\030\003 \001(\t\"\267\001\n\017StoreGameRating\022\014\n"
-  "\004type\030\001 \001(\t\022\016\n\006rating\030\002 \001(\t\022\023\n\013descripto"
-  "rs\030\003 \003(\t\022\034\n\024interactive_elements\030\004 \001(\t\022\024"
-  "\n\014required_age\030\n \001(\005\022\024\n\014use_age_gate\030\013 \001"
-  "(\010\022\021\n\timage_url\030\024 \001(\t\022\024\n\014image_target\030\025 "
-  "\001(\t\"\237\003\n\030StoreBrowseFilterFailure\022R\n\016filt"
-  "er_failure\030\001 \001(\0162\032.EStoreBrowseFilterFai"
-  "lure:\036EStoreBrowseFilterFailure_None\022\025\n\r"
-  "already_owned\030\005 \001(\010\022\023\n\013on_wishlist\030\006 \001(\010"
-  "\022\017\n\007ignored\030\007 \001(\010\022\035\n\025not_in_users_langua"
-  "ge\030\n \001(\010\022\035\n\025not_on_users_platform\030\013 \001(\010\022"
-  "\033\n\023demo_for_owned_game\030\014 \001(\010\022\034\n\024dlc_for_"
-  "unowned_game\030\r \001(\010\022!\n\031nonpreferred_produ"
-  "ct_type\030\024 \001(\010\022\027\n\017excluded_tagids\030\025 \003(\r\022="
-  "\n\036excluded_content_descriptorids\030\036 \003(\0162\025"
-  ".EContentDescriptorID\"A\n\036CStoreBrowse_Ge"
-  "tItems_Response\022\037\n\013store_items\030\001 \003(\0132\n.S"
-  "toreItem\"R\n\'CStoreBrowse_GetStoreCategor"
-  "ies_Request\022\020\n\010language\030\001 \001(\t\022\025\n\telangua"
-  "ge\030\002 \001(\005:\002-1\"\275\002\n(CStoreBrowse_GetStoreCa"
-  "tegories_Response\022F\n\ncategories\030\001 \003(\01322."
-  "CStoreBrowse_GetStoreCategories_Response"
-  ".Category\032\310\001\n\010Category\022\022\n\ncategoryid\030\001 \001"
-  "(\r\022>\n\004type\030\002 \001(\0162\023.EStoreCategoryType:\033E"
-  "StoreCategoryType_Category\022\025\n\rinternal_n"
-  "ame\030\003 \001(\t\022\024\n\014display_name\030\004 \001(\t\022\021\n\timage"
-  "_url\030\005 \001(\t\022\026\n\016show_in_search\030\006 \001(\010\022\020\n\010co"
-  "mputed\030\007 \001(\010\"Q\n\"CStoreBrowse_GetPriceSto"
-  "ps_Request\022\024\n\014country_code\030\001 \001(\t\022\025\n\rcurr"
-  "ency_code\030\002 \001(\t\"\301\001\n#CStoreBrowse_GetPric"
-  "eStops_Response\022C\n\013price_stops\030\001 \003(\0132..C"
-  "StoreBrowse_GetPriceStops_Response.Price"
-  "Stop\022\025\n\rcurrency_code\030\002 \001(\t\032>\n\tPriceStop"
-  "\022\030\n\020formatted_amount\030\001 \001(\t\022\027\n\017amount_in_"
-  "cents\030\002 \001(\003\"\247\001\n\"CStoreBrowse_GetDLCForAp"
-  "ps_Request\022$\n\007context\030\001 \001(\0132\023.StoreBrows"
-  "eContext\022,\n\021store_page_filter\030\002 \001(\0132\021.CS"
-  "torePageFilter\022\034\n\006appids\030\003 \003(\0132\014.StoreIt"
-  "emID\022\017\n\007steamid\030\004 \001(\004\"\376\002\n#CStoreBrowse_G"
-  "etDLCForApps_Response\022>\n\010dlc_data\030\001 \003(\0132"
-  ",.CStoreBrowse_GetDLCForApps_Response.DL"
-  "CData\022E\n\010playtime\030\002 \003(\01323.CStoreBrowse_G"
-  "etDLCForApps_Response.PlaytimeForApp\032\207\001\n"
-  "\007DLCData\022\r\n\005appid\030\001 \001(\r\022\023\n\013parentappid\030\002"
-  " \001(\r\022\024\n\014release_date\030\003 \001(\r\022\023\n\013coming_soo"
-  "n\030\004 \001(\010\022\r\n\005price\030\005 \001(\003\022\020\n\010discount\030\006 \001(\r"
-  "\022\014\n\004free\030\007 \001(\010\032F\n\016PlaytimeForApp\022\r\n\005appi"
-  "d\030\001 \001(\r\022\020\n\010playtime\030\002 \001(\r\022\023\n\013last_played"
-  "\030\003 \001(\r\"\253\001\n&CStoreBrowse_GetDLCForAppsSol"
-  "r_Request\022$\n\007context\030\001 \001(\0132\023.StoreBrowse"
-  "Context\022\016\n\006appids\030\002 \003(\r\022\016\n\006flavor\030\003 \001(\t\022"
-  "\r\n\005count\030\004 \001(\r\022,\n\021store_page_filter\030\005 \001("
-  "\0132\021.CStorePageFilter\"\243\001\n\'CStoreBrowse_Ge"
-  "tDLCForAppsSolr_Response\022C\n\tdlc_lists\030\001 "
-  "\003(\01320.CStoreBrowse_GetDLCForAppsSolr_Res"
-  "ponse.DLCList\0323\n\007DLCList\022\024\n\014parent_appid"
-  "\030\001 \001(\r\022\022\n\ndlc_appids\030\002 \003(\r\"`\n%CStoreBrow"
-  "se_GetHardwareItems_Request\022\021\n\tpackageid"
-  "\030\001 \003(\r\022$\n\007context\030\002 \001(\0132\023.StoreBrowseCon"
-  "text\"\224\004\n\027CHardwarePackageDetails\022\021\n\tpack"
-  "ageid\030\001 \001(\r\022\033\n\023inventory_available\030\003 \001(\010"
-  "\022\033\n\023high_pending_orders\030\004 \001(\010\022*\n\"account"
-  "_restricted_from_purchasing\030\005 \001(\010\022\034\n\024req"
-  "uires_reservation\030\006 \001(\010\022$\n\034rtime_estimat"
-  "ed_notification\030\007 \001(\r\022\031\n\021notificaton_tok"
-  "en\030\010 \001(\t\022\031\n\021reservation_state\030\t \001(\005\022\017\n\007e"
-  "xpired\030\n \001(\010\022\024\n\014time_expires\030\013 \001(\r\022\025\n\rti"
-  "me_reserved\030\014 \001(\r\022\037\n\027allow_quantity_purc"
-  "hase\030\r \001(\010\022!\n\031max_quantity_per_purchase\030"
-  "\016 \001(\005\022!\n\031allow_purchase_in_country\030\017 \001(\010"
-  "\0220\n(estimated_delivery_soonest_business_"
-  "days\030\021 \001(\r\022/\n\'estimated_delivery_latest_"
-  "business_days\030\022 \001(\r\"S\n&CStoreBrowse_GetH"
-  "ardwareItems_Response\022)\n\007details\030\001 \003(\0132\030"
-  ".CHardwarePackageDetails*\360\001\n\016EStoreItemT"
-  "ype\022#\n\026EStoreItemType_Invalid\020\377\377\377\377\377\377\377\377\377\001"
-  "\022\026\n\022EStoreItemType_App\020\000\022\032\n\026EStoreItemTy"
-  "pe_Package\020\001\022\031\n\025EStoreItemType_Bundle\020\002\022"
-  "\026\n\022EStoreItemType_Mtx\020\003\022\026\n\022EStoreItemTyp"
-  "e_Tag\020\004\022\032\n\026EStoreItemType_Creator\020\005\022\036\n\032E"
-  "StoreItemType_HubCategory\020\006*\215\003\n\rEStoreAp"
-  "pType\022\026\n\022EStoreAppType_Game\020\000\022\026\n\022EStoreA"
-  "ppType_Demo\020\001\022\025\n\021EStoreAppType_Mod\020\002\022\027\n\023"
-  "EStoreAppType_Movie\020\003\022\025\n\021EStoreAppType_D"
-  "LC\020\004\022\027\n\023EStoreAppType_Guide\020\005\022\032\n\026EStoreA"
-  "ppType_Software\020\006\022\027\n\023EStoreAppType_Video"
-  "\020\007\022\030\n\024EStoreAppType_Series\020\010\022\031\n\025EStoreAp"
-  "pType_Episode\020\t\022\032\n\026EStoreAppType_Hardwar"
-  "e\020\n\022\027\n\023EStoreAppType_Music\020\013\022\026\n\022EStoreAp"
-  "pType_Beta\020\014\022\026\n\022EStoreAppType_Tool\020\r\022\035\n\031"
-  "EStoreAppType_Advertising\020\016*\361\002\n\020EUserRev"
-  "iewScore\022\031\n\025EUserReviewScore_None\020\000\022+\n\'E"
-  "UserReviewScore_OverwhelminglyNegative\020\001"
-  "\022!\n\035EUserReviewScore_VeryNegative\020\002\022\035\n\031E"
-  "UserReviewScore_Negative\020\003\022#\n\037EUserRevie"
-  "wScore_MostlyNegative\020\004\022\032\n\026EUserReviewSc"
-  "ore_Mixed\020\005\022#\n\037EUserReviewScore_MostlyPo"
-  "sitive\020\006\022\035\n\031EUserReviewScore_Positive\020\007\022"
-  "!\n\035EUserReviewScore_VeryPositive\020\010\022+\n\'EU"
-  "serReviewScore_OverwhelminglyPositive\020\t*"
-  "\233\002\n\031EStoreBrowseFilterFailure\022\"\n\036EStoreB"
-  "rowseFilterFailure_None\020\000\022\'\n#EStoreBrows"
-  "eFilterFailure_Redundant\020\n\022*\n&EStoreBrow"
-  "seFilterFailure_NotPreferred\020\024\022+\n\'EStore"
-  "BrowseFilterFailure_NotInterested\020\036\022-\n)E"
-  "StoreBrowseFilterFailure_UnwantedContent"
-  "\020(\022)\n%EStoreBrowseFilterFailure_Unavaila"
-  "ble\0202*\253\004\n\016EStoreLinkType\022\027\n\023EStoreLinkTy"
-  "pe_None\020\000\022\032\n\026EStoreLinkType_YouTube\020\001\022\033\n"
-  "\027EStoreLinkType_Facebook\020\002\022\032\n\026EStoreLink"
-  "Type_Twitter\020\003\022\031\n\025EStoreLinkType_Twitch\020"
-  "\004\022\032\n\026EStoreLinkType_Discord\020\005\022\025\n\021EStoreL"
-  "inkType_QQ\020\006\022\025\n\021EStoreLinkType_VK\020\007\022\033\n\027E"
-  "StoreLinkType_Bilibili\020\010\022\030\n\024EStoreLinkTy"
-  "pe_Weibo\020\t\022\031\n\025EStoreLinkType_Reddit\020\n\022\034\n"
-  "\030EStoreLinkType_Instagram\020\013\022\031\n\025EStoreLin"
-  "kType_Tumblr\020\014\022\030\n\024EStoreLinkType_Tieba\020\r"
-  "\022\031\n\025EStoreLinkType_Tiktok\020\016\022\033\n\027EStoreLin"
-  "kType_Telegram\020\017\022\033\n\027EStoreLinkType_Linke"
-  "dIn\020\020\022\031\n\025EStoreLinkType_WeChat\020\021\022\031\n\025ESto"
-  "reLinkType_QQLink\020\022\022\026\n\022EStoreLinkType_MA"
-  "X\020\023*\350\001\n\022EStoreCategoryType\022\037\n\033EStoreCate"
-  "goryType_Category\020\000\022\'\n#EStoreCategoryTyp"
-  "e_SupportedPlayers\020\001\022\036\n\032EStoreCategoryTy"
-  "pe_Feature\020\002\022(\n$EStoreCategoryType_Contr"
-  "ollerSupport\020\003\022\"\n\036EStoreCategoryType_Clo"
-  "udGaming\020\004\022\032\n\026EStoreCategoryType_MAX\020\0052\312"
-  "\004\n\013StoreBrowse\022K\n\010GetItems\022\036.CStoreBrows"
-  "e_GetItems_Request\032\037.CStoreBrowse_GetIte"
-  "ms_Response\022i\n\022GetStoreCategories\022(.CSto"
-  "reBrowse_GetStoreCategories_Request\032).CS"
-  "toreBrowse_GetStoreCategories_Response\022Z"
-  "\n\rGetPriceStops\022#.CStoreBrowse_GetPriceS"
-  "tops_Request\032$.CStoreBrowse_GetPriceStop"
-  "s_Response\022Z\n\rGetDLCForApps\022#.CStoreBrow"
-  "se_GetDLCForApps_Request\032$.CStoreBrowse_"
-  "GetDLCForApps_Response\022f\n\021GetDLCForAppsS"
-  "olr\022\'.CStoreBrowse_GetDLCForAppsSolr_Req"
-  "uest\032(.CStoreBrowse_GetDLCForAppsSolr_Re"
-  "sponse\022c\n\020GetHardwareItems\022&.CStoreBrows"
-  "e_GetHardwareItems_Request\032\'.CStoreBrows"
-  "e_GetHardwareItems_ResponseB\035\200\001\001\252\002\027OpenS"
-  "teamworks.Protobuf"
+  "\022\026\n\016is_coming_soon\030\" \001(\010\0227\n\024best_purchas"
+  "e_option\030( \001(\0132\031.StoreItem.PurchaseOptio"
+  "n\0223\n\020purchase_options\030) \003(\0132\031.StoreItem."
+  "PurchaseOption\022.\n\013accessories\030* \003(\0132\031.St"
+  "oreItem.PurchaseOption\0227\n\024self_purchase_"
+  "option\030+ \001(\0132\031.StoreItem.PurchaseOption\022"
+  "+\n\013screenshots\0302 \001(\0132\026.StoreItem.Screens"
+  "hots\022%\n\010trailers\0303 \001(\0132\023.StoreItem.Trail"
+  "ers\0229\n\023supported_languages\0304 \003(\0132\034.Store"
+  "Item.SupportedLanguage\022\037\n\027store_url_path"
+  "_override\0305 \001(\t\022,\n\014free_weekend\0306 \001(\0132\026."
+  "StoreItem.FreeWeekend\022\020\n\010unlisted\0307 \001(\010\022"
+  "\022\n\ngame_count\0308 \001(\r\022\025\n\rinternal_name\0309 \001"
+  "(\t\022\030\n\020full_description\030: \001(\t\022\033\n\023is_free_"
+  "temporarily\030; \001(\010\0223\n\030assets_without_over"
+  "rides\030< \001(\0132\021.StoreItem.Assets\0226\n\023user_f"
+  "ilter_failure\030F \001(\0132\031.StoreBrowseFilterF"
+  "ailure\022\036\n\005links\030G \003(\0132\017.StoreItem.Link\032W"
+  "\n\014RelatedItems\022\024\n\014parent_appid\030\001 \001(\r\022\022\n\n"
+  "demo_appid\030\002 \003(\r\022\035\n\025standalone_demo_appi"
+  "d\030\003 \003(\r\032Y\n\rIncludedItems\022!\n\rincluded_app"
+  "s\030\001 \003(\0132\n.StoreItem\022%\n\021included_packages"
+  "\030\002 \003(\0132\n.StoreItem\032o\n\nCategories\022$\n\034supp"
+  "orted_player_categoryids\030\002 \003(\r\022\033\n\023featur"
+  "e_categoryids\030\003 \003(\r\022\036\n\026controller_catego"
+  "ryids\030\004 \003(\r\032\260\002\n\007Reviews\022\?\n\020summary_filte"
+  "red\030\001 \001(\0132%.StoreItem.Reviews.StoreRevie"
+  "wSummary\022A\n\022summary_unfiltered\030\002 \001(\0132%.S"
+  "toreItem.Reviews.StoreReviewSummary\032\240\001\n\022"
+  "StoreReviewSummary\022\024\n\014review_count\030\001 \001(\r"
+  "\022\030\n\020percent_positive\030\002 \001(\005\022>\n\014review_sco"
+  "re\030\003 \001(\0162\021.EUserReviewScore:\025EUserReview"
+  "Score_None\022\032\n\022review_score_label\030\004 \001(\t\032\260"
+  "\002\n\tBasicInfo\022\031\n\021short_description\030\001 \001(\t\022"
+  "8\n\npublishers\030\002 \003(\0132$.StoreItem.BasicInf"
+  "o.CreatorHomeLink\0228\n\ndevelopers\030\003 \003(\0132$."
+  "StoreItem.BasicInfo.CreatorHomeLink\0228\n\nf"
+  "ranchises\030\004 \003(\0132$.StoreItem.BasicInfo.Cr"
+  "eatorHomeLink\022\030\n\020capsule_headline\030\005 \001(\t\032"
+  "@\n\017CreatorHomeLink\022\014\n\004name\030\001 \001(\t\022\037\n\027crea"
+  "tor_clan_account_id\030\002 \001(\r\032$\n\003Tag\022\r\n\005tagi"
+  "d\030\001 \001(\r\022\016\n\006weight\030\002 \001(\r\032\320\002\n\006Assets\022\030\n\020as"
+  "set_url_format\030\001 \001(\t\022\024\n\014main_capsule\030\002 \001"
+  "(\t\022\025\n\rsmall_capsule\030\003 \001(\t\022\016\n\006header\030\004 \001("
+  "\t\022\026\n\016package_header\030\005 \001(\t\022\027\n\017page_backgr"
+  "ound\030\006 \001(\t\022\024\n\014hero_capsule\030\007 \001(\t\022\027\n\017hero"
+  "_capsule_2x\030\010 \001(\t\022\027\n\017library_capsule\030\t \001"
+  "(\t\022\032\n\022library_capsule_2x\030\n \001(\t\022\024\n\014librar"
+  "y_hero\030\013 \001(\t\022\027\n\017library_hero_2x\030\014 \001(\t\022\026\n"
+  "\016community_icon\030\r \001(\t\022\023\n\013clan_avatar\030\016 \001"
+  "(\t\032\314\002\n\013ReleaseInfo\022\032\n\022steam_release_date"
+  "\030\001 \001(\r\022\035\n\025original_release_date\030\002 \001(\r\022#\n"
+  "\033original_steam_release_date\030\003 \001(\r\022\026\n\016is"
+  "_coming_soon\030\004 \001(\010\022\022\n\nis_preload\030\005 \001(\010\022#"
+  "\n\033custom_release_date_message\030\006 \001(\t\022 \n\030i"
+  "s_abridged_release_date\030\007 \001(\010\022\033\n\023coming_"
+  "soon_display\030\010 \001(\t\022\027\n\017is_early_access\030\n "
+  "\001(\010\022\030\n\020mac_release_date\030\024 \001(\r\022\032\n\022linux_r"
+  "elease_date\030\025 \001(\r\032\341\002\n\tPlatforms\022\017\n\007windo"
+  "ws\030\001 \001(\010\022\013\n\003mac\030\002 \001(\010\022\025\n\rsteamos_linux\030\003"
+  " \001(\010\0222\n\nvr_support\030\n \001(\0132\036.StoreItem.Pla"
+  "tforms.VRSupport\022k\n\030steam_deccompat_cate"
+  "gory\030\013 \001(\0162 .ESteamDeckCompatibilityCate"
+  "gory:\'ESteamDeckCompatibilityCategory_Un"
+  "known\032~\n\tVRSupport\022\r\n\005vrhmd\030\001 \001(\010\022\022\n\nvrh"
+  "md_only\030\002 \001(\010\022\020\n\010htc_vive\030( \001(\010\022\023\n\013oculu"
+  "s_rift\030) \001(\010\022\022\n\nwindows_mr\030* \001(\010\022\023\n\013valv"
+  "e_index\030+ \001(\010\032\250\010\n\016PurchaseOption\022\021\n\tpack"
+  "ageid\030\001 \001(\005\022\020\n\010bundleid\030\002 \001(\005\022\034\n\024purchas"
+  "e_option_name\030\003 \001(\t\022\034\n\024final_price_in_ce"
+  "nts\030\005 \001(\003\022\037\n\027original_price_in_cents\030\006 \001"
+  "(\003\022\035\n\025formatted_final_price\030\010 \001(\t\022 \n\030for"
+  "matted_original_price\030\t \001(\t\022\024\n\014discount_"
+  "pct\030\n \001(\005\022\033\n\023bundle_discount_pct\030\014 \001(\005\022\027"
+  "\n\017is_free_to_keep\030\r \001(\010\022$\n\034price_before_"
+  "bundle_discount\030\016 \001(\003\022.\n&formatted_price"
+  "_before_bundle_discount\030\017 \001(\t\022<\n\020active_"
+  "discounts\030\024 \003(\0132\".StoreItem.PurchaseOpti"
+  "on.Discount\022!\n\031user_can_purchase_as_gift"
+  "\030\037 \001(\010\022\035\n\025is_commercial_license\030( \001(\010\022$\n"
+  "\034should_suppress_discount_pct\030) \001(\010\022/\n h"
+  "ide_discount_pct_for_compliance\030* \001(\010:\005f"
+  "alse\022\036\n\023included_game_count\030+ \001(\005:\0011\022$\n\034"
+  "lowest_recent_price_in_cents\030, \001(\003\022\031\n\021re"
+  "quires_shipping\030- \001(\010\022A\n\017recurrence_info"
+  "\030. \001(\0132(.StoreItem.PurchaseOption.Recurr"
+  "enceInfo\022\031\n\021free_to_keep_ends\030/ \001(\r\032\\\n\010D"
+  "iscount\022\027\n\017discount_amount\030\001 \001(\003\022\034\n\024disc"
+  "ount_description\030\002 \001(\t\022\031\n\021discount_end_d"
+  "ate\030\003 \001(\r\032\274\001\n\016RecurrenceInfo\022\021\n\tpackagei"
+  "d\030\001 \001(\005\022\036\n\026billing_agreement_type\030\002 \001(\005\022"
+  "\031\n\021renewal_time_unit\030\003 \001(\005\022\033\n\023renewal_ti"
+  "me_period\030\004 \001(\005\022\036\n\026renewal_price_in_cent"
+  "s\030\005 \001(\003\022\037\n\027formatted_renewal_price\030\006 \001(\t"
+  "\032\306\001\n\013Screenshots\022\?\n\024all_ages_screenshots"
+  "\030\002 \003(\0132!.StoreItem.Screenshots.Screensho"
+  "t\022E\n\032mature_content_screenshots\030\003 \003(\0132!."
+  "StoreItem.Screenshots.Screenshot\032/\n\nScre"
+  "enshot\022\020\n\010filename\030\001 \001(\t\022\017\n\007ordinal\030\002 \001("
+  "\005\032\225\004\n\010Trailers\022/\n\nhighlights\030\001 \003(\0132\033.Sto"
+  "reItem.Trailers.Trailer\0223\n\016other_trailer"
+  "s\030\002 \003(\0132\033.StoreItem.Trailers.Trailer\032-\n\013"
+  "VideoSource\022\020\n\010filename\030\001 \001(\t\022\014\n\004type\030\002 "
+  "\001(\t\032\363\002\n\007Trailer\022\024\n\014trailer_name\030\001 \001(\t\022\032\n"
+  "\022trailer_url_format\030\002 \001(\t\022E\n\020trailer_cat"
+  "egory\030\r \001(\0162\021.ETrailerCategory:\030ETrailer"
+  "Category_Invalid\0225\n\014trailer_480p\030\003 \003(\0132\037"
+  ".StoreItem.Trailers.VideoSource\0224\n\013trail"
+  "er_max\030\004 \003(\0132\037.StoreItem.Trailers.VideoS"
+  "ource\0225\n\014microtrailer\030\005 \003(\0132\037.StoreItem."
+  "Trailers.VideoSource\022\031\n\021screenshot_mediu"
+  "m\030\n \001(\t\022\027\n\017screenshot_full\030\013 \001(\t\022\027\n\017trai"
+  "ler_base_id\030\014 \001(\005\032\205\001\n\021SupportedLanguage\022"
+  "\025\n\telanguage\030\001 \001(\005:\002-1\022\037\n\023eadditionallan"
+  "guage\030\005 \001(\005:\002-1\022\021\n\tsupported\030\002 \001(\010\022\022\n\nfu"
+  "ll_audio\030\003 \001(\010\022\021\n\tsubtitles\030\004 \001(\010\032A\n\013Fre"
+  "eWeekend\022\022\n\nstart_time\030\001 \001(\r\022\020\n\010end_time"
+  "\030\002 \001(\r\022\014\n\004text\030\003 \001(\t\032X\n\004Link\0225\n\007lintype\030"
+  "\001 \001(\0162\017.EStoreLinkType:\023EStoreLinkType_N"
+  "one\022\013\n\003url\030\002 \001(\t\022\014\n\004text\030\003 \001(\t\"\267\001\n\017Store"
+  "GameRating\022\014\n\004type\030\001 \001(\t\022\016\n\006rating\030\002 \001(\t"
+  "\022\023\n\013descriptors\030\003 \003(\t\022\034\n\024interactive_ele"
+  "ments\030\004 \001(\t\022\024\n\014required_age\030\n \001(\005\022\024\n\014use"
+  "_age_gate\030\013 \001(\010\022\021\n\timage_url\030\024 \001(\t\022\024\n\014im"
+  "age_target\030\025 \001(\t\"\237\003\n\030StoreBrowseFilterFa"
+  "ilure\022R\n\016filter_failure\030\001 \001(\0162\032.EStoreBr"
+  "owseFilterFailure:\036EStoreBrowseFilterFai"
+  "lure_None\022\025\n\ralready_owned\030\005 \001(\010\022\023\n\013on_w"
+  "ishlist\030\006 \001(\010\022\017\n\007ignored\030\007 \001(\010\022\035\n\025not_in"
+  "_users_language\030\n \001(\010\022\035\n\025not_on_users_pl"
+  "atform\030\013 \001(\010\022\033\n\023demo_for_owned_game\030\014 \001("
+  "\010\022\034\n\024dlc_for_unowned_game\030\r \001(\010\022!\n\031nonpr"
+  "eferred_product_type\030\024 \001(\010\022\027\n\017excluded_t"
+  "agids\030\025 \003(\r\022=\n\036excluded_content_descript"
+  "orids\030\036 \003(\0162\025.EContentDescriptorID\"A\n\036CS"
+  "toreBrowse_GetItems_Response\022\037\n\013store_it"
+  "ems\030\001 \003(\0132\n.StoreItem\"R\n\'CStoreBrowse_Ge"
+  "tStoreCategories_Request\022\020\n\010language\030\001 \001"
+  "(\t\022\025\n\telanguage\030\002 \001(\005:\002-1\"\350\002\n(CStoreBrow"
+  "se_GetStoreCategories_Response\022F\n\ncatego"
+  "ries\030\001 \003(\01322.CStoreBrowse_GetStoreCatego"
+  "ries_Response.Category\032\363\001\n\010Category\022\022\n\nc"
+  "ategoryid\030\001 \001(\r\022>\n\004type\030\002 \001(\0162\023.EStoreCa"
+  "tegoryType:\033EStoreCategoryType_Category\022"
+  "\025\n\rinternal_name\030\003 \001(\t\022\024\n\014display_name\030\004"
+  " \001(\t\022\021\n\timage_url\030\005 \001(\t\022\026\n\016show_in_searc"
+  "h\030\006 \001(\010\022\020\n\010computed\030\007 \001(\010\022\020\n\010edit_url\030\010 "
+  "\001(\t\022\027\n\017edit_sort_order\030\t \001(\r\"Q\n\"CStoreBr"
+  "owse_GetPriceStops_Request\022\024\n\014country_co"
+  "de\030\001 \001(\t\022\025\n\rcurrency_code\030\002 \001(\t\"\301\001\n#CSto"
+  "reBrowse_GetPriceStops_Response\022C\n\013price"
+  "_stops\030\001 \003(\0132..CStoreBrowse_GetPriceStop"
+  "s_Response.PriceStop\022\025\n\rcurrency_code\030\002 "
+  "\001(\t\032>\n\tPriceStop\022\030\n\020formatted_amount\030\001 \001"
+  "(\t\022\027\n\017amount_in_cents\030\002 \001(\003\"\247\001\n\"CStoreBr"
+  "owse_GetDLCForApps_Request\022$\n\007context\030\001 "
+  "\001(\0132\023.StoreBrowseContext\022,\n\021store_page_f"
+  "ilter\030\002 \001(\0132\021.CStorePageFilter\022\034\n\006appids"
+  "\030\003 \003(\0132\014.StoreItemID\022\017\n\007steamid\030\004 \001(\004\"\376\002"
+  "\n#CStoreBrowse_GetDLCForApps_Response\022>\n"
+  "\010dlc_data\030\001 \003(\0132,.CStoreBrowse_GetDLCFor"
+  "Apps_Response.DLCData\022E\n\010playtime\030\002 \003(\0132"
+  "3.CStoreBrowse_GetDLCForApps_Response.Pl"
+  "aytimeForApp\032\207\001\n\007DLCData\022\r\n\005appid\030\001 \001(\r\022"
+  "\023\n\013parentappid\030\002 \001(\r\022\024\n\014release_date\030\003 \001"
+  "(\r\022\023\n\013coming_soon\030\004 \001(\010\022\r\n\005price\030\005 \001(\003\022\020"
+  "\n\010discount\030\006 \001(\r\022\014\n\004free\030\007 \001(\010\032F\n\016Playti"
+  "meForApp\022\r\n\005appid\030\001 \001(\r\022\020\n\010playtime\030\002 \001("
+  "\r\022\023\n\013last_played\030\003 \001(\r\"\253\001\n&CStoreBrowse_"
+  "GetDLCForAppsSolr_Request\022$\n\007context\030\001 \001"
+  "(\0132\023.StoreBrowseContext\022\016\n\006appids\030\002 \003(\r\022"
+  "\016\n\006flavor\030\003 \001(\t\022\r\n\005count\030\004 \001(\r\022,\n\021store_"
+  "page_filter\030\005 \001(\0132\021.CStorePageFilter\"\243\001\n"
+  "\'CStoreBrowse_GetDLCForAppsSolr_Response"
+  "\022C\n\tdlc_lists\030\001 \003(\01320.CStoreBrowse_GetDL"
+  "CForAppsSolr_Response.DLCList\0323\n\007DLCList"
+  "\022\024\n\014parent_appid\030\001 \001(\r\022\022\n\ndlc_appids\030\002 \003"
+  "(\r\"`\n%CStoreBrowse_GetHardwareItems_Requ"
+  "est\022\021\n\tpackageid\030\001 \003(\r\022$\n\007context\030\002 \001(\0132"
+  "\023.StoreBrowseContext\"\224\004\n\027CHardwarePackag"
+  "eDetails\022\021\n\tpackageid\030\001 \001(\r\022\033\n\023inventory"
+  "_available\030\003 \001(\010\022\033\n\023high_pending_orders\030"
+  "\004 \001(\010\022*\n\"account_restricted_from_purchas"
+  "ing\030\005 \001(\010\022\034\n\024requires_reservation\030\006 \001(\010\022"
+  "$\n\034rtime_estimated_notification\030\007 \001(\r\022\031\n"
+  "\021notificaton_token\030\010 \001(\t\022\031\n\021reservation_"
+  "state\030\t \001(\005\022\017\n\007expired\030\n \001(\010\022\024\n\014time_exp"
+  "ires\030\013 \001(\r\022\025\n\rtime_reserved\030\014 \001(\r\022\037\n\027all"
+  "ow_quantity_purchase\030\r \001(\010\022!\n\031max_quanti"
+  "ty_per_purchase\030\016 \001(\005\022!\n\031allow_purchase_"
+  "in_country\030\017 \001(\010\0220\n(estimated_delivery_s"
+  "oonest_business_days\030\021 \001(\r\022/\n\'estimated_"
+  "delivery_latest_business_days\030\022 \001(\r\"S\n&C"
+  "StoreBrowse_GetHardwareItems_Response\022)\n"
+  "\007details\030\001 \003(\0132\030.CHardwarePackageDetails"
+  "*\360\001\n\016EStoreItemType\022#\n\026EStoreItemType_In"
+  "valid\020\377\377\377\377\377\377\377\377\377\001\022\026\n\022EStoreItemType_App\020\000"
+  "\022\032\n\026EStoreItemType_Package\020\001\022\031\n\025EStoreIt"
+  "emType_Bundle\020\002\022\026\n\022EStoreItemType_Mtx\020\003\022"
+  "\026\n\022EStoreItemType_Tag\020\004\022\032\n\026EStoreItemTyp"
+  "e_Creator\020\005\022\036\n\032EStoreItemType_HubCategor"
+  "y\020\006*\215\003\n\rEStoreAppType\022\026\n\022EStoreAppType_G"
+  "ame\020\000\022\026\n\022EStoreAppType_Demo\020\001\022\025\n\021EStoreA"
+  "ppType_Mod\020\002\022\027\n\023EStoreAppType_Movie\020\003\022\025\n"
+  "\021EStoreAppType_DLC\020\004\022\027\n\023EStoreAppType_Gu"
+  "ide\020\005\022\032\n\026EStoreAppType_Software\020\006\022\027\n\023ESt"
+  "oreAppType_Video\020\007\022\030\n\024EStoreAppType_Seri"
+  "es\020\010\022\031\n\025EStoreAppType_Episode\020\t\022\032\n\026EStor"
+  "eAppType_Hardware\020\n\022\027\n\023EStoreAppType_Mus"
+  "ic\020\013\022\026\n\022EStoreAppType_Beta\020\014\022\026\n\022EStoreAp"
+  "pType_Tool\020\r\022\035\n\031EStoreAppType_Advertisin"
+  "g\020\016*\361\002\n\020EUserReviewScore\022\031\n\025EUserReviewS"
+  "core_None\020\000\022+\n\'EUserReviewScore_Overwhel"
+  "minglyNegative\020\001\022!\n\035EUserReviewScore_Ver"
+  "yNegative\020\002\022\035\n\031EUserReviewScore_Negative"
+  "\020\003\022#\n\037EUserReviewScore_MostlyNegative\020\004\022"
+  "\032\n\026EUserReviewScore_Mixed\020\005\022#\n\037EUserRevi"
+  "ewScore_MostlyPositive\020\006\022\035\n\031EUserReviewS"
+  "core_Positive\020\007\022!\n\035EUserReviewScore_Very"
+  "Positive\020\010\022+\n\'EUserReviewScore_Overwhelm"
+  "inglyPositive\020\t*\351\001\n\020ETrailerCategory\022\034\n\030"
+  "ETrailerCategory_Invalid\020\000\022\035\n\031ETrailerCa"
+  "tegory_Gameplay\020\001\022\033\n\027ETrailerCategory_Te"
+  "aser\020\002\022\036\n\032ETrailerCategory_Cinematic\020\003\022\033"
+  "\n\027ETrailerCategory_Update\020\004\022\036\n\032ETrailerC"
+  "ategory_Accolades\020\005\022\036\n\032ETrailerCategory_"
+  "Interview\020\006*\233\002\n\031EStoreBrowseFilterFailur"
+  "e\022\"\n\036EStoreBrowseFilterFailure_None\020\000\022\'\n"
+  "#EStoreBrowseFilterFailure_Redundant\020\n\022*"
+  "\n&EStoreBrowseFilterFailure_NotPreferred"
+  "\020\024\022+\n\'EStoreBrowseFilterFailure_NotInter"
+  "ested\020\036\022-\n)EStoreBrowseFilterFailure_Unw"
+  "antedContent\020(\022)\n%EStoreBrowseFilterFail"
+  "ure_Unavailable\0202*\233\005\n\016EStoreLinkType\022\027\n\023"
+  "EStoreLinkType_None\020\000\022\032\n\026EStoreLinkType_"
+  "YouTube\020\001\022\033\n\027EStoreLinkType_Facebook\020\002\022\032"
+  "\n\026EStoreLinkType_Twitter\020\003\022\031\n\025EStoreLink"
+  "Type_Twitch\020\004\022\032\n\026EStoreLinkType_Discord\020"
+  "\005\022\025\n\021EStoreLinkType_QQ\020\006\022\025\n\021EStoreLinkTy"
+  "pe_VK\020\007\022\033\n\027EStoreLinkType_Bilibili\020\010\022\030\n\024"
+  "EStoreLinkType_Weibo\020\t\022\031\n\025EStoreLinkType"
+  "_Reddit\020\n\022\034\n\030EStoreLinkType_Instagram\020\013\022"
+  "\031\n\025EStoreLinkType_Tumblr\020\014\022\030\n\024EStoreLink"
+  "Type_Tieba\020\r\022\031\n\025EStoreLinkType_Tiktok\020\016\022"
+  "\033\n\027EStoreLinkType_Telegram\020\017\022\033\n\027EStoreLi"
+  "nkType_LinkedIn\020\020\022\031\n\025EStoreLinkType_WeCh"
+  "at\020\021\022\031\n\025EStoreLinkType_QQLink\020\022\022\031\n\025EStor"
+  "eLinkType_Douyin\020\023\022\032\n\026EStoreLinkType_Blu"
+  "esky\020\024\022\033\n\027EStoreLinkType_Mastodon\020\025\022\032\n\026E"
+  "StoreLinkType_Threads\020\026\022\026\n\022EStoreLinkTyp"
+  "e_MAX\020\027*\350\001\n\022EStoreCategoryType\022\037\n\033EStore"
+  "CategoryType_Category\020\000\022\'\n#EStoreCategor"
+  "yType_SupportedPlayers\020\001\022\036\n\032EStoreCatego"
+  "ryType_Feature\020\002\022(\n$EStoreCategoryType_C"
+  "ontrollerSupport\020\003\022\"\n\036EStoreCategoryType"
+  "_CloudGaming\020\004\022\032\n\026EStoreCategoryType_MAX"
+  "\020\0052\312\004\n\013StoreBrowse\022K\n\010GetItems\022\036.CStoreB"
+  "rowse_GetItems_Request\032\037.CStoreBrowse_Ge"
+  "tItems_Response\022i\n\022GetStoreCategories\022(."
+  "CStoreBrowse_GetStoreCategories_Request\032"
+  ").CStoreBrowse_GetStoreCategories_Respon"
+  "se\022Z\n\rGetPriceStops\022#.CStoreBrowse_GetPr"
+  "iceStops_Request\032$.CStoreBrowse_GetPrice"
+  "Stops_Response\022Z\n\rGetDLCForApps\022#.CStore"
+  "Browse_GetDLCForApps_Request\032$.CStoreBro"
+  "wse_GetDLCForApps_Response\022f\n\021GetDLCForA"
+  "ppsSolr\022\'.CStoreBrowse_GetDLCForAppsSolr"
+  "_Request\032(.CStoreBrowse_GetDLCForAppsSol"
+  "r_Response\022c\n\020GetHardwareItems\022&.CStoreB"
+  "rowse_GetHardwareItems_Request\032\'.CStoreB"
+  "rowse_GetHardwareItems_ResponseB\035\200\001\001\252\002\027O"
+  "penSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_deps[6] = {
   &::descriptor_table_contenthubs_2eproto,
@@ -1997,7 +2017,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto = {
-  false, false, 12458, descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2eproto, "steammessages_storebrowse.steamclient.proto", 
+  false, false, 12862, descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2eproto, "steammessages_storebrowse.steamclient.proto", 
   &descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_deps, 6, 47,
   schemas, file_default_instances, TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fstorebrowse_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto,
@@ -2079,9 +2099,28 @@ bool EUserReviewScore_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStoreBrowseFilterFailure_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ETrailerCategory_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto);
   return file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[3];
+}
+bool ETrailerCategory_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStoreBrowseFilterFailure_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto);
+  return file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[4];
 }
 bool EStoreBrowseFilterFailure_IsValid(int value) {
   switch (value) {
@@ -2099,7 +2138,7 @@ bool EStoreBrowseFilterFailure_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStoreLinkType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto);
-  return file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[4];
+  return file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[5];
 }
 bool EStoreLinkType_IsValid(int value) {
   switch (value) {
@@ -2123,6 +2162,10 @@ bool EStoreLinkType_IsValid(int value) {
     case 17:
     case 18:
     case 19:
+    case 20:
+    case 21:
+    case 22:
+    case 23:
       return true;
     default:
       return false;
@@ -2131,7 +2174,7 @@ bool EStoreLinkType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStoreCategoryType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto);
-  return file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[5];
+  return file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[6];
 }
 bool EStoreCategoryType_IsValid(int value) {
   switch (value) {
@@ -8742,21 +8785,18 @@ class StoreItem_PurchaseOption::_Internal {
  public:
   using HasBits = decltype(std::declval<StoreItem_PurchaseOption>()._has_bits_);
   static void set_has_packageid(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_bundleid(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_purchase_option_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_final_price_in_cents(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_original_price_in_cents(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
-  static void set_has_user_final_price_in_cents(HasBits* has_bits) {
+  static void set_has_original_price_in_cents(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
   }
   static void set_has_formatted_final_price(HasBits* has_bits) {
@@ -8768,39 +8808,45 @@ class StoreItem_PurchaseOption::_Internal {
   static void set_has_discount_pct(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
-  static void set_has_user_discount_pct(HasBits* has_bits) {
+  static void set_has_bundle_discount_pct(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
-  static void set_has_bundle_discount_pct(HasBits* has_bits) {
+  static void set_has_is_free_to_keep(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
-  static void set_has_user_can_purchase(HasBits* has_bits) {
-    (*has_bits)[0] |= 16384u;
-  }
-  static void set_has_user_can_purchase_as_gift(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
-  }
-  static void set_has_is_commercial_license(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
-  }
-  static void set_has_should_suppress_discount_pct(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
-  }
-  static void set_has_hide_discount_pct_for_compliance(HasBits* has_bits) {
+  static void set_has_price_before_bundle_discount(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
+  static void set_has_formatted_price_before_bundle_discount(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_user_can_purchase_as_gift(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_is_commercial_license(HasBits* has_bits) {
+    (*has_bits)[0] |= 32768u;
+  }
+  static void set_has_should_suppress_discount_pct(HasBits* has_bits) {
+    (*has_bits)[0] |= 65536u;
+  }
+  static void set_has_hide_discount_pct_for_compliance(HasBits* has_bits) {
+    (*has_bits)[0] |= 131072u;
+  }
   static void set_has_included_game_count(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
+    (*has_bits)[0] |= 1048576u;
   }
   static void set_has_lowest_recent_price_in_cents(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 524288u;
   }
   static void set_has_requires_shipping(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
+    (*has_bits)[0] |= 262144u;
   }
   static const ::StoreItem_PurchaseOption_RecurrenceInfo& recurrence_info(const StoreItem_PurchaseOption* msg);
   static void set_has_recurrence_info(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_free_to_keep_ends(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
   }
 };
 
@@ -8810,9 +8856,7 @@ StoreItem_PurchaseOption::_Internal::recurrence_info(const StoreItem_PurchaseOpt
 }
 StoreItem_PurchaseOption::StoreItem_PurchaseOption(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  active_discounts_(arena),
-  user_active_discounts_(arena),
-  inactive_discounts_(arena) {
+  active_discounts_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:StoreItem.PurchaseOption)
@@ -8820,9 +8864,7 @@ StoreItem_PurchaseOption::StoreItem_PurchaseOption(::PROTOBUF_NAMESPACE_ID::Aren
 StoreItem_PurchaseOption::StoreItem_PurchaseOption(const StoreItem_PurchaseOption& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
-      active_discounts_(from.active_discounts_),
-      user_active_discounts_(from.user_active_discounts_),
-      inactive_discounts_(from.inactive_discounts_) {
+      active_discounts_(from.active_discounts_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   purchase_option_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_purchase_option_name()) {
@@ -8837,6 +8879,11 @@ StoreItem_PurchaseOption::StoreItem_PurchaseOption(const StoreItem_PurchaseOptio
   formatted_original_price_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_formatted_original_price()) {
     formatted_original_price_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_formatted_original_price(), 
+      GetArena());
+  }
+  formatted_price_before_bundle_discount_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_formatted_price_before_bundle_discount()) {
+    formatted_price_before_bundle_discount_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_formatted_price_before_bundle_discount(), 
       GetArena());
   }
   if (from._internal_has_recurrence_info()) {
@@ -8854,6 +8901,7 @@ void StoreItem_PurchaseOption::SharedCtor() {
 purchase_option_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 formatted_final_price_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 formatted_original_price_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+formatted_price_before_bundle_discount_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&recurrence_info_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&lowest_recent_price_in_cents_) -
@@ -8872,6 +8920,7 @@ void StoreItem_PurchaseOption::SharedDtor() {
   purchase_option_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   formatted_final_price_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   formatted_original_price_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  formatted_price_before_bundle_discount_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete recurrence_info_;
 }
 
@@ -8892,10 +8941,8 @@ void StoreItem_PurchaseOption::Clear() {
   (void) cached_has_bits;
 
   active_discounts_.Clear();
-  user_active_discounts_.Clear();
-  inactive_discounts_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       purchase_option_name_.ClearNonDefaultToEmpty();
     }
@@ -8906,24 +8953,27 @@ void StoreItem_PurchaseOption::Clear() {
       formatted_original_price_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000008u) {
+      formatted_price_before_bundle_discount_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000010u) {
       GOOGLE_DCHECK(recurrence_info_ != nullptr);
       recurrence_info_->Clear();
     }
   }
-  if (cached_has_bits & 0x000000f0u) {
+  if (cached_has_bits & 0x000000e0u) {
     ::memset(&packageid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&original_price_in_cents_) -
-        reinterpret_cast<char*>(&packageid_)) + sizeof(original_price_in_cents_));
+        reinterpret_cast<char*>(&final_price_in_cents_) -
+        reinterpret_cast<char*>(&packageid_)) + sizeof(final_price_in_cents_));
   }
   if (cached_has_bits & 0x0000ff00u) {
-    ::memset(&user_final_price_in_cents_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&user_can_purchase_as_gift_) -
-        reinterpret_cast<char*>(&user_final_price_in_cents_)) + sizeof(user_can_purchase_as_gift_));
+    ::memset(&original_price_in_cents_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&is_commercial_license_) -
+        reinterpret_cast<char*>(&original_price_in_cents_)) + sizeof(is_commercial_license_));
   }
-  if (cached_has_bits & 0x000f0000u) {
-    ::memset(&is_commercial_license_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x001f0000u) {
+    ::memset(&should_suppress_discount_pct_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&lowest_recent_price_in_cents_) -
-        reinterpret_cast<char*>(&is_commercial_license_)) + sizeof(lowest_recent_price_in_cents_));
+        reinterpret_cast<char*>(&should_suppress_discount_pct_)) + sizeof(lowest_recent_price_in_cents_));
     included_game_count_ = 1;
   }
   _has_bits_.Clear();
@@ -8981,14 +9031,6 @@ const char* StoreItem_PurchaseOption::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int64 user_final_price_in_cents = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          _Internal::set_has_user_final_price_in_cents(&has_bits);
-          user_final_price_in_cents_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // optional string formatted_final_price = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
@@ -9019,19 +9061,38 @@ const char* StoreItem_PurchaseOption::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 user_discount_pct = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
-          _Internal::set_has_user_discount_pct(&has_bits);
-          user_discount_pct_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // optional int32 bundle_discount_pct = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_bundle_discount_pct(&has_bits);
           bundle_discount_pct_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_free_to_keep = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          _Internal::set_has_is_free_to_keep(&has_bits);
+          is_free_to_keep_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional int64 price_before_bundle_discount = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          _Internal::set_has_price_before_bundle_discount(&has_bits);
+          price_before_bundle_discount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string formatted_price_before_bundle_discount = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+          auto str = _internal_mutable_formatted_price_before_bundle_discount();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "StoreItem.PurchaseOption.formatted_price_before_bundle_discount");
+          #endif  // !NDEBUG
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -9045,38 +9106,6 @@ const char* StoreItem_PurchaseOption::_InternalParse(const char* ptr, ::PROTOBUF
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<162>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // repeated .StoreItem.PurchaseOption.Discount user_active_discounts = 21;
-      case 21:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170)) {
-          ptr -= 2;
-          do {
-            ptr += 2;
-            ptr = ctx->ParseMessage(_internal_add_user_active_discounts(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<170>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // repeated .StoreItem.PurchaseOption.Discount inactive_discounts = 22;
-      case 22:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 178)) {
-          ptr -= 2;
-          do {
-            ptr += 2;
-            ptr = ctx->ParseMessage(_internal_add_inactive_discounts(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<178>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // optional bool user_can_purchase = 30;
-      case 30:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 240)) {
-          _Internal::set_has_user_can_purchase(&has_bits);
-          user_can_purchase_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // optional bool user_can_purchase_as_gift = 31;
@@ -9142,6 +9171,14 @@ const char* StoreItem_PurchaseOption::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional uint32 free_to_keep_ends = 47;
+      case 47:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
+          _Internal::set_has_free_to_keep_ends(&has_bits);
+          free_to_keep_ends_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -9173,13 +9210,13 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional int32 packageid = 1;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_packageid(), target);
   }
 
   // optional int32 bundleid = 2;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_bundleid(), target);
   }
@@ -9195,21 +9232,15 @@ failure:
   }
 
   // optional int64 final_price_in_cents = 5;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(5, this->_internal_final_price_in_cents(), target);
   }
 
   // optional int64 original_price_in_cents = 6;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(6, this->_internal_original_price_in_cents(), target);
-  }
-
-  // optional int64 user_final_price_in_cents = 7;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(7, this->_internal_user_final_price_in_cents(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(6, this->_internal_original_price_in_cents(), target);
   }
 
   // optional string formatted_final_price = 8;
@@ -9238,16 +9269,32 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(10, this->_internal_discount_pct(), target);
   }
 
-  // optional int32 user_discount_pct = 11;
+  // optional int32 bundle_discount_pct = 12;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_user_discount_pct(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(12, this->_internal_bundle_discount_pct(), target);
   }
 
-  // optional int32 bundle_discount_pct = 12;
+  // optional bool is_free_to_keep = 13;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(12, this->_internal_bundle_discount_pct(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_is_free_to_keep(), target);
+  }
+
+  // optional int64 price_before_bundle_discount = 14;
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(14, this->_internal_price_before_bundle_discount(), target);
+  }
+
+  // optional string formatted_price_before_bundle_discount = 15;
+  if (cached_has_bits & 0x00000008u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_formatted_price_before_bundle_discount().data(), static_cast<int>(this->_internal_formatted_price_before_bundle_discount().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "StoreItem.PurchaseOption.formatted_price_before_bundle_discount");
+    target = stream->WriteStringMaybeAliased(
+        15, this->_internal_formatted_price_before_bundle_discount(), target);
   }
 
   // repeated .StoreItem.PurchaseOption.Discount active_discounts = 20;
@@ -9258,76 +9305,60 @@ failure:
       InternalWriteMessage(20, this->_internal_active_discounts(i), target, stream);
   }
 
-  // repeated .StoreItem.PurchaseOption.Discount user_active_discounts = 21;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_user_active_discounts_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(21, this->_internal_user_active_discounts(i), target, stream);
-  }
-
-  // repeated .StoreItem.PurchaseOption.Discount inactive_discounts = 22;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_inactive_discounts_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(22, this->_internal_inactive_discounts(i), target, stream);
-  }
-
-  // optional bool user_can_purchase = 30;
-  if (cached_has_bits & 0x00004000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(30, this->_internal_user_can_purchase(), target);
-  }
-
   // optional bool user_can_purchase_as_gift = 31;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(31, this->_internal_user_can_purchase_as_gift(), target);
   }
 
   // optional bool is_commercial_license = 40;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(40, this->_internal_is_commercial_license(), target);
   }
 
   // optional bool should_suppress_discount_pct = 41;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(41, this->_internal_should_suppress_discount_pct(), target);
   }
 
   // optional bool hide_discount_pct_for_compliance = 42 [default = false];
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(42, this->_internal_hide_discount_pct_for_compliance(), target);
   }
 
   // optional int32 included_game_count = 43 [default = 1];
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(43, this->_internal_included_game_count(), target);
   }
 
   // optional int64 lowest_recent_price_in_cents = 44;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(44, this->_internal_lowest_recent_price_in_cents(), target);
   }
 
   // optional bool requires_shipping = 45;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(45, this->_internal_requires_shipping(), target);
   }
 
   // optional .StoreItem.PurchaseOption.RecurrenceInfo recurrence_info = 46;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
         46, _Internal::recurrence_info(this), target, stream);
+  }
+
+  // optional uint32 free_to_keep_ends = 47;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(47, this->_internal_free_to_keep_ends(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -9349,20 +9380,6 @@ size_t StoreItem_PurchaseOption::ByteSizeLong() const {
   // repeated .StoreItem.PurchaseOption.Discount active_discounts = 20;
   total_size += 2UL * this->_internal_active_discounts_size();
   for (const auto& msg : this->active_discounts_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .StoreItem.PurchaseOption.Discount user_active_discounts = 21;
-  total_size += 2UL * this->_internal_user_active_discounts_size();
-  for (const auto& msg : this->user_active_discounts_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .StoreItem.PurchaseOption.Discount inactive_discounts = 22;
-  total_size += 2UL * this->_internal_inactive_discounts_size();
-  for (const auto& msg : this->inactive_discounts_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -9390,48 +9407,48 @@ size_t StoreItem_PurchaseOption::ByteSizeLong() const {
           this->_internal_formatted_original_price());
     }
 
-    // optional .StoreItem.PurchaseOption.RecurrenceInfo recurrence_info = 46;
+    // optional string formatted_price_before_bundle_discount = 15;
     if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_formatted_price_before_bundle_discount());
+    }
+
+    // optional .StoreItem.PurchaseOption.RecurrenceInfo recurrence_info = 46;
+    if (cached_has_bits & 0x00000010u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *recurrence_info_);
     }
 
     // optional int32 packageid = 1;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_packageid());
     }
 
     // optional int32 bundleid = 2;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_bundleid());
     }
 
     // optional int64 final_price_in_cents = 5;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
           this->_internal_final_price_in_cents());
     }
 
-    // optional int64 original_price_in_cents = 6;
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
-          this->_internal_original_price_in_cents());
-    }
-
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional int64 user_final_price_in_cents = 7;
+    // optional int64 original_price_in_cents = 6;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
-          this->_internal_user_final_price_in_cents());
+          this->_internal_original_price_in_cents());
     }
 
     // optional int32 discount_pct = 10;
@@ -9441,61 +9458,68 @@ size_t StoreItem_PurchaseOption::ByteSizeLong() const {
           this->_internal_discount_pct());
     }
 
-    // optional int32 user_discount_pct = 11;
-    if (cached_has_bits & 0x00000400u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_user_discount_pct());
-    }
-
-    // optional bool hide_discount_pct_for_compliance = 42 [default = false];
-    if (cached_has_bits & 0x00000800u) {
-      total_size += 2 + 1;
-    }
-
-    // optional bool requires_shipping = 45;
-    if (cached_has_bits & 0x00001000u) {
-      total_size += 2 + 1;
-    }
-
     // optional int32 bundle_discount_pct = 12;
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_bundle_discount_pct());
     }
 
-    // optional bool user_can_purchase = 30;
+    // optional int64 price_before_bundle_discount = 14;
+    if (cached_has_bits & 0x00000800u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+          this->_internal_price_before_bundle_discount());
+    }
+
+    // optional uint32 free_to_keep_ends = 47;
+    if (cached_has_bits & 0x00001000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_free_to_keep_ends());
+    }
+
+    // optional bool is_free_to_keep = 13;
+    if (cached_has_bits & 0x00002000u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool user_can_purchase_as_gift = 31;
     if (cached_has_bits & 0x00004000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool user_can_purchase_as_gift = 31;
+    // optional bool is_commercial_license = 40;
     if (cached_has_bits & 0x00008000u) {
       total_size += 2 + 1;
     }
 
   }
-  if (cached_has_bits & 0x000f0000u) {
-    // optional bool is_commercial_license = 40;
+  if (cached_has_bits & 0x001f0000u) {
+    // optional bool should_suppress_discount_pct = 41;
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool should_suppress_discount_pct = 41;
+    // optional bool hide_discount_pct_for_compliance = 42 [default = false];
     if (cached_has_bits & 0x00020000u) {
       total_size += 2 + 1;
     }
 
-    // optional int64 lowest_recent_price_in_cents = 44;
+    // optional bool requires_shipping = 45;
     if (cached_has_bits & 0x00040000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional int64 lowest_recent_price_in_cents = 44;
+    if (cached_has_bits & 0x00080000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
           this->_internal_lowest_recent_price_in_cents());
     }
 
     // optional int32 included_game_count = 43 [default = 1];
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00100000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_included_game_count());
@@ -9534,8 +9558,6 @@ void StoreItem_PurchaseOption::MergeFrom(const StoreItem_PurchaseOption& from) {
   (void) cached_has_bits;
 
   active_discounts_.MergeFrom(from.active_discounts_);
-  user_active_discounts_.MergeFrom(from.user_active_discounts_);
-  inactive_discounts_.MergeFrom(from.inactive_discounts_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -9548,60 +9570,63 @@ void StoreItem_PurchaseOption::MergeFrom(const StoreItem_PurchaseOption& from) {
       _internal_set_formatted_original_price(from._internal_formatted_original_price());
     }
     if (cached_has_bits & 0x00000008u) {
-      _internal_mutable_recurrence_info()->::StoreItem_PurchaseOption_RecurrenceInfo::MergeFrom(from._internal_recurrence_info());
+      _internal_set_formatted_price_before_bundle_discount(from._internal_formatted_price_before_bundle_discount());
     }
     if (cached_has_bits & 0x00000010u) {
-      packageid_ = from.packageid_;
+      _internal_mutable_recurrence_info()->::StoreItem_PurchaseOption_RecurrenceInfo::MergeFrom(from._internal_recurrence_info());
     }
     if (cached_has_bits & 0x00000020u) {
-      bundleid_ = from.bundleid_;
+      packageid_ = from.packageid_;
     }
     if (cached_has_bits & 0x00000040u) {
-      final_price_in_cents_ = from.final_price_in_cents_;
+      bundleid_ = from.bundleid_;
     }
     if (cached_has_bits & 0x00000080u) {
-      original_price_in_cents_ = from.original_price_in_cents_;
+      final_price_in_cents_ = from.final_price_in_cents_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
-      user_final_price_in_cents_ = from.user_final_price_in_cents_;
+      original_price_in_cents_ = from.original_price_in_cents_;
     }
     if (cached_has_bits & 0x00000200u) {
       discount_pct_ = from.discount_pct_;
     }
     if (cached_has_bits & 0x00000400u) {
-      user_discount_pct_ = from.user_discount_pct_;
-    }
-    if (cached_has_bits & 0x00000800u) {
-      hide_discount_pct_for_compliance_ = from.hide_discount_pct_for_compliance_;
-    }
-    if (cached_has_bits & 0x00001000u) {
-      requires_shipping_ = from.requires_shipping_;
-    }
-    if (cached_has_bits & 0x00002000u) {
       bundle_discount_pct_ = from.bundle_discount_pct_;
     }
+    if (cached_has_bits & 0x00000800u) {
+      price_before_bundle_discount_ = from.price_before_bundle_discount_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      free_to_keep_ends_ = from.free_to_keep_ends_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      is_free_to_keep_ = from.is_free_to_keep_;
+    }
     if (cached_has_bits & 0x00004000u) {
-      user_can_purchase_ = from.user_can_purchase_;
+      user_can_purchase_as_gift_ = from.user_can_purchase_as_gift_;
     }
     if (cached_has_bits & 0x00008000u) {
-      user_can_purchase_as_gift_ = from.user_can_purchase_as_gift_;
+      is_commercial_license_ = from.is_commercial_license_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x000f0000u) {
+  if (cached_has_bits & 0x001f0000u) {
     if (cached_has_bits & 0x00010000u) {
-      is_commercial_license_ = from.is_commercial_license_;
-    }
-    if (cached_has_bits & 0x00020000u) {
       should_suppress_discount_pct_ = from.should_suppress_discount_pct_;
     }
+    if (cached_has_bits & 0x00020000u) {
+      hide_discount_pct_for_compliance_ = from.hide_discount_pct_for_compliance_;
+    }
     if (cached_has_bits & 0x00040000u) {
-      lowest_recent_price_in_cents_ = from.lowest_recent_price_in_cents_;
+      requires_shipping_ = from.requires_shipping_;
     }
     if (cached_has_bits & 0x00080000u) {
+      lowest_recent_price_in_cents_ = from.lowest_recent_price_in_cents_;
+    }
+    if (cached_has_bits & 0x00100000u) {
       included_game_count_ = from.included_game_count_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -9631,11 +9656,10 @@ void StoreItem_PurchaseOption::InternalSwap(StoreItem_PurchaseOption* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   active_discounts_.InternalSwap(&other->active_discounts_);
-  user_active_discounts_.InternalSwap(&other->user_active_discounts_);
-  inactive_discounts_.InternalSwap(&other->inactive_discounts_);
   purchase_option_name_.Swap(&other->purchase_option_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   formatted_final_price_.Swap(&other->formatted_final_price_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   formatted_original_price_.Swap(&other->formatted_original_price_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  formatted_price_before_bundle_discount_.Swap(&other->formatted_price_before_bundle_discount_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(StoreItem_PurchaseOption, lowest_recent_price_in_cents_)
       + sizeof(StoreItem_PurchaseOption::lowest_recent_price_in_cents_)
@@ -10408,6 +10432,9 @@ class StoreItem_Trailers_Trailer::_Internal {
   static void set_has_trailer_url_format(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_trailer_category(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
   static void set_has_screenshot_medium(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
@@ -10455,7 +10482,9 @@ StoreItem_Trailers_Trailer::StoreItem_Trailers_Trailer(const StoreItem_Trailers_
     screenshot_full_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_screenshot_full(), 
       GetArena());
   }
-  trailer_base_id_ = from.trailer_base_id_;
+  ::memcpy(&trailer_base_id_, &from.trailer_base_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&trailer_category_) -
+    reinterpret_cast<char*>(&trailer_base_id_)) + sizeof(trailer_category_));
   // @@protoc_insertion_point(copy_constructor:StoreItem.Trailers.Trailer)
 }
 
@@ -10464,7 +10493,10 @@ trailer_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStrin
 trailer_url_format_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 screenshot_medium_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 screenshot_full_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-trailer_base_id_ = 0;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&trailer_base_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&trailer_category_) -
+    reinterpret_cast<char*>(&trailer_base_id_)) + sizeof(trailer_category_));
 }
 
 StoreItem_Trailers_Trailer::~StoreItem_Trailers_Trailer() {
@@ -10515,7 +10547,11 @@ void StoreItem_Trailers_Trailer::Clear() {
       screenshot_full_.ClearNonDefaultToEmpty();
     }
   }
-  trailer_base_id_ = 0;
+  if (cached_has_bits & 0x00000030u) {
+    ::memset(&trailer_base_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&trailer_category_) -
+        reinterpret_cast<char*>(&trailer_base_id_)) + sizeof(trailer_category_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -10614,6 +10650,18 @@ const char* StoreItem_Trailers_Trailer::_InternalParse(const char* ptr, ::PROTOB
           _Internal::set_has_trailer_base_id(&has_bits);
           trailer_base_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .ETrailerCategory trailer_category = 13 [default = ETrailerCategory_Invalid];
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::ETrailerCategory_IsValid(val))) {
+            _internal_set_trailer_category(static_cast<::ETrailerCategory>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(13, val, mutable_unknown_fields());
+          }
         } else goto handle_unusual;
         continue;
       default: {
@@ -10716,6 +10764,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(12, this->_internal_trailer_base_id(), target);
   }
 
+  // optional .ETrailerCategory trailer_category = 13 [default = ETrailerCategory_Invalid];
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      13, this->_internal_trailer_category(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10754,7 +10809,7 @@ size_t StoreItem_Trailers_Trailer::ByteSizeLong() const {
   }
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional string trailer_name = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -10788,6 +10843,12 @@ size_t StoreItem_Trailers_Trailer::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_trailer_base_id());
+    }
+
+    // optional .ETrailerCategory trailer_category = 13 [default = ETrailerCategory_Invalid];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_trailer_category());
     }
 
   }
@@ -10826,7 +10887,7 @@ void StoreItem_Trailers_Trailer::MergeFrom(const StoreItem_Trailers_Trailer& fro
   trailer_max_.MergeFrom(from.trailer_max_);
   microtrailer_.MergeFrom(from.microtrailer_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_trailer_name(from._internal_trailer_name());
     }
@@ -10841,6 +10902,9 @@ void StoreItem_Trailers_Trailer::MergeFrom(const StoreItem_Trailers_Trailer& fro
     }
     if (cached_has_bits & 0x00000010u) {
       trailer_base_id_ = from.trailer_base_id_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      trailer_category_ = from.trailer_category_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -10875,7 +10939,12 @@ void StoreItem_Trailers_Trailer::InternalSwap(StoreItem_Trailers_Trailer* other)
   trailer_url_format_.Swap(&other->trailer_url_format_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   screenshot_medium_.Swap(&other->screenshot_medium_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   screenshot_full_.Swap(&other->screenshot_full_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(trailer_base_id_, other->trailer_base_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(StoreItem_Trailers_Trailer, trailer_category_)
+      + sizeof(StoreItem_Trailers_Trailer::trailer_category_)
+      - PROTOBUF_FIELD_OFFSET(StoreItem_Trailers_Trailer, trailer_base_id_)>(
+          reinterpret_cast<char*>(&trailer_base_id_),
+          reinterpret_cast<char*>(&other->trailer_base_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata StoreItem_Trailers_Trailer::GetMetadata() const {
@@ -12043,7 +12112,7 @@ class StoreItem::_Internal {
  public:
   using HasBits = decltype(std::declval<StoreItem>()._has_bits_);
   static void set_has_item_type(HasBits* has_bits) {
-    (*has_bits)[1] |= 1u;
+    (*has_bits)[1] |= 2u;
   }
   static void set_has_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2097152u;
@@ -12111,6 +12180,9 @@ class StoreItem::_Internal {
   static void set_has_game_rating(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
+  static void set_has_is_coming_soon(HasBits* has_bits) {
+    (*has_bits)[0] |= 536870912u;
+  }
   static const ::StoreItem_PurchaseOption& best_purchase_option(const StoreItem* msg);
   static void set_has_best_purchase_option(HasBits* has_bits) {
     (*has_bits)[0] |= 16384u;
@@ -12138,7 +12210,7 @@ class StoreItem::_Internal {
     (*has_bits)[0] |= 1073741824u;
   }
   static void set_has_game_count(HasBits* has_bits) {
-    (*has_bits)[0] |= 536870912u;
+    (*has_bits)[1] |= 1u;
   }
   static void set_has_internal_name(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
@@ -12370,8 +12442,8 @@ internal_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStri
 full_description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&related_items_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&is_free_temporarily_) -
-    reinterpret_cast<char*>(&related_items_)) + sizeof(is_free_temporarily_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&game_count_) -
+    reinterpret_cast<char*>(&related_items_)) + sizeof(game_count_));
 item_type_ = -1;
 }
 
@@ -12527,7 +12599,11 @@ void StoreItem::Clear() {
         reinterpret_cast<char*>(&is_free_temporarily_) -
         reinterpret_cast<char*>(&visible_)) + sizeof(is_free_temporarily_));
   }
-  item_type_ = -1;
+  cached_has_bits = _has_bits_[1];
+  if (cached_has_bits & 0x00000003u) {
+    game_count_ = 0u;
+    item_type_ = -1;
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -12786,6 +12862,14 @@ const char* StoreItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool is_coming_soon = 34;
+      case 34:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_is_coming_soon(&_has_bits_);
+          is_coming_soon_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // optional .StoreItem.PurchaseOption best_purchase_option = 40;
       case 40:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
@@ -12970,7 +13054,7 @@ failure:
 
   cached_has_bits = _has_bits_[1];
   // optional .EStoreItemType item_type = 1 [default = EStoreItemType_Invalid];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_item_type(), target);
@@ -13152,6 +13236,12 @@ failure:
         33, _Internal::game_rating(this), target, stream);
   }
 
+  // optional bool is_coming_soon = 34;
+  if (cached_has_bits & 0x20000000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(34, this->_internal_is_coming_soon(), target);
+  }
+
   // optional .StoreItem.PurchaseOption best_purchase_option = 40;
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
@@ -13232,12 +13322,14 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(55, this->_internal_unlisted(), target);
   }
 
+  cached_has_bits = _has_bits_[1];
   // optional uint32 game_count = 56;
-  if (cached_has_bits & 0x20000000u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(56, this->_internal_game_count(), target);
   }
 
+  cached_has_bits = _has_bits_[0];
   // optional string internal_name = 57;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -13579,11 +13671,9 @@ size_t StoreItem::ByteSizeLong() const {
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
     }
 
-    // optional uint32 game_count = 56;
+    // optional bool is_coming_soon = 34;
     if (cached_has_bits & 0x20000000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_game_count());
+      total_size += 2 + 1;
     }
 
     // optional bool unlisted = 55;
@@ -13597,13 +13687,22 @@ size_t StoreItem::ByteSizeLong() const {
     }
 
   }
-  // optional .EStoreItemType item_type = 1 [default = EStoreItemType_Invalid];
   cached_has_bits = _has_bits_[1];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_item_type());
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 game_count = 56;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_game_count());
+    }
 
+    // optional .EStoreItemType item_type = 1 [default = EStoreItemType_Invalid];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_item_type());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -13741,7 +13840,7 @@ void StoreItem::MergeFrom(const StoreItem& from) {
       type_ = from.type_;
     }
     if (cached_has_bits & 0x20000000u) {
-      game_count_ = from.game_count_;
+      is_coming_soon_ = from.is_coming_soon_;
     }
     if (cached_has_bits & 0x40000000u) {
       unlisted_ = from.unlisted_;
@@ -13751,8 +13850,15 @@ void StoreItem::MergeFrom(const StoreItem& from) {
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (from._internal_has_item_type()) {
-    _internal_set_item_type(from._internal_item_type());
+  cached_has_bits = from._has_bits_[1];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      game_count_ = from.game_count_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      item_type_ = from.item_type_;
+    }
+    _has_bits_[1] |= cached_has_bits;
   }
 }
 
@@ -13794,8 +13900,8 @@ void StoreItem::InternalSwap(StoreItem* other) {
   internal_name_.Swap(&other->internal_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   full_description_.Swap(&other->full_description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(StoreItem, is_free_temporarily_)
-      + sizeof(StoreItem::is_free_temporarily_)
+      PROTOBUF_FIELD_OFFSET(StoreItem, game_count_)
+      + sizeof(StoreItem::game_count_)
       - PROTOBUF_FIELD_OFFSET(StoreItem, related_items_)>(
           reinterpret_cast<char*>(&related_items_),
           reinterpret_cast<char*>(&other->related_items_));
@@ -15279,10 +15385,10 @@ class CStoreBrowse_GetStoreCategories_Response_Category::_Internal {
  public:
   using HasBits = decltype(std::declval<CStoreBrowse_GetStoreCategories_Response_Category>()._has_bits_);
   static void set_has_categoryid(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_internal_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -15294,10 +15400,16 @@ class CStoreBrowse_GetStoreCategories_Response_Category::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_show_in_search(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_computed(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_edit_url(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_edit_sort_order(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
   }
 };
 
@@ -15326,9 +15438,14 @@ CStoreBrowse_GetStoreCategories_Response_Category::CStoreBrowse_GetStoreCategori
     image_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_image_url(), 
       GetArena());
   }
+  edit_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_edit_url()) {
+    edit_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_edit_url(), 
+      GetArena());
+  }
   ::memcpy(&categoryid_, &from.categoryid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&computed_) -
-    reinterpret_cast<char*>(&categoryid_)) + sizeof(computed_));
+    static_cast<size_t>(reinterpret_cast<char*>(&edit_sort_order_) -
+    reinterpret_cast<char*>(&categoryid_)) + sizeof(edit_sort_order_));
   // @@protoc_insertion_point(copy_constructor:CStoreBrowse_GetStoreCategories_Response.Category)
 }
 
@@ -15336,10 +15453,11 @@ void CStoreBrowse_GetStoreCategories_Response_Category::SharedCtor() {
 internal_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 image_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+edit_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&categoryid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&computed_) -
-    reinterpret_cast<char*>(&categoryid_)) + sizeof(computed_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&edit_sort_order_) -
+    reinterpret_cast<char*>(&categoryid_)) + sizeof(edit_sort_order_));
 }
 
 CStoreBrowse_GetStoreCategories_Response_Category::~CStoreBrowse_GetStoreCategories_Response_Category() {
@@ -15353,6 +15471,7 @@ void CStoreBrowse_GetStoreCategories_Response_Category::SharedDtor() {
   internal_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   display_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   image_url_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  edit_url_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void CStoreBrowse_GetStoreCategories_Response_Category::ArenaDtor(void* object) {
@@ -15372,7 +15491,7 @@ void CStoreBrowse_GetStoreCategories_Response_Category::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       internal_name_.ClearNonDefaultToEmpty();
     }
@@ -15382,12 +15501,16 @@ void CStoreBrowse_GetStoreCategories_Response_Category::Clear() {
     if (cached_has_bits & 0x00000004u) {
       image_url_.ClearNonDefaultToEmpty();
     }
+    if (cached_has_bits & 0x00000008u) {
+      edit_url_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x00000078u) {
+  if (cached_has_bits & 0x000000f0u) {
     ::memset(&categoryid_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&computed_) -
         reinterpret_cast<char*>(&categoryid_)) + sizeof(computed_));
   }
+  edit_sort_order_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -15469,6 +15592,25 @@ const char* CStoreBrowse_GetStoreCategories_Response_Category::_InternalParse(co
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional string edit_url = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+          auto str = _internal_mutable_edit_url();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CStoreBrowse_GetStoreCategories_Response.Category.edit_url");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 edit_sort_order = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          _Internal::set_has_edit_sort_order(&has_bits);
+          edit_sort_order_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -15500,13 +15642,13 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional uint32 categoryid = 1;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_categoryid(), target);
   }
 
   // optional .EStoreCategoryType type = 2 [default = EStoreCategoryType_Category];
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_type(), target);
@@ -15543,15 +15685,31 @@ failure:
   }
 
   // optional bool show_in_search = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_show_in_search(), target);
   }
 
   // optional bool computed = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_computed(), target);
+  }
+
+  // optional string edit_url = 8;
+  if (cached_has_bits & 0x00000008u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_edit_url().data(), static_cast<int>(this->_internal_edit_url().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CStoreBrowse_GetStoreCategories_Response.Category.edit_url");
+    target = stream->WriteStringMaybeAliased(
+        8, this->_internal_edit_url(), target);
+  }
+
+  // optional uint32 edit_sort_order = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_edit_sort_order(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -15571,7 +15729,7 @@ size_t CStoreBrowse_GetStoreCategories_Response_Category::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     // optional string internal_name = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -15593,30 +15751,44 @@ size_t CStoreBrowse_GetStoreCategories_Response_Category::ByteSizeLong() const {
           this->_internal_image_url());
     }
 
-    // optional uint32 categoryid = 1;
+    // optional string edit_url = 8;
     if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_edit_url());
+    }
+
+    // optional uint32 categoryid = 1;
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_categoryid());
     }
 
     // optional .EStoreCategoryType type = 2 [default = EStoreCategoryType_Category];
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
     }
 
     // optional bool show_in_search = 6;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool computed = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }
 
+    // optional bool computed = 7;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 1 + 1;
+    }
+
   }
+  // optional uint32 edit_sort_order = 9;
+  if (cached_has_bits & 0x00000100u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_edit_sort_order());
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -15649,7 +15821,7 @@ void CStoreBrowse_GetStoreCategories_Response_Category::MergeFrom(const CStoreBr
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_internal_name(from._internal_internal_name());
     }
@@ -15660,18 +15832,24 @@ void CStoreBrowse_GetStoreCategories_Response_Category::MergeFrom(const CStoreBr
       _internal_set_image_url(from._internal_image_url());
     }
     if (cached_has_bits & 0x00000008u) {
-      categoryid_ = from.categoryid_;
+      _internal_set_edit_url(from._internal_edit_url());
     }
     if (cached_has_bits & 0x00000010u) {
-      type_ = from.type_;
+      categoryid_ = from.categoryid_;
     }
     if (cached_has_bits & 0x00000020u) {
-      show_in_search_ = from.show_in_search_;
+      type_ = from.type_;
     }
     if (cached_has_bits & 0x00000040u) {
+      show_in_search_ = from.show_in_search_;
+    }
+    if (cached_has_bits & 0x00000080u) {
       computed_ = from.computed_;
     }
     _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000100u) {
+    _internal_set_edit_sort_order(from._internal_edit_sort_order());
   }
 }
 
@@ -15700,9 +15878,10 @@ void CStoreBrowse_GetStoreCategories_Response_Category::InternalSwap(CStoreBrows
   internal_name_.Swap(&other->internal_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   display_name_.Swap(&other->display_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   image_url_.Swap(&other->image_url_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  edit_url_.Swap(&other->edit_url_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CStoreBrowse_GetStoreCategories_Response_Category, computed_)
-      + sizeof(CStoreBrowse_GetStoreCategories_Response_Category::computed_)
+      PROTOBUF_FIELD_OFFSET(CStoreBrowse_GetStoreCategories_Response_Category, edit_sort_order_)
+      + sizeof(CStoreBrowse_GetStoreCategories_Response_Category::edit_sort_order_)
       - PROTOBUF_FIELD_OFFSET(CStoreBrowse_GetStoreCategories_Response_Category, categoryid_)>(
           reinterpret_cast<char*>(&categoryid_),
           reinterpret_cast<char*>(&other->categoryid_));

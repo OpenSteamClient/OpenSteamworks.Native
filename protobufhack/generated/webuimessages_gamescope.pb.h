@@ -523,6 +523,7 @@ class CMsgGamescopeState PROTOBUF_FINAL :
     kIsRefreshRateSwitchingRestrictedFieldNumber = 8,
     kIsHdrVisualizationSupportedFieldNumber = 9,
     kIsMuraCorrectionSupportedFieldNumber = 10,
+    kIsGlobalActionBindingSupportedFieldNumber = 11,
   };
   // optional .CMsgDisplayInfo active_display_info = 5;
   bool has_active_display_info() const;
@@ -659,6 +660,19 @@ class CMsgGamescopeState PROTOBUF_FINAL :
   void _internal_set_is_mura_correction_supported(bool value);
   public:
 
+  // optional bool is_global_action_binding_supported = 11;
+  bool has_is_global_action_binding_supported() const;
+  private:
+  bool _internal_has_is_global_action_binding_supported() const;
+  public:
+  void clear_is_global_action_binding_supported();
+  bool is_global_action_binding_supported() const;
+  void set_is_global_action_binding_supported(bool value);
+  private:
+  bool _internal_is_global_action_binding_supported() const;
+  void _internal_set_is_global_action_binding_supported(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgGamescopeState)
  private:
   class _Internal;
@@ -678,6 +692,7 @@ class CMsgGamescopeState PROTOBUF_FINAL :
   bool is_refresh_rate_switching_restricted_;
   bool is_hdr_visualization_supported_;
   bool is_mura_correction_supported_;
+  bool is_global_action_binding_supported_;
   friend struct ::TableStruct_webuimessages_5fgamescope_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2496,6 +2511,34 @@ inline void CMsgGamescopeState::_internal_set_is_mura_correction_supported(bool 
 inline void CMsgGamescopeState::set_is_mura_correction_supported(bool value) {
   _internal_set_is_mura_correction_supported(value);
   // @@protoc_insertion_point(field_set:CMsgGamescopeState.is_mura_correction_supported)
+}
+
+// optional bool is_global_action_binding_supported = 11;
+inline bool CMsgGamescopeState::_internal_has_is_global_action_binding_supported() const {
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool CMsgGamescopeState::has_is_global_action_binding_supported() const {
+  return _internal_has_is_global_action_binding_supported();
+}
+inline void CMsgGamescopeState::clear_is_global_action_binding_supported() {
+  is_global_action_binding_supported_ = false;
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline bool CMsgGamescopeState::_internal_is_global_action_binding_supported() const {
+  return is_global_action_binding_supported_;
+}
+inline bool CMsgGamescopeState::is_global_action_binding_supported() const {
+  // @@protoc_insertion_point(field_get:CMsgGamescopeState.is_global_action_binding_supported)
+  return _internal_is_global_action_binding_supported();
+}
+inline void CMsgGamescopeState::_internal_set_is_global_action_binding_supported(bool value) {
+  _has_bits_[0] |= 0x00000400u;
+  is_global_action_binding_supported_ = value;
+}
+inline void CMsgGamescopeState::set_is_global_action_binding_supported(bool value) {
+  _internal_set_is_global_action_binding_supported(value);
+  // @@protoc_insertion_point(field_set:CMsgGamescopeState.is_global_action_binding_supported)
 }
 
 // -------------------------------------------------------------------

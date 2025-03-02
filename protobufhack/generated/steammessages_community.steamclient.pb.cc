@@ -404,6 +404,83 @@ struct CCommunity_GetAvatarHistory_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCommunity_GetAvatarHistory_ResponseDefaultTypeInternal _CCommunity_GetAvatarHistory_Response_default_instance_;
+constexpr CCommunity_GetClanEventCrowdInMetadata_Request::CCommunity_GetClanEventCrowdInMetadata_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : steamid_(PROTOBUF_ULONGLONG(0))
+  , itemid_(PROTOBUF_ULONGLONG(0)){}
+struct CCommunity_GetClanEventCrowdInMetadata_RequestDefaultTypeInternal {
+  constexpr CCommunity_GetClanEventCrowdInMetadata_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CCommunity_GetClanEventCrowdInMetadata_RequestDefaultTypeInternal() {}
+  union {
+    CCommunity_GetClanEventCrowdInMetadata_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCommunity_GetClanEventCrowdInMetadata_RequestDefaultTypeInternal _CCommunity_GetClanEventCrowdInMetadata_Request_default_instance_;
+constexpr CCommunity_GetClanEventCrowdInMetadata_Response::CCommunity_GetClanEventCrowdInMetadata_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : crowdin_project_id_(PROTOBUF_ULONGLONG(0))
+  , crowdin_file_id_(PROTOBUF_ULONGLONG(0)){}
+struct CCommunity_GetClanEventCrowdInMetadata_ResponseDefaultTypeInternal {
+  constexpr CCommunity_GetClanEventCrowdInMetadata_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CCommunity_GetClanEventCrowdInMetadata_ResponseDefaultTypeInternal() {}
+  union {
+    CCommunity_GetClanEventCrowdInMetadata_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCommunity_GetClanEventCrowdInMetadata_ResponseDefaultTypeInternal _CCommunity_GetClanEventCrowdInMetadata_Response_default_instance_;
+constexpr CCommunity_GetClanCrowdInMetadata_Request::CCommunity_GetClanCrowdInMetadata_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : steamid_(PROTOBUF_ULONGLONG(0)){}
+struct CCommunity_GetClanCrowdInMetadata_RequestDefaultTypeInternal {
+  constexpr CCommunity_GetClanCrowdInMetadata_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CCommunity_GetClanCrowdInMetadata_RequestDefaultTypeInternal() {}
+  union {
+    CCommunity_GetClanCrowdInMetadata_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCommunity_GetClanCrowdInMetadata_RequestDefaultTypeInternal _CCommunity_GetClanCrowdInMetadata_Request_default_instance_;
+constexpr CCommunity_GetClanCrowdInMetadata_Response::CCommunity_GetClanCrowdInMetadata_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : crowdin_project_id_(PROTOBUF_ULONGLONG(0))
+  , crowdin_directory_id_(PROTOBUF_ULONGLONG(0))
+  , push_by_default_(false){}
+struct CCommunity_GetClanCrowdInMetadata_ResponseDefaultTypeInternal {
+  constexpr CCommunity_GetClanCrowdInMetadata_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CCommunity_GetClanCrowdInMetadata_ResponseDefaultTypeInternal() {}
+  union {
+    CCommunity_GetClanCrowdInMetadata_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCommunity_GetClanCrowdInMetadata_ResponseDefaultTypeInternal _CCommunity_GetClanCrowdInMetadata_Response_default_instance_;
+constexpr CCommunity_FetchTranslationFromCrowdIn_Request::CCommunity_FetchTranslationFromCrowdIn_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : steamid_(PROTOBUF_ULONGLONG(0))
+  , itemid_(PROTOBUF_ULONGLONG(0))
+  , language_(0u){}
+struct CCommunity_FetchTranslationFromCrowdIn_RequestDefaultTypeInternal {
+  constexpr CCommunity_FetchTranslationFromCrowdIn_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CCommunity_FetchTranslationFromCrowdIn_RequestDefaultTypeInternal() {}
+  union {
+    CCommunity_FetchTranslationFromCrowdIn_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCommunity_FetchTranslationFromCrowdIn_RequestDefaultTypeInternal _CCommunity_FetchTranslationFromCrowdIn_Request_default_instance_;
+constexpr CCommunity_FetchTranslationFromCrowdIn_Response::CCommunity_FetchTranslationFromCrowdIn_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CCommunity_FetchTranslationFromCrowdIn_ResponseDefaultTypeInternal {
+  constexpr CCommunity_FetchTranslationFromCrowdIn_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CCommunity_FetchTranslationFromCrowdIn_ResponseDefaultTypeInternal() {}
+  union {
+    CCommunity_FetchTranslationFromCrowdIn_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCommunity_FetchTranslationFromCrowdIn_ResponseDefaultTypeInternal _CCommunity_FetchTranslationFromCrowdIn_Response_default_instance_;
 constexpr CAppPriority::CAppPriority(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : appid_()
@@ -701,7 +778,7 @@ struct CCommunity_ClearSinglePartnerEventsAppPriority_ResponseDefaultTypeInterna
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCommunity_ClearSinglePartnerEventsAppPriority_ResponseDefaultTypeInternal _CCommunity_ClearSinglePartnerEventsAppPriority_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fcommunity_2esteamclient_2eproto[48];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fcommunity_2esteamclient_2eproto[54];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fcommunity_2esteamclient_2eproto[1];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fcommunity_2esteamclient_2eproto[1];
 
@@ -1049,6 +1126,58 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fcommunity_2est
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CCommunity_GetAvatarHistory_Response, avatars_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanEventCrowdInMetadata_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanEventCrowdInMetadata_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanEventCrowdInMetadata_Request, steamid_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanEventCrowdInMetadata_Request, itemid_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanEventCrowdInMetadata_Response, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanEventCrowdInMetadata_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanEventCrowdInMetadata_Response, crowdin_project_id_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanEventCrowdInMetadata_Response, crowdin_file_id_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanCrowdInMetadata_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanCrowdInMetadata_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanCrowdInMetadata_Request, steamid_),
+  0,
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanCrowdInMetadata_Response, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanCrowdInMetadata_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanCrowdInMetadata_Response, crowdin_project_id_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanCrowdInMetadata_Response, crowdin_directory_id_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_GetClanCrowdInMetadata_Response, push_by_default_),
+  0,
+  1,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CCommunity_FetchTranslationFromCrowdIn_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_FetchTranslationFromCrowdIn_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CCommunity_FetchTranslationFromCrowdIn_Request, steamid_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_FetchTranslationFromCrowdIn_Request, itemid_),
+  PROTOBUF_FIELD_OFFSET(::CCommunity_FetchTranslationFromCrowdIn_Request, language_),
+  0,
+  1,
+  2,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CCommunity_FetchTranslationFromCrowdIn_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CAppPriority, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CAppPriority, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1272,29 +1401,35 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 317, 324, sizeof(::CCommunity_GetAvatarHistory_Request)},
   { 326, 334, sizeof(::CCommunity_GetAvatarHistory_Response_AvatarData)},
   { 337, -1, sizeof(::CCommunity_GetAvatarHistory_Response)},
-  { 343, 350, sizeof(::CAppPriority)},
-  { 352, 367, sizeof(::CCommunity_GetUserPartnerEventNews_Request)},
-  { 377, -1, sizeof(::CCommunity_GetUserPartnerEventNews_Response)},
-  { 383, 391, sizeof(::CCommunity_GetBestEventsForUser_Request)},
-  { 394, 406, sizeof(::CCommunity_PartnerEventResult)},
-  { 413, -1, sizeof(::CCommunity_GetBestEventsForUser_Response)},
-  { 419, 429, sizeof(::CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking)},
-  { 434, -1, sizeof(::CCommunity_MarkPartnerEventsForUser_Request)},
-  { 440, -1, sizeof(::CCommunity_MarkPartnerEventsForUser_Response)},
-  { 445, 452, sizeof(::CCommunity_GetUserPartnerEventViewStatus_Request)},
-  { 454, 463, sizeof(::CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent)},
-  { 467, -1, sizeof(::CCommunity_GetUserPartnerEventViewStatus_Response)},
-  { 473, 479, sizeof(::CCommunity_PartnerEventsShowMoreForApp_Request)},
-  { 480, -1, sizeof(::CCommunity_PartnerEventsShowMoreForApp_Response)},
-  { 485, 491, sizeof(::CCommunity_PartnerEventsShowLessForApp_Request)},
-  { 492, -1, sizeof(::CCommunity_PartnerEventsShowLessForApp_Response)},
-  { 497, -1, sizeof(::CCommunity_ClearUserPartnerEventsAppPriorities_Request)},
-  { 502, -1, sizeof(::CCommunity_ClearUserPartnerEventsAppPriorities_Response)},
-  { 507, -1, sizeof(::CCommunity_GetUserPartnerEventsAppPriorities_Request)},
-  { 512, 519, sizeof(::CCommunity_PartnerEventsAppPriority)},
-  { 521, -1, sizeof(::CCommunity_GetUserPartnerEventsAppPriorities_Response)},
-  { 527, 533, sizeof(::CCommunity_ClearSinglePartnerEventsAppPriority_Request)},
-  { 534, -1, sizeof(::CCommunity_ClearSinglePartnerEventsAppPriority_Response)},
+  { 343, 350, sizeof(::CCommunity_GetClanEventCrowdInMetadata_Request)},
+  { 352, 359, sizeof(::CCommunity_GetClanEventCrowdInMetadata_Response)},
+  { 361, 367, sizeof(::CCommunity_GetClanCrowdInMetadata_Request)},
+  { 368, 376, sizeof(::CCommunity_GetClanCrowdInMetadata_Response)},
+  { 379, 387, sizeof(::CCommunity_FetchTranslationFromCrowdIn_Request)},
+  { 390, -1, sizeof(::CCommunity_FetchTranslationFromCrowdIn_Response)},
+  { 395, 402, sizeof(::CAppPriority)},
+  { 404, 419, sizeof(::CCommunity_GetUserPartnerEventNews_Request)},
+  { 429, -1, sizeof(::CCommunity_GetUserPartnerEventNews_Response)},
+  { 435, 443, sizeof(::CCommunity_GetBestEventsForUser_Request)},
+  { 446, 458, sizeof(::CCommunity_PartnerEventResult)},
+  { 465, -1, sizeof(::CCommunity_GetBestEventsForUser_Response)},
+  { 471, 481, sizeof(::CCommunity_MarkPartnerEventsForUser_Request_PartnerEventMarking)},
+  { 486, -1, sizeof(::CCommunity_MarkPartnerEventsForUser_Request)},
+  { 492, -1, sizeof(::CCommunity_MarkPartnerEventsForUser_Response)},
+  { 497, 504, sizeof(::CCommunity_GetUserPartnerEventViewStatus_Request)},
+  { 506, 515, sizeof(::CCommunity_GetUserPartnerEventViewStatus_Response_PartnerEvent)},
+  { 519, -1, sizeof(::CCommunity_GetUserPartnerEventViewStatus_Response)},
+  { 525, 531, sizeof(::CCommunity_PartnerEventsShowMoreForApp_Request)},
+  { 532, -1, sizeof(::CCommunity_PartnerEventsShowMoreForApp_Response)},
+  { 537, 543, sizeof(::CCommunity_PartnerEventsShowLessForApp_Request)},
+  { 544, -1, sizeof(::CCommunity_PartnerEventsShowLessForApp_Response)},
+  { 549, -1, sizeof(::CCommunity_ClearUserPartnerEventsAppPriorities_Request)},
+  { 554, -1, sizeof(::CCommunity_ClearUserPartnerEventsAppPriorities_Response)},
+  { 559, -1, sizeof(::CCommunity_GetUserPartnerEventsAppPriorities_Request)},
+  { 564, 571, sizeof(::CCommunity_PartnerEventsAppPriority)},
+  { 573, -1, sizeof(::CCommunity_GetUserPartnerEventsAppPriorities_Response)},
+  { 579, 585, sizeof(::CCommunity_ClearSinglePartnerEventsAppPriority_Request)},
+  { 586, -1, sizeof(::CCommunity_ClearSinglePartnerEventsAppPriority_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1323,6 +1458,12 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetAvatarHistory_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetAvatarHistory_Response_AvatarData_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetAvatarHistory_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetClanEventCrowdInMetadata_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetClanEventCrowdInMetadata_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetClanCrowdInMetadata_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetClanCrowdInMetadata_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_FetchTranslationFromCrowdIn_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_FetchTranslationFromCrowdIn_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAppPriority_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetUserPartnerEventNews_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCommunity_GetUserPartnerEventNews_Response_default_instance_),
@@ -1443,138 +1584,161 @@ const char descriptor_table_protodef_steammessages_5fcommunity_2esteamclient_2ep
   "Response\022A\n\007avatars\030\001 \003(\01320.CCommunity_G"
   "etAvatarHistory_Response.AvatarData\032K\n\nA"
   "vatarData\022\023\n\013avatar_sha1\030\001 \001(\t\022\025\n\ruser_u"
-  "ploaded\030\002 \001(\010\022\021\n\ttimestamp\030\003 \001(\r\"/\n\014CApp"
-  "Priority\022\020\n\010priority\030\001 \001(\r\022\r\n\005appid\030\002 \003("
-  "\r\"\272\002\n*CCommunity_GetUserPartnerEventNews"
-  "_Request\022\r\n\005count\030\001 \001(\r\022\016\n\006offset\030\002 \001(\r\022"
-  "\032\n\022rtime32_start_time\030\003 \001(\r\022\030\n\020rtime32_e"
-  "nd_time\030\004 \001(\r\022\033\n\023language_preference\030\005 \003"
-  "(\r\022/\n\021filter_event_type\030\006 \003(\0162\024.EProtoCl"
-  "anEventType\022\027\n\017filter_to_appid\030\007 \001(\010\022\037\n\010"
-  "app_list\030\010 \003(\0132\r.CAppPriority\022\026\n\013count_a"
-  "fter\030\t \001(\r:\0010\022\027\n\014count_before\030\n \001(\r:\0010\"W"
-  "\n+CCommunity_GetUserPartnerEventNews_Res"
-  "ponse\022(\n\007results\030\001 \003(\0132\027.CClanMatchEvent"
-  "ByRange\"\216\001\n\'CCommunity_GetBestEventsForU"
-  "ser_Request\022\032\n\022include_steam_blog\030\001 \001(\010\022"
-  "$\n\034filter_to_played_within_days\030\002 \001(\r\022!\n"
-  "\031include_only_game_updates\030\003 \001(\010\"\303\001\n\035CCo"
-  "mmunity_PartnerEventResult\022\016\n\006clanid\030\001 \001"
-  "(\r\022\021\n\tevent_gid\030\002 \001(\006\022\030\n\020announcement_gi"
-  "d\030\003 \001(\006\022\r\n\005appid\030\004 \001(\r\022\031\n\021possible_takeo"
-  "ver\030\005 \001(\010\022 \n\025rtime32_last_modified\030\006 \001(\r"
-  ":\0010\022\031\n\021user_app_priority\030\007 \001(\005\"[\n(CCommu"
-  "nity_GetBestEventsForUser_Response\022/\n\007re"
-  "sults\030\001 \003(\0132\036.CCommunity_PartnerEventRes"
-  "ult\"\276\002\n+CCommunity_MarkPartnerEventsForU"
-  "ser_Request\022R\n\010markings\030\001 \003(\0132@.CCommuni"
-  "ty_MarkPartnerEventsForUser_Request.Part"
-  "nerEventMarking\032\272\001\n\023PartnerEventMarking\022"
-  "\016\n\006clanid\030\001 \001(\r\022\021\n\tevent_gid\030\002 \001(\006\022]\n\020di"
-  "splay_location\030\003 \001(\0162\035.EPartnerEventDisp"
-  "layLocation:$EPartnerEventDisplayLocatio"
-  "n_Invalid\022\020\n\010marshown\030\004 \001(\010\022\017\n\007marread\030\005"
-  " \001(\010\".\n,CCommunity_MarkPartnerEventsForU"
-  "ser_Response\"h\n0CCommunity_GetUserPartne"
-  "rEventViewStatus_Request\022\022\n\nevent_gids\030\001"
-  " \003(\006\022 \n\030include_read_events_only\030\002 \001(\010\"\361"
-  "\001\n1CCommunity_GetUserPartnerEventViewSta"
-  "tus_Response\022O\n\006events\030\001 \003(\0132\?.CCommunit"
-  "y_GetUserPartnerEventViewStatus_Response"
-  ".PartnerEvent\032k\n\014PartnerEvent\022\021\n\tevent_g"
-  "id\030\001 \001(\006\022\027\n\017last_shown_time\030\002 \001(\r\022\026\n\016las"
-  "t_read_time\030\003 \001(\r\022\027\n\017clan_account_id\030\004 \001"
-  "(\r\"\?\n.CCommunity_PartnerEventsShowMoreFo"
-  "rApp_Request\022\r\n\005appid\030\001 \001(\r\"1\n/CCommunit"
-  "y_PartnerEventsShowMoreForApp_Response\"\?"
-  "\n.CCommunity_PartnerEventsShowLessForApp"
-  "_Request\022\r\n\005appid\030\001 \001(\r\"1\n/CCommunity_Pa"
-  "rtnerEventsShowLessForApp_Response\"8\n6CC"
-  "ommunity_ClearUserPartnerEventsAppPriori"
-  "ties_Request\"9\n7CCommunity_ClearUserPart"
-  "nerEventsAppPriorities_Response\"6\n4CComm"
-  "unity_GetUserPartnerEventsAppPriorities_"
-  "Request\"O\n#CCommunity_PartnerEventsAppPr"
-  "iority\022\r\n\005appid\030\001 \001(\r\022\031\n\021user_app_priori"
-  "ty\030\002 \001(\005\"q\n5CCommunity_GetUserPartnerEve"
-  "ntsAppPriorities_Response\0228\n\npriorities\030"
-  "\001 \003(\0132$.CCommunity_PartnerEventsAppPrior"
-  "ity\"G\n6CCommunity_ClearSinglePartnerEven"
-  "tsAppPriority_Request\022\r\n\005appid\030\001 \001(\r\"9\n7"
-  "CCommunity_ClearSinglePartnerEventsAppPr"
-  "iority_Response*\247\004\n\034EPartnerEventDisplay"
-  "Location\022(\n$EPartnerEventDisplayLocation"
-  "_Invalid\020\000\0224\n0EPartnerEventDisplayLocati"
-  "on_AppDetailsSpotlight\020\001\0220\n,EPartnerEven"
-  "tDisplayLocation_LibraryOverview\020\002\022-\n)EP"
-  "artnerEventDisplayLocation_StoreAppPage\020"
-  "\003\022.\n*EPartnerEventDisplayLocation_EventS"
-  "croller\020\004\0223\n/EPartnerEventDisplayLocatio"
-  "n_AppDetailsActivity\020\005\022-\n)EPartnerEventD"
-  "isplayLocation_CommunityHub\020\006\022/\n+EPartne"
-  "rEventDisplayLocation_StoreFrontPage\020\007\022("
-  "\n$EPartnerEventDisplayLocation_NewsHub\020\010"
-  "\022,\n(EPartnerEventDisplayLocation_Gamepad"
-  "Home\020\t\022)\n%EPartnerEventDisplayLocation_S"
-  "toreHub\020\n2\210\022\n\tCommunity\022D\n\007GetApps\022\033.CCo"
-  "mmunity_GetApps_Request\032\034.CCommunity_Get"
-  "Apps_Response\022\211\001\n\036GetAppRichPresenceLoca"
-  "lization\0222.CCommunity_GetAppRichPresence"
-  "Localization_Request\0323.CCommunity_GetApp"
-  "RichPresenceLocalization_Response\022_\n\020Get"
-  "CommentThread\022$.CCommunity_GetCommentThr"
-  "ead_Request\032%.CCommunity_GetCommentThrea"
-  "d_Response\022h\n\023PostCommentToThread\022\'.CCom"
-  "munity_PostCommentToThread_Request\032(.CCo"
-  "mmunity_PostCommentToThread_Response\022t\n\027"
-  "DeleteCommentFromThread\022+.CCommunity_Del"
-  "eteCommentFromThread_Request\032,.CCommunit"
-  "y_DeleteCommentFromThread_Response\022b\n\021Ra"
-  "teCommentThread\022%.CCommunity_RateComment"
-  "Thread_Request\032&.CCommunity_RateCommentT"
-  "hread_Response\022t\n\027GetCommentThreadRating"
-  "s\022+.CCommunity_GetCommentThreadRatings_R"
-  "equest\032,.CCommunity_GetCommentThreadRati"
-  "ngs_Response\022k\n\024RateClanAnnouncement\022(.C"
-  "Community_RateClanAnnouncement_Request\032)"
-  ".CCommunity_RateClanAnnouncement_Respons"
-  "e\022\211\001\n\036GetClanAnnouncementVoteForUser\0222.C"
-  "Community_GetClanAnnouncementVoteForUser"
-  "_Request\0323.CCommunity_GetClanAnnouncemen"
-  "tVoteForUser_Response\022_\n\020GetAvatarHistor"
-  "y\022$.CCommunity_GetAvatarHistory_Request\032"
-  "%.CCommunity_GetAvatarHistory_Response\022t"
-  "\n\027GetUserPartnerEventNews\022+.CCommunity_G"
-  "etUserPartnerEventNews_Request\032,.CCommun"
-  "ity_GetUserPartnerEventNews_Response\022k\n\024"
-  "GetBestEventsForUser\022(.CCommunity_GetBes"
-  "tEventsForUser_Request\032).CCommunity_GetB"
-  "estEventsForUser_Response\022w\n\030MarkPartner"
-  "EventsForUser\022,.CCommunity_MarkPartnerEv"
-  "entsForUser_Request\032-.CCommunity_MarkPar"
-  "tnerEventsForUser_Response\022\206\001\n\035GetUserPa"
-  "rtnerEventViewStatus\0221.CCommunity_GetUse"
-  "rPartnerEventViewStatus_Request\0322.CCommu"
-  "nity_GetUserPartnerEventViewStatus_Respo"
-  "nse\022\200\001\n\033PartnerEventsShowMoreForApp\022/.CC"
-  "ommunity_PartnerEventsShowMoreForApp_Req"
-  "uest\0320.CCommunity_PartnerEventsShowMoreF"
-  "orApp_Response\022\200\001\n\033PartnerEventsShowLess"
-  "ForApp\022/.CCommunity_PartnerEventsShowLes"
-  "sForApp_Request\0320.CCommunity_PartnerEven"
-  "tsShowLessForApp_Response\022\230\001\n#ClearUserP"
-  "artnerEventsAppPriorities\0227.CCommunity_C"
-  "learUserPartnerEventsAppPriorities_Reque"
-  "st\0328.CCommunity_ClearUserPartnerEventsAp"
-  "pPriorities_Response\022\222\001\n!GetUserPartnerE"
-  "ventsAppPriorities\0225.CCommunity_GetUserP"
-  "artnerEventsAppPriorities_Request\0326.CCom"
-  "munity_GetUserPartnerEventsAppPriorities"
-  "_Response\022\230\001\n#ClearSinglePartnerEventsAp"
-  "pPriority\0227.CCommunity_ClearSinglePartne"
-  "rEventsAppPriority_Request\0328.CCommunity_"
-  "ClearSinglePartnerEventsAppPriority_Resp"
-  "onseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "ploaded\030\002 \001(\010\022\021\n\ttimestamp\030\003 \001(\r\"Q\n.CCom"
+  "munity_GetClanEventCrowdInMetadata_Reque"
+  "st\022\017\n\007steamid\030\001 \001(\006\022\016\n\006itemid\030\002 \001(\004\"f\n/C"
+  "Community_GetClanEventCrowdInMetadata_Re"
+  "sponse\022\032\n\022crowdin_project_id\030\001 \001(\004\022\027\n\017cr"
+  "owdin_file_id\030\002 \001(\004\"<\n)CCommunity_GetCla"
+  "nCrowdInMetadata_Request\022\017\n\007steamid\030\001 \001("
+  "\006\"\177\n*CCommunity_GetClanCrowdInMetadata_R"
+  "esponse\022\032\n\022crowdin_project_id\030\001 \001(\004\022\034\n\024c"
+  "rowdin_directory_id\030\002 \001(\004\022\027\n\017push_by_def"
+  "ault\030\003 \001(\010\"c\n.CCommunity_FetchTranslatio"
+  "nFromCrowdIn_Request\022\017\n\007steamid\030\001 \001(\006\022\016\n"
+  "\006itemid\030\002 \001(\004\022\020\n\010language\030\003 \001(\r\"1\n/CComm"
+  "unity_FetchTranslationFromCrowdIn_Respon"
+  "se\"/\n\014CAppPriority\022\020\n\010priority\030\001 \001(\r\022\r\n\005"
+  "appid\030\002 \003(\r\"\272\002\n*CCommunity_GetUserPartne"
+  "rEventNews_Request\022\r\n\005count\030\001 \001(\r\022\016\n\006off"
+  "set\030\002 \001(\r\022\032\n\022rtime32_start_time\030\003 \001(\r\022\030\n"
+  "\020rtime32_end_time\030\004 \001(\r\022\033\n\023language_pref"
+  "erence\030\005 \003(\r\022/\n\021filter_event_type\030\006 \003(\0162"
+  "\024.EProtoClanEventType\022\027\n\017filter_to_appid"
+  "\030\007 \001(\010\022\037\n\010app_list\030\010 \003(\0132\r.CAppPriority\022"
+  "\026\n\013count_after\030\t \001(\r:\0010\022\027\n\014count_before\030"
+  "\n \001(\r:\0010\"W\n+CCommunity_GetUserPartnerEve"
+  "ntNews_Response\022(\n\007results\030\001 \003(\0132\027.CClan"
+  "MatchEventByRange\"\216\001\n\'CCommunity_GetBest"
+  "EventsForUser_Request\022\032\n\022include_steam_b"
+  "log\030\001 \001(\010\022$\n\034filter_to_played_within_day"
+  "s\030\002 \001(\r\022!\n\031include_only_game_updates\030\003 \001"
+  "(\010\"\303\001\n\035CCommunity_PartnerEventResult\022\016\n\006"
+  "clanid\030\001 \001(\r\022\021\n\tevent_gid\030\002 \001(\006\022\030\n\020annou"
+  "ncement_gid\030\003 \001(\006\022\r\n\005appid\030\004 \001(\r\022\031\n\021poss"
+  "ible_takeover\030\005 \001(\010\022 \n\025rtime32_last_modi"
+  "fied\030\006 \001(\r:\0010\022\031\n\021user_app_priority\030\007 \001(\005"
+  "\"[\n(CCommunity_GetBestEventsForUser_Resp"
+  "onse\022/\n\007results\030\001 \003(\0132\036.CCommunity_Partn"
+  "erEventResult\"\276\002\n+CCommunity_MarkPartner"
+  "EventsForUser_Request\022R\n\010markings\030\001 \003(\0132"
+  "@.CCommunity_MarkPartnerEventsForUser_Re"
+  "quest.PartnerEventMarking\032\272\001\n\023PartnerEve"
+  "ntMarking\022\016\n\006clanid\030\001 \001(\r\022\021\n\tevent_gid\030\002"
+  " \001(\006\022]\n\020display_location\030\003 \001(\0162\035.EPartne"
+  "rEventDisplayLocation:$EPartnerEventDisp"
+  "layLocation_Invalid\022\020\n\010marshown\030\004 \001(\010\022\017\n"
+  "\007marread\030\005 \001(\010\".\n,CCommunity_MarkPartner"
+  "EventsForUser_Response\"h\n0CCommunity_Get"
+  "UserPartnerEventViewStatus_Request\022\022\n\nev"
+  "ent_gids\030\001 \003(\006\022 \n\030include_read_events_on"
+  "ly\030\002 \001(\010\"\361\001\n1CCommunity_GetUserPartnerEv"
+  "entViewStatus_Response\022O\n\006events\030\001 \003(\0132\?"
+  ".CCommunity_GetUserPartnerEventViewStatu"
+  "s_Response.PartnerEvent\032k\n\014PartnerEvent\022"
+  "\021\n\tevent_gid\030\001 \001(\006\022\027\n\017last_shown_time\030\002 "
+  "\001(\r\022\026\n\016last_read_time\030\003 \001(\r\022\027\n\017clan_acco"
+  "unt_id\030\004 \001(\r\"\?\n.CCommunity_PartnerEvents"
+  "ShowMoreForApp_Request\022\r\n\005appid\030\001 \001(\r\"1\n"
+  "/CCommunity_PartnerEventsShowMoreForApp_"
+  "Response\"\?\n.CCommunity_PartnerEventsShow"
+  "LessForApp_Request\022\r\n\005appid\030\001 \001(\r\"1\n/CCo"
+  "mmunity_PartnerEventsShowLessForApp_Resp"
+  "onse\"8\n6CCommunity_ClearUserPartnerEvent"
+  "sAppPriorities_Request\"9\n7CCommunity_Cle"
+  "arUserPartnerEventsAppPriorities_Respons"
+  "e\"6\n4CCommunity_GetUserPartnerEventsAppP"
+  "riorities_Request\"O\n#CCommunity_PartnerE"
+  "ventsAppPriority\022\r\n\005appid\030\001 \001(\r\022\031\n\021user_"
+  "app_priority\030\002 \001(\005\"q\n5CCommunity_GetUser"
+  "PartnerEventsAppPriorities_Response\0228\n\np"
+  "riorities\030\001 \003(\0132$.CCommunity_PartnerEven"
+  "tsAppPriority\"G\n6CCommunity_ClearSingleP"
+  "artnerEventsAppPriority_Request\022\r\n\005appid"
+  "\030\001 \001(\r\"9\n7CCommunity_ClearSinglePartnerE"
+  "ventsAppPriority_Response*\247\004\n\034EPartnerEv"
+  "entDisplayLocation\022(\n$EPartnerEventDispl"
+  "ayLocation_Invalid\020\000\0224\n0EPartnerEventDis"
+  "playLocation_AppDetailsSpotlight\020\001\0220\n,EP"
+  "artnerEventDisplayLocation_LibraryOvervi"
+  "ew\020\002\022-\n)EPartnerEventDisplayLocation_Sto"
+  "reAppPage\020\003\022.\n*EPartnerEventDisplayLocat"
+  "ion_EventScroller\020\004\0223\n/EPartnerEventDisp"
+  "layLocation_AppDetailsActivity\020\005\022-\n)EPar"
+  "tnerEventDisplayLocation_CommunityHub\020\006\022"
+  "/\n+EPartnerEventDisplayLocation_StoreFro"
+  "ntPage\020\007\022(\n$EPartnerEventDisplayLocation"
+  "_NewsHub\020\010\022,\n(EPartnerEventDisplayLocati"
+  "on_GamepadHome\020\t\022)\n%EPartnerEventDisplay"
+  "Location_StoreHub\020\n2\201\025\n\tCommunity\022D\n\007Get"
+  "Apps\022\033.CCommunity_GetApps_Request\032\034.CCom"
+  "munity_GetApps_Response\022\211\001\n\036GetAppRichPr"
+  "esenceLocalization\0222.CCommunity_GetAppRi"
+  "chPresenceLocalization_Request\0323.CCommun"
+  "ity_GetAppRichPresenceLocalization_Respo"
+  "nse\022_\n\020GetCommentThread\022$.CCommunity_Get"
+  "CommentThread_Request\032%.CCommunity_GetCo"
+  "mmentThread_Response\022h\n\023PostCommentToThr"
+  "ead\022\'.CCommunity_PostCommentToThread_Req"
+  "uest\032(.CCommunity_PostCommentToThread_Re"
+  "sponse\022t\n\027DeleteCommentFromThread\022+.CCom"
+  "munity_DeleteCommentFromThread_Request\032,"
+  ".CCommunity_DeleteCommentFromThread_Resp"
+  "onse\022b\n\021RateCommentThread\022%.CCommunity_R"
+  "ateCommentThread_Request\032&.CCommunity_Ra"
+  "teCommentThread_Response\022t\n\027GetCommentTh"
+  "readRatings\022+.CCommunity_GetCommentThrea"
+  "dRatings_Request\032,.CCommunity_GetComment"
+  "ThreadRatings_Response\022k\n\024RateClanAnnoun"
+  "cement\022(.CCommunity_RateClanAnnouncement"
+  "_Request\032).CCommunity_RateClanAnnounceme"
+  "nt_Response\022\211\001\n\036GetClanAnnouncementVoteF"
+  "orUser\0222.CCommunity_GetClanAnnouncementV"
+  "oteForUser_Request\0323.CCommunity_GetClanA"
+  "nnouncementVoteForUser_Response\022_\n\020GetAv"
+  "atarHistory\022$.CCommunity_GetAvatarHistor"
+  "y_Request\032%.CCommunity_GetAvatarHistory_"
+  "Response\022\200\001\n\033GetClanEventCrowdInMetadata"
+  "\022/.CCommunity_GetClanEventCrowdInMetadat"
+  "a_Request\0320.CCommunity_GetClanEventCrowd"
+  "InMetadata_Response\022q\n\026GetClanCrowdInMet"
+  "adata\022*.CCommunity_GetClanCrowdInMetadat"
+  "a_Request\032+.CCommunity_GetClanCrowdInMet"
+  "adata_Response\022\200\001\n\033FetchTranslationFromC"
+  "rowdIn\022/.CCommunity_FetchTranslationFrom"
+  "CrowdIn_Request\0320.CCommunity_FetchTransl"
+  "ationFromCrowdIn_Response\022t\n\027GetUserPart"
+  "nerEventNews\022+.CCommunity_GetUserPartner"
+  "EventNews_Request\032,.CCommunity_GetUserPa"
+  "rtnerEventNews_Response\022k\n\024GetBestEvents"
+  "ForUser\022(.CCommunity_GetBestEventsForUse"
+  "r_Request\032).CCommunity_GetBestEventsForU"
+  "ser_Response\022w\n\030MarkPartnerEventsForUser"
+  "\022,.CCommunity_MarkPartnerEventsForUser_R"
+  "equest\032-.CCommunity_MarkPartnerEventsFor"
+  "User_Response\022\206\001\n\035GetUserPartnerEventVie"
+  "wStatus\0221.CCommunity_GetUserPartnerEvent"
+  "ViewStatus_Request\0322.CCommunity_GetUserP"
+  "artnerEventViewStatus_Response\022\200\001\n\033Partn"
+  "erEventsShowMoreForApp\022/.CCommunity_Part"
+  "nerEventsShowMoreForApp_Request\0320.CCommu"
+  "nity_PartnerEventsShowMoreForApp_Respons"
+  "e\022\200\001\n\033PartnerEventsShowLessForApp\022/.CCom"
+  "munity_PartnerEventsShowLessForApp_Reque"
+  "st\0320.CCommunity_PartnerEventsShowLessFor"
+  "App_Response\022\230\001\n#ClearUserPartnerEventsA"
+  "ppPriorities\0227.CCommunity_ClearUserPartn"
+  "erEventsAppPriorities_Request\0328.CCommuni"
+  "ty_ClearUserPartnerEventsAppPriorities_R"
+  "esponse\022\222\001\n!GetUserPartnerEventsAppPrior"
+  "ities\0225.CCommunity_GetUserPartnerEventsA"
+  "ppPriorities_Request\0326.CCommunity_GetUse"
+  "rPartnerEventsAppPriorities_Response\022\230\001\n"
+  "#ClearSinglePartnerEventsAppPriority\0227.C"
+  "Community_ClearSinglePartnerEventsAppPri"
+  "ority_Request\0328.CCommunity_ClearSinglePa"
+  "rtnerEventsAppPriority_ResponseB\035\200\001\001\252\002\027O"
+  "penSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fcommunity_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -1584,8 +1748,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fcommunity_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fcommunity_2esteamclient_2eproto = {
-  false, false, 9035, descriptor_table_protodef_steammessages_5fcommunity_2esteamclient_2eproto, "steammessages_community.steamclient.proto", 
-  &descriptor_table_steammessages_5fcommunity_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcommunity_2esteamclient_2eproto_deps, 4, 48,
+  false, false, 9942, descriptor_table_protodef_steammessages_5fcommunity_2esteamclient_2eproto, "steammessages_community.steamclient.proto", 
+  &descriptor_table_steammessages_5fcommunity_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcommunity_2esteamclient_2eproto_deps, 4, 54,
   schemas, file_default_instances, TableStruct_steammessages_5fcommunity_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fcommunity_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fcommunity_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fcommunity_2esteamclient_2eproto,
 };
@@ -9402,6 +9566,1406 @@ void CCommunity_GetAvatarHistory_Response::InternalSwap(CCommunity_GetAvatarHist
 
 // ===================================================================
 
+class CCommunity_GetClanEventCrowdInMetadata_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCommunity_GetClanEventCrowdInMetadata_Request>()._has_bits_);
+  static void set_has_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_itemid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CCommunity_GetClanEventCrowdInMetadata_Request::CCommunity_GetClanEventCrowdInMetadata_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CCommunity_GetClanEventCrowdInMetadata_Request)
+}
+CCommunity_GetClanEventCrowdInMetadata_Request::CCommunity_GetClanEventCrowdInMetadata_Request(const CCommunity_GetClanEventCrowdInMetadata_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&steamid_, &from.steamid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&itemid_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(itemid_));
+  // @@protoc_insertion_point(copy_constructor:CCommunity_GetClanEventCrowdInMetadata_Request)
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&steamid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&itemid_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(itemid_));
+}
+
+CCommunity_GetClanEventCrowdInMetadata_Request::~CCommunity_GetClanEventCrowdInMetadata_Request() {
+  // @@protoc_insertion_point(destructor:CCommunity_GetClanEventCrowdInMetadata_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::ArenaDtor(void* object) {
+  CCommunity_GetClanEventCrowdInMetadata_Request* _this = reinterpret_cast< CCommunity_GetClanEventCrowdInMetadata_Request* >(object);
+  (void)_this;
+}
+void CCommunity_GetClanEventCrowdInMetadata_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CCommunity_GetClanEventCrowdInMetadata_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCommunity_GetClanEventCrowdInMetadata_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&steamid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&itemid_) -
+        reinterpret_cast<char*>(&steamid_)) + sizeof(itemid_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCommunity_GetClanEventCrowdInMetadata_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 steamid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_steamid(&has_bits);
+          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 itemid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_itemid(&has_bits);
+          itemid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CCommunity_GetClanEventCrowdInMetadata_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCommunity_GetClanEventCrowdInMetadata_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 steamid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
+  }
+
+  // optional uint64 itemid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_itemid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCommunity_GetClanEventCrowdInMetadata_Request)
+  return target;
+}
+
+size_t CCommunity_GetClanEventCrowdInMetadata_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCommunity_GetClanEventCrowdInMetadata_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional fixed64 steamid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint64 itemid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_itemid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CCommunity_GetClanEventCrowdInMetadata_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CCommunity_GetClanEventCrowdInMetadata_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCommunity_GetClanEventCrowdInMetadata_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCommunity_GetClanEventCrowdInMetadata_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCommunity_GetClanEventCrowdInMetadata_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::MergeFrom(const CCommunity_GetClanEventCrowdInMetadata_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CCommunity_GetClanEventCrowdInMetadata_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      steamid_ = from.steamid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      itemid_ = from.itemid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CCommunity_GetClanEventCrowdInMetadata_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::CopyFrom(const CCommunity_GetClanEventCrowdInMetadata_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCommunity_GetClanEventCrowdInMetadata_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCommunity_GetClanEventCrowdInMetadata_Request::IsInitialized() const {
+  return true;
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Request::InternalSwap(CCommunity_GetClanEventCrowdInMetadata_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CCommunity_GetClanEventCrowdInMetadata_Request, itemid_)
+      + sizeof(CCommunity_GetClanEventCrowdInMetadata_Request::itemid_)
+      - PROTOBUF_FIELD_OFFSET(CCommunity_GetClanEventCrowdInMetadata_Request, steamid_)>(
+          reinterpret_cast<char*>(&steamid_),
+          reinterpret_cast<char*>(&other->steamid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCommunity_GetClanEventCrowdInMetadata_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CCommunity_GetClanEventCrowdInMetadata_Response::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCommunity_GetClanEventCrowdInMetadata_Response>()._has_bits_);
+  static void set_has_crowdin_project_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_crowdin_file_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CCommunity_GetClanEventCrowdInMetadata_Response::CCommunity_GetClanEventCrowdInMetadata_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CCommunity_GetClanEventCrowdInMetadata_Response)
+}
+CCommunity_GetClanEventCrowdInMetadata_Response::CCommunity_GetClanEventCrowdInMetadata_Response(const CCommunity_GetClanEventCrowdInMetadata_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&crowdin_project_id_, &from.crowdin_project_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&crowdin_file_id_) -
+    reinterpret_cast<char*>(&crowdin_project_id_)) + sizeof(crowdin_file_id_));
+  // @@protoc_insertion_point(copy_constructor:CCommunity_GetClanEventCrowdInMetadata_Response)
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&crowdin_project_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&crowdin_file_id_) -
+    reinterpret_cast<char*>(&crowdin_project_id_)) + sizeof(crowdin_file_id_));
+}
+
+CCommunity_GetClanEventCrowdInMetadata_Response::~CCommunity_GetClanEventCrowdInMetadata_Response() {
+  // @@protoc_insertion_point(destructor:CCommunity_GetClanEventCrowdInMetadata_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::ArenaDtor(void* object) {
+  CCommunity_GetClanEventCrowdInMetadata_Response* _this = reinterpret_cast< CCommunity_GetClanEventCrowdInMetadata_Response* >(object);
+  (void)_this;
+}
+void CCommunity_GetClanEventCrowdInMetadata_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CCommunity_GetClanEventCrowdInMetadata_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCommunity_GetClanEventCrowdInMetadata_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&crowdin_project_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&crowdin_file_id_) -
+        reinterpret_cast<char*>(&crowdin_project_id_)) + sizeof(crowdin_file_id_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCommunity_GetClanEventCrowdInMetadata_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 crowdin_project_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_crowdin_project_id(&has_bits);
+          crowdin_project_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 crowdin_file_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_crowdin_file_id(&has_bits);
+          crowdin_file_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CCommunity_GetClanEventCrowdInMetadata_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCommunity_GetClanEventCrowdInMetadata_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 crowdin_project_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_crowdin_project_id(), target);
+  }
+
+  // optional uint64 crowdin_file_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_crowdin_file_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCommunity_GetClanEventCrowdInMetadata_Response)
+  return target;
+}
+
+size_t CCommunity_GetClanEventCrowdInMetadata_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCommunity_GetClanEventCrowdInMetadata_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint64 crowdin_project_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_crowdin_project_id());
+    }
+
+    // optional uint64 crowdin_file_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_crowdin_file_id());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CCommunity_GetClanEventCrowdInMetadata_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CCommunity_GetClanEventCrowdInMetadata_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCommunity_GetClanEventCrowdInMetadata_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCommunity_GetClanEventCrowdInMetadata_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCommunity_GetClanEventCrowdInMetadata_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::MergeFrom(const CCommunity_GetClanEventCrowdInMetadata_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CCommunity_GetClanEventCrowdInMetadata_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      crowdin_project_id_ = from.crowdin_project_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      crowdin_file_id_ = from.crowdin_file_id_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CCommunity_GetClanEventCrowdInMetadata_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::CopyFrom(const CCommunity_GetClanEventCrowdInMetadata_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCommunity_GetClanEventCrowdInMetadata_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCommunity_GetClanEventCrowdInMetadata_Response::IsInitialized() const {
+  return true;
+}
+
+void CCommunity_GetClanEventCrowdInMetadata_Response::InternalSwap(CCommunity_GetClanEventCrowdInMetadata_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CCommunity_GetClanEventCrowdInMetadata_Response, crowdin_file_id_)
+      + sizeof(CCommunity_GetClanEventCrowdInMetadata_Response::crowdin_file_id_)
+      - PROTOBUF_FIELD_OFFSET(CCommunity_GetClanEventCrowdInMetadata_Response, crowdin_project_id_)>(
+          reinterpret_cast<char*>(&crowdin_project_id_),
+          reinterpret_cast<char*>(&other->crowdin_project_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCommunity_GetClanEventCrowdInMetadata_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CCommunity_GetClanCrowdInMetadata_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCommunity_GetClanCrowdInMetadata_Request>()._has_bits_);
+  static void set_has_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CCommunity_GetClanCrowdInMetadata_Request::CCommunity_GetClanCrowdInMetadata_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CCommunity_GetClanCrowdInMetadata_Request)
+}
+CCommunity_GetClanCrowdInMetadata_Request::CCommunity_GetClanCrowdInMetadata_Request(const CCommunity_GetClanCrowdInMetadata_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  steamid_ = from.steamid_;
+  // @@protoc_insertion_point(copy_constructor:CCommunity_GetClanCrowdInMetadata_Request)
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::SharedCtor() {
+steamid_ = PROTOBUF_ULONGLONG(0);
+}
+
+CCommunity_GetClanCrowdInMetadata_Request::~CCommunity_GetClanCrowdInMetadata_Request() {
+  // @@protoc_insertion_point(destructor:CCommunity_GetClanCrowdInMetadata_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::ArenaDtor(void* object) {
+  CCommunity_GetClanCrowdInMetadata_Request* _this = reinterpret_cast< CCommunity_GetClanCrowdInMetadata_Request* >(object);
+  (void)_this;
+}
+void CCommunity_GetClanCrowdInMetadata_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CCommunity_GetClanCrowdInMetadata_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCommunity_GetClanCrowdInMetadata_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  steamid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCommunity_GetClanCrowdInMetadata_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 steamid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_steamid(&has_bits);
+          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CCommunity_GetClanCrowdInMetadata_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCommunity_GetClanCrowdInMetadata_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 steamid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCommunity_GetClanCrowdInMetadata_Request)
+  return target;
+}
+
+size_t CCommunity_GetClanCrowdInMetadata_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCommunity_GetClanCrowdInMetadata_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional fixed64 steamid = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CCommunity_GetClanCrowdInMetadata_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CCommunity_GetClanCrowdInMetadata_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCommunity_GetClanCrowdInMetadata_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCommunity_GetClanCrowdInMetadata_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCommunity_GetClanCrowdInMetadata_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::MergeFrom(const CCommunity_GetClanCrowdInMetadata_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CCommunity_GetClanCrowdInMetadata_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_steamid()) {
+    _internal_set_steamid(from._internal_steamid());
+  }
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CCommunity_GetClanCrowdInMetadata_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::CopyFrom(const CCommunity_GetClanCrowdInMetadata_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCommunity_GetClanCrowdInMetadata_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCommunity_GetClanCrowdInMetadata_Request::IsInitialized() const {
+  return true;
+}
+
+void CCommunity_GetClanCrowdInMetadata_Request::InternalSwap(CCommunity_GetClanCrowdInMetadata_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(steamid_, other->steamid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCommunity_GetClanCrowdInMetadata_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CCommunity_GetClanCrowdInMetadata_Response::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCommunity_GetClanCrowdInMetadata_Response>()._has_bits_);
+  static void set_has_crowdin_project_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_crowdin_directory_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_push_by_default(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CCommunity_GetClanCrowdInMetadata_Response::CCommunity_GetClanCrowdInMetadata_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CCommunity_GetClanCrowdInMetadata_Response)
+}
+CCommunity_GetClanCrowdInMetadata_Response::CCommunity_GetClanCrowdInMetadata_Response(const CCommunity_GetClanCrowdInMetadata_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&crowdin_project_id_, &from.crowdin_project_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&push_by_default_) -
+    reinterpret_cast<char*>(&crowdin_project_id_)) + sizeof(push_by_default_));
+  // @@protoc_insertion_point(copy_constructor:CCommunity_GetClanCrowdInMetadata_Response)
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&crowdin_project_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&push_by_default_) -
+    reinterpret_cast<char*>(&crowdin_project_id_)) + sizeof(push_by_default_));
+}
+
+CCommunity_GetClanCrowdInMetadata_Response::~CCommunity_GetClanCrowdInMetadata_Response() {
+  // @@protoc_insertion_point(destructor:CCommunity_GetClanCrowdInMetadata_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::ArenaDtor(void* object) {
+  CCommunity_GetClanCrowdInMetadata_Response* _this = reinterpret_cast< CCommunity_GetClanCrowdInMetadata_Response* >(object);
+  (void)_this;
+}
+void CCommunity_GetClanCrowdInMetadata_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CCommunity_GetClanCrowdInMetadata_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCommunity_GetClanCrowdInMetadata_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&crowdin_project_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&push_by_default_) -
+        reinterpret_cast<char*>(&crowdin_project_id_)) + sizeof(push_by_default_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCommunity_GetClanCrowdInMetadata_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 crowdin_project_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_crowdin_project_id(&has_bits);
+          crowdin_project_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 crowdin_directory_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_crowdin_directory_id(&has_bits);
+          crowdin_directory_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool push_by_default = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_push_by_default(&has_bits);
+          push_by_default_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CCommunity_GetClanCrowdInMetadata_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCommunity_GetClanCrowdInMetadata_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 crowdin_project_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_crowdin_project_id(), target);
+  }
+
+  // optional uint64 crowdin_directory_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_crowdin_directory_id(), target);
+  }
+
+  // optional bool push_by_default = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_push_by_default(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCommunity_GetClanCrowdInMetadata_Response)
+  return target;
+}
+
+size_t CCommunity_GetClanCrowdInMetadata_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCommunity_GetClanCrowdInMetadata_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional uint64 crowdin_project_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_crowdin_project_id());
+    }
+
+    // optional uint64 crowdin_directory_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_crowdin_directory_id());
+    }
+
+    // optional bool push_by_default = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CCommunity_GetClanCrowdInMetadata_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CCommunity_GetClanCrowdInMetadata_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCommunity_GetClanCrowdInMetadata_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCommunity_GetClanCrowdInMetadata_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCommunity_GetClanCrowdInMetadata_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::MergeFrom(const CCommunity_GetClanCrowdInMetadata_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CCommunity_GetClanCrowdInMetadata_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      crowdin_project_id_ = from.crowdin_project_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      crowdin_directory_id_ = from.crowdin_directory_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      push_by_default_ = from.push_by_default_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CCommunity_GetClanCrowdInMetadata_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::CopyFrom(const CCommunity_GetClanCrowdInMetadata_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCommunity_GetClanCrowdInMetadata_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCommunity_GetClanCrowdInMetadata_Response::IsInitialized() const {
+  return true;
+}
+
+void CCommunity_GetClanCrowdInMetadata_Response::InternalSwap(CCommunity_GetClanCrowdInMetadata_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CCommunity_GetClanCrowdInMetadata_Response, push_by_default_)
+      + sizeof(CCommunity_GetClanCrowdInMetadata_Response::push_by_default_)
+      - PROTOBUF_FIELD_OFFSET(CCommunity_GetClanCrowdInMetadata_Response, crowdin_project_id_)>(
+          reinterpret_cast<char*>(&crowdin_project_id_),
+          reinterpret_cast<char*>(&other->crowdin_project_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCommunity_GetClanCrowdInMetadata_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CCommunity_FetchTranslationFromCrowdIn_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCommunity_FetchTranslationFromCrowdIn_Request>()._has_bits_);
+  static void set_has_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_itemid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_language(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CCommunity_FetchTranslationFromCrowdIn_Request::CCommunity_FetchTranslationFromCrowdIn_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CCommunity_FetchTranslationFromCrowdIn_Request)
+}
+CCommunity_FetchTranslationFromCrowdIn_Request::CCommunity_FetchTranslationFromCrowdIn_Request(const CCommunity_FetchTranslationFromCrowdIn_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&steamid_, &from.steamid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&language_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(language_));
+  // @@protoc_insertion_point(copy_constructor:CCommunity_FetchTranslationFromCrowdIn_Request)
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&steamid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&language_) -
+    reinterpret_cast<char*>(&steamid_)) + sizeof(language_));
+}
+
+CCommunity_FetchTranslationFromCrowdIn_Request::~CCommunity_FetchTranslationFromCrowdIn_Request() {
+  // @@protoc_insertion_point(destructor:CCommunity_FetchTranslationFromCrowdIn_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::ArenaDtor(void* object) {
+  CCommunity_FetchTranslationFromCrowdIn_Request* _this = reinterpret_cast< CCommunity_FetchTranslationFromCrowdIn_Request* >(object);
+  (void)_this;
+}
+void CCommunity_FetchTranslationFromCrowdIn_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CCommunity_FetchTranslationFromCrowdIn_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCommunity_FetchTranslationFromCrowdIn_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&steamid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&language_) -
+        reinterpret_cast<char*>(&steamid_)) + sizeof(language_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCommunity_FetchTranslationFromCrowdIn_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 steamid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_steamid(&has_bits);
+          steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 itemid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_itemid(&has_bits);
+          itemid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 language = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_language(&has_bits);
+          language_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CCommunity_FetchTranslationFromCrowdIn_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCommunity_FetchTranslationFromCrowdIn_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 steamid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
+  }
+
+  // optional uint64 itemid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_itemid(), target);
+  }
+
+  // optional uint32 language = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_language(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCommunity_FetchTranslationFromCrowdIn_Request)
+  return target;
+}
+
+size_t CCommunity_FetchTranslationFromCrowdIn_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCommunity_FetchTranslationFromCrowdIn_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional fixed64 steamid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint64 itemid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_itemid());
+    }
+
+    // optional uint32 language = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_language());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CCommunity_FetchTranslationFromCrowdIn_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CCommunity_FetchTranslationFromCrowdIn_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCommunity_FetchTranslationFromCrowdIn_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCommunity_FetchTranslationFromCrowdIn_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCommunity_FetchTranslationFromCrowdIn_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::MergeFrom(const CCommunity_FetchTranslationFromCrowdIn_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CCommunity_FetchTranslationFromCrowdIn_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      steamid_ = from.steamid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      itemid_ = from.itemid_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      language_ = from.language_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CCommunity_FetchTranslationFromCrowdIn_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::CopyFrom(const CCommunity_FetchTranslationFromCrowdIn_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCommunity_FetchTranslationFromCrowdIn_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCommunity_FetchTranslationFromCrowdIn_Request::IsInitialized() const {
+  return true;
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Request::InternalSwap(CCommunity_FetchTranslationFromCrowdIn_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CCommunity_FetchTranslationFromCrowdIn_Request, language_)
+      + sizeof(CCommunity_FetchTranslationFromCrowdIn_Request::language_)
+      - PROTOBUF_FIELD_OFFSET(CCommunity_FetchTranslationFromCrowdIn_Request, steamid_)>(
+          reinterpret_cast<char*>(&steamid_),
+          reinterpret_cast<char*>(&other->steamid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCommunity_FetchTranslationFromCrowdIn_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CCommunity_FetchTranslationFromCrowdIn_Response::_Internal {
+ public:
+};
+
+CCommunity_FetchTranslationFromCrowdIn_Response::CCommunity_FetchTranslationFromCrowdIn_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CCommunity_FetchTranslationFromCrowdIn_Response)
+}
+CCommunity_FetchTranslationFromCrowdIn_Response::CCommunity_FetchTranslationFromCrowdIn_Response(const CCommunity_FetchTranslationFromCrowdIn_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CCommunity_FetchTranslationFromCrowdIn_Response)
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::SharedCtor() {
+}
+
+CCommunity_FetchTranslationFromCrowdIn_Response::~CCommunity_FetchTranslationFromCrowdIn_Response() {
+  // @@protoc_insertion_point(destructor:CCommunity_FetchTranslationFromCrowdIn_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::ArenaDtor(void* object) {
+  CCommunity_FetchTranslationFromCrowdIn_Response* _this = reinterpret_cast< CCommunity_FetchTranslationFromCrowdIn_Response* >(object);
+  (void)_this;
+}
+void CCommunity_FetchTranslationFromCrowdIn_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CCommunity_FetchTranslationFromCrowdIn_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCommunity_FetchTranslationFromCrowdIn_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCommunity_FetchTranslationFromCrowdIn_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CCommunity_FetchTranslationFromCrowdIn_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCommunity_FetchTranslationFromCrowdIn_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCommunity_FetchTranslationFromCrowdIn_Response)
+  return target;
+}
+
+size_t CCommunity_FetchTranslationFromCrowdIn_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCommunity_FetchTranslationFromCrowdIn_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CCommunity_FetchTranslationFromCrowdIn_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CCommunity_FetchTranslationFromCrowdIn_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCommunity_FetchTranslationFromCrowdIn_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCommunity_FetchTranslationFromCrowdIn_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCommunity_FetchTranslationFromCrowdIn_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::MergeFrom(const CCommunity_FetchTranslationFromCrowdIn_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CCommunity_FetchTranslationFromCrowdIn_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CCommunity_FetchTranslationFromCrowdIn_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::CopyFrom(const CCommunity_FetchTranslationFromCrowdIn_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCommunity_FetchTranslationFromCrowdIn_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCommunity_FetchTranslationFromCrowdIn_Response::IsInitialized() const {
+  return true;
+}
+
+void CCommunity_FetchTranslationFromCrowdIn_Response::InternalSwap(CCommunity_FetchTranslationFromCrowdIn_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCommunity_FetchTranslationFromCrowdIn_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CAppPriority::_Internal {
  public:
   using HasBits = decltype(std::declval<CAppPriority>()._has_bits_);
@@ -14657,6 +16221,30 @@ void Community::GetAvatarHistory(::PROTOBUF_NAMESPACE_ID::RpcController* control
   done->Run();
 }
 
+void Community::GetClanEventCrowdInMetadata(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CCommunity_GetClanEventCrowdInMetadata_Request*,
+                         ::CCommunity_GetClanEventCrowdInMetadata_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetClanEventCrowdInMetadata() not implemented.");
+  done->Run();
+}
+
+void Community::GetClanCrowdInMetadata(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CCommunity_GetClanCrowdInMetadata_Request*,
+                         ::CCommunity_GetClanCrowdInMetadata_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetClanCrowdInMetadata() not implemented.");
+  done->Run();
+}
+
+void Community::FetchTranslationFromCrowdIn(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CCommunity_FetchTranslationFromCrowdIn_Request*,
+                         ::CCommunity_FetchTranslationFromCrowdIn_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method FetchTranslationFromCrowdIn() not implemented.");
+  done->Run();
+}
+
 void Community::GetUserPartnerEventNews(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CCommunity_GetUserPartnerEventNews_Request*,
                          ::CCommunity_GetUserPartnerEventNews_Response*,
@@ -14817,6 +16405,30 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
              done);
       break;
     case 10:
+      GetClanEventCrowdInMetadata(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_GetClanEventCrowdInMetadata_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CCommunity_GetClanEventCrowdInMetadata_Response*>(
+                 response),
+             done);
+      break;
+    case 11:
+      GetClanCrowdInMetadata(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_GetClanCrowdInMetadata_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CCommunity_GetClanCrowdInMetadata_Response*>(
+                 response),
+             done);
+      break;
+    case 12:
+      FetchTranslationFromCrowdIn(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_FetchTranslationFromCrowdIn_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CCommunity_FetchTranslationFromCrowdIn_Response*>(
+                 response),
+             done);
+      break;
+    case 13:
       GetUserPartnerEventNews(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_GetUserPartnerEventNews_Request*>(
                  request),
@@ -14824,7 +16436,7 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
-    case 11:
+    case 14:
       GetBestEventsForUser(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_GetBestEventsForUser_Request*>(
                  request),
@@ -14832,7 +16444,7 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
-    case 12:
+    case 15:
       MarkPartnerEventsForUser(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_MarkPartnerEventsForUser_Request*>(
                  request),
@@ -14840,7 +16452,7 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
-    case 13:
+    case 16:
       GetUserPartnerEventViewStatus(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_GetUserPartnerEventViewStatus_Request*>(
                  request),
@@ -14848,7 +16460,7 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
-    case 14:
+    case 17:
       PartnerEventsShowMoreForApp(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_PartnerEventsShowMoreForApp_Request*>(
                  request),
@@ -14856,7 +16468,7 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
-    case 15:
+    case 18:
       PartnerEventsShowLessForApp(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_PartnerEventsShowLessForApp_Request*>(
                  request),
@@ -14864,7 +16476,7 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
-    case 16:
+    case 19:
       ClearUserPartnerEventsAppPriorities(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_ClearUserPartnerEventsAppPriorities_Request*>(
                  request),
@@ -14872,7 +16484,7 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
-    case 17:
+    case 20:
       GetUserPartnerEventsAppPriorities(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_GetUserPartnerEventsAppPriorities_Request*>(
                  request),
@@ -14880,7 +16492,7 @@ void Community::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* meth
                  response),
              done);
       break;
-    case 18:
+    case 21:
       ClearSinglePartnerEventsAppPriority(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCommunity_ClearSinglePartnerEventsAppPriority_Request*>(
                  request),
@@ -14919,22 +16531,28 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Community::GetRequestPrototype(
     case 9:
       return ::CCommunity_GetAvatarHistory_Request::default_instance();
     case 10:
-      return ::CCommunity_GetUserPartnerEventNews_Request::default_instance();
+      return ::CCommunity_GetClanEventCrowdInMetadata_Request::default_instance();
     case 11:
-      return ::CCommunity_GetBestEventsForUser_Request::default_instance();
+      return ::CCommunity_GetClanCrowdInMetadata_Request::default_instance();
     case 12:
-      return ::CCommunity_MarkPartnerEventsForUser_Request::default_instance();
+      return ::CCommunity_FetchTranslationFromCrowdIn_Request::default_instance();
     case 13:
-      return ::CCommunity_GetUserPartnerEventViewStatus_Request::default_instance();
+      return ::CCommunity_GetUserPartnerEventNews_Request::default_instance();
     case 14:
-      return ::CCommunity_PartnerEventsShowMoreForApp_Request::default_instance();
+      return ::CCommunity_GetBestEventsForUser_Request::default_instance();
     case 15:
-      return ::CCommunity_PartnerEventsShowLessForApp_Request::default_instance();
+      return ::CCommunity_MarkPartnerEventsForUser_Request::default_instance();
     case 16:
-      return ::CCommunity_ClearUserPartnerEventsAppPriorities_Request::default_instance();
+      return ::CCommunity_GetUserPartnerEventViewStatus_Request::default_instance();
     case 17:
-      return ::CCommunity_GetUserPartnerEventsAppPriorities_Request::default_instance();
+      return ::CCommunity_PartnerEventsShowMoreForApp_Request::default_instance();
     case 18:
+      return ::CCommunity_PartnerEventsShowLessForApp_Request::default_instance();
+    case 19:
+      return ::CCommunity_ClearUserPartnerEventsAppPriorities_Request::default_instance();
+    case 20:
+      return ::CCommunity_GetUserPartnerEventsAppPriorities_Request::default_instance();
+    case 21:
       return ::CCommunity_ClearSinglePartnerEventsAppPriority_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -14968,22 +16586,28 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Community::GetResponsePrototype(
     case 9:
       return ::CCommunity_GetAvatarHistory_Response::default_instance();
     case 10:
-      return ::CCommunity_GetUserPartnerEventNews_Response::default_instance();
+      return ::CCommunity_GetClanEventCrowdInMetadata_Response::default_instance();
     case 11:
-      return ::CCommunity_GetBestEventsForUser_Response::default_instance();
+      return ::CCommunity_GetClanCrowdInMetadata_Response::default_instance();
     case 12:
-      return ::CCommunity_MarkPartnerEventsForUser_Response::default_instance();
+      return ::CCommunity_FetchTranslationFromCrowdIn_Response::default_instance();
     case 13:
-      return ::CCommunity_GetUserPartnerEventViewStatus_Response::default_instance();
+      return ::CCommunity_GetUserPartnerEventNews_Response::default_instance();
     case 14:
-      return ::CCommunity_PartnerEventsShowMoreForApp_Response::default_instance();
+      return ::CCommunity_GetBestEventsForUser_Response::default_instance();
     case 15:
-      return ::CCommunity_PartnerEventsShowLessForApp_Response::default_instance();
+      return ::CCommunity_MarkPartnerEventsForUser_Response::default_instance();
     case 16:
-      return ::CCommunity_ClearUserPartnerEventsAppPriorities_Response::default_instance();
+      return ::CCommunity_GetUserPartnerEventViewStatus_Response::default_instance();
     case 17:
-      return ::CCommunity_GetUserPartnerEventsAppPriorities_Response::default_instance();
+      return ::CCommunity_PartnerEventsShowMoreForApp_Response::default_instance();
     case 18:
+      return ::CCommunity_PartnerEventsShowLessForApp_Response::default_instance();
+    case 19:
+      return ::CCommunity_ClearUserPartnerEventsAppPriorities_Response::default_instance();
+    case 20:
+      return ::CCommunity_GetUserPartnerEventsAppPriorities_Response::default_instance();
+    case 21:
       return ::CCommunity_ClearSinglePartnerEventsAppPriority_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -15073,67 +16697,88 @@ void Community_Stub::GetAvatarHistory(::PROTOBUF_NAMESPACE_ID::RpcController* co
   channel_->CallMethod(descriptor()->method(9),
                        controller, request, response, done);
 }
+void Community_Stub::GetClanEventCrowdInMetadata(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CCommunity_GetClanEventCrowdInMetadata_Request* request,
+                              ::CCommunity_GetClanEventCrowdInMetadata_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(10),
+                       controller, request, response, done);
+}
+void Community_Stub::GetClanCrowdInMetadata(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CCommunity_GetClanCrowdInMetadata_Request* request,
+                              ::CCommunity_GetClanCrowdInMetadata_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(11),
+                       controller, request, response, done);
+}
+void Community_Stub::FetchTranslationFromCrowdIn(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CCommunity_FetchTranslationFromCrowdIn_Request* request,
+                              ::CCommunity_FetchTranslationFromCrowdIn_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(12),
+                       controller, request, response, done);
+}
 void Community_Stub::GetUserPartnerEventNews(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_GetUserPartnerEventNews_Request* request,
                               ::CCommunity_GetUserPartnerEventNews_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(10),
+  channel_->CallMethod(descriptor()->method(13),
                        controller, request, response, done);
 }
 void Community_Stub::GetBestEventsForUser(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_GetBestEventsForUser_Request* request,
                               ::CCommunity_GetBestEventsForUser_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(11),
+  channel_->CallMethod(descriptor()->method(14),
                        controller, request, response, done);
 }
 void Community_Stub::MarkPartnerEventsForUser(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_MarkPartnerEventsForUser_Request* request,
                               ::CCommunity_MarkPartnerEventsForUser_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(12),
+  channel_->CallMethod(descriptor()->method(15),
                        controller, request, response, done);
 }
 void Community_Stub::GetUserPartnerEventViewStatus(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_GetUserPartnerEventViewStatus_Request* request,
                               ::CCommunity_GetUserPartnerEventViewStatus_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(13),
+  channel_->CallMethod(descriptor()->method(16),
                        controller, request, response, done);
 }
 void Community_Stub::PartnerEventsShowMoreForApp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_PartnerEventsShowMoreForApp_Request* request,
                               ::CCommunity_PartnerEventsShowMoreForApp_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(14),
+  channel_->CallMethod(descriptor()->method(17),
                        controller, request, response, done);
 }
 void Community_Stub::PartnerEventsShowLessForApp(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_PartnerEventsShowLessForApp_Request* request,
                               ::CCommunity_PartnerEventsShowLessForApp_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(15),
+  channel_->CallMethod(descriptor()->method(18),
                        controller, request, response, done);
 }
 void Community_Stub::ClearUserPartnerEventsAppPriorities(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_ClearUserPartnerEventsAppPriorities_Request* request,
                               ::CCommunity_ClearUserPartnerEventsAppPriorities_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(16),
+  channel_->CallMethod(descriptor()->method(19),
                        controller, request, response, done);
 }
 void Community_Stub::GetUserPartnerEventsAppPriorities(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_GetUserPartnerEventsAppPriorities_Request* request,
                               ::CCommunity_GetUserPartnerEventsAppPriorities_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(17),
+  channel_->CallMethod(descriptor()->method(20),
                        controller, request, response, done);
 }
 void Community_Stub::ClearSinglePartnerEventsAppPriority(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCommunity_ClearSinglePartnerEventsAppPriority_Request* request,
                               ::CCommunity_ClearSinglePartnerEventsAppPriority_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(18),
+  channel_->CallMethod(descriptor()->method(21),
                        controller, request, response, done);
 }
 
@@ -15213,6 +16858,24 @@ template<> PROTOBUF_NOINLINE ::CCommunity_GetAvatarHistory_Response_AvatarData* 
 }
 template<> PROTOBUF_NOINLINE ::CCommunity_GetAvatarHistory_Response* Arena::CreateMaybeMessage< ::CCommunity_GetAvatarHistory_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCommunity_GetAvatarHistory_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCommunity_GetClanEventCrowdInMetadata_Request* Arena::CreateMaybeMessage< ::CCommunity_GetClanEventCrowdInMetadata_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCommunity_GetClanEventCrowdInMetadata_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCommunity_GetClanEventCrowdInMetadata_Response* Arena::CreateMaybeMessage< ::CCommunity_GetClanEventCrowdInMetadata_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCommunity_GetClanEventCrowdInMetadata_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCommunity_GetClanCrowdInMetadata_Request* Arena::CreateMaybeMessage< ::CCommunity_GetClanCrowdInMetadata_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCommunity_GetClanCrowdInMetadata_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCommunity_GetClanCrowdInMetadata_Response* Arena::CreateMaybeMessage< ::CCommunity_GetClanCrowdInMetadata_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCommunity_GetClanCrowdInMetadata_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCommunity_FetchTranslationFromCrowdIn_Request* Arena::CreateMaybeMessage< ::CCommunity_FetchTranslationFromCrowdIn_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCommunity_FetchTranslationFromCrowdIn_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCommunity_FetchTranslationFromCrowdIn_Response* Arena::CreateMaybeMessage< ::CCommunity_FetchTranslationFromCrowdIn_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCommunity_FetchTranslationFromCrowdIn_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CAppPriority* Arena::CreateMaybeMessage< ::CAppPriority >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CAppPriority >(arena);

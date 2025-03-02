@@ -146,7 +146,8 @@ constexpr CSteamInputService_GyroQuaternionChanged_Notification::CSteamInputServ
   , gyro_filtered_quaternion_(nullptr)
   , controller_index_(0u)
   , imu_index_(0u)
-  , imu_sensor_delta_time_(0u){}
+  , imu_sensor_delta_time_(0u)
+  , packet_number_(0u){}
 struct CSteamInputService_GyroQuaternionChanged_NotificationDefaultTypeInternal {
   constexpr CSteamInputService_GyroQuaternionChanged_NotificationDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -387,11 +388,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteaminput_2ep
   PROTOBUF_FIELD_OFFSET(::CSteamInputService_GyroQuaternionChanged_Notification, gyro_raw_quaternion_),
   PROTOBUF_FIELD_OFFSET(::CSteamInputService_GyroQuaternionChanged_Notification, gyro_filtered_quaternion_),
   PROTOBUF_FIELD_OFFSET(::CSteamInputService_GyroQuaternionChanged_Notification, imu_sensor_delta_time_),
+  PROTOBUF_FIELD_OFFSET(::CSteamInputService_GyroQuaternionChanged_Notification, packet_number_),
   2,
   3,
   0,
   1,
   4,
+  5,
   PROTOBUF_FIELD_OFFSET(::CSteamInputService_GyroSpeedChanged_Notification, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSteamInputService_GyroSpeedChanged_Notification, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -455,12 +458,12 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 97, 106, sizeof(::ControllerQuaternion)},
   { 110, 118, sizeof(::ControllerGyroEulerAngles)},
   { 121, 136, sizeof(::CSteamInputService_ControllerAxesStateChange_Notification)},
-  { 146, 156, sizeof(::CSteamInputService_GyroQuaternionChanged_Notification)},
-  { 161, 170, sizeof(::CSteamInputService_GyroSpeedChanged_Notification)},
-  { 174, 183, sizeof(::CSteamInputService_GyroAccelerometerChanged_Notification)},
-  { 187, 197, sizeof(::CSteamInputService_GyroCalibration_Notification)},
-  { 202, 209, sizeof(::CSteamInputService_ControllerStateFlow_Request)},
-  { 211, -1, sizeof(::CSteamInputService_ControllerStateFlow_Response)},
+  { 146, 157, sizeof(::CSteamInputService_GyroQuaternionChanged_Notification)},
+  { 163, 172, sizeof(::CSteamInputService_GyroSpeedChanged_Notification)},
+  { 176, 185, sizeof(::CSteamInputService_GyroAccelerometerChanged_Notification)},
+  { 189, 199, sizeof(::CSteamInputService_GyroCalibration_Notification)},
+  { 204, 211, sizeof(::CSteamInputService_ControllerStateFlow_Request)},
+  { 213, -1, sizeof(::CSteamInputService_ControllerStateFlow_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -520,55 +523,56 @@ const char descriptor_table_protodef_webuimessages_5fsteaminput_2eproto[] PROTOB
   "\006 \001(\0132\022.ControllerVector2\022\036\n\026trackpad_pr"
   "essure_left\030\007 \001(\002\022\037\n\027trackpad_pressure_r"
   "ight\030\010 \001(\002\022\024\n\014trigger_left\030\t \001(\002\022\025\n\rtrig"
-  "ger_right\030\n \001(\002\"\360\001\n5CSteamInputService_G"
+  "ger_right\030\n \001(\002\"\207\002\n5CSteamInputService_G"
   "yroQuaternionChanged_Notification\022\030\n\020con"
   "troller_index\030\001 \001(\r\022\021\n\timu_index\030\002 \001(\r\0222"
   "\n\023gyro_raw_quaternion\030\003 \001(\0132\025.Controller"
   "Quaternion\0227\n\030gyro_filtered_quaternion\030\004"
   " \001(\0132\025.ControllerQuaternion\022\035\n\025imu_senso"
-  "r_delta_time\030\005 \001(\r\"\314\001\n0CSteamInputServic"
-  "e_GyroSpeedChanged_Notification\022\030\n\020contr"
-  "oller_index\030\001 \001(\r\022\021\n\timu_index\030\002 \001(\r\0222\n\016"
-  "gyro_raw_speed\030\003 \001(\0132\032.ControllerGyroEul"
-  "erAngles\0227\n\023gyro_filtered_speed\030\004 \001(\0132\032."
-  "ControllerGyroEulerAngles\"\304\001\n8CSteamInpu"
-  "tService_GyroAccelerometerChanged_Notifi"
-  "cation\022\030\n\020controller_index\030\001 \001(\r\022\021\n\timu_"
-  "index\030\002 \001(\r\022+\n\017acceleromter_1g\030\004 \001(\0132\022.C"
-  "ontrollerVector3\022.\n\022trusted_gravity_1g\030\005"
-  " \001(\0132\022.ControllerVector3\"\261\001\n/CSteamInput"
-  "Service_GyroCalibration_Notification\022\030\n\020"
-  "controller_index\030\001 \001(\r\022\021\n\timu_index\030\002 \001("
-  "\r\022\032\n\022acceleromter_noise\030\003 \001(\002\022\027\n\017gyrosco"
-  "pe_noise\030\004 \001(\002\022\034\n\024calibration_progress\030\005"
-  " \001(\002\"]\n.CSteamInputService_ControllerSta"
-  "teFlow_Request\022\030\n\020controller_index\030\001 \001(\r"
-  "\022\021\n\tflow_mode\030\002 \001(\r\"1\n/CSteamInputServic"
-  "e_ControllerStateFlow_Response2\231\007\n\021Steam"
-  "InputManager\022k\n\030NotifyButtonStateChanged"
-  "\022=.CSteamInputService_ControllerButtonSt"
-  "ateChanged_Notification\032\020.WebUINoRespons"
-  "e\022f\n\026NotifyAxesStateChanged\022:.CSteamInpu"
-  "tService_ControllerAxesStateChange_Notif"
-  "ication\032\020.WebUINoResponse\022l\n NotifyGyroQ"
-  "uaternionStateChanged\0226.CSteamInputServi"
-  "ce_GyroQuaternionChanged_Notification\032\020."
-  "WebUINoResponse\022b\n\033NotifyGyroSpeedStateC"
-  "hanged\0221.CSteamInputService_GyroSpeedCha"
-  "nged_Notification\032\020.WebUINoResponse\022r\n#N"
-  "otifyGyroAccelerometerStateChanged\0229.CSt"
-  "eamInputService_GyroAccelerometerChanged"
-  "_Notification\032\020.WebUINoResponse\022g\n!Notif"
-  "yGyroCalibrationStateChanged\0220.CSteamInp"
-  "utService_GyroCalibration_Notification\032\020"
-  ".WebUINoResponse\022}\n\030StartControllerState"
-  "Flow\022/.CSteamInputService_ControllerStat"
-  "eFlow_Request\0320.CSteamInputService_Contr"
-  "ollerStateFlow_Response\022{\n\026EndController"
-  "StateFlow\022/.CSteamInputService_Controlle"
-  "rStateFlow_Request\0320.CSteamInputService_"
-  "ControllerStateFlow_Response\032\004\200\227\"\002B\037H\001\200\001"
-  "\001\252\002\027OpenSteamworks.Protobuf"
+  "r_delta_time\030\005 \001(\r\022\025\n\rpacket_number\030\006 \001("
+  "\r\"\314\001\n0CSteamInputService_GyroSpeedChange"
+  "d_Notification\022\030\n\020controller_index\030\001 \001(\r"
+  "\022\021\n\timu_index\030\002 \001(\r\0222\n\016gyro_raw_speed\030\003 "
+  "\001(\0132\032.ControllerGyroEulerAngles\0227\n\023gyro_"
+  "filtered_speed\030\004 \001(\0132\032.ControllerGyroEul"
+  "erAngles\"\304\001\n8CSteamInputService_GyroAcce"
+  "lerometerChanged_Notification\022\030\n\020control"
+  "ler_index\030\001 \001(\r\022\021\n\timu_index\030\002 \001(\r\022+\n\017ac"
+  "celeromter_1g\030\004 \001(\0132\022.ControllerVector3\022"
+  ".\n\022trusted_gravity_1g\030\005 \001(\0132\022.Controller"
+  "Vector3\"\261\001\n/CSteamInputService_GyroCalib"
+  "ration_Notification\022\030\n\020controller_index\030"
+  "\001 \001(\r\022\021\n\timu_index\030\002 \001(\r\022\032\n\022acceleromter"
+  "_noise\030\003 \001(\002\022\027\n\017gyroscope_noise\030\004 \001(\002\022\034\n"
+  "\024calibration_progress\030\005 \001(\002\"]\n.CSteamInp"
+  "utService_ControllerStateFlow_Request\022\030\n"
+  "\020controller_index\030\001 \001(\r\022\021\n\tflow_mode\030\002 \001"
+  "(\r\"1\n/CSteamInputService_ControllerState"
+  "Flow_Response2\231\007\n\021SteamInputManager\022k\n\030N"
+  "otifyButtonStateChanged\022=.CSteamInputSer"
+  "vice_ControllerButtonStateChanged_Notifi"
+  "cation\032\020.WebUINoResponse\022f\n\026NotifyAxesSt"
+  "ateChanged\022:.CSteamInputService_Controll"
+  "erAxesStateChange_Notification\032\020.WebUINo"
+  "Response\022l\n NotifyGyroQuaternionStateCha"
+  "nged\0226.CSteamInputService_GyroQuaternion"
+  "Changed_Notification\032\020.WebUINoResponse\022b"
+  "\n\033NotifyGyroSpeedStateChanged\0221.CSteamIn"
+  "putService_GyroSpeedChanged_Notification"
+  "\032\020.WebUINoResponse\022r\n#NotifyGyroAccelero"
+  "meterStateChanged\0229.CSteamInputService_G"
+  "yroAccelerometerChanged_Notification\032\020.W"
+  "ebUINoResponse\022g\n!NotifyGyroCalibrationS"
+  "tateChanged\0220.CSteamInputService_GyroCal"
+  "ibration_Notification\032\020.WebUINoResponse\022"
+  "}\n\030StartControllerStateFlow\022/.CSteamInpu"
+  "tService_ControllerStateFlow_Request\0320.C"
+  "SteamInputService_ControllerStateFlow_Re"
+  "sponse\022{\n\026EndControllerStateFlow\022/.CStea"
+  "mInputService_ControllerStateFlow_Reques"
+  "t\0320.CSteamInputService_ControllerStateFl"
+  "ow_Response\032\004\200\227\"\002B\037H\001\200\001\001\252\002\027OpenSteamwork"
+  "s.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fsteaminput_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -577,7 +581,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fsteaminput_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fsteaminput_2eproto = {
-  false, false, 3587, descriptor_table_protodef_webuimessages_5fsteaminput_2eproto, "webuimessages_steaminput.proto", 
+  false, false, 3610, descriptor_table_protodef_webuimessages_5fsteaminput_2eproto, "webuimessages_steaminput.proto", 
   &descriptor_table_webuimessages_5fsteaminput_2eproto_once, descriptor_table_webuimessages_5fsteaminput_2eproto_deps, 3, 12,
   schemas, file_default_instances, TableStruct_webuimessages_5fsteaminput_2eproto::offsets,
   file_level_metadata_webuimessages_5fsteaminput_2eproto, file_level_enum_descriptors_webuimessages_5fsteaminput_2eproto, file_level_service_descriptors_webuimessages_5fsteaminput_2eproto,
@@ -3382,6 +3386,9 @@ class CSteamInputService_GyroQuaternionChanged_Notification::_Internal {
   static void set_has_imu_sensor_delta_time(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
+  static void set_has_packet_number(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
 };
 
 const ::ControllerQuaternion&
@@ -3413,16 +3420,16 @@ CSteamInputService_GyroQuaternionChanged_Notification::CSteamInputService_GyroQu
     gyro_filtered_quaternion_ = nullptr;
   }
   ::memcpy(&controller_index_, &from.controller_index_,
-    static_cast<size_t>(reinterpret_cast<char*>(&imu_sensor_delta_time_) -
-    reinterpret_cast<char*>(&controller_index_)) + sizeof(imu_sensor_delta_time_));
+    static_cast<size_t>(reinterpret_cast<char*>(&packet_number_) -
+    reinterpret_cast<char*>(&controller_index_)) + sizeof(packet_number_));
   // @@protoc_insertion_point(copy_constructor:CSteamInputService_GyroQuaternionChanged_Notification)
 }
 
 void CSteamInputService_GyroQuaternionChanged_Notification::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&gyro_raw_quaternion_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&imu_sensor_delta_time_) -
-    reinterpret_cast<char*>(&gyro_raw_quaternion_)) + sizeof(imu_sensor_delta_time_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&packet_number_) -
+    reinterpret_cast<char*>(&gyro_raw_quaternion_)) + sizeof(packet_number_));
 }
 
 CSteamInputService_GyroQuaternionChanged_Notification::~CSteamInputService_GyroQuaternionChanged_Notification() {
@@ -3464,10 +3471,10 @@ void CSteamInputService_GyroQuaternionChanged_Notification::Clear() {
       gyro_filtered_quaternion_->Clear();
     }
   }
-  if (cached_has_bits & 0x0000001cu) {
+  if (cached_has_bits & 0x0000003cu) {
     ::memset(&controller_index_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&imu_sensor_delta_time_) -
-        reinterpret_cast<char*>(&controller_index_)) + sizeof(imu_sensor_delta_time_));
+        reinterpret_cast<char*>(&packet_number_) -
+        reinterpret_cast<char*>(&controller_index_)) + sizeof(packet_number_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -3516,6 +3523,14 @@ const char* CSteamInputService_GyroQuaternionChanged_Notification::_InternalPars
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_imu_sensor_delta_time(&has_bits);
           imu_sensor_delta_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 packet_number = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_packet_number(&has_bits);
+          packet_number_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3583,6 +3598,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_imu_sensor_delta_time(), target);
   }
 
+  // optional uint32 packet_number = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_packet_number(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3600,7 +3621,7 @@ size_t CSteamInputService_GyroQuaternionChanged_Notification::ByteSizeLong() con
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional .ControllerQuaternion gyro_raw_quaternion = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -3636,6 +3657,13 @@ size_t CSteamInputService_GyroQuaternionChanged_Notification::ByteSizeLong() con
           this->_internal_imu_sensor_delta_time());
     }
 
+    // optional uint32 packet_number = 6;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_packet_number());
+    }
+
   }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
@@ -3669,7 +3697,7 @@ void CSteamInputService_GyroQuaternionChanged_Notification::MergeFrom(const CSte
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_mutable_gyro_raw_quaternion()->::ControllerQuaternion::MergeFrom(from._internal_gyro_raw_quaternion());
     }
@@ -3684,6 +3712,9 @@ void CSteamInputService_GyroQuaternionChanged_Notification::MergeFrom(const CSte
     }
     if (cached_has_bits & 0x00000010u) {
       imu_sensor_delta_time_ = from.imu_sensor_delta_time_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      packet_number_ = from.packet_number_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -3712,8 +3743,8 @@ void CSteamInputService_GyroQuaternionChanged_Notification::InternalSwap(CSteamI
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSteamInputService_GyroQuaternionChanged_Notification, imu_sensor_delta_time_)
-      + sizeof(CSteamInputService_GyroQuaternionChanged_Notification::imu_sensor_delta_time_)
+      PROTOBUF_FIELD_OFFSET(CSteamInputService_GyroQuaternionChanged_Notification, packet_number_)
+      + sizeof(CSteamInputService_GyroQuaternionChanged_Notification::packet_number_)
       - PROTOBUF_FIELD_OFFSET(CSteamInputService_GyroQuaternionChanged_Notification, gyro_raw_quaternion_)>(
           reinterpret_cast<char*>(&gyro_raw_quaternion_),
           reinterpret_cast<char*>(&other->gyro_raw_quaternion_));

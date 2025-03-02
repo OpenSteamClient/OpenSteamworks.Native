@@ -46,7 +46,8 @@ constexpr CMsgGamescopeState::CMsgGamescopeState(
   , is_refresh_rate_switching_supported_(false)
   , is_refresh_rate_switching_restricted_(false)
   , is_hdr_visualization_supported_(false)
-  , is_mura_correction_supported_(false){}
+  , is_mura_correction_supported_(false)
+  , is_global_action_binding_supported_(false){}
 struct CMsgGamescopeStateDefaultTypeInternal {
   constexpr CMsgGamescopeStateDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -179,6 +180,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamescope_2epr
   PROTOBUF_FIELD_OFFSET(::CMsgGamescopeState, is_refresh_rate_switching_restricted_),
   PROTOBUF_FIELD_OFFSET(::CMsgGamescopeState, is_hdr_visualization_supported_),
   PROTOBUF_FIELD_OFFSET(::CMsgGamescopeState, is_mura_correction_supported_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGamescopeState, is_global_action_binding_supported_),
   1,
   2,
   3,
@@ -189,6 +191,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamescope_2epr
   7,
   8,
   9,
+  10,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CGamescope_GetState_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -235,14 +238,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fgamescope_2epr
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 13, sizeof(::CMsgDisplayInfo)},
-  { 21, 36, sizeof(::CMsgGamescopeState)},
-  { 46, -1, sizeof(::CGamescope_GetState_Request)},
-  { 51, 57, sizeof(::CGamescope_GetState_Response)},
-  { 58, -1, sizeof(::CGamescope_StateChanged_Notification)},
-  { 63, 71, sizeof(::CGamescope_SetBlurParams_Request)},
-  { 74, -1, sizeof(::CGamescope_SetBlurParams_Response)},
-  { 79, -1, sizeof(::CGamescope_ReArmMuraCalibration_Request)},
-  { 84, -1, sizeof(::CGamescope_ReArmMuraCalibration_Response)},
+  { 21, 37, sizeof(::CMsgGamescopeState)},
+  { 48, -1, sizeof(::CGamescope_GetState_Request)},
+  { 53, 59, sizeof(::CGamescope_GetState_Response)},
+  { 60, -1, sizeof(::CGamescope_StateChanged_Notification)},
+  { 65, 73, sizeof(::CGamescope_SetBlurParams_Request)},
+  { 76, -1, sizeof(::CGamescope_SetBlurParams_Response)},
+  { 81, -1, sizeof(::CGamescope_ReArmMuraCalibration_Request)},
+  { 86, -1, sizeof(::CGamescope_ReArmMuraCalibration_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -266,7 +269,7 @@ const char descriptor_table_protodef_webuimessages_5fgamescope_2eproto[] PROTOBU
   "\001(\t\022\037\n\027supported_refresh_rates\030\004 \003(\005\022\035\n\025"
   "supported_frame_rates\030\005 \003(\005\022\023\n\013is_extern"
   "al\030\006 \001(\010\022\026\n\016is_hdr_capable\030\007 \001(\010\022\026\n\016is_v"
-  "rr_capable\030\010 \001(\010\"\220\003\n\022CMsgGamescopeState\022"
+  "rr_capable\030\010 \001(\010\"\274\003\n\022CMsgGamescopeState\022"
   "\034\n\024is_service_available\030\001 \001(\010\022\034\n\024is_resh"
   "ade_supported\030\002 \001(\010\022\032\n\022is_app_hdr_enable"
   "d\030\003 \001(\010\022%\n\035is_app_refresh_rate_supported"
@@ -276,27 +279,28 @@ const char descriptor_table_protodef_webuimessages_5fgamescope_2eproto[] PROTOBU
   "supported\030\007 \001(\010\022,\n$is_refresh_rate_switc"
   "hing_restricted\030\010 \001(\010\022&\n\036is_hdr_visualiz"
   "ation_supported\030\t \001(\010\022$\n\034is_mura_correct"
-  "ion_supported\030\n \001(\010\"\035\n\033CGamescope_GetSta"
-  "te_Request\"B\n\034CGamescope_GetState_Respon"
-  "se\022\"\n\005state\030\001 \001(\0132\023.CMsgGamescopeState\"&"
-  "\n$CGamescope_StateChanged_Notification\"\214"
-  "\001\n CGamescope_SetBlurParams_Request\022>\n\004m"
-  "ode\030\001 \001(\0162\023.EGamescopeBlurMode:\033EGamesco"
-  "peBlurMode_Disabled\022\016\n\006radius\030\002 \001(\005\022\030\n\020f"
-  "ade_duration_ms\030\003 \001(\005\"#\n!CGamescope_SetB"
-  "lurParams_Response\")\n\'CGamescope_ReArmMu"
-  "raCalibration_Request\"*\n(CGamescope_ReAr"
-  "mMuraCalibration_Response2\356\002\n\tGamescope\022"
-  "G\n\010GetState\022\034.CGamescope_GetState_Reques"
-  "t\032\035.CGamescope_GetState_Response\022M\n\022Noti"
-  "fyStateChanged\022%.CGamescope_StateChanged"
-  "_Notification\032\020.WebUINoResponse\022V\n\rSetBl"
-  "urParams\022!.CGamescope_SetBlurParams_Requ"
-  "est\032\".CGamescope_SetBlurParams_Response\022"
-  "k\n\024ReArmMuraCalibration\022(.CGamescope_ReA"
-  "rmMuraCalibration_Request\032).CGamescope_R"
-  "eArmMuraCalibration_Response\032\004\200\227\"\001B\037H\001\200\001"
-  "\001\252\002\027OpenSteamworks.Protobuf"
+  "ion_supported\030\n \001(\010\022*\n\"is_global_action_"
+  "binding_supported\030\013 \001(\010\"\035\n\033CGamescope_Ge"
+  "tState_Request\"B\n\034CGamescope_GetState_Re"
+  "sponse\022\"\n\005state\030\001 \001(\0132\023.CMsgGamescopeSta"
+  "te\"&\n$CGamescope_StateChanged_Notificati"
+  "on\"\214\001\n CGamescope_SetBlurParams_Request\022"
+  ">\n\004mode\030\001 \001(\0162\023.EGamescopeBlurMode:\033EGam"
+  "escopeBlurMode_Disabled\022\016\n\006radius\030\002 \001(\005\022"
+  "\030\n\020fade_duration_ms\030\003 \001(\005\"#\n!CGamescope_"
+  "SetBlurParams_Response\")\n\'CGamescope_ReA"
+  "rmMuraCalibration_Request\"*\n(CGamescope_"
+  "ReArmMuraCalibration_Response2\356\002\n\tGamesc"
+  "ope\022G\n\010GetState\022\034.CGamescope_GetState_Re"
+  "quest\032\035.CGamescope_GetState_Response\022M\n\022"
+  "NotifyStateChanged\022%.CGamescope_StateCha"
+  "nged_Notification\032\020.WebUINoResponse\022V\n\rS"
+  "etBlurParams\022!.CGamescope_SetBlurParams_"
+  "Request\032\".CGamescope_SetBlurParams_Respo"
+  "nse\022k\n\024ReArmMuraCalibration\022(.CGamescope"
+  "_ReArmMuraCalibration_Request\032).CGamesco"
+  "pe_ReArmMuraCalibration_Response\032\004\200\227\"\001B\037"
+  "H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fgamescope_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -306,7 +310,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fgamescope_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fgamescope_2eproto = {
-  false, false, 1547, descriptor_table_protodef_webuimessages_5fgamescope_2eproto, "webuimessages_gamescope.proto", 
+  false, false, 1591, descriptor_table_protodef_webuimessages_5fgamescope_2eproto, "webuimessages_gamescope.proto", 
   &descriptor_table_webuimessages_5fgamescope_2eproto_once, descriptor_table_webuimessages_5fgamescope_2eproto_deps, 4, 9,
   schemas, file_default_instances, TableStruct_webuimessages_5fgamescope_2eproto::offsets,
   file_level_metadata_webuimessages_5fgamescope_2eproto, file_level_enum_descriptors_webuimessages_5fgamescope_2eproto, file_level_service_descriptors_webuimessages_5fgamescope_2eproto,
@@ -831,6 +835,9 @@ class CMsgGamescopeState::_Internal {
   static void set_has_is_mura_correction_supported(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
+  static void set_has_is_global_action_binding_supported(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
+  }
 };
 
 const ::CMsgDisplayInfo&
@@ -853,16 +860,16 @@ CMsgGamescopeState::CMsgGamescopeState(const CMsgGamescopeState& from)
     active_display_info_ = nullptr;
   }
   ::memcpy(&is_service_available_, &from.is_service_available_,
-    static_cast<size_t>(reinterpret_cast<char*>(&is_mura_correction_supported_) -
-    reinterpret_cast<char*>(&is_service_available_)) + sizeof(is_mura_correction_supported_));
+    static_cast<size_t>(reinterpret_cast<char*>(&is_global_action_binding_supported_) -
+    reinterpret_cast<char*>(&is_service_available_)) + sizeof(is_global_action_binding_supported_));
   // @@protoc_insertion_point(copy_constructor:CMsgGamescopeState)
 }
 
 void CMsgGamescopeState::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&active_display_info_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&is_mura_correction_supported_) -
-    reinterpret_cast<char*>(&active_display_info_)) + sizeof(is_mura_correction_supported_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_global_action_binding_supported_) -
+    reinterpret_cast<char*>(&active_display_info_)) + sizeof(is_global_action_binding_supported_));
 }
 
 CMsgGamescopeState::~CMsgGamescopeState() {
@@ -902,10 +909,10 @@ void CMsgGamescopeState::Clear() {
         reinterpret_cast<char*>(&is_refresh_rate_switching_restricted_) -
         reinterpret_cast<char*>(&is_service_available_)) + sizeof(is_refresh_rate_switching_restricted_));
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00000700u) {
     ::memset(&is_hdr_visualization_supported_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&is_mura_correction_supported_) -
-        reinterpret_cast<char*>(&is_hdr_visualization_supported_)) + sizeof(is_mura_correction_supported_));
+        reinterpret_cast<char*>(&is_global_action_binding_supported_) -
+        reinterpret_cast<char*>(&is_hdr_visualization_supported_)) + sizeof(is_global_action_binding_supported_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -995,6 +1002,14 @@ const char* CMsgGamescopeState::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_is_mura_correction_supported(&has_bits);
           is_mura_correction_supported_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_global_action_binding_supported = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+          _Internal::set_has_is_global_action_binding_supported(&has_bits);
+          is_global_action_binding_supported_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1090,6 +1105,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_is_mura_correction_supported(), target);
   }
 
+  // optional bool is_global_action_binding_supported = 11;
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_is_global_action_binding_supported(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1151,7 +1172,7 @@ size_t CMsgGamescopeState::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00000700u) {
     // optional bool is_hdr_visualization_supported = 9;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
@@ -1159,6 +1180,11 @@ size_t CMsgGamescopeState::ByteSizeLong() const {
 
     // optional bool is_mura_correction_supported = 10;
     if (cached_has_bits & 0x00000200u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_global_action_binding_supported = 11;
+    if (cached_has_bits & 0x00000400u) {
       total_size += 1 + 1;
     }
 
@@ -1222,12 +1248,15 @@ void CMsgGamescopeState::MergeFrom(const CMsgGamescopeState& from) {
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00000700u) {
     if (cached_has_bits & 0x00000100u) {
       is_hdr_visualization_supported_ = from.is_hdr_visualization_supported_;
     }
     if (cached_has_bits & 0x00000200u) {
       is_mura_correction_supported_ = from.is_mura_correction_supported_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      is_global_action_binding_supported_ = from.is_global_action_binding_supported_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1256,8 +1285,8 @@ void CMsgGamescopeState::InternalSwap(CMsgGamescopeState* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgGamescopeState, is_mura_correction_supported_)
-      + sizeof(CMsgGamescopeState::is_mura_correction_supported_)
+      PROTOBUF_FIELD_OFFSET(CMsgGamescopeState, is_global_action_binding_supported_)
+      + sizeof(CMsgGamescopeState::is_global_action_binding_supported_)
       - PROTOBUF_FIELD_OFFSET(CMsgGamescopeState, active_display_info_)>(
           reinterpret_cast<char*>(&active_display_info_),
           reinterpret_cast<char*>(&other->active_display_info_));

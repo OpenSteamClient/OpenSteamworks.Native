@@ -53,7 +53,7 @@ struct TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[24]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[25]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -115,6 +115,9 @@ extern CClientMetrics_ReportClientError_NotificationDefaultTypeInternal _CClient
 class CClientMetrics_ReportClientError_Notification_Error;
 struct CClientMetrics_ReportClientError_Notification_ErrorDefaultTypeInternal;
 extern CClientMetrics_ReportClientError_Notification_ErrorDefaultTypeInternal _CClientMetrics_ReportClientError_Notification_Error_default_instance_;
+class CClientMetrics_ReportLinuxStats_Notification;
+struct CClientMetrics_ReportLinuxStats_NotificationDefaultTypeInternal;
+extern CClientMetrics_ReportLinuxStats_NotificationDefaultTypeInternal _CClientMetrics_ReportLinuxStats_Notification_default_instance_;
 class CClientMetrics_ReportReactUsage_Notification;
 struct CClientMetrics_ReportReactUsage_NotificationDefaultTypeInternal;
 extern CClientMetrics_ReportReactUsage_NotificationDefaultTypeInternal _CClientMetrics_ReportReactUsage_Notification_default_instance_;
@@ -152,6 +155,7 @@ template<> ::CClientMetrics_IPv6Connectivity_Result* Arena::CreateMaybeMessage<:
 template<> ::CClientMetrics_ReportClientArgs_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ReportClientArgs_Notification>(Arena*);
 template<> ::CClientMetrics_ReportClientError_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ReportClientError_Notification>(Arena*);
 template<> ::CClientMetrics_ReportClientError_Notification_Error* Arena::CreateMaybeMessage<::CClientMetrics_ReportClientError_Notification_Error>(Arena*);
+template<> ::CClientMetrics_ReportLinuxStats_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ReportLinuxStats_Notification>(Arena*);
 template<> ::CClientMetrics_ReportReactUsage_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ReportReactUsage_Notification>(Arena*);
 template<> ::CClientMetrics_ReportReactUsage_Notification_ActionData* Arena::CreateMaybeMessage<::CClientMetrics_ReportReactUsage_Notification_ActionData>(Arena*);
 template<> ::CClientMetrics_ReportReactUsage_Notification_ComponentData* Arena::CreateMaybeMessage<::CClientMetrics_ReportReactUsage_Notification_ComponentData>(Arena*);
@@ -2518,6 +2522,7 @@ class CClientMetrics_ReportClientError_Notification_Error PROTOBUF_FINAL :
   enum : int {
     kIdentifierFieldNumber = 1,
     kMessageFieldNumber = 2,
+    kContextFieldNumber = 4,
     kCountFieldNumber = 3,
   };
   // optional string identifier = 1;
@@ -2560,6 +2565,26 @@ class CClientMetrics_ReportClientError_Notification_Error PROTOBUF_FINAL :
   std::string* _internal_mutable_message();
   public:
 
+  // optional string context = 4;
+  bool has_context() const;
+  private:
+  bool _internal_has_context() const;
+  public:
+  void clear_context();
+  const std::string& context() const;
+  void set_context(const std::string& value);
+  void set_context(std::string&& value);
+  void set_context(const char* value);
+  void set_context(const char* value, size_t size);
+  std::string* mutable_context();
+  std::string* release_context();
+  void set_allocated_context(std::string* context);
+  private:
+  const std::string& _internal_context() const;
+  void _internal_set_context(const std::string& value);
+  std::string* _internal_mutable_context();
+  public:
+
   // optional uint32 count = 3;
   bool has_count() const;
   private:
@@ -2584,6 +2609,7 @@ class CClientMetrics_ReportClientError_Notification_Error PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr identifier_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr context_;
   ::PROTOBUF_NAMESPACE_ID::uint32 count_;
   friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
 };
@@ -4677,6 +4703,237 @@ class CClientMetrics_ReportClientArgs_Notification PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CClientMetrics_ReportLinuxStats_Notification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientMetrics_ReportLinuxStats_Notification) */ {
+ public:
+  inline CClientMetrics_ReportLinuxStats_Notification() : CClientMetrics_ReportLinuxStats_Notification(nullptr) {}
+  virtual ~CClientMetrics_ReportLinuxStats_Notification();
+  explicit constexpr CClientMetrics_ReportLinuxStats_Notification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientMetrics_ReportLinuxStats_Notification(const CClientMetrics_ReportLinuxStats_Notification& from);
+  CClientMetrics_ReportLinuxStats_Notification(CClientMetrics_ReportLinuxStats_Notification&& from) noexcept
+    : CClientMetrics_ReportLinuxStats_Notification() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientMetrics_ReportLinuxStats_Notification& operator=(const CClientMetrics_ReportLinuxStats_Notification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientMetrics_ReportLinuxStats_Notification& operator=(CClientMetrics_ReportLinuxStats_Notification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientMetrics_ReportLinuxStats_Notification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientMetrics_ReportLinuxStats_Notification* internal_default_instance() {
+    return reinterpret_cast<const CClientMetrics_ReportLinuxStats_Notification*>(
+               &_CClientMetrics_ReportLinuxStats_Notification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(CClientMetrics_ReportLinuxStats_Notification& a, CClientMetrics_ReportLinuxStats_Notification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientMetrics_ReportLinuxStats_Notification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientMetrics_ReportLinuxStats_Notification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientMetrics_ReportLinuxStats_Notification* New() const final {
+    return CreateMaybeMessage<CClientMetrics_ReportLinuxStats_Notification>(nullptr);
+  }
+
+  CClientMetrics_ReportLinuxStats_Notification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientMetrics_ReportLinuxStats_Notification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientMetrics_ReportLinuxStats_Notification& from);
+  void MergeFrom(const CClientMetrics_ReportLinuxStats_Notification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientMetrics_ReportLinuxStats_Notification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientMetrics_ReportLinuxStats_Notification";
+  }
+  protected:
+  explicit CClientMetrics_ReportLinuxStats_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kProcessNameFieldNumber = 6,
+    kGlibcVersionMajorFieldNumber = 1,
+    kGlibcVersionMinorFieldNumber = 2,
+    kAccountTypeFieldNumber = 3,
+    kLauncherTypeFieldNumber = 4,
+    kGameServerAppidFieldNumber = 5,
+  };
+  // optional string process_name = 6;
+  bool has_process_name() const;
+  private:
+  bool _internal_has_process_name() const;
+  public:
+  void clear_process_name();
+  const std::string& process_name() const;
+  void set_process_name(const std::string& value);
+  void set_process_name(std::string&& value);
+  void set_process_name(const char* value);
+  void set_process_name(const char* value, size_t size);
+  std::string* mutable_process_name();
+  std::string* release_process_name();
+  void set_allocated_process_name(std::string* process_name);
+  private:
+  const std::string& _internal_process_name() const;
+  void _internal_set_process_name(const std::string& value);
+  std::string* _internal_mutable_process_name();
+  public:
+
+  // optional int32 glibc_version_major = 1;
+  bool has_glibc_version_major() const;
+  private:
+  bool _internal_has_glibc_version_major() const;
+  public:
+  void clear_glibc_version_major();
+  ::PROTOBUF_NAMESPACE_ID::int32 glibc_version_major() const;
+  void set_glibc_version_major(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_glibc_version_major() const;
+  void _internal_set_glibc_version_major(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 glibc_version_minor = 2;
+  bool has_glibc_version_minor() const;
+  private:
+  bool _internal_has_glibc_version_minor() const;
+  public:
+  void clear_glibc_version_minor();
+  ::PROTOBUF_NAMESPACE_ID::int32 glibc_version_minor() const;
+  void set_glibc_version_minor(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_glibc_version_minor() const;
+  void _internal_set_glibc_version_minor(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 account_type = 3;
+  bool has_account_type() const;
+  private:
+  bool _internal_has_account_type() const;
+  public:
+  void clear_account_type();
+  ::PROTOBUF_NAMESPACE_ID::int32 account_type() const;
+  void set_account_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_account_type() const;
+  void _internal_set_account_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 launcher_type = 4;
+  bool has_launcher_type() const;
+  private:
+  bool _internal_has_launcher_type() const;
+  public:
+  void clear_launcher_type();
+  ::PROTOBUF_NAMESPACE_ID::int32 launcher_type() const;
+  void set_launcher_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_launcher_type() const;
+  void _internal_set_launcher_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 game_server_appid = 5;
+  bool has_game_server_appid() const;
+  private:
+  bool _internal_has_game_server_appid() const;
+  public:
+  void clear_game_server_appid();
+  ::PROTOBUF_NAMESPACE_ID::int32 game_server_appid() const;
+  void set_game_server_appid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_game_server_appid() const;
+  void _internal_set_game_server_appid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientMetrics_ReportLinuxStats_Notification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr process_name_;
+  ::PROTOBUF_NAMESPACE_ID::int32 glibc_version_major_;
+  ::PROTOBUF_NAMESPACE_ID::int32 glibc_version_minor_;
+  ::PROTOBUF_NAMESPACE_ID::int32 account_type_;
+  ::PROTOBUF_NAMESPACE_ID::int32 launcher_type_;
+  ::PROTOBUF_NAMESPACE_ID::int32 game_server_appid_;
+  friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CClientMetrics_ClipShare_Notification PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientMetrics_ClipShare_Notification) */ {
  public:
@@ -4727,7 +4984,7 @@ class CClientMetrics_ClipShare_Notification PROTOBUF_FINAL :
                &_CClientMetrics_ClipShare_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CClientMetrics_ClipShare_Notification& a, CClientMetrics_ClipShare_Notification& b) {
     a.Swap(&b);
@@ -4936,7 +5193,7 @@ class CClientMetrics_ClipRange_Notification_RelativeRangeEdge PROTOBUF_FINAL :
                &_CClientMetrics_ClipRange_Notification_RelativeRangeEdge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CClientMetrics_ClipRange_Notification_RelativeRangeEdge& a, CClientMetrics_ClipRange_Notification_RelativeRangeEdge& b) {
     a.Swap(&b);
@@ -5115,7 +5372,7 @@ class CClientMetrics_ClipRange_Notification PROTOBUF_FINAL :
                &_CClientMetrics_ClipRange_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CClientMetrics_ClipRange_Notification& a, CClientMetrics_ClipRange_Notification& b) {
     a.Swap(&b);
@@ -5336,7 +5593,7 @@ class CClientMetrics_EndGameRecording_Notification PROTOBUF_FINAL :
                &_CClientMetrics_EndGameRecording_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CClientMetrics_EndGameRecording_Notification& a, CClientMetrics_EndGameRecording_Notification& b) {
     a.Swap(&b);
@@ -5552,6 +5809,10 @@ class ClientMetrics : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CClientMetrics_ReportClientArgs_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
+  virtual void ReportLinuxStats(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CClientMetrics_ReportLinuxStats_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
   virtual void ReportClipShare(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CClientMetrics_ClipShare_Notification* request,
                        ::NoResponse* response,
@@ -5635,6 +5896,10 @@ class ClientMetrics_Stub : public ClientMetrics {
                        ::google::protobuf::Closure* done);
   void ReportClientArgs(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CClientMetrics_ReportClientArgs_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void ReportLinuxStats(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CClientMetrics_ReportLinuxStats_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
   void ReportClipShare(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
@@ -7379,7 +7644,7 @@ inline void CClientMetrics_ReportClientError_Notification_Error::set_allocated_m
 
 // optional uint32 count = 3;
 inline bool CClientMetrics_ReportClientError_Notification_Error::_internal_has_count() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CClientMetrics_ReportClientError_Notification_Error::has_count() const {
@@ -7387,7 +7652,7 @@ inline bool CClientMetrics_ReportClientError_Notification_Error::has_count() con
 }
 inline void CClientMetrics_ReportClientError_Notification_Error::clear_count() {
   count_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_ReportClientError_Notification_Error::_internal_count() const {
   return count_;
@@ -7397,12 +7662,85 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_ReportClientError_Notifica
   return _internal_count();
 }
 inline void CClientMetrics_ReportClientError_Notification_Error::_internal_set_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
   count_ = value;
 }
 inline void CClientMetrics_ReportClientError_Notification_Error::set_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_count(value);
   // @@protoc_insertion_point(field_set:CClientMetrics_ReportClientError_Notification.Error.count)
+}
+
+// optional string context = 4;
+inline bool CClientMetrics_ReportClientError_Notification_Error::_internal_has_context() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ReportClientError_Notification_Error::has_context() const {
+  return _internal_has_context();
+}
+inline void CClientMetrics_ReportClientError_Notification_Error::clear_context() {
+  context_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& CClientMetrics_ReportClientError_Notification_Error::context() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ReportClientError_Notification.Error.context)
+  return _internal_context();
+}
+inline void CClientMetrics_ReportClientError_Notification_Error::set_context(const std::string& value) {
+  _internal_set_context(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ReportClientError_Notification.Error.context)
+}
+inline std::string* CClientMetrics_ReportClientError_Notification_Error::mutable_context() {
+  // @@protoc_insertion_point(field_mutable:CClientMetrics_ReportClientError_Notification.Error.context)
+  return _internal_mutable_context();
+}
+inline const std::string& CClientMetrics_ReportClientError_Notification_Error::_internal_context() const {
+  return context_.Get();
+}
+inline void CClientMetrics_ReportClientError_Notification_Error::_internal_set_context(const std::string& value) {
+  _has_bits_[0] |= 0x00000004u;
+  context_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CClientMetrics_ReportClientError_Notification_Error::set_context(std::string&& value) {
+  _has_bits_[0] |= 0x00000004u;
+  context_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CClientMetrics_ReportClientError_Notification.Error.context)
+}
+inline void CClientMetrics_ReportClientError_Notification_Error::set_context(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000004u;
+  context_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CClientMetrics_ReportClientError_Notification.Error.context)
+}
+inline void CClientMetrics_ReportClientError_Notification_Error::set_context(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000004u;
+  context_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CClientMetrics_ReportClientError_Notification.Error.context)
+}
+inline std::string* CClientMetrics_ReportClientError_Notification_Error::_internal_mutable_context() {
+  _has_bits_[0] |= 0x00000004u;
+  return context_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CClientMetrics_ReportClientError_Notification_Error::release_context() {
+  // @@protoc_insertion_point(field_release:CClientMetrics_ReportClientError_Notification.Error.context)
+  if (!_internal_has_context()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000004u;
+  return context_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CClientMetrics_ReportClientError_Notification_Error::set_allocated_context(std::string* context) {
+  if (context != nullptr) {
+    _has_bits_[0] |= 0x00000004u;
+  } else {
+    _has_bits_[0] &= ~0x00000004u;
+  }
+  context_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), context,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CClientMetrics_ReportClientError_Notification.Error.context)
 }
 
 // -------------------------------------------------------------------
@@ -9536,6 +9874,223 @@ inline void CClientMetrics_ReportClientArgs_Notification::set_gr_mode(::PROTOBUF
 
 // -------------------------------------------------------------------
 
+// CClientMetrics_ReportLinuxStats_Notification
+
+// optional int32 glibc_version_major = 1;
+inline bool CClientMetrics_ReportLinuxStats_Notification::_internal_has_glibc_version_major() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ReportLinuxStats_Notification::has_glibc_version_major() const {
+  return _internal_has_glibc_version_major();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::clear_glibc_version_major() {
+  glibc_version_major_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::_internal_glibc_version_major() const {
+  return glibc_version_major_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::glibc_version_major() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ReportLinuxStats_Notification.glibc_version_major)
+  return _internal_glibc_version_major();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::_internal_set_glibc_version_major(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  glibc_version_major_ = value;
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_glibc_version_major(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_glibc_version_major(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ReportLinuxStats_Notification.glibc_version_major)
+}
+
+// optional int32 glibc_version_minor = 2;
+inline bool CClientMetrics_ReportLinuxStats_Notification::_internal_has_glibc_version_minor() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ReportLinuxStats_Notification::has_glibc_version_minor() const {
+  return _internal_has_glibc_version_minor();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::clear_glibc_version_minor() {
+  glibc_version_minor_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::_internal_glibc_version_minor() const {
+  return glibc_version_minor_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::glibc_version_minor() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ReportLinuxStats_Notification.glibc_version_minor)
+  return _internal_glibc_version_minor();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::_internal_set_glibc_version_minor(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  glibc_version_minor_ = value;
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_glibc_version_minor(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_glibc_version_minor(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ReportLinuxStats_Notification.glibc_version_minor)
+}
+
+// optional int32 account_type = 3;
+inline bool CClientMetrics_ReportLinuxStats_Notification::_internal_has_account_type() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ReportLinuxStats_Notification::has_account_type() const {
+  return _internal_has_account_type();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::clear_account_type() {
+  account_type_ = 0;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::_internal_account_type() const {
+  return account_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::account_type() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ReportLinuxStats_Notification.account_type)
+  return _internal_account_type();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::_internal_set_account_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  account_type_ = value;
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_account_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_account_type(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ReportLinuxStats_Notification.account_type)
+}
+
+// optional int32 launcher_type = 4;
+inline bool CClientMetrics_ReportLinuxStats_Notification::_internal_has_launcher_type() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ReportLinuxStats_Notification::has_launcher_type() const {
+  return _internal_has_launcher_type();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::clear_launcher_type() {
+  launcher_type_ = 0;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::_internal_launcher_type() const {
+  return launcher_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::launcher_type() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ReportLinuxStats_Notification.launcher_type)
+  return _internal_launcher_type();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::_internal_set_launcher_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  launcher_type_ = value;
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_launcher_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_launcher_type(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ReportLinuxStats_Notification.launcher_type)
+}
+
+// optional int32 game_server_appid = 5;
+inline bool CClientMetrics_ReportLinuxStats_Notification::_internal_has_game_server_appid() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ReportLinuxStats_Notification::has_game_server_appid() const {
+  return _internal_has_game_server_appid();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::clear_game_server_appid() {
+  game_server_appid_ = 0;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::_internal_game_server_appid() const {
+  return game_server_appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_ReportLinuxStats_Notification::game_server_appid() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ReportLinuxStats_Notification.game_server_appid)
+  return _internal_game_server_appid();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::_internal_set_game_server_appid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000020u;
+  game_server_appid_ = value;
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_game_server_appid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_game_server_appid(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ReportLinuxStats_Notification.game_server_appid)
+}
+
+// optional string process_name = 6;
+inline bool CClientMetrics_ReportLinuxStats_Notification::_internal_has_process_name() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientMetrics_ReportLinuxStats_Notification::has_process_name() const {
+  return _internal_has_process_name();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::clear_process_name() {
+  process_name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CClientMetrics_ReportLinuxStats_Notification::process_name() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_ReportLinuxStats_Notification.process_name)
+  return _internal_process_name();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_process_name(const std::string& value) {
+  _internal_set_process_name(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_ReportLinuxStats_Notification.process_name)
+}
+inline std::string* CClientMetrics_ReportLinuxStats_Notification::mutable_process_name() {
+  // @@protoc_insertion_point(field_mutable:CClientMetrics_ReportLinuxStats_Notification.process_name)
+  return _internal_mutable_process_name();
+}
+inline const std::string& CClientMetrics_ReportLinuxStats_Notification::_internal_process_name() const {
+  return process_name_.Get();
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::_internal_set_process_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  process_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_process_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  process_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CClientMetrics_ReportLinuxStats_Notification.process_name)
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_process_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  process_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CClientMetrics_ReportLinuxStats_Notification.process_name)
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_process_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  process_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CClientMetrics_ReportLinuxStats_Notification.process_name)
+}
+inline std::string* CClientMetrics_ReportLinuxStats_Notification::_internal_mutable_process_name() {
+  _has_bits_[0] |= 0x00000001u;
+  return process_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CClientMetrics_ReportLinuxStats_Notification::release_process_name() {
+  // @@protoc_insertion_point(field_release:CClientMetrics_ReportLinuxStats_Notification.process_name)
+  if (!_internal_has_process_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return process_name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CClientMetrics_ReportLinuxStats_Notification::set_allocated_process_name(std::string* process_name) {
+  if (process_name != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  process_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), process_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CClientMetrics_ReportLinuxStats_Notification.process_name)
+}
+
+// -------------------------------------------------------------------
+
 // CClientMetrics_ClipShare_Notification
 
 // optional uint32 eresult = 1 [default = 2];
@@ -10172,6 +10727,8 @@ inline void CClientMetrics_EndGameRecording_Notification::set_instant_clip(bool 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

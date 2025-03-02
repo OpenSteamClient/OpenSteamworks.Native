@@ -19,6 +19,7 @@
 #include "generated/steammessages_base.pb.h"
 #include "generated/steammessages_broadcast.steamclient.pb.h"
 #include "generated/steammessages_chat.steamclient.pb.h"
+#include "generated/steammessages_childprocessquery.pb.h"
 #include "generated/steammessages_client_objects.pb.h"
 #include "generated/steammessages_clientlanp2p.pb.h"
 #include "generated/steammessages_clientmetrics.steamclient.pb.h"
@@ -6382,6 +6383,50 @@ EXPORT void CAuthentication_GetAuthSessionRiskInfo_Response_Delete(CAuthenticati
     delete ptr;
 }
 
+// Begin CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults
+EXPORT CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults *CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults_Construct() {
+    return new CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults();
+}
+
+EXPORT CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults *CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults_Deserialize(void* buffer, int len) {
+    CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults *msg = new CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults_DeserializeInto(CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults_Delete(CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults* ptr) {
+    delete ptr;
+}
+
+// Begin CAuthentication_NotifyRiskQuizResults_Notification
+EXPORT CAuthentication_NotifyRiskQuizResults_Notification *CAuthentication_NotifyRiskQuizResults_Notification_Construct() {
+    return new CAuthentication_NotifyRiskQuizResults_Notification();
+}
+
+EXPORT CAuthentication_NotifyRiskQuizResults_Notification *CAuthentication_NotifyRiskQuizResults_Notification_Deserialize(void* buffer, int len) {
+    CAuthentication_NotifyRiskQuizResults_Notification *msg = new CAuthentication_NotifyRiskQuizResults_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CAuthentication_NotifyRiskQuizResults_Notification_DeserializeInto(CAuthentication_NotifyRiskQuizResults_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CAuthentication_NotifyRiskQuizResults_Notification_Delete(CAuthentication_NotifyRiskQuizResults_Notification* ptr) {
+    delete ptr;
+}
+
 // Begin CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request
 EXPORT CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request *CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request_Construct() {
     return new CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request();
@@ -7259,6 +7304,50 @@ EXPORT bool CMsgProtoBufHeader_DeserializeInto(CMsgProtoBufHeader *target, void*
 }
 
 EXPORT void CMsgProtoBufHeader_Delete(CMsgProtoBufHeader* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgKubeRPCPacket_Hdr
+EXPORT CMsgKubeRPCPacket_Hdr *CMsgKubeRPCPacket_Hdr_Construct() {
+    return new CMsgKubeRPCPacket_Hdr();
+}
+
+EXPORT CMsgKubeRPCPacket_Hdr *CMsgKubeRPCPacket_Hdr_Deserialize(void* buffer, int len) {
+    CMsgKubeRPCPacket_Hdr *msg = new CMsgKubeRPCPacket_Hdr();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgKubeRPCPacket_Hdr_DeserializeInto(CMsgKubeRPCPacket_Hdr *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgKubeRPCPacket_Hdr_Delete(CMsgKubeRPCPacket_Hdr* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgKubeRPCPacket
+EXPORT CMsgKubeRPCPacket *CMsgKubeRPCPacket_Construct() {
+    return new CMsgKubeRPCPacket();
+}
+
+EXPORT CMsgKubeRPCPacket *CMsgKubeRPCPacket_Deserialize(void* buffer, int len) {
+    CMsgKubeRPCPacket *msg = new CMsgKubeRPCPacket();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgKubeRPCPacket_DeserializeInto(CMsgKubeRPCPacket *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgKubeRPCPacket_Delete(CMsgKubeRPCPacket* ptr) {
     delete ptr;
 }
 
@@ -12740,6 +12829,72 @@ EXPORT void CChatUsability_RequestClientUsabilityMetrics_Notification_Delete(CCh
     delete ptr;
 }
 
+// Begin CMsgChildProcessQueryResponse
+EXPORT CMsgChildProcessQueryResponse *CMsgChildProcessQueryResponse_Construct() {
+    return new CMsgChildProcessQueryResponse();
+}
+
+EXPORT CMsgChildProcessQueryResponse *CMsgChildProcessQueryResponse_Deserialize(void* buffer, int len) {
+    CMsgChildProcessQueryResponse *msg = new CMsgChildProcessQueryResponse();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgChildProcessQueryResponse_DeserializeInto(CMsgChildProcessQueryResponse *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgChildProcessQueryResponse_Delete(CMsgChildProcessQueryResponse* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgChildProcessQueryGpuTopology_GpuInfo
+EXPORT CMsgChildProcessQueryGpuTopology_GpuInfo *CMsgChildProcessQueryGpuTopology_GpuInfo_Construct() {
+    return new CMsgChildProcessQueryGpuTopology_GpuInfo();
+}
+
+EXPORT CMsgChildProcessQueryGpuTopology_GpuInfo *CMsgChildProcessQueryGpuTopology_GpuInfo_Deserialize(void* buffer, int len) {
+    CMsgChildProcessQueryGpuTopology_GpuInfo *msg = new CMsgChildProcessQueryGpuTopology_GpuInfo();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgChildProcessQueryGpuTopology_GpuInfo_DeserializeInto(CMsgChildProcessQueryGpuTopology_GpuInfo *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgChildProcessQueryGpuTopology_GpuInfo_Delete(CMsgChildProcessQueryGpuTopology_GpuInfo* ptr) {
+    delete ptr;
+}
+
+// Begin CMsgChildProcessQueryGpuTopology
+EXPORT CMsgChildProcessQueryGpuTopology *CMsgChildProcessQueryGpuTopology_Construct() {
+    return new CMsgChildProcessQueryGpuTopology();
+}
+
+EXPORT CMsgChildProcessQueryGpuTopology *CMsgChildProcessQueryGpuTopology_Deserialize(void* buffer, int len) {
+    CMsgChildProcessQueryGpuTopology *msg = new CMsgChildProcessQueryGpuTopology();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgChildProcessQueryGpuTopology_DeserializeInto(CMsgChildProcessQueryGpuTopology *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgChildProcessQueryGpuTopology_Delete(CMsgChildProcessQueryGpuTopology* ptr) {
+    delete ptr;
+}
+
 // Begin SteamMessagesClientIClientForcedEnumDependencies
 EXPORT SteamMessagesClientIClientForcedEnumDependencies *SteamMessagesClientIClientForcedEnumDependencies_Construct() {
     return new SteamMessagesClientIClientForcedEnumDependencies();
@@ -14871,6 +15026,28 @@ EXPORT bool CClientMetrics_ReportClientArgs_Notification_DeserializeInto(CClient
 }
 
 EXPORT void CClientMetrics_ReportClientArgs_Notification_Delete(CClientMetrics_ReportClientArgs_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CClientMetrics_ReportLinuxStats_Notification
+EXPORT CClientMetrics_ReportLinuxStats_Notification *CClientMetrics_ReportLinuxStats_Notification_Construct() {
+    return new CClientMetrics_ReportLinuxStats_Notification();
+}
+
+EXPORT CClientMetrics_ReportLinuxStats_Notification *CClientMetrics_ReportLinuxStats_Notification_Deserialize(void* buffer, int len) {
+    CClientMetrics_ReportLinuxStats_Notification *msg = new CClientMetrics_ReportLinuxStats_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CClientMetrics_ReportLinuxStats_Notification_DeserializeInto(CClientMetrics_ReportLinuxStats_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CClientMetrics_ReportLinuxStats_Notification_Delete(CClientMetrics_ReportLinuxStats_Notification* ptr) {
     delete ptr;
 }
 
@@ -17052,6 +17229,28 @@ EXPORT void CMsgClientRichPresenceRequest_Delete(CMsgClientRichPresenceRequest* 
     delete ptr;
 }
 
+// Begin CMsgClientRichPresenceInfo_KV
+EXPORT CMsgClientRichPresenceInfo_KV *CMsgClientRichPresenceInfo_KV_Construct() {
+    return new CMsgClientRichPresenceInfo_KV();
+}
+
+EXPORT CMsgClientRichPresenceInfo_KV *CMsgClientRichPresenceInfo_KV_Deserialize(void* buffer, int len) {
+    CMsgClientRichPresenceInfo_KV *msg = new CMsgClientRichPresenceInfo_KV();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMsgClientRichPresenceInfo_KV_DeserializeInto(CMsgClientRichPresenceInfo_KV *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMsgClientRichPresenceInfo_KV_Delete(CMsgClientRichPresenceInfo_KV* ptr) {
+    delete ptr;
+}
+
 // Begin CMsgClientRichPresenceInfo_RichPresence
 EXPORT CMsgClientRichPresenceInfo_RichPresence *CMsgClientRichPresenceInfo_RichPresence_Construct() {
     return new CMsgClientRichPresenceInfo_RichPresence();
@@ -17225,50 +17424,6 @@ EXPORT bool CMsgClientUpdateMachineAuthResponse_DeserializeInto(CMsgClientUpdate
 }
 
 EXPORT void CMsgClientUpdateMachineAuthResponse_Delete(CMsgClientUpdateMachineAuthResponse* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientRequestMachineAuth
-EXPORT CMsgClientRequestMachineAuth *CMsgClientRequestMachineAuth_Construct() {
-    return new CMsgClientRequestMachineAuth();
-}
-
-EXPORT CMsgClientRequestMachineAuth *CMsgClientRequestMachineAuth_Deserialize(void* buffer, int len) {
-    CMsgClientRequestMachineAuth *msg = new CMsgClientRequestMachineAuth();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientRequestMachineAuth_DeserializeInto(CMsgClientRequestMachineAuth *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientRequestMachineAuth_Delete(CMsgClientRequestMachineAuth* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientRequestMachineAuthResponse
-EXPORT CMsgClientRequestMachineAuthResponse *CMsgClientRequestMachineAuthResponse_Construct() {
-    return new CMsgClientRequestMachineAuthResponse();
-}
-
-EXPORT CMsgClientRequestMachineAuthResponse *CMsgClientRequestMachineAuthResponse_Deserialize(void* buffer, int len) {
-    CMsgClientRequestMachineAuthResponse *msg = new CMsgClientRequestMachineAuthResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientRequestMachineAuthResponse_DeserializeInto(CMsgClientRequestMachineAuthResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientRequestMachineAuthResponse_Delete(CMsgClientRequestMachineAuthResponse* ptr) {
     delete ptr;
 }
 
@@ -17492,28 +17647,6 @@ EXPORT void CMsgTrading_StartSession_Delete(CMsgTrading_StartSession* ptr) {
     delete ptr;
 }
 
-// Begin CMsgClientGetCDNAuthToken
-EXPORT CMsgClientGetCDNAuthToken *CMsgClientGetCDNAuthToken_Construct() {
-    return new CMsgClientGetCDNAuthToken();
-}
-
-EXPORT CMsgClientGetCDNAuthToken *CMsgClientGetCDNAuthToken_Deserialize(void* buffer, int len) {
-    CMsgClientGetCDNAuthToken *msg = new CMsgClientGetCDNAuthToken();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientGetCDNAuthToken_DeserializeInto(CMsgClientGetCDNAuthToken *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientGetCDNAuthToken_Delete(CMsgClientGetCDNAuthToken* ptr) {
-    delete ptr;
-}
-
 // Begin CMsgClientGetDepotDecryptionKey
 EXPORT CMsgClientGetDepotDecryptionKey *CMsgClientGetDepotDecryptionKey_Construct() {
     return new CMsgClientGetDepotDecryptionKey();
@@ -17621,116 +17754,6 @@ EXPORT bool CMsgClientCheckAppBetaPasswordResponse_DeserializeInto(CMsgClientChe
 }
 
 EXPORT void CMsgClientCheckAppBetaPasswordResponse_Delete(CMsgClientCheckAppBetaPasswordResponse* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientGetCDNAuthTokenResponse
-EXPORT CMsgClientGetCDNAuthTokenResponse *CMsgClientGetCDNAuthTokenResponse_Construct() {
-    return new CMsgClientGetCDNAuthTokenResponse();
-}
-
-EXPORT CMsgClientGetCDNAuthTokenResponse *CMsgClientGetCDNAuthTokenResponse_Deserialize(void* buffer, int len) {
-    CMsgClientGetCDNAuthTokenResponse *msg = new CMsgClientGetCDNAuthTokenResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientGetCDNAuthTokenResponse_DeserializeInto(CMsgClientGetCDNAuthTokenResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientGetCDNAuthTokenResponse_Delete(CMsgClientGetCDNAuthTokenResponse* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgDownloadRateStatistics_StatsInfo
-EXPORT CMsgDownloadRateStatistics_StatsInfo *CMsgDownloadRateStatistics_StatsInfo_Construct() {
-    return new CMsgDownloadRateStatistics_StatsInfo();
-}
-
-EXPORT CMsgDownloadRateStatistics_StatsInfo *CMsgDownloadRateStatistics_StatsInfo_Deserialize(void* buffer, int len) {
-    CMsgDownloadRateStatistics_StatsInfo *msg = new CMsgDownloadRateStatistics_StatsInfo();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgDownloadRateStatistics_StatsInfo_DeserializeInto(CMsgDownloadRateStatistics_StatsInfo *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgDownloadRateStatistics_StatsInfo_Delete(CMsgDownloadRateStatistics_StatsInfo* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgDownloadRateStatistics
-EXPORT CMsgDownloadRateStatistics *CMsgDownloadRateStatistics_Construct() {
-    return new CMsgDownloadRateStatistics();
-}
-
-EXPORT CMsgDownloadRateStatistics *CMsgDownloadRateStatistics_Deserialize(void* buffer, int len) {
-    CMsgDownloadRateStatistics *msg = new CMsgDownloadRateStatistics();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgDownloadRateStatistics_DeserializeInto(CMsgDownloadRateStatistics *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgDownloadRateStatistics_Delete(CMsgDownloadRateStatistics* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientRequestAccountData
-EXPORT CMsgClientRequestAccountData *CMsgClientRequestAccountData_Construct() {
-    return new CMsgClientRequestAccountData();
-}
-
-EXPORT CMsgClientRequestAccountData *CMsgClientRequestAccountData_Deserialize(void* buffer, int len) {
-    CMsgClientRequestAccountData *msg = new CMsgClientRequestAccountData();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientRequestAccountData_DeserializeInto(CMsgClientRequestAccountData *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientRequestAccountData_Delete(CMsgClientRequestAccountData* ptr) {
-    delete ptr;
-}
-
-// Begin CMsgClientRequestAccountDataResponse
-EXPORT CMsgClientRequestAccountDataResponse *CMsgClientRequestAccountDataResponse_Construct() {
-    return new CMsgClientRequestAccountDataResponse();
-}
-
-EXPORT CMsgClientRequestAccountDataResponse *CMsgClientRequestAccountDataResponse_Deserialize(void* buffer, int len) {
-    CMsgClientRequestAccountDataResponse *msg = new CMsgClientRequestAccountDataResponse();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CMsgClientRequestAccountDataResponse_DeserializeInto(CMsgClientRequestAccountDataResponse *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CMsgClientRequestAccountDataResponse_Delete(CMsgClientRequestAccountDataResponse* ptr) {
     delete ptr;
 }
 
@@ -26094,6 +26117,138 @@ EXPORT void CCommunity_GetAvatarHistory_Response_Delete(CCommunity_GetAvatarHist
     delete ptr;
 }
 
+// Begin CCommunity_GetClanEventCrowdInMetadata_Request
+EXPORT CCommunity_GetClanEventCrowdInMetadata_Request *CCommunity_GetClanEventCrowdInMetadata_Request_Construct() {
+    return new CCommunity_GetClanEventCrowdInMetadata_Request();
+}
+
+EXPORT CCommunity_GetClanEventCrowdInMetadata_Request *CCommunity_GetClanEventCrowdInMetadata_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetClanEventCrowdInMetadata_Request *msg = new CCommunity_GetClanEventCrowdInMetadata_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetClanEventCrowdInMetadata_Request_DeserializeInto(CCommunity_GetClanEventCrowdInMetadata_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetClanEventCrowdInMetadata_Request_Delete(CCommunity_GetClanEventCrowdInMetadata_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetClanEventCrowdInMetadata_Response
+EXPORT CCommunity_GetClanEventCrowdInMetadata_Response *CCommunity_GetClanEventCrowdInMetadata_Response_Construct() {
+    return new CCommunity_GetClanEventCrowdInMetadata_Response();
+}
+
+EXPORT CCommunity_GetClanEventCrowdInMetadata_Response *CCommunity_GetClanEventCrowdInMetadata_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetClanEventCrowdInMetadata_Response *msg = new CCommunity_GetClanEventCrowdInMetadata_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetClanEventCrowdInMetadata_Response_DeserializeInto(CCommunity_GetClanEventCrowdInMetadata_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetClanEventCrowdInMetadata_Response_Delete(CCommunity_GetClanEventCrowdInMetadata_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetClanCrowdInMetadata_Request
+EXPORT CCommunity_GetClanCrowdInMetadata_Request *CCommunity_GetClanCrowdInMetadata_Request_Construct() {
+    return new CCommunity_GetClanCrowdInMetadata_Request();
+}
+
+EXPORT CCommunity_GetClanCrowdInMetadata_Request *CCommunity_GetClanCrowdInMetadata_Request_Deserialize(void* buffer, int len) {
+    CCommunity_GetClanCrowdInMetadata_Request *msg = new CCommunity_GetClanCrowdInMetadata_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetClanCrowdInMetadata_Request_DeserializeInto(CCommunity_GetClanCrowdInMetadata_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetClanCrowdInMetadata_Request_Delete(CCommunity_GetClanCrowdInMetadata_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_GetClanCrowdInMetadata_Response
+EXPORT CCommunity_GetClanCrowdInMetadata_Response *CCommunity_GetClanCrowdInMetadata_Response_Construct() {
+    return new CCommunity_GetClanCrowdInMetadata_Response();
+}
+
+EXPORT CCommunity_GetClanCrowdInMetadata_Response *CCommunity_GetClanCrowdInMetadata_Response_Deserialize(void* buffer, int len) {
+    CCommunity_GetClanCrowdInMetadata_Response *msg = new CCommunity_GetClanCrowdInMetadata_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_GetClanCrowdInMetadata_Response_DeserializeInto(CCommunity_GetClanCrowdInMetadata_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_GetClanCrowdInMetadata_Response_Delete(CCommunity_GetClanCrowdInMetadata_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_FetchTranslationFromCrowdIn_Request
+EXPORT CCommunity_FetchTranslationFromCrowdIn_Request *CCommunity_FetchTranslationFromCrowdIn_Request_Construct() {
+    return new CCommunity_FetchTranslationFromCrowdIn_Request();
+}
+
+EXPORT CCommunity_FetchTranslationFromCrowdIn_Request *CCommunity_FetchTranslationFromCrowdIn_Request_Deserialize(void* buffer, int len) {
+    CCommunity_FetchTranslationFromCrowdIn_Request *msg = new CCommunity_FetchTranslationFromCrowdIn_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_FetchTranslationFromCrowdIn_Request_DeserializeInto(CCommunity_FetchTranslationFromCrowdIn_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_FetchTranslationFromCrowdIn_Request_Delete(CCommunity_FetchTranslationFromCrowdIn_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CCommunity_FetchTranslationFromCrowdIn_Response
+EXPORT CCommunity_FetchTranslationFromCrowdIn_Response *CCommunity_FetchTranslationFromCrowdIn_Response_Construct() {
+    return new CCommunity_FetchTranslationFromCrowdIn_Response();
+}
+
+EXPORT CCommunity_FetchTranslationFromCrowdIn_Response *CCommunity_FetchTranslationFromCrowdIn_Response_Deserialize(void* buffer, int len) {
+    CCommunity_FetchTranslationFromCrowdIn_Response *msg = new CCommunity_FetchTranslationFromCrowdIn_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CCommunity_FetchTranslationFromCrowdIn_Response_DeserializeInto(CCommunity_FetchTranslationFromCrowdIn_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CCommunity_FetchTranslationFromCrowdIn_Response_Delete(CCommunity_FetchTranslationFromCrowdIn_Response* ptr) {
+    delete ptr;
+}
+
 // Begin CAppPriority
 EXPORT CAppPriority *CAppPriority_Construct() {
     return new CAppPriority();
@@ -26949,6 +27104,116 @@ EXPORT bool CContentServerDirectory_GetPeerContentInfo_Response_DeserializeInto(
 }
 
 EXPORT void CContentServerDirectory_GetPeerContentInfo_Response_Delete(CContentServerDirectory_GetPeerContentInfo_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CDepotContentDetection_GetAllDetectedAppContent_Request
+EXPORT CDepotContentDetection_GetAllDetectedAppContent_Request *CDepotContentDetection_GetAllDetectedAppContent_Request_Construct() {
+    return new CDepotContentDetection_GetAllDetectedAppContent_Request();
+}
+
+EXPORT CDepotContentDetection_GetAllDetectedAppContent_Request *CDepotContentDetection_GetAllDetectedAppContent_Request_Deserialize(void* buffer, int len) {
+    CDepotContentDetection_GetAllDetectedAppContent_Request *msg = new CDepotContentDetection_GetAllDetectedAppContent_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CDepotContentDetection_GetAllDetectedAppContent_Request_DeserializeInto(CDepotContentDetection_GetAllDetectedAppContent_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CDepotContentDetection_GetAllDetectedAppContent_Request_Delete(CDepotContentDetection_GetAllDetectedAppContent_Request* ptr) {
+    delete ptr;
+}
+
+// Begin DetectedAppContent
+EXPORT DetectedAppContent *DetectedAppContent_Construct() {
+    return new DetectedAppContent();
+}
+
+EXPORT DetectedAppContent *DetectedAppContent_Deserialize(void* buffer, int len) {
+    DetectedAppContent *msg = new DetectedAppContent();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool DetectedAppContent_DeserializeInto(DetectedAppContent *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void DetectedAppContent_Delete(DetectedAppContent* ptr) {
+    delete ptr;
+}
+
+// Begin CDepotContentDetection_GetAllDetectedAppContent_Response
+EXPORT CDepotContentDetection_GetAllDetectedAppContent_Response *CDepotContentDetection_GetAllDetectedAppContent_Response_Construct() {
+    return new CDepotContentDetection_GetAllDetectedAppContent_Response();
+}
+
+EXPORT CDepotContentDetection_GetAllDetectedAppContent_Response *CDepotContentDetection_GetAllDetectedAppContent_Response_Deserialize(void* buffer, int len) {
+    CDepotContentDetection_GetAllDetectedAppContent_Response *msg = new CDepotContentDetection_GetAllDetectedAppContent_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CDepotContentDetection_GetAllDetectedAppContent_Response_DeserializeInto(CDepotContentDetection_GetAllDetectedAppContent_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CDepotContentDetection_GetAllDetectedAppContent_Response_Delete(CDepotContentDetection_GetAllDetectedAppContent_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CDepotContentDetection_GetDetectedContentSingleApp_Request
+EXPORT CDepotContentDetection_GetDetectedContentSingleApp_Request *CDepotContentDetection_GetDetectedContentSingleApp_Request_Construct() {
+    return new CDepotContentDetection_GetDetectedContentSingleApp_Request();
+}
+
+EXPORT CDepotContentDetection_GetDetectedContentSingleApp_Request *CDepotContentDetection_GetDetectedContentSingleApp_Request_Deserialize(void* buffer, int len) {
+    CDepotContentDetection_GetDetectedContentSingleApp_Request *msg = new CDepotContentDetection_GetDetectedContentSingleApp_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CDepotContentDetection_GetDetectedContentSingleApp_Request_DeserializeInto(CDepotContentDetection_GetDetectedContentSingleApp_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CDepotContentDetection_GetDetectedContentSingleApp_Request_Delete(CDepotContentDetection_GetDetectedContentSingleApp_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CDepotContentDetection_GetDetectedContentSingleApp_Response
+EXPORT CDepotContentDetection_GetDetectedContentSingleApp_Response *CDepotContentDetection_GetDetectedContentSingleApp_Response_Construct() {
+    return new CDepotContentDetection_GetDetectedContentSingleApp_Response();
+}
+
+EXPORT CDepotContentDetection_GetDetectedContentSingleApp_Response *CDepotContentDetection_GetDetectedContentSingleApp_Response_Deserialize(void* buffer, int len) {
+    CDepotContentDetection_GetDetectedContentSingleApp_Response *msg = new CDepotContentDetection_GetDetectedContentSingleApp_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CDepotContentDetection_GetDetectedContentSingleApp_Response_DeserializeInto(CDepotContentDetection_GetDetectedContentSingleApp_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CDepotContentDetection_GetDetectedContentSingleApp_Response_Delete(CDepotContentDetection_GetDetectedContentSingleApp_Response* ptr) {
     delete ptr;
 }
 
@@ -33200,6 +33465,50 @@ EXPORT void CMarketingMessages_GetActiveMarketingMessages_Response_Delete(CMarke
     delete ptr;
 }
 
+// Begin CMarketingMessages_GetPastMarketingMessages_Request
+EXPORT CMarketingMessages_GetPastMarketingMessages_Request *CMarketingMessages_GetPastMarketingMessages_Request_Construct() {
+    return new CMarketingMessages_GetPastMarketingMessages_Request();
+}
+
+EXPORT CMarketingMessages_GetPastMarketingMessages_Request *CMarketingMessages_GetPastMarketingMessages_Request_Deserialize(void* buffer, int len) {
+    CMarketingMessages_GetPastMarketingMessages_Request *msg = new CMarketingMessages_GetPastMarketingMessages_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMarketingMessages_GetPastMarketingMessages_Request_DeserializeInto(CMarketingMessages_GetPastMarketingMessages_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMarketingMessages_GetPastMarketingMessages_Request_Delete(CMarketingMessages_GetPastMarketingMessages_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CMarketingMessages_GetPastMarketingMessages_Response
+EXPORT CMarketingMessages_GetPastMarketingMessages_Response *CMarketingMessages_GetPastMarketingMessages_Response_Construct() {
+    return new CMarketingMessages_GetPastMarketingMessages_Response();
+}
+
+EXPORT CMarketingMessages_GetPastMarketingMessages_Response *CMarketingMessages_GetPastMarketingMessages_Response_Deserialize(void* buffer, int len) {
+    CMarketingMessages_GetPastMarketingMessages_Response *msg = new CMarketingMessages_GetPastMarketingMessages_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMarketingMessages_GetPastMarketingMessages_Response_DeserializeInto(CMarketingMessages_GetPastMarketingMessages_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMarketingMessages_GetPastMarketingMessages_Response_Delete(CMarketingMessages_GetPastMarketingMessages_Response* ptr) {
+    delete ptr;
+}
+
 // Begin CMarketingMessages_GetMarketingMessagesForUser_Request
 EXPORT CMarketingMessages_GetMarketingMessagesForUser_Request *CMarketingMessages_GetMarketingMessagesForUser_Request_Construct() {
     return new CMarketingMessages_GetMarketingMessagesForUser_Request();
@@ -33395,6 +33704,28 @@ EXPORT bool CMarketingMessages_MarkMessageSeen_Notification_DeserializeInto(CMar
 }
 
 EXPORT void CMarketingMessages_MarkMessageSeen_Notification_Delete(CMarketingMessages_MarkMessageSeen_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CMarketingMessages_MarkMessageClicked_Notification
+EXPORT CMarketingMessages_MarkMessageClicked_Notification *CMarketingMessages_MarkMessageClicked_Notification_Construct() {
+    return new CMarketingMessages_MarkMessageClicked_Notification();
+}
+
+EXPORT CMarketingMessages_MarkMessageClicked_Notification *CMarketingMessages_MarkMessageClicked_Notification_Deserialize(void* buffer, int len) {
+    CMarketingMessages_MarkMessageClicked_Notification *msg = new CMarketingMessages_MarkMessageClicked_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMarketingMessages_MarkMessageClicked_Notification_DeserializeInto(CMarketingMessages_MarkMessageClicked_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMarketingMessages_MarkMessageClicked_Notification_Delete(CMarketingMessages_MarkMessageClicked_Notification* ptr) {
     delete ptr;
 }
 
@@ -33725,6 +34056,72 @@ EXPORT bool CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response_Des
 }
 
 EXPORT void CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response_Delete(CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CMarketingMessages_GetMarketingMessageClickedStats_Request
+EXPORT CMarketingMessages_GetMarketingMessageClickedStats_Request *CMarketingMessages_GetMarketingMessageClickedStats_Request_Construct() {
+    return new CMarketingMessages_GetMarketingMessageClickedStats_Request();
+}
+
+EXPORT CMarketingMessages_GetMarketingMessageClickedStats_Request *CMarketingMessages_GetMarketingMessageClickedStats_Request_Deserialize(void* buffer, int len) {
+    CMarketingMessages_GetMarketingMessageClickedStats_Request *msg = new CMarketingMessages_GetMarketingMessageClickedStats_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMarketingMessages_GetMarketingMessageClickedStats_Request_DeserializeInto(CMarketingMessages_GetMarketingMessageClickedStats_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMarketingMessages_GetMarketingMessageClickedStats_Request_Delete(CMarketingMessages_GetMarketingMessageClickedStats_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CMarketingMessageClickedHourlyStats
+EXPORT CMarketingMessageClickedHourlyStats *CMarketingMessageClickedHourlyStats_Construct() {
+    return new CMarketingMessageClickedHourlyStats();
+}
+
+EXPORT CMarketingMessageClickedHourlyStats *CMarketingMessageClickedHourlyStats_Deserialize(void* buffer, int len) {
+    CMarketingMessageClickedHourlyStats *msg = new CMarketingMessageClickedHourlyStats();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMarketingMessageClickedHourlyStats_DeserializeInto(CMarketingMessageClickedHourlyStats *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMarketingMessageClickedHourlyStats_Delete(CMarketingMessageClickedHourlyStats* ptr) {
+    delete ptr;
+}
+
+// Begin CMarketingMessages_GetMarketingMessageClickedStats_Response
+EXPORT CMarketingMessages_GetMarketingMessageClickedStats_Response *CMarketingMessages_GetMarketingMessageClickedStats_Response_Construct() {
+    return new CMarketingMessages_GetMarketingMessageClickedStats_Response();
+}
+
+EXPORT CMarketingMessages_GetMarketingMessageClickedStats_Response *CMarketingMessages_GetMarketingMessageClickedStats_Response_Deserialize(void* buffer, int len) {
+    CMarketingMessages_GetMarketingMessageClickedStats_Response *msg = new CMarketingMessages_GetMarketingMessageClickedStats_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CMarketingMessages_GetMarketingMessageClickedStats_Response_DeserializeInto(CMarketingMessages_GetMarketingMessageClickedStats_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CMarketingMessages_GetMarketingMessageClickedStats_Response_Delete(CMarketingMessages_GetMarketingMessageClickedStats_Response* ptr) {
     delete ptr;
 }
 
@@ -52384,72 +52781,6 @@ EXPORT void CUserAccount_RegisterCompatTool_Response_Delete(CUserAccount_Registe
     delete ptr;
 }
 
-// Begin CAccountLinking_GetLinkedAccountInfo_Request
-EXPORT CAccountLinking_GetLinkedAccountInfo_Request *CAccountLinking_GetLinkedAccountInfo_Request_Construct() {
-    return new CAccountLinking_GetLinkedAccountInfo_Request();
-}
-
-EXPORT CAccountLinking_GetLinkedAccountInfo_Request *CAccountLinking_GetLinkedAccountInfo_Request_Deserialize(void* buffer, int len) {
-    CAccountLinking_GetLinkedAccountInfo_Request *msg = new CAccountLinking_GetLinkedAccountInfo_Request();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CAccountLinking_GetLinkedAccountInfo_Request_DeserializeInto(CAccountLinking_GetLinkedAccountInfo_Request *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CAccountLinking_GetLinkedAccountInfo_Request_Delete(CAccountLinking_GetLinkedAccountInfo_Request* ptr) {
-    delete ptr;
-}
-
-// Begin CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response
-EXPORT CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response *CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response_Construct() {
-    return new CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response();
-}
-
-EXPORT CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response *CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response_Deserialize(void* buffer, int len) {
-    CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response *msg = new CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response_DeserializeInto(CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response_Delete(CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response* ptr) {
-    delete ptr;
-}
-
-// Begin CAccountLinking_GetLinkedAccountInfo_Response
-EXPORT CAccountLinking_GetLinkedAccountInfo_Response *CAccountLinking_GetLinkedAccountInfo_Response_Construct() {
-    return new CAccountLinking_GetLinkedAccountInfo_Response();
-}
-
-EXPORT CAccountLinking_GetLinkedAccountInfo_Response *CAccountLinking_GetLinkedAccountInfo_Response_Deserialize(void* buffer, int len) {
-    CAccountLinking_GetLinkedAccountInfo_Response *msg = new CAccountLinking_GetLinkedAccountInfo_Response();
-    if (!msg->ParseFromArray(buffer, len)) {
-        return nullptr;
-    }
-
-    return msg;
-}
-
-EXPORT bool CAccountLinking_GetLinkedAccountInfo_Response_DeserializeInto(CAccountLinking_GetLinkedAccountInfo_Response *target, void* buffer, int len) {
-    return target->ParseFromArray(buffer, len);
-}
-
-EXPORT void CAccountLinking_GetLinkedAccountInfo_Response_Delete(CAccountLinking_GetLinkedAccountInfo_Response* ptr) {
-    delete ptr;
-}
-
 // Begin CEmbeddedClient_AuthorizeCurrentDevice_Request
 EXPORT CEmbeddedClient_AuthorizeCurrentDevice_Request *CEmbeddedClient_AuthorizeCurrentDevice_Request_Construct() {
     return new CEmbeddedClient_AuthorizeCurrentDevice_Request();
@@ -54273,6 +54604,50 @@ EXPORT bool CBluetoothManager_SetWakeAllowed_Response_DeserializeInto(CBluetooth
 }
 
 EXPORT void CBluetoothManager_SetWakeAllowed_Response_Delete(CBluetoothManager_SetWakeAllowed_Response* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_SetTrusted_Request
+EXPORT CBluetoothManager_SetTrusted_Request *CBluetoothManager_SetTrusted_Request_Construct() {
+    return new CBluetoothManager_SetTrusted_Request();
+}
+
+EXPORT CBluetoothManager_SetTrusted_Request *CBluetoothManager_SetTrusted_Request_Deserialize(void* buffer, int len) {
+    CBluetoothManager_SetTrusted_Request *msg = new CBluetoothManager_SetTrusted_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_SetTrusted_Request_DeserializeInto(CBluetoothManager_SetTrusted_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_SetTrusted_Request_Delete(CBluetoothManager_SetTrusted_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CBluetoothManager_SetTrusted_Response
+EXPORT CBluetoothManager_SetTrusted_Response *CBluetoothManager_SetTrusted_Response_Construct() {
+    return new CBluetoothManager_SetTrusted_Response();
+}
+
+EXPORT CBluetoothManager_SetTrusted_Response *CBluetoothManager_SetTrusted_Response_Deserialize(void* buffer, int len) {
+    CBluetoothManager_SetTrusted_Response *msg = new CBluetoothManager_SetTrusted_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CBluetoothManager_SetTrusted_Response_DeserializeInto(CBluetoothManager_SetTrusted_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CBluetoothManager_SetTrusted_Response_Delete(CBluetoothManager_SetTrusted_Response* ptr) {
     delete ptr;
 }
 
@@ -56891,6 +57266,50 @@ EXPORT bool CSteamEngine_SetOverlayEscapeKeyHandling_Notification_DeserializeInt
 }
 
 EXPORT void CSteamEngine_SetOverlayEscapeKeyHandling_Notification_Delete(CSteamEngine_SetOverlayEscapeKeyHandling_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamEngine_SearchAppDataCacheByStoreKeywords_Request
+EXPORT CSteamEngine_SearchAppDataCacheByStoreKeywords_Request *CSteamEngine_SearchAppDataCacheByStoreKeywords_Request_Construct() {
+    return new CSteamEngine_SearchAppDataCacheByStoreKeywords_Request();
+}
+
+EXPORT CSteamEngine_SearchAppDataCacheByStoreKeywords_Request *CSteamEngine_SearchAppDataCacheByStoreKeywords_Request_Deserialize(void* buffer, int len) {
+    CSteamEngine_SearchAppDataCacheByStoreKeywords_Request *msg = new CSteamEngine_SearchAppDataCacheByStoreKeywords_Request();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamEngine_SearchAppDataCacheByStoreKeywords_Request_DeserializeInto(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request_Delete(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* ptr) {
+    delete ptr;
+}
+
+// Begin CSteamEngine_SearchAppDataCacheByStoreKeywords_Response
+EXPORT CSteamEngine_SearchAppDataCacheByStoreKeywords_Response *CSteamEngine_SearchAppDataCacheByStoreKeywords_Response_Construct() {
+    return new CSteamEngine_SearchAppDataCacheByStoreKeywords_Response();
+}
+
+EXPORT CSteamEngine_SearchAppDataCacheByStoreKeywords_Response *CSteamEngine_SearchAppDataCacheByStoreKeywords_Response_Deserialize(void* buffer, int len) {
+    CSteamEngine_SearchAppDataCacheByStoreKeywords_Response *msg = new CSteamEngine_SearchAppDataCacheByStoreKeywords_Response();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CSteamEngine_SearchAppDataCacheByStoreKeywords_Response_DeserializeInto(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response_Delete(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* ptr) {
     delete ptr;
 }
 

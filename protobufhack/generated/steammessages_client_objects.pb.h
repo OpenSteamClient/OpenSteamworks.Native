@@ -6194,8 +6194,6 @@ class CMsgSystemPerfLimits PROTOBUF_FINAL :
     kIsVrrSupportedFieldNumber = 23,
     kIsDynamicRefreshRateInSteamSupportedFieldNumber = 24,
     kIsSplitScalingAndFilteringSupportedFieldNumber = 25,
-    kIsHdrSupportedFieldNumber = 28,
-    kDisplayRefreshManualHzOcMaxFieldNumber = 29,
     kDisableRefreshRateManagementFieldNumber = 30,
   };
   // repeated .EGPUPerformanceLevel gpu_performance_levels_available = 10;
@@ -6566,32 +6564,6 @@ class CMsgSystemPerfLimits PROTOBUF_FINAL :
   void _internal_set_is_split_scaling_and_filtering_supported(bool value);
   public:
 
-  // optional bool is_hdr_supported = 28;
-  bool has_is_hdr_supported() const;
-  private:
-  bool _internal_has_is_hdr_supported() const;
-  public:
-  void clear_is_hdr_supported();
-  bool is_hdr_supported() const;
-  void set_is_hdr_supported(bool value);
-  private:
-  bool _internal_is_hdr_supported() const;
-  void _internal_set_is_hdr_supported(bool value);
-  public:
-
-  // optional int32 display_refresh_manual_hz_oc_max = 29;
-  bool has_display_refresh_manual_hz_oc_max() const;
-  private:
-  bool _internal_has_display_refresh_manual_hz_oc_max() const;
-  public:
-  void clear_display_refresh_manual_hz_oc_max();
-  ::PROTOBUF_NAMESPACE_ID::int32 display_refresh_manual_hz_oc_max() const;
-  void set_display_refresh_manual_hz_oc_max(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_display_refresh_manual_hz_oc_max() const;
-  void _internal_set_display_refresh_manual_hz_oc_max(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // optional bool disable_refresh_rate_management = 30;
   bool has_disable_refresh_rate_management() const;
   private:
@@ -6640,8 +6612,6 @@ class CMsgSystemPerfLimits PROTOBUF_FINAL :
   bool is_vrr_supported_;
   bool is_dynamic_refresh_rate_in_steam_supported_;
   bool is_split_scaling_and_filtering_supported_;
-  bool is_hdr_supported_;
-  ::PROTOBUF_NAMESPACE_ID::int32 display_refresh_manual_hz_oc_max_;
   bool disable_refresh_rate_management_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
 };
@@ -6775,15 +6745,10 @@ class CMsgSystemPerfSettingsGlobal PROTOBUF_FINAL :
     kIsShowPerfOverlayOverSteamEnabledFieldNumber = 6,
     kIsAdvancedSettingsEnabledFieldNumber = 7,
     kAllowExternalDisplayRefreshControlFieldNumber = 8,
-    kIsHdrEnabledFieldNumber = 9,
-    kHdrOnSdrTonemapOperatorFieldNumber = 12,
     kIsHdrDebugHeatmapEnabledFieldNumber = 13,
-    kAllowExperimentalHdrFieldNumber = 16,
-    kDebugForceHdrSupportFieldNumber = 18,
-    kForceHdr10PqOutputDebugFieldNumber = 19,
-    kIsDisplayOcEnabledFieldNumber = 20,
-    kIsColorManagementEnabledFieldNumber = 21,
     kSdrToHdrBrightnessFieldNumber = 22,
+    kHdrOnSdrTonemapOperatorFieldNumber = 12,
+    kIsColorManagementEnabledFieldNumber = 21,
     kForceHdrWideGammutForSdrFieldNumber = 15,
   };
   // optional float diagnostic_update_rate = 1;
@@ -6890,17 +6855,30 @@ class CMsgSystemPerfSettingsGlobal PROTOBUF_FINAL :
   void _internal_set_allow_external_display_refresh_control(bool value);
   public:
 
-  // optional bool is_hdr_enabled = 9;
-  bool has_is_hdr_enabled() const;
+  // optional bool is_hdr_debug_heatmap_enabled = 13;
+  bool has_is_hdr_debug_heatmap_enabled() const;
   private:
-  bool _internal_has_is_hdr_enabled() const;
+  bool _internal_has_is_hdr_debug_heatmap_enabled() const;
   public:
-  void clear_is_hdr_enabled();
-  bool is_hdr_enabled() const;
-  void set_is_hdr_enabled(bool value);
+  void clear_is_hdr_debug_heatmap_enabled();
+  bool is_hdr_debug_heatmap_enabled() const;
+  void set_is_hdr_debug_heatmap_enabled(bool value);
   private:
-  bool _internal_is_hdr_enabled() const;
-  void _internal_set_is_hdr_enabled(bool value);
+  bool _internal_is_hdr_debug_heatmap_enabled() const;
+  void _internal_set_is_hdr_debug_heatmap_enabled(bool value);
+  public:
+
+  // optional float sdr_to_hdr_brightness = 22;
+  bool has_sdr_to_hdr_brightness() const;
+  private:
+  bool _internal_has_sdr_to_hdr_brightness() const;
+  public:
+  void clear_sdr_to_hdr_brightness();
+  float sdr_to_hdr_brightness() const;
+  void set_sdr_to_hdr_brightness(float value);
+  private:
+  float _internal_sdr_to_hdr_brightness() const;
+  void _internal_set_sdr_to_hdr_brightness(float value);
   public:
 
   // optional .EHDRToneMapOperator hdr_on_sdr_tonemap_operator = 12 [default = EHDRToneMapOperator_Invalid];
@@ -6916,71 +6894,6 @@ class CMsgSystemPerfSettingsGlobal PROTOBUF_FINAL :
   void _internal_set_hdr_on_sdr_tonemap_operator(::EHDRToneMapOperator value);
   public:
 
-  // optional bool is_hdr_debug_heatmap_enabled = 13;
-  bool has_is_hdr_debug_heatmap_enabled() const;
-  private:
-  bool _internal_has_is_hdr_debug_heatmap_enabled() const;
-  public:
-  void clear_is_hdr_debug_heatmap_enabled();
-  bool is_hdr_debug_heatmap_enabled() const;
-  void set_is_hdr_debug_heatmap_enabled(bool value);
-  private:
-  bool _internal_is_hdr_debug_heatmap_enabled() const;
-  void _internal_set_is_hdr_debug_heatmap_enabled(bool value);
-  public:
-
-  // optional bool allow_experimental_hdr = 16;
-  bool has_allow_experimental_hdr() const;
-  private:
-  bool _internal_has_allow_experimental_hdr() const;
-  public:
-  void clear_allow_experimental_hdr();
-  bool allow_experimental_hdr() const;
-  void set_allow_experimental_hdr(bool value);
-  private:
-  bool _internal_allow_experimental_hdr() const;
-  void _internal_set_allow_experimental_hdr(bool value);
-  public:
-
-  // optional bool debug_force_hdr_support = 18;
-  bool has_debug_force_hdr_support() const;
-  private:
-  bool _internal_has_debug_force_hdr_support() const;
-  public:
-  void clear_debug_force_hdr_support();
-  bool debug_force_hdr_support() const;
-  void set_debug_force_hdr_support(bool value);
-  private:
-  bool _internal_debug_force_hdr_support() const;
-  void _internal_set_debug_force_hdr_support(bool value);
-  public:
-
-  // optional bool force_hdr_10pq_output_debug = 19;
-  bool has_force_hdr_10pq_output_debug() const;
-  private:
-  bool _internal_has_force_hdr_10pq_output_debug() const;
-  public:
-  void clear_force_hdr_10pq_output_debug();
-  bool force_hdr_10pq_output_debug() const;
-  void set_force_hdr_10pq_output_debug(bool value);
-  private:
-  bool _internal_force_hdr_10pq_output_debug() const;
-  void _internal_set_force_hdr_10pq_output_debug(bool value);
-  public:
-
-  // optional bool is_display_oc_enabled = 20;
-  bool has_is_display_oc_enabled() const;
-  private:
-  bool _internal_has_is_display_oc_enabled() const;
-  public:
-  void clear_is_display_oc_enabled();
-  bool is_display_oc_enabled() const;
-  void set_is_display_oc_enabled(bool value);
-  private:
-  bool _internal_is_display_oc_enabled() const;
-  void _internal_set_is_display_oc_enabled(bool value);
-  public:
-
   // optional bool is_color_management_enabled = 21;
   bool has_is_color_management_enabled() const;
   private:
@@ -6992,19 +6905,6 @@ class CMsgSystemPerfSettingsGlobal PROTOBUF_FINAL :
   private:
   bool _internal_is_color_management_enabled() const;
   void _internal_set_is_color_management_enabled(bool value);
-  public:
-
-  // optional float sdr_to_hdr_brightness = 22;
-  bool has_sdr_to_hdr_brightness() const;
-  private:
-  bool _internal_has_sdr_to_hdr_brightness() const;
-  public:
-  void clear_sdr_to_hdr_brightness();
-  float sdr_to_hdr_brightness() const;
-  void set_sdr_to_hdr_brightness(float value);
-  private:
-  float _internal_sdr_to_hdr_brightness() const;
-  void _internal_set_sdr_to_hdr_brightness(float value);
   public:
 
   // optional bool force_hdr_wide_gammut_for_sdr = 15 [default = true];
@@ -7037,15 +6937,10 @@ class CMsgSystemPerfSettingsGlobal PROTOBUF_FINAL :
   bool is_show_perf_overlay_over_steam_enabled_;
   bool is_advanced_settings_enabled_;
   bool allow_external_display_refresh_control_;
-  bool is_hdr_enabled_;
-  int hdr_on_sdr_tonemap_operator_;
   bool is_hdr_debug_heatmap_enabled_;
-  bool allow_experimental_hdr_;
-  bool debug_force_hdr_support_;
-  bool force_hdr_10pq_output_debug_;
-  bool is_display_oc_enabled_;
-  bool is_color_management_enabled_;
   float sdr_to_hdr_brightness_;
+  int hdr_on_sdr_tonemap_operator_;
+  bool is_color_management_enabled_;
   bool force_hdr_wide_gammut_for_sdr_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
 };
@@ -11877,9 +11772,9 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
     kRefreshRateMinFieldNumber = 12,
     kRefreshRateMaxFieldNumber = 13,
     kIsVrrCapableFieldNumber = 14,
-    kIsVrrEnabledFieldNumber = 15,
+    kIsVrrOutputActiveFieldNumber = 15,
     kIsHdrCapableFieldNumber = 16,
-    kIsHdrEnabledFieldNumber = 17,
+    kIsHdrOutputActiveFieldNumber = 17,
   };
   // repeated .CMsgSystemDisplayMode modes = 11;
   int modes_size() const;
@@ -12104,17 +11999,17 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
   void _internal_set_is_vrr_capable(bool value);
   public:
 
-  // optional bool is_vrr_enabled = 15;
-  bool has_is_vrr_enabled() const;
+  // optional bool is_vrr_output_active = 15;
+  bool has_is_vrr_output_active() const;
   private:
-  bool _internal_has_is_vrr_enabled() const;
+  bool _internal_has_is_vrr_output_active() const;
   public:
-  void clear_is_vrr_enabled();
-  bool is_vrr_enabled() const;
-  void set_is_vrr_enabled(bool value);
+  void clear_is_vrr_output_active();
+  bool is_vrr_output_active() const;
+  void set_is_vrr_output_active(bool value);
   private:
-  bool _internal_is_vrr_enabled() const;
-  void _internal_set_is_vrr_enabled(bool value);
+  bool _internal_is_vrr_output_active() const;
+  void _internal_set_is_vrr_output_active(bool value);
   public:
 
   // optional bool is_hdr_capable = 16;
@@ -12130,17 +12025,17 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
   void _internal_set_is_hdr_capable(bool value);
   public:
 
-  // optional bool is_hdr_enabled = 17;
-  bool has_is_hdr_enabled() const;
+  // optional bool is_hdr_output_active = 17;
+  bool has_is_hdr_output_active() const;
   private:
-  bool _internal_has_is_hdr_enabled() const;
+  bool _internal_has_is_hdr_output_active() const;
   public:
-  void clear_is_hdr_enabled();
-  bool is_hdr_enabled() const;
-  void set_is_hdr_enabled(bool value);
+  void clear_is_hdr_output_active();
+  bool is_hdr_output_active() const;
+  void set_is_hdr_output_active(bool value);
   private:
-  bool _internal_is_hdr_enabled() const;
-  void _internal_set_is_hdr_enabled(bool value);
+  bool _internal_is_hdr_output_active() const;
+  void _internal_set_is_hdr_output_active(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgSystemDisplay)
@@ -12167,9 +12062,9 @@ class CMsgSystemDisplay PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 refresh_rate_min_;
   ::PROTOBUF_NAMESPACE_ID::int32 refresh_rate_max_;
   bool is_vrr_capable_;
-  bool is_vrr_enabled_;
+  bool is_vrr_output_active_;
   bool is_hdr_capable_;
-  bool is_hdr_enabled_;
+  bool is_hdr_output_active_;
   friend struct ::TableStruct_steammessages_5fclient_5fobjects_2eproto;
 };
 // -------------------------------------------------------------------
@@ -22879,65 +22774,9 @@ CMsgSystemPerfLimits::mutable_split_scaling_scalers_available() {
   return _internal_mutable_split_scaling_scalers_available();
 }
 
-// optional bool is_hdr_supported = 28;
-inline bool CMsgSystemPerfLimits::_internal_has_is_hdr_supported() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfLimits::has_is_hdr_supported() const {
-  return _internal_has_is_hdr_supported();
-}
-inline void CMsgSystemPerfLimits::clear_is_hdr_supported() {
-  is_hdr_supported_ = false;
-  _has_bits_[0] &= ~0x00200000u;
-}
-inline bool CMsgSystemPerfLimits::_internal_is_hdr_supported() const {
-  return is_hdr_supported_;
-}
-inline bool CMsgSystemPerfLimits::is_hdr_supported() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfLimits.is_hdr_supported)
-  return _internal_is_hdr_supported();
-}
-inline void CMsgSystemPerfLimits::_internal_set_is_hdr_supported(bool value) {
-  _has_bits_[0] |= 0x00200000u;
-  is_hdr_supported_ = value;
-}
-inline void CMsgSystemPerfLimits::set_is_hdr_supported(bool value) {
-  _internal_set_is_hdr_supported(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfLimits.is_hdr_supported)
-}
-
-// optional int32 display_refresh_manual_hz_oc_max = 29;
-inline bool CMsgSystemPerfLimits::_internal_has_display_refresh_manual_hz_oc_max() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfLimits::has_display_refresh_manual_hz_oc_max() const {
-  return _internal_has_display_refresh_manual_hz_oc_max();
-}
-inline void CMsgSystemPerfLimits::clear_display_refresh_manual_hz_oc_max() {
-  display_refresh_manual_hz_oc_max_ = 0;
-  _has_bits_[0] &= ~0x00400000u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgSystemPerfLimits::_internal_display_refresh_manual_hz_oc_max() const {
-  return display_refresh_manual_hz_oc_max_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgSystemPerfLimits::display_refresh_manual_hz_oc_max() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfLimits.display_refresh_manual_hz_oc_max)
-  return _internal_display_refresh_manual_hz_oc_max();
-}
-inline void CMsgSystemPerfLimits::_internal_set_display_refresh_manual_hz_oc_max(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00400000u;
-  display_refresh_manual_hz_oc_max_ = value;
-}
-inline void CMsgSystemPerfLimits::set_display_refresh_manual_hz_oc_max(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_display_refresh_manual_hz_oc_max(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfLimits.display_refresh_manual_hz_oc_max)
-}
-
 // optional bool disable_refresh_rate_management = 30;
 inline bool CMsgSystemPerfLimits::_internal_has_disable_refresh_rate_management() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfLimits::has_disable_refresh_rate_management() const {
@@ -22945,7 +22784,7 @@ inline bool CMsgSystemPerfLimits::has_disable_refresh_rate_management() const {
 }
 inline void CMsgSystemPerfLimits::clear_disable_refresh_rate_management() {
   disable_refresh_rate_management_ = false;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline bool CMsgSystemPerfLimits::_internal_disable_refresh_rate_management() const {
   return disable_refresh_rate_management_;
@@ -22955,7 +22794,7 @@ inline bool CMsgSystemPerfLimits::disable_refresh_rate_management() const {
   return _internal_disable_refresh_rate_management();
 }
 inline void CMsgSystemPerfLimits::_internal_set_disable_refresh_rate_management(bool value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x00200000u;
   disable_refresh_rate_management_ = value;
 }
 inline void CMsgSystemPerfLimits::set_disable_refresh_rate_management(bool value) {
@@ -23195,37 +23034,9 @@ inline void CMsgSystemPerfSettingsGlobal::set_allow_external_display_refresh_con
   // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsGlobal.allow_external_display_refresh_control)
 }
 
-// optional bool is_hdr_enabled = 9;
-inline bool CMsgSystemPerfSettingsGlobal::_internal_has_is_hdr_enabled() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfSettingsGlobal::has_is_hdr_enabled() const {
-  return _internal_has_is_hdr_enabled();
-}
-inline void CMsgSystemPerfSettingsGlobal::clear_is_hdr_enabled() {
-  is_hdr_enabled_ = false;
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline bool CMsgSystemPerfSettingsGlobal::_internal_is_hdr_enabled() const {
-  return is_hdr_enabled_;
-}
-inline bool CMsgSystemPerfSettingsGlobal::is_hdr_enabled() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfSettingsGlobal.is_hdr_enabled)
-  return _internal_is_hdr_enabled();
-}
-inline void CMsgSystemPerfSettingsGlobal::_internal_set_is_hdr_enabled(bool value) {
-  _has_bits_[0] |= 0x00000100u;
-  is_hdr_enabled_ = value;
-}
-inline void CMsgSystemPerfSettingsGlobal::set_is_hdr_enabled(bool value) {
-  _internal_set_is_hdr_enabled(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsGlobal.is_hdr_enabled)
-}
-
 // optional .EHDRToneMapOperator hdr_on_sdr_tonemap_operator = 12 [default = EHDRToneMapOperator_Invalid];
 inline bool CMsgSystemPerfSettingsGlobal::_internal_has_hdr_on_sdr_tonemap_operator() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfSettingsGlobal::has_hdr_on_sdr_tonemap_operator() const {
@@ -23233,7 +23044,7 @@ inline bool CMsgSystemPerfSettingsGlobal::has_hdr_on_sdr_tonemap_operator() cons
 }
 inline void CMsgSystemPerfSettingsGlobal::clear_hdr_on_sdr_tonemap_operator() {
   hdr_on_sdr_tonemap_operator_ = 0;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::EHDRToneMapOperator CMsgSystemPerfSettingsGlobal::_internal_hdr_on_sdr_tonemap_operator() const {
   return static_cast< ::EHDRToneMapOperator >(hdr_on_sdr_tonemap_operator_);
@@ -23244,7 +23055,7 @@ inline ::EHDRToneMapOperator CMsgSystemPerfSettingsGlobal::hdr_on_sdr_tonemap_op
 }
 inline void CMsgSystemPerfSettingsGlobal::_internal_set_hdr_on_sdr_tonemap_operator(::EHDRToneMapOperator value) {
   assert(::EHDRToneMapOperator_IsValid(value));
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
   hdr_on_sdr_tonemap_operator_ = value;
 }
 inline void CMsgSystemPerfSettingsGlobal::set_hdr_on_sdr_tonemap_operator(::EHDRToneMapOperator value) {
@@ -23254,7 +23065,7 @@ inline void CMsgSystemPerfSettingsGlobal::set_hdr_on_sdr_tonemap_operator(::EHDR
 
 // optional bool is_hdr_debug_heatmap_enabled = 13;
 inline bool CMsgSystemPerfSettingsGlobal::_internal_has_is_hdr_debug_heatmap_enabled() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfSettingsGlobal::has_is_hdr_debug_heatmap_enabled() const {
@@ -23262,7 +23073,7 @@ inline bool CMsgSystemPerfSettingsGlobal::has_is_hdr_debug_heatmap_enabled() con
 }
 inline void CMsgSystemPerfSettingsGlobal::clear_is_hdr_debug_heatmap_enabled() {
   is_hdr_debug_heatmap_enabled_ = false;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline bool CMsgSystemPerfSettingsGlobal::_internal_is_hdr_debug_heatmap_enabled() const {
   return is_hdr_debug_heatmap_enabled_;
@@ -23272,7 +23083,7 @@ inline bool CMsgSystemPerfSettingsGlobal::is_hdr_debug_heatmap_enabled() const {
   return _internal_is_hdr_debug_heatmap_enabled();
 }
 inline void CMsgSystemPerfSettingsGlobal::_internal_set_is_hdr_debug_heatmap_enabled(bool value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000100u;
   is_hdr_debug_heatmap_enabled_ = value;
 }
 inline void CMsgSystemPerfSettingsGlobal::set_is_hdr_debug_heatmap_enabled(bool value) {
@@ -23282,7 +23093,7 @@ inline void CMsgSystemPerfSettingsGlobal::set_is_hdr_debug_heatmap_enabled(bool 
 
 // optional bool force_hdr_wide_gammut_for_sdr = 15 [default = true];
 inline bool CMsgSystemPerfSettingsGlobal::_internal_has_force_hdr_wide_gammut_for_sdr() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfSettingsGlobal::has_force_hdr_wide_gammut_for_sdr() const {
@@ -23290,7 +23101,7 @@ inline bool CMsgSystemPerfSettingsGlobal::has_force_hdr_wide_gammut_for_sdr() co
 }
 inline void CMsgSystemPerfSettingsGlobal::clear_force_hdr_wide_gammut_for_sdr() {
   force_hdr_wide_gammut_for_sdr_ = true;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline bool CMsgSystemPerfSettingsGlobal::_internal_force_hdr_wide_gammut_for_sdr() const {
   return force_hdr_wide_gammut_for_sdr_;
@@ -23300,7 +23111,7 @@ inline bool CMsgSystemPerfSettingsGlobal::force_hdr_wide_gammut_for_sdr() const 
   return _internal_force_hdr_wide_gammut_for_sdr();
 }
 inline void CMsgSystemPerfSettingsGlobal::_internal_set_force_hdr_wide_gammut_for_sdr(bool value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00001000u;
   force_hdr_wide_gammut_for_sdr_ = value;
 }
 inline void CMsgSystemPerfSettingsGlobal::set_force_hdr_wide_gammut_for_sdr(bool value) {
@@ -23308,37 +23119,9 @@ inline void CMsgSystemPerfSettingsGlobal::set_force_hdr_wide_gammut_for_sdr(bool
   // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsGlobal.force_hdr_wide_gammut_for_sdr)
 }
 
-// optional bool allow_experimental_hdr = 16;
-inline bool CMsgSystemPerfSettingsGlobal::_internal_has_allow_experimental_hdr() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfSettingsGlobal::has_allow_experimental_hdr() const {
-  return _internal_has_allow_experimental_hdr();
-}
-inline void CMsgSystemPerfSettingsGlobal::clear_allow_experimental_hdr() {
-  allow_experimental_hdr_ = false;
-  _has_bits_[0] &= ~0x00000800u;
-}
-inline bool CMsgSystemPerfSettingsGlobal::_internal_allow_experimental_hdr() const {
-  return allow_experimental_hdr_;
-}
-inline bool CMsgSystemPerfSettingsGlobal::allow_experimental_hdr() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfSettingsGlobal.allow_experimental_hdr)
-  return _internal_allow_experimental_hdr();
-}
-inline void CMsgSystemPerfSettingsGlobal::_internal_set_allow_experimental_hdr(bool value) {
-  _has_bits_[0] |= 0x00000800u;
-  allow_experimental_hdr_ = value;
-}
-inline void CMsgSystemPerfSettingsGlobal::set_allow_experimental_hdr(bool value) {
-  _internal_set_allow_experimental_hdr(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsGlobal.allow_experimental_hdr)
-}
-
 // optional float sdr_to_hdr_brightness = 22;
 inline bool CMsgSystemPerfSettingsGlobal::_internal_has_sdr_to_hdr_brightness() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfSettingsGlobal::has_sdr_to_hdr_brightness() const {
@@ -23346,7 +23129,7 @@ inline bool CMsgSystemPerfSettingsGlobal::has_sdr_to_hdr_brightness() const {
 }
 inline void CMsgSystemPerfSettingsGlobal::clear_sdr_to_hdr_brightness() {
   sdr_to_hdr_brightness_ = 0;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline float CMsgSystemPerfSettingsGlobal::_internal_sdr_to_hdr_brightness() const {
   return sdr_to_hdr_brightness_;
@@ -23356,7 +23139,7 @@ inline float CMsgSystemPerfSettingsGlobal::sdr_to_hdr_brightness() const {
   return _internal_sdr_to_hdr_brightness();
 }
 inline void CMsgSystemPerfSettingsGlobal::_internal_set_sdr_to_hdr_brightness(float value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00000200u;
   sdr_to_hdr_brightness_ = value;
 }
 inline void CMsgSystemPerfSettingsGlobal::set_sdr_to_hdr_brightness(float value) {
@@ -23364,93 +23147,9 @@ inline void CMsgSystemPerfSettingsGlobal::set_sdr_to_hdr_brightness(float value)
   // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsGlobal.sdr_to_hdr_brightness)
 }
 
-// optional bool debug_force_hdr_support = 18;
-inline bool CMsgSystemPerfSettingsGlobal::_internal_has_debug_force_hdr_support() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfSettingsGlobal::has_debug_force_hdr_support() const {
-  return _internal_has_debug_force_hdr_support();
-}
-inline void CMsgSystemPerfSettingsGlobal::clear_debug_force_hdr_support() {
-  debug_force_hdr_support_ = false;
-  _has_bits_[0] &= ~0x00001000u;
-}
-inline bool CMsgSystemPerfSettingsGlobal::_internal_debug_force_hdr_support() const {
-  return debug_force_hdr_support_;
-}
-inline bool CMsgSystemPerfSettingsGlobal::debug_force_hdr_support() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfSettingsGlobal.debug_force_hdr_support)
-  return _internal_debug_force_hdr_support();
-}
-inline void CMsgSystemPerfSettingsGlobal::_internal_set_debug_force_hdr_support(bool value) {
-  _has_bits_[0] |= 0x00001000u;
-  debug_force_hdr_support_ = value;
-}
-inline void CMsgSystemPerfSettingsGlobal::set_debug_force_hdr_support(bool value) {
-  _internal_set_debug_force_hdr_support(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsGlobal.debug_force_hdr_support)
-}
-
-// optional bool force_hdr_10pq_output_debug = 19;
-inline bool CMsgSystemPerfSettingsGlobal::_internal_has_force_hdr_10pq_output_debug() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfSettingsGlobal::has_force_hdr_10pq_output_debug() const {
-  return _internal_has_force_hdr_10pq_output_debug();
-}
-inline void CMsgSystemPerfSettingsGlobal::clear_force_hdr_10pq_output_debug() {
-  force_hdr_10pq_output_debug_ = false;
-  _has_bits_[0] &= ~0x00002000u;
-}
-inline bool CMsgSystemPerfSettingsGlobal::_internal_force_hdr_10pq_output_debug() const {
-  return force_hdr_10pq_output_debug_;
-}
-inline bool CMsgSystemPerfSettingsGlobal::force_hdr_10pq_output_debug() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfSettingsGlobal.force_hdr_10pq_output_debug)
-  return _internal_force_hdr_10pq_output_debug();
-}
-inline void CMsgSystemPerfSettingsGlobal::_internal_set_force_hdr_10pq_output_debug(bool value) {
-  _has_bits_[0] |= 0x00002000u;
-  force_hdr_10pq_output_debug_ = value;
-}
-inline void CMsgSystemPerfSettingsGlobal::set_force_hdr_10pq_output_debug(bool value) {
-  _internal_set_force_hdr_10pq_output_debug(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsGlobal.force_hdr_10pq_output_debug)
-}
-
-// optional bool is_display_oc_enabled = 20;
-inline bool CMsgSystemPerfSettingsGlobal::_internal_has_is_display_oc_enabled() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
-  return value;
-}
-inline bool CMsgSystemPerfSettingsGlobal::has_is_display_oc_enabled() const {
-  return _internal_has_is_display_oc_enabled();
-}
-inline void CMsgSystemPerfSettingsGlobal::clear_is_display_oc_enabled() {
-  is_display_oc_enabled_ = false;
-  _has_bits_[0] &= ~0x00004000u;
-}
-inline bool CMsgSystemPerfSettingsGlobal::_internal_is_display_oc_enabled() const {
-  return is_display_oc_enabled_;
-}
-inline bool CMsgSystemPerfSettingsGlobal::is_display_oc_enabled() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemPerfSettingsGlobal.is_display_oc_enabled)
-  return _internal_is_display_oc_enabled();
-}
-inline void CMsgSystemPerfSettingsGlobal::_internal_set_is_display_oc_enabled(bool value) {
-  _has_bits_[0] |= 0x00004000u;
-  is_display_oc_enabled_ = value;
-}
-inline void CMsgSystemPerfSettingsGlobal::set_is_display_oc_enabled(bool value) {
-  _internal_set_is_display_oc_enabled(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemPerfSettingsGlobal.is_display_oc_enabled)
-}
-
 // optional bool is_color_management_enabled = 21;
 inline bool CMsgSystemPerfSettingsGlobal::_internal_has_is_color_management_enabled() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgSystemPerfSettingsGlobal::has_is_color_management_enabled() const {
@@ -23458,7 +23157,7 @@ inline bool CMsgSystemPerfSettingsGlobal::has_is_color_management_enabled() cons
 }
 inline void CMsgSystemPerfSettingsGlobal::clear_is_color_management_enabled() {
   is_color_management_enabled_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline bool CMsgSystemPerfSettingsGlobal::_internal_is_color_management_enabled() const {
   return is_color_management_enabled_;
@@ -23468,7 +23167,7 @@ inline bool CMsgSystemPerfSettingsGlobal::is_color_management_enabled() const {
   return _internal_is_color_management_enabled();
 }
 inline void CMsgSystemPerfSettingsGlobal::_internal_set_is_color_management_enabled(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00000800u;
   is_color_management_enabled_ = value;
 }
 inline void CMsgSystemPerfSettingsGlobal::set_is_color_management_enabled(bool value) {
@@ -28548,32 +28247,32 @@ inline void CMsgSystemDisplay::set_is_vrr_capable(bool value) {
   // @@protoc_insertion_point(field_set:CMsgSystemDisplay.is_vrr_capable)
 }
 
-// optional bool is_vrr_enabled = 15;
-inline bool CMsgSystemDisplay::_internal_has_is_vrr_enabled() const {
+// optional bool is_vrr_output_active = 15;
+inline bool CMsgSystemDisplay::_internal_has_is_vrr_output_active() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
-inline bool CMsgSystemDisplay::has_is_vrr_enabled() const {
-  return _internal_has_is_vrr_enabled();
+inline bool CMsgSystemDisplay::has_is_vrr_output_active() const {
+  return _internal_has_is_vrr_output_active();
 }
-inline void CMsgSystemDisplay::clear_is_vrr_enabled() {
-  is_vrr_enabled_ = false;
+inline void CMsgSystemDisplay::clear_is_vrr_output_active() {
+  is_vrr_output_active_ = false;
   _has_bits_[0] &= ~0x00002000u;
 }
-inline bool CMsgSystemDisplay::_internal_is_vrr_enabled() const {
-  return is_vrr_enabled_;
+inline bool CMsgSystemDisplay::_internal_is_vrr_output_active() const {
+  return is_vrr_output_active_;
 }
-inline bool CMsgSystemDisplay::is_vrr_enabled() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemDisplay.is_vrr_enabled)
-  return _internal_is_vrr_enabled();
+inline bool CMsgSystemDisplay::is_vrr_output_active() const {
+  // @@protoc_insertion_point(field_get:CMsgSystemDisplay.is_vrr_output_active)
+  return _internal_is_vrr_output_active();
 }
-inline void CMsgSystemDisplay::_internal_set_is_vrr_enabled(bool value) {
+inline void CMsgSystemDisplay::_internal_set_is_vrr_output_active(bool value) {
   _has_bits_[0] |= 0x00002000u;
-  is_vrr_enabled_ = value;
+  is_vrr_output_active_ = value;
 }
-inline void CMsgSystemDisplay::set_is_vrr_enabled(bool value) {
-  _internal_set_is_vrr_enabled(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemDisplay.is_vrr_enabled)
+inline void CMsgSystemDisplay::set_is_vrr_output_active(bool value) {
+  _internal_set_is_vrr_output_active(value);
+  // @@protoc_insertion_point(field_set:CMsgSystemDisplay.is_vrr_output_active)
 }
 
 // optional bool is_hdr_capable = 16;
@@ -28604,32 +28303,32 @@ inline void CMsgSystemDisplay::set_is_hdr_capable(bool value) {
   // @@protoc_insertion_point(field_set:CMsgSystemDisplay.is_hdr_capable)
 }
 
-// optional bool is_hdr_enabled = 17;
-inline bool CMsgSystemDisplay::_internal_has_is_hdr_enabled() const {
+// optional bool is_hdr_output_active = 17;
+inline bool CMsgSystemDisplay::_internal_has_is_hdr_output_active() const {
   bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
-inline bool CMsgSystemDisplay::has_is_hdr_enabled() const {
-  return _internal_has_is_hdr_enabled();
+inline bool CMsgSystemDisplay::has_is_hdr_output_active() const {
+  return _internal_has_is_hdr_output_active();
 }
-inline void CMsgSystemDisplay::clear_is_hdr_enabled() {
-  is_hdr_enabled_ = false;
+inline void CMsgSystemDisplay::clear_is_hdr_output_active() {
+  is_hdr_output_active_ = false;
   _has_bits_[0] &= ~0x00008000u;
 }
-inline bool CMsgSystemDisplay::_internal_is_hdr_enabled() const {
-  return is_hdr_enabled_;
+inline bool CMsgSystemDisplay::_internal_is_hdr_output_active() const {
+  return is_hdr_output_active_;
 }
-inline bool CMsgSystemDisplay::is_hdr_enabled() const {
-  // @@protoc_insertion_point(field_get:CMsgSystemDisplay.is_hdr_enabled)
-  return _internal_is_hdr_enabled();
+inline bool CMsgSystemDisplay::is_hdr_output_active() const {
+  // @@protoc_insertion_point(field_get:CMsgSystemDisplay.is_hdr_output_active)
+  return _internal_is_hdr_output_active();
 }
-inline void CMsgSystemDisplay::_internal_set_is_hdr_enabled(bool value) {
+inline void CMsgSystemDisplay::_internal_set_is_hdr_output_active(bool value) {
   _has_bits_[0] |= 0x00008000u;
-  is_hdr_enabled_ = value;
+  is_hdr_output_active_ = value;
 }
-inline void CMsgSystemDisplay::set_is_hdr_enabled(bool value) {
-  _internal_set_is_hdr_enabled(value);
-  // @@protoc_insertion_point(field_set:CMsgSystemDisplay.is_hdr_enabled)
+inline void CMsgSystemDisplay::set_is_hdr_output_active(bool value) {
+  _internal_set_is_hdr_output_active(value);
+  // @@protoc_insertion_point(field_set:CMsgSystemDisplay.is_hdr_output_active)
 }
 
 // repeated int32 supported_refresh_rates = 18;

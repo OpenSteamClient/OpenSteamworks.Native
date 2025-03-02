@@ -57,9 +57,23 @@ struct CMsgClientRichPresenceRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientRichPresenceRequestDefaultTypeInternal _CMsgClientRichPresenceRequest_default_instance_;
+constexpr CMsgClientRichPresenceInfo_KV::CMsgClientRichPresenceInfo_KV(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : key_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , value_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct CMsgClientRichPresenceInfo_KVDefaultTypeInternal {
+  constexpr CMsgClientRichPresenceInfo_KVDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMsgClientRichPresenceInfo_KVDefaultTypeInternal() {}
+  union {
+    CMsgClientRichPresenceInfo_KV _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientRichPresenceInfo_KVDefaultTypeInternal _CMsgClientRichPresenceInfo_KV_default_instance_;
 constexpr CMsgClientRichPresenceInfo_RichPresence::CMsgClientRichPresenceInfo_RichPresence(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : rich_presence_kv_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : rich_presense_()
+  , rich_presence_kv_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , steamid_user_(PROTOBUF_ULONGLONG(0)){}
 struct CMsgClientRichPresenceInfo_RichPresenceDefaultTypeInternal {
   constexpr CMsgClientRichPresenceInfo_RichPresenceDefaultTypeInternal()
@@ -189,40 +203,6 @@ struct CMsgClientUpdateMachineAuthResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientUpdateMachineAuthResponseDefaultTypeInternal _CMsgClientUpdateMachineAuthResponse_default_instance_;
-constexpr CMsgClientRequestMachineAuth::CMsgClientRequestMachineAuth(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : filename_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , sha_sentryfile_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , otp_identifier_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , otp_sharedsecret_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , machine_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , machine_name_userchosen_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , eresult_sentryfile_(0u)
-  , filesize_(0u)
-  , locaccount_action_(0)
-  , otp_type_(0u)
-  , otp_value_(0u){}
-struct CMsgClientRequestMachineAuthDefaultTypeInternal {
-  constexpr CMsgClientRequestMachineAuthDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgClientRequestMachineAuthDefaultTypeInternal() {}
-  union {
-    CMsgClientRequestMachineAuth _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientRequestMachineAuthDefaultTypeInternal _CMsgClientRequestMachineAuth_default_instance_;
-constexpr CMsgClientRequestMachineAuthResponse::CMsgClientRequestMachineAuthResponse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : eresult_(0u){}
-struct CMsgClientRequestMachineAuthResponseDefaultTypeInternal {
-  constexpr CMsgClientRequestMachineAuthResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgClientRequestMachineAuthResponseDefaultTypeInternal() {}
-  union {
-    CMsgClientRequestMachineAuthResponse _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientRequestMachineAuthResponseDefaultTypeInternal _CMsgClientRequestMachineAuthResponse_default_instance_;
 constexpr CMsgClientRegisterKey::CMsgClientRegisterKey(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : key_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
@@ -361,20 +341,6 @@ struct CMsgTrading_StartSessionDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgTrading_StartSessionDefaultTypeInternal _CMsgTrading_StartSession_default_instance_;
-constexpr CMsgClientGetCDNAuthToken::CMsgClientGetCDNAuthToken(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : host_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , depot_id_(0u)
-  , app_id_(0u){}
-struct CMsgClientGetCDNAuthTokenDefaultTypeInternal {
-  constexpr CMsgClientGetCDNAuthTokenDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgClientGetCDNAuthTokenDefaultTypeInternal() {}
-  union {
-    CMsgClientGetCDNAuthToken _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientGetCDNAuthTokenDefaultTypeInternal _CMsgClientGetCDNAuthToken_default_instance_;
 constexpr CMsgClientGetDepotDecryptionKey::CMsgClientGetDepotDecryptionKey(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : depot_id_(0u)
@@ -443,85 +409,6 @@ struct CMsgClientCheckAppBetaPasswordResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientCheckAppBetaPasswordResponseDefaultTypeInternal _CMsgClientCheckAppBetaPasswordResponse_default_instance_;
-constexpr CMsgClientGetCDNAuthTokenResponse::CMsgClientGetCDNAuthTokenResponse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : token_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , expiration_time_(0u)
-  , eresult_(2u){}
-struct CMsgClientGetCDNAuthTokenResponseDefaultTypeInternal {
-  constexpr CMsgClientGetCDNAuthTokenResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgClientGetCDNAuthTokenResponseDefaultTypeInternal() {}
-  union {
-    CMsgClientGetCDNAuthTokenResponse _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientGetCDNAuthTokenResponseDefaultTypeInternal _CMsgClientGetCDNAuthTokenResponse_default_instance_;
-constexpr CMsgDownloadRateStatistics_StatsInfo::CMsgDownloadRateStatistics_StatsInfo(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : host_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , source_type_(0u)
-  , source_id_(0u)
-  , bytes_(PROTOBUF_ULONGLONG(0))
-  , microseconds_(PROTOBUF_ULONGLONG(0))
-  , seconds_(0u)
-  , used_ipv6_(false)
-  , proxied_(false){}
-struct CMsgDownloadRateStatistics_StatsInfoDefaultTypeInternal {
-  constexpr CMsgDownloadRateStatistics_StatsInfoDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgDownloadRateStatistics_StatsInfoDefaultTypeInternal() {}
-  union {
-    CMsgDownloadRateStatistics_StatsInfo _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgDownloadRateStatistics_StatsInfoDefaultTypeInternal _CMsgDownloadRateStatistics_StatsInfo_default_instance_;
-constexpr CMsgDownloadRateStatistics::CMsgDownloadRateStatistics(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : stats_()
-  , cell_id_(0u)
-  , throttling_kbps_(0u)
-  , steam_realm_(0u){}
-struct CMsgDownloadRateStatisticsDefaultTypeInternal {
-  constexpr CMsgDownloadRateStatisticsDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgDownloadRateStatisticsDefaultTypeInternal() {}
-  union {
-    CMsgDownloadRateStatistics _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgDownloadRateStatisticsDefaultTypeInternal _CMsgDownloadRateStatistics_default_instance_;
-constexpr CMsgClientRequestAccountData::CMsgClientRequestAccountData(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : account_or_email_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , action_(0u){}
-struct CMsgClientRequestAccountDataDefaultTypeInternal {
-  constexpr CMsgClientRequestAccountDataDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgClientRequestAccountDataDefaultTypeInternal() {}
-  union {
-    CMsgClientRequestAccountData _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientRequestAccountDataDefaultTypeInternal _CMsgClientRequestAccountData_default_instance_;
-constexpr CMsgClientRequestAccountDataResponse::CMsgClientRequestAccountDataResponse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : account_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , account_name_suggestion1_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , account_name_suggestion2_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , account_name_suggestion3_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , action_(0u)
-  , eresult_(0u)
-  , ct_matches_(0u){}
-struct CMsgClientRequestAccountDataResponseDefaultTypeInternal {
-  constexpr CMsgClientRequestAccountDataResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CMsgClientRequestAccountDataResponseDefaultTypeInternal() {}
-  union {
-    CMsgClientRequestAccountDataResponse _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientRequestAccountDataResponseDefaultTypeInternal _CMsgClientRequestAccountDataResponse_default_instance_;
 constexpr CMsgClientUGSGetGlobalStats::CMsgClientUGSGetGlobalStats(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : gameid_(PROTOBUF_ULONGLONG(0))
@@ -1799,7 +1686,7 @@ struct CMsgClientPendingGameLaunchResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientPendingGameLaunchResponseDefaultTypeInternal _CMsgClientPendingGameLaunchResponse_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientserver_5f2_2eproto[127];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fclientserver_5f2_2eproto[120];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_steammessages_5fclientserver_5f2_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fclientserver_5f2_2eproto = nullptr;
 
@@ -1834,6 +1721,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceRequest, steamid_request_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_KV, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_KV, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_KV, key_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_KV, value_),
+  0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_RichPresence, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_RichPresence, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1841,8 +1737,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_RichPresence, steamid_user_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_RichPresence, rich_presence_kv_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo_RichPresence, rich_presense_),
   1,
   0,
+  ~0u,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CMsgClientRichPresenceInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1961,40 +1859,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   8,
   9,
   2,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, filename_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, eresult_sentryfile_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, filesize_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, sha_sentryfile_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, locaccount_action_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, otp_type_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, otp_identifier_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, otp_sharedsecret_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, otp_value_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, machine_name_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuth, machine_name_userchosen_),
-  0,
-  6,
-  7,
-  1,
-  8,
-  9,
-  2,
-  3,
-  10,
-  4,
-  5,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuthResponse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuthResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestMachineAuthResponse, eresult_),
-  0,
   PROTOBUF_FIELD_OFFSET(::CMsgClientRegisterKey, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientRegisterKey, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2101,17 +1965,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMsgTrading_StartSession, other_steamid_),
   0,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthToken, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthToken, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthToken, depot_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthToken, host_name_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthToken, app_id_),
-  1,
-  0,
-  2,
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetDepotDecryptionKey, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetDepotDecryptionKey, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2163,79 +2016,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientCheckAppBetaPasswordResponse, betapasswords_),
   0,
   ~0u,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthTokenResponse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthTokenResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthTokenResponse, eresult_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthTokenResponse, token_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetCDNAuthTokenResponse, expiration_time_),
-  2,
-  0,
-  1,
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, source_type_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, source_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, seconds_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, bytes_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, host_name_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, microseconds_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, used_ipv6_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics_StatsInfo, proxied_),
-  1,
-  2,
-  5,
-  3,
-  0,
-  4,
-  6,
-  7,
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics, cell_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics, stats_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics, throttling_kbps_),
-  PROTOBUF_FIELD_OFFSET(::CMsgDownloadRateStatistics, steam_realm_),
-  0,
-  ~0u,
-  1,
-  2,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountData, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountData, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountData, account_or_email_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountData, action_),
-  0,
-  1,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, action_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, eresult_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, account_name_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, ct_matches_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, account_name_suggestion1_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, account_name_suggestion2_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientRequestAccountDataResponse, account_name_suggestion3_),
-  4,
-  5,
-  0,
-  6,
-  1,
-  2,
-  3,
   PROTOBUF_FIELD_OFFSET(::CMsgClientUGSGetGlobalStats, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientUGSGetGlobalStats, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3205,136 +2985,130 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, 10, sizeof(::CMsgClientUpdateUserGameInfo)},
   { 15, 22, sizeof(::CMsgClientRichPresenceUpload)},
   { 24, -1, sizeof(::CMsgClientRichPresenceRequest)},
-  { 30, 37, sizeof(::CMsgClientRichPresenceInfo_RichPresence)},
-  { 39, -1, sizeof(::CMsgClientRichPresenceInfo)},
-  { 45, 51, sizeof(::CMsgClientCheckFileSignature)},
-  { 52, 67, sizeof(::CMsgClientCheckFileSignatureResponse)},
-  { 77, 85, sizeof(::CMsgClientReadMachineAuth)},
-  { 88, 102, sizeof(::CMsgClientReadMachineAuthResponse)},
-  { 111, 124, sizeof(::CMsgClientUpdateMachineAuth)},
-  { 132, 147, sizeof(::CMsgClientUpdateMachineAuthResponse)},
-  { 157, 173, sizeof(::CMsgClientRequestMachineAuth)},
-  { 184, 190, sizeof(::CMsgClientRequestMachineAuthResponse)},
-  { 191, 197, sizeof(::CMsgClientRegisterKey)},
-  { 198, 206, sizeof(::CMsgClientPurchaseResponse)},
-  { 209, 220, sizeof(::CMsgClientActivateOEMLicense)},
-  { 226, 232, sizeof(::CMsgClientRegisterOEMMachine)},
-  { 233, 239, sizeof(::CMsgClientRegisterOEMMachineResponse)},
-  { 240, 247, sizeof(::CMsgClientPurchaseWithMachineID)},
-  { 249, 257, sizeof(::CMsgTrading_InitiateTradeRequest)},
-  { 260, 274, sizeof(::CMsgTrading_InitiateTradeResponse)},
-  { 283, 289, sizeof(::CMsgTrading_CancelTradeRequest)},
-  { 290, 296, sizeof(::CMsgTrading_StartSession)},
-  { 297, 305, sizeof(::CMsgClientGetCDNAuthToken)},
-  { 308, 315, sizeof(::CMsgClientGetDepotDecryptionKey)},
-  { 317, 325, sizeof(::CMsgClientGetDepotDecryptionKeyResponse)},
-  { 328, 336, sizeof(::CMsgClientCheckAppBetaPassword)},
-  { 339, 347, sizeof(::CMsgClientCheckAppBetaPasswordResponse_BetaPassword)},
-  { 350, 357, sizeof(::CMsgClientCheckAppBetaPasswordResponse)},
-  { 359, 367, sizeof(::CMsgClientGetCDNAuthTokenResponse)},
-  { 370, 383, sizeof(::CMsgDownloadRateStatistics_StatsInfo)},
-  { 391, 400, sizeof(::CMsgDownloadRateStatistics)},
-  { 404, 411, sizeof(::CMsgClientRequestAccountData)},
-  { 413, 425, sizeof(::CMsgClientRequestAccountDataResponse)},
-  { 432, 442, sizeof(::CMsgClientUGSGetGlobalStats)},
-  { 447, 454, sizeof(::CMsgClientUGSGetGlobalStatsResponse_Day_Stat)},
-  { 456, 463, sizeof(::CMsgClientUGSGetGlobalStatsResponse_Day)},
-  { 465, 474, sizeof(::CMsgClientUGSGetGlobalStatsResponse)},
-  { 478, 484, sizeof(::CMsgClientRedeemGuestPass)},
-  { 485, 493, sizeof(::CMsgClientRedeemGuestPassResponse)},
-  { 496, -1, sizeof(::CMsgClientGetClanActivityCounts)},
-  { 502, 508, sizeof(::CMsgClientGetClanActivityCountsResponse)},
-  { 509, 519, sizeof(::CMsgClientOGSReportString)},
-  { 524, 532, sizeof(::CMsgClientOGSReportBug)},
-  { 535, -1, sizeof(::CMsgClientSentLogs)},
-  { 540, 551, sizeof(::CMsgGCClient)},
-  { 557, -1, sizeof(::CMsgClientRequestFreeLicense)},
-  { 563, 571, sizeof(::CMsgClientRequestFreeLicenseResponse)},
-  { 574, 587, sizeof(::CMsgDRMDownloadRequestWithCrashData)},
-  { 595, 608, sizeof(::CMsgDRMDownloadResponse)},
-  { 616, 629, sizeof(::CMsgDRMFinalResult)},
-  { 637, 643, sizeof(::CMsgClientDPCheckSpecialSurvey)},
-  { 644, 655, sizeof(::CMsgClientDPCheckSpecialSurveyResponse)},
-  { 661, 668, sizeof(::CMsgClientDPSendSpecialSurveyResponse)},
-  { 670, 677, sizeof(::CMsgClientDPSendSpecialSurveyResponseReply)},
-  { 679, 686, sizeof(::CMsgClientRequestForgottenPasswordEmail)},
-  { 688, 695, sizeof(::CMsgClientRequestForgottenPasswordEmailResponse)},
-  { 697, 708, sizeof(::CMsgClientItemAnnouncements_UnseenItem)},
-  { 714, 721, sizeof(::CMsgClientItemAnnouncements)},
-  { 723, -1, sizeof(::CMsgClientRequestItemAnnouncements)},
-  { 728, 735, sizeof(::CMsgClientUserNotifications_Notification)},
-  { 737, -1, sizeof(::CMsgClientUserNotifications)},
-  { 743, 751, sizeof(::CMsgClientCommentNotifications)},
-  { 754, -1, sizeof(::CMsgClientRequestCommentNotifications)},
-  { 759, 766, sizeof(::CMsgClientOfflineMessageNotification)},
-  { 768, -1, sizeof(::CMsgClientRequestOfflineMessageCount)},
-  { 773, 779, sizeof(::CMsgClientChatGetFriendMessageHistory)},
-  { 780, 789, sizeof(::CMsgClientChatGetFriendMessageHistoryResponse_FriendMessage)},
-  { 793, 801, sizeof(::CMsgClientChatGetFriendMessageHistoryResponse)},
-  { 804, -1, sizeof(::CMsgClientChatGetFriendMessageHistoryForOfflineMessages)},
-  { 809, -1, sizeof(::CMsgClientFSGetFriendsSteamLevels)},
-  { 815, 822, sizeof(::CMsgClientFSGetFriendsSteamLevelsResponse_Friend)},
-  { 824, -1, sizeof(::CMsgClientFSGetFriendsSteamLevelsResponse)},
-  { 830, 840, sizeof(::CMsgClientEmailAddrInfo)},
-  { 845, 851, sizeof(::CMsgCREItemVoteSummary_PublishedFileId)},
-  { 852, -1, sizeof(::CMsgCREItemVoteSummary)},
-  { 858, 868, sizeof(::CMsgCREItemVoteSummaryResponse_ItemVoteSummary)},
-  { 873, 880, sizeof(::CMsgCREItemVoteSummaryResponse)},
-  { 882, 889, sizeof(::CMsgCREUpdateUserPublishedItemVote)},
-  { 891, 897, sizeof(::CMsgCREUpdateUserPublishedItemVoteResponse)},
-  { 898, 904, sizeof(::CMsgCREGetUserPublishedItemVoteDetails_PublishedFileId)},
-  { 905, -1, sizeof(::CMsgCREGetUserPublishedItemVoteDetails)},
-  { 911, 918, sizeof(::CMsgCREGetUserPublishedItemVoteDetailsResponse_UserItemVoteDetail)},
-  { 920, 927, sizeof(::CMsgCREGetUserPublishedItemVoteDetailsResponse)},
-  { 929, 935, sizeof(::CMsgFSGetFollowerCount)},
-  { 936, 943, sizeof(::CMsgFSGetFollowerCountResponse)},
-  { 945, 951, sizeof(::CMsgFSGetIsFollowing)},
-  { 952, 959, sizeof(::CMsgFSGetIsFollowingResponse)},
-  { 961, 967, sizeof(::CMsgFSEnumerateFollowingList)},
-  { 968, 976, sizeof(::CMsgFSEnumerateFollowingListResponse)},
-  { 979, 985, sizeof(::CMsgDPGetNumberOfCurrentPlayers)},
-  { 986, 993, sizeof(::CMsgDPGetNumberOfCurrentPlayersResponse)},
-  { 995, 1003, sizeof(::CMsgClientFriendUserStatusPublished)},
-  { 1006, 1014, sizeof(::CMsgClientServiceMethodLegacy)},
-  { 1017, 1024, sizeof(::CMsgClientServiceMethodLegacyResponse)},
-  { 1026, 1033, sizeof(::CMsgClientUIMode)},
-  { 1035, 1041, sizeof(::CMsgClientVanityURLChangedNotification)},
-  { 1042, 1050, sizeof(::CMsgClientAuthorizeLocalDeviceRequest)},
-  { 1053, 1061, sizeof(::CMsgClientAuthorizeLocalDevice)},
-  { 1064, 1072, sizeof(::CMsgClientAuthorizeLocalDeviceNotification)},
-  { 1075, 1082, sizeof(::CMsgClientDeauthorizeDeviceRequest)},
-  { 1084, 1091, sizeof(::CMsgClientDeauthorizeDevice)},
-  { 1093, 1100, sizeof(::CMsgClientUseLocalDeviceAuthorizations_DeviceToken)},
-  { 1102, -1, sizeof(::CMsgClientUseLocalDeviceAuthorizations)},
-  { 1109, -1, sizeof(::CMsgClientGetAuthorizedDevices)},
-  { 1114, 1125, sizeof(::CMsgClientGetAuthorizedDevicesResponse_AuthorizedDevice)},
-  { 1131, 1138, sizeof(::CMsgClientGetAuthorizedDevicesResponse)},
-  { 1140, 1147, sizeof(::CMsgClientSharedLibraryLockStatus_LockedLibrary)},
-  { 1149, 1156, sizeof(::CMsgClientSharedLibraryLockStatus)},
-  { 1158, 1165, sizeof(::CMsgClientSharedLibraryStopPlaying_StopApp)},
-  { 1167, 1174, sizeof(::CMsgClientSharedLibraryStopPlaying)},
-  { 1176, 1192, sizeof(::CMsgClientServiceCall)},
-  { 1203, 1211, sizeof(::CMsgClientServiceModule)},
-  { 1214, 1240, sizeof(::CMsgClientServiceCallResponse)},
-  { 1261, 1269, sizeof(::CMsgAMUnlockH264)},
-  { 1272, 1279, sizeof(::CMsgAMUnlockH264Response)},
-  { 1281, 1288, sizeof(::CMsgClientPlayingSessionState)},
-  { 1290, 1296, sizeof(::CMsgClientKickPlayingSession)},
-  { 1297, 1306, sizeof(::CMsgClientVoiceCallPreAuthorize)},
-  { 1310, 1319, sizeof(::CMsgClientVoiceCallPreAuthorizeResponse)},
-  { 1323, 1330, sizeof(::CMsgBadgeCraftedNotification)},
-  { 1332, 1341, sizeof(::CMsgClientStartPeerContentServer)},
-  { 1345, 1354, sizeof(::CMsgClientStartPeerContentServerResponse)},
-  { 1358, 1366, sizeof(::CMsgClientGetPeerContentInfo)},
-  { 1369, 1376, sizeof(::CMsgClientGetPeerContentInfoResponse)},
-  { 1378, 1384, sizeof(::CMsgClientPendingGameLaunch)},
-  { 1385, 1393, sizeof(::CMsgClientPendingGameLaunchResponse)},
+  { 30, 37, sizeof(::CMsgClientRichPresenceInfo_KV)},
+  { 39, 47, sizeof(::CMsgClientRichPresenceInfo_RichPresence)},
+  { 50, -1, sizeof(::CMsgClientRichPresenceInfo)},
+  { 56, 62, sizeof(::CMsgClientCheckFileSignature)},
+  { 63, 78, sizeof(::CMsgClientCheckFileSignatureResponse)},
+  { 88, 96, sizeof(::CMsgClientReadMachineAuth)},
+  { 99, 113, sizeof(::CMsgClientReadMachineAuthResponse)},
+  { 122, 135, sizeof(::CMsgClientUpdateMachineAuth)},
+  { 143, 158, sizeof(::CMsgClientUpdateMachineAuthResponse)},
+  { 168, 174, sizeof(::CMsgClientRegisterKey)},
+  { 175, 183, sizeof(::CMsgClientPurchaseResponse)},
+  { 186, 197, sizeof(::CMsgClientActivateOEMLicense)},
+  { 203, 209, sizeof(::CMsgClientRegisterOEMMachine)},
+  { 210, 216, sizeof(::CMsgClientRegisterOEMMachineResponse)},
+  { 217, 224, sizeof(::CMsgClientPurchaseWithMachineID)},
+  { 226, 234, sizeof(::CMsgTrading_InitiateTradeRequest)},
+  { 237, 251, sizeof(::CMsgTrading_InitiateTradeResponse)},
+  { 260, 266, sizeof(::CMsgTrading_CancelTradeRequest)},
+  { 267, 273, sizeof(::CMsgTrading_StartSession)},
+  { 274, 281, sizeof(::CMsgClientGetDepotDecryptionKey)},
+  { 283, 291, sizeof(::CMsgClientGetDepotDecryptionKeyResponse)},
+  { 294, 302, sizeof(::CMsgClientCheckAppBetaPassword)},
+  { 305, 313, sizeof(::CMsgClientCheckAppBetaPasswordResponse_BetaPassword)},
+  { 316, 323, sizeof(::CMsgClientCheckAppBetaPasswordResponse)},
+  { 325, 335, sizeof(::CMsgClientUGSGetGlobalStats)},
+  { 340, 347, sizeof(::CMsgClientUGSGetGlobalStatsResponse_Day_Stat)},
+  { 349, 356, sizeof(::CMsgClientUGSGetGlobalStatsResponse_Day)},
+  { 358, 367, sizeof(::CMsgClientUGSGetGlobalStatsResponse)},
+  { 371, 377, sizeof(::CMsgClientRedeemGuestPass)},
+  { 378, 386, sizeof(::CMsgClientRedeemGuestPassResponse)},
+  { 389, -1, sizeof(::CMsgClientGetClanActivityCounts)},
+  { 395, 401, sizeof(::CMsgClientGetClanActivityCountsResponse)},
+  { 402, 412, sizeof(::CMsgClientOGSReportString)},
+  { 417, 425, sizeof(::CMsgClientOGSReportBug)},
+  { 428, -1, sizeof(::CMsgClientSentLogs)},
+  { 433, 444, sizeof(::CMsgGCClient)},
+  { 450, -1, sizeof(::CMsgClientRequestFreeLicense)},
+  { 456, 464, sizeof(::CMsgClientRequestFreeLicenseResponse)},
+  { 467, 480, sizeof(::CMsgDRMDownloadRequestWithCrashData)},
+  { 488, 501, sizeof(::CMsgDRMDownloadResponse)},
+  { 509, 522, sizeof(::CMsgDRMFinalResult)},
+  { 530, 536, sizeof(::CMsgClientDPCheckSpecialSurvey)},
+  { 537, 548, sizeof(::CMsgClientDPCheckSpecialSurveyResponse)},
+  { 554, 561, sizeof(::CMsgClientDPSendSpecialSurveyResponse)},
+  { 563, 570, sizeof(::CMsgClientDPSendSpecialSurveyResponseReply)},
+  { 572, 579, sizeof(::CMsgClientRequestForgottenPasswordEmail)},
+  { 581, 588, sizeof(::CMsgClientRequestForgottenPasswordEmailResponse)},
+  { 590, 601, sizeof(::CMsgClientItemAnnouncements_UnseenItem)},
+  { 607, 614, sizeof(::CMsgClientItemAnnouncements)},
+  { 616, -1, sizeof(::CMsgClientRequestItemAnnouncements)},
+  { 621, 628, sizeof(::CMsgClientUserNotifications_Notification)},
+  { 630, -1, sizeof(::CMsgClientUserNotifications)},
+  { 636, 644, sizeof(::CMsgClientCommentNotifications)},
+  { 647, -1, sizeof(::CMsgClientRequestCommentNotifications)},
+  { 652, 659, sizeof(::CMsgClientOfflineMessageNotification)},
+  { 661, -1, sizeof(::CMsgClientRequestOfflineMessageCount)},
+  { 666, 672, sizeof(::CMsgClientChatGetFriendMessageHistory)},
+  { 673, 682, sizeof(::CMsgClientChatGetFriendMessageHistoryResponse_FriendMessage)},
+  { 686, 694, sizeof(::CMsgClientChatGetFriendMessageHistoryResponse)},
+  { 697, -1, sizeof(::CMsgClientChatGetFriendMessageHistoryForOfflineMessages)},
+  { 702, -1, sizeof(::CMsgClientFSGetFriendsSteamLevels)},
+  { 708, 715, sizeof(::CMsgClientFSGetFriendsSteamLevelsResponse_Friend)},
+  { 717, -1, sizeof(::CMsgClientFSGetFriendsSteamLevelsResponse)},
+  { 723, 733, sizeof(::CMsgClientEmailAddrInfo)},
+  { 738, 744, sizeof(::CMsgCREItemVoteSummary_PublishedFileId)},
+  { 745, -1, sizeof(::CMsgCREItemVoteSummary)},
+  { 751, 761, sizeof(::CMsgCREItemVoteSummaryResponse_ItemVoteSummary)},
+  { 766, 773, sizeof(::CMsgCREItemVoteSummaryResponse)},
+  { 775, 782, sizeof(::CMsgCREUpdateUserPublishedItemVote)},
+  { 784, 790, sizeof(::CMsgCREUpdateUserPublishedItemVoteResponse)},
+  { 791, 797, sizeof(::CMsgCREGetUserPublishedItemVoteDetails_PublishedFileId)},
+  { 798, -1, sizeof(::CMsgCREGetUserPublishedItemVoteDetails)},
+  { 804, 811, sizeof(::CMsgCREGetUserPublishedItemVoteDetailsResponse_UserItemVoteDetail)},
+  { 813, 820, sizeof(::CMsgCREGetUserPublishedItemVoteDetailsResponse)},
+  { 822, 828, sizeof(::CMsgFSGetFollowerCount)},
+  { 829, 836, sizeof(::CMsgFSGetFollowerCountResponse)},
+  { 838, 844, sizeof(::CMsgFSGetIsFollowing)},
+  { 845, 852, sizeof(::CMsgFSGetIsFollowingResponse)},
+  { 854, 860, sizeof(::CMsgFSEnumerateFollowingList)},
+  { 861, 869, sizeof(::CMsgFSEnumerateFollowingListResponse)},
+  { 872, 878, sizeof(::CMsgDPGetNumberOfCurrentPlayers)},
+  { 879, 886, sizeof(::CMsgDPGetNumberOfCurrentPlayersResponse)},
+  { 888, 896, sizeof(::CMsgClientFriendUserStatusPublished)},
+  { 899, 907, sizeof(::CMsgClientServiceMethodLegacy)},
+  { 910, 917, sizeof(::CMsgClientServiceMethodLegacyResponse)},
+  { 919, 926, sizeof(::CMsgClientUIMode)},
+  { 928, 934, sizeof(::CMsgClientVanityURLChangedNotification)},
+  { 935, 943, sizeof(::CMsgClientAuthorizeLocalDeviceRequest)},
+  { 946, 954, sizeof(::CMsgClientAuthorizeLocalDevice)},
+  { 957, 965, sizeof(::CMsgClientAuthorizeLocalDeviceNotification)},
+  { 968, 975, sizeof(::CMsgClientDeauthorizeDeviceRequest)},
+  { 977, 984, sizeof(::CMsgClientDeauthorizeDevice)},
+  { 986, 993, sizeof(::CMsgClientUseLocalDeviceAuthorizations_DeviceToken)},
+  { 995, -1, sizeof(::CMsgClientUseLocalDeviceAuthorizations)},
+  { 1002, -1, sizeof(::CMsgClientGetAuthorizedDevices)},
+  { 1007, 1018, sizeof(::CMsgClientGetAuthorizedDevicesResponse_AuthorizedDevice)},
+  { 1024, 1031, sizeof(::CMsgClientGetAuthorizedDevicesResponse)},
+  { 1033, 1040, sizeof(::CMsgClientSharedLibraryLockStatus_LockedLibrary)},
+  { 1042, 1049, sizeof(::CMsgClientSharedLibraryLockStatus)},
+  { 1051, 1058, sizeof(::CMsgClientSharedLibraryStopPlaying_StopApp)},
+  { 1060, 1067, sizeof(::CMsgClientSharedLibraryStopPlaying)},
+  { 1069, 1085, sizeof(::CMsgClientServiceCall)},
+  { 1096, 1104, sizeof(::CMsgClientServiceModule)},
+  { 1107, 1133, sizeof(::CMsgClientServiceCallResponse)},
+  { 1154, 1162, sizeof(::CMsgAMUnlockH264)},
+  { 1165, 1172, sizeof(::CMsgAMUnlockH264Response)},
+  { 1174, 1181, sizeof(::CMsgClientPlayingSessionState)},
+  { 1183, 1189, sizeof(::CMsgClientKickPlayingSession)},
+  { 1190, 1199, sizeof(::CMsgClientVoiceCallPreAuthorize)},
+  { 1203, 1212, sizeof(::CMsgClientVoiceCallPreAuthorizeResponse)},
+  { 1216, 1223, sizeof(::CMsgBadgeCraftedNotification)},
+  { 1225, 1234, sizeof(::CMsgClientStartPeerContentServer)},
+  { 1238, 1247, sizeof(::CMsgClientStartPeerContentServerResponse)},
+  { 1251, 1259, sizeof(::CMsgClientGetPeerContentInfo)},
+  { 1262, 1269, sizeof(::CMsgClientGetPeerContentInfoResponse)},
+  { 1271, 1277, sizeof(::CMsgClientPendingGameLaunch)},
+  { 1278, 1286, sizeof(::CMsgClientPendingGameLaunchResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUpdateUserGameInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRichPresenceUpload_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRichPresenceRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRichPresenceInfo_KV_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRichPresenceInfo_RichPresence_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRichPresenceInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientCheckFileSignature_default_instance_),
@@ -3343,8 +3117,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientReadMachineAuthResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUpdateMachineAuth_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUpdateMachineAuthResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRequestMachineAuth_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRequestMachineAuthResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRegisterKey_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientPurchaseResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientActivateOEMLicense_default_instance_),
@@ -3355,17 +3127,11 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgTrading_InitiateTradeResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgTrading_CancelTradeRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgTrading_StartSession_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientGetCDNAuthToken_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientGetDepotDecryptionKey_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientGetDepotDecryptionKeyResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientCheckAppBetaPassword_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientCheckAppBetaPasswordResponse_BetaPassword_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientCheckAppBetaPasswordResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientGetCDNAuthTokenResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgDownloadRateStatistics_StatsInfo_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgDownloadRateStatistics_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRequestAccountData_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientRequestAccountDataResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUGSGetGlobalStats_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUGSGetGlobalStatsResponse_Day_Stat_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMsgClientUGSGetGlobalStatsResponse_Day_default_instance_),
@@ -3471,104 +3237,78 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5f2_2eproto[] 
   "nceUpload\022\030\n\020rich_presence_kv\030\001 \001(\014\022\031\n\021s"
   "teamid_broadcast\030\002 \003(\006\"8\n\035CMsgClientRich"
   "PresenceRequest\022\027\n\017steamid_request\030\001 \003(\006"
-  "\"\235\001\n\032CMsgClientRichPresenceInfo\022\?\n\rrich_"
+  "\"\366\001\n\032CMsgClientRichPresenceInfo\022\?\n\rrich_"
   "presence\030\001 \003(\0132(.CMsgClientRichPresenceI"
-  "nfo.RichPresence\032>\n\014RichPresence\022\024\n\014stea"
-  "mid_user\030\001 \001(\006\022\030\n\020rich_presence_kv\030\002 \001(\014"
-  "\".\n\034CMsgClientCheckFileSignature\022\016\n\006app_"
-  "id\030\001 \001(\r\"\367\001\n$CMsgClientCheckFileSignatur"
-  "eResponse\022\016\n\006app_id\030\001 \001(\r\022\013\n\003pid\030\002 \001(\r\022\017"
-  "\n\007eresult\030\003 \001(\r\022\020\n\010filename\030\004 \001(\t\022\030\n\020esi"
-  "gnatureresult\030\005 \001(\r\022\020\n\010sha_file\030\006 \001(\014\022\027\n"
-  "\017signatureheader\030\007 \001(\014\022\020\n\010filesize\030\010 \001(\r"
-  "\022\024\n\014getlasterror\030\t \001(\r\022\"\n\032evalvesignatur"
-  "echeckdetail\030\n \001(\r\"P\n\031CMsgClientReadMach"
-  "ineAuth\022\020\n\010filename\030\001 \001(\t\022\016\n\006offset\030\002 \001("
-  "\r\022\021\n\tcubtoread\030\003 \001(\r\"\316\001\n!CMsgClientReadM"
-  "achineAuthResponse\022\020\n\010filename\030\001 \001(\t\022\017\n\007"
-  "eresult\030\002 \001(\r\022\020\n\010filesize\030\003 \001(\r\022\020\n\010sha_f"
-  "ile\030\004 \001(\014\022\024\n\014getlasterror\030\005 \001(\r\022\016\n\006offse"
-  "t\030\006 \001(\r\022\017\n\007cubread\030\007 \001(\r\022\022\n\nbytes_read\030\010"
-  " \001(\014\022\027\n\017filename_sentry\030\t \001(\t\"\275\001\n\033CMsgCl"
-  "ientUpdateMachineAuth\022\020\n\010filename\030\001 \001(\t\022"
-  "\016\n\006offset\030\002 \001(\r\022\022\n\ncubtowrite\030\003 \001(\r\022\r\n\005b"
-  "ytes\030\004 \001(\014\022\020\n\010otp_type\030\005 \001(\r\022\026\n\016otp_iden"
-  "tifier\030\006 \001(\t\022\030\n\020otp_sharedsecret\030\007 \001(\014\022\025"
-  "\n\rotp_timedrift\030\010 \001(\r\"\341\001\n#CMsgClientUpda"
-  "teMachineAuthResponse\022\020\n\010filename\030\001 \001(\t\022"
-  "\017\n\007eresult\030\002 \001(\r\022\020\n\010filesize\030\003 \001(\r\022\020\n\010sh"
-  "a_file\030\004 \001(\014\022\024\n\014getlasterror\030\005 \001(\r\022\016\n\006of"
-  "fset\030\006 \001(\r\022\020\n\010cubwrote\030\007 \001(\r\022\020\n\010otp_type"
-  "\030\010 \001(\005\022\021\n\totp_value\030\t \001(\r\022\026\n\016otp_identif"
-  "ier\030\n \001(\t\"\237\002\n\034CMsgClientRequestMachineAu"
-  "th\022\020\n\010filename\030\001 \001(\t\022\032\n\022eresult_sentryfi"
-  "le\030\002 \001(\r\022\020\n\010filesize\030\003 \001(\r\022\026\n\016sha_sentry"
-  "file\030\004 \001(\014\022\031\n\021locaccount_action\030\006 \001(\005\022\020\n"
-  "\010otp_type\030\007 \001(\r\022\026\n\016otp_identifier\030\010 \001(\t\022"
-  "\030\n\020otp_sharedsecret\030\t \001(\014\022\021\n\totp_value\030\n"
-  " \001(\r\022\024\n\014machine_name\030\013 \001(\t\022\037\n\027machine_na"
-  "me_userchosen\030\014 \001(\t\"7\n$CMsgClientRequest"
-  "MachineAuthResponse\022\017\n\007eresult\030\001 \001(\r\"$\n\025"
-  "CMsgClientRegisterKey\022\013\n\003key\030\001 \001(\t\"p\n\032CM"
-  "sgClientPurchaseResponse\022\022\n\007eresult\030\001 \001("
-  "\005:\0012\022\037\n\027purchase_result_details\030\002 \001(\005\022\035\n"
-  "\025purchase_receipt_info\030\003 \001(\014\"\305\001\n\034CMsgCli"
-  "entActivateOEMLicense\022\031\n\021bios_manufactur"
-  "er\030\001 \001(\t\022\031\n\021bios_serialnumber\030\002 \001(\t\022\024\n\014l"
-  "icense_file\030\003 \001(\014\022\036\n\026mainboard_manufactu"
-  "rer\030\004 \001(\t\022\031\n\021mainboard_product\030\005 \001(\t\022\036\n\026"
-  "mainboard_serialnumber\030\006 \001(\t\"9\n\034CMsgClie"
-  "ntRegisterOEMMachine\022\031\n\021oem_register_fil"
-  "e\030\001 \001(\014\"7\n$CMsgClientRegisterOEMMachineR"
-  "esponse\022\017\n\007eresult\030\001 \001(\r\"K\n\037CMsgClientPu"
-  "rchaseWithMachineID\022\022\n\npackage_id\030\001 \001(\r\022"
-  "\024\n\014machine_info\030\002 \001(\014\"g\n CMsgTrading_Ini"
-  "tiateTradeRequest\022\030\n\020trade_request_id\030\001 "
-  "\001(\r\022\025\n\rother_steamid\030\002 \001(\004\022\022\n\nother_name"
-  "\030\003 \001(\t\"\322\002\n!CMsgTrading_InitiateTradeResp"
-  "onse\022\020\n\010response\030\001 \001(\r\022\030\n\020trade_request_"
-  "id\030\002 \001(\r\022\025\n\rother_steamid\030\003 \001(\004\022 \n\030steam"
-  "guard_required_days\030\004 \001(\r\022 \n\030new_device_"
-  "cooldown_days\030\005 \001(\r\022-\n%default_password_"
-  "reset_probation_days\030\006 \001(\r\022%\n\035password_r"
-  "eset_probation_days\030\007 \001(\r\022+\n#default_ema"
-  "il_change_probation_days\030\010 \001(\r\022#\n\033email_"
-  "change_probation_days\030\t \001(\r\"7\n\036CMsgTradi"
-  "ng_CancelTradeRequest\022\025\n\rother_steamid\030\001"
-  " \001(\004\"1\n\030CMsgTrading_StartSession\022\025\n\rothe"
-  "r_steamid\030\001 \001(\004\"P\n\031CMsgClientGetCDNAuthT"
-  "oken\022\020\n\010depot_id\030\001 \001(\r\022\021\n\thost_name\030\002 \001("
-  "\t\022\016\n\006app_id\030\003 \001(\r\"C\n\037CMsgClientGetDepotD"
-  "ecryptionKey\022\020\n\010depot_id\030\001 \001(\r\022\016\n\006app_id"
-  "\030\002 \001(\r\"m\n\'CMsgClientGetDepotDecryptionKe"
-  "yResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022\020\n\010depot_i"
-  "d\030\002 \001(\r\022\034\n\024depot_encryption_key\030\003 \001(\014\"X\n"
-  "\036CMsgClientCheckAppBetaPassword\022\016\n\006app_i"
-  "d\030\001 \001(\r\022\024\n\014betapassword\030\002 \001(\t\022\020\n\010languag"
-  "e\030\003 \001(\005\"\332\001\n&CMsgClientCheckAppBetaPasswo"
-  "rdResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022K\n\rbetapa"
-  "sswords\030\004 \003(\01324.CMsgClientCheckAppBetaPa"
-  "sswordResponse.BetaPassword\032O\n\014BetaPassw"
-  "ord\022\020\n\010betaname\030\001 \001(\t\022\024\n\014betapassword\030\002 "
-  "\001(\t\022\027\n\017betadescription\030\003 \001(\t\"_\n!CMsgClie"
-  "ntGetCDNAuthTokenResponse\022\022\n\007eresult\030\001 \001"
-  "(\r:\0012\022\r\n\005token\030\002 \001(\t\022\027\n\017expiration_time\030"
-  "\003 \001(\r\"\264\002\n\032CMsgDownloadRateStatistics\022\017\n\007"
-  "cell_id\030\001 \001(\r\0224\n\005stats\030\002 \003(\0132%.CMsgDownl"
-  "oadRateStatistics.StatsInfo\022\027\n\017throttlin"
-  "g_kbps\030\003 \001(\r\022\023\n\013steam_realm\030\004 \001(\r\032\240\001\n\tSt"
-  "atsInfo\022\023\n\013source_type\030\001 \001(\r\022\021\n\tsource_i"
-  "d\030\002 \001(\r\022\017\n\007seconds\030\003 \001(\r\022\r\n\005bytes\030\004 \001(\004\022"
-  "\021\n\thost_name\030\005 \001(\t\022\024\n\014microseconds\030\006 \001(\004"
-  "\022\021\n\tused_ipv6\030\007 \001(\010\022\017\n\007proxied\030\010 \001(\010\"H\n\034"
-  "CMsgClientRequestAccountData\022\030\n\020account_"
-  "or_email\030\001 \001(\t\022\016\n\006action\030\002 \001(\r\"\327\001\n$CMsgC"
-  "lientRequestAccountDataResponse\022\016\n\006actio"
-  "n\030\001 \001(\r\022\017\n\007eresult\030\002 \001(\r\022\024\n\014account_name"
-  "\030\003 \001(\t\022\022\n\nct_matches\030\004 \001(\r\022 \n\030account_na"
-  "me_suggestion1\030\005 \001(\t\022 \n\030account_name_sug"
-  "gestion2\030\006 \001(\t\022 \n\030account_name_suggestio"
-  "n3\030\007 \001(\t\"\231\001\n\033CMsgClientUGSGetGlobalStats"
+  "nfo.RichPresence\032 \n\002KV\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
+  "alue\030\002 \001(\t\032u\n\014RichPresence\022\024\n\014steamid_us"
+  "er\030\001 \001(\006\022\030\n\020rich_presence_kv\030\002 \001(\014\0225\n\rri"
+  "ch_presense\030\003 \003(\0132\036.CMsgClientRichPresen"
+  "ceInfo.KV\".\n\034CMsgClientCheckFileSignatur"
+  "e\022\016\n\006app_id\030\001 \001(\r\"\367\001\n$CMsgClientCheckFil"
+  "eSignatureResponse\022\016\n\006app_id\030\001 \001(\r\022\013\n\003pi"
+  "d\030\002 \001(\r\022\017\n\007eresult\030\003 \001(\r\022\020\n\010filename\030\004 \001"
+  "(\t\022\030\n\020esignatureresult\030\005 \001(\r\022\020\n\010sha_file"
+  "\030\006 \001(\014\022\027\n\017signatureheader\030\007 \001(\014\022\020\n\010files"
+  "ize\030\010 \001(\r\022\024\n\014getlasterror\030\t \001(\r\022\"\n\032evalv"
+  "esignaturecheckdetail\030\n \001(\r\"P\n\031CMsgClien"
+  "tReadMachineAuth\022\020\n\010filename\030\001 \001(\t\022\016\n\006of"
+  "fset\030\002 \001(\r\022\021\n\tcubtoread\030\003 \001(\r\"\316\001\n!CMsgCl"
+  "ientReadMachineAuthResponse\022\020\n\010filename\030"
+  "\001 \001(\t\022\017\n\007eresult\030\002 \001(\r\022\020\n\010filesize\030\003 \001(\r"
+  "\022\020\n\010sha_file\030\004 \001(\014\022\024\n\014getlasterror\030\005 \001(\r"
+  "\022\016\n\006offset\030\006 \001(\r\022\017\n\007cubread\030\007 \001(\r\022\022\n\nbyt"
+  "es_read\030\010 \001(\014\022\027\n\017filename_sentry\030\t \001(\t\"\275"
+  "\001\n\033CMsgClientUpdateMachineAuth\022\020\n\010filena"
+  "me\030\001 \001(\t\022\016\n\006offset\030\002 \001(\r\022\022\n\ncubtowrite\030\003"
+  " \001(\r\022\r\n\005bytes\030\004 \001(\014\022\020\n\010otp_type\030\005 \001(\r\022\026\n"
+  "\016otp_identifier\030\006 \001(\t\022\030\n\020otp_sharedsecre"
+  "t\030\007 \001(\014\022\025\n\rotp_timedrift\030\010 \001(\r\"\341\001\n#CMsgC"
+  "lientUpdateMachineAuthResponse\022\020\n\010filena"
+  "me\030\001 \001(\t\022\017\n\007eresult\030\002 \001(\r\022\020\n\010filesize\030\003 "
+  "\001(\r\022\020\n\010sha_file\030\004 \001(\014\022\024\n\014getlasterror\030\005 "
+  "\001(\r\022\016\n\006offset\030\006 \001(\r\022\020\n\010cubwrote\030\007 \001(\r\022\020\n"
+  "\010otp_type\030\010 \001(\005\022\021\n\totp_value\030\t \001(\r\022\026\n\016ot"
+  "p_identifier\030\n \001(\t\"$\n\025CMsgClientRegister"
+  "Key\022\013\n\003key\030\001 \001(\t\"p\n\032CMsgClientPurchaseRe"
+  "sponse\022\022\n\007eresult\030\001 \001(\005:\0012\022\037\n\027purchase_r"
+  "esult_details\030\002 \001(\005\022\035\n\025purchase_receipt_"
+  "info\030\003 \001(\014\"\305\001\n\034CMsgClientActivateOEMLice"
+  "nse\022\031\n\021bios_manufacturer\030\001 \001(\t\022\031\n\021bios_s"
+  "erialnumber\030\002 \001(\t\022\024\n\014license_file\030\003 \001(\014\022"
+  "\036\n\026mainboard_manufacturer\030\004 \001(\t\022\031\n\021mainb"
+  "oard_product\030\005 \001(\t\022\036\n\026mainboard_serialnu"
+  "mber\030\006 \001(\t\"9\n\034CMsgClientRegisterOEMMachi"
+  "ne\022\031\n\021oem_register_file\030\001 \001(\014\"7\n$CMsgCli"
+  "entRegisterOEMMachineResponse\022\017\n\007eresult"
+  "\030\001 \001(\r\"K\n\037CMsgClientPurchaseWithMachineI"
+  "D\022\022\n\npackage_id\030\001 \001(\r\022\024\n\014machine_info\030\002 "
+  "\001(\014\"g\n CMsgTrading_InitiateTradeRequest\022"
+  "\030\n\020trade_request_id\030\001 \001(\r\022\025\n\rother_steam"
+  "id\030\002 \001(\004\022\022\n\nother_name\030\003 \001(\t\"\322\002\n!CMsgTra"
+  "ding_InitiateTradeResponse\022\020\n\010response\030\001"
+  " \001(\r\022\030\n\020trade_request_id\030\002 \001(\r\022\025\n\rother_"
+  "steamid\030\003 \001(\004\022 \n\030steamguard_required_day"
+  "s\030\004 \001(\r\022 \n\030new_device_cooldown_days\030\005 \001("
+  "\r\022-\n%default_password_reset_probation_da"
+  "ys\030\006 \001(\r\022%\n\035password_reset_probation_day"
+  "s\030\007 \001(\r\022+\n#default_email_change_probatio"
+  "n_days\030\010 \001(\r\022#\n\033email_change_probation_d"
+  "ays\030\t \001(\r\"7\n\036CMsgTrading_CancelTradeRequ"
+  "est\022\025\n\rother_steamid\030\001 \001(\004\"1\n\030CMsgTradin"
+  "g_StartSession\022\025\n\rother_steamid\030\001 \001(\004\"C\n"
+  "\037CMsgClientGetDepotDecryptionKey\022\020\n\010depo"
+  "t_id\030\001 \001(\r\022\016\n\006app_id\030\002 \001(\r\"m\n\'CMsgClient"
+  "GetDepotDecryptionKeyResponse\022\022\n\007eresult"
+  "\030\001 \001(\005:\0012\022\020\n\010depot_id\030\002 \001(\r\022\034\n\024depot_enc"
+  "ryption_key\030\003 \001(\014\"X\n\036CMsgClientCheckAppB"
+  "etaPassword\022\016\n\006app_id\030\001 \001(\r\022\024\n\014betapassw"
+  "ord\030\002 \001(\t\022\020\n\010language\030\003 \001(\005\"\332\001\n&CMsgClie"
+  "ntCheckAppBetaPasswordResponse\022\022\n\007eresul"
+  "t\030\001 \001(\005:\0012\022K\n\rbetapasswords\030\004 \003(\01324.CMsg"
+  "ClientCheckAppBetaPasswordResponse.BetaP"
+  "assword\032O\n\014BetaPassword\022\020\n\010betaname\030\001 \001("
+  "\t\022\024\n\014betapassword\030\002 \001(\t\022\027\n\017betadescripti"
+  "on\030\003 \001(\t\"\231\001\n\033CMsgClientUGSGetGlobalStats"
   "\022\016\n\006gameid\030\001 \001(\004\022\036\n\026history_days_request"
   "ed\030\002 \001(\r\022\033\n\023time_last_requested\030\003 \001(\007\022\030\n"
   "\020first_day_cached\030\004 \001(\r\022\023\n\013days_cached\030\005"
@@ -3812,8 +3552,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5f2_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5f2_2eproto = {
-  false, false, 13704, descriptor_table_protodef_steammessages_5fclientserver_5f2_2eproto, "steammessages_clientserver_2.proto", 
-  &descriptor_table_steammessages_5fclientserver_5f2_2eproto_once, descriptor_table_steammessages_5fclientserver_5f2_2eproto_deps, 2, 127,
+  false, false, 12664, descriptor_table_protodef_steammessages_5fclientserver_5f2_2eproto, "steammessages_clientserver_2.proto", 
+  &descriptor_table_steammessages_5fclientserver_5f2_2eproto_once, descriptor_table_steammessages_5fclientserver_5f2_2eproto_deps, 2, 120,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5f2_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5f2_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5f2_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5f2_2eproto,
 };
@@ -4606,6 +4346,274 @@ void CMsgClientRichPresenceRequest::InternalSwap(CMsgClientRichPresenceRequest* 
 
 // ===================================================================
 
+class CMsgClientRichPresenceInfo_KV::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientRichPresenceInfo_KV>()._has_bits_);
+  static void set_has_key(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_value(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMsgClientRichPresenceInfo_KV::CMsgClientRichPresenceInfo_KV(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientRichPresenceInfo.KV)
+}
+CMsgClientRichPresenceInfo_KV::CMsgClientRichPresenceInfo_KV(const CMsgClientRichPresenceInfo_KV& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_key()) {
+    key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_key(), 
+      GetArena());
+  }
+  value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_value()) {
+    value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_value(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:CMsgClientRichPresenceInfo.KV)
+}
+
+void CMsgClientRichPresenceInfo_KV::SharedCtor() {
+key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+CMsgClientRichPresenceInfo_KV::~CMsgClientRichPresenceInfo_KV() {
+  // @@protoc_insertion_point(destructor:CMsgClientRichPresenceInfo.KV)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMsgClientRichPresenceInfo_KV::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  key_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CMsgClientRichPresenceInfo_KV::ArenaDtor(void* object) {
+  CMsgClientRichPresenceInfo_KV* _this = reinterpret_cast< CMsgClientRichPresenceInfo_KV* >(object);
+  (void)_this;
+}
+void CMsgClientRichPresenceInfo_KV::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMsgClientRichPresenceInfo_KV::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMsgClientRichPresenceInfo_KV::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientRichPresenceInfo.KV)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      key_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      value_.ClearNonDefaultToEmpty();
+    }
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientRichPresenceInfo_KV::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string key = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_key();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRichPresenceInfo.KV.key");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_value();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRichPresenceInfo.KV.value");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientRichPresenceInfo_KV::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientRichPresenceInfo.KV)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string key = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgClientRichPresenceInfo.KV.key");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_key(), target);
+  }
+
+  // optional string value = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_value().data(), static_cast<int>(this->_internal_value().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgClientRichPresenceInfo.KV.value");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_value(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientRichPresenceInfo.KV)
+  return target;
+}
+
+size_t CMsgClientRichPresenceInfo_KV::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientRichPresenceInfo.KV)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional string key = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_key());
+    }
+
+    // optional string value = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_value());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMsgClientRichPresenceInfo_KV::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientRichPresenceInfo.KV)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMsgClientRichPresenceInfo_KV* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientRichPresenceInfo_KV>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientRichPresenceInfo.KV)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientRichPresenceInfo.KV)
+    MergeFrom(*source);
+  }
+}
+
+void CMsgClientRichPresenceInfo_KV::MergeFrom(const CMsgClientRichPresenceInfo_KV& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientRichPresenceInfo.KV)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_key(from._internal_key());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_value(from._internal_value());
+    }
+  }
+}
+
+void CMsgClientRichPresenceInfo_KV::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientRichPresenceInfo.KV)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMsgClientRichPresenceInfo_KV::CopyFrom(const CMsgClientRichPresenceInfo_KV& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientRichPresenceInfo.KV)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientRichPresenceInfo_KV::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientRichPresenceInfo_KV::InternalSwap(CMsgClientRichPresenceInfo_KV* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  key_.Swap(&other->key_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  value_.Swap(&other->value_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientRichPresenceInfo_KV::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CMsgClientRichPresenceInfo_RichPresence::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgClientRichPresenceInfo_RichPresence>()._has_bits_);
@@ -4618,14 +4626,16 @@ class CMsgClientRichPresenceInfo_RichPresence::_Internal {
 };
 
 CMsgClientRichPresenceInfo_RichPresence::CMsgClientRichPresenceInfo_RichPresence(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  rich_presense_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CMsgClientRichPresenceInfo.RichPresence)
 }
 CMsgClientRichPresenceInfo_RichPresence::CMsgClientRichPresenceInfo_RichPresence(const CMsgClientRichPresenceInfo_RichPresence& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
+      _has_bits_(from._has_bits_),
+      rich_presense_(from.rich_presense_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   rich_presence_kv_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_rich_presence_kv()) {
@@ -4668,6 +4678,7 @@ void CMsgClientRichPresenceInfo_RichPresence::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  rich_presense_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     rich_presence_kv_.ClearNonDefaultToEmpty();
@@ -4699,6 +4710,18 @@ const char* CMsgClientRichPresenceInfo_RichPresence::_InternalParse(const char* 
           auto str = _internal_mutable_rich_presence_kv();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .CMsgClientRichPresenceInfo.KV rich_presense = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_rich_presense(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -4743,6 +4766,14 @@ failure:
         2, this->_internal_rich_presence_kv(), target);
   }
 
+  // repeated .CMsgClientRichPresenceInfo.KV rich_presense = 3;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_rich_presense_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, this->_internal_rich_presense(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4758,6 +4789,13 @@ size_t CMsgClientRichPresenceInfo_RichPresence::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated .CMsgClientRichPresenceInfo.KV rich_presense = 3;
+  total_size += 1UL * this->_internal_rich_presense_size();
+  for (const auto& msg : this->rich_presense_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
@@ -4805,6 +4843,7 @@ void CMsgClientRichPresenceInfo_RichPresence::MergeFrom(const CMsgClientRichPres
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  rich_presense_.MergeFrom(from.rich_presense_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
@@ -4839,6 +4878,7 @@ void CMsgClientRichPresenceInfo_RichPresence::InternalSwap(CMsgClientRichPresenc
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
+  rich_presense_.InternalSwap(&other->rich_presense_);
   rich_presence_kv_.Swap(&other->rich_presence_kv_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   swap(steamid_user_, other->steamid_user_);
 }
@@ -7544,805 +7584,6 @@ void CMsgClientUpdateMachineAuthResponse::InternalSwap(CMsgClientUpdateMachineAu
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientUpdateMachineAuthResponse::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgClientRequestMachineAuth::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgClientRequestMachineAuth>()._has_bits_);
-  static void set_has_filename(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_eresult_sentryfile(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_filesize(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-  static void set_has_sha_sentryfile(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_locaccount_action(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
-  }
-  static void set_has_otp_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
-  }
-  static void set_has_otp_identifier(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_otp_sharedsecret(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_otp_value(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
-  }
-  static void set_has_machine_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_machine_name_userchosen(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-};
-
-CMsgClientRequestMachineAuth::CMsgClientRequestMachineAuth(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientRequestMachineAuth)
-}
-CMsgClientRequestMachineAuth::CMsgClientRequestMachineAuth(const CMsgClientRequestMachineAuth& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_filename()) {
-    filename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_filename(), 
-      GetArena());
-  }
-  sha_sentryfile_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_sha_sentryfile()) {
-    sha_sentryfile_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sha_sentryfile(), 
-      GetArena());
-  }
-  otp_identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_otp_identifier()) {
-    otp_identifier_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_otp_identifier(), 
-      GetArena());
-  }
-  otp_sharedsecret_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_otp_sharedsecret()) {
-    otp_sharedsecret_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_otp_sharedsecret(), 
-      GetArena());
-  }
-  machine_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_machine_name()) {
-    machine_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_name(), 
-      GetArena());
-  }
-  machine_name_userchosen_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_machine_name_userchosen()) {
-    machine_name_userchosen_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_name_userchosen(), 
-      GetArena());
-  }
-  ::memcpy(&eresult_sentryfile_, &from.eresult_sentryfile_,
-    static_cast<size_t>(reinterpret_cast<char*>(&otp_value_) -
-    reinterpret_cast<char*>(&eresult_sentryfile_)) + sizeof(otp_value_));
-  // @@protoc_insertion_point(copy_constructor:CMsgClientRequestMachineAuth)
-}
-
-void CMsgClientRequestMachineAuth::SharedCtor() {
-filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-sha_sentryfile_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-otp_identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-otp_sharedsecret_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-machine_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-machine_name_userchosen_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&eresult_sentryfile_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&otp_value_) -
-    reinterpret_cast<char*>(&eresult_sentryfile_)) + sizeof(otp_value_));
-}
-
-CMsgClientRequestMachineAuth::~CMsgClientRequestMachineAuth() {
-  // @@protoc_insertion_point(destructor:CMsgClientRequestMachineAuth)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgClientRequestMachineAuth::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  sha_sentryfile_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  otp_identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  otp_sharedsecret_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  machine_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  machine_name_userchosen_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CMsgClientRequestMachineAuth::ArenaDtor(void* object) {
-  CMsgClientRequestMachineAuth* _this = reinterpret_cast< CMsgClientRequestMachineAuth* >(object);
-  (void)_this;
-}
-void CMsgClientRequestMachineAuth::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgClientRequestMachineAuth::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgClientRequestMachineAuth::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientRequestMachineAuth)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
-    if (cached_has_bits & 0x00000001u) {
-      filename_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      sha_sentryfile_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      otp_identifier_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000008u) {
-      otp_sharedsecret_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000010u) {
-      machine_name_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000020u) {
-      machine_name_userchosen_.ClearNonDefaultToEmpty();
-    }
-  }
-  if (cached_has_bits & 0x000000c0u) {
-    ::memset(&eresult_sentryfile_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&filesize_) -
-        reinterpret_cast<char*>(&eresult_sentryfile_)) + sizeof(filesize_));
-  }
-  if (cached_has_bits & 0x00000700u) {
-    ::memset(&locaccount_action_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&otp_value_) -
-        reinterpret_cast<char*>(&locaccount_action_)) + sizeof(otp_value_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgClientRequestMachineAuth::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional string filename = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_filename();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestMachineAuth.filename");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 eresult_sentryfile = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_eresult_sentryfile(&has_bits);
-          eresult_sentryfile_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 filesize = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_filesize(&has_bits);
-          filesize_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bytes sha_sentryfile = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          auto str = _internal_mutable_sha_sentryfile();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional int32 locaccount_action = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          _Internal::set_has_locaccount_action(&has_bits);
-          locaccount_action_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 otp_type = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          _Internal::set_has_otp_type(&has_bits);
-          otp_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string otp_identifier = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
-          auto str = _internal_mutable_otp_identifier();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestMachineAuth.otp_identifier");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bytes otp_sharedsecret = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
-          auto str = _internal_mutable_otp_sharedsecret();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 otp_value = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
-          _Internal::set_has_otp_value(&has_bits);
-          otp_value_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string machine_name = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
-          auto str = _internal_mutable_machine_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestMachineAuth.machine_name");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string machine_name_userchosen = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
-          auto str = _internal_mutable_machine_name_userchosen();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestMachineAuth.machine_name_userchosen");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientRequestMachineAuth::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientRequestMachineAuth)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional string filename = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestMachineAuth.filename");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_filename(), target);
-  }
-
-  // optional uint32 eresult_sentryfile = 2;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_eresult_sentryfile(), target);
-  }
-
-  // optional uint32 filesize = 3;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_filesize(), target);
-  }
-
-  // optional bytes sha_sentryfile = 4;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->WriteBytesMaybeAliased(
-        4, this->_internal_sha_sentryfile(), target);
-  }
-
-  // optional int32 locaccount_action = 6;
-  if (cached_has_bits & 0x00000100u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_locaccount_action(), target);
-  }
-
-  // optional uint32 otp_type = 7;
-  if (cached_has_bits & 0x00000200u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_otp_type(), target);
-  }
-
-  // optional string otp_identifier = 8;
-  if (cached_has_bits & 0x00000004u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_otp_identifier().data(), static_cast<int>(this->_internal_otp_identifier().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestMachineAuth.otp_identifier");
-    target = stream->WriteStringMaybeAliased(
-        8, this->_internal_otp_identifier(), target);
-  }
-
-  // optional bytes otp_sharedsecret = 9;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->WriteBytesMaybeAliased(
-        9, this->_internal_otp_sharedsecret(), target);
-  }
-
-  // optional uint32 otp_value = 10;
-  if (cached_has_bits & 0x00000400u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_otp_value(), target);
-  }
-
-  // optional string machine_name = 11;
-  if (cached_has_bits & 0x00000010u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_machine_name().data(), static_cast<int>(this->_internal_machine_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestMachineAuth.machine_name");
-    target = stream->WriteStringMaybeAliased(
-        11, this->_internal_machine_name(), target);
-  }
-
-  // optional string machine_name_userchosen = 12;
-  if (cached_has_bits & 0x00000020u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_machine_name_userchosen().data(), static_cast<int>(this->_internal_machine_name_userchosen().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestMachineAuth.machine_name_userchosen");
-    target = stream->WriteStringMaybeAliased(
-        12, this->_internal_machine_name_userchosen(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientRequestMachineAuth)
-  return target;
-}
-
-size_t CMsgClientRequestMachineAuth::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientRequestMachineAuth)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    // optional string filename = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_filename());
-    }
-
-    // optional bytes sha_sentryfile = 4;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-          this->_internal_sha_sentryfile());
-    }
-
-    // optional string otp_identifier = 8;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_otp_identifier());
-    }
-
-    // optional bytes otp_sharedsecret = 9;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-          this->_internal_otp_sharedsecret());
-    }
-
-    // optional string machine_name = 11;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_machine_name());
-    }
-
-    // optional string machine_name_userchosen = 12;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_machine_name_userchosen());
-    }
-
-    // optional uint32 eresult_sentryfile = 2;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_eresult_sentryfile());
-    }
-
-    // optional uint32 filesize = 3;
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_filesize());
-    }
-
-  }
-  if (cached_has_bits & 0x00000700u) {
-    // optional int32 locaccount_action = 6;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_locaccount_action());
-    }
-
-    // optional uint32 otp_type = 7;
-    if (cached_has_bits & 0x00000200u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_otp_type());
-    }
-
-    // optional uint32 otp_value = 10;
-    if (cached_has_bits & 0x00000400u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_otp_value());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgClientRequestMachineAuth::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientRequestMachineAuth)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgClientRequestMachineAuth* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientRequestMachineAuth>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientRequestMachineAuth)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientRequestMachineAuth)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgClientRequestMachineAuth::MergeFrom(const CMsgClientRequestMachineAuth& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientRequestMachineAuth)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_filename(from._internal_filename());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _internal_set_sha_sentryfile(from._internal_sha_sentryfile());
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _internal_set_otp_identifier(from._internal_otp_identifier());
-    }
-    if (cached_has_bits & 0x00000008u) {
-      _internal_set_otp_sharedsecret(from._internal_otp_sharedsecret());
-    }
-    if (cached_has_bits & 0x00000010u) {
-      _internal_set_machine_name(from._internal_machine_name());
-    }
-    if (cached_has_bits & 0x00000020u) {
-      _internal_set_machine_name_userchosen(from._internal_machine_name_userchosen());
-    }
-    if (cached_has_bits & 0x00000040u) {
-      eresult_sentryfile_ = from.eresult_sentryfile_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      filesize_ = from.filesize_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0x00000700u) {
-    if (cached_has_bits & 0x00000100u) {
-      locaccount_action_ = from.locaccount_action_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      otp_type_ = from.otp_type_;
-    }
-    if (cached_has_bits & 0x00000400u) {
-      otp_value_ = from.otp_value_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgClientRequestMachineAuth::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientRequestMachineAuth)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgClientRequestMachineAuth::CopyFrom(const CMsgClientRequestMachineAuth& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientRequestMachineAuth)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgClientRequestMachineAuth::IsInitialized() const {
-  return true;
-}
-
-void CMsgClientRequestMachineAuth::InternalSwap(CMsgClientRequestMachineAuth* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  filename_.Swap(&other->filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  sha_sentryfile_.Swap(&other->sha_sentryfile_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  otp_identifier_.Swap(&other->otp_identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  otp_sharedsecret_.Swap(&other->otp_sharedsecret_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  machine_name_.Swap(&other->machine_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  machine_name_userchosen_.Swap(&other->machine_name_userchosen_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientRequestMachineAuth, otp_value_)
-      + sizeof(CMsgClientRequestMachineAuth::otp_value_)
-      - PROTOBUF_FIELD_OFFSET(CMsgClientRequestMachineAuth, eresult_sentryfile_)>(
-          reinterpret_cast<char*>(&eresult_sentryfile_),
-          reinterpret_cast<char*>(&other->eresult_sentryfile_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientRequestMachineAuth::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgClientRequestMachineAuthResponse::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgClientRequestMachineAuthResponse>()._has_bits_);
-  static void set_has_eresult(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-};
-
-CMsgClientRequestMachineAuthResponse::CMsgClientRequestMachineAuthResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientRequestMachineAuthResponse)
-}
-CMsgClientRequestMachineAuthResponse::CMsgClientRequestMachineAuthResponse(const CMsgClientRequestMachineAuthResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  eresult_ = from.eresult_;
-  // @@protoc_insertion_point(copy_constructor:CMsgClientRequestMachineAuthResponse)
-}
-
-void CMsgClientRequestMachineAuthResponse::SharedCtor() {
-eresult_ = 0u;
-}
-
-CMsgClientRequestMachineAuthResponse::~CMsgClientRequestMachineAuthResponse() {
-  // @@protoc_insertion_point(destructor:CMsgClientRequestMachineAuthResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgClientRequestMachineAuthResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CMsgClientRequestMachineAuthResponse::ArenaDtor(void* object) {
-  CMsgClientRequestMachineAuthResponse* _this = reinterpret_cast< CMsgClientRequestMachineAuthResponse* >(object);
-  (void)_this;
-}
-void CMsgClientRequestMachineAuthResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgClientRequestMachineAuthResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgClientRequestMachineAuthResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientRequestMachineAuthResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  eresult_ = 0u;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgClientRequestMachineAuthResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 eresult = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_eresult(&has_bits);
-          eresult_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientRequestMachineAuthResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientRequestMachineAuthResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 eresult = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_eresult(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientRequestMachineAuthResponse)
-  return target;
-}
-
-size_t CMsgClientRequestMachineAuthResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientRequestMachineAuthResponse)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // optional uint32 eresult = 1;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_eresult());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgClientRequestMachineAuthResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientRequestMachineAuthResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgClientRequestMachineAuthResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientRequestMachineAuthResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientRequestMachineAuthResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientRequestMachineAuthResponse)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgClientRequestMachineAuthResponse::MergeFrom(const CMsgClientRequestMachineAuthResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientRequestMachineAuthResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_eresult()) {
-    _internal_set_eresult(from._internal_eresult());
-  }
-}
-
-void CMsgClientRequestMachineAuthResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientRequestMachineAuthResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgClientRequestMachineAuthResponse::CopyFrom(const CMsgClientRequestMachineAuthResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientRequestMachineAuthResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgClientRequestMachineAuthResponse::IsInitialized() const {
-  return true;
-}
-
-void CMsgClientRequestMachineAuthResponse::InternalSwap(CMsgClientRequestMachineAuthResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(eresult_, other->eresult_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientRequestMachineAuthResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -11077,300 +10318,6 @@ void CMsgTrading_StartSession::InternalSwap(CMsgTrading_StartSession* other) {
 
 // ===================================================================
 
-class CMsgClientGetCDNAuthToken::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgClientGetCDNAuthToken>()._has_bits_);
-  static void set_has_depot_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_host_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_app_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-};
-
-CMsgClientGetCDNAuthToken::CMsgClientGetCDNAuthToken(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientGetCDNAuthToken)
-}
-CMsgClientGetCDNAuthToken::CMsgClientGetCDNAuthToken(const CMsgClientGetCDNAuthToken& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  host_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_host_name()) {
-    host_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_host_name(), 
-      GetArena());
-  }
-  ::memcpy(&depot_id_, &from.depot_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&app_id_) -
-    reinterpret_cast<char*>(&depot_id_)) + sizeof(app_id_));
-  // @@protoc_insertion_point(copy_constructor:CMsgClientGetCDNAuthToken)
-}
-
-void CMsgClientGetCDNAuthToken::SharedCtor() {
-host_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&depot_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&app_id_) -
-    reinterpret_cast<char*>(&depot_id_)) + sizeof(app_id_));
-}
-
-CMsgClientGetCDNAuthToken::~CMsgClientGetCDNAuthToken() {
-  // @@protoc_insertion_point(destructor:CMsgClientGetCDNAuthToken)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgClientGetCDNAuthToken::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  host_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CMsgClientGetCDNAuthToken::ArenaDtor(void* object) {
-  CMsgClientGetCDNAuthToken* _this = reinterpret_cast< CMsgClientGetCDNAuthToken* >(object);
-  (void)_this;
-}
-void CMsgClientGetCDNAuthToken::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgClientGetCDNAuthToken::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgClientGetCDNAuthToken::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientGetCDNAuthToken)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    host_name_.ClearNonDefaultToEmpty();
-  }
-  if (cached_has_bits & 0x00000006u) {
-    ::memset(&depot_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&app_id_) -
-        reinterpret_cast<char*>(&depot_id_)) + sizeof(app_id_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgClientGetCDNAuthToken::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 depot_id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_depot_id(&has_bits);
-          depot_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string host_name = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_host_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientGetCDNAuthToken.host_name");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 app_id = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_app_id(&has_bits);
-          app_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientGetCDNAuthToken::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientGetCDNAuthToken)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 depot_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_depot_id(), target);
-  }
-
-  // optional string host_name = 2;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_host_name().data(), static_cast<int>(this->_internal_host_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientGetCDNAuthToken.host_name");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_host_name(), target);
-  }
-
-  // optional uint32 app_id = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_app_id(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientGetCDNAuthToken)
-  return target;
-}
-
-size_t CMsgClientGetCDNAuthToken::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientGetCDNAuthToken)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional string host_name = 2;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_host_name());
-    }
-
-    // optional uint32 depot_id = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_depot_id());
-    }
-
-    // optional uint32 app_id = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_app_id());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgClientGetCDNAuthToken::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientGetCDNAuthToken)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgClientGetCDNAuthToken* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientGetCDNAuthToken>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientGetCDNAuthToken)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientGetCDNAuthToken)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgClientGetCDNAuthToken::MergeFrom(const CMsgClientGetCDNAuthToken& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientGetCDNAuthToken)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_host_name(from._internal_host_name());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      depot_id_ = from.depot_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      app_id_ = from.app_id_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgClientGetCDNAuthToken::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientGetCDNAuthToken)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgClientGetCDNAuthToken::CopyFrom(const CMsgClientGetCDNAuthToken& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientGetCDNAuthToken)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgClientGetCDNAuthToken::IsInitialized() const {
-  return true;
-}
-
-void CMsgClientGetCDNAuthToken::InternalSwap(CMsgClientGetCDNAuthToken* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  host_name_.Swap(&other->host_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientGetCDNAuthToken, app_id_)
-      + sizeof(CMsgClientGetCDNAuthToken::app_id_)
-      - PROTOBUF_FIELD_OFFSET(CMsgClientGetCDNAuthToken, depot_id_)>(
-          reinterpret_cast<char*>(&depot_id_),
-          reinterpret_cast<char*>(&other->depot_id_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientGetCDNAuthToken::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 class CMsgClientGetDepotDecryptionKey::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgClientGetDepotDecryptionKey>()._has_bits_);
@@ -12734,1737 +11681,6 @@ void CMsgClientCheckAppBetaPasswordResponse::InternalSwap(CMsgClientCheckAppBeta
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientCheckAppBetaPasswordResponse::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgClientGetCDNAuthTokenResponse::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgClientGetCDNAuthTokenResponse>()._has_bits_);
-  static void set_has_eresult(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_token(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_expiration_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-};
-
-CMsgClientGetCDNAuthTokenResponse::CMsgClientGetCDNAuthTokenResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientGetCDNAuthTokenResponse)
-}
-CMsgClientGetCDNAuthTokenResponse::CMsgClientGetCDNAuthTokenResponse(const CMsgClientGetCDNAuthTokenResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_token()) {
-    token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_token(), 
-      GetArena());
-  }
-  ::memcpy(&expiration_time_, &from.expiration_time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&eresult_) -
-    reinterpret_cast<char*>(&expiration_time_)) + sizeof(eresult_));
-  // @@protoc_insertion_point(copy_constructor:CMsgClientGetCDNAuthTokenResponse)
-}
-
-void CMsgClientGetCDNAuthTokenResponse::SharedCtor() {
-token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-expiration_time_ = 0u;
-eresult_ = 2u;
-}
-
-CMsgClientGetCDNAuthTokenResponse::~CMsgClientGetCDNAuthTokenResponse() {
-  // @@protoc_insertion_point(destructor:CMsgClientGetCDNAuthTokenResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgClientGetCDNAuthTokenResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CMsgClientGetCDNAuthTokenResponse::ArenaDtor(void* object) {
-  CMsgClientGetCDNAuthTokenResponse* _this = reinterpret_cast< CMsgClientGetCDNAuthTokenResponse* >(object);
-  (void)_this;
-}
-void CMsgClientGetCDNAuthTokenResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgClientGetCDNAuthTokenResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgClientGetCDNAuthTokenResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientGetCDNAuthTokenResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    token_.ClearNonDefaultToEmpty();
-  }
-  if (cached_has_bits & 0x00000006u) {
-    expiration_time_ = 0u;
-    eresult_ = 2u;
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgClientGetCDNAuthTokenResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 eresult = 1 [default = 2];
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_eresult(&has_bits);
-          eresult_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string token = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_token();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientGetCDNAuthTokenResponse.token");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 expiration_time = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_expiration_time(&has_bits);
-          expiration_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientGetCDNAuthTokenResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientGetCDNAuthTokenResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 eresult = 1 [default = 2];
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_eresult(), target);
-  }
-
-  // optional string token = 2;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_token().data(), static_cast<int>(this->_internal_token().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientGetCDNAuthTokenResponse.token");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_token(), target);
-  }
-
-  // optional uint32 expiration_time = 3;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_expiration_time(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientGetCDNAuthTokenResponse)
-  return target;
-}
-
-size_t CMsgClientGetCDNAuthTokenResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientGetCDNAuthTokenResponse)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional string token = 2;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_token());
-    }
-
-    // optional uint32 expiration_time = 3;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_expiration_time());
-    }
-
-    // optional uint32 eresult = 1 [default = 2];
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_eresult());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgClientGetCDNAuthTokenResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientGetCDNAuthTokenResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgClientGetCDNAuthTokenResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientGetCDNAuthTokenResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientGetCDNAuthTokenResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientGetCDNAuthTokenResponse)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgClientGetCDNAuthTokenResponse::MergeFrom(const CMsgClientGetCDNAuthTokenResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientGetCDNAuthTokenResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_token(from._internal_token());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      expiration_time_ = from.expiration_time_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      eresult_ = from.eresult_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgClientGetCDNAuthTokenResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientGetCDNAuthTokenResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgClientGetCDNAuthTokenResponse::CopyFrom(const CMsgClientGetCDNAuthTokenResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientGetCDNAuthTokenResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgClientGetCDNAuthTokenResponse::IsInitialized() const {
-  return true;
-}
-
-void CMsgClientGetCDNAuthTokenResponse::InternalSwap(CMsgClientGetCDNAuthTokenResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  token_.Swap(&other->token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(expiration_time_, other->expiration_time_);
-  swap(eresult_, other->eresult_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientGetCDNAuthTokenResponse::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgDownloadRateStatistics_StatsInfo::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgDownloadRateStatistics_StatsInfo>()._has_bits_);
-  static void set_has_source_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_source_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_seconds(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_bytes(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_host_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_microseconds(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_used_ipv6(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_proxied(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-};
-
-CMsgDownloadRateStatistics_StatsInfo::CMsgDownloadRateStatistics_StatsInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgDownloadRateStatistics.StatsInfo)
-}
-CMsgDownloadRateStatistics_StatsInfo::CMsgDownloadRateStatistics_StatsInfo(const CMsgDownloadRateStatistics_StatsInfo& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  host_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_host_name()) {
-    host_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_host_name(), 
-      GetArena());
-  }
-  ::memcpy(&source_type_, &from.source_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&proxied_) -
-    reinterpret_cast<char*>(&source_type_)) + sizeof(proxied_));
-  // @@protoc_insertion_point(copy_constructor:CMsgDownloadRateStatistics.StatsInfo)
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::SharedCtor() {
-host_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&source_type_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&proxied_) -
-    reinterpret_cast<char*>(&source_type_)) + sizeof(proxied_));
-}
-
-CMsgDownloadRateStatistics_StatsInfo::~CMsgDownloadRateStatistics_StatsInfo() {
-  // @@protoc_insertion_point(destructor:CMsgDownloadRateStatistics.StatsInfo)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  host_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::ArenaDtor(void* object) {
-  CMsgDownloadRateStatistics_StatsInfo* _this = reinterpret_cast< CMsgDownloadRateStatistics_StatsInfo* >(object);
-  (void)_this;
-}
-void CMsgDownloadRateStatistics_StatsInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgDownloadRateStatistics_StatsInfo::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgDownloadRateStatistics.StatsInfo)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    host_name_.ClearNonDefaultToEmpty();
-  }
-  if (cached_has_bits & 0x000000feu) {
-    ::memset(&source_type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&proxied_) -
-        reinterpret_cast<char*>(&source_type_)) + sizeof(proxied_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgDownloadRateStatistics_StatsInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 source_type = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_source_type(&has_bits);
-          source_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 source_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_source_id(&has_bits);
-          source_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 seconds = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_seconds(&has_bits);
-          seconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint64 bytes = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          _Internal::set_has_bytes(&has_bits);
-          bytes_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string host_name = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          auto str = _internal_mutable_host_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgDownloadRateStatistics.StatsInfo.host_name");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint64 microseconds = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          _Internal::set_has_microseconds(&has_bits);
-          microseconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool used_ipv6 = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          _Internal::set_has_used_ipv6(&has_bits);
-          used_ipv6_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool proxied = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          _Internal::set_has_proxied(&has_bits);
-          proxied_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgDownloadRateStatistics_StatsInfo::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgDownloadRateStatistics.StatsInfo)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 source_type = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_source_type(), target);
-  }
-
-  // optional uint32 source_id = 2;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_source_id(), target);
-  }
-
-  // optional uint32 seconds = 3;
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_seconds(), target);
-  }
-
-  // optional uint64 bytes = 4;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_bytes(), target);
-  }
-
-  // optional string host_name = 5;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_host_name().data(), static_cast<int>(this->_internal_host_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgDownloadRateStatistics.StatsInfo.host_name");
-    target = stream->WriteStringMaybeAliased(
-        5, this->_internal_host_name(), target);
-  }
-
-  // optional uint64 microseconds = 6;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_microseconds(), target);
-  }
-
-  // optional bool used_ipv6 = 7;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_used_ipv6(), target);
-  }
-
-  // optional bool proxied = 8;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_proxied(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgDownloadRateStatistics.StatsInfo)
-  return target;
-}
-
-size_t CMsgDownloadRateStatistics_StatsInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgDownloadRateStatistics.StatsInfo)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    // optional string host_name = 5;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_host_name());
-    }
-
-    // optional uint32 source_type = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_source_type());
-    }
-
-    // optional uint32 source_id = 2;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_source_id());
-    }
-
-    // optional uint64 bytes = 4;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-          this->_internal_bytes());
-    }
-
-    // optional uint64 microseconds = 6;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-          this->_internal_microseconds());
-    }
-
-    // optional uint32 seconds = 3;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_seconds());
-    }
-
-    // optional bool used_ipv6 = 7;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool proxied = 8;
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 1 + 1;
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgDownloadRateStatistics.StatsInfo)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgDownloadRateStatistics_StatsInfo* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgDownloadRateStatistics_StatsInfo>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgDownloadRateStatistics.StatsInfo)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgDownloadRateStatistics.StatsInfo)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::MergeFrom(const CMsgDownloadRateStatistics_StatsInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgDownloadRateStatistics.StatsInfo)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_host_name(from._internal_host_name());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      source_type_ = from.source_type_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      source_id_ = from.source_id_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      bytes_ = from.bytes_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      microseconds_ = from.microseconds_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      seconds_ = from.seconds_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      used_ipv6_ = from.used_ipv6_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      proxied_ = from.proxied_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgDownloadRateStatistics.StatsInfo)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::CopyFrom(const CMsgDownloadRateStatistics_StatsInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgDownloadRateStatistics.StatsInfo)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgDownloadRateStatistics_StatsInfo::IsInitialized() const {
-  return true;
-}
-
-void CMsgDownloadRateStatistics_StatsInfo::InternalSwap(CMsgDownloadRateStatistics_StatsInfo* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  host_name_.Swap(&other->host_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgDownloadRateStatistics_StatsInfo, proxied_)
-      + sizeof(CMsgDownloadRateStatistics_StatsInfo::proxied_)
-      - PROTOBUF_FIELD_OFFSET(CMsgDownloadRateStatistics_StatsInfo, source_type_)>(
-          reinterpret_cast<char*>(&source_type_),
-          reinterpret_cast<char*>(&other->source_type_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgDownloadRateStatistics_StatsInfo::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgDownloadRateStatistics::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgDownloadRateStatistics>()._has_bits_);
-  static void set_has_cell_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_throttling_kbps(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_steam_realm(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-};
-
-CMsgDownloadRateStatistics::CMsgDownloadRateStatistics(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  stats_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgDownloadRateStatistics)
-}
-CMsgDownloadRateStatistics::CMsgDownloadRateStatistics(const CMsgDownloadRateStatistics& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
-      stats_(from.stats_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&cell_id_, &from.cell_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&steam_realm_) -
-    reinterpret_cast<char*>(&cell_id_)) + sizeof(steam_realm_));
-  // @@protoc_insertion_point(copy_constructor:CMsgDownloadRateStatistics)
-}
-
-void CMsgDownloadRateStatistics::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&cell_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&steam_realm_) -
-    reinterpret_cast<char*>(&cell_id_)) + sizeof(steam_realm_));
-}
-
-CMsgDownloadRateStatistics::~CMsgDownloadRateStatistics() {
-  // @@protoc_insertion_point(destructor:CMsgDownloadRateStatistics)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgDownloadRateStatistics::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CMsgDownloadRateStatistics::ArenaDtor(void* object) {
-  CMsgDownloadRateStatistics* _this = reinterpret_cast< CMsgDownloadRateStatistics* >(object);
-  (void)_this;
-}
-void CMsgDownloadRateStatistics::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgDownloadRateStatistics::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgDownloadRateStatistics::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgDownloadRateStatistics)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  stats_.Clear();
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    ::memset(&cell_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&steam_realm_) -
-        reinterpret_cast<char*>(&cell_id_)) + sizeof(steam_realm_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgDownloadRateStatistics::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 cell_id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_cell_id(&has_bits);
-          cell_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated .CMsgDownloadRateStatistics.StatsInfo stats = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_stats(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 throttling_kbps = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_throttling_kbps(&has_bits);
-          throttling_kbps_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 steam_realm = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          _Internal::set_has_steam_realm(&has_bits);
-          steam_realm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgDownloadRateStatistics::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgDownloadRateStatistics)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 cell_id = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_cell_id(), target);
-  }
-
-  // repeated .CMsgDownloadRateStatistics.StatsInfo stats = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_stats_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_stats(i), target, stream);
-  }
-
-  // optional uint32 throttling_kbps = 3;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_throttling_kbps(), target);
-  }
-
-  // optional uint32 steam_realm = 4;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_steam_realm(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgDownloadRateStatistics)
-  return target;
-}
-
-size_t CMsgDownloadRateStatistics::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgDownloadRateStatistics)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .CMsgDownloadRateStatistics.StatsInfo stats = 2;
-  total_size += 1UL * this->_internal_stats_size();
-  for (const auto& msg : this->stats_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional uint32 cell_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_cell_id());
-    }
-
-    // optional uint32 throttling_kbps = 3;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_throttling_kbps());
-    }
-
-    // optional uint32 steam_realm = 4;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_steam_realm());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgDownloadRateStatistics::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgDownloadRateStatistics)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgDownloadRateStatistics* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgDownloadRateStatistics>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgDownloadRateStatistics)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgDownloadRateStatistics)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgDownloadRateStatistics::MergeFrom(const CMsgDownloadRateStatistics& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgDownloadRateStatistics)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  stats_.MergeFrom(from.stats_);
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      cell_id_ = from.cell_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      throttling_kbps_ = from.throttling_kbps_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      steam_realm_ = from.steam_realm_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgDownloadRateStatistics::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgDownloadRateStatistics)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgDownloadRateStatistics::CopyFrom(const CMsgDownloadRateStatistics& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgDownloadRateStatistics)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgDownloadRateStatistics::IsInitialized() const {
-  return true;
-}
-
-void CMsgDownloadRateStatistics::InternalSwap(CMsgDownloadRateStatistics* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  stats_.InternalSwap(&other->stats_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgDownloadRateStatistics, steam_realm_)
-      + sizeof(CMsgDownloadRateStatistics::steam_realm_)
-      - PROTOBUF_FIELD_OFFSET(CMsgDownloadRateStatistics, cell_id_)>(
-          reinterpret_cast<char*>(&cell_id_),
-          reinterpret_cast<char*>(&other->cell_id_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgDownloadRateStatistics::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgClientRequestAccountData::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgClientRequestAccountData>()._has_bits_);
-  static void set_has_account_or_email(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_action(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-};
-
-CMsgClientRequestAccountData::CMsgClientRequestAccountData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientRequestAccountData)
-}
-CMsgClientRequestAccountData::CMsgClientRequestAccountData(const CMsgClientRequestAccountData& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  account_or_email_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_account_or_email()) {
-    account_or_email_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_account_or_email(), 
-      GetArena());
-  }
-  action_ = from.action_;
-  // @@protoc_insertion_point(copy_constructor:CMsgClientRequestAccountData)
-}
-
-void CMsgClientRequestAccountData::SharedCtor() {
-account_or_email_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-action_ = 0u;
-}
-
-CMsgClientRequestAccountData::~CMsgClientRequestAccountData() {
-  // @@protoc_insertion_point(destructor:CMsgClientRequestAccountData)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgClientRequestAccountData::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  account_or_email_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CMsgClientRequestAccountData::ArenaDtor(void* object) {
-  CMsgClientRequestAccountData* _this = reinterpret_cast< CMsgClientRequestAccountData* >(object);
-  (void)_this;
-}
-void CMsgClientRequestAccountData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgClientRequestAccountData::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgClientRequestAccountData::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientRequestAccountData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    account_or_email_.ClearNonDefaultToEmpty();
-  }
-  action_ = 0u;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgClientRequestAccountData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional string account_or_email = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_account_or_email();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestAccountData.account_or_email");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 action = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_action(&has_bits);
-          action_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientRequestAccountData::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientRequestAccountData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional string account_or_email = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_account_or_email().data(), static_cast<int>(this->_internal_account_or_email().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestAccountData.account_or_email");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_account_or_email(), target);
-  }
-
-  // optional uint32 action = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_action(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientRequestAccountData)
-  return target;
-}
-
-size_t CMsgClientRequestAccountData::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientRequestAccountData)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional string account_or_email = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_account_or_email());
-    }
-
-    // optional uint32 action = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_action());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgClientRequestAccountData::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientRequestAccountData)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgClientRequestAccountData* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientRequestAccountData>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientRequestAccountData)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientRequestAccountData)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgClientRequestAccountData::MergeFrom(const CMsgClientRequestAccountData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientRequestAccountData)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_account_or_email(from._internal_account_or_email());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      action_ = from.action_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgClientRequestAccountData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientRequestAccountData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgClientRequestAccountData::CopyFrom(const CMsgClientRequestAccountData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientRequestAccountData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgClientRequestAccountData::IsInitialized() const {
-  return true;
-}
-
-void CMsgClientRequestAccountData::InternalSwap(CMsgClientRequestAccountData* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  account_or_email_.Swap(&other->account_or_email_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(action_, other->action_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientRequestAccountData::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CMsgClientRequestAccountDataResponse::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgClientRequestAccountDataResponse>()._has_bits_);
-  static void set_has_action(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_eresult(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_account_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_ct_matches(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_account_name_suggestion1(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_account_name_suggestion2(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_account_name_suggestion3(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-};
-
-CMsgClientRequestAccountDataResponse::CMsgClientRequestAccountDataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientRequestAccountDataResponse)
-}
-CMsgClientRequestAccountDataResponse::CMsgClientRequestAccountDataResponse(const CMsgClientRequestAccountDataResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  account_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_account_name()) {
-    account_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_account_name(), 
-      GetArena());
-  }
-  account_name_suggestion1_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_account_name_suggestion1()) {
-    account_name_suggestion1_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_account_name_suggestion1(), 
-      GetArena());
-  }
-  account_name_suggestion2_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_account_name_suggestion2()) {
-    account_name_suggestion2_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_account_name_suggestion2(), 
-      GetArena());
-  }
-  account_name_suggestion3_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_account_name_suggestion3()) {
-    account_name_suggestion3_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_account_name_suggestion3(), 
-      GetArena());
-  }
-  ::memcpy(&action_, &from.action_,
-    static_cast<size_t>(reinterpret_cast<char*>(&ct_matches_) -
-    reinterpret_cast<char*>(&action_)) + sizeof(ct_matches_));
-  // @@protoc_insertion_point(copy_constructor:CMsgClientRequestAccountDataResponse)
-}
-
-void CMsgClientRequestAccountDataResponse::SharedCtor() {
-account_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-account_name_suggestion1_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-account_name_suggestion2_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-account_name_suggestion3_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&action_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&ct_matches_) -
-    reinterpret_cast<char*>(&action_)) + sizeof(ct_matches_));
-}
-
-CMsgClientRequestAccountDataResponse::~CMsgClientRequestAccountDataResponse() {
-  // @@protoc_insertion_point(destructor:CMsgClientRequestAccountDataResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CMsgClientRequestAccountDataResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  account_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  account_name_suggestion1_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  account_name_suggestion2_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  account_name_suggestion3_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CMsgClientRequestAccountDataResponse::ArenaDtor(void* object) {
-  CMsgClientRequestAccountDataResponse* _this = reinterpret_cast< CMsgClientRequestAccountDataResponse* >(object);
-  (void)_this;
-}
-void CMsgClientRequestAccountDataResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CMsgClientRequestAccountDataResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CMsgClientRequestAccountDataResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientRequestAccountDataResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    if (cached_has_bits & 0x00000001u) {
-      account_name_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      account_name_suggestion1_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      account_name_suggestion2_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000008u) {
-      account_name_suggestion3_.ClearNonDefaultToEmpty();
-    }
-  }
-  if (cached_has_bits & 0x00000070u) {
-    ::memset(&action_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&ct_matches_) -
-        reinterpret_cast<char*>(&action_)) + sizeof(ct_matches_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgClientRequestAccountDataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 action = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_action(&has_bits);
-          action_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 eresult = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_eresult(&has_bits);
-          eresult_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string account_name = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_account_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestAccountDataResponse.account_name");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 ct_matches = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          _Internal::set_has_ct_matches(&has_bits);
-          ct_matches_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string account_name_suggestion1 = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          auto str = _internal_mutable_account_name_suggestion1();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestAccountDataResponse.account_name_suggestion1");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string account_name_suggestion2 = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          auto str = _internal_mutable_account_name_suggestion2();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestAccountDataResponse.account_name_suggestion2");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string account_name_suggestion3 = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          auto str = _internal_mutable_account_name_suggestion3();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CMsgClientRequestAccountDataResponse.account_name_suggestion3");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CMsgClientRequestAccountDataResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientRequestAccountDataResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 action = 1;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_action(), target);
-  }
-
-  // optional uint32 eresult = 2;
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_eresult(), target);
-  }
-
-  // optional string account_name = 3;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_account_name().data(), static_cast<int>(this->_internal_account_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestAccountDataResponse.account_name");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_account_name(), target);
-  }
-
-  // optional uint32 ct_matches = 4;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_ct_matches(), target);
-  }
-
-  // optional string account_name_suggestion1 = 5;
-  if (cached_has_bits & 0x00000002u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_account_name_suggestion1().data(), static_cast<int>(this->_internal_account_name_suggestion1().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestAccountDataResponse.account_name_suggestion1");
-    target = stream->WriteStringMaybeAliased(
-        5, this->_internal_account_name_suggestion1(), target);
-  }
-
-  // optional string account_name_suggestion2 = 6;
-  if (cached_has_bits & 0x00000004u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_account_name_suggestion2().data(), static_cast<int>(this->_internal_account_name_suggestion2().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestAccountDataResponse.account_name_suggestion2");
-    target = stream->WriteStringMaybeAliased(
-        6, this->_internal_account_name_suggestion2(), target);
-  }
-
-  // optional string account_name_suggestion3 = 7;
-  if (cached_has_bits & 0x00000008u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_account_name_suggestion3().data(), static_cast<int>(this->_internal_account_name_suggestion3().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgClientRequestAccountDataResponse.account_name_suggestion3");
-    target = stream->WriteStringMaybeAliased(
-        7, this->_internal_account_name_suggestion3(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientRequestAccountDataResponse)
-  return target;
-}
-
-size_t CMsgClientRequestAccountDataResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientRequestAccountDataResponse)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    // optional string account_name = 3;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_account_name());
-    }
-
-    // optional string account_name_suggestion1 = 5;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_account_name_suggestion1());
-    }
-
-    // optional string account_name_suggestion2 = 6;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_account_name_suggestion2());
-    }
-
-    // optional string account_name_suggestion3 = 7;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_account_name_suggestion3());
-    }
-
-    // optional uint32 action = 1;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_action());
-    }
-
-    // optional uint32 eresult = 2;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_eresult());
-    }
-
-    // optional uint32 ct_matches = 4;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_ct_matches());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CMsgClientRequestAccountDataResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CMsgClientRequestAccountDataResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CMsgClientRequestAccountDataResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMsgClientRequestAccountDataResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMsgClientRequestAccountDataResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMsgClientRequestAccountDataResponse)
-    MergeFrom(*source);
-  }
-}
-
-void CMsgClientRequestAccountDataResponse::MergeFrom(const CMsgClientRequestAccountDataResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientRequestAccountDataResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_account_name(from._internal_account_name());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _internal_set_account_name_suggestion1(from._internal_account_name_suggestion1());
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _internal_set_account_name_suggestion2(from._internal_account_name_suggestion2());
-    }
-    if (cached_has_bits & 0x00000008u) {
-      _internal_set_account_name_suggestion3(from._internal_account_name_suggestion3());
-    }
-    if (cached_has_bits & 0x00000010u) {
-      action_ = from.action_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      eresult_ = from.eresult_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      ct_matches_ = from.ct_matches_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CMsgClientRequestAccountDataResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CMsgClientRequestAccountDataResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CMsgClientRequestAccountDataResponse::CopyFrom(const CMsgClientRequestAccountDataResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientRequestAccountDataResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgClientRequestAccountDataResponse::IsInitialized() const {
-  return true;
-}
-
-void CMsgClientRequestAccountDataResponse::InternalSwap(CMsgClientRequestAccountDataResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  account_name_.Swap(&other->account_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  account_name_suggestion1_.Swap(&other->account_name_suggestion1_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  account_name_suggestion2_.Swap(&other->account_name_suggestion2_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  account_name_suggestion3_.Swap(&other->account_name_suggestion3_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientRequestAccountDataResponse, ct_matches_)
-      + sizeof(CMsgClientRequestAccountDataResponse::ct_matches_)
-      - PROTOBUF_FIELD_OFFSET(CMsgClientRequestAccountDataResponse, action_)>(
-          reinterpret_cast<char*>(&action_),
-          reinterpret_cast<char*>(&other->action_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientRequestAccountDataResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -39147,6 +36363,9 @@ template<> PROTOBUF_NOINLINE ::CMsgClientRichPresenceUpload* Arena::CreateMaybeM
 template<> PROTOBUF_NOINLINE ::CMsgClientRichPresenceRequest* Arena::CreateMaybeMessage< ::CMsgClientRichPresenceRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientRichPresenceRequest >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CMsgClientRichPresenceInfo_KV* Arena::CreateMaybeMessage< ::CMsgClientRichPresenceInfo_KV >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientRichPresenceInfo_KV >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CMsgClientRichPresenceInfo_RichPresence* Arena::CreateMaybeMessage< ::CMsgClientRichPresenceInfo_RichPresence >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientRichPresenceInfo_RichPresence >(arena);
 }
@@ -39170,12 +36389,6 @@ template<> PROTOBUF_NOINLINE ::CMsgClientUpdateMachineAuth* Arena::CreateMaybeMe
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientUpdateMachineAuthResponse* Arena::CreateMaybeMessage< ::CMsgClientUpdateMachineAuthResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientUpdateMachineAuthResponse >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgClientRequestMachineAuth* Arena::CreateMaybeMessage< ::CMsgClientRequestMachineAuth >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientRequestMachineAuth >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgClientRequestMachineAuthResponse* Arena::CreateMaybeMessage< ::CMsgClientRequestMachineAuthResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientRequestMachineAuthResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientRegisterKey* Arena::CreateMaybeMessage< ::CMsgClientRegisterKey >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientRegisterKey >(arena);
@@ -39207,9 +36420,6 @@ template<> PROTOBUF_NOINLINE ::CMsgTrading_CancelTradeRequest* Arena::CreateMayb
 template<> PROTOBUF_NOINLINE ::CMsgTrading_StartSession* Arena::CreateMaybeMessage< ::CMsgTrading_StartSession >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgTrading_StartSession >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CMsgClientGetCDNAuthToken* Arena::CreateMaybeMessage< ::CMsgClientGetCDNAuthToken >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientGetCDNAuthToken >(arena);
-}
 template<> PROTOBUF_NOINLINE ::CMsgClientGetDepotDecryptionKey* Arena::CreateMaybeMessage< ::CMsgClientGetDepotDecryptionKey >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientGetDepotDecryptionKey >(arena);
 }
@@ -39224,21 +36434,6 @@ template<> PROTOBUF_NOINLINE ::CMsgClientCheckAppBetaPasswordResponse_BetaPasswo
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientCheckAppBetaPasswordResponse* Arena::CreateMaybeMessage< ::CMsgClientCheckAppBetaPasswordResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientCheckAppBetaPasswordResponse >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgClientGetCDNAuthTokenResponse* Arena::CreateMaybeMessage< ::CMsgClientGetCDNAuthTokenResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientGetCDNAuthTokenResponse >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgDownloadRateStatistics_StatsInfo* Arena::CreateMaybeMessage< ::CMsgDownloadRateStatistics_StatsInfo >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgDownloadRateStatistics_StatsInfo >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgDownloadRateStatistics* Arena::CreateMaybeMessage< ::CMsgDownloadRateStatistics >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgDownloadRateStatistics >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgClientRequestAccountData* Arena::CreateMaybeMessage< ::CMsgClientRequestAccountData >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientRequestAccountData >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgClientRequestAccountDataResponse* Arena::CreateMaybeMessage< ::CMsgClientRequestAccountDataResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientRequestAccountDataResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientUGSGetGlobalStats* Arena::CreateMaybeMessage< ::CMsgClientUGSGetGlobalStats >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientUGSGetGlobalStats >(arena);

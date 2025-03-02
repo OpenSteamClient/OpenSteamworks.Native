@@ -1011,6 +1011,7 @@ class CEconItem_DescriptionLine PROTOBUF_FINAL :
     kValueFieldNumber = 2,
     kColorFieldNumber = 3,
     kLabelFieldNumber = 4,
+    kNameFieldNumber = 5,
   };
   // optional string type = 1;
   bool has_type() const;
@@ -1092,6 +1093,26 @@ class CEconItem_DescriptionLine PROTOBUF_FINAL :
   std::string* _internal_mutable_label();
   public:
 
+  // optional string name = 5;
+  bool has_name() const;
+  private:
+  bool _internal_has_name() const;
+  public:
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
   // @@protoc_insertion_point(class_scope:CEconItem_DescriptionLine)
  private:
   class _Internal;
@@ -1105,6 +1126,7 @@ class CEconItem_DescriptionLine PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr color_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr label_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   friend struct ::TableStruct_steammessages_5fecon_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1437,6 +1459,7 @@ class CEconItem_Description PROTOBUF_FINAL :
     kMarketTradableRestrictionFieldNumber = 23,
     kMarketMarketableRestrictionFieldNumber = 24,
     kMarketFeeAppFieldNumber = 28,
+    kSealedFieldNumber = 32,
   };
   // repeated .CEconItem_DescriptionLine descriptions = 8;
   int descriptions_size() const;
@@ -1958,6 +1981,19 @@ class CEconItem_Description PROTOBUF_FINAL :
   void _internal_set_market_fee_app(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // optional bool sealed = 32;
+  bool has_sealed() const;
+  private:
+  bool _internal_has_sealed() const;
+  public:
+  void clear_sealed();
+  bool sealed() const;
+  void set_sealed(bool value);
+  private:
+  bool _internal_sealed() const;
+  void _internal_set_sealed(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CEconItem_Description)
  private:
   class _Internal;
@@ -1997,6 +2033,7 @@ class CEconItem_Description PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 market_tradable_restriction_;
   ::PROTOBUF_NAMESPACE_ID::int32 market_marketable_restriction_;
   ::PROTOBUF_NAMESPACE_ID::int32 market_fee_app_;
+  bool sealed_;
   friend struct ::TableStruct_steammessages_5fecon_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4791,6 +4828,79 @@ inline void CEconItem_DescriptionLine::set_allocated_label(std::string* label) {
   // @@protoc_insertion_point(field_set_allocated:CEconItem_DescriptionLine.label)
 }
 
+// optional string name = 5;
+inline bool CEconItem_DescriptionLine::_internal_has_name() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CEconItem_DescriptionLine::has_name() const {
+  return _internal_has_name();
+}
+inline void CEconItem_DescriptionLine::clear_name() {
+  name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline const std::string& CEconItem_DescriptionLine::name() const {
+  // @@protoc_insertion_point(field_get:CEconItem_DescriptionLine.name)
+  return _internal_name();
+}
+inline void CEconItem_DescriptionLine::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:CEconItem_DescriptionLine.name)
+}
+inline std::string* CEconItem_DescriptionLine::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:CEconItem_DescriptionLine.name)
+  return _internal_mutable_name();
+}
+inline const std::string& CEconItem_DescriptionLine::_internal_name() const {
+  return name_.Get();
+}
+inline void CEconItem_DescriptionLine::_internal_set_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000010u;
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CEconItem_DescriptionLine::set_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000010u;
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CEconItem_DescriptionLine.name)
+}
+inline void CEconItem_DescriptionLine::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000010u;
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CEconItem_DescriptionLine.name)
+}
+inline void CEconItem_DescriptionLine::set_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000010u;
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CEconItem_DescriptionLine.name)
+}
+inline std::string* CEconItem_DescriptionLine::_internal_mutable_name() {
+  _has_bits_[0] |= 0x00000010u;
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CEconItem_DescriptionLine::release_name() {
+  // @@protoc_insertion_point(field_release:CEconItem_DescriptionLine.name)
+  if (!_internal_has_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000010u;
+  return name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CEconItem_DescriptionLine::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    _has_bits_[0] |= 0x00000010u;
+  } else {
+    _has_bits_[0] &= ~0x00000010u;
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CEconItem_DescriptionLine.name)
+}
+
 // -------------------------------------------------------------------
 
 // CEconItem_Action
@@ -6490,6 +6600,34 @@ inline void CEconItem_Description::set_allocated_market_sell_country_restriction
   market_sell_country_restriction_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), market_sell_country_restriction,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CEconItem_Description.market_sell_country_restriction)
+}
+
+// optional bool sealed = 32;
+inline bool CEconItem_Description::_internal_has_sealed() const {
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  return value;
+}
+inline bool CEconItem_Description::has_sealed() const {
+  return _internal_has_sealed();
+}
+inline void CEconItem_Description::clear_sealed() {
+  sealed_ = false;
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline bool CEconItem_Description::_internal_sealed() const {
+  return sealed_;
+}
+inline bool CEconItem_Description::sealed() const {
+  // @@protoc_insertion_point(field_get:CEconItem_Description.sealed)
+  return _internal_sealed();
+}
+inline void CEconItem_Description::_internal_set_sealed(bool value) {
+  _has_bits_[0] |= 0x00800000u;
+  sealed_ = value;
+}
+inline void CEconItem_Description::set_sealed(bool value) {
+  _internal_set_sealed(value);
+  // @@protoc_insertion_point(field_set:CEconItem_Description.sealed)
 }
 
 // -------------------------------------------------------------------

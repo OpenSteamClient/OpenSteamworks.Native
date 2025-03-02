@@ -586,7 +586,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_UpdatePackageReservation
 constexpr CStore_GetWishlistDemoEmailStatus_Request::CStore_GetWishlistDemoEmailStatus_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : appid_(0u)
-  , demo_appid_(0u){}
+  , demo_appid_(0u)
+  , allow_late_firing_(false){}
 struct CStore_GetWishlistDemoEmailStatus_RequestDefaultTypeInternal {
   constexpr CStore_GetWishlistDemoEmailStatus_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -613,7 +614,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_GetWishlistDemoEmailStat
 constexpr CStore_QueueWishlistDemoEmailToFire_Request::CStore_QueueWishlistDemoEmailToFire_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : appid_(0u)
-  , demo_appid_(0u){}
+  , demo_appid_(0u)
+  , allow_late_firing_(false){}
 struct CStore_QueueWishlistDemoEmailToFire_RequestDefaultTypeInternal {
   constexpr CStore_QueueWishlistDemoEmailToFire_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1274,8 +1276,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstore_2esteamc
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Request, appid_),
   PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Request, demo_appid_),
+  PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Request, allow_late_firing_),
   0,
   1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CStore_GetWishlistDemoEmailStatus_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1294,8 +1298,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstore_2esteamc
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Request, appid_),
   PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Request, demo_appid_),
+  PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Request, allow_late_firing_),
   0,
   1,
+  2,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CStore_QueueWishlistDemoEmailToFire_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1446,23 +1452,23 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 434, 442, sizeof(::CStore_MigratePartnerLinkTracking_Notification)},
   { 445, 453, sizeof(::CStore_UpdatePackageReservations_Request)},
   { 456, -1, sizeof(::CStore_UpdatePackageReservations_Response)},
-  { 462, 469, sizeof(::CStore_GetWishlistDemoEmailStatus_Request)},
-  { 471, 479, sizeof(::CStore_GetWishlistDemoEmailStatus_Response)},
-  { 482, 489, sizeof(::CStore_QueueWishlistDemoEmailToFire_Request)},
-  { 491, -1, sizeof(::CStore_QueueWishlistDemoEmailToFire_Response)},
-  { 496, 508, sizeof(::CReservationPositionMessage)},
-  { 515, -1, sizeof(::CStore_SetReservationPositionMessage_Request)},
-  { 521, -1, sizeof(::CStore_SetReservationPositionMessage_Response)},
-  { 526, 534, sizeof(::CStore_DeleteReservationPositionMessage_Request)},
-  { 537, -1, sizeof(::CStore_DeleteReservationPositionMessage_Response)},
-  { 542, -1, sizeof(::CStore_GetAllReservationPositionMessages_Request)},
-  { 547, -1, sizeof(::CStore_GetAllReservationPositionMessages_Response)},
-  { 553, -1, sizeof(::CStore_ReloadAllReservationPositionMessages_Notification)},
-  { 558, 565, sizeof(::CSteamDeckCompatibility_SetFeedbacRequest)},
-  { 567, -1, sizeof(::CSteamDeckCompatibility_SetFeedbacResponse)},
-  { 572, 578, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Request)},
-  { 579, 587, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Response)},
-  { 590, 598, sizeof(::CStore_StorePreferencesChanged_Notification)},
+  { 462, 470, sizeof(::CStore_GetWishlistDemoEmailStatus_Request)},
+  { 473, 481, sizeof(::CStore_GetWishlistDemoEmailStatus_Response)},
+  { 484, 492, sizeof(::CStore_QueueWishlistDemoEmailToFire_Request)},
+  { 495, -1, sizeof(::CStore_QueueWishlistDemoEmailToFire_Response)},
+  { 500, 512, sizeof(::CReservationPositionMessage)},
+  { 519, -1, sizeof(::CStore_SetReservationPositionMessage_Request)},
+  { 525, -1, sizeof(::CStore_SetReservationPositionMessage_Response)},
+  { 530, 538, sizeof(::CStore_DeleteReservationPositionMessage_Request)},
+  { 541, -1, sizeof(::CStore_DeleteReservationPositionMessage_Response)},
+  { 546, -1, sizeof(::CStore_GetAllReservationPositionMessages_Request)},
+  { 551, -1, sizeof(::CStore_GetAllReservationPositionMessages_Response)},
+  { 557, -1, sizeof(::CStore_ReloadAllReservationPositionMessages_Notification)},
+  { 562, 569, sizeof(::CSteamDeckCompatibility_SetFeedbacRequest)},
+  { 571, -1, sizeof(::CSteamDeckCompatibility_SetFeedbacResponse)},
+  { 576, 582, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Request)},
+  { 583, 591, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Response)},
+  { 594, 602, sizeof(::CStore_StorePreferencesChanged_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1670,158 +1676,159 @@ const char descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto
   "(\r\022\035\n\025packages_to_unreserve\030\002 \003(\r\022\024\n\014cou"
   "ntry_code\030\003 \001(\t\"c\n)CStore_UpdatePackageR"
   "eservations_Response\0226\n\022reservation_stat"
-  "us\030\001 \003(\0132\032.CPackageReservationStatus\"N\n)"
+  "us\030\001 \003(\0132\032.CPackageReservationStatus\"i\n)"
   "CStore_GetWishlistDemoEmailStatus_Reques"
-  "t\022\r\n\005appid\030\001 \001(\r\022\022\n\ndemo_appid\030\002 \001(\r\"u\n*"
-  "CStore_GetWishlistDemoEmailStatus_Respon"
-  "se\022\027\n\010can_fire\030\001 \001(\010:\005false\022\023\n\013time_stag"
-  "ed\030\002 \001(\r\022\031\n\021demo_release_date\030\003 \001(\r\"P\n+C"
-  "Store_QueueWishlistDemoEmailToFire_Reque"
-  "st\022\r\n\005appid\030\001 \001(\r\022\022\n\ndemo_appid\030\002 \001(\r\".\n"
-  ",CStore_QueueWishlistDemoEmailToFire_Res"
-  "ponse\"\331\001\n\033CReservationPositionMessage\022\024\n"
-  "\014edistributor\030\001 \001(\r\022\032\n\022product_identifie"
-  "r\030\002 \001(\t\022\034\n\024start_queue_position\030\003 \001(\r\022$\n"
-  "\034rtime_estimated_notification\030\004 \001(\r\022\032\n\022l"
-  "ocalization_token\030\005 \001(\t\022\021\n\taccountid\030\006 \001"
-  "(\r\022\025\n\rrtime_created\030\007 \001(\r\"^\n,CStore_SetR"
-  "eservationPositionMessage_Request\022.\n\010set"
+  "t\022\r\n\005appid\030\001 \001(\r\022\022\n\ndemo_appid\030\002 \001(\r\022\031\n\021"
+  "allow_late_firing\030\003 \001(\010\"u\n*CStore_GetWis"
+  "hlistDemoEmailStatus_Response\022\027\n\010can_fir"
+  "e\030\001 \001(\010:\005false\022\023\n\013time_staged\030\002 \001(\r\022\031\n\021d"
+  "emo_release_date\030\003 \001(\r\"k\n+CStore_QueueWi"
+  "shlistDemoEmailToFire_Request\022\r\n\005appid\030\001"
+  " \001(\r\022\022\n\ndemo_appid\030\002 \001(\r\022\031\n\021allow_late_f"
+  "iring\030\003 \001(\010\".\n,CStore_QueueWishlistDemoE"
+  "mailToFire_Response\"\331\001\n\033CReservationPosi"
+  "tionMessage\022\024\n\014edistributor\030\001 \001(\r\022\032\n\022pro"
+  "duct_identifier\030\002 \001(\t\022\034\n\024start_queue_pos"
+  "ition\030\003 \001(\r\022$\n\034rtime_estimated_notificat"
+  "ion\030\004 \001(\r\022\032\n\022localization_token\030\005 \001(\t\022\021\n"
+  "\taccountid\030\006 \001(\r\022\025\n\rrtime_created\030\007 \001(\r\""
+  "^\n,CStore_SetReservationPositionMessage_"
+  "Request\022.\n\010settings\030\001 \003(\0132\034.CReservation"
+  "PositionMessage\"/\n-CStore_SetReservation"
+  "PositionMessage_Response\"\201\001\n/CStore_Dele"
+  "teReservationPositionMessage_Request\022\024\n\014"
+  "edistributor\030\001 \001(\r\022\032\n\022product_identifier"
+  "\030\002 \001(\t\022\034\n\024start_queue_position\030\003 \001(\r\"2\n0"
+  "CStore_DeleteReservationPositionMessage_"
+  "Response\"2\n0CStore_GetAllReservationPosi"
+  "tionMessages_Request\"c\n1CStore_GetAllRes"
+  "ervationPositionMessages_Response\022.\n\010set"
   "tings\030\001 \003(\0132\034.CReservationPositionMessag"
-  "e\"/\n-CStore_SetReservationPositionMessag"
-  "e_Response\"\201\001\n/CStore_DeleteReservationP"
-  "ositionMessage_Request\022\024\n\014edistributor\030\001"
-  " \001(\r\022\032\n\022product_identifier\030\002 \001(\t\022\034\n\024star"
-  "t_queue_position\030\003 \001(\r\"2\n0CStore_DeleteR"
-  "eservationPositionMessage_Response\"2\n0CS"
-  "tore_GetAllReservationPositionMessages_R"
-  "equest\"c\n1CStore_GetAllReservationPositi"
-  "onMessages_Response\022.\n\010settings\030\001 \003(\0132\034."
-  "CReservationPositionMessage\":\n8CStore_Re"
-  "loadAllReservationPositionMessages_Notif"
-  "ication\"\223\001\n)CSteamDeckCompatibility_SetF"
-  "eedbacRequest\022\r\n\005appid\030\001 \001(\r\022W\n\010feedback"
-  "\030\002 \001(\0162 .ESteamDeckCompatibilityFeedback"
-  ":#ESteamDeckCompatibilityFeedbacUnset\",\n"
-  "*CSteamDeckCompatibility_SetFeedbacRespo"
-  "nse\"=\n,CSteamDeckCompatibility_ShouldPro"
-  "mpt_Request\022\r\n\005appid\030\001 \001(\r\"\272\001\n-CSteamDec"
-  "kCompatibility_ShouldPrompt_Response\022\016\n\006"
-  "prompt\030\001 \001(\010\022\027\n\017feedbaceligible\030\002 \001(\010\022`\n"
-  "\021existing_feedback\030\003 \001(\0162 .ESteamDeckCom"
-  "patibilityFeedback:#ESteamDeckCompatibil"
-  "ityFeedbacUnset\"\333\001\n+CStore_StorePreferen"
-  "cesChanged_Notification\022,\n\013preferences\030\001"
-  " \001(\0132\027.CStore_UserPreferences\0223\n\017tag_pre"
-  "ferences\030\002 \001(\0132\032.CStore_UserTagPreferenc"
-  "es\022I\n\036content_descriptor_preferences\030\003 \001"
-  "(\0132!.UserContentDescriptorPreferences*\215\005"
-  "\n\030EStoreDiscoveryQueueType\022\037\n\033EStoreDisc"
-  "overyQueueTypeNew\020\000\022&\n\"EStoreDiscoveryQu"
-  "eueTypeComingSoon\020\001\022\'\n#EStoreDiscoveryQu"
-  "eueTypeRecommended\020\002\022+\n\'EStoreDiscoveryQ"
-  "ueueTypeEveryNewRelease\020\003\022)\n%EStoreDisco"
-  "veryQueueTypeMLRecommender\020\005\022*\n&EStoreDi"
-  "scoveryQueueTypeWishlistOnSale\020\006\022\037\n\033ESto"
-  "reDiscoveryQueueTypeDLC\020\007\022%\n!EStoreDisco"
-  "veryQueueTypeDLCOnSale\020\010\0221\n-EStoreDiscov"
-  "eryQueueTypeRecommendedComingSoon\020\t\022+\n\'E"
-  "StoreDiscoveryQueueTypeRecommendedFree\020\n"
-  "\022-\n)EStoreDiscoveryQueueTypeRecommendedO"
-  "nSale\020\013\022,\n(EStoreDiscoveryQueueTypeRecom"
-  "mendedDemos\020\014\022*\n&EStoreDiscoveryQueueTyp"
-  "eDLCNewReleases\020\r\022)\n%EStoreDiscoveryQueu"
-  "eTypeDLCTopSellers\020\016\022\037\n\033EStoreDiscoveryQ"
-  "ueueTypeMAX\020\017*v\n\017EPlaytestStatus\022\025\n\021ETes"
-  "terStatusNone\020\000\022\030\n\024ETesterStatusPending\020"
-  "\001\022\030\n\024ETesterStatusInvited\020\002\022\030\n\024ETesterSt"
-  "atusGranted\020\003*\204\004\n\016EAppReportType\022\032\n\026EApp"
-  "ReportType_Invalid\020\000\022\027\n\023EAppReportType_S"
-  "cam\020\001\022\032\n\026EAppReportType_Malware\020\002\022\035\n\031EAp"
-  "pReportType_HateSpeech\020\003\022\036\n\032EAppReportTy"
-  "pe_Pornography\020\004\022)\n%EAppReportType_NonLa"
-  "beledAdultContent\020\005\022\033\n\027EAppReportType_Li"
-  "belous\020\006\022\034\n\030EAppReportType_Offensive\020\007\022#"
-  "\n\037EAppReportType_ExploitsChildren\020\010\0226\n2E"
-  "AppReportType_MtxWithNonSteamWalletPayme"
-  "ntMethods\020\t\022%\n!EAppReportType_CopyrightV"
-  "iolation\020\n\022\037\n\033EAppReportType_ViolatesLaw"
-  "s\020\013\022\030\n\024EAppReportType_Other\020\014\022\031\n\025EAppRep"
-  "ortType_Broken\020\r\022\"\n\036EAppReportType_AICon"
-  "tentReport\020\016*\232\001\n\032EUserReviewScorePrefere"
-  "nce\022$\n EUserReviewScorePreference_Unset\020"
-  "\000\022)\n%EUserReviewScorePreference_IncludeA"
-  "ll\020\001\022+\n\'EUserReviewScorePreference_Exclu"
-  "deBombs\020\002*\334\001\n\"EPartnerLinkTrackingBackfi"
-  "llSource\022+\n\'EPartnerLinkTrackingBackfill"
-  "Source_None\020\000\022*\n&EPartnerLinkTrackingBac"
-  "kfillSource_Web\020\001\022-\n)EPartnerLinkTrackin"
-  "gBackfillSource_Mobile\020\002\022.\n*EPartnerLink"
-  "TrackingBackfillSource_Desktop\020\0032\374\022\n\005Sto"
-  "re\022N\n\rRegisterCDKey\022\035.CStore_RegisterCDK"
-  "ey_Request\032\036.CStore_RegisterCDKey_Respon"
-  "se\022]\n\022GetMostPopularTags\022\".CStore_GetMos"
-  "tPopularTags_Request\032#.CStore_GetMostPop"
-  "ularTags_Response\022l\n\027GetLocalizedNameFor"
-  "Tags\022\'.CStore_GetLocalizedNameForTags_Re"
-  "quest\032(.CStore_GetLocalizedNameForTags_R"
-  "esponse\022E\n\nGetTagList\022\032.CStore_GetTagLis"
-  "t_Request\032\033.CStore_GetTagList_Response\022Z"
-  "\n\021GetDiscoveryQueue\022!.CStore_GetDiscover"
-  "yQueue_Request\032\".CStore_GetDiscoveryQueu"
-  "e_Response\022r\n\031GetDiscoveryQueueSettings\022"
-  ").CStore_GetDiscoveryQueueSettings_Reque"
-  "st\032*.CStore_GetDiscoveryQueueSettings_Re"
-  "sponse\022i\n\026SkipDiscoveryQueueItem\022&.CStor"
-  "e_SkipDiscoveryQueueItem_Request\032\'.CStor"
-  "e_SkipDiscoveryQueueItem_Response\022o\n\030Get"
-  "UserGameInterestState\022(.CStore_GetUserGa"
-  "meInterestState_Request\032).CStore_GetUser"
-  "GameInterestState_Response\022{\n\034GetDiscove"
-  "ryQueueSkippedApps\022,.CStore_GetDiscovery"
-  "QueueSkippedApps_Request\032-.CStore_GetDis"
-  "coveryQueueSkippedApps_Response\022B\n\tRepor"
-  "tApp\022\031.CStore_ReportApp_Request\032\032.CStore"
-  "_ReportApp_Response\022`\n\023GetStorePreferenc"
-  "es\022#.CStore_GetStorePreferences_Request\032"
-  "$.CStore_GetStorePreferences_Response\022x\n"
-  "\033GetTrendingAppsAmongFriends\022+.CStore_Ge"
-  "tTrendingAppsAmongFriends_Request\032,.CSto"
-  "re_GetTrendingAppsAmongFriends_Response\022"
-  "Z\n\032MigratePartnerLinkTracking\022/.CStore_M"
-  "igratePartnerLinkTracking_Notification\032\013"
-  ".NoResponse\022r\n\031UpdatePackageReservations"
-  "\022).CStore_UpdatePackageReservations_Requ"
-  "est\032*.CStore_UpdatePackageReservations_R"
-  "esponse\022u\n\032GetWishlistDemoEmailStatus\022*."
-  "CStore_GetWishlistDemoEmailStatus_Reques"
-  "t\032+.CStore_GetWishlistDemoEmailStatus_Re"
-  "sponse\022{\n\034QueueWishlistDemoEmailToFire\022,"
-  ".CStore_QueueWishlistDemoEmailToFire_Req"
-  "uest\032-.CStore_QueueWishlistDemoEmailToFi"
-  "re_Response\022~\n\035SetReservationPositionMes"
-  "sage\022-.CStore_SetReservationPositionMess"
-  "age_Request\032..CStore_SetReservationPosit"
-  "ionMessage_Response\022\207\001\n DeleteReservatio"
-  "nPositionMessage\0220.CStore_DeleteReservat"
-  "ionPositionMessage_Request\0321.CStore_Dele"
-  "teReservationPositionMessage_Response\022\212\001"
-  "\n!GetAllReservationPositionMessages\0221.CS"
-  "tore_GetAllReservationPositionMessages_R"
-  "equest\0322.CStore_GetAllReservationPositio"
-  "nMessages_Response\022n\n$ReloadAllReservati"
-  "onPositionMessages\0229.CStore_ReloadAllRes"
-  "ervationPositionMessages_Notification\032\013."
-  "NoResponse\022s\n\030SetCompatibilityFeedback\022*"
-  ".CSteamDeckCompatibility_SetFeedbacReque"
-  "st\032+.CSteamDeckCompatibility_SetFeedbacR"
-  "esponse\022\205\001\n$ShouldPromptForCompatibility"
-  "Feedback\022-.CSteamDeckCompatibility_Shoul"
-  "dPrompt_Request\032..CSteamDeckCompatibilit"
-  "y_ShouldPrompt_Response2o\n\013StoreClient\022Z"
-  "\n\035NotifyStorePreferencesChanged\022,.CStore"
-  "_StorePreferencesChanged_Notification\032\013."
-  "NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.P"
-  "rotobuf"
+  "e\":\n8CStore_ReloadAllReservationPosition"
+  "Messages_Notification\"\223\001\n)CSteamDeckComp"
+  "atibility_SetFeedbacRequest\022\r\n\005appid\030\001 \001"
+  "(\r\022W\n\010feedback\030\002 \001(\0162 .ESteamDeckCompati"
+  "bilityFeedback:#ESteamDeckCompatibilityF"
+  "eedbacUnset\",\n*CSteamDeckCompatibility_S"
+  "etFeedbacResponse\"=\n,CSteamDeckCompatibi"
+  "lity_ShouldPrompt_Request\022\r\n\005appid\030\001 \001(\r"
+  "\"\272\001\n-CSteamDeckCompatibility_ShouldPromp"
+  "t_Response\022\016\n\006prompt\030\001 \001(\010\022\027\n\017feedbaceli"
+  "gible\030\002 \001(\010\022`\n\021existing_feedback\030\003 \001(\0162 "
+  ".ESteamDeckCompatibilityFeedback:#ESteam"
+  "DeckCompatibilityFeedbacUnset\"\333\001\n+CStore"
+  "_StorePreferencesChanged_Notification\022,\n"
+  "\013preferences\030\001 \001(\0132\027.CStore_UserPreferen"
+  "ces\0223\n\017tag_preferences\030\002 \001(\0132\032.CStore_Us"
+  "erTagPreferences\022I\n\036content_descriptor_p"
+  "references\030\003 \001(\0132!.UserContentDescriptor"
+  "Preferences*\215\005\n\030EStoreDiscoveryQueueType"
+  "\022\037\n\033EStoreDiscoveryQueueTypeNew\020\000\022&\n\"ESt"
+  "oreDiscoveryQueueTypeComingSoon\020\001\022\'\n#ESt"
+  "oreDiscoveryQueueTypeRecommended\020\002\022+\n\'ES"
+  "toreDiscoveryQueueTypeEveryNewRelease\020\003\022"
+  ")\n%EStoreDiscoveryQueueTypeMLRecommender"
+  "\020\005\022*\n&EStoreDiscoveryQueueTypeWishlistOn"
+  "Sale\020\006\022\037\n\033EStoreDiscoveryQueueTypeDLC\020\007\022"
+  "%\n!EStoreDiscoveryQueueTypeDLCOnSale\020\010\0221"
+  "\n-EStoreDiscoveryQueueTypeRecommendedCom"
+  "ingSoon\020\t\022+\n\'EStoreDiscoveryQueueTypeRec"
+  "ommendedFree\020\n\022-\n)EStoreDiscoveryQueueTy"
+  "peRecommendedOnSale\020\013\022,\n(EStoreDiscovery"
+  "QueueTypeRecommendedDemos\020\014\022*\n&EStoreDis"
+  "coveryQueueTypeDLCNewReleases\020\r\022)\n%EStor"
+  "eDiscoveryQueueTypeDLCTopSellers\020\016\022\037\n\033ES"
+  "toreDiscoveryQueueTypeMAX\020\017*v\n\017EPlaytest"
+  "Status\022\025\n\021ETesterStatusNone\020\000\022\030\n\024ETester"
+  "StatusPending\020\001\022\030\n\024ETesterStatusInvited\020"
+  "\002\022\030\n\024ETesterStatusGranted\020\003*\204\004\n\016EAppRepo"
+  "rtType\022\032\n\026EAppReportType_Invalid\020\000\022\027\n\023EA"
+  "ppReportType_Scam\020\001\022\032\n\026EAppReportType_Ma"
+  "lware\020\002\022\035\n\031EAppReportType_HateSpeech\020\003\022\036"
+  "\n\032EAppReportType_Pornography\020\004\022)\n%EAppRe"
+  "portType_NonLabeledAdultContent\020\005\022\033\n\027EAp"
+  "pReportType_Libelous\020\006\022\034\n\030EAppReportType"
+  "_Offensive\020\007\022#\n\037EAppReportType_ExploitsC"
+  "hildren\020\010\0226\n2EAppReportType_MtxWithNonSt"
+  "eamWalletPaymentMethods\020\t\022%\n!EAppReportT"
+  "ype_CopyrightViolation\020\n\022\037\n\033EAppReportTy"
+  "pe_ViolatesLaws\020\013\022\030\n\024EAppReportType_Othe"
+  "r\020\014\022\031\n\025EAppReportType_Broken\020\r\022\"\n\036EAppRe"
+  "portType_AIContentReport\020\016*\232\001\n\032EUserRevi"
+  "ewScorePreference\022$\n EUserReviewScorePre"
+  "ference_Unset\020\000\022)\n%EUserReviewScorePrefe"
+  "rence_IncludeAll\020\001\022+\n\'EUserReviewScorePr"
+  "eference_ExcludeBombs\020\002*\334\001\n\"EPartnerLink"
+  "TrackingBackfillSource\022+\n\'EPartnerLinkTr"
+  "ackingBackfillSource_None\020\000\022*\n&EPartnerL"
+  "inkTrackingBackfillSource_Web\020\001\022-\n)EPart"
+  "nerLinkTrackingBackfillSource_Mobile\020\002\022."
+  "\n*EPartnerLinkTrackingBackfillSource_Des"
+  "ktop\020\0032\374\022\n\005Store\022N\n\rRegisterCDKey\022\035.CSto"
+  "re_RegisterCDKey_Request\032\036.CStore_Regist"
+  "erCDKey_Response\022]\n\022GetMostPopularTags\022\""
+  ".CStore_GetMostPopularTags_Request\032#.CSt"
+  "ore_GetMostPopularTags_Response\022l\n\027GetLo"
+  "calizedNameForTags\022\'.CStore_GetLocalized"
+  "NameForTags_Request\032(.CStore_GetLocalize"
+  "dNameForTags_Response\022E\n\nGetTagList\022\032.CS"
+  "tore_GetTagList_Request\032\033.CStore_GetTagL"
+  "ist_Response\022Z\n\021GetDiscoveryQueue\022!.CSto"
+  "re_GetDiscoveryQueue_Request\032\".CStore_Ge"
+  "tDiscoveryQueue_Response\022r\n\031GetDiscovery"
+  "QueueSettings\022).CStore_GetDiscoveryQueue"
+  "Settings_Request\032*.CStore_GetDiscoveryQu"
+  "eueSettings_Response\022i\n\026SkipDiscoveryQue"
+  "ueItem\022&.CStore_SkipDiscoveryQueueItem_R"
+  "equest\032\'.CStore_SkipDiscoveryQueueItem_R"
+  "esponse\022o\n\030GetUserGameInterestState\022(.CS"
+  "tore_GetUserGameInterestState_Request\032)."
+  "CStore_GetUserGameInterestState_Response"
+  "\022{\n\034GetDiscoveryQueueSkippedApps\022,.CStor"
+  "e_GetDiscoveryQueueSkippedApps_Request\032-"
+  ".CStore_GetDiscoveryQueueSkippedApps_Res"
+  "ponse\022B\n\tReportApp\022\031.CStore_ReportApp_Re"
+  "quest\032\032.CStore_ReportApp_Response\022`\n\023Get"
+  "StorePreferences\022#.CStore_GetStorePrefer"
+  "ences_Request\032$.CStore_GetStorePreferenc"
+  "es_Response\022x\n\033GetTrendingAppsAmongFrien"
+  "ds\022+.CStore_GetTrendingAppsAmongFriends_"
+  "Request\032,.CStore_GetTrendingAppsAmongFri"
+  "ends_Response\022Z\n\032MigratePartnerLinkTrack"
+  "ing\022/.CStore_MigratePartnerLinkTracking_"
+  "Notification\032\013.NoResponse\022r\n\031UpdatePacka"
+  "geReservations\022).CStore_UpdatePackageRes"
+  "ervations_Request\032*.CStore_UpdatePackage"
+  "Reservations_Response\022u\n\032GetWishlistDemo"
+  "EmailStatus\022*.CStore_GetWishlistDemoEmai"
+  "lStatus_Request\032+.CStore_GetWishlistDemo"
+  "EmailStatus_Response\022{\n\034QueueWishlistDem"
+  "oEmailToFire\022,.CStore_QueueWishlistDemoE"
+  "mailToFire_Request\032-.CStore_QueueWishlis"
+  "tDemoEmailToFire_Response\022~\n\035SetReservat"
+  "ionPositionMessage\022-.CStore_SetReservati"
+  "onPositionMessage_Request\032..CStore_SetRe"
+  "servationPositionMessage_Response\022\207\001\n De"
+  "leteReservationPositionMessage\0220.CStore_"
+  "DeleteReservationPositionMessage_Request"
+  "\0321.CStore_DeleteReservationPositionMessa"
+  "ge_Response\022\212\001\n!GetAllReservationPositio"
+  "nMessages\0221.CStore_GetAllReservationPosi"
+  "tionMessages_Request\0322.CStore_GetAllRese"
+  "rvationPositionMessages_Response\022n\n$Relo"
+  "adAllReservationPositionMessages\0229.CStor"
+  "e_ReloadAllReservationPositionMessages_N"
+  "otification\032\013.NoResponse\022s\n\030SetCompatibi"
+  "lityFeedback\022*.CSteamDeckCompatibility_S"
+  "etFeedbacRequest\032+.CSteamDeckCompatibili"
+  "ty_SetFeedbacResponse\022\205\001\n$ShouldPromptFo"
+  "rCompatibilityFeedback\022-.CSteamDeckCompa"
+  "tibility_ShouldPrompt_Request\032..CSteamDe"
+  "ckCompatibility_ShouldPrompt_Response2o\n"
+  "\013StoreClient\022Z\n\035NotifyStorePreferencesCh"
+  "anged\022,.CStore_StorePreferencesChanged_N"
+  "otification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027Op"
+  "enSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fstore_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_contenthubs_2eproto,
@@ -1832,7 +1839,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fstore_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fstore_2esteamclient_2eproto = {
-  false, false, 11887, descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto, "steammessages_store.steamclient.proto", 
+  false, false, 11941, descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto, "steammessages_store.steamclient.proto", 
   &descriptor_table_steammessages_5fstore_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstore_2esteamclient_2eproto_deps, 5, 55,
   schemas, file_default_instances, TableStruct_steammessages_5fstore_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fstore_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fstore_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fstore_2esteamclient_2eproto,
@@ -13448,6 +13455,9 @@ class CStore_GetWishlistDemoEmailStatus_Request::_Internal {
   static void set_has_demo_appid(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_allow_late_firing(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 CStore_GetWishlistDemoEmailStatus_Request::CStore_GetWishlistDemoEmailStatus_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -13461,16 +13471,16 @@ CStore_GetWishlistDemoEmailStatus_Request::CStore_GetWishlistDemoEmailStatus_Req
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&demo_appid_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+    static_cast<size_t>(reinterpret_cast<char*>(&allow_late_firing_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(allow_late_firing_));
   // @@protoc_insertion_point(copy_constructor:CStore_GetWishlistDemoEmailStatus_Request)
 }
 
 void CStore_GetWishlistDemoEmailStatus_Request::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&demo_appid_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&allow_late_firing_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(allow_late_firing_));
 }
 
 CStore_GetWishlistDemoEmailStatus_Request::~CStore_GetWishlistDemoEmailStatus_Request() {
@@ -13500,10 +13510,10 @@ void CStore_GetWishlistDemoEmailStatus_Request::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     ::memset(&appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&demo_appid_) -
-        reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+        reinterpret_cast<char*>(&allow_late_firing_) -
+        reinterpret_cast<char*>(&appid_)) + sizeof(allow_late_firing_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -13530,6 +13540,14 @@ const char* CStore_GetWishlistDemoEmailStatus_Request::_InternalParse(const char
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_demo_appid(&has_bits);
           demo_appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool allow_late_firing = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_allow_late_firing(&has_bits);
+          allow_late_firing_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -13575,6 +13593,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_demo_appid(), target);
   }
 
+  // optional bool allow_late_firing = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_allow_late_firing(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -13592,7 +13616,7 @@ size_t CStore_GetWishlistDemoEmailStatus_Request::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -13605,6 +13629,11 @@ size_t CStore_GetWishlistDemoEmailStatus_Request::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_demo_appid());
+    }
+
+    // optional bool allow_late_firing = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -13640,12 +13669,15 @@ void CStore_GetWishlistDemoEmailStatus_Request::MergeFrom(const CStore_GetWishli
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       appid_ = from.appid_;
     }
     if (cached_has_bits & 0x00000002u) {
       demo_appid_ = from.demo_appid_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      allow_late_firing_ = from.allow_late_firing_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -13674,8 +13706,8 @@ void CStore_GetWishlistDemoEmailStatus_Request::InternalSwap(CStore_GetWishlistD
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CStore_GetWishlistDemoEmailStatus_Request, demo_appid_)
-      + sizeof(CStore_GetWishlistDemoEmailStatus_Request::demo_appid_)
+      PROTOBUF_FIELD_OFFSET(CStore_GetWishlistDemoEmailStatus_Request, allow_late_firing_)
+      + sizeof(CStore_GetWishlistDemoEmailStatus_Request::allow_late_firing_)
       - PROTOBUF_FIELD_OFFSET(CStore_GetWishlistDemoEmailStatus_Request, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));
@@ -13971,6 +14003,9 @@ class CStore_QueueWishlistDemoEmailToFire_Request::_Internal {
   static void set_has_demo_appid(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_allow_late_firing(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 CStore_QueueWishlistDemoEmailToFire_Request::CStore_QueueWishlistDemoEmailToFire_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -13984,16 +14019,16 @@ CStore_QueueWishlistDemoEmailToFire_Request::CStore_QueueWishlistDemoEmailToFire
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&demo_appid_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+    static_cast<size_t>(reinterpret_cast<char*>(&allow_late_firing_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(allow_late_firing_));
   // @@protoc_insertion_point(copy_constructor:CStore_QueueWishlistDemoEmailToFire_Request)
 }
 
 void CStore_QueueWishlistDemoEmailToFire_Request::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&demo_appid_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&allow_late_firing_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(allow_late_firing_));
 }
 
 CStore_QueueWishlistDemoEmailToFire_Request::~CStore_QueueWishlistDemoEmailToFire_Request() {
@@ -14023,10 +14058,10 @@ void CStore_QueueWishlistDemoEmailToFire_Request::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     ::memset(&appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&demo_appid_) -
-        reinterpret_cast<char*>(&appid_)) + sizeof(demo_appid_));
+        reinterpret_cast<char*>(&allow_late_firing_) -
+        reinterpret_cast<char*>(&appid_)) + sizeof(allow_late_firing_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -14053,6 +14088,14 @@ const char* CStore_QueueWishlistDemoEmailToFire_Request::_InternalParse(const ch
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_demo_appid(&has_bits);
           demo_appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool allow_late_firing = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_allow_late_firing(&has_bits);
+          allow_late_firing_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -14098,6 +14141,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_demo_appid(), target);
   }
 
+  // optional bool allow_late_firing = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_allow_late_firing(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -14115,7 +14164,7 @@ size_t CStore_QueueWishlistDemoEmailToFire_Request::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -14128,6 +14177,11 @@ size_t CStore_QueueWishlistDemoEmailToFire_Request::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_demo_appid());
+    }
+
+    // optional bool allow_late_firing = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -14163,12 +14217,15 @@ void CStore_QueueWishlistDemoEmailToFire_Request::MergeFrom(const CStore_QueueWi
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       appid_ = from.appid_;
     }
     if (cached_has_bits & 0x00000002u) {
       demo_appid_ = from.demo_appid_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      allow_late_firing_ = from.allow_late_firing_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -14197,8 +14254,8 @@ void CStore_QueueWishlistDemoEmailToFire_Request::InternalSwap(CStore_QueueWishl
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CStore_QueueWishlistDemoEmailToFire_Request, demo_appid_)
-      + sizeof(CStore_QueueWishlistDemoEmailToFire_Request::demo_appid_)
+      PROTOBUF_FIELD_OFFSET(CStore_QueueWishlistDemoEmailToFire_Request, allow_late_firing_)
+      + sizeof(CStore_QueueWishlistDemoEmailToFire_Request::allow_late_firing_)
       - PROTOBUF_FIELD_OFFSET(CStore_QueueWishlistDemoEmailToFire_Request, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));

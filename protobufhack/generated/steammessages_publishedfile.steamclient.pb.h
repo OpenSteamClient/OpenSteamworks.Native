@@ -4496,6 +4496,9 @@ class PublishedFileDetails_VoteData PROTOBUF_FINAL :
     kScoreFieldNumber = 1,
     kVotesUpFieldNumber = 2,
     kVotesDownFieldNumber = 3,
+    kTrustedScoreFieldNumber = 4,
+    kTrustedVotesUpFieldNumber = 5,
+    kTrustedVotesDownFieldNumber = 6,
   };
   // optional float score = 1;
   bool has_score() const;
@@ -4536,6 +4539,45 @@ class PublishedFileDetails_VoteData PROTOBUF_FINAL :
   void _internal_set_votes_down(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional float trusted_score = 4;
+  bool has_trusted_score() const;
+  private:
+  bool _internal_has_trusted_score() const;
+  public:
+  void clear_trusted_score();
+  float trusted_score() const;
+  void set_trusted_score(float value);
+  private:
+  float _internal_trusted_score() const;
+  void _internal_set_trusted_score(float value);
+  public:
+
+  // optional uint32 trusted_votes_up = 5;
+  bool has_trusted_votes_up() const;
+  private:
+  bool _internal_has_trusted_votes_up() const;
+  public:
+  void clear_trusted_votes_up();
+  ::PROTOBUF_NAMESPACE_ID::uint32 trusted_votes_up() const;
+  void set_trusted_votes_up(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_trusted_votes_up() const;
+  void _internal_set_trusted_votes_up(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 trusted_votes_down = 6;
+  bool has_trusted_votes_down() const;
+  private:
+  bool _internal_has_trusted_votes_down() const;
+  public:
+  void clear_trusted_votes_down();
+  ::PROTOBUF_NAMESPACE_ID::uint32 trusted_votes_down() const;
+  void set_trusted_votes_down(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_trusted_votes_down() const;
+  void _internal_set_trusted_votes_down(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:PublishedFileDetails.VoteData)
  private:
   class _Internal;
@@ -4548,6 +4590,9 @@ class PublishedFileDetails_VoteData PROTOBUF_FINAL :
   float score_;
   ::PROTOBUF_NAMESPACE_ID::uint32 votes_up_;
   ::PROTOBUF_NAMESPACE_ID::uint32 votes_down_;
+  float trusted_score_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 trusted_votes_up_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 trusted_votes_down_;
   friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -24089,6 +24134,90 @@ inline void PublishedFileDetails_VoteData::_internal_set_votes_down(::PROTOBUF_N
 inline void PublishedFileDetails_VoteData::set_votes_down(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_votes_down(value);
   // @@protoc_insertion_point(field_set:PublishedFileDetails.VoteData.votes_down)
+}
+
+// optional float trusted_score = 4;
+inline bool PublishedFileDetails_VoteData::_internal_has_trusted_score() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool PublishedFileDetails_VoteData::has_trusted_score() const {
+  return _internal_has_trusted_score();
+}
+inline void PublishedFileDetails_VoteData::clear_trusted_score() {
+  trusted_score_ = 0;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline float PublishedFileDetails_VoteData::_internal_trusted_score() const {
+  return trusted_score_;
+}
+inline float PublishedFileDetails_VoteData::trusted_score() const {
+  // @@protoc_insertion_point(field_get:PublishedFileDetails.VoteData.trusted_score)
+  return _internal_trusted_score();
+}
+inline void PublishedFileDetails_VoteData::_internal_set_trusted_score(float value) {
+  _has_bits_[0] |= 0x00000008u;
+  trusted_score_ = value;
+}
+inline void PublishedFileDetails_VoteData::set_trusted_score(float value) {
+  _internal_set_trusted_score(value);
+  // @@protoc_insertion_point(field_set:PublishedFileDetails.VoteData.trusted_score)
+}
+
+// optional uint32 trusted_votes_up = 5;
+inline bool PublishedFileDetails_VoteData::_internal_has_trusted_votes_up() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool PublishedFileDetails_VoteData::has_trusted_votes_up() const {
+  return _internal_has_trusted_votes_up();
+}
+inline void PublishedFileDetails_VoteData::clear_trusted_votes_up() {
+  trusted_votes_up_ = 0u;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PublishedFileDetails_VoteData::_internal_trusted_votes_up() const {
+  return trusted_votes_up_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PublishedFileDetails_VoteData::trusted_votes_up() const {
+  // @@protoc_insertion_point(field_get:PublishedFileDetails.VoteData.trusted_votes_up)
+  return _internal_trusted_votes_up();
+}
+inline void PublishedFileDetails_VoteData::_internal_set_trusted_votes_up(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  trusted_votes_up_ = value;
+}
+inline void PublishedFileDetails_VoteData::set_trusted_votes_up(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_trusted_votes_up(value);
+  // @@protoc_insertion_point(field_set:PublishedFileDetails.VoteData.trusted_votes_up)
+}
+
+// optional uint32 trusted_votes_down = 6;
+inline bool PublishedFileDetails_VoteData::_internal_has_trusted_votes_down() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool PublishedFileDetails_VoteData::has_trusted_votes_down() const {
+  return _internal_has_trusted_votes_down();
+}
+inline void PublishedFileDetails_VoteData::clear_trusted_votes_down() {
+  trusted_votes_down_ = 0u;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PublishedFileDetails_VoteData::_internal_trusted_votes_down() const {
+  return trusted_votes_down_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PublishedFileDetails_VoteData::trusted_votes_down() const {
+  // @@protoc_insertion_point(field_get:PublishedFileDetails.VoteData.trusted_votes_down)
+  return _internal_trusted_votes_down();
+}
+inline void PublishedFileDetails_VoteData::_internal_set_trusted_votes_down(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000020u;
+  trusted_votes_down_ = value;
+}
+inline void PublishedFileDetails_VoteData::set_trusted_votes_down(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_trusted_votes_down(value);
+  // @@protoc_insertion_point(field_set:PublishedFileDetails.VoteData.trusted_votes_down)
 }
 
 // -------------------------------------------------------------------

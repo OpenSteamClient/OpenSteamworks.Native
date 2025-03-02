@@ -188,11 +188,13 @@ enum EContentCheckProvider : int {
   EContentCheckProvider_Google_DEPRECATED = 1,
   EContentCheckProvider_Amazon = 2,
   EContentCheckProvider_Local = 3,
-  EContentCheckProvider_GoogleVertexAI = 4
+  EContentCheckProvider_GoogleVertexAI = 4,
+  EContentCheckProvider_GoogleGemini = 5,
+  EContentCheckProvider_SteamLearn = 6
 };
 bool EContentCheckProvider_IsValid(int value);
 constexpr EContentCheckProvider EContentCheckProvider_MIN = EContentCheckProvider_Invalid;
-constexpr EContentCheckProvider EContentCheckProvider_MAX = EContentCheckProvider_GoogleVertexAI;
+constexpr EContentCheckProvider EContentCheckProvider_MAX = EContentCheckProvider_SteamLearn;
 constexpr int EContentCheckProvider_ARRAYSIZE = EContentCheckProvider_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EContentCheckProvider_descriptor();
@@ -385,12 +387,13 @@ inline bool ESystemFanControlMode_Parse(
 }
 enum EStartupMovieVariant : int {
   EStartupMovieVariant_Invalid = 0,
-  EStartupMovieVariant_Default = 1,
-  EStartupMovieVariant_Orange = 2
+  EStartupMovieVariant_Generic = 1,
+  EStartupMovieVariant_DeckBlue = 2,
+  EStartupMovieVariant_DeckOrange = 3
 };
 bool EStartupMovieVariant_IsValid(int value);
 constexpr EStartupMovieVariant EStartupMovieVariant_MIN = EStartupMovieVariant_Invalid;
-constexpr EStartupMovieVariant EStartupMovieVariant_MAX = EStartupMovieVariant_Orange;
+constexpr EStartupMovieVariant EStartupMovieVariant_MAX = EStartupMovieVariant_DeckOrange;
 constexpr int EStartupMovieVariant_ARRAYSIZE = EStartupMovieVariant_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStartupMovieVariant_descriptor();
@@ -1198,14 +1201,15 @@ enum EBrowserGPUStatus : int {
   EBrowserGPUStatus_DisabledUnknown = 2,
   EBrowserGPUStatus_DisabledCrashCount = 4,
   EBrowserGPUStatus_DisabledBlocklist = 5,
-  EBrowserGPUStatus_DisabledDebugRequest = 6,
+  EBrowserGPUStatus_DisabledJSRequest = 6,
   EBrowserGPUStatus_DisabledCommandLine = 7,
   EBrowserGPUStatus_DisabledRuntimeDetect = 8,
-  EBrowserGPUStatus_DisabledChildCommandLine = 9
+  EBrowserGPUStatus_DisabledChildCommandLine = 9,
+  EBrowserGPUStatus_DisabledCompositingCommandLine = 10
 };
 bool EBrowserGPUStatus_IsValid(int value);
 constexpr EBrowserGPUStatus EBrowserGPUStatus_MIN = EBrowserGPUStatus_Invalid;
-constexpr EBrowserGPUStatus EBrowserGPUStatus_MAX = EBrowserGPUStatus_DisabledChildCommandLine;
+constexpr EBrowserGPUStatus EBrowserGPUStatus_MAX = EBrowserGPUStatus_DisabledCompositingCommandLine;
 constexpr int EBrowserGPUStatus_ARRAYSIZE = EBrowserGPUStatus_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBrowserGPUStatus_descriptor();
@@ -1783,6 +1787,57 @@ inline bool EProtoAppType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EProtoAppType>(
     EProtoAppType_descriptor(), name, value);
 }
+enum EChildProcessQueryCommand : int {
+  EChildProcessQueryCommand_Invalid = 0,
+  EChildProcessQueryCommand_GpuTopology = 1,
+  EChildProcessQueryCommand_Max = 2
+};
+bool EChildProcessQueryCommand_IsValid(int value);
+constexpr EChildProcessQueryCommand EChildProcessQueryCommand_MIN = EChildProcessQueryCommand_Invalid;
+constexpr EChildProcessQueryCommand EChildProcessQueryCommand_MAX = EChildProcessQueryCommand_Max;
+constexpr int EChildProcessQueryCommand_ARRAYSIZE = EChildProcessQueryCommand_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EChildProcessQueryCommand_descriptor();
+template<typename T>
+inline const std::string& EChildProcessQueryCommand_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EChildProcessQueryCommand>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EChildProcessQueryCommand_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EChildProcessQueryCommand_descriptor(), enum_t_value);
+}
+inline bool EChildProcessQueryCommand_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EChildProcessQueryCommand* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EChildProcessQueryCommand>(
+    EChildProcessQueryCommand_descriptor(), name, value);
+}
+enum EChildProcessQueryExitCode : int {
+  EChildProcessQueryExitCode_Success = 0,
+  EChildProcessQueryExitCode_ErrorCommandline = -1,
+  EChildProcessQueryExitCode_ErrorOther = -2,
+  EChildProcessQueryExitCode_ErrorUnimplemented = -3,
+  EChildProcessQueryExitCode_ErrorFileSave = -4,
+  EChildProcessQueryExitCode_ErrorNotSupportedByPlatform = -5
+};
+bool EChildProcessQueryExitCode_IsValid(int value);
+constexpr EChildProcessQueryExitCode EChildProcessQueryExitCode_MIN = EChildProcessQueryExitCode_ErrorNotSupportedByPlatform;
+constexpr EChildProcessQueryExitCode EChildProcessQueryExitCode_MAX = EChildProcessQueryExitCode_Success;
+constexpr int EChildProcessQueryExitCode_ARRAYSIZE = EChildProcessQueryExitCode_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EChildProcessQueryExitCode_descriptor();
+template<typename T>
+inline const std::string& EChildProcessQueryExitCode_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EChildProcessQueryExitCode>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EChildProcessQueryExitCode_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EChildProcessQueryExitCode_descriptor(), enum_t_value);
+}
+inline bool EChildProcessQueryExitCode_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EChildProcessQueryExitCode* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EChildProcessQueryExitCode>(
+    EChildProcessQueryExitCode_descriptor(), name, value);
+}
 enum EWindowsUpdateInstallationImpact : int {
   EWindowsUpdateInstallationImpact_Unknown = -1,
   EWindowsUpdateInstallationImpact_Normal = 0,
@@ -2190,6 +2245,16 @@ template <> struct is_proto_enum< ::EProtoAppType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EProtoAppType>() {
   return ::EProtoAppType_descriptor();
+}
+template <> struct is_proto_enum< ::EChildProcessQueryCommand> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EChildProcessQueryCommand>() {
+  return ::EChildProcessQueryCommand_descriptor();
+}
+template <> struct is_proto_enum< ::EChildProcessQueryExitCode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EChildProcessQueryExitCode>() {
+  return ::EChildProcessQueryExitCode_descriptor();
 }
 template <> struct is_proto_enum< ::EWindowsUpdateInstallationImpact> : ::std::true_type {};
 template <>

@@ -327,54 +327,6 @@ struct CUserAccount_RegisterCompatTool_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CUserAccount_RegisterCompatTool_ResponseDefaultTypeInternal _CUserAccount_RegisterCompatTool_Response_default_instance_;
-constexpr CAccountLinking_GetLinkedAccountInfo_Request::CAccountLinking_GetLinkedAccountInfo_Request(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : account_id_(PROTOBUF_ULONGLONG(0))
-  , filter_(0)
-
-  , return_access_token_(false)
-  , account_type_(1)
-{}
-struct CAccountLinking_GetLinkedAccountInfo_RequestDefaultTypeInternal {
-  constexpr CAccountLinking_GetLinkedAccountInfo_RequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CAccountLinking_GetLinkedAccountInfo_RequestDefaultTypeInternal() {}
-  union {
-    CAccountLinking_GetLinkedAccountInfo_Request _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAccountLinking_GetLinkedAccountInfo_RequestDefaultTypeInternal _CAccountLinking_GetLinkedAccountInfo_Request_default_instance_;
-constexpr CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : external_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , external_user_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , external_url_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , access_token_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , access_token_secret_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , external_type_(0)
-
-  , is_valid_(false){}
-struct CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_ResponseDefaultTypeInternal {
-  constexpr CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_ResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_ResponseDefaultTypeInternal() {}
-  union {
-    CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_ResponseDefaultTypeInternal _CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response_default_instance_;
-constexpr CAccountLinking_GetLinkedAccountInfo_Response::CAccountLinking_GetLinkedAccountInfo_Response(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : external_accounts_(){}
-struct CAccountLinking_GetLinkedAccountInfo_ResponseDefaultTypeInternal {
-  constexpr CAccountLinking_GetLinkedAccountInfo_ResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CAccountLinking_GetLinkedAccountInfo_ResponseDefaultTypeInternal() {}
-  union {
-    CAccountLinking_GetLinkedAccountInfo_Response _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAccountLinking_GetLinkedAccountInfo_ResponseDefaultTypeInternal _CAccountLinking_GetLinkedAccountInfo_Response_default_instance_;
 constexpr CEmbeddedClient_AuthorizeCurrentDevice_Request::CEmbeddedClient_AuthorizeCurrentDevice_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : device_info_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -418,9 +370,9 @@ struct CEmbeddedClient_AuthorizeDevice_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CEmbeddedClient_AuthorizeDevice_ResponseDefaultTypeInternal _CEmbeddedClient_AuthorizeDevice_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fuseraccount_2esteamclient_2eproto[29];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[2];
-static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[3];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fuseraccount_2esteamclient_2eproto[26];
+static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto = nullptr;
+static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[2];
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fuseraccount_2esteamclient_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   PROTOBUF_FIELD_OFFSET(::CUserAccount_GetAvailableValveDiscountPromotions_Request, _has_bits_),
@@ -652,44 +604,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fuseraccount_2e
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Request, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Request, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Request, account_type_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Request, account_id_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Request, filter_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Request, return_access_token_),
-  3,
-  0,
-  1,
-  2,
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, external_type_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, external_id_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, external_user_name_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, external_url_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, access_token_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, access_token_secret_),
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, is_valid_),
-  5,
-  0,
-  1,
-  2,
-  3,
-  4,
-  6,
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CAccountLinking_GetLinkedAccountInfo_Response, external_accounts_),
   PROTOBUF_FIELD_OFFSET(::CEmbeddedClient_AuthorizeCurrentDevice_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CEmbeddedClient_AuthorizeCurrentDevice_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -750,12 +664,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 212, -1, sizeof(::CUserAccount_RevokeFriendInviteToken_Response)},
   { 217, 223, sizeof(::CUserAccount_RegisterCompatTool_Request)},
   { 224, -1, sizeof(::CUserAccount_RegisterCompatTool_Response)},
-  { 229, 238, sizeof(::CAccountLinking_GetLinkedAccountInfo_Request)},
-  { 242, 254, sizeof(::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response)},
-  { 261, -1, sizeof(::CAccountLinking_GetLinkedAccountInfo_Response)},
-  { 267, 276, sizeof(::CEmbeddedClient_AuthorizeCurrentDevice_Request)},
-  { 280, 289, sizeof(::CEmbeddedClient_Token)},
-  { 293, 300, sizeof(::CEmbeddedClient_AuthorizeDevice_Response)},
+  { 229, 238, sizeof(::CEmbeddedClient_AuthorizeCurrentDevice_Request)},
+  { 242, 251, sizeof(::CEmbeddedClient_Token)},
+  { 255, 262, sizeof(::CEmbeddedClient_AuthorizeDevice_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -782,9 +693,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CUserAccount_RevokeFriendInviteToken_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CUserAccount_RegisterCompatTool_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CUserAccount_RegisterCompatTool_Response_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAccountLinking_GetLinkedAccountInfo_Request_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CAccountLinking_GetLinkedAccountInfo_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CEmbeddedClient_AuthorizeCurrentDevice_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CEmbeddedClient_Token_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CEmbeddedClient_AuthorizeDevice_Response_default_instance_),
@@ -861,81 +769,52 @@ const char descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2
   "UserAccount_RevokeFriendInviteToken_Resp"
   "onse\">\n\'CUserAccount_RegisterCompatTool_"
   "Request\022\023\n\013compat_tool\030\001 \001(\r\"*\n(CUserAcc"
-  "ount_RegisterCompatTool_Response\"\335\001\n,CAc"
-  "countLinking_GetLinkedAccountInfo_Reques"
-  "t\022F\n\014account_type\030\001 \001(\0162\025.EInternalAccou"
-  "ntType:\031EInternalSteamAccountType\022\022\n\nacc"
-  "ount_id\030\002 \001(\004\0224\n\006filter\030\003 \001(\0162\025.EExterna"
-  "lAccountType:\rEExternalNone\022\033\n\023return_ac"
-  "cess_token\030\004 \001(\010\"\205\003\n-CAccountLinking_Get"
-  "LinkedAccountInfo_Response\022h\n\021external_a"
-  "ccounts\030\001 \003(\0132M.CAccountLinking_GetLinke"
-  "dAccountInfo_Response.CExternalAccountTu"
-  "ple_Response\032\351\001\n\036CExternalAccountTuple_R"
-  "esponse\022;\n\rexternal_type\030\001 \001(\0162\025.EExtern"
-  "alAccountType:\rEExternalNone\022\023\n\013external"
-  "_id\030\002 \001(\t\022\032\n\022external_user_name\030\003 \001(\t\022\024\n"
-  "\014external_url\030\004 \001(\t\022\024\n\014access_token\030\005 \001("
-  "\t\022\033\n\023access_token_secret\030\006 \001(\t\022\020\n\010is_val"
-  "id\030\007 \001(\010\"w\n.CEmbeddedClient_AuthorizeCur"
-  "rentDevice_Request\022\017\n\007steamid\030\001 \001(\006\022\r\n\005a"
-  "ppid\030\002 \001(\r\022\023\n\013device_info\030\003 \001(\t\022\020\n\010devic"
-  "eid\030\004 \001(\r\"`\n\025CEmbeddedClient_Token\022\017\n\007st"
-  "eamid\030\001 \001(\006\022\024\n\014client_token\030\002 \001(\014\022\016\n\006exp"
-  "iry\030\003 \001(\r\022\020\n\010deviceid\030\004 \001(\r\"a\n(CEmbedded"
-  "Client_AuthorizeDevice_Response\022\016\n\006resul"
-  "t\030\001 \001(\r\022%\n\005token\030\002 \001(\0132\026.CEmbeddedClient"
-  "_Token*\205\001\n\024EInternalAccountType\022\035\n\031EInte"
-  "rnalSteamAccountType\020\001\022\025\n\021EInternalClanT"
-  "ype\020\002\022\024\n\020EInternalAppType\020\003\022!\n\035EInternal"
-  "BroadcastChannelType\020\004*\366\001\n\024EExternalAcco"
-  "untType\022\021\n\rEExternalNone\020\000\022\031\n\025EExternalS"
-  "teamAccount\020\001\022\032\n\026EExternalGoogleAccount\020"
-  "\002\022\034\n\030EExternalFacebookAccount\020\003\022\033\n\027EExte"
-  "rnalTwitterAccount\020\004\022\032\n\026EExternalTwitchA"
-  "ccount\020\005\022\"\n\036EExternalYouTubeChannelAccou"
-  "nt\020\006\022\031\n\025EExternalFacebookPage\020\0072\234\n\n\013User"
-  "Account\022\234\001\n#GetAvailableValveDiscountPro"
-  "motions\0229.CUserAccount_GetAvailableValve"
-  "DiscountPromotions_Request\032:.CUserAccoun"
-  "t_GetAvailableValveDiscountPromotions_Re"
-  "sponse\022o\n\026GetClientWalletDetails\022,.CUser"
-  "Account_GetClientWalletDetails_Request\032\'"
-  ".CUserAccount_GetWalletDetails_Response\022"
-  "o\n\024GetAccountLinkStatus\022*.CUserAccount_G"
-  "etAccountLinkStatus_Request\032+.CUserAccou"
-  "nt_GetAccountLinkStatus_Response\022l\n\023Canc"
-  "elLicenseForApp\022).CUserAccount_CancelLic"
-  "enseForApp_Request\032*.CUserAccount_Cancel"
-  "LicenseForApp_Response\022]\n\016GetUserCountry"
-  "\022$.CUserAccount_GetUserCountry_Request\032%"
-  ".CUserAccount_GetUserCountry_Response\022x\n"
-  "\027CreateFriendInviteToken\022-.CUserAccount_"
-  "CreateFriendInviteToken_Request\032..CUserA"
-  "ccount_CreateFriendInviteToken_Response\022"
-  "r\n\025GetFriendInviteTokens\022+.CUserAccount_"
-  "GetFriendInviteTokens_Request\032,.CUserAcc"
-  "ount_GetFriendInviteTokens_Response\022r\n\025V"
-  "iewFriendInviteToken\022+.CUserAccount_View"
-  "FriendInviteToken_Request\032,.CUserAccount"
-  "_ViewFriendInviteToken_Response\022x\n\027Redee"
-  "mFriendInviteToken\022-.CUserAccount_Redeem"
-  "FriendInviteToken_Request\032..CUserAccount"
-  "_RedeemFriendInviteToken_Response\022x\n\027Rev"
-  "okeFriendInviteToken\022-.CUserAccount_Revo"
-  "keFriendInviteToken_Request\032..CUserAccou"
-  "nt_RevokeFriendInviteToken_Response\022i\n\022R"
-  "egisterCompatTool\022(.CUserAccount_Registe"
-  "rCompatTool_Request\032).CUserAccount_Regis"
-  "terCompatTool_Response2\207\001\n\016AccountLinkin"
-  "g\022u\n\024GetLinkedAccountInfo\022-.CAccountLink"
-  "ing_GetLinkedAccountInfo_Request\032..CAcco"
-  "untLinking_GetLinkedAccountInfo_Response"
-  "2\206\001\n\016EmbeddedClient\022t\n\026AuthorizeCurrentD"
-  "evice\022/.CEmbeddedClient_AuthorizeCurrent"
-  "Device_Request\032).CEmbeddedClient_Authori"
-  "zeDevice_ResponseB\035\200\001\001\252\002\027OpenSteamworks."
-  "Protobuf"
+  "ount_RegisterCompatTool_Response\"w\n.CEmb"
+  "eddedClient_AuthorizeCurrentDevice_Reque"
+  "st\022\017\n\007steamid\030\001 \001(\006\022\r\n\005appid\030\002 \001(\r\022\023\n\013de"
+  "vice_info\030\003 \001(\t\022\020\n\010deviceid\030\004 \001(\r\"`\n\025CEm"
+  "beddedClient_Token\022\017\n\007steamid\030\001 \001(\006\022\024\n\014c"
+  "lient_token\030\002 \001(\014\022\016\n\006expiry\030\003 \001(\r\022\020\n\010dev"
+  "iceid\030\004 \001(\r\"a\n(CEmbeddedClient_Authorize"
+  "Device_Response\022\016\n\006result\030\001 \001(\r\022%\n\005token"
+  "\030\002 \001(\0132\026.CEmbeddedClient_Token2\234\n\n\013UserA"
+  "ccount\022\234\001\n#GetAvailableValveDiscountProm"
+  "otions\0229.CUserAccount_GetAvailableValveD"
+  "iscountPromotions_Request\032:.CUserAccount"
+  "_GetAvailableValveDiscountPromotions_Res"
+  "ponse\022o\n\026GetClientWalletDetails\022,.CUserA"
+  "ccount_GetClientWalletDetails_Request\032\'."
+  "CUserAccount_GetWalletDetails_Response\022o"
+  "\n\024GetAccountLinkStatus\022*.CUserAccount_Ge"
+  "tAccountLinkStatus_Request\032+.CUserAccoun"
+  "t_GetAccountLinkStatus_Response\022l\n\023Cance"
+  "lLicenseForApp\022).CUserAccount_CancelLice"
+  "nseForApp_Request\032*.CUserAccount_CancelL"
+  "icenseForApp_Response\022]\n\016GetUserCountry\022"
+  "$.CUserAccount_GetUserCountry_Request\032%."
+  "CUserAccount_GetUserCountry_Response\022x\n\027"
+  "CreateFriendInviteToken\022-.CUserAccount_C"
+  "reateFriendInviteToken_Request\032..CUserAc"
+  "count_CreateFriendInviteToken_Response\022r"
+  "\n\025GetFriendInviteTokens\022+.CUserAccount_G"
+  "etFriendInviteTokens_Request\032,.CUserAcco"
+  "unt_GetFriendInviteTokens_Response\022r\n\025Vi"
+  "ewFriendInviteToken\022+.CUserAccount_ViewF"
+  "riendInviteToken_Request\032,.CUserAccount_"
+  "ViewFriendInviteToken_Response\022x\n\027Redeem"
+  "FriendInviteToken\022-.CUserAccount_RedeemF"
+  "riendInviteToken_Request\032..CUserAccount_"
+  "RedeemFriendInviteToken_Response\022x\n\027Revo"
+  "keFriendInviteToken\022-.CUserAccount_Revok"
+  "eFriendInviteToken_Request\032..CUserAccoun"
+  "t_RevokeFriendInviteToken_Response\022i\n\022Re"
+  "gisterCompatTool\022(.CUserAccount_Register"
+  "CompatTool_Request\032).CUserAccount_Regist"
+  "erCompatTool_Response2\206\001\n\016EmbeddedClient"
+  "\022t\n\026AuthorizeCurrentDevice\022/.CEmbeddedCl"
+  "ient_AuthorizeCurrentDevice_Request\032).CE"
+  "mbeddedClient_AuthorizeDevice_ResponseB\035"
+  "\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -944,8 +823,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto = {
-  false, false, 5768, descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2eproto, "steammessages_useraccount.steamclient.proto", 
-  &descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_once, descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_deps, 3, 29,
+  false, false, 4629, descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2eproto, "steammessages_useraccount.steamclient.proto", 
+  &descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_once, descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_deps, 3, 26,
   schemas, file_default_instances, TableStruct_steammessages_5fuseraccount_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fuseraccount_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto,
 };
@@ -957,42 +836,6 @@ descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_metadata_gett
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_steammessages_5fuseraccount_2esteamclient_2eproto(&descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto);
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EInternalAccountType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto);
-  return file_level_enum_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[0];
-}
-bool EInternalAccountType_IsValid(int value) {
-  switch (value) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EExternalAccountType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto);
-  return file_level_enum_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[1];
-}
-bool EExternalAccountType_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-      return true;
-    default:
-      return false;
-  }
-}
-
 
 // ===================================================================
 
@@ -6863,990 +6706,6 @@ void CUserAccount_RegisterCompatTool_Response::InternalSwap(CUserAccount_Registe
 
 // ===================================================================
 
-class CAccountLinking_GetLinkedAccountInfo_Request::_Internal {
- public:
-  using HasBits = decltype(std::declval<CAccountLinking_GetLinkedAccountInfo_Request>()._has_bits_);
-  static void set_has_account_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_account_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_filter(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_return_access_token(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-};
-
-CAccountLinking_GetLinkedAccountInfo_Request::CAccountLinking_GetLinkedAccountInfo_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CAccountLinking_GetLinkedAccountInfo_Request)
-}
-CAccountLinking_GetLinkedAccountInfo_Request::CAccountLinking_GetLinkedAccountInfo_Request(const CAccountLinking_GetLinkedAccountInfo_Request& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&account_id_, &from.account_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&account_type_) -
-    reinterpret_cast<char*>(&account_id_)) + sizeof(account_type_));
-  // @@protoc_insertion_point(copy_constructor:CAccountLinking_GetLinkedAccountInfo_Request)
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&account_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&return_access_token_) -
-    reinterpret_cast<char*>(&account_id_)) + sizeof(return_access_token_));
-account_type_ = 1;
-}
-
-CAccountLinking_GetLinkedAccountInfo_Request::~CAccountLinking_GetLinkedAccountInfo_Request() {
-  // @@protoc_insertion_point(destructor:CAccountLinking_GetLinkedAccountInfo_Request)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::ArenaDtor(void* object) {
-  CAccountLinking_GetLinkedAccountInfo_Request* _this = reinterpret_cast< CAccountLinking_GetLinkedAccountInfo_Request* >(object);
-  (void)_this;
-}
-void CAccountLinking_GetLinkedAccountInfo_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CAccountLinking_GetLinkedAccountInfo_Request::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::Clear() {
-// @@protoc_insertion_point(message_clear_start:CAccountLinking_GetLinkedAccountInfo_Request)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    ::memset(&account_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&return_access_token_) -
-        reinterpret_cast<char*>(&account_id_)) + sizeof(return_access_token_));
-    account_type_ = 1;
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CAccountLinking_GetLinkedAccountInfo_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional .EInternalAccountType account_type = 1 [default = EInternalSteamAccountType];
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::EInternalAccountType_IsValid(val))) {
-            _internal_set_account_type(static_cast<::EInternalAccountType>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
-          }
-        } else goto handle_unusual;
-        continue;
-      // optional uint64 account_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_account_id(&has_bits);
-          account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional .EExternalAccountType filter = 3 [default = EExternalNone];
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::EExternalAccountType_IsValid(val))) {
-            _internal_set_filter(static_cast<::EExternalAccountType>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(3, val, mutable_unknown_fields());
-          }
-        } else goto handle_unusual;
-        continue;
-      // optional bool return_access_token = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          _Internal::set_has_return_access_token(&has_bits);
-          return_access_token_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CAccountLinking_GetLinkedAccountInfo_Request::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CAccountLinking_GetLinkedAccountInfo_Request)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional .EInternalAccountType account_type = 1 [default = EInternalSteamAccountType];
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_account_type(), target);
-  }
-
-  // optional uint64 account_id = 2;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_account_id(), target);
-  }
-
-  // optional .EExternalAccountType filter = 3 [default = EExternalNone];
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      3, this->_internal_filter(), target);
-  }
-
-  // optional bool return_access_token = 4;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_return_access_token(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CAccountLinking_GetLinkedAccountInfo_Request)
-  return target;
-}
-
-size_t CAccountLinking_GetLinkedAccountInfo_Request::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CAccountLinking_GetLinkedAccountInfo_Request)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    // optional uint64 account_id = 2;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-          this->_internal_account_id());
-    }
-
-    // optional .EExternalAccountType filter = 3 [default = EExternalNone];
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_filter());
-    }
-
-    // optional bool return_access_token = 4;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 1;
-    }
-
-    // optional .EInternalAccountType account_type = 1 [default = EInternalSteamAccountType];
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_account_type());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CAccountLinking_GetLinkedAccountInfo_Request)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CAccountLinking_GetLinkedAccountInfo_Request* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CAccountLinking_GetLinkedAccountInfo_Request>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CAccountLinking_GetLinkedAccountInfo_Request)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CAccountLinking_GetLinkedAccountInfo_Request)
-    MergeFrom(*source);
-  }
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::MergeFrom(const CAccountLinking_GetLinkedAccountInfo_Request& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CAccountLinking_GetLinkedAccountInfo_Request)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    if (cached_has_bits & 0x00000001u) {
-      account_id_ = from.account_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      filter_ = from.filter_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      return_access_token_ = from.return_access_token_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      account_type_ = from.account_type_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CAccountLinking_GetLinkedAccountInfo_Request)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::CopyFrom(const CAccountLinking_GetLinkedAccountInfo_Request& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CAccountLinking_GetLinkedAccountInfo_Request)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CAccountLinking_GetLinkedAccountInfo_Request::IsInitialized() const {
-  return true;
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Request::InternalSwap(CAccountLinking_GetLinkedAccountInfo_Request* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CAccountLinking_GetLinkedAccountInfo_Request, return_access_token_)
-      + sizeof(CAccountLinking_GetLinkedAccountInfo_Request::return_access_token_)
-      - PROTOBUF_FIELD_OFFSET(CAccountLinking_GetLinkedAccountInfo_Request, account_id_)>(
-          reinterpret_cast<char*>(&account_id_),
-          reinterpret_cast<char*>(&other->account_id_));
-  swap(account_type_, other->account_type_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CAccountLinking_GetLinkedAccountInfo_Request::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_Internal {
- public:
-  using HasBits = decltype(std::declval<CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response>()._has_bits_);
-  static void set_has_external_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_external_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_external_user_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_external_url(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_access_token(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_access_token_secret(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_is_valid(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-};
-
-CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-}
-CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response(const CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  external_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_external_id()) {
-    external_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_external_id(), 
-      GetArena());
-  }
-  external_user_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_external_user_name()) {
-    external_user_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_external_user_name(), 
-      GetArena());
-  }
-  external_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_external_url()) {
-    external_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_external_url(), 
-      GetArena());
-  }
-  access_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_access_token()) {
-    access_token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_access_token(), 
-      GetArena());
-  }
-  access_token_secret_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_access_token_secret()) {
-    access_token_secret_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_access_token_secret(), 
-      GetArena());
-  }
-  ::memcpy(&external_type_, &from.external_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&is_valid_) -
-    reinterpret_cast<char*>(&external_type_)) + sizeof(is_valid_));
-  // @@protoc_insertion_point(copy_constructor:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::SharedCtor() {
-external_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-external_user_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-external_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-access_token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-access_token_secret_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&external_type_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&is_valid_) -
-    reinterpret_cast<char*>(&external_type_)) + sizeof(is_valid_));
-}
-
-CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::~CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response() {
-  // @@protoc_insertion_point(destructor:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  external_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  external_user_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  external_url_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  access_token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  access_token_secret_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::ArenaDtor(void* object) {
-  CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response* _this = reinterpret_cast< CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response* >(object);
-  (void)_this;
-}
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::Clear() {
-// @@protoc_insertion_point(message_clear_start:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
-    if (cached_has_bits & 0x00000001u) {
-      external_id_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      external_user_name_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      external_url_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000008u) {
-      access_token_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000010u) {
-      access_token_secret_.ClearNonDefaultToEmpty();
-    }
-  }
-  if (cached_has_bits & 0x00000060u) {
-    ::memset(&external_type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&is_valid_) -
-        reinterpret_cast<char*>(&external_type_)) + sizeof(is_valid_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional .EExternalAccountType external_type = 1 [default = EExternalNone];
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::EExternalAccountType_IsValid(val))) {
-            _internal_set_external_type(static_cast<::EExternalAccountType>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
-          }
-        } else goto handle_unusual;
-        continue;
-      // optional string external_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_external_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_id");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string external_user_name = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_external_user_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_user_name");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string external_url = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          auto str = _internal_mutable_external_url();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_url");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string access_token = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          auto str = _internal_mutable_access_token();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.access_token");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional string access_token_secret = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          auto str = _internal_mutable_access_token_secret();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.access_token_secret");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional bool is_valid = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          _Internal::set_has_is_valid(&has_bits);
-          is_valid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional .EExternalAccountType external_type = 1 [default = EExternalNone];
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_external_type(), target);
-  }
-
-  // optional string external_id = 2;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_external_id().data(), static_cast<int>(this->_internal_external_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_id");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_external_id(), target);
-  }
-
-  // optional string external_user_name = 3;
-  if (cached_has_bits & 0x00000002u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_external_user_name().data(), static_cast<int>(this->_internal_external_user_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_user_name");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_external_user_name(), target);
-  }
-
-  // optional string external_url = 4;
-  if (cached_has_bits & 0x00000004u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_external_url().data(), static_cast<int>(this->_internal_external_url().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_url");
-    target = stream->WriteStringMaybeAliased(
-        4, this->_internal_external_url(), target);
-  }
-
-  // optional string access_token = 5;
-  if (cached_has_bits & 0x00000008u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_access_token().data(), static_cast<int>(this->_internal_access_token().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.access_token");
-    target = stream->WriteStringMaybeAliased(
-        5, this->_internal_access_token(), target);
-  }
-
-  // optional string access_token_secret = 6;
-  if (cached_has_bits & 0x00000010u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_access_token_secret().data(), static_cast<int>(this->_internal_access_token_secret().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.access_token_secret");
-    target = stream->WriteStringMaybeAliased(
-        6, this->_internal_access_token_secret(), target);
-  }
-
-  // optional bool is_valid = 7;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_is_valid(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  return target;
-}
-
-size_t CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    // optional string external_id = 2;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_external_id());
-    }
-
-    // optional string external_user_name = 3;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_external_user_name());
-    }
-
-    // optional string external_url = 4;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_external_url());
-    }
-
-    // optional string access_token = 5;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_access_token());
-    }
-
-    // optional string access_token_secret = 6;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_access_token_secret());
-    }
-
-    // optional .EExternalAccountType external_type = 1 [default = EExternalNone];
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_external_type());
-    }
-
-    // optional bool is_valid = 7;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 + 1;
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-    MergeFrom(*source);
-  }
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::MergeFrom(const CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_external_id(from._internal_external_id());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _internal_set_external_user_name(from._internal_external_user_name());
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _internal_set_external_url(from._internal_external_url());
-    }
-    if (cached_has_bits & 0x00000008u) {
-      _internal_set_access_token(from._internal_access_token());
-    }
-    if (cached_has_bits & 0x00000010u) {
-      _internal_set_access_token_secret(from._internal_access_token_secret());
-    }
-    if (cached_has_bits & 0x00000020u) {
-      external_type_ = from.external_type_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      is_valid_ = from.is_valid_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::CopyFrom(const CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::IsInitialized() const {
-  return true;
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::InternalSwap(CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  external_id_.Swap(&other->external_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  external_user_name_.Swap(&other->external_user_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  external_url_.Swap(&other->external_url_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  access_token_.Swap(&other->access_token_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  access_token_secret_.Swap(&other->access_token_secret_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, is_valid_)
-      + sizeof(CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::is_valid_)
-      - PROTOBUF_FIELD_OFFSET(CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response, external_type_)>(
-          reinterpret_cast<char*>(&external_type_),
-          reinterpret_cast<char*>(&other->external_type_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CAccountLinking_GetLinkedAccountInfo_Response::_Internal {
- public:
-};
-
-CAccountLinking_GetLinkedAccountInfo_Response::CAccountLinking_GetLinkedAccountInfo_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  external_accounts_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CAccountLinking_GetLinkedAccountInfo_Response)
-}
-CAccountLinking_GetLinkedAccountInfo_Response::CAccountLinking_GetLinkedAccountInfo_Response(const CAccountLinking_GetLinkedAccountInfo_Response& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      external_accounts_(from.external_accounts_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:CAccountLinking_GetLinkedAccountInfo_Response)
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::SharedCtor() {
-}
-
-CAccountLinking_GetLinkedAccountInfo_Response::~CAccountLinking_GetLinkedAccountInfo_Response() {
-  // @@protoc_insertion_point(destructor:CAccountLinking_GetLinkedAccountInfo_Response)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::ArenaDtor(void* object) {
-  CAccountLinking_GetLinkedAccountInfo_Response* _this = reinterpret_cast< CAccountLinking_GetLinkedAccountInfo_Response* >(object);
-  (void)_this;
-}
-void CAccountLinking_GetLinkedAccountInfo_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CAccountLinking_GetLinkedAccountInfo_Response::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::Clear() {
-// @@protoc_insertion_point(message_clear_start:CAccountLinking_GetLinkedAccountInfo_Response)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  external_accounts_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CAccountLinking_GetLinkedAccountInfo_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated .CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response external_accounts = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_external_accounts(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CAccountLinking_GetLinkedAccountInfo_Response::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CAccountLinking_GetLinkedAccountInfo_Response)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response external_accounts = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_external_accounts_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_external_accounts(i), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CAccountLinking_GetLinkedAccountInfo_Response)
-  return target;
-}
-
-size_t CAccountLinking_GetLinkedAccountInfo_Response::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CAccountLinking_GetLinkedAccountInfo_Response)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response external_accounts = 1;
-  total_size += 1UL * this->_internal_external_accounts_size();
-  for (const auto& msg : this->external_accounts_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CAccountLinking_GetLinkedAccountInfo_Response)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CAccountLinking_GetLinkedAccountInfo_Response* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CAccountLinking_GetLinkedAccountInfo_Response>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CAccountLinking_GetLinkedAccountInfo_Response)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CAccountLinking_GetLinkedAccountInfo_Response)
-    MergeFrom(*source);
-  }
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::MergeFrom(const CAccountLinking_GetLinkedAccountInfo_Response& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CAccountLinking_GetLinkedAccountInfo_Response)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  external_accounts_.MergeFrom(from.external_accounts_);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CAccountLinking_GetLinkedAccountInfo_Response)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::CopyFrom(const CAccountLinking_GetLinkedAccountInfo_Response& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CAccountLinking_GetLinkedAccountInfo_Response)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CAccountLinking_GetLinkedAccountInfo_Response::IsInitialized() const {
-  return true;
-}
-
-void CAccountLinking_GetLinkedAccountInfo_Response::InternalSwap(CAccountLinking_GetLinkedAccountInfo_Response* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  external_accounts_.InternalSwap(&other->external_accounts_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CAccountLinking_GetLinkedAccountInfo_Response::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 class CEmbeddedClient_AuthorizeCurrentDevice_Request::_Internal {
  public:
   using HasBits = decltype(std::declval<CEmbeddedClient_AuthorizeCurrentDevice_Request>()._has_bits_);
@@ -9093,97 +7952,11 @@ void UserAccount_Stub::RegisterCompatTool(::PROTOBUF_NAMESPACE_ID::RpcController
 }
 // ===================================================================
 
-AccountLinking::~AccountLinking() {}
-
-const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* AccountLinking::descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto);
-  return file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[1];
-}
-
-const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* AccountLinking::GetDescriptor() {
-  return descriptor();
-}
-
-void AccountLinking::GetLinkedAccountInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                         const ::CAccountLinking_GetLinkedAccountInfo_Request*,
-                         ::CAccountLinking_GetLinkedAccountInfo_Response*,
-                         ::google::protobuf::Closure* done) {
-  controller->SetFailed("Method GetLinkedAccountInfo() not implemented.");
-  done->Run();
-}
-
-void AccountLinking::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
-                             ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                             const ::PROTOBUF_NAMESPACE_ID::Message* request,
-                             ::PROTOBUF_NAMESPACE_ID::Message* response,
-                             ::google::protobuf::Closure* done) {
-  GOOGLE_DCHECK_EQ(method->service(), file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[1]);
-  switch(method->index()) {
-    case 0:
-      GetLinkedAccountInfo(controller,
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CAccountLinking_GetLinkedAccountInfo_Request*>(
-                 request),
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CAccountLinking_GetLinkedAccountInfo_Response*>(
-                 response),
-             done);
-      break;
-    default:
-      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
-      break;
-  }
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message& AccountLinking::GetRequestPrototype(
-    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method) const {
-  GOOGLE_DCHECK_EQ(method->service(), descriptor());
-  switch(method->index()) {
-    case 0:
-      return ::CAccountLinking_GetLinkedAccountInfo_Request::default_instance();
-    default:
-      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
-      return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
-          ->GetPrototype(method->input_type());
-  }
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message& AccountLinking::GetResponsePrototype(
-    const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method) const {
-  GOOGLE_DCHECK_EQ(method->service(), descriptor());
-  switch(method->index()) {
-    case 0:
-      return ::CAccountLinking_GetLinkedAccountInfo_Response::default_instance();
-    default:
-      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
-      return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
-          ->GetPrototype(method->output_type());
-  }
-}
-
-AccountLinking_Stub::AccountLinking_Stub(::PROTOBUF_NAMESPACE_ID::RpcChannel* channel)
-  : channel_(channel), owns_channel_(false) {}
-AccountLinking_Stub::AccountLinking_Stub(
-    ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel,
-    ::PROTOBUF_NAMESPACE_ID::Service::ChannelOwnership ownership)
-  : channel_(channel),
-    owns_channel_(ownership == ::PROTOBUF_NAMESPACE_ID::Service::STUB_OWNS_CHANNEL) {}
-AccountLinking_Stub::~AccountLinking_Stub() {
-  if (owns_channel_) delete channel_;
-}
-
-void AccountLinking_Stub::GetLinkedAccountInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                              const ::CAccountLinking_GetLinkedAccountInfo_Request* request,
-                              ::CAccountLinking_GetLinkedAccountInfo_Response* response,
-                              ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(0),
-                       controller, request, response, done);
-}
-// ===================================================================
-
 EmbeddedClient::~EmbeddedClient() {}
 
 const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* EmbeddedClient::descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto);
-  return file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[2];
+  return file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[1];
 }
 
 const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* EmbeddedClient::GetDescriptor() {
@@ -9203,7 +7976,7 @@ void EmbeddedClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor*
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
                              ::PROTOBUF_NAMESPACE_ID::Message* response,
                              ::google::protobuf::Closure* done) {
-  GOOGLE_DCHECK_EQ(method->service(), file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[2]);
+  GOOGLE_DCHECK_EQ(method->service(), file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto[1]);
   switch(method->index()) {
     case 0:
       AuthorizeCurrentDevice(controller,
@@ -9334,15 +8107,6 @@ template<> PROTOBUF_NOINLINE ::CUserAccount_RegisterCompatTool_Request* Arena::C
 }
 template<> PROTOBUF_NOINLINE ::CUserAccount_RegisterCompatTool_Response* Arena::CreateMaybeMessage< ::CUserAccount_RegisterCompatTool_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CUserAccount_RegisterCompatTool_Response >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CAccountLinking_GetLinkedAccountInfo_Request* Arena::CreateMaybeMessage< ::CAccountLinking_GetLinkedAccountInfo_Request >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CAccountLinking_GetLinkedAccountInfo_Request >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response* Arena::CreateMaybeMessage< ::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CAccountLinking_GetLinkedAccountInfo_Response* Arena::CreateMaybeMessage< ::CAccountLinking_GetLinkedAccountInfo_Response >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CAccountLinking_GetLinkedAccountInfo_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CEmbeddedClient_AuthorizeCurrentDevice_Request* Arena::CreateMaybeMessage< ::CEmbeddedClient_AuthorizeCurrentDevice_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CEmbeddedClient_AuthorizeCurrentDevice_Request >(arena);

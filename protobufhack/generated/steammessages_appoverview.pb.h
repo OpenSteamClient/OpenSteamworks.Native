@@ -726,6 +726,7 @@ class CAppOverview PROTOBUF_FINAL :
     kMastersubIncludedwithLogoFieldNumber = 60,
     kSiteLicenseSiteNameFieldNumber = 62,
     kHeaderFilenameFieldNumber = 67,
+    kAlbumCoverHashFieldNumber = 74,
     kAppidFieldNumber = 1,
     kAppTypeFieldNumber = 7,
     kMruIndexFieldNumber = 13,
@@ -1041,6 +1042,26 @@ class CAppOverview PROTOBUF_FINAL :
   const std::string& _internal_header_filename() const;
   void _internal_set_header_filename(const std::string& value);
   std::string* _internal_mutable_header_filename();
+  public:
+
+  // optional string album_cover_hash = 74;
+  bool has_album_cover_hash() const;
+  private:
+  bool _internal_has_album_cover_hash() const;
+  public:
+  void clear_album_cover_hash();
+  const std::string& album_cover_hash() const;
+  void set_album_cover_hash(const std::string& value);
+  void set_album_cover_hash(std::string&& value);
+  void set_album_cover_hash(const char* value);
+  void set_album_cover_hash(const char* value, size_t size);
+  std::string* mutable_album_cover_hash();
+  std::string* release_album_cover_hash();
+  void set_allocated_album_cover_hash(std::string* album_cover_hash);
+  private:
+  const std::string& _internal_album_cover_hash() const;
+  void _internal_set_album_cover_hash(const std::string& value);
+  std::string* _internal_mutable_album_cover_hash();
   public:
 
   // optional uint32 appid = 1;
@@ -1508,6 +1529,7 @@ class CAppOverview PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr mastersub_includedwith_logo_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr site_license_site_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr header_filename_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr album_cover_hash_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   int app_type_;
   ::PROTOBUF_NAMESPACE_ID::uint32 mru_index_;
@@ -2567,7 +2589,7 @@ inline void CAppOverview_PerClientData::set_update_available_but_disabled_by_app
 
 // optional uint32 appid = 1;
 inline bool CAppOverview::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_appid() const {
@@ -2575,7 +2597,7 @@ inline bool CAppOverview::has_appid() const {
 }
 inline void CAppOverview::clear_appid() {
   appid_ = 0u;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_appid() const {
   return appid_;
@@ -2585,7 +2607,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::appid() const {
   return _internal_appid();
 }
 inline void CAppOverview::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
   appid_ = value;
 }
 inline void CAppOverview::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -2668,7 +2690,7 @@ inline void CAppOverview::set_allocated_display_name(std::string* display_name) 
 
 // optional bool visible_in_game_list = 4;
 inline bool CAppOverview::_internal_has_visible_in_game_list() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_visible_in_game_list() const {
@@ -2676,7 +2698,7 @@ inline bool CAppOverview::has_visible_in_game_list() const {
 }
 inline void CAppOverview::clear_visible_in_game_list() {
   visible_in_game_list_ = false;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline bool CAppOverview::_internal_visible_in_game_list() const {
   return visible_in_game_list_;
@@ -2686,7 +2708,7 @@ inline bool CAppOverview::visible_in_game_list() const {
   return _internal_visible_in_game_list();
 }
 inline void CAppOverview::_internal_set_visible_in_game_list(bool value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
   visible_in_game_list_ = value;
 }
 inline void CAppOverview::set_visible_in_game_list(bool value) {
@@ -2696,7 +2718,7 @@ inline void CAppOverview::set_visible_in_game_list(bool value) {
 
 // optional bool subscribed_to = 5;
 inline bool CAppOverview::_internal_has_subscribed_to() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_subscribed_to() const {
@@ -2704,7 +2726,7 @@ inline bool CAppOverview::has_subscribed_to() const {
 }
 inline void CAppOverview::clear_subscribed_to() {
   subscribed_to_ = false;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline bool CAppOverview::_internal_subscribed_to() const {
   return subscribed_to_;
@@ -2714,7 +2736,7 @@ inline bool CAppOverview::subscribed_to() const {
   return _internal_subscribed_to();
 }
 inline void CAppOverview::_internal_set_subscribed_to(bool value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
   subscribed_to_ = value;
 }
 inline void CAppOverview::set_subscribed_to(bool value) {
@@ -2797,7 +2819,7 @@ inline void CAppOverview::set_allocated_sort_as(std::string* sort_as) {
 
 // optional .EProtoAppType app_type = 7 [default = EAppTypeInvalid];
 inline bool CAppOverview::_internal_has_app_type() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_app_type() const {
@@ -2805,7 +2827,7 @@ inline bool CAppOverview::has_app_type() const {
 }
 inline void CAppOverview::clear_app_type() {
   app_type_ = 0;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline ::EProtoAppType CAppOverview::_internal_app_type() const {
   return static_cast< ::EProtoAppType >(app_type_);
@@ -2816,7 +2838,7 @@ inline ::EProtoAppType CAppOverview::app_type() const {
 }
 inline void CAppOverview::_internal_set_app_type(::EProtoAppType value) {
   assert(::EProtoAppType_IsValid(value));
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
   app_type_ = value;
 }
 inline void CAppOverview::set_app_type(::EProtoAppType value) {
@@ -2826,7 +2848,7 @@ inline void CAppOverview::set_app_type(::EProtoAppType value) {
 
 // optional uint32 mru_index = 13;
 inline bool CAppOverview::_internal_has_mru_index() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_mru_index() const {
@@ -2834,7 +2856,7 @@ inline bool CAppOverview::has_mru_index() const {
 }
 inline void CAppOverview::clear_mru_index() {
   mru_index_ = 0u;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_mru_index() const {
   return mru_index_;
@@ -2844,7 +2866,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::mru_index() const {
   return _internal_mru_index();
 }
 inline void CAppOverview::_internal_set_mru_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
   mru_index_ = value;
 }
 inline void CAppOverview::set_mru_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -2854,7 +2876,7 @@ inline void CAppOverview::set_mru_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // optional uint32 rt_recent_activity_time = 14 [default = 0];
 inline bool CAppOverview::_internal_has_rt_recent_activity_time() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_recent_activity_time() const {
@@ -2862,7 +2884,7 @@ inline bool CAppOverview::has_rt_recent_activity_time() const {
 }
 inline void CAppOverview::clear_rt_recent_activity_time() {
   rt_recent_activity_time_ = 0u;
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_recent_activity_time() const {
   return rt_recent_activity_time_;
@@ -2872,7 +2894,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_recent_activity_time() c
   return _internal_rt_recent_activity_time();
 }
 inline void CAppOverview::_internal_set_rt_recent_activity_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
   rt_recent_activity_time_ = value;
 }
 inline void CAppOverview::set_rt_recent_activity_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -2882,7 +2904,7 @@ inline void CAppOverview::set_rt_recent_activity_time(::PROTOBUF_NAMESPACE_ID::u
 
 // optional uint32 minutes_playtime_forever = 16 [default = 0];
 inline bool CAppOverview::_internal_has_minutes_playtime_forever() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_minutes_playtime_forever() const {
@@ -2890,7 +2912,7 @@ inline bool CAppOverview::has_minutes_playtime_forever() const {
 }
 inline void CAppOverview::clear_minutes_playtime_forever() {
   minutes_playtime_forever_ = 0u;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_minutes_playtime_forever() const {
   return minutes_playtime_forever_;
@@ -2900,7 +2922,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::minutes_playtime_forever() 
   return _internal_minutes_playtime_forever();
 }
 inline void CAppOverview::_internal_set_minutes_playtime_forever(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
   minutes_playtime_forever_ = value;
 }
 inline void CAppOverview::set_minutes_playtime_forever(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -2910,7 +2932,7 @@ inline void CAppOverview::set_minutes_playtime_forever(::PROTOBUF_NAMESPACE_ID::
 
 // optional uint32 minutes_playtime_last_two_weeks = 17 [default = 0];
 inline bool CAppOverview::_internal_has_minutes_playtime_last_two_weeks() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_minutes_playtime_last_two_weeks() const {
@@ -2918,7 +2940,7 @@ inline bool CAppOverview::has_minutes_playtime_last_two_weeks() const {
 }
 inline void CAppOverview::clear_minutes_playtime_last_two_weeks() {
   minutes_playtime_last_two_weeks_ = 0u;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_minutes_playtime_last_two_weeks() const {
   return minutes_playtime_last_two_weeks_;
@@ -2928,7 +2950,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::minutes_playtime_last_two_w
   return _internal_minutes_playtime_last_two_weeks();
 }
 inline void CAppOverview::_internal_set_minutes_playtime_last_two_weeks(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
   minutes_playtime_last_two_weeks_ = value;
 }
 inline void CAppOverview::set_minutes_playtime_last_two_weeks(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -2938,7 +2960,7 @@ inline void CAppOverview::set_minutes_playtime_last_two_weeks(::PROTOBUF_NAMESPA
 
 // optional uint32 rt_last_time_played = 18 [default = 0];
 inline bool CAppOverview::_internal_has_rt_last_time_played() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_last_time_played() const {
@@ -2946,7 +2968,7 @@ inline bool CAppOverview::has_rt_last_time_played() const {
 }
 inline void CAppOverview::clear_rt_last_time_played() {
   rt_last_time_played_ = 0u;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_last_time_played() const {
   return rt_last_time_played_;
@@ -2956,7 +2978,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_last_time_played() const
   return _internal_rt_last_time_played();
 }
 inline void CAppOverview::_internal_set_rt_last_time_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
   rt_last_time_played_ = value;
 }
 inline void CAppOverview::set_rt_last_time_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3060,7 +3082,7 @@ CAppOverview::mutable_store_category() {
 
 // optional uint32 rt_original_release_date = 25 [default = 0];
 inline bool CAppOverview::_internal_has_rt_original_release_date() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_original_release_date() const {
@@ -3068,7 +3090,7 @@ inline bool CAppOverview::has_rt_original_release_date() const {
 }
 inline void CAppOverview::clear_rt_original_release_date() {
   rt_original_release_date_ = 0u;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_original_release_date() const {
   return rt_original_release_date_;
@@ -3078,7 +3100,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_original_release_date() 
   return _internal_rt_original_release_date();
 }
 inline void CAppOverview::_internal_set_rt_original_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
   rt_original_release_date_ = value;
 }
 inline void CAppOverview::set_rt_original_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3088,7 +3110,7 @@ inline void CAppOverview::set_rt_original_release_date(::PROTOBUF_NAMESPACE_ID::
 
 // optional uint32 rt_steam_release_date = 26 [default = 0];
 inline bool CAppOverview::_internal_has_rt_steam_release_date() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_steam_release_date() const {
@@ -3096,7 +3118,7 @@ inline bool CAppOverview::has_rt_steam_release_date() const {
 }
 inline void CAppOverview::clear_rt_steam_release_date() {
   rt_steam_release_date_ = 0u;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_steam_release_date() const {
   return rt_steam_release_date_;
@@ -3106,7 +3128,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_steam_release_date() con
   return _internal_rt_steam_release_date();
 }
 inline void CAppOverview::_internal_set_rt_steam_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
   rt_steam_release_date_ = value;
 }
 inline void CAppOverview::set_rt_steam_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3189,7 +3211,7 @@ inline void CAppOverview::set_allocated_icon_hash(std::string* icon_hash) {
 
 // optional .EAppControllerSupportLevel xbox_controller_support = 31 [default = EAppControllerSupportLevelNone];
 inline bool CAppOverview::_internal_has_xbox_controller_support() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_xbox_controller_support() const {
@@ -3197,7 +3219,7 @@ inline bool CAppOverview::has_xbox_controller_support() const {
 }
 inline void CAppOverview::clear_xbox_controller_support() {
   xbox_controller_support_ = 0;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline ::EAppControllerSupportLevel CAppOverview::_internal_xbox_controller_support() const {
   return static_cast< ::EAppControllerSupportLevel >(xbox_controller_support_);
@@ -3208,7 +3230,7 @@ inline ::EAppControllerSupportLevel CAppOverview::xbox_controller_support() cons
 }
 inline void CAppOverview::_internal_set_xbox_controller_support(::EAppControllerSupportLevel value) {
   assert(::EAppControllerSupportLevel_IsValid(value));
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
   xbox_controller_support_ = value;
 }
 inline void CAppOverview::set_xbox_controller_support(::EAppControllerSupportLevel value) {
@@ -3218,7 +3240,7 @@ inline void CAppOverview::set_xbox_controller_support(::EAppControllerSupportLev
 
 // optional bool vr_supported = 32;
 inline bool CAppOverview::_internal_has_vr_supported() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_vr_supported() const {
@@ -3226,7 +3248,7 @@ inline bool CAppOverview::has_vr_supported() const {
 }
 inline void CAppOverview::clear_vr_supported() {
   vr_supported_ = false;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline bool CAppOverview::_internal_vr_supported() const {
   return vr_supported_;
@@ -3236,7 +3258,7 @@ inline bool CAppOverview::vr_supported() const {
   return _internal_vr_supported();
 }
 inline void CAppOverview::_internal_set_vr_supported(bool value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
   vr_supported_ = value;
 }
 inline void CAppOverview::set_vr_supported(bool value) {
@@ -3246,7 +3268,7 @@ inline void CAppOverview::set_vr_supported(bool value) {
 
 // optional uint32 metacritic_score = 36;
 inline bool CAppOverview::_internal_has_metacritic_score() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_metacritic_score() const {
@@ -3254,7 +3276,7 @@ inline bool CAppOverview::has_metacritic_score() const {
 }
 inline void CAppOverview::clear_metacritic_score() {
   metacritic_score_ = 0u;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_metacritic_score() const {
   return metacritic_score_;
@@ -3264,7 +3286,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::metacritic_score() const {
   return _internal_metacritic_score();
 }
 inline void CAppOverview::_internal_set_metacritic_score(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
   metacritic_score_ = value;
 }
 inline void CAppOverview::set_metacritic_score(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3274,7 +3296,7 @@ inline void CAppOverview::set_metacritic_score(::PROTOBUF_NAMESPACE_ID::uint32 v
 
 // optional uint64 size_on_disk = 37;
 inline bool CAppOverview::_internal_has_size_on_disk() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_size_on_disk() const {
@@ -3282,7 +3304,7 @@ inline bool CAppOverview::has_size_on_disk() const {
 }
 inline void CAppOverview::clear_size_on_disk() {
   size_on_disk_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview::_internal_size_on_disk() const {
   return size_on_disk_;
@@ -3292,7 +3314,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview::size_on_disk() const {
   return _internal_size_on_disk();
 }
 inline void CAppOverview::_internal_set_size_on_disk(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
   size_on_disk_ = value;
 }
 inline void CAppOverview::set_size_on_disk(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -3302,7 +3324,7 @@ inline void CAppOverview::set_size_on_disk(::PROTOBUF_NAMESPACE_ID::uint64 value
 
 // optional bool third_party_mod = 38;
 inline bool CAppOverview::_internal_has_third_party_mod() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_third_party_mod() const {
@@ -3310,7 +3332,7 @@ inline bool CAppOverview::has_third_party_mod() const {
 }
 inline void CAppOverview::clear_third_party_mod() {
   third_party_mod_ = false;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline bool CAppOverview::_internal_third_party_mod() const {
   return third_party_mod_;
@@ -3320,7 +3342,7 @@ inline bool CAppOverview::third_party_mod() const {
   return _internal_third_party_mod();
 }
 inline void CAppOverview::_internal_set_third_party_mod(bool value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
   third_party_mod_ = value;
 }
 inline void CAppOverview::set_third_party_mod(bool value) {
@@ -3661,7 +3683,7 @@ CAppOverview::per_client_data() const {
 
 // optional uint64 most_available_clientid = 44 [default = 0];
 inline bool CAppOverview::_internal_has_most_available_clientid() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_most_available_clientid() const {
@@ -3669,7 +3691,7 @@ inline bool CAppOverview::has_most_available_clientid() const {
 }
 inline void CAppOverview::clear_most_available_clientid() {
   most_available_clientid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview::_internal_most_available_clientid() const {
   return most_available_clientid_;
@@ -3679,7 +3701,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview::most_available_clientid() c
   return _internal_most_available_clientid();
 }
 inline void CAppOverview::_internal_set_most_available_clientid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
   most_available_clientid_ = value;
 }
 inline void CAppOverview::set_most_available_clientid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -3689,7 +3711,7 @@ inline void CAppOverview::set_most_available_clientid(::PROTOBUF_NAMESPACE_ID::u
 
 // optional uint64 selected_clientid = 45 [default = 0];
 inline bool CAppOverview::_internal_has_selected_clientid() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_selected_clientid() const {
@@ -3697,7 +3719,7 @@ inline bool CAppOverview::has_selected_clientid() const {
 }
 inline void CAppOverview::clear_selected_clientid() {
   selected_clientid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview::_internal_selected_clientid() const {
   return selected_clientid_;
@@ -3707,7 +3729,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview::selected_clientid() const {
   return _internal_selected_clientid();
 }
 inline void CAppOverview::_internal_set_selected_clientid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
   selected_clientid_ = value;
 }
 inline void CAppOverview::set_selected_clientid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -3717,7 +3739,7 @@ inline void CAppOverview::set_selected_clientid(::PROTOBUF_NAMESPACE_ID::uint64 
 
 // optional uint32 rt_store_asset_mtime = 46;
 inline bool CAppOverview::_internal_has_rt_store_asset_mtime() const {
-  bool value = (_has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_store_asset_mtime() const {
@@ -3725,7 +3747,7 @@ inline bool CAppOverview::has_rt_store_asset_mtime() const {
 }
 inline void CAppOverview::clear_rt_store_asset_mtime() {
   rt_store_asset_mtime_ = 0u;
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_store_asset_mtime() const {
   return rt_store_asset_mtime_;
@@ -3735,7 +3757,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_store_asset_mtime() cons
   return _internal_rt_store_asset_mtime();
 }
 inline void CAppOverview::_internal_set_rt_store_asset_mtime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
   rt_store_asset_mtime_ = value;
 }
 inline void CAppOverview::set_rt_store_asset_mtime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3745,7 +3767,7 @@ inline void CAppOverview::set_rt_store_asset_mtime(::PROTOBUF_NAMESPACE_ID::uint
 
 // optional uint32 rt_custom_image_mtime = 47;
 inline bool CAppOverview::_internal_has_rt_custom_image_mtime() const {
-  bool value = (_has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_custom_image_mtime() const {
@@ -3753,7 +3775,7 @@ inline bool CAppOverview::has_rt_custom_image_mtime() const {
 }
 inline void CAppOverview::clear_rt_custom_image_mtime() {
   rt_custom_image_mtime_ = 0u;
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[0] &= ~0x80000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_custom_image_mtime() const {
   return rt_custom_image_mtime_;
@@ -3763,7 +3785,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_custom_image_mtime() con
   return _internal_rt_custom_image_mtime();
 }
 inline void CAppOverview::_internal_set_rt_custom_image_mtime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[0] |= 0x80000000u;
   rt_custom_image_mtime_ = value;
 }
 inline void CAppOverview::set_rt_custom_image_mtime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3773,7 +3795,7 @@ inline void CAppOverview::set_rt_custom_image_mtime(::PROTOBUF_NAMESPACE_ID::uin
 
 // optional uint32 optional_parent_app_id = 48;
 inline bool CAppOverview::_internal_has_optional_parent_app_id() const {
-  bool value = (_has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CAppOverview::has_optional_parent_app_id() const {
@@ -3781,7 +3803,7 @@ inline bool CAppOverview::has_optional_parent_app_id() const {
 }
 inline void CAppOverview::clear_optional_parent_app_id() {
   optional_parent_app_id_ = 0u;
-  _has_bits_[0] &= ~0x80000000u;
+  _has_bits_[1] &= ~0x00000001u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_optional_parent_app_id() const {
   return optional_parent_app_id_;
@@ -3791,7 +3813,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::optional_parent_app_id() co
   return _internal_optional_parent_app_id();
 }
 inline void CAppOverview::_internal_set_optional_parent_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x80000000u;
+  _has_bits_[1] |= 0x00000001u;
   optional_parent_app_id_ = value;
 }
 inline void CAppOverview::set_optional_parent_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3801,7 +3823,7 @@ inline void CAppOverview::set_optional_parent_app_id(::PROTOBUF_NAMESPACE_ID::ui
 
 // optional uint32 owner_account_id = 49;
 inline bool CAppOverview::_internal_has_owner_account_id() const {
-  bool value = (_has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CAppOverview::has_owner_account_id() const {
@@ -3809,7 +3831,7 @@ inline bool CAppOverview::has_owner_account_id() const {
 }
 inline void CAppOverview::clear_owner_account_id() {
   owner_account_id_ = 0u;
-  _has_bits_[1] &= ~0x00000001u;
+  _has_bits_[1] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_owner_account_id() const {
   return owner_account_id_;
@@ -3819,7 +3841,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::owner_account_id() const {
   return _internal_owner_account_id();
 }
 inline void CAppOverview::_internal_set_owner_account_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000001u;
+  _has_bits_[1] |= 0x00000002u;
   owner_account_id_ = value;
 }
 inline void CAppOverview::set_owner_account_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3829,7 +3851,7 @@ inline void CAppOverview::set_owner_account_id(::PROTOBUF_NAMESPACE_ID::uint32 v
 
 // optional uint32 review_score_with_bombs = 53 [default = 0];
 inline bool CAppOverview::_internal_has_review_score_with_bombs() const {
-  bool value = (_has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CAppOverview::has_review_score_with_bombs() const {
@@ -3837,7 +3859,7 @@ inline bool CAppOverview::has_review_score_with_bombs() const {
 }
 inline void CAppOverview::clear_review_score_with_bombs() {
   review_score_with_bombs_ = 0u;
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[1] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_review_score_with_bombs() const {
   return review_score_with_bombs_;
@@ -3847,7 +3869,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::review_score_with_bombs() c
   return _internal_review_score_with_bombs();
 }
 inline void CAppOverview::_internal_set_review_score_with_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[1] |= 0x00000008u;
   review_score_with_bombs_ = value;
 }
 inline void CAppOverview::set_review_score_with_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3857,7 +3879,7 @@ inline void CAppOverview::set_review_score_with_bombs(::PROTOBUF_NAMESPACE_ID::u
 
 // optional uint32 review_percentage_with_bombs = 54 [default = 0];
 inline bool CAppOverview::_internal_has_review_percentage_with_bombs() const {
-  bool value = (_has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CAppOverview::has_review_percentage_with_bombs() const {
@@ -3865,7 +3887,7 @@ inline bool CAppOverview::has_review_percentage_with_bombs() const {
 }
 inline void CAppOverview::clear_review_percentage_with_bombs() {
   review_percentage_with_bombs_ = 0u;
-  _has_bits_[1] &= ~0x00000008u;
+  _has_bits_[1] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_review_percentage_with_bombs() const {
   return review_percentage_with_bombs_;
@@ -3875,7 +3897,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::review_percentage_with_bomb
   return _internal_review_percentage_with_bombs();
 }
 inline void CAppOverview::_internal_set_review_percentage_with_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000008u;
+  _has_bits_[1] |= 0x00000010u;
   review_percentage_with_bombs_ = value;
 }
 inline void CAppOverview::set_review_percentage_with_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3885,7 +3907,7 @@ inline void CAppOverview::set_review_percentage_with_bombs(::PROTOBUF_NAMESPACE_
 
 // optional uint32 review_score_without_bombs = 55 [default = 0];
 inline bool CAppOverview::_internal_has_review_score_without_bombs() const {
-  bool value = (_has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CAppOverview::has_review_score_without_bombs() const {
@@ -3893,7 +3915,7 @@ inline bool CAppOverview::has_review_score_without_bombs() const {
 }
 inline void CAppOverview::clear_review_score_without_bombs() {
   review_score_without_bombs_ = 0u;
-  _has_bits_[1] &= ~0x00000010u;
+  _has_bits_[1] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_review_score_without_bombs() const {
   return review_score_without_bombs_;
@@ -3903,7 +3925,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::review_score_without_bombs(
   return _internal_review_score_without_bombs();
 }
 inline void CAppOverview::_internal_set_review_score_without_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000010u;
+  _has_bits_[1] |= 0x00000020u;
   review_score_without_bombs_ = value;
 }
 inline void CAppOverview::set_review_score_without_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -3913,7 +3935,7 @@ inline void CAppOverview::set_review_score_without_bombs(::PROTOBUF_NAMESPACE_ID
 
 // optional uint32 review_percentage_without_bombs = 56 [default = 0];
 inline bool CAppOverview::_internal_has_review_percentage_without_bombs() const {
-  bool value = (_has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CAppOverview::has_review_percentage_without_bombs() const {
@@ -3921,7 +3943,7 @@ inline bool CAppOverview::has_review_percentage_without_bombs() const {
 }
 inline void CAppOverview::clear_review_percentage_without_bombs() {
   review_percentage_without_bombs_ = 0u;
-  _has_bits_[1] &= ~0x00000020u;
+  _has_bits_[1] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_review_percentage_without_bombs() const {
   return review_percentage_without_bombs_;
@@ -3931,7 +3953,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::review_percentage_without_b
   return _internal_review_percentage_without_bombs();
 }
 inline void CAppOverview::_internal_set_review_percentage_without_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000020u;
+  _has_bits_[1] |= 0x00000040u;
   review_percentage_without_bombs_ = value;
 }
 inline void CAppOverview::set_review_percentage_without_bombs(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4014,7 +4036,7 @@ inline void CAppOverview::set_allocated_library_id(std::string* library_id) {
 
 // optional bool vr_only = 58;
 inline bool CAppOverview::_internal_has_vr_only() const {
-  bool value = (_has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CAppOverview::has_vr_only() const {
@@ -4022,7 +4044,7 @@ inline bool CAppOverview::has_vr_only() const {
 }
 inline void CAppOverview::clear_vr_only() {
   vr_only_ = false;
-  _has_bits_[1] &= ~0x00000040u;
+  _has_bits_[1] &= ~0x00000080u;
 }
 inline bool CAppOverview::_internal_vr_only() const {
   return vr_only_;
@@ -4032,7 +4054,7 @@ inline bool CAppOverview::vr_only() const {
   return _internal_vr_only();
 }
 inline void CAppOverview::_internal_set_vr_only(bool value) {
-  _has_bits_[1] |= 0x00000040u;
+  _has_bits_[1] |= 0x00000080u;
   vr_only_ = value;
 }
 inline void CAppOverview::set_vr_only(bool value) {
@@ -4042,7 +4064,7 @@ inline void CAppOverview::set_vr_only(bool value) {
 
 // optional uint32 mastersub_appid = 59;
 inline bool CAppOverview::_internal_has_mastersub_appid() const {
-  bool value = (_has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CAppOverview::has_mastersub_appid() const {
@@ -4050,7 +4072,7 @@ inline bool CAppOverview::has_mastersub_appid() const {
 }
 inline void CAppOverview::clear_mastersub_appid() {
   mastersub_appid_ = 0u;
-  _has_bits_[1] &= ~0x00000080u;
+  _has_bits_[1] &= ~0x00000100u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_mastersub_appid() const {
   return mastersub_appid_;
@@ -4060,7 +4082,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::mastersub_appid() const {
   return _internal_mastersub_appid();
 }
 inline void CAppOverview::_internal_set_mastersub_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000080u;
+  _has_bits_[1] |= 0x00000100u;
   mastersub_appid_ = value;
 }
 inline void CAppOverview::set_mastersub_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4216,7 +4238,7 @@ inline void CAppOverview::set_allocated_site_license_site_name(std::string* site
 
 // optional uint32 shortcut_override_appid = 63;
 inline bool CAppOverview::_internal_has_shortcut_override_appid() const {
-  bool value = (_has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CAppOverview::has_shortcut_override_appid() const {
@@ -4224,7 +4246,7 @@ inline bool CAppOverview::has_shortcut_override_appid() const {
 }
 inline void CAppOverview::clear_shortcut_override_appid() {
   shortcut_override_appid_ = 0u;
-  _has_bits_[1] &= ~0x00000100u;
+  _has_bits_[1] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_shortcut_override_appid() const {
   return shortcut_override_appid_;
@@ -4234,7 +4256,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::shortcut_override_appid() c
   return _internal_shortcut_override_appid();
 }
 inline void CAppOverview::_internal_set_shortcut_override_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000100u;
+  _has_bits_[1] |= 0x00000200u;
   shortcut_override_appid_ = value;
 }
 inline void CAppOverview::set_shortcut_override_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4244,7 +4266,7 @@ inline void CAppOverview::set_shortcut_override_appid(::PROTOBUF_NAMESPACE_ID::u
 
 // optional uint32 rt_last_time_locally_played = 65;
 inline bool CAppOverview::_internal_has_rt_last_time_locally_played() const {
-  bool value = (_has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_last_time_locally_played() const {
@@ -4252,7 +4274,7 @@ inline bool CAppOverview::has_rt_last_time_locally_played() const {
 }
 inline void CAppOverview::clear_rt_last_time_locally_played() {
   rt_last_time_locally_played_ = 0u;
-  _has_bits_[1] &= ~0x00000200u;
+  _has_bits_[1] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_last_time_locally_played() const {
   return rt_last_time_locally_played_;
@@ -4262,7 +4284,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_last_time_locally_played
   return _internal_rt_last_time_locally_played();
 }
 inline void CAppOverview::_internal_set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000200u;
+  _has_bits_[1] |= 0x00000400u;
   rt_last_time_locally_played_ = value;
 }
 inline void CAppOverview::set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4272,7 +4294,7 @@ inline void CAppOverview::set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_I
 
 // optional uint32 rt_purchased_time = 66;
 inline bool CAppOverview::_internal_has_rt_purchased_time() const {
-  bool value = (_has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_purchased_time() const {
@@ -4280,7 +4302,7 @@ inline bool CAppOverview::has_rt_purchased_time() const {
 }
 inline void CAppOverview::clear_rt_purchased_time() {
   rt_purchased_time_ = 0u;
-  _has_bits_[1] &= ~0x00000400u;
+  _has_bits_[1] &= ~0x00000800u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_purchased_time() const {
   return rt_purchased_time_;
@@ -4290,7 +4312,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_purchased_time() const {
   return _internal_rt_purchased_time();
 }
 inline void CAppOverview::_internal_set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000400u;
+  _has_bits_[1] |= 0x00000800u;
   rt_purchased_time_ = value;
 }
 inline void CAppOverview::set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4373,7 +4395,7 @@ inline void CAppOverview::set_allocated_header_filename(std::string* header_file
 
 // optional uint32 local_cache_version = 68;
 inline bool CAppOverview::_internal_has_local_cache_version() const {
-  bool value = (_has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_local_cache_version() const {
@@ -4381,7 +4403,7 @@ inline bool CAppOverview::has_local_cache_version() const {
 }
 inline void CAppOverview::clear_local_cache_version() {
   local_cache_version_ = 0u;
-  _has_bits_[1] &= ~0x00000800u;
+  _has_bits_[1] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_local_cache_version() const {
   return local_cache_version_;
@@ -4391,7 +4413,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::local_cache_version() const
   return _internal_local_cache_version();
 }
 inline void CAppOverview::_internal_set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000800u;
+  _has_bits_[1] |= 0x00001000u;
   local_cache_version_ = value;
 }
 inline void CAppOverview::set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4401,7 +4423,7 @@ inline void CAppOverview::set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional uint32 number_of_copies = 72 [default = 1];
 inline bool CAppOverview::_internal_has_number_of_copies() const {
-  bool value = (_has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_number_of_copies() const {
@@ -4409,7 +4431,7 @@ inline bool CAppOverview::has_number_of_copies() const {
 }
 inline void CAppOverview::clear_number_of_copies() {
   number_of_copies_ = 1u;
-  _has_bits_[1] &= ~0x00001000u;
+  _has_bits_[1] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_number_of_copies() const {
   return number_of_copies_;
@@ -4419,7 +4441,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::number_of_copies() const {
   return _internal_number_of_copies();
 }
 inline void CAppOverview::_internal_set_number_of_copies(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00001000u;
+  _has_bits_[1] |= 0x00002000u;
   number_of_copies_ = value;
 }
 inline void CAppOverview::set_number_of_copies(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4429,7 +4451,7 @@ inline void CAppOverview::set_number_of_copies(::PROTOBUF_NAMESPACE_ID::uint32 v
 
 // optional uint32 steam_hw_compat_category_packed = 73 [default = 0];
 inline bool CAppOverview::_internal_has_steam_hw_compat_category_packed() const {
-  bool value = (_has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CAppOverview::has_steam_hw_compat_category_packed() const {
@@ -4437,7 +4459,7 @@ inline bool CAppOverview::has_steam_hw_compat_category_packed() const {
 }
 inline void CAppOverview::clear_steam_hw_compat_category_packed() {
   steam_hw_compat_category_packed_ = 0u;
-  _has_bits_[1] &= ~0x00000002u;
+  _has_bits_[1] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_steam_hw_compat_category_packed() const {
   return steam_hw_compat_category_packed_;
@@ -4447,12 +4469,85 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::steam_hw_compat_category_pa
   return _internal_steam_hw_compat_category_packed();
 }
 inline void CAppOverview::_internal_set_steam_hw_compat_category_packed(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000002u;
+  _has_bits_[1] |= 0x00000004u;
   steam_hw_compat_category_packed_ = value;
 }
 inline void CAppOverview::set_steam_hw_compat_category_packed(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_steam_hw_compat_category_packed(value);
   // @@protoc_insertion_point(field_set:CAppOverview.steam_hw_compat_category_packed)
+}
+
+// optional string album_cover_hash = 74;
+inline bool CAppOverview::_internal_has_album_cover_hash() const {
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CAppOverview::has_album_cover_hash() const {
+  return _internal_has_album_cover_hash();
+}
+inline void CAppOverview::clear_album_cover_hash() {
+  album_cover_hash_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline const std::string& CAppOverview::album_cover_hash() const {
+  // @@protoc_insertion_point(field_get:CAppOverview.album_cover_hash)
+  return _internal_album_cover_hash();
+}
+inline void CAppOverview::set_album_cover_hash(const std::string& value) {
+  _internal_set_album_cover_hash(value);
+  // @@protoc_insertion_point(field_set:CAppOverview.album_cover_hash)
+}
+inline std::string* CAppOverview::mutable_album_cover_hash() {
+  // @@protoc_insertion_point(field_mutable:CAppOverview.album_cover_hash)
+  return _internal_mutable_album_cover_hash();
+}
+inline const std::string& CAppOverview::_internal_album_cover_hash() const {
+  return album_cover_hash_.Get();
+}
+inline void CAppOverview::_internal_set_album_cover_hash(const std::string& value) {
+  _has_bits_[0] |= 0x00000800u;
+  album_cover_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CAppOverview::set_album_cover_hash(std::string&& value) {
+  _has_bits_[0] |= 0x00000800u;
+  album_cover_hash_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CAppOverview.album_cover_hash)
+}
+inline void CAppOverview::set_album_cover_hash(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000800u;
+  album_cover_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CAppOverview.album_cover_hash)
+}
+inline void CAppOverview::set_album_cover_hash(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000800u;
+  album_cover_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CAppOverview.album_cover_hash)
+}
+inline std::string* CAppOverview::_internal_mutable_album_cover_hash() {
+  _has_bits_[0] |= 0x00000800u;
+  return album_cover_hash_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CAppOverview::release_album_cover_hash() {
+  // @@protoc_insertion_point(field_release:CAppOverview.album_cover_hash)
+  if (!_internal_has_album_cover_hash()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000800u;
+  return album_cover_hash_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CAppOverview::set_allocated_album_cover_hash(std::string* album_cover_hash) {
+  if (album_cover_hash != nullptr) {
+    _has_bits_[0] |= 0x00000800u;
+  } else {
+    _has_bits_[0] &= ~0x00000800u;
+  }
+  album_cover_hash_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), album_cover_hash,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CAppOverview.album_cover_hash)
 }
 
 // -------------------------------------------------------------------

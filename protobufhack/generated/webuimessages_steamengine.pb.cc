@@ -104,7 +104,32 @@ struct CSteamEngine_SetOverlayEscapeKeyHandling_NotificationDefaultTypeInternal 
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CSteamEngine_SetOverlayEscapeKeyHandling_NotificationDefaultTypeInternal _CSteamEngine_SetOverlayEscapeKeyHandling_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fsteamengine_2eproto[7];
+constexpr CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : search_term_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , max_results_(0u){}
+struct CSteamEngine_SearchAppDataCacheByStoreKeywords_RequestDefaultTypeInternal {
+  constexpr CSteamEngine_SearchAppDataCacheByStoreKeywords_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CSteamEngine_SearchAppDataCacheByStoreKeywords_RequestDefaultTypeInternal() {}
+  union {
+    CSteamEngine_SearchAppDataCacheByStoreKeywords_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CSteamEngine_SearchAppDataCacheByStoreKeywords_RequestDefaultTypeInternal _CSteamEngine_SearchAppDataCacheByStoreKeywords_Request_default_instance_;
+constexpr CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : appids_(){}
+struct CSteamEngine_SearchAppDataCacheByStoreKeywords_ResponseDefaultTypeInternal {
+  constexpr CSteamEngine_SearchAppDataCacheByStoreKeywords_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CSteamEngine_SearchAppDataCacheByStoreKeywords_ResponseDefaultTypeInternal() {}
+  union {
+    CSteamEngine_SearchAppDataCacheByStoreKeywords_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CSteamEngine_SearchAppDataCacheByStoreKeywords_ResponseDefaultTypeInternal _CSteamEngine_SearchAppDataCacheByStoreKeywords_Response_default_instance_;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fsteamengine_2eproto[9];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_webuimessages_5fsteamengine_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_webuimessages_5fsteamengine_2eproto[1];
 
@@ -166,6 +191,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamengine_2e
   PROTOBUF_FIELD_OFFSET(::CSteamEngine_SetOverlayEscapeKeyHandling_Notification, should_handle_),
   0,
   1,
+  PROTOBUF_FIELD_OFFSET(::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request, search_term_),
+  PROTOBUF_FIELD_OFFSET(::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request, max_results_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response, appids_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::CSteamEngine_UpdateTextFilterDictionary_Notification)},
@@ -175,6 +215,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 34, 40, sizeof(::CSteamEngine_GetGameIDForPID_Request)},
   { 41, 47, sizeof(::CSteamEngine_GetGameIDForPID_Response)},
   { 48, 55, sizeof(::CSteamEngine_SetOverlayEscapeKeyHandling_Notification)},
+  { 57, 64, sizeof(::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)},
+  { 66, -1, sizeof(::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -185,6 +227,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamEngine_GetGameIDForPID_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamEngine_GetGameIDForPID_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamEngine_SetOverlayEscapeKeyHandling_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamEngine_SearchAppDataCacheByStoreKeywords_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CSteamEngine_SearchAppDataCacheByStoreKeywords_Response_default_instance_),
 };
 
 const char descriptor_table_protodef_webuimessages_5fsteamengine_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -204,22 +248,30 @@ const char descriptor_table_protodef_webuimessages_5fsteamengine_2eproto[] PROTO
   "meIDForPID_Response\022\016\n\006gameid\030\001 \001(\004\"^\n5C"
   "SteamEngine_SetOverlayEscapeKeyHandling_"
   "Notification\022\016\n\006gameid\030\001 \002(\004\022\025\n\rshould_h"
-  "andle\030\002 \002(\0102\256\004\n\013SteamEngine\022e\n\032UpdateTex"
-  "tFilterDictionary\0225.CSteamEngine_UpdateT"
-  "extFilterDictionary_Notification\032\020.WebUI"
-  "NoResponse\022x\n\027GetTextFilterDictionary\022-."
-  "CSteamEngine_GetTextFilterDictionary_Req"
-  "uest\032..CSteamEngine_GetTextFilterDiction"
-  "ary_Response\022m\n!NotifyTextFilterDictiona"
-  "ryChanged\0226.CSteamEngine_TextFilterDicti"
-  "onaryChanged_Notification\032\020.WebUINoRespo"
-  "nse\022`\n\017GetGameIDForPID\022%.CSteamEngine_Ge"
-  "tGameIDForPID_Request\032&.CSteamEngine_Get"
-  "GameIDForPID_Response\022g\n\033SetOverlayEscap"
-  "eKeyHandling\0226.CSteamEngine_SetOverlayEs"
-  "capeKeyHandling_Notification\032\020.WebUINoRe"
-  "sponse\032\004\200\227\"\002B\037H\001\200\001\001\252\002\027OpenSteamworks.Pro"
-  "tobuf"
+  "andle\030\002 \002(\010\"b\n6CSteamEngine_SearchAppDat"
+  "aCacheByStoreKeywords_Request\022\023\n\013search_"
+  "term\030\001 \001(\t\022\023\n\013max_results\030\002 \001(\r\"I\n7CStea"
+  "mEngine_SearchAppDataCacheByStoreKeyword"
+  "s_Response\022\016\n\006appids\030\001 \003(\r2\307\005\n\013SteamEngi"
+  "ne\022e\n\032UpdateTextFilterDictionary\0225.CStea"
+  "mEngine_UpdateTextFilterDictionary_Notif"
+  "ication\032\020.WebUINoResponse\022x\n\027GetTextFilt"
+  "erDictionary\022-.CSteamEngine_GetTextFilte"
+  "rDictionary_Request\032..CSteamEngine_GetTe"
+  "xtFilterDictionary_Response\022m\n!NotifyTex"
+  "tFilterDictionaryChanged\0226.CSteamEngine_"
+  "TextFilterDictionaryChanged_Notification"
+  "\032\020.WebUINoResponse\022`\n\017GetGameIDForPID\022%."
+  "CSteamEngine_GetGameIDForPID_Request\032&.C"
+  "SteamEngine_GetGameIDForPID_Response\022g\n\033"
+  "SetOverlayEscapeKeyHandling\0226.CSteamEngi"
+  "ne_SetOverlayEscapeKeyHandling_Notificat"
+  "ion\032\020.WebUINoResponse\022\226\001\n!SearchAppDataC"
+  "acheByStoreKeywords\0227.CSteamEngine_Searc"
+  "hAppDataCacheByStoreKeywords_Request\0328.C"
+  "SteamEngine_SearchAppDataCacheByStoreKey"
+  "words_Response\032\004\200\227\"\002B\037H\001\200\001\001\252\002\027OpenSteamw"
+  "orks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fsteamengine_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -228,8 +280,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fsteamengine_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fsteamengine_2eproto = {
-  false, false, 1245, descriptor_table_protodef_webuimessages_5fsteamengine_2eproto, "webuimessages_steamengine.proto", 
-  &descriptor_table_webuimessages_5fsteamengine_2eproto_once, descriptor_table_webuimessages_5fsteamengine_2eproto_deps, 3, 7,
+  false, false, 1573, descriptor_table_protodef_webuimessages_5fsteamengine_2eproto, "webuimessages_steamengine.proto", 
+  &descriptor_table_webuimessages_5fsteamengine_2eproto_once, descriptor_table_webuimessages_5fsteamengine_2eproto_deps, 3, 9,
   schemas, file_default_instances, TableStruct_webuimessages_5fsteamengine_2eproto::offsets,
   file_level_metadata_webuimessages_5fsteamengine_2eproto, file_level_enum_descriptors_webuimessages_5fsteamengine_2eproto, file_level_service_descriptors_webuimessages_5fsteamengine_2eproto,
 };
@@ -1995,6 +2047,456 @@ void CSteamEngine_SetOverlayEscapeKeyHandling_Notification::InternalSwap(CSteamE
 
 // ===================================================================
 
+class CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CSteamEngine_SearchAppDataCacheByStoreKeywords_Request>()._has_bits_);
+  static void set_has_search_term(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_max_results(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+}
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  search_term_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_search_term()) {
+    search_term_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_search_term(), 
+      GetArena());
+  }
+  max_results_ = from.max_results_;
+  // @@protoc_insertion_point(copy_constructor:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::SharedCtor() {
+search_term_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+max_results_ = 0u;
+}
+
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::~CSteamEngine_SearchAppDataCacheByStoreKeywords_Request() {
+  // @@protoc_insertion_point(destructor:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  search_term_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::ArenaDtor(void* object) {
+  CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* _this = reinterpret_cast< CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* >(object);
+  (void)_this;
+}
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    search_term_.ClearNonDefaultToEmpty();
+  }
+  max_results_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional string search_term = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_search_term();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 max_results = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_max_results(&has_bits);
+          max_results_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional string search_term = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_search_term().data(), static_cast<int>(this->_internal_search_term().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_search_term(), target);
+  }
+
+  // optional uint32 max_results = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_max_results(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  return target;
+}
+
+size_t CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional string search_term = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_search_term());
+    }
+
+    // optional uint32 max_results = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_max_results());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CSteamEngine_SearchAppDataCacheByStoreKeywords_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::MergeFrom(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_search_term(from._internal_search_term());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      max_results_ = from.max_results_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::CopyFrom(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::IsInitialized() const {
+  return true;
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::InternalSwap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  search_term_.Swap(&other->search_term_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(max_results_, other->max_results_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::_Internal {
+ public:
+};
+
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  appids_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+}
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      appids_(from.appids_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::SharedCtor() {
+}
+
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::~CSteamEngine_SearchAppDataCacheByStoreKeywords_Response() {
+  // @@protoc_insertion_point(destructor:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::ArenaDtor(void* object) {
+  CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* _this = reinterpret_cast< CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* >(object);
+  (void)_this;
+}
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  appids_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated uint32 appids = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_appids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<8>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_appids(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated uint32 appids = 1;
+  for (int i = 0, n = this->_internal_appids_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appids(i), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  return target;
+}
+
+size_t CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint32 appids = 1;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->appids_);
+    total_size += 1 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_appids_size());
+    total_size += data_size;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CSteamEngine_SearchAppDataCacheByStoreKeywords_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::MergeFrom(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  appids_.MergeFrom(from.appids_);
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::CopyFrom(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::IsInitialized() const {
+  return true;
+}
+
+void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::InternalSwap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  appids_.InternalSwap(&other->appids_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 SteamEngine::~SteamEngine() {}
 
 const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* SteamEngine::descriptor() {
@@ -2046,6 +2548,14 @@ void SteamEngine::SetOverlayEscapeKeyHandling(::PROTOBUF_NAMESPACE_ID::RpcContro
   done->Run();
 }
 
+void SteamEngine::SearchAppDataCacheByStoreKeywords(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request*,
+                         ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method SearchAppDataCacheByStoreKeywords() not implemented.");
+  done->Run();
+}
+
 void SteamEngine::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -2093,6 +2603,14 @@ void SteamEngine::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* me
                  response),
              done);
       break;
+    case 5:
+      SearchAppDataCacheByStoreKeywords(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -2113,6 +2631,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& SteamEngine::GetRequestPrototype(
       return ::CSteamEngine_GetGameIDForPID_Request::default_instance();
     case 4:
       return ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification::default_instance();
+    case 5:
+      return ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -2134,6 +2654,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& SteamEngine::GetResponsePrototype(
       return ::CSteamEngine_GetGameIDForPID_Response::default_instance();
     case 4:
       return ::WebUINoResponse::default_instance();
+    case 5:
+      return ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -2187,6 +2709,13 @@ void SteamEngine_Stub::SetOverlayEscapeKeyHandling(::PROTOBUF_NAMESPACE_ID::RpcC
   channel_->CallMethod(descriptor()->method(4),
                        controller, request, response, done);
 }
+void SteamEngine_Stub::SearchAppDataCacheByStoreKeywords(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* request,
+                              ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(5),
+                       controller, request, response, done);
+}
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
@@ -2210,6 +2739,12 @@ template<> PROTOBUF_NOINLINE ::CSteamEngine_GetGameIDForPID_Response* Arena::Cre
 }
 template<> PROTOBUF_NOINLINE ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification* Arena::CreateMaybeMessage< ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* Arena::CreateMaybeMessage< ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* Arena::CreateMaybeMessage< ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

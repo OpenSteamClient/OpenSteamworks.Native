@@ -8098,6 +8098,7 @@ class CStore_GetWishlistDemoEmailStatus_Request PROTOBUF_FINAL :
   enum : int {
     kAppidFieldNumber = 1,
     kDemoAppidFieldNumber = 2,
+    kAllowLateFiringFieldNumber = 3,
   };
   // optional uint32 appid = 1;
   bool has_appid() const;
@@ -8125,6 +8126,19 @@ class CStore_GetWishlistDemoEmailStatus_Request PROTOBUF_FINAL :
   void _internal_set_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional bool allow_late_firing = 3;
+  bool has_allow_late_firing() const;
+  private:
+  bool _internal_has_allow_late_firing() const;
+  public:
+  void clear_allow_late_firing();
+  bool allow_late_firing() const;
+  void set_allow_late_firing(bool value);
+  private:
+  bool _internal_allow_late_firing() const;
+  void _internal_set_allow_late_firing(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CStore_GetWishlistDemoEmailStatus_Request)
  private:
   class _Internal;
@@ -8136,6 +8150,7 @@ class CStore_GetWishlistDemoEmailStatus_Request PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 demo_appid_;
+  bool allow_late_firing_;
   friend struct ::TableStruct_steammessages_5fstore_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -8441,6 +8456,7 @@ class CStore_QueueWishlistDemoEmailToFire_Request PROTOBUF_FINAL :
   enum : int {
     kAppidFieldNumber = 1,
     kDemoAppidFieldNumber = 2,
+    kAllowLateFiringFieldNumber = 3,
   };
   // optional uint32 appid = 1;
   bool has_appid() const;
@@ -8468,6 +8484,19 @@ class CStore_QueueWishlistDemoEmailToFire_Request PROTOBUF_FINAL :
   void _internal_set_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional bool allow_late_firing = 3;
+  bool has_allow_late_firing() const;
+  private:
+  bool _internal_has_allow_late_firing() const;
+  public:
+  void clear_allow_late_firing();
+  bool allow_late_firing() const;
+  void set_allow_late_firing(bool value);
+  private:
+  bool _internal_allow_late_firing() const;
+  void _internal_set_allow_late_firing(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CStore_QueueWishlistDemoEmailToFire_Request)
  private:
   class _Internal;
@@ -8479,6 +8508,7 @@ class CStore_QueueWishlistDemoEmailToFire_Request PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 demo_appid_;
+  bool allow_late_firing_;
   friend struct ::TableStruct_steammessages_5fstore_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -17124,6 +17154,34 @@ inline void CStore_GetWishlistDemoEmailStatus_Request::set_demo_appid(::PROTOBUF
   // @@protoc_insertion_point(field_set:CStore_GetWishlistDemoEmailStatus_Request.demo_appid)
 }
 
+// optional bool allow_late_firing = 3;
+inline bool CStore_GetWishlistDemoEmailStatus_Request::_internal_has_allow_late_firing() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CStore_GetWishlistDemoEmailStatus_Request::has_allow_late_firing() const {
+  return _internal_has_allow_late_firing();
+}
+inline void CStore_GetWishlistDemoEmailStatus_Request::clear_allow_late_firing() {
+  allow_late_firing_ = false;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline bool CStore_GetWishlistDemoEmailStatus_Request::_internal_allow_late_firing() const {
+  return allow_late_firing_;
+}
+inline bool CStore_GetWishlistDemoEmailStatus_Request::allow_late_firing() const {
+  // @@protoc_insertion_point(field_get:CStore_GetWishlistDemoEmailStatus_Request.allow_late_firing)
+  return _internal_allow_late_firing();
+}
+inline void CStore_GetWishlistDemoEmailStatus_Request::_internal_set_allow_late_firing(bool value) {
+  _has_bits_[0] |= 0x00000004u;
+  allow_late_firing_ = value;
+}
+inline void CStore_GetWishlistDemoEmailStatus_Request::set_allow_late_firing(bool value) {
+  _internal_set_allow_late_firing(value);
+  // @@protoc_insertion_point(field_set:CStore_GetWishlistDemoEmailStatus_Request.allow_late_firing)
+}
+
 // -------------------------------------------------------------------
 
 // CStore_GetWishlistDemoEmailStatus_Response
@@ -17270,6 +17328,34 @@ inline void CStore_QueueWishlistDemoEmailToFire_Request::_internal_set_demo_appi
 inline void CStore_QueueWishlistDemoEmailToFire_Request::set_demo_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_demo_appid(value);
   // @@protoc_insertion_point(field_set:CStore_QueueWishlistDemoEmailToFire_Request.demo_appid)
+}
+
+// optional bool allow_late_firing = 3;
+inline bool CStore_QueueWishlistDemoEmailToFire_Request::_internal_has_allow_late_firing() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CStore_QueueWishlistDemoEmailToFire_Request::has_allow_late_firing() const {
+  return _internal_has_allow_late_firing();
+}
+inline void CStore_QueueWishlistDemoEmailToFire_Request::clear_allow_late_firing() {
+  allow_late_firing_ = false;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline bool CStore_QueueWishlistDemoEmailToFire_Request::_internal_allow_late_firing() const {
+  return allow_late_firing_;
+}
+inline bool CStore_QueueWishlistDemoEmailToFire_Request::allow_late_firing() const {
+  // @@protoc_insertion_point(field_get:CStore_QueueWishlistDemoEmailToFire_Request.allow_late_firing)
+  return _internal_allow_late_firing();
+}
+inline void CStore_QueueWishlistDemoEmailToFire_Request::_internal_set_allow_late_firing(bool value) {
+  _has_bits_[0] |= 0x00000004u;
+  allow_late_firing_ = value;
+}
+inline void CStore_QueueWishlistDemoEmailToFire_Request::set_allow_late_firing(bool value) {
+  _internal_set_allow_late_firing(value);
+  // @@protoc_insertion_point(field_set:CStore_QueueWishlistDemoEmailToFire_Request.allow_late_firing)
 }
 
 // -------------------------------------------------------------------

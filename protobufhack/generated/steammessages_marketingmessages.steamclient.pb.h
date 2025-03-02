@@ -52,7 +52,7 @@ struct TableStruct_steammessages_5fmarketingmessages_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[37]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[43]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -63,6 +63,9 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 class CDisplayMarketingMessage;
 struct CDisplayMarketingMessageDefaultTypeInternal;
 extern CDisplayMarketingMessageDefaultTypeInternal _CDisplayMarketingMessage_default_instance_;
+class CMarketingMessageClickedHourlyStats;
+struct CMarketingMessageClickedHourlyStatsDefaultTypeInternal;
+extern CMarketingMessageClickedHourlyStatsDefaultTypeInternal _CMarketingMessageClickedHourlyStats_default_instance_;
 class CMarketingMessageHourlyStats;
 struct CMarketingMessageHourlyStatsDefaultTypeInternal;
 extern CMarketingMessageHourlyStatsDefaultTypeInternal _CMarketingMessageHourlyStats_default_instance_;
@@ -117,6 +120,12 @@ extern CMarketingMessages_GetDisplayMarketingMessage_RequestDefaultTypeInternal 
 class CMarketingMessages_GetDisplayMarketingMessage_Response;
 struct CMarketingMessages_GetDisplayMarketingMessage_ResponseDefaultTypeInternal;
 extern CMarketingMessages_GetDisplayMarketingMessage_ResponseDefaultTypeInternal _CMarketingMessages_GetDisplayMarketingMessage_Response_default_instance_;
+class CMarketingMessages_GetMarketingMessageClickedStats_Request;
+struct CMarketingMessages_GetMarketingMessageClickedStats_RequestDefaultTypeInternal;
+extern CMarketingMessages_GetMarketingMessageClickedStats_RequestDefaultTypeInternal _CMarketingMessages_GetMarketingMessageClickedStats_Request_default_instance_;
+class CMarketingMessages_GetMarketingMessageClickedStats_Response;
+struct CMarketingMessages_GetMarketingMessageClickedStats_ResponseDefaultTypeInternal;
+extern CMarketingMessages_GetMarketingMessageClickedStats_ResponseDefaultTypeInternal _CMarketingMessages_GetMarketingMessageClickedStats_Response_default_instance_;
 class CMarketingMessages_GetMarketingMessageViewerStats_Request;
 struct CMarketingMessages_GetMarketingMessageViewerStats_RequestDefaultTypeInternal;
 extern CMarketingMessages_GetMarketingMessageViewerStats_RequestDefaultTypeInternal _CMarketingMessages_GetMarketingMessageViewerStats_Request_default_instance_;
@@ -156,6 +165,15 @@ extern CMarketingMessages_GetPartnerReadyToPublishMessages_RequestDefaultTypeInt
 class CMarketingMessages_GetPartnerReadyToPublishMessages_Response;
 struct CMarketingMessages_GetPartnerReadyToPublishMessages_ResponseDefaultTypeInternal;
 extern CMarketingMessages_GetPartnerReadyToPublishMessages_ResponseDefaultTypeInternal _CMarketingMessages_GetPartnerReadyToPublishMessages_Response_default_instance_;
+class CMarketingMessages_GetPastMarketingMessages_Request;
+struct CMarketingMessages_GetPastMarketingMessages_RequestDefaultTypeInternal;
+extern CMarketingMessages_GetPastMarketingMessages_RequestDefaultTypeInternal _CMarketingMessages_GetPastMarketingMessages_Request_default_instance_;
+class CMarketingMessages_GetPastMarketingMessages_Response;
+struct CMarketingMessages_GetPastMarketingMessages_ResponseDefaultTypeInternal;
+extern CMarketingMessages_GetPastMarketingMessages_ResponseDefaultTypeInternal _CMarketingMessages_GetPastMarketingMessages_Response_default_instance_;
+class CMarketingMessages_MarkMessageClicked_Notification;
+struct CMarketingMessages_MarkMessageClicked_NotificationDefaultTypeInternal;
+extern CMarketingMessages_MarkMessageClicked_NotificationDefaultTypeInternal _CMarketingMessages_MarkMessageClicked_Notification_default_instance_;
 class CMarketingMessages_MarkMessageSeen_Notification;
 struct CMarketingMessages_MarkMessageSeen_NotificationDefaultTypeInternal;
 extern CMarketingMessages_MarkMessageSeen_NotificationDefaultTypeInternal _CMarketingMessages_MarkMessageSeen_Notification_default_instance_;
@@ -173,6 +191,7 @@ struct CMarketingMessages_UpdateMarketingMessage_ResponseDefaultTypeInternal;
 extern CMarketingMessages_UpdateMarketingMessage_ResponseDefaultTypeInternal _CMarketingMessages_UpdateMarketingMessage_Response_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::CDisplayMarketingMessage* Arena::CreateMaybeMessage<::CDisplayMarketingMessage>(Arena*);
+template<> ::CMarketingMessageClickedHourlyStats* Arena::CreateMaybeMessage<::CMarketingMessageClickedHourlyStats>(Arena*);
 template<> ::CMarketingMessageHourlyStats* Arena::CreateMaybeMessage<::CMarketingMessageHourlyStats>(Arena*);
 template<> ::CMarketingMessageProto* Arena::CreateMaybeMessage<::CMarketingMessageProto>(Arena*);
 template<> ::CMarketingMessage_GetMarketingMessagesForApps_Request* Arena::CreateMaybeMessage<::CMarketingMessage_GetMarketingMessagesForApps_Request>(Arena*);
@@ -191,6 +210,8 @@ template<> ::CMarketingMessages_GetActiveMarketingMessages_Request* Arena::Creat
 template<> ::CMarketingMessages_GetActiveMarketingMessages_Response* Arena::CreateMaybeMessage<::CMarketingMessages_GetActiveMarketingMessages_Response>(Arena*);
 template<> ::CMarketingMessages_GetDisplayMarketingMessage_Request* Arena::CreateMaybeMessage<::CMarketingMessages_GetDisplayMarketingMessage_Request>(Arena*);
 template<> ::CMarketingMessages_GetDisplayMarketingMessage_Response* Arena::CreateMaybeMessage<::CMarketingMessages_GetDisplayMarketingMessage_Response>(Arena*);
+template<> ::CMarketingMessages_GetMarketingMessageClickedStats_Request* Arena::CreateMaybeMessage<::CMarketingMessages_GetMarketingMessageClickedStats_Request>(Arena*);
+template<> ::CMarketingMessages_GetMarketingMessageClickedStats_Response* Arena::CreateMaybeMessage<::CMarketingMessages_GetMarketingMessageClickedStats_Response>(Arena*);
 template<> ::CMarketingMessages_GetMarketingMessageViewerStats_Request* Arena::CreateMaybeMessage<::CMarketingMessages_GetMarketingMessageViewerStats_Request>(Arena*);
 template<> ::CMarketingMessages_GetMarketingMessageViewerStats_Response* Arena::CreateMaybeMessage<::CMarketingMessages_GetMarketingMessageViewerStats_Response>(Arena*);
 template<> ::CMarketingMessages_GetMarketingMessage_Request* Arena::CreateMaybeMessage<::CMarketingMessages_GetMarketingMessage_Request>(Arena*);
@@ -204,6 +225,9 @@ template<> ::CMarketingMessages_GetPartnerMessagePreview_Request* Arena::CreateM
 template<> ::CMarketingMessages_GetPartnerMessagePreview_Response* Arena::CreateMaybeMessage<::CMarketingMessages_GetPartnerMessagePreview_Response>(Arena*);
 template<> ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request* Arena::CreateMaybeMessage<::CMarketingMessages_GetPartnerReadyToPublishMessages_Request>(Arena*);
 template<> ::CMarketingMessages_GetPartnerReadyToPublishMessages_Response* Arena::CreateMaybeMessage<::CMarketingMessages_GetPartnerReadyToPublishMessages_Response>(Arena*);
+template<> ::CMarketingMessages_GetPastMarketingMessages_Request* Arena::CreateMaybeMessage<::CMarketingMessages_GetPastMarketingMessages_Request>(Arena*);
+template<> ::CMarketingMessages_GetPastMarketingMessages_Response* Arena::CreateMaybeMessage<::CMarketingMessages_GetPastMarketingMessages_Response>(Arena*);
+template<> ::CMarketingMessages_MarkMessageClicked_Notification* Arena::CreateMaybeMessage<::CMarketingMessages_MarkMessageClicked_Notification>(Arena*);
 template<> ::CMarketingMessages_MarkMessageSeen_Notification* Arena::CreateMaybeMessage<::CMarketingMessages_MarkMessageSeen_Notification>(Arena*);
 template<> ::CMarketingMessages_PartnerPublishMessage_Request* Arena::CreateMaybeMessage<::CMarketingMessages_PartnerPublishMessage_Request>(Arena*);
 template<> ::CMarketingMessages_PartnerPublishMessage_Response* Arena::CreateMaybeMessage<::CMarketingMessages_PartnerPublishMessage_Response>(Arena*);
@@ -307,7 +331,9 @@ enum EMarketingMessageTemplateType : int {
   EMarketingMessageTemplate_Featured_Video = 3,
   EMarketingMessageTemplate_DLC_Override = 4,
   EMarketingMessageTemplate_Replay = 5,
-  EMarketingMessageTemplate_MAX = 6
+  EMarketingMessageTemplate_Event = 6,
+  EMarketingMessageTemplate_AutoRender = 7,
+  EMarketingMessageTemplate_MAX = 8
 };
 bool EMarketingMessageTemplateType_IsValid(int value);
 constexpr EMarketingMessageTemplateType EMarketingMessageTemplateType_MIN = EMarketingMessageTemplate_Unknown;
@@ -327,6 +353,32 @@ inline bool EMarketingMessageTemplateType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EMarketingMessageTemplateType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EMarketingMessageTemplateType>(
     EMarketingMessageTemplateType_descriptor(), name, value);
+}
+enum EMarketingMessageClickLocation : int {
+  EMarketingMessageClickLocation_Unknown = 0,
+  EMarketingMessageClickLocation_Image = 1,
+  EMarketingMessageClickLocation_Button = 2,
+  EMarketingMessageClickLocation_DlcCapsule = 3,
+  EMarketingMessageClickLocation_HeaderArea = 4
+};
+bool EMarketingMessageClickLocation_IsValid(int value);
+constexpr EMarketingMessageClickLocation EMarketingMessageClickLocation_MIN = EMarketingMessageClickLocation_Unknown;
+constexpr EMarketingMessageClickLocation EMarketingMessageClickLocation_MAX = EMarketingMessageClickLocation_HeaderArea;
+constexpr int EMarketingMessageClickLocation_ARRAYSIZE = EMarketingMessageClickLocation_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMarketingMessageClickLocation_descriptor();
+template<typename T>
+inline const std::string& EMarketingMessageClickLocation_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EMarketingMessageClickLocation>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EMarketingMessageClickLocation_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EMarketingMessageClickLocation_descriptor(), enum_t_value);
+}
+inline bool EMarketingMessageClickLocation_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EMarketingMessageClickLocation* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EMarketingMessageClickLocation>(
+    EMarketingMessageClickLocation_descriptor(), name, value);
 }
 enum EMarketingMessageLookupType : int {
   EMarketingMessageLookupInvalid = 0,
@@ -1275,6 +1327,323 @@ class CMarketingMessages_GetActiveMarketingMessages_Response PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMarketingMessages_GetPastMarketingMessages_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessages_GetPastMarketingMessages_Request) */ {
+ public:
+  inline CMarketingMessages_GetPastMarketingMessages_Request() : CMarketingMessages_GetPastMarketingMessages_Request(nullptr) {}
+  virtual ~CMarketingMessages_GetPastMarketingMessages_Request();
+  explicit constexpr CMarketingMessages_GetPastMarketingMessages_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMarketingMessages_GetPastMarketingMessages_Request(const CMarketingMessages_GetPastMarketingMessages_Request& from);
+  CMarketingMessages_GetPastMarketingMessages_Request(CMarketingMessages_GetPastMarketingMessages_Request&& from) noexcept
+    : CMarketingMessages_GetPastMarketingMessages_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CMarketingMessages_GetPastMarketingMessages_Request& operator=(const CMarketingMessages_GetPastMarketingMessages_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMarketingMessages_GetPastMarketingMessages_Request& operator=(CMarketingMessages_GetPastMarketingMessages_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMarketingMessages_GetPastMarketingMessages_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMarketingMessages_GetPastMarketingMessages_Request* internal_default_instance() {
+    return reinterpret_cast<const CMarketingMessages_GetPastMarketingMessages_Request*>(
+               &_CMarketingMessages_GetPastMarketingMessages_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CMarketingMessages_GetPastMarketingMessages_Request& a, CMarketingMessages_GetPastMarketingMessages_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMarketingMessages_GetPastMarketingMessages_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMarketingMessages_GetPastMarketingMessages_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMarketingMessages_GetPastMarketingMessages_Request* New() const final {
+    return CreateMaybeMessage<CMarketingMessages_GetPastMarketingMessages_Request>(nullptr);
+  }
+
+  CMarketingMessages_GetPastMarketingMessages_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMarketingMessages_GetPastMarketingMessages_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMarketingMessages_GetPastMarketingMessages_Request& from);
+  void MergeFrom(const CMarketingMessages_GetPastMarketingMessages_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMarketingMessages_GetPastMarketingMessages_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMarketingMessages_GetPastMarketingMessages_Request";
+  }
+  protected:
+  explicit CMarketingMessages_GetPastMarketingMessages_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStartPastDaysFieldNumber = 1,
+    kUptoPastDaysFieldNumber = 2,
+  };
+  // optional uint32 start_past_days = 1;
+  bool has_start_past_days() const;
+  private:
+  bool _internal_has_start_past_days() const;
+  public:
+  void clear_start_past_days();
+  ::PROTOBUF_NAMESPACE_ID::uint32 start_past_days() const;
+  void set_start_past_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_start_past_days() const;
+  void _internal_set_start_past_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 upto_past_days = 2;
+  bool has_upto_past_days() const;
+  private:
+  bool _internal_has_upto_past_days() const;
+  public:
+  void clear_upto_past_days();
+  ::PROTOBUF_NAMESPACE_ID::uint32 upto_past_days() const;
+  void set_upto_past_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_upto_past_days() const;
+  void _internal_set_upto_past_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMarketingMessages_GetPastMarketingMessages_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 start_past_days_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 upto_past_days_;
+  friend struct ::TableStruct_steammessages_5fmarketingmessages_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMarketingMessages_GetPastMarketingMessages_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessages_GetPastMarketingMessages_Response) */ {
+ public:
+  inline CMarketingMessages_GetPastMarketingMessages_Response() : CMarketingMessages_GetPastMarketingMessages_Response(nullptr) {}
+  virtual ~CMarketingMessages_GetPastMarketingMessages_Response();
+  explicit constexpr CMarketingMessages_GetPastMarketingMessages_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMarketingMessages_GetPastMarketingMessages_Response(const CMarketingMessages_GetPastMarketingMessages_Response& from);
+  CMarketingMessages_GetPastMarketingMessages_Response(CMarketingMessages_GetPastMarketingMessages_Response&& from) noexcept
+    : CMarketingMessages_GetPastMarketingMessages_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CMarketingMessages_GetPastMarketingMessages_Response& operator=(const CMarketingMessages_GetPastMarketingMessages_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMarketingMessages_GetPastMarketingMessages_Response& operator=(CMarketingMessages_GetPastMarketingMessages_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMarketingMessages_GetPastMarketingMessages_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMarketingMessages_GetPastMarketingMessages_Response* internal_default_instance() {
+    return reinterpret_cast<const CMarketingMessages_GetPastMarketingMessages_Response*>(
+               &_CMarketingMessages_GetPastMarketingMessages_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(CMarketingMessages_GetPastMarketingMessages_Response& a, CMarketingMessages_GetPastMarketingMessages_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMarketingMessages_GetPastMarketingMessages_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMarketingMessages_GetPastMarketingMessages_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMarketingMessages_GetPastMarketingMessages_Response* New() const final {
+    return CreateMaybeMessage<CMarketingMessages_GetPastMarketingMessages_Response>(nullptr);
+  }
+
+  CMarketingMessages_GetPastMarketingMessages_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMarketingMessages_GetPastMarketingMessages_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMarketingMessages_GetPastMarketingMessages_Response& from);
+  void MergeFrom(const CMarketingMessages_GetPastMarketingMessages_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMarketingMessages_GetPastMarketingMessages_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMarketingMessages_GetPastMarketingMessages_Response";
+  }
+  protected:
+  explicit CMarketingMessages_GetPastMarketingMessages_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMessagesFieldNumber = 1,
+  };
+  // repeated .CMarketingMessageProto messages = 1;
+  int messages_size() const;
+  private:
+  int _internal_messages_size() const;
+  public:
+  void clear_messages();
+  ::CMarketingMessageProto* mutable_messages(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageProto >*
+      mutable_messages();
+  private:
+  const ::CMarketingMessageProto& _internal_messages(int index) const;
+  ::CMarketingMessageProto* _internal_add_messages();
+  public:
+  const ::CMarketingMessageProto& messages(int index) const;
+  ::CMarketingMessageProto* add_messages();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageProto >&
+      messages() const;
+
+  // @@protoc_insertion_point(class_scope:CMarketingMessages_GetPastMarketingMessages_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageProto > messages_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fmarketingmessages_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMarketingMessages_GetMarketingMessagesForUser_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessages_GetMarketingMessagesForUser_Request) */ {
  public:
@@ -1325,7 +1694,7 @@ class CMarketingMessages_GetMarketingMessagesForUser_Request PROTOBUF_FINAL :
                &_CMarketingMessages_GetMarketingMessagesForUser_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(CMarketingMessages_GetMarketingMessagesForUser_Request& a, CMarketingMessages_GetMarketingMessagesForUser_Request& b) {
     a.Swap(&b);
@@ -1581,7 +1950,7 @@ class CDisplayMarketingMessage PROTOBUF_FINAL :
                &_CDisplayMarketingMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(CDisplayMarketingMessage& a, CDisplayMarketingMessage& b) {
     a.Swap(&b);
@@ -1873,7 +2242,7 @@ class CMarketingMessages_GetMarketingMessagesForUser_Response_MarketingMessageFo
                &_CMarketingMessages_GetMarketingMessagesForUser_Response_MarketingMessageForUser_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(CMarketingMessages_GetMarketingMessagesForUser_Response_MarketingMessageForUser& a, CMarketingMessages_GetMarketingMessagesForUser_Response_MarketingMessageForUser& b) {
     a.Swap(&b);
@@ -2042,7 +2411,7 @@ class CMarketingMessages_GetMarketingMessagesForUser_Response PROTOBUF_FINAL :
                &_CMarketingMessages_GetMarketingMessagesForUser_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(CMarketingMessages_GetMarketingMessagesForUser_Response& a, CMarketingMessages_GetMarketingMessagesForUser_Response& b) {
     a.Swap(&b);
@@ -2197,7 +2566,7 @@ class CMarketingMessages_DoesUserHavePendingMarketingMessages_Request PROTOBUF_F
                &_CMarketingMessages_DoesUserHavePendingMarketingMessages_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(CMarketingMessages_DoesUserHavePendingMarketingMessages_Request& a, CMarketingMessages_DoesUserHavePendingMarketingMessages_Request& b) {
     a.Swap(&b);
@@ -2398,7 +2767,7 @@ class CMarketingMessages_DoesUserHavePendingMarketingMessages_Response PROTOBUF_
                &_CMarketingMessages_DoesUserHavePendingMarketingMessages_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(CMarketingMessages_DoesUserHavePendingMarketingMessages_Response& a, CMarketingMessages_DoesUserHavePendingMarketingMessages_Response& b) {
     a.Swap(&b);
@@ -2562,7 +2931,7 @@ class CMarketingMessages_GetDisplayMarketingMessage_Request PROTOBUF_FINAL :
                &_CMarketingMessages_GetDisplayMarketingMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(CMarketingMessages_GetDisplayMarketingMessage_Request& a, CMarketingMessages_GetDisplayMarketingMessage_Request& b) {
     a.Swap(&b);
@@ -2751,7 +3120,7 @@ class CMarketingMessages_GetDisplayMarketingMessage_Response PROTOBUF_FINAL :
                &_CMarketingMessages_GetDisplayMarketingMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(CMarketingMessages_GetDisplayMarketingMessage_Response& a, CMarketingMessages_GetDisplayMarketingMessage_Response& b) {
     a.Swap(&b);
@@ -2905,7 +3274,7 @@ class CMarketingMessages_MarkMessageSeen_Notification PROTOBUF_FINAL :
                &_CMarketingMessages_MarkMessageSeen_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(CMarketingMessages_MarkMessageSeen_Notification& a, CMarketingMessages_MarkMessageSeen_Notification& b) {
     a.Swap(&b);
@@ -3034,6 +3403,200 @@ class CMarketingMessages_MarkMessageSeen_Notification PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMarketingMessages_MarkMessageClicked_Notification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessages_MarkMessageClicked_Notification) */ {
+ public:
+  inline CMarketingMessages_MarkMessageClicked_Notification() : CMarketingMessages_MarkMessageClicked_Notification(nullptr) {}
+  virtual ~CMarketingMessages_MarkMessageClicked_Notification();
+  explicit constexpr CMarketingMessages_MarkMessageClicked_Notification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMarketingMessages_MarkMessageClicked_Notification(const CMarketingMessages_MarkMessageClicked_Notification& from);
+  CMarketingMessages_MarkMessageClicked_Notification(CMarketingMessages_MarkMessageClicked_Notification&& from) noexcept
+    : CMarketingMessages_MarkMessageClicked_Notification() {
+    *this = ::std::move(from);
+  }
+
+  inline CMarketingMessages_MarkMessageClicked_Notification& operator=(const CMarketingMessages_MarkMessageClicked_Notification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMarketingMessages_MarkMessageClicked_Notification& operator=(CMarketingMessages_MarkMessageClicked_Notification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMarketingMessages_MarkMessageClicked_Notification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMarketingMessages_MarkMessageClicked_Notification* internal_default_instance() {
+    return reinterpret_cast<const CMarketingMessages_MarkMessageClicked_Notification*>(
+               &_CMarketingMessages_MarkMessageClicked_Notification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(CMarketingMessages_MarkMessageClicked_Notification& a, CMarketingMessages_MarkMessageClicked_Notification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMarketingMessages_MarkMessageClicked_Notification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMarketingMessages_MarkMessageClicked_Notification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMarketingMessages_MarkMessageClicked_Notification* New() const final {
+    return CreateMaybeMessage<CMarketingMessages_MarkMessageClicked_Notification>(nullptr);
+  }
+
+  CMarketingMessages_MarkMessageClicked_Notification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMarketingMessages_MarkMessageClicked_Notification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMarketingMessages_MarkMessageClicked_Notification& from);
+  void MergeFrom(const CMarketingMessages_MarkMessageClicked_Notification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMarketingMessages_MarkMessageClicked_Notification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMarketingMessages_MarkMessageClicked_Notification";
+  }
+  protected:
+  explicit CMarketingMessages_MarkMessageClicked_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGidFieldNumber = 1,
+    kDisplayIndexFieldNumber = 2,
+    kTemplateTypeFieldNumber = 3,
+    kCliclocationFieldNumber = 4,
+  };
+  // optional fixed64 gid = 1;
+  bool has_gid() const;
+  private:
+  bool _internal_has_gid() const;
+  public:
+  void clear_gid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 gid() const;
+  void set_gid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gid() const;
+  void _internal_set_gid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint32 display_index = 2 [default = 0];
+  bool has_display_index() const;
+  private:
+  bool _internal_has_display_index() const;
+  public:
+  void clear_display_index();
+  ::PROTOBUF_NAMESPACE_ID::uint32 display_index() const;
+  void set_display_index(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_display_index() const;
+  void _internal_set_display_index(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown];
+  bool has_template_type() const;
+  private:
+  bool _internal_has_template_type() const;
+  public:
+  void clear_template_type();
+  ::EMarketingMessageTemplateType template_type() const;
+  void set_template_type(::EMarketingMessageTemplateType value);
+  private:
+  ::EMarketingMessageTemplateType _internal_template_type() const;
+  void _internal_set_template_type(::EMarketingMessageTemplateType value);
+  public:
+
+  // optional .EMarketingMessageClickLocation cliclocation = 4 [default = EMarketingMessageClickLocation_Unknown];
+  bool has_cliclocation() const;
+  private:
+  bool _internal_has_cliclocation() const;
+  public:
+  void clear_cliclocation();
+  ::EMarketingMessageClickLocation cliclocation() const;
+  void set_cliclocation(::EMarketingMessageClickLocation value);
+  private:
+  ::EMarketingMessageClickLocation _internal_cliclocation() const;
+  void _internal_set_cliclocation(::EMarketingMessageClickLocation value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMarketingMessages_MarkMessageClicked_Notification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 gid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 display_index_;
+  int template_type_;
+  int cliclocation_;
+  friend struct ::TableStruct_steammessages_5fmarketingmessages_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMarketingMessages_GetMarketingMessage_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessages_GetMarketingMessage_Request) */ {
  public:
@@ -3084,7 +3647,7 @@ class CMarketingMessages_GetMarketingMessage_Request PROTOBUF_FINAL :
                &_CMarketingMessages_GetMarketingMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    15;
 
   friend void swap(CMarketingMessages_GetMarketingMessage_Request& a, CMarketingMessages_GetMarketingMessage_Request& b) {
     a.Swap(&b);
@@ -3233,7 +3796,7 @@ class CMarketingMessages_GetMarketingMessage_Response PROTOBUF_FINAL :
                &_CMarketingMessages_GetMarketingMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    16;
 
   friend void swap(CMarketingMessages_GetMarketingMessage_Response& a, CMarketingMessages_GetMarketingMessage_Response& b) {
     a.Swap(&b);
@@ -3387,7 +3950,7 @@ class CMarketingMessages_CreateMarketingMessage_Request PROTOBUF_FINAL :
                &_CMarketingMessages_CreateMarketingMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    17;
 
   friend void swap(CMarketingMessages_CreateMarketingMessage_Request& a, CMarketingMessages_CreateMarketingMessage_Request& b) {
     a.Swap(&b);
@@ -3556,7 +4119,7 @@ class CMarketingMessages_CreateMarketingMessage_Response PROTOBUF_FINAL :
                &_CMarketingMessages_CreateMarketingMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    18;
 
   friend void swap(CMarketingMessages_CreateMarketingMessage_Response& a, CMarketingMessages_CreateMarketingMessage_Response& b) {
     a.Swap(&b);
@@ -3705,7 +4268,7 @@ class CMarketingMessages_UpdateMarketingMessage_Request PROTOBUF_FINAL :
                &_CMarketingMessages_UpdateMarketingMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    19;
 
   friend void swap(CMarketingMessages_UpdateMarketingMessage_Request& a, CMarketingMessages_UpdateMarketingMessage_Request& b) {
     a.Swap(&b);
@@ -3889,7 +4452,7 @@ class CMarketingMessages_UpdateMarketingMessage_Response PROTOBUF_FINAL :
                &_CMarketingMessages_UpdateMarketingMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    20;
 
   friend void swap(CMarketingMessages_UpdateMarketingMessage_Response& a, CMarketingMessages_UpdateMarketingMessage_Response& b) {
     a.Swap(&b);
@@ -4020,7 +4583,7 @@ class CMarketingMessages_DeleteMarketingMessage_Request PROTOBUF_FINAL :
                &_CMarketingMessages_DeleteMarketingMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    21;
 
   friend void swap(CMarketingMessages_DeleteMarketingMessage_Request& a, CMarketingMessages_DeleteMarketingMessage_Request& b) {
     a.Swap(&b);
@@ -4169,7 +4732,7 @@ class CMarketingMessages_DeleteMarketingMessage_Response PROTOBUF_FINAL :
                &_CMarketingMessages_DeleteMarketingMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    22;
 
   friend void swap(CMarketingMessages_DeleteMarketingMessage_Response& a, CMarketingMessages_DeleteMarketingMessage_Response& b) {
     a.Swap(&b);
@@ -4300,7 +4863,7 @@ class CMarketingMessages_FindMarketingMessages_Request PROTOBUF_FINAL :
                &_CMarketingMessages_FindMarketingMessages_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    23;
 
   friend void swap(CMarketingMessages_FindMarketingMessages_Request& a, CMarketingMessages_FindMarketingMessages_Request& b) {
     a.Swap(&b);
@@ -4525,7 +5088,7 @@ class CMarketingMessages_FindMarketingMessages_Response PROTOBUF_FINAL :
                &_CMarketingMessages_FindMarketingMessages_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    24;
 
   friend void swap(CMarketingMessages_FindMarketingMessages_Response& a, CMarketingMessages_FindMarketingMessages_Response& b) {
     a.Swap(&b);
@@ -4678,7 +5241,7 @@ class CMarketingMessages_GetMarketingMessageViewerStats_Request PROTOBUF_FINAL :
                &_CMarketingMessages_GetMarketingMessageViewerStats_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    25;
 
   friend void swap(CMarketingMessages_GetMarketingMessageViewerStats_Request& a, CMarketingMessages_GetMarketingMessageViewerStats_Request& b) {
     a.Swap(&b);
@@ -4827,7 +5390,7 @@ class CMarketingMessageHourlyStats PROTOBUF_FINAL :
                &_CMarketingMessageHourlyStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    26;
 
   friend void swap(CMarketingMessageHourlyStats& a, CMarketingMessageHourlyStats& b) {
     a.Swap(&b);
@@ -5021,7 +5584,7 @@ class CMarketingMessages_GetMarketingMessageViewerStats_Response PROTOBUF_FINAL 
                &_CMarketingMessages_GetMarketingMessageViewerStats_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    27;
 
   friend void swap(CMarketingMessages_GetMarketingMessageViewerStats_Response& a, CMarketingMessages_GetMarketingMessageViewerStats_Response& b) {
     a.Swap(&b);
@@ -5174,7 +5737,7 @@ class CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request PROTOBUF_F
                &_CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    28;
 
   friend void swap(CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request& a, CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request& b) {
     a.Swap(&b);
@@ -5338,7 +5901,7 @@ class CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response PROTOBUF_
                &_CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    29;
 
   friend void swap(CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response& a, CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response& b) {
     a.Swap(&b);
@@ -5441,6 +6004,517 @@ class CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response PROTOBUF_
 };
 // -------------------------------------------------------------------
 
+class CMarketingMessages_GetMarketingMessageClickedStats_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessages_GetMarketingMessageClickedStats_Request) */ {
+ public:
+  inline CMarketingMessages_GetMarketingMessageClickedStats_Request() : CMarketingMessages_GetMarketingMessageClickedStats_Request(nullptr) {}
+  virtual ~CMarketingMessages_GetMarketingMessageClickedStats_Request();
+  explicit constexpr CMarketingMessages_GetMarketingMessageClickedStats_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMarketingMessages_GetMarketingMessageClickedStats_Request(const CMarketingMessages_GetMarketingMessageClickedStats_Request& from);
+  CMarketingMessages_GetMarketingMessageClickedStats_Request(CMarketingMessages_GetMarketingMessageClickedStats_Request&& from) noexcept
+    : CMarketingMessages_GetMarketingMessageClickedStats_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CMarketingMessages_GetMarketingMessageClickedStats_Request& operator=(const CMarketingMessages_GetMarketingMessageClickedStats_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMarketingMessages_GetMarketingMessageClickedStats_Request& operator=(CMarketingMessages_GetMarketingMessageClickedStats_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMarketingMessages_GetMarketingMessageClickedStats_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMarketingMessages_GetMarketingMessageClickedStats_Request* internal_default_instance() {
+    return reinterpret_cast<const CMarketingMessages_GetMarketingMessageClickedStats_Request*>(
+               &_CMarketingMessages_GetMarketingMessageClickedStats_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(CMarketingMessages_GetMarketingMessageClickedStats_Request& a, CMarketingMessages_GetMarketingMessageClickedStats_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMarketingMessages_GetMarketingMessageClickedStats_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMarketingMessages_GetMarketingMessageClickedStats_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMarketingMessages_GetMarketingMessageClickedStats_Request* New() const final {
+    return CreateMaybeMessage<CMarketingMessages_GetMarketingMessageClickedStats_Request>(nullptr);
+  }
+
+  CMarketingMessages_GetMarketingMessageClickedStats_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMarketingMessages_GetMarketingMessageClickedStats_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMarketingMessages_GetMarketingMessageClickedStats_Request& from);
+  void MergeFrom(const CMarketingMessages_GetMarketingMessageClickedStats_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMarketingMessages_GetMarketingMessageClickedStats_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMarketingMessages_GetMarketingMessageClickedStats_Request";
+  }
+  protected:
+  explicit CMarketingMessages_GetMarketingMessageClickedStats_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGidFieldNumber = 1,
+  };
+  // optional fixed64 gid = 1;
+  bool has_gid() const;
+  private:
+  bool _internal_has_gid() const;
+  public:
+  void clear_gid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 gid() const;
+  void set_gid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gid() const;
+  void _internal_set_gid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMarketingMessages_GetMarketingMessageClickedStats_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 gid_;
+  friend struct ::TableStruct_steammessages_5fmarketingmessages_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMarketingMessageClickedHourlyStats PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessageClickedHourlyStats) */ {
+ public:
+  inline CMarketingMessageClickedHourlyStats() : CMarketingMessageClickedHourlyStats(nullptr) {}
+  virtual ~CMarketingMessageClickedHourlyStats();
+  explicit constexpr CMarketingMessageClickedHourlyStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMarketingMessageClickedHourlyStats(const CMarketingMessageClickedHourlyStats& from);
+  CMarketingMessageClickedHourlyStats(CMarketingMessageClickedHourlyStats&& from) noexcept
+    : CMarketingMessageClickedHourlyStats() {
+    *this = ::std::move(from);
+  }
+
+  inline CMarketingMessageClickedHourlyStats& operator=(const CMarketingMessageClickedHourlyStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMarketingMessageClickedHourlyStats& operator=(CMarketingMessageClickedHourlyStats&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMarketingMessageClickedHourlyStats& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMarketingMessageClickedHourlyStats* internal_default_instance() {
+    return reinterpret_cast<const CMarketingMessageClickedHourlyStats*>(
+               &_CMarketingMessageClickedHourlyStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    31;
+
+  friend void swap(CMarketingMessageClickedHourlyStats& a, CMarketingMessageClickedHourlyStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMarketingMessageClickedHourlyStats* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMarketingMessageClickedHourlyStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMarketingMessageClickedHourlyStats* New() const final {
+    return CreateMaybeMessage<CMarketingMessageClickedHourlyStats>(nullptr);
+  }
+
+  CMarketingMessageClickedHourlyStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMarketingMessageClickedHourlyStats>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMarketingMessageClickedHourlyStats& from);
+  void MergeFrom(const CMarketingMessageClickedHourlyStats& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMarketingMessageClickedHourlyStats* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMarketingMessageClickedHourlyStats";
+  }
+  protected:
+  explicit CMarketingMessageClickedHourlyStats(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRtTimeHourFieldNumber = 1,
+    kClickedCountFieldNumber = 2,
+    kDisplayIndexFieldNumber = 3,
+    kTemplateTypeFieldNumber = 4,
+    kCliclocationFieldNumber = 5,
+  };
+  // optional uint32 rt_time_hour = 1;
+  bool has_rt_time_hour() const;
+  private:
+  bool _internal_has_rt_time_hour() const;
+  public:
+  void clear_rt_time_hour();
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_time_hour() const;
+  void set_rt_time_hour(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_time_hour() const;
+  void _internal_set_rt_time_hour(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 clicked_count = 2;
+  bool has_clicked_count() const;
+  private:
+  bool _internal_has_clicked_count() const;
+  public:
+  void clear_clicked_count();
+  ::PROTOBUF_NAMESPACE_ID::uint32 clicked_count() const;
+  void set_clicked_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_clicked_count() const;
+  void _internal_set_clicked_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 display_index = 3;
+  bool has_display_index() const;
+  private:
+  bool _internal_has_display_index() const;
+  public:
+  void clear_display_index();
+  ::PROTOBUF_NAMESPACE_ID::uint32 display_index() const;
+  void set_display_index(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_display_index() const;
+  void _internal_set_display_index(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional .EMarketingMessageTemplateType template_type = 4 [default = EMarketingMessageTemplate_Unknown];
+  bool has_template_type() const;
+  private:
+  bool _internal_has_template_type() const;
+  public:
+  void clear_template_type();
+  ::EMarketingMessageTemplateType template_type() const;
+  void set_template_type(::EMarketingMessageTemplateType value);
+  private:
+  ::EMarketingMessageTemplateType _internal_template_type() const;
+  void _internal_set_template_type(::EMarketingMessageTemplateType value);
+  public:
+
+  // optional .EMarketingMessageClickLocation cliclocation = 5 [default = EMarketingMessageClickLocation_Unknown];
+  bool has_cliclocation() const;
+  private:
+  bool _internal_has_cliclocation() const;
+  public:
+  void clear_cliclocation();
+  ::EMarketingMessageClickLocation cliclocation() const;
+  void set_cliclocation(::EMarketingMessageClickLocation value);
+  private:
+  ::EMarketingMessageClickLocation _internal_cliclocation() const;
+  void _internal_set_cliclocation(::EMarketingMessageClickLocation value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMarketingMessageClickedHourlyStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_time_hour_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 clicked_count_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 display_index_;
+  int template_type_;
+  int cliclocation_;
+  friend struct ::TableStruct_steammessages_5fmarketingmessages_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMarketingMessages_GetMarketingMessageClickedStats_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessages_GetMarketingMessageClickedStats_Response) */ {
+ public:
+  inline CMarketingMessages_GetMarketingMessageClickedStats_Response() : CMarketingMessages_GetMarketingMessageClickedStats_Response(nullptr) {}
+  virtual ~CMarketingMessages_GetMarketingMessageClickedStats_Response();
+  explicit constexpr CMarketingMessages_GetMarketingMessageClickedStats_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMarketingMessages_GetMarketingMessageClickedStats_Response(const CMarketingMessages_GetMarketingMessageClickedStats_Response& from);
+  CMarketingMessages_GetMarketingMessageClickedStats_Response(CMarketingMessages_GetMarketingMessageClickedStats_Response&& from) noexcept
+    : CMarketingMessages_GetMarketingMessageClickedStats_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CMarketingMessages_GetMarketingMessageClickedStats_Response& operator=(const CMarketingMessages_GetMarketingMessageClickedStats_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMarketingMessages_GetMarketingMessageClickedStats_Response& operator=(CMarketingMessages_GetMarketingMessageClickedStats_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMarketingMessages_GetMarketingMessageClickedStats_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMarketingMessages_GetMarketingMessageClickedStats_Response* internal_default_instance() {
+    return reinterpret_cast<const CMarketingMessages_GetMarketingMessageClickedStats_Response*>(
+               &_CMarketingMessages_GetMarketingMessageClickedStats_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    32;
+
+  friend void swap(CMarketingMessages_GetMarketingMessageClickedStats_Response& a, CMarketingMessages_GetMarketingMessageClickedStats_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMarketingMessages_GetMarketingMessageClickedStats_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMarketingMessages_GetMarketingMessageClickedStats_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMarketingMessages_GetMarketingMessageClickedStats_Response* New() const final {
+    return CreateMaybeMessage<CMarketingMessages_GetMarketingMessageClickedStats_Response>(nullptr);
+  }
+
+  CMarketingMessages_GetMarketingMessageClickedStats_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMarketingMessages_GetMarketingMessageClickedStats_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMarketingMessages_GetMarketingMessageClickedStats_Response& from);
+  void MergeFrom(const CMarketingMessages_GetMarketingMessageClickedStats_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMarketingMessages_GetMarketingMessageClickedStats_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMarketingMessages_GetMarketingMessageClickedStats_Response";
+  }
+  protected:
+  explicit CMarketingMessages_GetMarketingMessageClickedStats_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStatsFieldNumber = 1,
+  };
+  // repeated .CMarketingMessageClickedHourlyStats stats = 1;
+  int stats_size() const;
+  private:
+  int _internal_stats_size() const;
+  public:
+  void clear_stats();
+  ::CMarketingMessageClickedHourlyStats* mutable_stats(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageClickedHourlyStats >*
+      mutable_stats();
+  private:
+  const ::CMarketingMessageClickedHourlyStats& _internal_stats(int index) const;
+  ::CMarketingMessageClickedHourlyStats* _internal_add_stats();
+  public:
+  const ::CMarketingMessageClickedHourlyStats& stats(int index) const;
+  ::CMarketingMessageClickedHourlyStats* add_stats();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageClickedHourlyStats >&
+      stats() const;
+
+  // @@protoc_insertion_point(class_scope:CMarketingMessages_GetMarketingMessageClickedStats_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageClickedHourlyStats > stats_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fmarketingmessages_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMarketingMessages_GetPartnerReadyToPublishMessages_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMarketingMessages_GetPartnerReadyToPublishMessages_Request) */ {
  public:
@@ -5491,7 +6565,7 @@ class CMarketingMessages_GetPartnerReadyToPublishMessages_Request PROTOBUF_FINAL
                &_CMarketingMessages_GetPartnerReadyToPublishMessages_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    33;
 
   friend void swap(CMarketingMessages_GetPartnerReadyToPublishMessages_Request& a, CMarketingMessages_GetPartnerReadyToPublishMessages_Request& b) {
     a.Swap(&b);
@@ -5640,7 +6714,7 @@ class CMarketingMessages_GetPartnerReadyToPublishMessages_Response PROTOBUF_FINA
                &_CMarketingMessages_GetPartnerReadyToPublishMessages_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    34;
 
   friend void swap(CMarketingMessages_GetPartnerReadyToPublishMessages_Response& a, CMarketingMessages_GetPartnerReadyToPublishMessages_Response& b) {
     a.Swap(&b);
@@ -5793,7 +6867,7 @@ class CMarketingMessages_PartnerPublishMessage_Request PROTOBUF_FINAL :
                &_CMarketingMessages_PartnerPublishMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    35;
 
   friend void swap(CMarketingMessages_PartnerPublishMessage_Request& a, CMarketingMessages_PartnerPublishMessage_Request& b) {
     a.Swap(&b);
@@ -5957,7 +7031,7 @@ class CMarketingMessages_PartnerPublishMessage_Response PROTOBUF_FINAL :
                &_CMarketingMessages_PartnerPublishMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    36;
 
   friend void swap(CMarketingMessages_PartnerPublishMessage_Response& a, CMarketingMessages_PartnerPublishMessage_Response& b) {
     a.Swap(&b);
@@ -6088,7 +7162,7 @@ class CMarketingMessages_GetPartnerMessagePreview_Request PROTOBUF_FINAL :
                &_CMarketingMessages_GetPartnerMessagePreview_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    37;
 
   friend void swap(CMarketingMessages_GetPartnerMessagePreview_Request& a, CMarketingMessages_GetPartnerMessagePreview_Request& b) {
     a.Swap(&b);
@@ -6252,7 +7326,7 @@ class CMarketingMessages_GetPartnerMessagePreview_Response PROTOBUF_FINAL :
                &_CMarketingMessages_GetPartnerMessagePreview_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    38;
 
   friend void swap(CMarketingMessages_GetPartnerMessagePreview_Response& a, CMarketingMessages_GetPartnerMessagePreview_Response& b) {
     a.Swap(&b);
@@ -6406,7 +7480,7 @@ class CMarketingMessage_GetMarketingMessagesForPartner_Request PROTOBUF_FINAL :
                &_CMarketingMessage_GetMarketingMessagesForPartner_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    39;
 
   friend void swap(CMarketingMessage_GetMarketingMessagesForPartner_Request& a, CMarketingMessage_GetMarketingMessagesForPartner_Request& b) {
     a.Swap(&b);
@@ -6555,7 +7629,7 @@ class CMarketingMessage_GetMarketingMessagesForPartner_Response PROTOBUF_FINAL :
                &_CMarketingMessage_GetMarketingMessagesForPartner_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    40;
 
   friend void swap(CMarketingMessage_GetMarketingMessagesForPartner_Response& a, CMarketingMessage_GetMarketingMessagesForPartner_Response& b) {
     a.Swap(&b);
@@ -6708,7 +7782,7 @@ class CMarketingMessage_GetMarketingMessagesForApps_Request PROTOBUF_FINAL :
                &_CMarketingMessage_GetMarketingMessagesForApps_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    41;
 
   friend void swap(CMarketingMessage_GetMarketingMessagesForApps_Request& a, CMarketingMessage_GetMarketingMessagesForApps_Request& b) {
     a.Swap(&b);
@@ -6865,7 +7939,7 @@ class CMarketingMessage_GetMarketingMessagesForApps_Response PROTOBUF_FINAL :
                &_CMarketingMessage_GetMarketingMessagesForApps_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    42;
 
   friend void swap(CMarketingMessage_GetMarketingMessagesForApps_Response& a, CMarketingMessage_GetMarketingMessagesForApps_Response& b) {
     a.Swap(&b);
@@ -6985,6 +8059,10 @@ class MarketingMessages : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CMarketingMessages_GetActiveMarketingMessages_Request* request,
                        ::CMarketingMessages_GetActiveMarketingMessages_Response* response,
                        ::google::protobuf::Closure* done);
+  virtual void GetPastMarketingMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMarketingMessages_GetPastMarketingMessages_Request* request,
+                       ::CMarketingMessages_GetPastMarketingMessages_Response* response,
+                       ::google::protobuf::Closure* done);
   virtual void GetMarketingMessagesForUser(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMarketingMessages_GetMarketingMessagesForUser_Request* request,
                        ::CMarketingMessages_GetMarketingMessagesForUser_Response* response,
@@ -7007,6 +8085,10 @@ class MarketingMessages : public ::PROTOBUF_NAMESPACE_ID::Service {
                        ::google::protobuf::Closure* done);
   virtual void MarkMessageSeen(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMarketingMessages_MarkMessageSeen_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  virtual void MarkMessageClicked(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMarketingMessages_MarkMessageClicked_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
   virtual void GetMarketingMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
@@ -7036,6 +8118,10 @@ class MarketingMessages : public ::PROTOBUF_NAMESPACE_ID::Service {
   virtual void GetMarketingMessagesViewerRangeStats(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request* request,
                        ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void GetMarketingMessageClickedStats(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMarketingMessages_GetMarketingMessageClickedStats_Request* request,
+                       ::CMarketingMessages_GetMarketingMessageClickedStats_Response* response,
                        ::google::protobuf::Closure* done);
   virtual void GetPartnerReadyToPublishMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request* request,
@@ -7090,6 +8176,10 @@ class MarketingMessages_Stub : public MarketingMessages {
                        const ::CMarketingMessages_GetActiveMarketingMessages_Request* request,
                        ::CMarketingMessages_GetActiveMarketingMessages_Response* response,
                        ::google::protobuf::Closure* done);
+  void GetPastMarketingMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMarketingMessages_GetPastMarketingMessages_Request* request,
+                       ::CMarketingMessages_GetPastMarketingMessages_Response* response,
+                       ::google::protobuf::Closure* done);
   void GetMarketingMessagesForUser(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMarketingMessages_GetMarketingMessagesForUser_Request* request,
                        ::CMarketingMessages_GetMarketingMessagesForUser_Response* response,
@@ -7112,6 +8202,10 @@ class MarketingMessages_Stub : public MarketingMessages {
                        ::google::protobuf::Closure* done);
   void MarkMessageSeen(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMarketingMessages_MarkMessageSeen_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void MarkMessageClicked(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMarketingMessages_MarkMessageClicked_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
   void GetMarketingMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
@@ -7141,6 +8235,10 @@ class MarketingMessages_Stub : public MarketingMessages {
   void GetMarketingMessagesViewerRangeStats(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request* request,
                        ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response* response,
+                       ::google::protobuf::Closure* done);
+  void GetMarketingMessageClickedStats(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMarketingMessages_GetMarketingMessageClickedStats_Request* request,
+                       ::CMarketingMessages_GetMarketingMessageClickedStats_Response* response,
                        ::google::protobuf::Closure* done);
   void GetPartnerReadyToPublishMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request* request,
@@ -8507,6 +9605,109 @@ inline void CMarketingMessages_GetActiveMarketingMessages_Response::_internal_se
 inline void CMarketingMessages_GetActiveMarketingMessages_Response::set_time_next_message_age(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_time_next_message_age(value);
   // @@protoc_insertion_point(field_set:CMarketingMessages_GetActiveMarketingMessages_Response.time_next_message_age)
+}
+
+// -------------------------------------------------------------------
+
+// CMarketingMessages_GetPastMarketingMessages_Request
+
+// optional uint32 start_past_days = 1;
+inline bool CMarketingMessages_GetPastMarketingMessages_Request::_internal_has_start_past_days() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMarketingMessages_GetPastMarketingMessages_Request::has_start_past_days() const {
+  return _internal_has_start_past_days();
+}
+inline void CMarketingMessages_GetPastMarketingMessages_Request::clear_start_past_days() {
+  start_past_days_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessages_GetPastMarketingMessages_Request::_internal_start_past_days() const {
+  return start_past_days_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessages_GetPastMarketingMessages_Request::start_past_days() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_GetPastMarketingMessages_Request.start_past_days)
+  return _internal_start_past_days();
+}
+inline void CMarketingMessages_GetPastMarketingMessages_Request::_internal_set_start_past_days(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  start_past_days_ = value;
+}
+inline void CMarketingMessages_GetPastMarketingMessages_Request::set_start_past_days(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_start_past_days(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessages_GetPastMarketingMessages_Request.start_past_days)
+}
+
+// optional uint32 upto_past_days = 2;
+inline bool CMarketingMessages_GetPastMarketingMessages_Request::_internal_has_upto_past_days() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMarketingMessages_GetPastMarketingMessages_Request::has_upto_past_days() const {
+  return _internal_has_upto_past_days();
+}
+inline void CMarketingMessages_GetPastMarketingMessages_Request::clear_upto_past_days() {
+  upto_past_days_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessages_GetPastMarketingMessages_Request::_internal_upto_past_days() const {
+  return upto_past_days_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessages_GetPastMarketingMessages_Request::upto_past_days() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_GetPastMarketingMessages_Request.upto_past_days)
+  return _internal_upto_past_days();
+}
+inline void CMarketingMessages_GetPastMarketingMessages_Request::_internal_set_upto_past_days(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  upto_past_days_ = value;
+}
+inline void CMarketingMessages_GetPastMarketingMessages_Request::set_upto_past_days(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_upto_past_days(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessages_GetPastMarketingMessages_Request.upto_past_days)
+}
+
+// -------------------------------------------------------------------
+
+// CMarketingMessages_GetPastMarketingMessages_Response
+
+// repeated .CMarketingMessageProto messages = 1;
+inline int CMarketingMessages_GetPastMarketingMessages_Response::_internal_messages_size() const {
+  return messages_.size();
+}
+inline int CMarketingMessages_GetPastMarketingMessages_Response::messages_size() const {
+  return _internal_messages_size();
+}
+inline void CMarketingMessages_GetPastMarketingMessages_Response::clear_messages() {
+  messages_.Clear();
+}
+inline ::CMarketingMessageProto* CMarketingMessages_GetPastMarketingMessages_Response::mutable_messages(int index) {
+  // @@protoc_insertion_point(field_mutable:CMarketingMessages_GetPastMarketingMessages_Response.messages)
+  return messages_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageProto >*
+CMarketingMessages_GetPastMarketingMessages_Response::mutable_messages() {
+  // @@protoc_insertion_point(field_mutable_list:CMarketingMessages_GetPastMarketingMessages_Response.messages)
+  return &messages_;
+}
+inline const ::CMarketingMessageProto& CMarketingMessages_GetPastMarketingMessages_Response::_internal_messages(int index) const {
+  return messages_.Get(index);
+}
+inline const ::CMarketingMessageProto& CMarketingMessages_GetPastMarketingMessages_Response::messages(int index) const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_GetPastMarketingMessages_Response.messages)
+  return _internal_messages(index);
+}
+inline ::CMarketingMessageProto* CMarketingMessages_GetPastMarketingMessages_Response::_internal_add_messages() {
+  return messages_.Add();
+}
+inline ::CMarketingMessageProto* CMarketingMessages_GetPastMarketingMessages_Response::add_messages() {
+  // @@protoc_insertion_point(field_add:CMarketingMessages_GetPastMarketingMessages_Response.messages)
+  return _internal_add_messages();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageProto >&
+CMarketingMessages_GetPastMarketingMessages_Response::messages() const {
+  // @@protoc_insertion_point(field_list:CMarketingMessages_GetPastMarketingMessages_Response.messages)
+  return messages_;
 }
 
 // -------------------------------------------------------------------
@@ -10114,6 +11315,124 @@ inline void CMarketingMessages_MarkMessageSeen_Notification::set_template_type(:
 
 // -------------------------------------------------------------------
 
+// CMarketingMessages_MarkMessageClicked_Notification
+
+// optional fixed64 gid = 1;
+inline bool CMarketingMessages_MarkMessageClicked_Notification::_internal_has_gid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMarketingMessages_MarkMessageClicked_Notification::has_gid() const {
+  return _internal_has_gid();
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::clear_gid() {
+  gid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMarketingMessages_MarkMessageClicked_Notification::_internal_gid() const {
+  return gid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMarketingMessages_MarkMessageClicked_Notification::gid() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_MarkMessageClicked_Notification.gid)
+  return _internal_gid();
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::_internal_set_gid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  gid_ = value;
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::set_gid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_gid(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessages_MarkMessageClicked_Notification.gid)
+}
+
+// optional uint32 display_index = 2 [default = 0];
+inline bool CMarketingMessages_MarkMessageClicked_Notification::_internal_has_display_index() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMarketingMessages_MarkMessageClicked_Notification::has_display_index() const {
+  return _internal_has_display_index();
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::clear_display_index() {
+  display_index_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessages_MarkMessageClicked_Notification::_internal_display_index() const {
+  return display_index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessages_MarkMessageClicked_Notification::display_index() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_MarkMessageClicked_Notification.display_index)
+  return _internal_display_index();
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::_internal_set_display_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  display_index_ = value;
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::set_display_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_display_index(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessages_MarkMessageClicked_Notification.display_index)
+}
+
+// optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown];
+inline bool CMarketingMessages_MarkMessageClicked_Notification::_internal_has_template_type() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMarketingMessages_MarkMessageClicked_Notification::has_template_type() const {
+  return _internal_has_template_type();
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::clear_template_type() {
+  template_type_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::EMarketingMessageTemplateType CMarketingMessages_MarkMessageClicked_Notification::_internal_template_type() const {
+  return static_cast< ::EMarketingMessageTemplateType >(template_type_);
+}
+inline ::EMarketingMessageTemplateType CMarketingMessages_MarkMessageClicked_Notification::template_type() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_MarkMessageClicked_Notification.template_type)
+  return _internal_template_type();
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::_internal_set_template_type(::EMarketingMessageTemplateType value) {
+  assert(::EMarketingMessageTemplateType_IsValid(value));
+  _has_bits_[0] |= 0x00000004u;
+  template_type_ = value;
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::set_template_type(::EMarketingMessageTemplateType value) {
+  _internal_set_template_type(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessages_MarkMessageClicked_Notification.template_type)
+}
+
+// optional .EMarketingMessageClickLocation cliclocation = 4 [default = EMarketingMessageClickLocation_Unknown];
+inline bool CMarketingMessages_MarkMessageClicked_Notification::_internal_has_cliclocation() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMarketingMessages_MarkMessageClicked_Notification::has_cliclocation() const {
+  return _internal_has_cliclocation();
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::clear_cliclocation() {
+  cliclocation_ = 0;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::EMarketingMessageClickLocation CMarketingMessages_MarkMessageClicked_Notification::_internal_cliclocation() const {
+  return static_cast< ::EMarketingMessageClickLocation >(cliclocation_);
+}
+inline ::EMarketingMessageClickLocation CMarketingMessages_MarkMessageClicked_Notification::cliclocation() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_MarkMessageClicked_Notification.cliclocation)
+  return _internal_cliclocation();
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::_internal_set_cliclocation(::EMarketingMessageClickLocation value) {
+  assert(::EMarketingMessageClickLocation_IsValid(value));
+  _has_bits_[0] |= 0x00000008u;
+  cliclocation_ = value;
+}
+inline void CMarketingMessages_MarkMessageClicked_Notification::set_cliclocation(::EMarketingMessageClickLocation value) {
+  _internal_set_cliclocation(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessages_MarkMessageClicked_Notification.cliclocation)
+}
+
+// -------------------------------------------------------------------
+
 // CMarketingMessages_GetMarketingMessage_Request
 
 // optional fixed64 gid = 1;
@@ -11111,6 +12430,227 @@ CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response::stats() const 
 
 // -------------------------------------------------------------------
 
+// CMarketingMessages_GetMarketingMessageClickedStats_Request
+
+// optional fixed64 gid = 1;
+inline bool CMarketingMessages_GetMarketingMessageClickedStats_Request::_internal_has_gid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMarketingMessages_GetMarketingMessageClickedStats_Request::has_gid() const {
+  return _internal_has_gid();
+}
+inline void CMarketingMessages_GetMarketingMessageClickedStats_Request::clear_gid() {
+  gid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMarketingMessages_GetMarketingMessageClickedStats_Request::_internal_gid() const {
+  return gid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMarketingMessages_GetMarketingMessageClickedStats_Request::gid() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_GetMarketingMessageClickedStats_Request.gid)
+  return _internal_gid();
+}
+inline void CMarketingMessages_GetMarketingMessageClickedStats_Request::_internal_set_gid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  gid_ = value;
+}
+inline void CMarketingMessages_GetMarketingMessageClickedStats_Request::set_gid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_gid(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessages_GetMarketingMessageClickedStats_Request.gid)
+}
+
+// -------------------------------------------------------------------
+
+// CMarketingMessageClickedHourlyStats
+
+// optional uint32 rt_time_hour = 1;
+inline bool CMarketingMessageClickedHourlyStats::_internal_has_rt_time_hour() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMarketingMessageClickedHourlyStats::has_rt_time_hour() const {
+  return _internal_has_rt_time_hour();
+}
+inline void CMarketingMessageClickedHourlyStats::clear_rt_time_hour() {
+  rt_time_hour_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessageClickedHourlyStats::_internal_rt_time_hour() const {
+  return rt_time_hour_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessageClickedHourlyStats::rt_time_hour() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessageClickedHourlyStats.rt_time_hour)
+  return _internal_rt_time_hour();
+}
+inline void CMarketingMessageClickedHourlyStats::_internal_set_rt_time_hour(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  rt_time_hour_ = value;
+}
+inline void CMarketingMessageClickedHourlyStats::set_rt_time_hour(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_rt_time_hour(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessageClickedHourlyStats.rt_time_hour)
+}
+
+// optional uint32 clicked_count = 2;
+inline bool CMarketingMessageClickedHourlyStats::_internal_has_clicked_count() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMarketingMessageClickedHourlyStats::has_clicked_count() const {
+  return _internal_has_clicked_count();
+}
+inline void CMarketingMessageClickedHourlyStats::clear_clicked_count() {
+  clicked_count_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessageClickedHourlyStats::_internal_clicked_count() const {
+  return clicked_count_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessageClickedHourlyStats::clicked_count() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessageClickedHourlyStats.clicked_count)
+  return _internal_clicked_count();
+}
+inline void CMarketingMessageClickedHourlyStats::_internal_set_clicked_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  clicked_count_ = value;
+}
+inline void CMarketingMessageClickedHourlyStats::set_clicked_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_clicked_count(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessageClickedHourlyStats.clicked_count)
+}
+
+// optional uint32 display_index = 3;
+inline bool CMarketingMessageClickedHourlyStats::_internal_has_display_index() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMarketingMessageClickedHourlyStats::has_display_index() const {
+  return _internal_has_display_index();
+}
+inline void CMarketingMessageClickedHourlyStats::clear_display_index() {
+  display_index_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessageClickedHourlyStats::_internal_display_index() const {
+  return display_index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMarketingMessageClickedHourlyStats::display_index() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessageClickedHourlyStats.display_index)
+  return _internal_display_index();
+}
+inline void CMarketingMessageClickedHourlyStats::_internal_set_display_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  display_index_ = value;
+}
+inline void CMarketingMessageClickedHourlyStats::set_display_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_display_index(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessageClickedHourlyStats.display_index)
+}
+
+// optional .EMarketingMessageTemplateType template_type = 4 [default = EMarketingMessageTemplate_Unknown];
+inline bool CMarketingMessageClickedHourlyStats::_internal_has_template_type() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMarketingMessageClickedHourlyStats::has_template_type() const {
+  return _internal_has_template_type();
+}
+inline void CMarketingMessageClickedHourlyStats::clear_template_type() {
+  template_type_ = 0;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::EMarketingMessageTemplateType CMarketingMessageClickedHourlyStats::_internal_template_type() const {
+  return static_cast< ::EMarketingMessageTemplateType >(template_type_);
+}
+inline ::EMarketingMessageTemplateType CMarketingMessageClickedHourlyStats::template_type() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessageClickedHourlyStats.template_type)
+  return _internal_template_type();
+}
+inline void CMarketingMessageClickedHourlyStats::_internal_set_template_type(::EMarketingMessageTemplateType value) {
+  assert(::EMarketingMessageTemplateType_IsValid(value));
+  _has_bits_[0] |= 0x00000008u;
+  template_type_ = value;
+}
+inline void CMarketingMessageClickedHourlyStats::set_template_type(::EMarketingMessageTemplateType value) {
+  _internal_set_template_type(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessageClickedHourlyStats.template_type)
+}
+
+// optional .EMarketingMessageClickLocation cliclocation = 5 [default = EMarketingMessageClickLocation_Unknown];
+inline bool CMarketingMessageClickedHourlyStats::_internal_has_cliclocation() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMarketingMessageClickedHourlyStats::has_cliclocation() const {
+  return _internal_has_cliclocation();
+}
+inline void CMarketingMessageClickedHourlyStats::clear_cliclocation() {
+  cliclocation_ = 0;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::EMarketingMessageClickLocation CMarketingMessageClickedHourlyStats::_internal_cliclocation() const {
+  return static_cast< ::EMarketingMessageClickLocation >(cliclocation_);
+}
+inline ::EMarketingMessageClickLocation CMarketingMessageClickedHourlyStats::cliclocation() const {
+  // @@protoc_insertion_point(field_get:CMarketingMessageClickedHourlyStats.cliclocation)
+  return _internal_cliclocation();
+}
+inline void CMarketingMessageClickedHourlyStats::_internal_set_cliclocation(::EMarketingMessageClickLocation value) {
+  assert(::EMarketingMessageClickLocation_IsValid(value));
+  _has_bits_[0] |= 0x00000010u;
+  cliclocation_ = value;
+}
+inline void CMarketingMessageClickedHourlyStats::set_cliclocation(::EMarketingMessageClickLocation value) {
+  _internal_set_cliclocation(value);
+  // @@protoc_insertion_point(field_set:CMarketingMessageClickedHourlyStats.cliclocation)
+}
+
+// -------------------------------------------------------------------
+
+// CMarketingMessages_GetMarketingMessageClickedStats_Response
+
+// repeated .CMarketingMessageClickedHourlyStats stats = 1;
+inline int CMarketingMessages_GetMarketingMessageClickedStats_Response::_internal_stats_size() const {
+  return stats_.size();
+}
+inline int CMarketingMessages_GetMarketingMessageClickedStats_Response::stats_size() const {
+  return _internal_stats_size();
+}
+inline void CMarketingMessages_GetMarketingMessageClickedStats_Response::clear_stats() {
+  stats_.Clear();
+}
+inline ::CMarketingMessageClickedHourlyStats* CMarketingMessages_GetMarketingMessageClickedStats_Response::mutable_stats(int index) {
+  // @@protoc_insertion_point(field_mutable:CMarketingMessages_GetMarketingMessageClickedStats_Response.stats)
+  return stats_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageClickedHourlyStats >*
+CMarketingMessages_GetMarketingMessageClickedStats_Response::mutable_stats() {
+  // @@protoc_insertion_point(field_mutable_list:CMarketingMessages_GetMarketingMessageClickedStats_Response.stats)
+  return &stats_;
+}
+inline const ::CMarketingMessageClickedHourlyStats& CMarketingMessages_GetMarketingMessageClickedStats_Response::_internal_stats(int index) const {
+  return stats_.Get(index);
+}
+inline const ::CMarketingMessageClickedHourlyStats& CMarketingMessages_GetMarketingMessageClickedStats_Response::stats(int index) const {
+  // @@protoc_insertion_point(field_get:CMarketingMessages_GetMarketingMessageClickedStats_Response.stats)
+  return _internal_stats(index);
+}
+inline ::CMarketingMessageClickedHourlyStats* CMarketingMessages_GetMarketingMessageClickedStats_Response::_internal_add_stats() {
+  return stats_.Add();
+}
+inline ::CMarketingMessageClickedHourlyStats* CMarketingMessages_GetMarketingMessageClickedStats_Response::add_stats() {
+  // @@protoc_insertion_point(field_add:CMarketingMessages_GetMarketingMessageClickedStats_Response.stats)
+  return _internal_add_stats();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMarketingMessageClickedHourlyStats >&
+CMarketingMessages_GetMarketingMessageClickedStats_Response::stats() const {
+  // @@protoc_insertion_point(field_list:CMarketingMessages_GetMarketingMessageClickedStats_Response.stats)
+  return stats_;
+}
+
+// -------------------------------------------------------------------
+
 // CMarketingMessages_GetPartnerReadyToPublishMessages_Request
 
 // optional uint32 partnerid = 1;
@@ -11639,6 +13179,18 @@ CMarketingMessage_GetMarketingMessagesForApps_Response::messages() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -11664,6 +13216,11 @@ template <> struct is_proto_enum< ::EMarketingMessageTemplateType> : ::std::true
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EMarketingMessageTemplateType>() {
   return ::EMarketingMessageTemplateType_descriptor();
+}
+template <> struct is_proto_enum< ::EMarketingMessageClickLocation> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EMarketingMessageClickLocation>() {
+  return ::EMarketingMessageClickLocation_descriptor();
 }
 template <> struct is_proto_enum< ::EMarketingMessageLookupType> : ::std::true_type {};
 template <>

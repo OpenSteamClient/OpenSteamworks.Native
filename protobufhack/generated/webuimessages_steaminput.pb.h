@@ -1935,6 +1935,7 @@ class CSteamInputService_GyroQuaternionChanged_Notification PROTOBUF_FINAL :
     kControllerIndexFieldNumber = 1,
     kImuIndexFieldNumber = 2,
     kImuSensorDeltaTimeFieldNumber = 5,
+    kPacketNumberFieldNumber = 6,
   };
   // optional .ControllerQuaternion gyro_raw_quaternion = 3;
   bool has_gyro_raw_quaternion() const;
@@ -2011,6 +2012,19 @@ class CSteamInputService_GyroQuaternionChanged_Notification PROTOBUF_FINAL :
   void _internal_set_imu_sensor_delta_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 packet_number = 6;
+  bool has_packet_number() const;
+  private:
+  bool _internal_has_packet_number() const;
+  public:
+  void clear_packet_number();
+  ::PROTOBUF_NAMESPACE_ID::uint32 packet_number() const;
+  void set_packet_number(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_packet_number() const;
+  void _internal_set_packet_number(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSteamInputService_GyroQuaternionChanged_Notification)
  private:
   class _Internal;
@@ -2025,6 +2039,7 @@ class CSteamInputService_GyroQuaternionChanged_Notification PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 controller_index_;
   ::PROTOBUF_NAMESPACE_ID::uint32 imu_index_;
   ::PROTOBUF_NAMESPACE_ID::uint32 imu_sensor_delta_time_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 packet_number_;
   friend struct ::TableStruct_webuimessages_5fsteaminput_2eproto;
 };
 // -------------------------------------------------------------------
@@ -5236,6 +5251,34 @@ inline void CSteamInputService_GyroQuaternionChanged_Notification::_internal_set
 inline void CSteamInputService_GyroQuaternionChanged_Notification::set_imu_sensor_delta_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_imu_sensor_delta_time(value);
   // @@protoc_insertion_point(field_set:CSteamInputService_GyroQuaternionChanged_Notification.imu_sensor_delta_time)
+}
+
+// optional uint32 packet_number = 6;
+inline bool CSteamInputService_GyroQuaternionChanged_Notification::_internal_has_packet_number() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CSteamInputService_GyroQuaternionChanged_Notification::has_packet_number() const {
+  return _internal_has_packet_number();
+}
+inline void CSteamInputService_GyroQuaternionChanged_Notification::clear_packet_number() {
+  packet_number_ = 0u;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CSteamInputService_GyroQuaternionChanged_Notification::_internal_packet_number() const {
+  return packet_number_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CSteamInputService_GyroQuaternionChanged_Notification::packet_number() const {
+  // @@protoc_insertion_point(field_get:CSteamInputService_GyroQuaternionChanged_Notification.packet_number)
+  return _internal_packet_number();
+}
+inline void CSteamInputService_GyroQuaternionChanged_Notification::_internal_set_packet_number(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000020u;
+  packet_number_ = value;
+}
+inline void CSteamInputService_GyroQuaternionChanged_Notification::set_packet_number(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_packet_number(value);
+  // @@protoc_insertion_point(field_set:CSteamInputService_GyroQuaternionChanged_Notification.packet_number)
 }
 
 // -------------------------------------------------------------------

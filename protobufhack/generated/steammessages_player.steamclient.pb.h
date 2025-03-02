@@ -6034,6 +6034,7 @@ class ProfileItem PROTOBUF_FINAL :
     kItemTypeFieldNumber = 8,
     kItemClassFieldNumber = 9,
     kEquippedFlagsFieldNumber = 12,
+    kTiledFieldNumber = 16,
   };
   // repeated .ProfileItem.ProfileColor profile_colors = 15;
   int profile_colors_size() const;
@@ -6298,6 +6299,19 @@ class ProfileItem PROTOBUF_FINAL :
   void _internal_set_equipped_flags(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional bool tiled = 16;
+  bool has_tiled() const;
+  private:
+  bool _internal_has_tiled() const;
+  public:
+  void clear_tiled();
+  bool tiled() const;
+  void set_tiled(bool value);
+  private:
+  bool _internal_tiled() const;
+  void _internal_set_tiled(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ProfileItem)
  private:
   class _Internal;
@@ -6322,6 +6336,7 @@ class ProfileItem PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 item_type_;
   ::PROTOBUF_NAMESPACE_ID::uint32 item_class_;
   ::PROTOBUF_NAMESPACE_ID::uint32 equipped_flags_;
+  bool tiled_;
   friend struct ::TableStruct_steammessages_5fplayer_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -32367,6 +32382,34 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ProfileItem_ProfileCol
 ProfileItem::profile_colors() const {
   // @@protoc_insertion_point(field_list:ProfileItem.profile_colors)
   return profile_colors_;
+}
+
+// optional bool tiled = 16;
+inline bool ProfileItem::_internal_has_tiled() const {
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool ProfileItem::has_tiled() const {
+  return _internal_has_tiled();
+}
+inline void ProfileItem::clear_tiled() {
+  tiled_ = false;
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline bool ProfileItem::_internal_tiled() const {
+  return tiled_;
+}
+inline bool ProfileItem::tiled() const {
+  // @@protoc_insertion_point(field_get:ProfileItem.tiled)
+  return _internal_tiled();
+}
+inline void ProfileItem::_internal_set_tiled(bool value) {
+  _has_bits_[0] |= 0x00004000u;
+  tiled_ = value;
+}
+inline void ProfileItem::set_tiled(bool value) {
+  _internal_set_tiled(value);
+  // @@protoc_insertion_point(field_set:ProfileItem.tiled)
 }
 
 // -------------------------------------------------------------------

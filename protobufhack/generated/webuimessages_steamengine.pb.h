@@ -50,7 +50,7 @@ struct TableStruct_webuimessages_5fsteamengine_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[9]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -70,6 +70,12 @@ extern CSteamEngine_GetTextFilterDictionary_RequestDefaultTypeInternal _CSteamEn
 class CSteamEngine_GetTextFilterDictionary_Response;
 struct CSteamEngine_GetTextFilterDictionary_ResponseDefaultTypeInternal;
 extern CSteamEngine_GetTextFilterDictionary_ResponseDefaultTypeInternal _CSteamEngine_GetTextFilterDictionary_Response_default_instance_;
+class CSteamEngine_SearchAppDataCacheByStoreKeywords_Request;
+struct CSteamEngine_SearchAppDataCacheByStoreKeywords_RequestDefaultTypeInternal;
+extern CSteamEngine_SearchAppDataCacheByStoreKeywords_RequestDefaultTypeInternal _CSteamEngine_SearchAppDataCacheByStoreKeywords_Request_default_instance_;
+class CSteamEngine_SearchAppDataCacheByStoreKeywords_Response;
+struct CSteamEngine_SearchAppDataCacheByStoreKeywords_ResponseDefaultTypeInternal;
+extern CSteamEngine_SearchAppDataCacheByStoreKeywords_ResponseDefaultTypeInternal _CSteamEngine_SearchAppDataCacheByStoreKeywords_Response_default_instance_;
 class CSteamEngine_SetOverlayEscapeKeyHandling_Notification;
 struct CSteamEngine_SetOverlayEscapeKeyHandling_NotificationDefaultTypeInternal;
 extern CSteamEngine_SetOverlayEscapeKeyHandling_NotificationDefaultTypeInternal _CSteamEngine_SetOverlayEscapeKeyHandling_Notification_default_instance_;
@@ -84,6 +90,8 @@ template<> ::CSteamEngine_GetGameIDForPID_Request* Arena::CreateMaybeMessage<::C
 template<> ::CSteamEngine_GetGameIDForPID_Response* Arena::CreateMaybeMessage<::CSteamEngine_GetGameIDForPID_Response>(Arena*);
 template<> ::CSteamEngine_GetTextFilterDictionary_Request* Arena::CreateMaybeMessage<::CSteamEngine_GetTextFilterDictionary_Request>(Arena*);
 template<> ::CSteamEngine_GetTextFilterDictionary_Response* Arena::CreateMaybeMessage<::CSteamEngine_GetTextFilterDictionary_Response>(Arena*);
+template<> ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* Arena::CreateMaybeMessage<::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request>(Arena*);
+template<> ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* Arena::CreateMaybeMessage<::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response>(Arena*);
 template<> ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification* Arena::CreateMaybeMessage<::CSteamEngine_SetOverlayEscapeKeyHandling_Notification>(Arena*);
 template<> ::CSteamEngine_TextFilterDictionaryChanged_Notification* Arena::CreateMaybeMessage<::CSteamEngine_TextFilterDictionaryChanged_Notification>(Arena*);
 template<> ::CSteamEngine_UpdateTextFilterDictionary_Notification* Arena::CreateMaybeMessage<::CSteamEngine_UpdateTextFilterDictionary_Notification>(Arena*);
@@ -1253,6 +1261,334 @@ class CSteamEngine_SetOverlayEscapeKeyHandling_Notification PROTOBUF_FINAL :
   bool should_handle_;
   friend struct ::TableStruct_webuimessages_5fsteamengine_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CSteamEngine_SearchAppDataCacheByStoreKeywords_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request) */ {
+ public:
+  inline CSteamEngine_SearchAppDataCacheByStoreKeywords_Request() : CSteamEngine_SearchAppDataCacheByStoreKeywords_Request(nullptr) {}
+  virtual ~CSteamEngine_SearchAppDataCacheByStoreKeywords_Request();
+  explicit constexpr CSteamEngine_SearchAppDataCacheByStoreKeywords_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CSteamEngine_SearchAppDataCacheByStoreKeywords_Request(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& from);
+  CSteamEngine_SearchAppDataCacheByStoreKeywords_Request(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request&& from) noexcept
+    : CSteamEngine_SearchAppDataCacheByStoreKeywords_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& operator=(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& operator=(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* internal_default_instance() {
+    return reinterpret_cast<const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request*>(
+               &_CSteamEngine_SearchAppDataCacheByStoreKeywords_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& a, CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* New() const final {
+    return CreateMaybeMessage<CSteamEngine_SearchAppDataCacheByStoreKeywords_Request>(nullptr);
+  }
+
+  CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CSteamEngine_SearchAppDataCacheByStoreKeywords_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& from);
+  void MergeFrom(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CSteamEngine_SearchAppDataCacheByStoreKeywords_Request";
+  }
+  protected:
+  explicit CSteamEngine_SearchAppDataCacheByStoreKeywords_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_webuimessages_5fsteamengine_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSearchTermFieldNumber = 1,
+    kMaxResultsFieldNumber = 2,
+  };
+  // optional string search_term = 1;
+  bool has_search_term() const;
+  private:
+  bool _internal_has_search_term() const;
+  public:
+  void clear_search_term();
+  const std::string& search_term() const;
+  void set_search_term(const std::string& value);
+  void set_search_term(std::string&& value);
+  void set_search_term(const char* value);
+  void set_search_term(const char* value, size_t size);
+  std::string* mutable_search_term();
+  std::string* release_search_term();
+  void set_allocated_search_term(std::string* search_term);
+  private:
+  const std::string& _internal_search_term() const;
+  void _internal_set_search_term(const std::string& value);
+  std::string* _internal_mutable_search_term();
+  public:
+
+  // optional uint32 max_results = 2;
+  bool has_max_results() const;
+  private:
+  bool _internal_has_max_results() const;
+  public:
+  void clear_max_results();
+  ::PROTOBUF_NAMESPACE_ID::uint32 max_results() const;
+  void set_max_results(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_max_results() const;
+  void _internal_set_max_results(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr search_term_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 max_results_;
+  friend struct ::TableStruct_webuimessages_5fsteamengine_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CSteamEngine_SearchAppDataCacheByStoreKeywords_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response) */ {
+ public:
+  inline CSteamEngine_SearchAppDataCacheByStoreKeywords_Response() : CSteamEngine_SearchAppDataCacheByStoreKeywords_Response(nullptr) {}
+  virtual ~CSteamEngine_SearchAppDataCacheByStoreKeywords_Response();
+  explicit constexpr CSteamEngine_SearchAppDataCacheByStoreKeywords_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CSteamEngine_SearchAppDataCacheByStoreKeywords_Response(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& from);
+  CSteamEngine_SearchAppDataCacheByStoreKeywords_Response(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response&& from) noexcept
+    : CSteamEngine_SearchAppDataCacheByStoreKeywords_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& operator=(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& operator=(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* internal_default_instance() {
+    return reinterpret_cast<const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response*>(
+               &_CSteamEngine_SearchAppDataCacheByStoreKeywords_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& a, CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* New() const final {
+    return CreateMaybeMessage<CSteamEngine_SearchAppDataCacheByStoreKeywords_Response>(nullptr);
+  }
+
+  CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CSteamEngine_SearchAppDataCacheByStoreKeywords_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& from);
+  void MergeFrom(const CSteamEngine_SearchAppDataCacheByStoreKeywords_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CSteamEngine_SearchAppDataCacheByStoreKeywords_Response";
+  }
+  protected:
+  explicit CSteamEngine_SearchAppDataCacheByStoreKeywords_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_webuimessages_5fsteamengine_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAppidsFieldNumber = 1,
+  };
+  // repeated uint32 appids = 1;
+  int appids_size() const;
+  private:
+  int _internal_appids_size() const;
+  public:
+  void clear_appids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_appids() const;
+  void _internal_add_appids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_appids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 appids(int index) const;
+  void set_appids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_appids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      appids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_appids();
+
+  // @@protoc_insertion_point(class_scope:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > appids_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_webuimessages_5fsteamengine_2eproto;
+};
 // ===================================================================
 
 class SteamEngine_Stub;
@@ -1287,6 +1623,10 @@ class SteamEngine : public ::PROTOBUF_NAMESPACE_ID::Service {
   virtual void SetOverlayEscapeKeyHandling(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification* request,
                        ::WebUINoResponse* response,
+                       ::google::protobuf::Closure* done);
+  virtual void SearchAppDataCacheByStoreKeywords(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* request,
+                       ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -1336,6 +1676,10 @@ class SteamEngine_Stub : public SteamEngine {
   void SetOverlayEscapeKeyHandling(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CSteamEngine_SetOverlayEscapeKeyHandling_Notification* request,
                        ::WebUINoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void SearchAppDataCacheByStoreKeywords(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Request* request,
+                       ::CSteamEngine_SearchAppDataCacheByStoreKeywords_Response* response,
                        ::google::protobuf::Closure* done);
  private:
   ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
@@ -2002,9 +2346,169 @@ inline void CSteamEngine_SetOverlayEscapeKeyHandling_Notification::set_should_ha
   // @@protoc_insertion_point(field_set:CSteamEngine_SetOverlayEscapeKeyHandling_Notification.should_handle)
 }
 
+// -------------------------------------------------------------------
+
+// CSteamEngine_SearchAppDataCacheByStoreKeywords_Request
+
+// optional string search_term = 1;
+inline bool CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_internal_has_search_term() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::has_search_term() const {
+  return _internal_has_search_term();
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::clear_search_term() {
+  search_term_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::search_term() const {
+  // @@protoc_insertion_point(field_get:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term)
+  return _internal_search_term();
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::set_search_term(const std::string& value) {
+  _internal_set_search_term(value);
+  // @@protoc_insertion_point(field_set:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term)
+}
+inline std::string* CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::mutable_search_term() {
+  // @@protoc_insertion_point(field_mutable:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term)
+  return _internal_mutable_search_term();
+}
+inline const std::string& CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_internal_search_term() const {
+  return search_term_.Get();
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_internal_set_search_term(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  search_term_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::set_search_term(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  search_term_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term)
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::set_search_term(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  search_term_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term)
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::set_search_term(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  search_term_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term)
+}
+inline std::string* CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_internal_mutable_search_term() {
+  _has_bits_[0] |= 0x00000001u;
+  return search_term_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::release_search_term() {
+  // @@protoc_insertion_point(field_release:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term)
+  if (!_internal_has_search_term()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return search_term_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::set_allocated_search_term(std::string* search_term) {
+  if (search_term != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  search_term_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), search_term,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.search_term)
+}
+
+// optional uint32 max_results = 2;
+inline bool CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_internal_has_max_results() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::has_max_results() const {
+  return _internal_has_max_results();
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::clear_max_results() {
+  max_results_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_internal_max_results() const {
+  return max_results_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::max_results() const {
+  // @@protoc_insertion_point(field_get:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.max_results)
+  return _internal_max_results();
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::_internal_set_max_results(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  max_results_ = value;
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Request::set_max_results(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_max_results(value);
+  // @@protoc_insertion_point(field_set:CSteamEngine_SearchAppDataCacheByStoreKeywords_Request.max_results)
+}
+
+// -------------------------------------------------------------------
+
+// CSteamEngine_SearchAppDataCacheByStoreKeywords_Response
+
+// repeated uint32 appids = 1;
+inline int CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::_internal_appids_size() const {
+  return appids_.size();
+}
+inline int CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::appids_size() const {
+  return _internal_appids_size();
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::clear_appids() {
+  appids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::_internal_appids(int index) const {
+  return appids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::appids(int index) const {
+  // @@protoc_insertion_point(field_get:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response.appids)
+  return _internal_appids(index);
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::set_appids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  appids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response.appids)
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::_internal_add_appids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  appids_.Add(value);
+}
+inline void CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::add_appids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_appids(value);
+  // @@protoc_insertion_point(field_add:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response.appids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::_internal_appids() const {
+  return appids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::appids() const {
+  // @@protoc_insertion_point(field_list:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response.appids)
+  return _internal_appids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::_internal_mutable_appids() {
+  return &appids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CSteamEngine_SearchAppDataCacheByStoreKeywords_Response::mutable_appids() {
+  // @@protoc_insertion_point(field_mutable_list:CSteamEngine_SearchAppDataCacheByStoreKeywords_Response.appids)
+  return _internal_mutable_appids();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

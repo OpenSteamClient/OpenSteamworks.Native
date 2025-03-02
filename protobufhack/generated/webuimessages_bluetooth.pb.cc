@@ -139,7 +139,8 @@ constexpr CMsgBluetoothManagerDeviceDetails::CMsgBluetoothManagerDeviceDetails(
   , wake_allowed_(false)
   , battery_percent_(0)
   , wake_allowed_supported_(false)
-  , operation_in_progress_(false){}
+  , operation_in_progress_(false)
+  , is_trusted_(false){}
 struct CMsgBluetoothManagerDeviceDetailsDefaultTypeInternal {
   constexpr CMsgBluetoothManagerDeviceDetailsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -334,7 +335,31 @@ struct CBluetoothManager_SetWakeAllowed_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CBluetoothManager_SetWakeAllowed_ResponseDefaultTypeInternal _CBluetoothManager_SetWakeAllowed_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fbluetooth_2eproto[25];
+constexpr CBluetoothManager_SetTrusted_Request::CBluetoothManager_SetTrusted_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : device_(0u)
+  , trusted_(false){}
+struct CBluetoothManager_SetTrusted_RequestDefaultTypeInternal {
+  constexpr CBluetoothManager_SetTrusted_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CBluetoothManager_SetTrusted_RequestDefaultTypeInternal() {}
+  union {
+    CBluetoothManager_SetTrusted_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CBluetoothManager_SetTrusted_RequestDefaultTypeInternal _CBluetoothManager_SetTrusted_Request_default_instance_;
+constexpr CBluetoothManager_SetTrusted_Response::CBluetoothManager_SetTrusted_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CBluetoothManager_SetTrusted_ResponseDefaultTypeInternal {
+  constexpr CBluetoothManager_SetTrusted_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CBluetoothManager_SetTrusted_ResponseDefaultTypeInternal() {}
+  union {
+    CBluetoothManager_SetTrusted_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CBluetoothManager_SetTrusted_ResponseDefaultTypeInternal _CBluetoothManager_SetTrusted_Response_default_instance_;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_webuimessages_5fbluetooth_2eproto[27];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_webuimessages_5fbluetooth_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_webuimessages_5fbluetooth_2eproto[1];
 
@@ -436,6 +461,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fbluetooth_2epr
   PROTOBUF_FIELD_OFFSET(::CMsgBluetoothManagerDeviceDetails, wake_allowed_supported_),
   PROTOBUF_FIELD_OFFSET(::CMsgBluetoothManagerDeviceDetails, battery_percent_),
   PROTOBUF_FIELD_OFFSET(::CMsgBluetoothManagerDeviceDetails, operation_in_progress_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBluetoothManagerDeviceDetails, is_trusted_),
   2,
   3,
   4,
@@ -448,6 +474,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fbluetooth_2epr
   10,
   9,
   11,
+  12,
   PROTOBUF_FIELD_OFFSET(::CBluetoothManager_GetDeviceDetails_Response, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CBluetoothManager_GetDeviceDetails_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -546,6 +573,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fbluetooth_2epr
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CBluetoothManager_SetTrusted_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CBluetoothManager_SetTrusted_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CBluetoothManager_SetTrusted_Request, device_),
+  PROTOBUF_FIELD_OFFSET(::CBluetoothManager_SetTrusted_Request, trusted_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CBluetoothManager_SetTrusted_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::CBluetoothManager_GetState_Request)},
@@ -556,23 +597,25 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 51, 61, sizeof(::CMsgBluetoothManagerAdapterDetails)},
   { 66, 72, sizeof(::CBluetoothManager_GetAdapterDetails_Response)},
   { 73, 79, sizeof(::CBluetoothManager_GetDeviceDetails_Request)},
-  { 80, 97, sizeof(::CMsgBluetoothManagerDeviceDetails)},
-  { 109, 115, sizeof(::CBluetoothManager_GetDeviceDetails_Response)},
-  { 116, -1, sizeof(::CBluetoothManager_StateChanged_Notification)},
-  { 121, 127, sizeof(::CBluetoothManager_SetDiscovering_Request)},
-  { 128, -1, sizeof(::CBluetoothManager_SetDiscovering_Response)},
-  { 133, 139, sizeof(::CBluetoothManager_Pair_Request)},
-  { 140, -1, sizeof(::CBluetoothManager_Pair_Response)},
-  { 145, 151, sizeof(::CBluetoothManager_CancelPair_Request)},
-  { 152, -1, sizeof(::CBluetoothManager_CancelPair_Response)},
-  { 157, 163, sizeof(::CBluetoothManager_Forget_Request)},
-  { 164, -1, sizeof(::CBluetoothManager_Forget_Response)},
-  { 169, 175, sizeof(::CBluetoothManager_Connect_Request)},
-  { 176, -1, sizeof(::CBluetoothManager_Connect_Response)},
-  { 181, 187, sizeof(::CBluetoothManager_Disconnect_Request)},
-  { 188, -1, sizeof(::CBluetoothManager_Disconnect_Response)},
-  { 193, 200, sizeof(::CBluetoothManager_SetWakeAllowed_Request)},
-  { 202, -1, sizeof(::CBluetoothManager_SetWakeAllowed_Response)},
+  { 80, 98, sizeof(::CMsgBluetoothManagerDeviceDetails)},
+  { 111, 117, sizeof(::CBluetoothManager_GetDeviceDetails_Response)},
+  { 118, -1, sizeof(::CBluetoothManager_StateChanged_Notification)},
+  { 123, 129, sizeof(::CBluetoothManager_SetDiscovering_Request)},
+  { 130, -1, sizeof(::CBluetoothManager_SetDiscovering_Response)},
+  { 135, 141, sizeof(::CBluetoothManager_Pair_Request)},
+  { 142, -1, sizeof(::CBluetoothManager_Pair_Response)},
+  { 147, 153, sizeof(::CBluetoothManager_CancelPair_Request)},
+  { 154, -1, sizeof(::CBluetoothManager_CancelPair_Response)},
+  { 159, 165, sizeof(::CBluetoothManager_Forget_Request)},
+  { 166, -1, sizeof(::CBluetoothManager_Forget_Response)},
+  { 171, 177, sizeof(::CBluetoothManager_Connect_Request)},
+  { 178, -1, sizeof(::CBluetoothManager_Connect_Response)},
+  { 183, 189, sizeof(::CBluetoothManager_Disconnect_Request)},
+  { 190, -1, sizeof(::CBluetoothManager_Disconnect_Response)},
+  { 195, 202, sizeof(::CBluetoothManager_SetWakeAllowed_Request)},
+  { 204, -1, sizeof(::CBluetoothManager_SetWakeAllowed_Response)},
+  { 209, 216, sizeof(::CBluetoothManager_SetTrusted_Request)},
+  { 218, -1, sizeof(::CBluetoothManager_SetTrusted_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -601,6 +644,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CBluetoothManager_Disconnect_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CBluetoothManager_SetWakeAllowed_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CBluetoothManager_SetWakeAllowed_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CBluetoothManager_SetTrusted_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CBluetoothManager_SetTrusted_Response_default_instance_),
 };
 
 const char descriptor_table_protodef_webuimessages_5fbluetooth_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -628,7 +673,7 @@ const char descriptor_table_protodef_webuimessages_5fbluetooth_2eproto[] PROTOBU
   "etAdapterDetails_Response\0224\n\007adapter\030\001 \001"
   "(\0132#.CMsgBluetoothManagerAdapterDetails\""
   "8\n*CBluetoothManager_GetDeviceDetails_Re"
-  "quest\022\n\n\002id\030\001 \001(\r\"\322\002\n!CMsgBluetoothManag"
+  "quest\022\n\n\002id\030\001 \001(\r\"\346\002\n!CMsgBluetoothManag"
   "erDeviceDetails\022\r\n\002id\030\001 \001(\r:\0010\022\025\n\nadapte"
   "r_id\030\002 \001(\r:\0010\022A\n\005etype\030\003 \001(\0162\025.EBluetoot"
   "hDeviceType:\033BluetoothDeviceType_Invalid"
@@ -636,56 +681,61 @@ const char descriptor_table_protodef_webuimessages_5fbluetooth_2eproto[] PROTOBU
   "ted\030\006 \001(\010\022\021\n\tis_paired\030\007 \001(\010\022\022\n\nis_pairi"
   "ng\030\010 \001(\010\022\024\n\014wake_allowed\030\t \001(\010\022\036\n\026wake_a"
   "llowed_supported\030\n \001(\010\022\027\n\017battery_percen"
-  "t\030\013 \001(\005\022\035\n\025operation_in_progress\030\014 \001(\010\"a"
-  "\n+CBluetoothManager_GetDeviceDetails_Res"
-  "ponse\0222\n\006device\030\001 \001(\0132\".CMsgBluetoothMan"
-  "agerDeviceDetails\"-\n+CBluetoothManager_S"
-  "tateChanged_Notification\";\n(CBluetoothMa"
-  "nager_SetDiscovering_Request\022\017\n\007enabled\030"
-  "\001 \001(\010\"+\n)CBluetoothManager_SetDiscoverin"
-  "g_Response\"0\n\036CBluetoothManager_Pair_Req"
-  "uest\022\016\n\006device\030\001 \001(\r\"!\n\037CBluetoothManage"
-  "r_Pair_Response\"6\n$CBluetoothManager_Can"
-  "celPair_Request\022\016\n\006device\030\001 \001(\r\"\'\n%CBlue"
-  "toothManager_CancelPair_Response\"2\n CBlu"
-  "etoothManager_Forget_Request\022\016\n\006device\030\001"
-  " \001(\r\"#\n!CBluetoothManager_Forget_Respons"
-  "e\"3\n!CBluetoothManager_Connect_Request\022\016"
-  "\n\006device\030\001 \001(\r\"$\n\"CBluetoothManager_Conn"
-  "ect_Response\"6\n$CBluetoothManager_Discon"
-  "nect_Request\022\016\n\006device\030\001 \001(\r\"\'\n%CBluetoo"
-  "thManager_Disconnect_Response\"K\n(CBlueto"
-  "othManager_SetWakeAllowed_Request\022\016\n\006dev"
-  "ice\030\001 \001(\r\022\017\n\007allowed\030\002 \001(\010\"+\n)CBluetooth"
-  "Manager_SetWakeAllowed_Response2\242\010\n\020Blue"
-  "toothManager\022U\n\010GetState\022#.CBluetoothMan"
-  "ager_GetState_Request\032$.CBluetoothManage"
-  "r_GetState_Response\022p\n\021GetAdapterDetails"
-  "\022,.CBluetoothManager_GetAdapterDetails_R"
-  "equest\032-.CBluetoothManager_GetAdapterDet"
-  "ails_Response\022m\n\020GetDeviceDetails\022+.CBlu"
-  "etoothManager_GetDeviceDetails_Request\032,"
-  ".CBluetoothManager_GetDeviceDetails_Resp"
-  "onse\022T\n\022NotifyStateChanged\022,.CBluetoothM"
-  "anager_StateChanged_Notification\032\020.WebUI"
-  "NoResponse\022g\n\016SetDiscovering\022).CBluetoot"
-  "hManager_SetDiscovering_Request\032*.CBluet"
-  "oothManager_SetDiscovering_Response\022I\n\004P"
-  "air\022\037.CBluetoothManager_Pair_Request\032 .C"
-  "BluetoothManager_Pair_Response\022[\n\nCancel"
-  "Pair\022%.CBluetoothManager_CancelPair_Requ"
-  "est\032&.CBluetoothManager_CancelPair_Respo"
-  "nse\022O\n\006Forget\022!.CBluetoothManager_Forget"
-  "_Request\032\".CBluetoothManager_Forget_Resp"
-  "onse\022R\n\007Connect\022\".CBluetoothManager_Conn"
-  "ect_Request\032#.CBluetoothManager_Connect_"
-  "Response\022[\n\nDisconnect\022%.CBluetoothManag"
-  "er_Disconnect_Request\032&.CBluetoothManage"
-  "r_Disconnect_Response\022g\n\016SetWakeAllowed\022"
-  ").CBluetoothManager_SetWakeAllowed_Reque"
-  "st\032*.CBluetoothManager_SetWakeAllowed_Re"
-  "sponse\032\004\200\227\"\001B\037H\001\200\001\001\252\002\027OpenSteamworks.Pro"
-  "tobuf"
+  "t\030\013 \001(\005\022\035\n\025operation_in_progress\030\014 \001(\010\022\022"
+  "\n\nis_trusted\030\r \001(\010\"a\n+CBluetoothManager_"
+  "GetDeviceDetails_Response\0222\n\006device\030\001 \001("
+  "\0132\".CMsgBluetoothManagerDeviceDetails\"-\n"
+  "+CBluetoothManager_StateChanged_Notifica"
+  "tion\";\n(CBluetoothManager_SetDiscovering"
+  "_Request\022\017\n\007enabled\030\001 \001(\010\"+\n)CBluetoothM"
+  "anager_SetDiscovering_Response\"0\n\036CBluet"
+  "oothManager_Pair_Request\022\016\n\006device\030\001 \001(\r"
+  "\"!\n\037CBluetoothManager_Pair_Response\"6\n$C"
+  "BluetoothManager_CancelPair_Request\022\016\n\006d"
+  "evice\030\001 \001(\r\"\'\n%CBluetoothManager_CancelP"
+  "air_Response\"2\n CBluetoothManager_Forget"
+  "_Request\022\016\n\006device\030\001 \001(\r\"#\n!CBluetoothMa"
+  "nager_Forget_Response\"3\n!CBluetoothManag"
+  "er_Connect_Request\022\016\n\006device\030\001 \001(\r\"$\n\"CB"
+  "luetoothManager_Connect_Response\"6\n$CBlu"
+  "etoothManager_Disconnect_Request\022\016\n\006devi"
+  "ce\030\001 \001(\r\"\'\n%CBluetoothManager_Disconnect"
+  "_Response\"K\n(CBluetoothManager_SetWakeAl"
+  "lowed_Request\022\016\n\006device\030\001 \001(\r\022\017\n\007allowed"
+  "\030\002 \001(\010\"+\n)CBluetoothManager_SetWakeAllow"
+  "ed_Response\"G\n$CBluetoothManager_SetTrus"
+  "ted_Request\022\016\n\006device\030\001 \001(\r\022\017\n\007trusted\030\002"
+  " \001(\010\"\'\n%CBluetoothManager_SetTrusted_Res"
+  "ponse2\377\010\n\020BluetoothManager\022U\n\010GetState\022#"
+  ".CBluetoothManager_GetState_Request\032$.CB"
+  "luetoothManager_GetState_Response\022p\n\021Get"
+  "AdapterDetails\022,.CBluetoothManager_GetAd"
+  "apterDetails_Request\032-.CBluetoothManager"
+  "_GetAdapterDetails_Response\022m\n\020GetDevice"
+  "Details\022+.CBluetoothManager_GetDeviceDet"
+  "ails_Request\032,.CBluetoothManager_GetDevi"
+  "ceDetails_Response\022T\n\022NotifyStateChanged"
+  "\022,.CBluetoothManager_StateChanged_Notifi"
+  "cation\032\020.WebUINoResponse\022g\n\016SetDiscoveri"
+  "ng\022).CBluetoothManager_SetDiscovering_Re"
+  "quest\032*.CBluetoothManager_SetDiscovering"
+  "_Response\022I\n\004Pair\022\037.CBluetoothManager_Pa"
+  "ir_Request\032 .CBluetoothManager_Pair_Resp"
+  "onse\022[\n\nCancelPair\022%.CBluetoothManager_C"
+  "ancelPair_Request\032&.CBluetoothManager_Ca"
+  "ncelPair_Response\022O\n\006Forget\022!.CBluetooth"
+  "Manager_Forget_Request\032\".CBluetoothManag"
+  "er_Forget_Response\022R\n\007Connect\022\".CBluetoo"
+  "thManager_Connect_Request\032#.CBluetoothMa"
+  "nager_Connect_Response\022[\n\nDisconnect\022%.C"
+  "BluetoothManager_Disconnect_Request\032&.CB"
+  "luetoothManager_Disconnect_Response\022g\n\016S"
+  "etWakeAllowed\022).CBluetoothManager_SetWak"
+  "eAllowed_Request\032*.CBluetoothManager_Set"
+  "WakeAllowed_Response\022[\n\nSetTrusted\022%.CBl"
+  "uetoothManager_SetTrusted_Request\032&.CBlu"
+  "etoothManager_SetTrusted_Response\032\004\200\227\"\001B"
+  "\037H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fbluetooth_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -695,8 +745,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fbluetooth_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fbluetooth_2eproto = {
-  false, false, 3245, descriptor_table_protodef_webuimessages_5fbluetooth_2eproto, "webuimessages_bluetooth.proto", 
-  &descriptor_table_webuimessages_5fbluetooth_2eproto_once, descriptor_table_webuimessages_5fbluetooth_2eproto_deps, 4, 25,
+  false, false, 3472, descriptor_table_protodef_webuimessages_5fbluetooth_2eproto, "webuimessages_bluetooth.proto", 
+  &descriptor_table_webuimessages_5fbluetooth_2eproto_once, descriptor_table_webuimessages_5fbluetooth_2eproto_deps, 4, 27,
   schemas, file_default_instances, TableStruct_webuimessages_5fbluetooth_2eproto::offsets,
   file_level_metadata_webuimessages_5fbluetooth_2eproto, file_level_enum_descriptors_webuimessages_5fbluetooth_2eproto, file_level_service_descriptors_webuimessages_5fbluetooth_2eproto,
 };
@@ -2776,6 +2826,9 @@ class CMsgBluetoothManagerDeviceDetails::_Internal {
   static void set_has_operation_in_progress(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
+  static void set_has_is_trusted(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
 };
 
 CMsgBluetoothManagerDeviceDetails::CMsgBluetoothManagerDeviceDetails(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -2799,8 +2852,8 @@ CMsgBluetoothManagerDeviceDetails::CMsgBluetoothManagerDeviceDetails(const CMsgB
       GetArena());
   }
   ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&operation_in_progress_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(operation_in_progress_));
+    static_cast<size_t>(reinterpret_cast<char*>(&is_trusted_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(is_trusted_));
   // @@protoc_insertion_point(copy_constructor:CMsgBluetoothManagerDeviceDetails)
 }
 
@@ -2809,8 +2862,8 @@ mac_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyI
 name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&operation_in_progress_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(operation_in_progress_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_trusted_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(is_trusted_));
 }
 
 CMsgBluetoothManagerDeviceDetails::~CMsgBluetoothManagerDeviceDetails() {
@@ -2855,10 +2908,10 @@ void CMsgBluetoothManagerDeviceDetails::Clear() {
         reinterpret_cast<char*>(&is_pairing_) -
         reinterpret_cast<char*>(&id_)) + sizeof(is_pairing_));
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     ::memset(&wake_allowed_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&operation_in_progress_) -
-        reinterpret_cast<char*>(&wake_allowed_)) + sizeof(operation_in_progress_));
+        reinterpret_cast<char*>(&is_trusted_) -
+        reinterpret_cast<char*>(&wake_allowed_)) + sizeof(is_trusted_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -2978,6 +3031,14 @@ const char* CMsgBluetoothManagerDeviceDetails::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool is_trusted = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          _Internal::set_has_is_trusted(&has_bits);
+          is_trusted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -3089,6 +3150,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_operation_in_progress(), target);
   }
 
+  // optional bool is_trusted = 13;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(13, this->_internal_is_trusted(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3157,7 +3224,7 @@ size_t CMsgBluetoothManagerDeviceDetails::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     // optional bool wake_allowed = 9;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
@@ -3177,6 +3244,11 @@ size_t CMsgBluetoothManagerDeviceDetails::ByteSizeLong() const {
 
     // optional bool operation_in_progress = 12;
     if (cached_has_bits & 0x00000800u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_trusted = 13;
+    if (cached_has_bits & 0x00001000u) {
       total_size += 1 + 1;
     }
 
@@ -3240,7 +3312,7 @@ void CMsgBluetoothManagerDeviceDetails::MergeFrom(const CMsgBluetoothManagerDevi
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
       wake_allowed_ = from.wake_allowed_;
     }
@@ -3252,6 +3324,9 @@ void CMsgBluetoothManagerDeviceDetails::MergeFrom(const CMsgBluetoothManagerDevi
     }
     if (cached_has_bits & 0x00000800u) {
       operation_in_progress_ = from.operation_in_progress_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      is_trusted_ = from.is_trusted_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -3282,8 +3357,8 @@ void CMsgBluetoothManagerDeviceDetails::InternalSwap(CMsgBluetoothManagerDeviceD
   mac_.Swap(&other->mac_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgBluetoothManagerDeviceDetails, operation_in_progress_)
-      + sizeof(CMsgBluetoothManagerDeviceDetails::operation_in_progress_)
+      PROTOBUF_FIELD_OFFSET(CMsgBluetoothManagerDeviceDetails, is_trusted_)
+      + sizeof(CMsgBluetoothManagerDeviceDetails::is_trusted_)
       - PROTOBUF_FIELD_OFFSET(CMsgBluetoothManagerDeviceDetails, id_)>(
           reinterpret_cast<char*>(&id_),
           reinterpret_cast<char*>(&other->id_));
@@ -6219,6 +6294,410 @@ void CBluetoothManager_SetWakeAllowed_Response::InternalSwap(CBluetoothManager_S
 
 // ===================================================================
 
+class CBluetoothManager_SetTrusted_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CBluetoothManager_SetTrusted_Request>()._has_bits_);
+  static void set_has_device(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_trusted(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CBluetoothManager_SetTrusted_Request::CBluetoothManager_SetTrusted_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CBluetoothManager_SetTrusted_Request)
+}
+CBluetoothManager_SetTrusted_Request::CBluetoothManager_SetTrusted_Request(const CBluetoothManager_SetTrusted_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&device_, &from.device_,
+    static_cast<size_t>(reinterpret_cast<char*>(&trusted_) -
+    reinterpret_cast<char*>(&device_)) + sizeof(trusted_));
+  // @@protoc_insertion_point(copy_constructor:CBluetoothManager_SetTrusted_Request)
+}
+
+void CBluetoothManager_SetTrusted_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&device_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&trusted_) -
+    reinterpret_cast<char*>(&device_)) + sizeof(trusted_));
+}
+
+CBluetoothManager_SetTrusted_Request::~CBluetoothManager_SetTrusted_Request() {
+  // @@protoc_insertion_point(destructor:CBluetoothManager_SetTrusted_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CBluetoothManager_SetTrusted_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CBluetoothManager_SetTrusted_Request::ArenaDtor(void* object) {
+  CBluetoothManager_SetTrusted_Request* _this = reinterpret_cast< CBluetoothManager_SetTrusted_Request* >(object);
+  (void)_this;
+}
+void CBluetoothManager_SetTrusted_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CBluetoothManager_SetTrusted_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CBluetoothManager_SetTrusted_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CBluetoothManager_SetTrusted_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&device_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&trusted_) -
+        reinterpret_cast<char*>(&device_)) + sizeof(trusted_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CBluetoothManager_SetTrusted_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 device = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_device(&has_bits);
+          device_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool trusted = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_trusted(&has_bits);
+          trusted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CBluetoothManager_SetTrusted_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CBluetoothManager_SetTrusted_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 device = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_device(), target);
+  }
+
+  // optional bool trusted = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_trusted(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CBluetoothManager_SetTrusted_Request)
+  return target;
+}
+
+size_t CBluetoothManager_SetTrusted_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CBluetoothManager_SetTrusted_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 device = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_device());
+    }
+
+    // optional bool trusted = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CBluetoothManager_SetTrusted_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CBluetoothManager_SetTrusted_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CBluetoothManager_SetTrusted_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CBluetoothManager_SetTrusted_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CBluetoothManager_SetTrusted_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CBluetoothManager_SetTrusted_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CBluetoothManager_SetTrusted_Request::MergeFrom(const CBluetoothManager_SetTrusted_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CBluetoothManager_SetTrusted_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      device_ = from.device_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      trusted_ = from.trusted_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CBluetoothManager_SetTrusted_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CBluetoothManager_SetTrusted_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CBluetoothManager_SetTrusted_Request::CopyFrom(const CBluetoothManager_SetTrusted_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CBluetoothManager_SetTrusted_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CBluetoothManager_SetTrusted_Request::IsInitialized() const {
+  return true;
+}
+
+void CBluetoothManager_SetTrusted_Request::InternalSwap(CBluetoothManager_SetTrusted_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CBluetoothManager_SetTrusted_Request, trusted_)
+      + sizeof(CBluetoothManager_SetTrusted_Request::trusted_)
+      - PROTOBUF_FIELD_OFFSET(CBluetoothManager_SetTrusted_Request, device_)>(
+          reinterpret_cast<char*>(&device_),
+          reinterpret_cast<char*>(&other->device_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CBluetoothManager_SetTrusted_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CBluetoothManager_SetTrusted_Response::_Internal {
+ public:
+};
+
+CBluetoothManager_SetTrusted_Response::CBluetoothManager_SetTrusted_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CBluetoothManager_SetTrusted_Response)
+}
+CBluetoothManager_SetTrusted_Response::CBluetoothManager_SetTrusted_Response(const CBluetoothManager_SetTrusted_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CBluetoothManager_SetTrusted_Response)
+}
+
+void CBluetoothManager_SetTrusted_Response::SharedCtor() {
+}
+
+CBluetoothManager_SetTrusted_Response::~CBluetoothManager_SetTrusted_Response() {
+  // @@protoc_insertion_point(destructor:CBluetoothManager_SetTrusted_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CBluetoothManager_SetTrusted_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CBluetoothManager_SetTrusted_Response::ArenaDtor(void* object) {
+  CBluetoothManager_SetTrusted_Response* _this = reinterpret_cast< CBluetoothManager_SetTrusted_Response* >(object);
+  (void)_this;
+}
+void CBluetoothManager_SetTrusted_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CBluetoothManager_SetTrusted_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CBluetoothManager_SetTrusted_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CBluetoothManager_SetTrusted_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CBluetoothManager_SetTrusted_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CBluetoothManager_SetTrusted_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CBluetoothManager_SetTrusted_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CBluetoothManager_SetTrusted_Response)
+  return target;
+}
+
+size_t CBluetoothManager_SetTrusted_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CBluetoothManager_SetTrusted_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CBluetoothManager_SetTrusted_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CBluetoothManager_SetTrusted_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CBluetoothManager_SetTrusted_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CBluetoothManager_SetTrusted_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CBluetoothManager_SetTrusted_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CBluetoothManager_SetTrusted_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CBluetoothManager_SetTrusted_Response::MergeFrom(const CBluetoothManager_SetTrusted_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CBluetoothManager_SetTrusted_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CBluetoothManager_SetTrusted_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CBluetoothManager_SetTrusted_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CBluetoothManager_SetTrusted_Response::CopyFrom(const CBluetoothManager_SetTrusted_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CBluetoothManager_SetTrusted_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CBluetoothManager_SetTrusted_Response::IsInitialized() const {
+  return true;
+}
+
+void CBluetoothManager_SetTrusted_Response::InternalSwap(CBluetoothManager_SetTrusted_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CBluetoothManager_SetTrusted_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 BluetoothManager::~BluetoothManager() {}
 
 const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* BluetoothManager::descriptor() {
@@ -6318,6 +6797,14 @@ void BluetoothManager::SetWakeAllowed(::PROTOBUF_NAMESPACE_ID::RpcController* co
   done->Run();
 }
 
+void BluetoothManager::SetTrusted(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CBluetoothManager_SetTrusted_Request*,
+                         ::CBluetoothManager_SetTrusted_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method SetTrusted() not implemented.");
+  done->Run();
+}
+
 void BluetoothManager::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -6413,6 +6900,14 @@ void BluetoothManager::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescripto
                  response),
              done);
       break;
+    case 11:
+      SetTrusted(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CBluetoothManager_SetTrusted_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CBluetoothManager_SetTrusted_Response*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -6445,6 +6940,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& BluetoothManager::GetRequestPrototype(
       return ::CBluetoothManager_Disconnect_Request::default_instance();
     case 10:
       return ::CBluetoothManager_SetWakeAllowed_Request::default_instance();
+    case 11:
+      return ::CBluetoothManager_SetTrusted_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -6478,6 +6975,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& BluetoothManager::GetResponsePrototype(
       return ::CBluetoothManager_Disconnect_Response::default_instance();
     case 10:
       return ::CBluetoothManager_SetWakeAllowed_Response::default_instance();
+    case 11:
+      return ::CBluetoothManager_SetTrusted_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -6573,6 +7072,13 @@ void BluetoothManager_Stub::SetWakeAllowed(::PROTOBUF_NAMESPACE_ID::RpcControlle
   channel_->CallMethod(descriptor()->method(10),
                        controller, request, response, done);
 }
+void BluetoothManager_Stub::SetTrusted(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CBluetoothManager_SetTrusted_Request* request,
+                              ::CBluetoothManager_SetTrusted_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(11),
+                       controller, request, response, done);
+}
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
@@ -6650,6 +7156,12 @@ template<> PROTOBUF_NOINLINE ::CBluetoothManager_SetWakeAllowed_Request* Arena::
 }
 template<> PROTOBUF_NOINLINE ::CBluetoothManager_SetWakeAllowed_Response* Arena::CreateMaybeMessage< ::CBluetoothManager_SetWakeAllowed_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CBluetoothManager_SetWakeAllowed_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CBluetoothManager_SetTrusted_Request* Arena::CreateMaybeMessage< ::CBluetoothManager_SetTrusted_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CBluetoothManager_SetTrusted_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CBluetoothManager_SetTrusted_Response* Arena::CreateMaybeMessage< ::CBluetoothManager_SetTrusted_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CBluetoothManager_SetTrusted_Response >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -552,7 +552,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CInputMouseUpMsgDefaultTypeInte
 constexpr CInputKeyDownMsg::CInputKeyDownMsg(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : input_mark_(0u)
-  , scancode_(0u){}
+  , scancode_(0u)
+  , modifiers_(0u)
+  , keycode_(0u){}
 struct CInputKeyDownMsgDefaultTypeInternal {
   constexpr CInputKeyDownMsgDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -565,7 +567,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CInputKeyDownMsgDefaultTypeInte
 constexpr CInputKeyUpMsg::CInputKeyUpMsg(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : input_mark_(0u)
-  , scancode_(0u){}
+  , scancode_(0u)
+  , modifiers_(0u)
+  , keycode_(0u){}
 struct CInputKeyUpMsgDefaultTypeInternal {
   constexpr CInputKeyUpMsgDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1240,7 +1244,8 @@ constexpr CRemotePlayTogetherGroupUpdateMsg::CRemotePlayTogetherGroupUpdateMsg(
   , miniprofile_location_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , game_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , avatar_location_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , player_index_(0){}
+  , player_index_(0)
+  , direct_input_(false){}
 struct CRemotePlayTogetherGroupUpdateMsgDefaultTypeInternal {
   constexpr CRemotePlayTogetherGroupUpdateMsgDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -2078,8 +2083,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteplay_2ep
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CInputKeyDownMsg, input_mark_),
   PROTOBUF_FIELD_OFFSET(::CInputKeyDownMsg, scancode_),
+  PROTOBUF_FIELD_OFFSET(::CInputKeyDownMsg, modifiers_),
+  PROTOBUF_FIELD_OFFSET(::CInputKeyDownMsg, keycode_),
   0,
   1,
+  2,
+  3,
   PROTOBUF_FIELD_OFFSET(::CInputKeyUpMsg, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CInputKeyUpMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2087,8 +2096,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteplay_2ep
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CInputKeyUpMsg, input_mark_),
   PROTOBUF_FIELD_OFFSET(::CInputKeyUpMsg, scancode_),
+  PROTOBUF_FIELD_OFFSET(::CInputKeyUpMsg, modifiers_),
+  PROTOBUF_FIELD_OFFSET(::CInputKeyUpMsg, keycode_),
   0,
   1,
+  2,
+  3,
   PROTOBUF_FIELD_OFFSET(::CInputTextMsg, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CInputTextMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2530,11 +2543,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fremoteplay_2ep
   PROTOBUF_FIELD_OFFSET(::CRemotePlayTogetherGroupUpdateMsg, miniprofile_location_),
   PROTOBUF_FIELD_OFFSET(::CRemotePlayTogetherGroupUpdateMsg, game_name_),
   PROTOBUF_FIELD_OFFSET(::CRemotePlayTogetherGroupUpdateMsg, avatar_location_),
+  PROTOBUF_FIELD_OFFSET(::CRemotePlayTogetherGroupUpdateMsg, direct_input_),
   ~0u,
   3,
   0,
   1,
   2,
+  4,
   PROTOBUF_FIELD_OFFSET(::CSetInputTemporarilyDisabledMsg, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSetInputTemporarilyDisabledMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2843,86 +2858,86 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 432, 440, sizeof(::CInputMouseWheelMsg)},
   { 443, 450, sizeof(::CInputMouseDownMsg)},
   { 452, 459, sizeof(::CInputMouseUpMsg)},
-  { 461, 468, sizeof(::CInputKeyDownMsg)},
-  { 470, 477, sizeof(::CInputKeyUpMsg)},
-  { 479, 486, sizeof(::CInputTextMsg)},
-  { 488, 494, sizeof(::CSetTitleMsg)},
-  { 495, 502, sizeof(::CSetCaptureSizeMsg)},
-  { 504, 512, sizeof(::CSetIconMsg)},
-  { 515, 523, sizeof(::CSetFlashStateMsg)},
-  { 526, 533, sizeof(::CShowCursorMsg)},
-  { 535, -1, sizeof(::CHideCursorMsg)},
-  { 540, 546, sizeof(::CSetCursorMsg)},
-  { 547, 553, sizeof(::CGetCursorImageMsg)},
-  { 554, 565, sizeof(::CSetCursorImageMsg)},
-  { 571, 577, sizeof(::CSetCursorScaleMsg)},
-  { 578, 585, sizeof(::CVideoDecoderInfoMsg)},
-  { 587, 593, sizeof(::CVideoEncoderInfoMsg)},
-  { 594, -1, sizeof(::CPauseMsg)},
-  { 599, -1, sizeof(::CResumeMsg)},
-  { 604, -1, sizeof(::CEnableHighResCaptureMsg)},
-  { 609, -1, sizeof(::CDisableHighResCaptureMsg)},
-  { 614, -1, sizeof(::CEnableNeptuneDataMsg)},
-  { 619, -1, sizeof(::CDisableNeptuneDataMsg)},
-  { 624, -1, sizeof(::CPauseControllerInputMsg)},
-  { 629, -1, sizeof(::CResumeControllerInputMsg)},
-  { 634, -1, sizeof(::CToggleMagnificationMsg)},
-  { 639, 645, sizeof(::CSetCapslockMsg)},
-  { 646, 660, sizeof(::CStreamingKeymapEntry)},
-  { 669, -1, sizeof(::CStreamingKeymap)},
-  { 675, 681, sizeof(::CSetKeymapMsg)},
-  { 682, -1, sizeof(::CStopRequest)},
-  { 687, -1, sizeof(::CQuitRequest)},
-  { 692, 698, sizeof(::CDeleteCursorMsg)},
-  { 699, 705, sizeof(::CSetStreamingClientConfig)},
-  { 706, 712, sizeof(::CSetQoSMsg)},
-  { 713, 722, sizeof(::CSetTargetFramerateMsg)},
-  { 726, 732, sizeof(::CSetTargetBitrateMsg)},
-  { 733, 739, sizeof(::COverlayEnabledMsg)},
-  { 740, 746, sizeof(::CSetGammaRampMsg)},
-  { 747, 756, sizeof(::CSetActivityMsg)},
-  { 760, -1, sizeof(::CSystemSuspendMsg)},
-  { 765, 771, sizeof(::CVirtualHereRequestMsg)},
-  { 772, 778, sizeof(::CVirtualHereReadyMsg)},
-  { 779, 785, sizeof(::CVirtualHereShareDeviceMsg)},
-  { 786, 792, sizeof(::CSetSpectatorModeMsg)},
-  { 793, 800, sizeof(::CRemoteHIDMsg)},
-  { 802, 810, sizeof(::CTouchConfigActiveMsg)},
-  { 813, 819, sizeof(::CGetTouchConfigDataMsg)},
-  { 820, 830, sizeof(::CSetTouchConfigDataMsg)},
-  { 835, 842, sizeof(::CSaveTouchConfigLayoutMsg)},
-  { 844, 851, sizeof(::CTouchActionSetActiveMsg)},
-  { 853, 860, sizeof(::CTouchActionSetLayerAddedMsg)},
-  { 862, 869, sizeof(::CTouchActionSetLayerRemovedMsg)},
-  { 871, 878, sizeof(::CGetTouchIconDataMsg)},
-  { 880, 888, sizeof(::CSetTouchIconDataMsg)},
-  { 891, 903, sizeof(::CRemotePlayTogetherGroupUpdateMsg_Player)},
-  { 910, 920, sizeof(::CRemotePlayTogetherGroupUpdateMsg)},
-  { 925, 931, sizeof(::CSetInputTemporarilyDisabledMsg)},
-  { 932, 938, sizeof(::CSetQualityOverrideMsg)},
-  { 939, 945, sizeof(::CSetBitrateOverrideMsg)},
-  { 946, -1, sizeof(::CShowOnScreenKeyboardMsg)},
-  { 951, 959, sizeof(::CControllerPersonalizationUpdateMsg)},
-  { 962, 968, sizeof(::CVRConnectionReady)},
-  { 969, -1, sizeof(::CStreamDataLostMsg)},
-  { 975, 983, sizeof(::CAudioFormat)},
-  { 986, 994, sizeof(::CVideoFormat)},
-  { 997, 1004, sizeof(::CFrameEvent)},
-  { 1006, 1023, sizeof(::CFrameStats)},
-  { 1035, 1044, sizeof(::CFrameStatAccumulatedValue)},
-  { 1048, 1057, sizeof(::CFrameStatsListMsg)},
-  { 1061, 1070, sizeof(::CStreamingSessionStats)},
-  { 1074, 1080, sizeof(::CDebugDumpMsg)},
-  { 1081, 1088, sizeof(::CLogMsg)},
-  { 1090, 1097, sizeof(::CLogUploadMsg)},
-  { 1099, 1107, sizeof(::CTransportSignalMsg_WebRTCMessage_Candidate)},
-  { 1110, -1, sizeof(::CTransportSignalMsg_WebRTCMessage)},
-  { 1120, 1127, sizeof(::CTransportSignalMsg)},
-  { 1129, 1140, sizeof(::CControllerConfigMsg_ControllerConfigResponse)},
-  { 1146, 1152, sizeof(::CControllerConfigMsg_ControllerPersonalizationResponse)},
-  { 1153, 1162, sizeof(::CControllerConfigMsg_ControllerActiveConfigChangeResponse)},
-  { 1166, 1175, sizeof(::CControllerConfigMsg_ControllerActiveConfigMsg)},
-  { 1179, 1190, sizeof(::CControllerConfigMsg)},
+  { 461, 470, sizeof(::CInputKeyDownMsg)},
+  { 474, 483, sizeof(::CInputKeyUpMsg)},
+  { 487, 494, sizeof(::CInputTextMsg)},
+  { 496, 502, sizeof(::CSetTitleMsg)},
+  { 503, 510, sizeof(::CSetCaptureSizeMsg)},
+  { 512, 520, sizeof(::CSetIconMsg)},
+  { 523, 531, sizeof(::CSetFlashStateMsg)},
+  { 534, 541, sizeof(::CShowCursorMsg)},
+  { 543, -1, sizeof(::CHideCursorMsg)},
+  { 548, 554, sizeof(::CSetCursorMsg)},
+  { 555, 561, sizeof(::CGetCursorImageMsg)},
+  { 562, 573, sizeof(::CSetCursorImageMsg)},
+  { 579, 585, sizeof(::CSetCursorScaleMsg)},
+  { 586, 593, sizeof(::CVideoDecoderInfoMsg)},
+  { 595, 601, sizeof(::CVideoEncoderInfoMsg)},
+  { 602, -1, sizeof(::CPauseMsg)},
+  { 607, -1, sizeof(::CResumeMsg)},
+  { 612, -1, sizeof(::CEnableHighResCaptureMsg)},
+  { 617, -1, sizeof(::CDisableHighResCaptureMsg)},
+  { 622, -1, sizeof(::CEnableNeptuneDataMsg)},
+  { 627, -1, sizeof(::CDisableNeptuneDataMsg)},
+  { 632, -1, sizeof(::CPauseControllerInputMsg)},
+  { 637, -1, sizeof(::CResumeControllerInputMsg)},
+  { 642, -1, sizeof(::CToggleMagnificationMsg)},
+  { 647, 653, sizeof(::CSetCapslockMsg)},
+  { 654, 668, sizeof(::CStreamingKeymapEntry)},
+  { 677, -1, sizeof(::CStreamingKeymap)},
+  { 683, 689, sizeof(::CSetKeymapMsg)},
+  { 690, -1, sizeof(::CStopRequest)},
+  { 695, -1, sizeof(::CQuitRequest)},
+  { 700, 706, sizeof(::CDeleteCursorMsg)},
+  { 707, 713, sizeof(::CSetStreamingClientConfig)},
+  { 714, 720, sizeof(::CSetQoSMsg)},
+  { 721, 730, sizeof(::CSetTargetFramerateMsg)},
+  { 734, 740, sizeof(::CSetTargetBitrateMsg)},
+  { 741, 747, sizeof(::COverlayEnabledMsg)},
+  { 748, 754, sizeof(::CSetGammaRampMsg)},
+  { 755, 764, sizeof(::CSetActivityMsg)},
+  { 768, -1, sizeof(::CSystemSuspendMsg)},
+  { 773, 779, sizeof(::CVirtualHereRequestMsg)},
+  { 780, 786, sizeof(::CVirtualHereReadyMsg)},
+  { 787, 793, sizeof(::CVirtualHereShareDeviceMsg)},
+  { 794, 800, sizeof(::CSetSpectatorModeMsg)},
+  { 801, 808, sizeof(::CRemoteHIDMsg)},
+  { 810, 818, sizeof(::CTouchConfigActiveMsg)},
+  { 821, 827, sizeof(::CGetTouchConfigDataMsg)},
+  { 828, 838, sizeof(::CSetTouchConfigDataMsg)},
+  { 843, 850, sizeof(::CSaveTouchConfigLayoutMsg)},
+  { 852, 859, sizeof(::CTouchActionSetActiveMsg)},
+  { 861, 868, sizeof(::CTouchActionSetLayerAddedMsg)},
+  { 870, 877, sizeof(::CTouchActionSetLayerRemovedMsg)},
+  { 879, 886, sizeof(::CGetTouchIconDataMsg)},
+  { 888, 896, sizeof(::CSetTouchIconDataMsg)},
+  { 899, 911, sizeof(::CRemotePlayTogetherGroupUpdateMsg_Player)},
+  { 918, 929, sizeof(::CRemotePlayTogetherGroupUpdateMsg)},
+  { 935, 941, sizeof(::CSetInputTemporarilyDisabledMsg)},
+  { 942, 948, sizeof(::CSetQualityOverrideMsg)},
+  { 949, 955, sizeof(::CSetBitrateOverrideMsg)},
+  { 956, -1, sizeof(::CShowOnScreenKeyboardMsg)},
+  { 961, 969, sizeof(::CControllerPersonalizationUpdateMsg)},
+  { 972, 978, sizeof(::CVRConnectionReady)},
+  { 979, -1, sizeof(::CStreamDataLostMsg)},
+  { 985, 993, sizeof(::CAudioFormat)},
+  { 996, 1004, sizeof(::CVideoFormat)},
+  { 1007, 1014, sizeof(::CFrameEvent)},
+  { 1016, 1033, sizeof(::CFrameStats)},
+  { 1045, 1054, sizeof(::CFrameStatAccumulatedValue)},
+  { 1058, 1067, sizeof(::CFrameStatsListMsg)},
+  { 1071, 1080, sizeof(::CStreamingSessionStats)},
+  { 1084, 1090, sizeof(::CDebugDumpMsg)},
+  { 1091, 1098, sizeof(::CLogMsg)},
+  { 1100, 1107, sizeof(::CLogUploadMsg)},
+  { 1109, 1117, sizeof(::CTransportSignalMsg_WebRTCMessage_Candidate)},
+  { 1120, -1, sizeof(::CTransportSignalMsg_WebRTCMessage)},
+  { 1130, 1137, sizeof(::CTransportSignalMsg)},
+  { 1139, 1150, sizeof(::CControllerConfigMsg_ControllerConfigResponse)},
+  { 1156, 1162, sizeof(::CControllerConfigMsg_ControllerPersonalizationResponse)},
+  { 1163, 1172, sizeof(::CControllerConfigMsg_ControllerActiveConfigChangeResponse)},
+  { 1176, 1185, sizeof(::CControllerConfigMsg_ControllerActiveConfigMsg)},
+  { 1189, 1200, sizeof(::CControllerConfigMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -3193,379 +3208,381 @@ const char descriptor_table_protodef_steammessages_5fremoteplay_2eproto[] PROTOB
   "eamMouseButtonLeft\"c\n\020CInputMouseUpMsg\022\022"
   "\n\ninput_mark\030\001 \001(\r\022;\n\006button\030\002 \002(\0162\023.ESt"
   "reamMouseButton:\026EStreamMouseButtonLeft\""
-  "8\n\020CInputKeyDownMsg\022\022\n\ninput_mark\030\001 \001(\r\022"
-  "\020\n\010scancode\030\002 \002(\r\"6\n\016CInputKeyUpMsg\022\022\n\ni"
-  "nput_mark\030\001 \001(\r\022\020\n\010scancode\030\002 \002(\r\"6\n\rCIn"
-  "putTextMsg\022\022\n\ninput_mark\030\001 \001(\r\022\021\n\ttext_u"
-  "tf8\030\002 \002(\t\"\034\n\014CSetTitleMsg\022\014\n\004text\030\001 \001(\t\""
-  "3\n\022CSetCaptureSizeMsg\022\r\n\005width\030\001 \001(\005\022\016\n\006"
-  "height\030\002 \001(\005\";\n\013CSetIconMsg\022\r\n\005width\030\001 \001"
-  "(\005\022\016\n\006height\030\002 \001(\005\022\r\n\005image\030\003 \001(\014\"E\n\021CSe"
-  "tFlashStateMsg\022\r\n\005flags\030\001 \001(\r\022\r\n\005count\030\002"
-  " \001(\r\022\022\n\ntimeout_ms\030\003 \001(\r\"<\n\016CShowCursorM"
-  "sg\022\024\n\014x_normalized\030\001 \001(\002\022\024\n\014y_normalized"
-  "\030\002 \001(\002\"\020\n\016CHideCursorMsg\"\"\n\rCSetCursorMs"
-  "g\022\021\n\tcursor_id\030\001 \002(\004\"\'\n\022CGetCursorImageM"
-  "sg\022\021\n\tcursor_id\030\001 \002(\004\"s\n\022CSetCursorImage"
-  "Msg\022\021\n\tcursor_id\030\001 \002(\004\022\r\n\005width\030\002 \001(\005\022\016\n"
-  "\006height\030\003 \001(\005\022\r\n\005hot_x\030\004 \001(\005\022\r\n\005hot_y\030\005 "
-  "\001(\005\022\r\n\005image\030\006 \001(\014\"#\n\022CSetCursorScaleMsg"
-  "\022\r\n\005scale\030\001 \001(\002\"5\n\024CVideoDecoderInfoMsg\022"
-  "\014\n\004info\030\001 \001(\t\022\017\n\007threads\030\002 \001(\005\"$\n\024CVideo"
-  "EncoderInfoMsg\022\014\n\004info\030\001 \001(\t\"\013\n\tCPauseMs"
-  "g\"\014\n\nCResumeMsg\"\032\n\030CEnableHighResCapture"
-  "Msg\"\033\n\031CDisableHighResCaptureMsg\"\027\n\025CEna"
-  "bleNeptuneDataMsg\"\030\n\026CDisableNeptuneData"
-  "Msg\"\032\n\030CPauseControllerInputMsg\"\033\n\031CResu"
-  "meControllerInputMsg\"\031\n\027CToggleMagnifica"
-  "tionMsg\"\"\n\017CSetCapslockMsg\022\017\n\007pressed\030\001 "
-  "\001(\010\"\204\002\n\025CStreamingKeymapEntry\022\020\n\010scancod"
-  "e\030\001 \001(\005\022\026\n\016normal_keycode\030\002 \001(\005\022\025\n\rshift"
-  "_keycode\030\003 \001(\005\022\026\n\016capslockeycode\030\004 \001(\005\022\034"
-  "\n\024shift_capslockeycode\030\005 \001(\005\022\025\n\raltgr_ke"
-  "ycode\030\006 \001(\005\022\033\n\023altgr_shift_keycode\030\007 \001(\005"
-  "\022\034\n\024altgr_capslockeycode\030\010 \001(\005\022\"\n\032altgr_"
-  "shift_capslockeycode\030\t \001(\005\";\n\020CStreaming"
-  "Keymap\022\'\n\007entries\030\001 \003(\0132\026.CStreamingKeym"
-  "apEntry\"2\n\rCSetKeymapMsg\022!\n\006keymap\030\001 \001(\013"
-  "2\021.CStreamingKeymap\"\016\n\014CStopRequest\"\016\n\014C"
-  "QuitRequest\"%\n\020CDeleteCursorMsg\022\021\n\tcurso"
-  "r_id\030\001 \002(\004\"D\n\031CSetStreamingClientConfig\022"
-  "\'\n\006config\030\001 \002(\0132\027.CStreamingClientConfig"
-  "\"\035\n\nCSetQoSMsg\022\017\n\007use_qos\030\001 \002(\010\"x\n\026CSetT"
-  "argetFramerateMsg\022\021\n\tframerate\030\001 \002(\r\022\017\n\007"
-  "reasons\030\002 \001(\r\022\033\n\023framerate_numerator\030\003 \001"
-  "(\r\022\035\n\025framerate_denominator\030\004 \001(\r\"\'\n\024CSe"
-  "tTargetBitrateMsg\022\017\n\007bitrate\030\001 \002(\005\"%\n\022CO"
-  "verlayEnabledMsg\022\017\n\007enabled\030\001 \002(\010\"&\n\020CSe"
-  "tGammaRampMsg\022\022\n\ngamma_ramp\030\001 \001(\014\"|\n\017CSe"
-  "tActivityMsg\0227\n\010activity\030\001 \001(\0162\020.EStream"
-  "Activity:\023EStreamActivityIdle\022\r\n\005appid\030\002"
-  " \001(\r\022\016\n\006gameid\030\003 \001(\004\022\021\n\tgame_name\030\004 \001(\t\""
-  "\023\n\021CSystemSuspendMsg\"*\n\026CVirtualHereRequ"
-  "estMsg\022\020\n\010hostname\030\001 \001(\t\"5\n\024CVirtualHere"
-  "ReadyMsg\022\035\n\025licensed_device_count\030\001 \001(\r\""
-  "4\n\032CVirtualHereShareDeviceMsg\022\026\n\016device_"
-  "address\030\001 \001(\t\"\'\n\024CSetSpectatorModeMsg\022\017\n"
-  "\007enabled\030\001 \001(\010\"3\n\rCRemoteHIDMsg\022\014\n\004data\030"
-  "\001 \001(\014\022\024\n\014active_input\030\002 \001(\010\"I\n\025CTouchCon"
-  "figActiveMsg\022\r\n\005appid\030\001 \001(\r\022\020\n\010revision\030"
-  "\002 \001(\r\022\017\n\007creator\030\003 \001(\004\"\'\n\026CGetTouchConfi"
-  "gDataMsg\022\r\n\005appid\030\001 \001(\r\"h\n\026CSetTouchConf"
-  "igDataMsg\022\r\n\005appid\030\001 \001(\r\022\020\n\010revision\030\002 \001"
-  "(\r\022\014\n\004data\030\003 \001(\014\022\016\n\006layout\030\004 \001(\014\022\017\n\007crea"
-  "tor\030\005 \001(\004\":\n\031CSaveTouchConfigLayoutMsg\022\r"
-  "\n\005appid\030\001 \001(\r\022\016\n\006layout\030\004 \001(\014\"\?\n\030CTouchA"
-  "ctionSetActiveMsg\022\r\n\005appid\030\001 \001(\r\022\024\n\014acti"
-  "onset_id\030\002 \001(\005\"C\n\034CTouchActionSetLayerAd"
-  "dedMsg\022\r\n\005appid\030\001 \001(\r\022\024\n\014actionset_id\030\002 "
-  "\001(\005\"E\n\036CTouchActionSetLayerRemovedMsg\022\r\n"
-  "\005appid\030\001 \001(\r\022\024\n\014actionset_id\030\002 \001(\005\"3\n\024CG"
-  "etTouchIconDataMsg\022\r\n\005appid\030\001 \001(\r\022\014\n\004ico"
-  "n\030\002 \001(\t\"A\n\024CSetTouchIconDataMsg\022\r\n\005appid"
-  "\030\001 \001(\r\022\014\n\004icon\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\"\352\002\n!C"
-  "RemotePlayTogetherGroupUpdateMsg\022:\n\007play"
-  "ers\030\001 \003(\0132).CRemotePlayTogetherGroupUpda"
-  "teMsg.Player\022\024\n\014player_index\030\002 \001(\005\022\034\n\024mi"
-  "niprofile_location\030\003 \001(\t\022\021\n\tgame_name\030\004 "
-  "\001(\t\022\027\n\017avatar_location\030\005 \001(\t\032\250\001\n\006Player\022"
-  "\021\n\taccountid\030\001 \001(\r\022\017\n\007guestid\030\002 \001(\r\022\030\n\020k"
-  "eyboard_enabled\030\003 \001(\010\022\025\n\rmouse_enabled\030\004"
-  " \001(\010\022\032\n\022controller_enabled\030\005 \001(\010\022\030\n\020cont"
-  "roller_slots\030\006 \003(\r\022\023\n\013avatar_hash\030\007 \001(\014\""
-  "3\n\037CSetInputTemporarilyDisabledMsg\022\020\n\010di"
-  "sabled\030\001 \001(\010\"\'\n\026CSetQualityOverrideMsg\022\r"
-  "\n\005value\030\001 \001(\005\"\'\n\026CSetBitrateOverrideMsg\022"
-  "\r\n\005value\030\001 \001(\005\"\032\n\030CShowOnScreenKeyboardM"
-  "sg\"~\n#CControllerPersonalizationUpdateMs"
-  "g\022\027\n\017controller_path\030\001 \001(\t\022\027\n\017controller"
-  "_name\030\002 \001(\t\022%\n\035reverse_diamond_button_la"
-  "yout\030\003 \001(\010\",\n\022CVRConnectionReady\022\026\n\016conn"
-  "ect_params\030\001 \001(\t\"%\n\022CStreamDataLostMsg\022\017"
-  "\n\007packets\030\001 \003(\r\"d\n\014CAudioFormat\022/\n\006forma"
-  "t\030\001 \002(\0162\r.EAudioFormat:\020EAudioFormatNone"
-  "\022\021\n\tfrequency\030\002 \001(\r\022\020\n\010channels\030\003 \001(\r\"^\n"
-  "\014CVideoFormat\022/\n\006format\030\001 \002(\0162\r.EVideoFo"
-  "rmat:\020EVideoFormatNone\022\r\n\005width\030\002 \001(\r\022\016\n"
-  "\006height\030\003 \001(\r\"^\n\013CFrameEvent\022<\n\010event_id"
-  "\030\001 \002(\0162\022.EStreamFrameEvent:\026EStreamInput"
-  "EventStart\022\021\n\ttimestamp\030\002 \002(\r\"\313\002\n\013CFrame"
-  "Stats\022\020\n\010frame_id\030\001 \002(\r\022\022\n\ninput_mark\030\002 "
-  "\001(\r\022\034\n\006events\030\003 \003(\0132\014.CFrameEvent\022>\n\006res"
-  "ult\030\004 \002(\0162\023.EStreamFrameResult:\031EStreamF"
-  "rameResultPending\022\031\n\021frame_start_delta\030\005"
-  " \001(\002\022\033\n\023frame_display_delta\030\006 \001(\002\022\021\n\tpin"
-  "g_time\030\007 \001(\002\022\026\n\016server_bitrate\030\010 \001(\002\022\026\n\016"
-  "client_bitrate\030\t \001(\002\022\024\n\014linbandwidth\030\n \001"
-  "(\002\022\023\n\013packet_loss\030\013 \001(\002\022\022\n\nframe_size\030\014 "
-  "\001(\r\"\206\001\n\032CFrameStatAccumulatedValue\0228\n\tst"
-  "at_type\030\001 \002(\0162\026.EFrameAccumulatedStat:\rE"
-  "FrameStatFPS\022\r\n\005count\030\002 \002(\005\022\017\n\007average\030\003"
-  " \002(\002\022\016\n\006stddev\030\004 \001(\002\"\277\001\n\022CFrameStatsList"
-  "Msg\022;\n\tdata_type\030\001 \002(\0162\023.EStreamingDataT"
-  "ype:\023EStreamingAudioData\022\033\n\005stats\030\002 \003(\0132"
-  "\014.CFrameStats\0226\n\021accumulated_stats\030\003 \003(\013"
-  "2\033.CFrameStatAccumulatedValue\022\027\n\017latest_"
-  "frame_id\030\004 \002(\005\"\207\001\n\026CStreamingSessionStat"
-  "s\022\035\n\025frame_loss_percentage\030\001 \001(\002\022\035\n\025aver"
-  "age_networtime_ms\030\002 \001(\002\022\034\n\024stddev_networ"
-  "time_ms\030\003 \001(\002\022\021\n\ttest_data\030\004 \001(\t\"#\n\rCDeb"
-  "ugDumpMsg\022\022\n\nscreenshot\030\001 \001(\014\"(\n\007CLogMsg"
-  "\022\014\n\004type\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"N\n\rCLogU"
-  "ploadMsg\022/\n\004type\030\001 \001(\0162\r.ELogFileType:\022E"
-  "LogFileSystemBoot\022\014\n\004data\030\003 \001(\014\"\263\002\n\023CTra"
-  "nsportSignalMsg\0222\n\006webrtc\030\001 \001(\0132\".CTrans"
-  "portSignalMsg.WebRTCMessage\022\013\n\003sdr\030\002 \003(\014"
-  "\032\332\001\n\rWebRTCMessage\022\022\n\010greeting\030\001 \001(\010H\000\022\017"
-  "\n\005offer\030\002 \001(\tH\000\022\020\n\006answer\030\003 \001(\tH\000\022A\n\tcan"
-  "didate\030\004 \001(\0132,.CTransportSignalMsg.WebRT"
-  "CMessage.CandidateH\000\032H\n\tCandidate\022\017\n\007sdp"
-  "_mid\030\001 \001(\t\022\027\n\017sdp_mline_index\030\002 \001(\005\022\021\n\tc"
-  "andidate\030\003 \001(\tB\005\n\003msg\"\334\006\n\024CControllerCon"
-  "figMsg\022Z\n\004type\030\001 \002(\0162\033.EStreamController"
-  "ConfigMsg:/EStreamControllerConfigMsg_Re"
-  "questConfigsForApp\022\026\n\016controllerPath\030\002 \001"
-  "(\t\022\r\n\005appid\030\003 \001(\r\022X\n\027personalizationResp"
-  "onse\030\004 \001(\01327.CControllerConfigMsg.Contro"
-  "llerPersonalizationResponse\022F\n\016configRes"
-  "ponse\030\006 \003(\0132..CControllerConfigMsg.Contr"
-  "ollerConfigResponse\022N\n\025activeConfigChang"
-  "eMsg\030\007 \001(\0132/.CControllerConfigMsg.Contro"
-  "llerActiveConfigMsg\032\231\001\n\030ControllerConfig"
-  "Response\022\r\n\005appid\030\001 \001(\r\022\021\n\tconfigURL\030\002 \001"
-  "(\t\022\026\n\016controllerType\030\003 \001(\r\022\026\n\016controller"
-  "Data\030\004 \001(\t\022\026\n\016selectionOrder\030\005 \001(\r\022\023\n\013ac"
-  "tionBlock\030\006 \001(\010\032@\n!ControllerPersonaliza"
-  "tionResponse\022\033\n\023personalizationData\030\001 \001("
-  "\t\032\201\001\n$ControllerActiveConfigChangeRespon"
-  "se\022\021\n\tconfigURL\030\002 \001(\t\022\026\n\016controllerType\030"
-  "\003 \001(\r\022\026\n\016controllerData\030\004 \001(\t\022\026\n\016selecti"
-  "onOrder\030\005 \001(\r\032m\n\031ControllerActiveConfigM"
-  "sg\022\r\n\005appid\030\001 \001(\r\022\021\n\tconfigURL\030\002 \001(\t\022\026\n\016"
-  "controllerType\030\003 \001(\r\022\026\n\016controllerData\030\004"
-  " \001(\t*\251\001\n\016EStreamChannel\022\"\n\025EStreamChanne"
-  "lInvalid\020\377\377\377\377\377\377\377\377\377\001\022\033\n\027EStreamChannelDis"
-  "covery\020\000\022\031\n\025EStreamChannelControl\020\001\022\027\n\023E"
-  "StreamChannelStats\020\002\022\"\n\036EStreamChannelDa"
-  "taChannelStart\020\003*\\\n\027EStreamDiscoveryMess"
-  "age\022\037\n\033EStreamDiscoveryPingRequest\020\001\022 \n\034"
-  "EStreamDiscoveryPingResponse\020\002*\342\035\n\025EStre"
-  "amControlMessage\022\'\n#EStreamControlAuthen"
-  "ticationRequest\020\001\022(\n$EStreamControlAuthe"
-  "nticationResponse\020\002\022!\n\035EStreamControlNeg"
-  "otiationInit\020\003\022&\n\"EStreamControlNegotiat"
-  "ionSetConfig\020\004\022%\n!EStreamControlNegotiat"
-  "ionComplete\020\005\022!\n\035EStreamControlClientHan"
-  "dshake\020\006\022!\n\035EStreamControlServerHandshak"
-  "e\020\007\022\"\n\036EStreamControlStartNetworkTest\020\010\022"
-  "\033\n\027EStreamControlKeepAlive\020\t\022%\n!EStreamC"
-  "ontrol_LAST_SETUP_MESSAGE\020\017\022 \n\034EStreamCo"
-  "ntrolStartAudioData\0202\022\037\n\033EStreamControlS"
-  "topAudioData\0203\022 \n\034EStreamControlStartVid"
-  "eoData\0204\022\037\n\033EStreamControlStopVideoData\020"
-  "5\022\"\n\036EStreamControlInputMouseMotion\0206\022!\n"
-  "\035EStreamControlInputMouseWheel\0207\022 \n\034EStr"
-  "eamControlInputMouseDown\0208\022\036\n\032EStreamCon"
-  "trolInputMouseUp\0209\022\036\n\032EStreamControlInpu"
-  "tKeyDown\020:\022\034\n\030EStreamControlInputKeyUp\020;"
-  "\022/\n+EStreamControlInputGamepadAttached_O"
-  "BSOLETE\020<\022,\n(EStreamControlInputGamepadE"
-  "vent_OBSOLETE\020=\022/\n+EStreamControlInputGa"
-  "mepadDetached_OBSOLETE\020>\022\034\n\030EStreamContr"
-  "olShowCursor\020\?\022\034\n\030EStreamControlHideCurs"
-  "or\020@\022\033\n\027EStreamControlSetCursor\020A\022 \n\034ESt"
-  "reamControlGetCursorImage\020B\022 \n\034EStreamCo"
-  "ntrolSetCursorImage\020C\022\036\n\032EStreamControlD"
-  "eleteCursor\020D\022$\n EStreamControlSetTarget"
-  "Framerate\020E\022\"\n\036EStreamControlInputLatenc"
-  "yTest\020F\022(\n$EStreamControlGamepadRumble_O"
-  "BSOLETE\020G\022 \n\034EStreamControlOverlayEnable"
-  "d\020J\0222\n.EStreamControlInputControllerAtta"
-  "ched_OBSOLETE\020K\022/\n+EStreamControlInputCo"
-  "ntrollerState_OBSOLETE\020L\022-\n)EStreamContr"
-  "olTriggerHapticPulse_OBSOLETE\020M\0222\n.EStre"
-  "amControlInputControllerDetached_OBSOLET"
-  "E\020N\022\"\n\036EStreamControlVideoDecoderInfo\020P\022"
-  "\032\n\026EStreamControlSetTitle\020Q\022\031\n\025EStreamCo"
-  "ntrolSetIcon\020R\022\035\n\031EStreamControlQuitRequ"
-  "est\020S\022\030\n\024EStreamControlSetQoS\020W\022:\n6EStre"
-  "amControlInputControllerWirelessPresence"
-  "_OBSOLETE\020X\022\036\n\032EStreamControlSetGammaRam"
-  "p\020Y\022\"\n\036EStreamControlVideoEncoderInfo\020Z\022"
-  "2\n.EStreamControlInputControllerStateHID"
-  "_OBSOLETE\020]\022\"\n\036EStreamControlSetTargetBi"
-  "trate\020^\0226\n2EStreamControlSetControllerPa"
-  "iringEnabled_OBSOLETE\020_\0225\n1EStreamContro"
-  "lSetControllerPairingResult_OBSOLETE\020`\0226"
-  "\n2EStreamControlTriggerControllerDisconn"
-  "ect_OBSOLETE\020a\022\035\n\031EStreamControlSetActiv"
-  "ity\020b\022*\n&EStreamControlSetStreamingClien"
-  "tConfig\020c\022\037\n\033EStreamControlSystemSuspend"
-  "\020d\0220\n,EStreamControlSetControllerSetting"
-  "s_OBSOLETE\020e\022$\n EStreamControlVirtualHer"
-  "eRequest\020f\022\"\n\036EStreamControlVirtualHereR"
-  "eady\020g\022(\n$EStreamControlVirtualHereShare"
-  "Device\020h\022\"\n\036EStreamControlSetSpectatorMo"
-  "de\020i\022\033\n\027EStreamControlRemoteHID\020j\022%\n!ESt"
-  "reamControlStartMicrophoneData\020k\022$\n EStr"
-  "eamControlStopMicrophoneData\020l\022\033\n\027EStrea"
-  "mControlInputText\020m\022#\n\037EStreamControlTou"
-  "chConfigActive\020n\022$\n EStreamControlGetTou"
-  "chConfigData\020o\022$\n EStreamControlSetTouch"
-  "ConfigData\020p\022\'\n#EStreamControlSaveTouchC"
-  "onfigLayout\020q\022&\n\"EStreamControlTouchActi"
-  "onSetActive\020r\022\"\n\036EStreamControlGetTouchI"
-  "conData\020s\022\"\n\036EStreamControlSetTouchIconD"
-  "ata\020t\022&\n\"EStreamControlInputTouchFingerD"
-  "own\020u\022(\n$EStreamControlInputTouchFingerM"
-  "otion\020v\022$\n EStreamControlInputTouchFinge"
-  "rUp\020w\022 \n\034EStreamControlSetCaptureSize\020x\022"
-  "\037\n\033EStreamControlSetFlashState\020y\022\027\n\023EStr"
-  "eamControlPause\020z\022\030\n\024EStreamControlResum"
-  "e\020{\022&\n\"EStreamControlEnableHighResCaptur"
-  "e\020|\022\'\n#EStreamControlDisableHighResCaptu"
-  "re\020}\022%\n!EStreamControlToggleMagnificatio"
-  "n\020~\022\035\n\031EStreamControlSetCapslock\020\177\022\034\n\027ES"
-  "treamControlSetKeymap\020\200\001\022\036\n\031EStreamContr"
-  "olStopRequest\020\201\001\022+\n&EStreamControlTouchA"
-  "ctionSetLayerAdded\020\202\001\022-\n(EStreamControlT"
-  "ouchActionSetLayerRemoved\020\203\001\0220\n+EStreamC"
-  "ontrolRemotePlayTogetherGroupUpdate\020\204\001\022."
-  "\n)EStreamControlSetInputTemporarilyDisab"
-  "led\020\205\001\022%\n EStreamControlSetQualityOverri"
-  "de\020\206\001\022%\n EStreamControlSetBitrateOverrid"
-  "e\020\207\001\022\'\n\"EStreamControlShowOnScreenKeyboa"
-  "rd\020\210\001\022&\n!EStreamControlControllerConfigM"
-  "sg\020\211\001\0222\n-EStreamControlControllerPersona"
-  "lizationUpdate\020\212\001\022$\n\037EStreamControlEnabl"
-  "eNeptuneData\020\213\001\022%\n EStreamControlDisable"
-  "NeptuneData\020\214\001\022#\n\036EStreamControlStartNep"
-  "tuneData\020\215\001\022\"\n\035EStreamControlStopNeptune"
-  "Data\020\216\001\022\'\n\"EStreamControlPauseController"
-  "Input\020\217\001\022(\n#EStreamControlResumeControll"
-  "erInput\020\220\001\022$\n\037EStreamControlVRConnection"
-  "Ready\020\221\001\022!\n\034EStreamControlSetCursorScale"
-  "\020\222\001*C\n\016EStreamVersion\022\026\n\022EStreamVersionN"
-  "one\020\000\022\031\n\025EStreamVersionCurrent\020\001*\264\001\n\021ESt"
-  "reamAudioCodec\022\031\n\025EStreamAudioCodecNone\020"
-  "\000\022\030\n\024EStreamAudioCodecRaw\020\001\022\033\n\027EStreamAu"
-  "dioCodecVorbis\020\002\022\031\n\025EStreamAudioCodecOpu"
-  "s\020\003\022\030\n\024EStreamAudioCodecMP3\020\004\022\030\n\024EStream"
-  "AudioCodecAAC\020\005*\204\002\n\021EStreamVideoCodec\022\031\n"
-  "\025EStreamVideoCodecNone\020\000\022\030\n\024EStreamVideo"
-  "CodecRaw\020\001\022\030\n\024EStreamVideoCodecVP8\020\002\022\030\n\024"
-  "EStreamVideoCodecVP9\020\003\022\031\n\025EStreamVideoCo"
-  "decH264\020\004\022\031\n\025EStreamVideoCodecHEVC\020\005\022\032\n\026"
-  "EStreamVideoCodecORBX1\020\006\022\032\n\026EStreamVideo"
-  "CodecORBX2\020\007\022\030\n\024EStreamVideoCodecAV1\020\010*\221"
-  "\001\n\030EStreamQualityPreference\022$\n\027EStreamQu"
-  "alityAutomatic\020\377\377\377\377\377\377\377\377\377\001\022\026\n\022EStreamQual"
-  "ityFast\020\001\022\032\n\026EStreamQualityBalanced\020\002\022\033\n"
-  "\027EStreamQualityBeautiful\020\003*T\n\016EStreamBit"
-  "rate\022%\n\030EStreamBitrateAutodetect\020\377\377\377\377\377\377\377"
-  "\377\377\001\022\033\n\027EStreamBitrateUnlimited\020\000*\315\001\n\021ESt"
-  "reamColorspace\022\035\n\031EStreamColorspace_Unkn"
-  "own\020\000\022\033\n\027EStreamColorspace_BT601\020\001\022 \n\034ES"
-  "treamColorspace_BT601_Full\020\002\022\033\n\027EStreamC"
-  "olorspace_BT709\020\003\022 \n\034EStreamColorspace_B"
-  "T709_Full\020\004\022\033\n\027EStreamColorspace_HDR10\020\005"
-  "*\240\001\n\017EStreamP2PScope\022\034\n\030EStreamP2PScopeA"
-  "utomatic\020\000\022\033\n\027EStreamP2PScopeDisabled\020\001\022"
-  "\031\n\025EStreamP2PScopeOnlyMe\020\002\022\032\n\026EStreamP2P"
-  "ScopeFriends\020\003\022\033\n\027EStreamP2PScopeEveryon"
-  "e\020\004*a\n\036EStreamHostPlayAudioPreference\022\037\n"
-  "\033EStreamHostPlayAudioDefault\020\000\022\036\n\032EStrea"
-  "mHostPlayAudioAlways\020\001*\177\n\022EStreamingData"
-  "Type\022\027\n\023EStreamingAudioData\020\000\022\027\n\023EStream"
-  "ingVideoData\020\001\022\034\n\030EStreamingMicrophoneDa"
-  "ta\020\002\022\031\n\025EStreamingNeptuneData\020\003*\277\001\n\022EStr"
-  "eamMouseButton\022\032\n\026EStreamMouseButtonLeft"
-  "\020\001\022\033\n\027EStreamMouseButtonRight\020\002\022\034\n\030EStre"
-  "amMouseButtonMiddle\020\020\022\030\n\024EStreamMouseBut"
-  "tonX1\020 \022\030\n\024EStreamMouseButtonX2\020@\022\036\n\031ESt"
-  "reamMouseButtonUnknown\020\200 *\220\001\n\032EStreamMou"
-  "seWheelDirection\022\027\n\023EStreamMouseWheelUp\020"
-  "x\022\"\n\025EStreamMouseWheelDown\020\210\377\377\377\377\377\377\377\377\001\022\031\n"
-  "\025EStreamMouseWheelLeft\020\003\022\032\n\026EStreamMouse"
-  "WheelRight\020\004*\373\001\n\027EStreamFramerateLimiter"
-  "\022\037\n\033EStreamFramerateSlowCapture\020\001\022\037\n\033ESt"
-  "reamFramerateSlowConvert\020\002\022\036\n\032EStreamFra"
-  "merateSlowEncode\020\004\022\037\n\033EStreamFramerateSl"
-  "owNetwork\020\010\022\036\n\032EStreamFramerateSlowDecod"
-  "e\020\020\022\034\n\030EStreamFramerateSlowGame\020 \022\037\n\033ESt"
-  "reamFramerateSlowDisplay\020@*\233\001\n\017EStreamAc"
-  "tivity\022\027\n\023EStreamActivityIdle\020\001\022\027\n\023EStre"
-  "amActivityGame\020\002\022\032\n\026EStreamActivityDeskt"
-  "op\020\003\022 \n\034EStreamActivitySecureDesktop\020\004\022\030"
-  "\n\024EStreamActivityMusic\020\005*@\n\022EStreamDataM"
-  "essage\022\025\n\021EStreamDataPacket\020\001\022\023\n\017EStream"
-  "DataLost\020\002*^\n\014EAudioFormat\022\024\n\020EAudioForm"
-  "atNone\020\000\022!\n\035EAudioFormat16BitLittleEndia"
-  "n\020\001\022\025\n\021EAudioFormatFloat\020\002*Q\n\014EVideoForm"
-  "at\022\024\n\020EVideoFormatNone\020\000\022\024\n\020EVideoFormat"
-  "YV12\020\001\022\025\n\021EVideoFormatAccel\020\002*\313\001\n\023EStrea"
-  "mStatsMessage\022\033\n\027EStreamStatsFrameEvents"
-  "\020\001\022\031\n\025EStreamStatsDebugDump\020\002\022\032\n\026EStream"
-  "StatsLogMessage\020\003\022\036\n\032EStreamStatsLogUplo"
-  "adBegin\020\004\022\035\n\031EStreamStatsLogUploadData\020\005"
-  "\022!\n\035EStreamStatsLogUploadComplete\020\006*\337\004\n\021"
-  "EStreamFrameEvent\022\032\n\026EStreamInputEventSt"
-  "art\020\000\022\031\n\025EStreamInputEventSend\020\001\022\031\n\025EStr"
-  "eamInputEventRecv\020\002\022\033\n\027EStreamInputEvent"
-  "Queued\020\003\022\034\n\030EStreamInputEventHandled\020\004\022\032"
-  "\n\026EStreamFrameEventStart\020\005\022!\n\035EStreamFra"
-  "meEventCaptureBegin\020\006\022\037\n\033EStreamFrameEve"
-  "ntCaptureEnd\020\007\022!\n\035EStreamFrameEventConve"
-  "rtBegin\020\010\022\037\n\033EStreamFrameEventConvertEnd"
-  "\020\t\022 \n\034EStreamFrameEventEncodeBegin\020\n\022\036\n\032"
-  "EStreamFrameEventEncodeEnd\020\013\022\031\n\025EStreamF"
-  "rameEventSend\020\014\022\031\n\025EStreamFrameEventRecv"
-  "\020\r\022 \n\034EStreamFrameEventDecodeBegin\020\016\022\036\n\032"
-  "EStreamFrameEventDecodeEnd\020\017\022 \n\034EStreamF"
-  "rameEventUploadBegin\020\020\022\036\n\032EStreamFrameEv"
-  "entUploadEnd\020\021\022\035\n\031EStreamFrameEventCompl"
-  "ete\020\022*\304\002\n\022EStreamFrameResult\022\035\n\031EStreamF"
-  "rameResultPending\020\000\022\037\n\033EStreamFrameResul"
-  "tDisplayed\020\001\022(\n$EStreamFrameResultDroppe"
-  "dNetworkSlow\020\002\022(\n$EStreamFrameResultDrop"
-  "pedNetworkLost\020\003\022\'\n#EStreamFrameResultDr"
-  "oppedDecodeSlow\020\004\022*\n&EStreamFrameResultD"
-  "roppedDecodeCorrupt\020\005\022!\n\035EStreamFrameRes"
-  "ultDroppedLate\020\006\022\"\n\036EStreamFrameResultDr"
-  "oppedReset\020\007*\374\004\n\025EFrameAccumulatedStat\022\021"
-  "\n\rEFrameStatFPS\020\000\022\037\n\033EFrameStatCaptureDu"
-  "rationMS\020\001\022\037\n\033EFrameStatConvertDurationM"
-  "S\020\002\022\036\n\032EFrameStatEncodeDurationMS\020\003\022\035\n\031E"
-  "FrameStatSteamDurationMS\020\004\022\036\n\032EFrameStat"
-  "ServerDurationMS\020\005\022\037\n\033EFrameStatNetworkD"
-  "urationMS\020\006\022\036\n\032EFrameStatDecodeDurationM"
-  "S\020\007\022\037\n\033EFrameStatDisplayDurationMS\020\010\022\036\n\032"
-  "EFrameStatClientDurationMS\020\t\022\035\n\031EFrameSt"
-  "atFrameDurationMS\020\n\022\034\n\030EFrameStatInputLa"
-  "tencyMS\020\013\022\033\n\027EFrameStatGameLatencyMS\020\014\022 "
-  "\n\034EFrameStatRoundTripLatencyMS\020\r\022\030\n\024EFra"
-  "meStatPingTimeMS\020\016\022%\n!EFrameStatServerBi"
-  "trateKbitPerSec\020\017\022%\n!EFrameStatClientBit"
-  "rateKbitPerSec\020\020\022%\n!EFrameStatLinkBandwi"
-  "dthKbitPerSec\020\021\022\"\n\036EFrameStatPacketLossP"
-  "ercentage\020\022*X\n\014ELogFileType\022\026\n\022ELogFileS"
-  "ystemBoot\020\000\022\027\n\023ELogFileSystemReset\020\001\022\027\n\023"
-  "ELogFileSystemDebug\020\002*\237\002\n\032EStreamControl"
-  "lerConfigMsg\0223\n/EStreamControllerConfigM"
-  "sg_RequestConfigsForApp\020\000\022-\n)EStreamCont"
-  "rollerConfigMsg_ConfigResponse\020\001\0226\n2EStr"
-  "eamControllerConfigMsg_PersonalizationRe"
-  "sponse\020\002\0221\n-EStreamControllerConfigMsg_A"
-  "ctiveConfigChange\020\003\0222\n.EStreamController"
-  "ConfigMsg_RequestActiveConfig\020\004B\037H\001\200\001\000\252\002"
-  "\027OpenSteamworks.Protobuf"
+  "\\\n\020CInputKeyDownMsg\022\022\n\ninput_mark\030\001 \001(\r\022"
+  "\020\n\010scancode\030\002 \002(\r\022\021\n\tmodifiers\030\003 \001(\r\022\017\n\007"
+  "keycode\030\004 \001(\r\"Z\n\016CInputKeyUpMsg\022\022\n\ninput"
+  "_mark\030\001 \001(\r\022\020\n\010scancode\030\002 \002(\r\022\021\n\tmodifie"
+  "rs\030\003 \001(\r\022\017\n\007keycode\030\004 \001(\r\"6\n\rCInputTextM"
+  "sg\022\022\n\ninput_mark\030\001 \001(\r\022\021\n\ttext_utf8\030\002 \002("
+  "\t\"\034\n\014CSetTitleMsg\022\014\n\004text\030\001 \001(\t\"3\n\022CSetC"
+  "aptureSizeMsg\022\r\n\005width\030\001 \001(\005\022\016\n\006height\030\002"
+  " \001(\005\";\n\013CSetIconMsg\022\r\n\005width\030\001 \001(\005\022\016\n\006he"
+  "ight\030\002 \001(\005\022\r\n\005image\030\003 \001(\014\"E\n\021CSetFlashSt"
+  "ateMsg\022\r\n\005flags\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\022\022\n\n"
+  "timeout_ms\030\003 \001(\r\"<\n\016CShowCursorMsg\022\024\n\014x_"
+  "normalized\030\001 \001(\002\022\024\n\014y_normalized\030\002 \001(\002\"\020"
+  "\n\016CHideCursorMsg\"\"\n\rCSetCursorMsg\022\021\n\tcur"
+  "sor_id\030\001 \002(\004\"\'\n\022CGetCursorImageMsg\022\021\n\tcu"
+  "rsor_id\030\001 \002(\004\"s\n\022CSetCursorImageMsg\022\021\n\tc"
+  "ursor_id\030\001 \002(\004\022\r\n\005width\030\002 \001(\005\022\016\n\006height\030"
+  "\003 \001(\005\022\r\n\005hot_x\030\004 \001(\005\022\r\n\005hot_y\030\005 \001(\005\022\r\n\005i"
+  "mage\030\006 \001(\014\"#\n\022CSetCursorScaleMsg\022\r\n\005scal"
+  "e\030\001 \001(\002\"5\n\024CVideoDecoderInfoMsg\022\014\n\004info\030"
+  "\001 \001(\t\022\017\n\007threads\030\002 \001(\005\"$\n\024CVideoEncoderI"
+  "nfoMsg\022\014\n\004info\030\001 \001(\t\"\013\n\tCPauseMsg\"\014\n\nCRe"
+  "sumeMsg\"\032\n\030CEnableHighResCaptureMsg\"\033\n\031C"
+  "DisableHighResCaptureMsg\"\027\n\025CEnableNeptu"
+  "neDataMsg\"\030\n\026CDisableNeptuneDataMsg\"\032\n\030C"
+  "PauseControllerInputMsg\"\033\n\031CResumeContro"
+  "llerInputMsg\"\031\n\027CToggleMagnificationMsg\""
+  "\"\n\017CSetCapslockMsg\022\017\n\007pressed\030\001 \001(\010\"\204\002\n\025"
+  "CStreamingKeymapEntry\022\020\n\010scancode\030\001 \001(\005\022"
+  "\026\n\016normal_keycode\030\002 \001(\005\022\025\n\rshift_keycode"
+  "\030\003 \001(\005\022\026\n\016capslockeycode\030\004 \001(\005\022\034\n\024shift_"
+  "capslockeycode\030\005 \001(\005\022\025\n\raltgr_keycode\030\006 "
+  "\001(\005\022\033\n\023altgr_shift_keycode\030\007 \001(\005\022\034\n\024altg"
+  "r_capslockeycode\030\010 \001(\005\022\"\n\032altgr_shift_ca"
+  "pslockeycode\030\t \001(\005\";\n\020CStreamingKeymap\022\'"
+  "\n\007entries\030\001 \003(\0132\026.CStreamingKeymapEntry\""
+  "2\n\rCSetKeymapMsg\022!\n\006keymap\030\001 \001(\0132\021.CStre"
+  "amingKeymap\"\016\n\014CStopRequest\"\016\n\014CQuitRequ"
+  "est\"%\n\020CDeleteCursorMsg\022\021\n\tcursor_id\030\001 \002"
+  "(\004\"D\n\031CSetStreamingClientConfig\022\'\n\006confi"
+  "g\030\001 \002(\0132\027.CStreamingClientConfig\"\035\n\nCSet"
+  "QoSMsg\022\017\n\007use_qos\030\001 \002(\010\"x\n\026CSetTargetFra"
+  "merateMsg\022\021\n\tframerate\030\001 \002(\r\022\017\n\007reasons\030"
+  "\002 \001(\r\022\033\n\023framerate_numerator\030\003 \001(\r\022\035\n\025fr"
+  "amerate_denominator\030\004 \001(\r\"\'\n\024CSetTargetB"
+  "itrateMsg\022\017\n\007bitrate\030\001 \002(\005\"%\n\022COverlayEn"
+  "abledMsg\022\017\n\007enabled\030\001 \002(\010\"&\n\020CSetGammaRa"
+  "mpMsg\022\022\n\ngamma_ramp\030\001 \001(\014\"|\n\017CSetActivit"
+  "yMsg\0227\n\010activity\030\001 \001(\0162\020.EStreamActivity"
+  ":\023EStreamActivityIdle\022\r\n\005appid\030\002 \001(\r\022\016\n\006"
+  "gameid\030\003 \001(\004\022\021\n\tgame_name\030\004 \001(\t\"\023\n\021CSyst"
+  "emSuspendMsg\"*\n\026CVirtualHereRequestMsg\022\020"
+  "\n\010hostname\030\001 \001(\t\"5\n\024CVirtualHereReadyMsg"
+  "\022\035\n\025licensed_device_count\030\001 \001(\r\"4\n\032CVirt"
+  "ualHereShareDeviceMsg\022\026\n\016device_address\030"
+  "\001 \001(\t\"\'\n\024CSetSpectatorModeMsg\022\017\n\007enabled"
+  "\030\001 \001(\010\"3\n\rCRemoteHIDMsg\022\014\n\004data\030\001 \001(\014\022\024\n"
+  "\014active_input\030\002 \001(\010\"I\n\025CTouchConfigActiv"
+  "eMsg\022\r\n\005appid\030\001 \001(\r\022\020\n\010revision\030\002 \001(\r\022\017\n"
+  "\007creator\030\003 \001(\004\"\'\n\026CGetTouchConfigDataMsg"
+  "\022\r\n\005appid\030\001 \001(\r\"h\n\026CSetTouchConfigDataMs"
+  "g\022\r\n\005appid\030\001 \001(\r\022\020\n\010revision\030\002 \001(\r\022\014\n\004da"
+  "ta\030\003 \001(\014\022\016\n\006layout\030\004 \001(\014\022\017\n\007creator\030\005 \001("
+  "\004\":\n\031CSaveTouchConfigLayoutMsg\022\r\n\005appid\030"
+  "\001 \001(\r\022\016\n\006layout\030\004 \001(\014\"\?\n\030CTouchActionSet"
+  "ActiveMsg\022\r\n\005appid\030\001 \001(\r\022\024\n\014actionset_id"
+  "\030\002 \001(\005\"C\n\034CTouchActionSetLayerAddedMsg\022\r"
+  "\n\005appid\030\001 \001(\r\022\024\n\014actionset_id\030\002 \001(\005\"E\n\036C"
+  "TouchActionSetLayerRemovedMsg\022\r\n\005appid\030\001"
+  " \001(\r\022\024\n\014actionset_id\030\002 \001(\005\"3\n\024CGetTouchI"
+  "conDataMsg\022\r\n\005appid\030\001 \001(\r\022\014\n\004icon\030\002 \001(\t\""
+  "A\n\024CSetTouchIconDataMsg\022\r\n\005appid\030\001 \001(\r\022\014"
+  "\n\004icon\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\"\200\003\n!CRemotePl"
+  "ayTogetherGroupUpdateMsg\022:\n\007players\030\001 \003("
+  "\0132).CRemotePlayTogetherGroupUpdateMsg.Pl"
+  "ayer\022\024\n\014player_index\030\002 \001(\005\022\034\n\024miniprofil"
+  "e_location\030\003 \001(\t\022\021\n\tgame_name\030\004 \001(\t\022\027\n\017a"
+  "vatar_location\030\005 \001(\t\022\024\n\014direct_input\030\006 \001"
+  "(\010\032\250\001\n\006Player\022\021\n\taccountid\030\001 \001(\r\022\017\n\007gues"
+  "tid\030\002 \001(\r\022\030\n\020keyboard_enabled\030\003 \001(\010\022\025\n\rm"
+  "ouse_enabled\030\004 \001(\010\022\032\n\022controller_enabled"
+  "\030\005 \001(\010\022\030\n\020controller_slots\030\006 \003(\r\022\023\n\013avat"
+  "ar_hash\030\007 \001(\014\"3\n\037CSetInputTemporarilyDis"
+  "abledMsg\022\020\n\010disabled\030\001 \001(\010\"\'\n\026CSetQualit"
+  "yOverrideMsg\022\r\n\005value\030\001 \001(\005\"\'\n\026CSetBitra"
+  "teOverrideMsg\022\r\n\005value\030\001 \001(\005\"\032\n\030CShowOnS"
+  "creenKeyboardMsg\"~\n#CControllerPersonali"
+  "zationUpdateMsg\022\027\n\017controller_path\030\001 \001(\t"
+  "\022\027\n\017controller_name\030\002 \001(\t\022%\n\035reverse_dia"
+  "mond_button_layout\030\003 \001(\010\",\n\022CVRConnectio"
+  "nReady\022\026\n\016connect_params\030\001 \001(\t\"%\n\022CStrea"
+  "mDataLostMsg\022\017\n\007packets\030\001 \003(\r\"d\n\014CAudioF"
+  "ormat\022/\n\006format\030\001 \002(\0162\r.EAudioFormat:\020EA"
+  "udioFormatNone\022\021\n\tfrequency\030\002 \001(\r\022\020\n\010cha"
+  "nnels\030\003 \001(\r\"^\n\014CVideoFormat\022/\n\006format\030\001 "
+  "\002(\0162\r.EVideoFormat:\020EVideoFormatNone\022\r\n\005"
+  "width\030\002 \001(\r\022\016\n\006height\030\003 \001(\r\"^\n\013CFrameEve"
+  "nt\022<\n\010event_id\030\001 \002(\0162\022.EStreamFrameEvent"
+  ":\026EStreamInputEventStart\022\021\n\ttimestamp\030\002 "
+  "\002(\r\"\313\002\n\013CFrameStats\022\020\n\010frame_id\030\001 \002(\r\022\022\n"
+  "\ninput_mark\030\002 \001(\r\022\034\n\006events\030\003 \003(\0132\014.CFra"
+  "meEvent\022>\n\006result\030\004 \002(\0162\023.EStreamFrameRe"
+  "sult:\031EStreamFrameResultPending\022\031\n\021frame"
+  "_start_delta\030\005 \001(\002\022\033\n\023frame_display_delt"
+  "a\030\006 \001(\002\022\021\n\tping_time\030\007 \001(\002\022\026\n\016server_bit"
+  "rate\030\010 \001(\002\022\026\n\016client_bitrate\030\t \001(\002\022\024\n\014li"
+  "nbandwidth\030\n \001(\002\022\023\n\013packet_loss\030\013 \001(\002\022\022\n"
+  "\nframe_size\030\014 \001(\r\"\206\001\n\032CFrameStatAccumula"
+  "tedValue\0228\n\tstat_type\030\001 \002(\0162\026.EFrameAccu"
+  "mulatedStat:\rEFrameStatFPS\022\r\n\005count\030\002 \002("
+  "\005\022\017\n\007average\030\003 \002(\002\022\016\n\006stddev\030\004 \001(\002\"\277\001\n\022C"
+  "FrameStatsListMsg\022;\n\tdata_type\030\001 \002(\0162\023.E"
+  "StreamingDataType:\023EStreamingAudioData\022\033"
+  "\n\005stats\030\002 \003(\0132\014.CFrameStats\0226\n\021accumulat"
+  "ed_stats\030\003 \003(\0132\033.CFrameStatAccumulatedVa"
+  "lue\022\027\n\017latest_frame_id\030\004 \002(\005\"\207\001\n\026CStream"
+  "ingSessionStats\022\035\n\025frame_loss_percentage"
+  "\030\001 \001(\002\022\035\n\025average_networtime_ms\030\002 \001(\002\022\034\n"
+  "\024stddev_networtime_ms\030\003 \001(\002\022\021\n\ttest_data"
+  "\030\004 \001(\t\"#\n\rCDebugDumpMsg\022\022\n\nscreenshot\030\001 "
+  "\001(\014\"(\n\007CLogMsg\022\014\n\004type\030\001 \001(\005\022\017\n\007message\030"
+  "\002 \001(\t\"N\n\rCLogUploadMsg\022/\n\004type\030\001 \001(\0162\r.E"
+  "LogFileType:\022ELogFileSystemBoot\022\014\n\004data\030"
+  "\003 \001(\014\"\263\002\n\023CTransportSignalMsg\0222\n\006webrtc\030"
+  "\001 \001(\0132\".CTransportSignalMsg.WebRTCMessag"
+  "e\022\013\n\003sdr\030\002 \003(\014\032\332\001\n\rWebRTCMessage\022\022\n\010gree"
+  "ting\030\001 \001(\010H\000\022\017\n\005offer\030\002 \001(\tH\000\022\020\n\006answer\030"
+  "\003 \001(\tH\000\022A\n\tcandidate\030\004 \001(\0132,.CTransportS"
+  "ignalMsg.WebRTCMessage.CandidateH\000\032H\n\tCa"
+  "ndidate\022\017\n\007sdp_mid\030\001 \001(\t\022\027\n\017sdp_mline_in"
+  "dex\030\002 \001(\005\022\021\n\tcandidate\030\003 \001(\tB\005\n\003msg\"\334\006\n\024"
+  "CControllerConfigMsg\022Z\n\004type\030\001 \002(\0162\033.ESt"
+  "reamControllerConfigMsg:/EStreamControll"
+  "erConfigMsg_RequestConfigsForApp\022\026\n\016cont"
+  "rollerPath\030\002 \001(\t\022\r\n\005appid\030\003 \001(\r\022X\n\027perso"
+  "nalizationResponse\030\004 \001(\01327.CControllerCo"
+  "nfigMsg.ControllerPersonalizationRespons"
+  "e\022F\n\016configResponse\030\006 \003(\0132..CControllerC"
+  "onfigMsg.ControllerConfigResponse\022N\n\025act"
+  "iveConfigChangeMsg\030\007 \001(\0132/.CControllerCo"
+  "nfigMsg.ControllerActiveConfigMsg\032\231\001\n\030Co"
+  "ntrollerConfigResponse\022\r\n\005appid\030\001 \001(\r\022\021\n"
+  "\tconfigURL\030\002 \001(\t\022\026\n\016controllerType\030\003 \001(\r"
+  "\022\026\n\016controllerData\030\004 \001(\t\022\026\n\016selectionOrd"
+  "er\030\005 \001(\r\022\023\n\013actionBlock\030\006 \001(\010\032@\n!Control"
+  "lerPersonalizationResponse\022\033\n\023personaliz"
+  "ationData\030\001 \001(\t\032\201\001\n$ControllerActiveConf"
+  "igChangeResponse\022\021\n\tconfigURL\030\002 \001(\t\022\026\n\016c"
+  "ontrollerType\030\003 \001(\r\022\026\n\016controllerData\030\004 "
+  "\001(\t\022\026\n\016selectionOrder\030\005 \001(\r\032m\n\031Controlle"
+  "rActiveConfigMsg\022\r\n\005appid\030\001 \001(\r\022\021\n\tconfi"
+  "gURL\030\002 \001(\t\022\026\n\016controllerType\030\003 \001(\r\022\026\n\016co"
+  "ntrollerData\030\004 \001(\t*\251\001\n\016EStreamChannel\022\"\n"
+  "\025EStreamChannelInvalid\020\377\377\377\377\377\377\377\377\377\001\022\033\n\027ESt"
+  "reamChannelDiscovery\020\000\022\031\n\025EStreamChannel"
+  "Control\020\001\022\027\n\023EStreamChannelStats\020\002\022\"\n\036ES"
+  "treamChannelDataChannelStart\020\003*\\\n\027EStrea"
+  "mDiscoveryMessage\022\037\n\033EStreamDiscoveryPin"
+  "gRequest\020\001\022 \n\034EStreamDiscoveryPingRespon"
+  "se\020\002*\342\035\n\025EStreamControlMessage\022\'\n#EStrea"
+  "mControlAuthenticationRequest\020\001\022(\n$EStre"
+  "amControlAuthenticationResponse\020\002\022!\n\035ESt"
+  "reamControlNegotiationInit\020\003\022&\n\"EStreamC"
+  "ontrolNegotiationSetConfig\020\004\022%\n!EStreamC"
+  "ontrolNegotiationComplete\020\005\022!\n\035EStreamCo"
+  "ntrolClientHandshake\020\006\022!\n\035EStreamControl"
+  "ServerHandshake\020\007\022\"\n\036EStreamControlStart"
+  "NetworkTest\020\010\022\033\n\027EStreamControlKeepAlive"
+  "\020\t\022%\n!EStreamControl_LAST_SETUP_MESSAGE\020"
+  "\017\022 \n\034EStreamControlStartAudioData\0202\022\037\n\033E"
+  "StreamControlStopAudioData\0203\022 \n\034EStreamC"
+  "ontrolStartVideoData\0204\022\037\n\033EStreamControl"
+  "StopVideoData\0205\022\"\n\036EStreamControlInputMo"
+  "useMotion\0206\022!\n\035EStreamControlInputMouseW"
+  "heel\0207\022 \n\034EStreamControlInputMouseDown\0208"
+  "\022\036\n\032EStreamControlInputMouseUp\0209\022\036\n\032EStr"
+  "eamControlInputKeyDown\020:\022\034\n\030EStreamContr"
+  "olInputKeyUp\020;\022/\n+EStreamControlInputGam"
+  "epadAttached_OBSOLETE\020<\022,\n(EStreamContro"
+  "lInputGamepadEvent_OBSOLETE\020=\022/\n+EStream"
+  "ControlInputGamepadDetached_OBSOLETE\020>\022\034"
+  "\n\030EStreamControlShowCursor\020\?\022\034\n\030EStreamC"
+  "ontrolHideCursor\020@\022\033\n\027EStreamControlSetC"
+  "ursor\020A\022 \n\034EStreamControlGetCursorImage\020"
+  "B\022 \n\034EStreamControlSetCursorImage\020C\022\036\n\032E"
+  "StreamControlDeleteCursor\020D\022$\n EStreamCo"
+  "ntrolSetTargetFramerate\020E\022\"\n\036EStreamCont"
+  "rolInputLatencyTest\020F\022(\n$EStreamControlG"
+  "amepadRumble_OBSOLETE\020G\022 \n\034EStreamContro"
+  "lOverlayEnabled\020J\0222\n.EStreamControlInput"
+  "ControllerAttached_OBSOLETE\020K\022/\n+EStream"
+  "ControlInputControllerState_OBSOLETE\020L\022-"
+  "\n)EStreamControlTriggerHapticPulse_OBSOL"
+  "ETE\020M\0222\n.EStreamControlInputControllerDe"
+  "tached_OBSOLETE\020N\022\"\n\036EStreamControlVideo"
+  "DecoderInfo\020P\022\032\n\026EStreamControlSetTitle\020"
+  "Q\022\031\n\025EStreamControlSetIcon\020R\022\035\n\031EStreamC"
+  "ontrolQuitRequest\020S\022\030\n\024EStreamControlSet"
+  "QoS\020W\022:\n6EStreamControlInputControllerWi"
+  "relessPresence_OBSOLETE\020X\022\036\n\032EStreamCont"
+  "rolSetGammaRamp\020Y\022\"\n\036EStreamControlVideo"
+  "EncoderInfo\020Z\0222\n.EStreamControlInputCont"
+  "rollerStateHID_OBSOLETE\020]\022\"\n\036EStreamCont"
+  "rolSetTargetBitrate\020^\0226\n2EStreamControlS"
+  "etControllerPairingEnabled_OBSOLETE\020_\0225\n"
+  "1EStreamControlSetControllerPairingResul"
+  "t_OBSOLETE\020`\0226\n2EStreamControlTriggerCon"
+  "trollerDisconnect_OBSOLETE\020a\022\035\n\031EStreamC"
+  "ontrolSetActivity\020b\022*\n&EStreamControlSet"
+  "StreamingClientConfig\020c\022\037\n\033EStreamContro"
+  "lSystemSuspend\020d\0220\n,EStreamControlSetCon"
+  "trollerSettings_OBSOLETE\020e\022$\n EStreamCon"
+  "trolVirtualHereRequest\020f\022\"\n\036EStreamContr"
+  "olVirtualHereReady\020g\022(\n$EStreamControlVi"
+  "rtualHereShareDevice\020h\022\"\n\036EStreamControl"
+  "SetSpectatorMode\020i\022\033\n\027EStreamControlRemo"
+  "teHID\020j\022%\n!EStreamControlStartMicrophone"
+  "Data\020k\022$\n EStreamControlStopMicrophoneDa"
+  "ta\020l\022\033\n\027EStreamControlInputText\020m\022#\n\037ESt"
+  "reamControlTouchConfigActive\020n\022$\n EStrea"
+  "mControlGetTouchConfigData\020o\022$\n EStreamC"
+  "ontrolSetTouchConfigData\020p\022\'\n#EStreamCon"
+  "trolSaveTouchConfigLayout\020q\022&\n\"EStreamCo"
+  "ntrolTouchActionSetActive\020r\022\"\n\036EStreamCo"
+  "ntrolGetTouchIconData\020s\022\"\n\036EStreamContro"
+  "lSetTouchIconData\020t\022&\n\"EStreamControlInp"
+  "utTouchFingerDown\020u\022(\n$EStreamControlInp"
+  "utTouchFingerMotion\020v\022$\n EStreamControlI"
+  "nputTouchFingerUp\020w\022 \n\034EStreamControlSet"
+  "CaptureSize\020x\022\037\n\033EStreamControlSetFlashS"
+  "tate\020y\022\027\n\023EStreamControlPause\020z\022\030\n\024EStre"
+  "amControlResume\020{\022&\n\"EStreamControlEnabl"
+  "eHighResCapture\020|\022\'\n#EStreamControlDisab"
+  "leHighResCapture\020}\022%\n!EStreamControlTogg"
+  "leMagnification\020~\022\035\n\031EStreamControlSetCa"
+  "pslock\020\177\022\034\n\027EStreamControlSetKeymap\020\200\001\022\036"
+  "\n\031EStreamControlStopRequest\020\201\001\022+\n&EStrea"
+  "mControlTouchActionSetLayerAdded\020\202\001\022-\n(E"
+  "StreamControlTouchActionSetLayerRemoved\020"
+  "\203\001\0220\n+EStreamControlRemotePlayTogetherGr"
+  "oupUpdate\020\204\001\022.\n)EStreamControlSetInputTe"
+  "mporarilyDisabled\020\205\001\022%\n EStreamControlSe"
+  "tQualityOverride\020\206\001\022%\n EStreamControlSet"
+  "BitrateOverride\020\207\001\022\'\n\"EStreamControlShow"
+  "OnScreenKeyboard\020\210\001\022&\n!EStreamControlCon"
+  "trollerConfigMsg\020\211\001\0222\n-EStreamControlCon"
+  "trollerPersonalizationUpdate\020\212\001\022$\n\037EStre"
+  "amControlEnableNeptuneData\020\213\001\022%\n EStream"
+  "ControlDisableNeptuneData\020\214\001\022#\n\036EStreamC"
+  "ontrolStartNeptuneData\020\215\001\022\"\n\035EStreamCont"
+  "rolStopNeptuneData\020\216\001\022\'\n\"EStreamControlP"
+  "auseControllerInput\020\217\001\022(\n#EStreamControl"
+  "ResumeControllerInput\020\220\001\022$\n\037EStreamContr"
+  "olVRConnectionReady\020\221\001\022!\n\034EStreamControl"
+  "SetCursorScale\020\222\001*C\n\016EStreamVersion\022\026\n\022E"
+  "StreamVersionNone\020\000\022\031\n\025EStreamVersionCur"
+  "rent\020\001*\264\001\n\021EStreamAudioCodec\022\031\n\025EStreamA"
+  "udioCodecNone\020\000\022\030\n\024EStreamAudioCodecRaw\020"
+  "\001\022\033\n\027EStreamAudioCodecVorbis\020\002\022\031\n\025EStrea"
+  "mAudioCodecOpus\020\003\022\030\n\024EStreamAudioCodecMP"
+  "3\020\004\022\030\n\024EStreamAudioCodecAAC\020\005*\204\002\n\021EStrea"
+  "mVideoCodec\022\031\n\025EStreamVideoCodecNone\020\000\022\030"
+  "\n\024EStreamVideoCodecRaw\020\001\022\030\n\024EStreamVideo"
+  "CodecVP8\020\002\022\030\n\024EStreamVideoCodecVP9\020\003\022\031\n\025"
+  "EStreamVideoCodecH264\020\004\022\031\n\025EStreamVideoC"
+  "odecHEVC\020\005\022\032\n\026EStreamVideoCodecORBX1\020\006\022\032"
+  "\n\026EStreamVideoCodecORBX2\020\007\022\030\n\024EStreamVid"
+  "eoCodecAV1\020\010*\221\001\n\030EStreamQualityPreferenc"
+  "e\022$\n\027EStreamQualityAutomatic\020\377\377\377\377\377\377\377\377\377\001\022"
+  "\026\n\022EStreamQualityFast\020\001\022\032\n\026EStreamQualit"
+  "yBalanced\020\002\022\033\n\027EStreamQualityBeautiful\020\003"
+  "*T\n\016EStreamBitrate\022%\n\030EStreamBitrateAuto"
+  "detect\020\377\377\377\377\377\377\377\377\377\001\022\033\n\027EStreamBitrateUnlim"
+  "ited\020\000*\315\001\n\021EStreamColorspace\022\035\n\031EStreamC"
+  "olorspace_Unknown\020\000\022\033\n\027EStreamColorspace"
+  "_BT601\020\001\022 \n\034EStreamColorspace_BT601_Full"
+  "\020\002\022\033\n\027EStreamColorspace_BT709\020\003\022 \n\034EStre"
+  "amColorspace_BT709_Full\020\004\022\033\n\027EStreamColo"
+  "rspace_HDR10\020\005*\240\001\n\017EStreamP2PScope\022\034\n\030ES"
+  "treamP2PScopeAutomatic\020\000\022\033\n\027EStreamP2PSc"
+  "opeDisabled\020\001\022\031\n\025EStreamP2PScopeOnlyMe\020\002"
+  "\022\032\n\026EStreamP2PScopeFriends\020\003\022\033\n\027EStreamP"
+  "2PScopeEveryone\020\004*a\n\036EStreamHostPlayAudi"
+  "oPreference\022\037\n\033EStreamHostPlayAudioDefau"
+  "lt\020\000\022\036\n\032EStreamHostPlayAudioAlways\020\001*\177\n\022"
+  "EStreamingDataType\022\027\n\023EStreamingAudioDat"
+  "a\020\000\022\027\n\023EStreamingVideoData\020\001\022\034\n\030EStreami"
+  "ngMicrophoneData\020\002\022\031\n\025EStreamingNeptuneD"
+  "ata\020\003*\277\001\n\022EStreamMouseButton\022\032\n\026EStreamM"
+  "ouseButtonLeft\020\001\022\033\n\027EStreamMouseButtonRi"
+  "ght\020\002\022\034\n\030EStreamMouseButtonMiddle\020\020\022\030\n\024E"
+  "StreamMouseButtonX1\020 \022\030\n\024EStreamMouseBut"
+  "tonX2\020@\022\036\n\031EStreamMouseButtonUnknown\020\200 *"
+  "\220\001\n\032EStreamMouseWheelDirection\022\027\n\023EStrea"
+  "mMouseWheelUp\020x\022\"\n\025EStreamMouseWheelDown"
+  "\020\210\377\377\377\377\377\377\377\377\001\022\031\n\025EStreamMouseWheelLeft\020\003\022\032"
+  "\n\026EStreamMouseWheelRight\020\004*\373\001\n\027EStreamFr"
+  "amerateLimiter\022\037\n\033EStreamFramerateSlowCa"
+  "pture\020\001\022\037\n\033EStreamFramerateSlowConvert\020\002"
+  "\022\036\n\032EStreamFramerateSlowEncode\020\004\022\037\n\033EStr"
+  "eamFramerateSlowNetwork\020\010\022\036\n\032EStreamFram"
+  "erateSlowDecode\020\020\022\034\n\030EStreamFramerateSlo"
+  "wGame\020 \022\037\n\033EStreamFramerateSlowDisplay\020@"
+  "*\233\001\n\017EStreamActivity\022\027\n\023EStreamActivityI"
+  "dle\020\001\022\027\n\023EStreamActivityGame\020\002\022\032\n\026EStrea"
+  "mActivityDesktop\020\003\022 \n\034EStreamActivitySec"
+  "ureDesktop\020\004\022\030\n\024EStreamActivityMusic\020\005*@"
+  "\n\022EStreamDataMessage\022\025\n\021EStreamDataPacke"
+  "t\020\001\022\023\n\017EStreamDataLost\020\002*^\n\014EAudioFormat"
+  "\022\024\n\020EAudioFormatNone\020\000\022!\n\035EAudioFormat16"
+  "BitLittleEndian\020\001\022\025\n\021EAudioFormatFloat\020\002"
+  "*Q\n\014EVideoFormat\022\024\n\020EVideoFormatNone\020\000\022\024"
+  "\n\020EVideoFormatYV12\020\001\022\025\n\021EVideoFormatAcce"
+  "l\020\002*\313\001\n\023EStreamStatsMessage\022\033\n\027EStreamSt"
+  "atsFrameEvents\020\001\022\031\n\025EStreamStatsDebugDum"
+  "p\020\002\022\032\n\026EStreamStatsLogMessage\020\003\022\036\n\032EStre"
+  "amStatsLogUploadBegin\020\004\022\035\n\031EStreamStatsL"
+  "ogUploadData\020\005\022!\n\035EStreamStatsLogUploadC"
+  "omplete\020\006*\337\004\n\021EStreamFrameEvent\022\032\n\026EStre"
+  "amInputEventStart\020\000\022\031\n\025EStreamInputEvent"
+  "Send\020\001\022\031\n\025EStreamInputEventRecv\020\002\022\033\n\027ESt"
+  "reamInputEventQueued\020\003\022\034\n\030EStreamInputEv"
+  "entHandled\020\004\022\032\n\026EStreamFrameEventStart\020\005"
+  "\022!\n\035EStreamFrameEventCaptureBegin\020\006\022\037\n\033E"
+  "StreamFrameEventCaptureEnd\020\007\022!\n\035EStreamF"
+  "rameEventConvertBegin\020\010\022\037\n\033EStreamFrameE"
+  "ventConvertEnd\020\t\022 \n\034EStreamFrameEventEnc"
+  "odeBegin\020\n\022\036\n\032EStreamFrameEventEncodeEnd"
+  "\020\013\022\031\n\025EStreamFrameEventSend\020\014\022\031\n\025EStream"
+  "FrameEventRecv\020\r\022 \n\034EStreamFrameEventDec"
+  "odeBegin\020\016\022\036\n\032EStreamFrameEventDecodeEnd"
+  "\020\017\022 \n\034EStreamFrameEventUploadBegin\020\020\022\036\n\032"
+  "EStreamFrameEventUploadEnd\020\021\022\035\n\031EStreamF"
+  "rameEventComplete\020\022*\304\002\n\022EStreamFrameResu"
+  "lt\022\035\n\031EStreamFrameResultPending\020\000\022\037\n\033ESt"
+  "reamFrameResultDisplayed\020\001\022(\n$EStreamFra"
+  "meResultDroppedNetworkSlow\020\002\022(\n$EStreamF"
+  "rameResultDroppedNetworkLost\020\003\022\'\n#EStrea"
+  "mFrameResultDroppedDecodeSlow\020\004\022*\n&EStre"
+  "amFrameResultDroppedDecodeCorrupt\020\005\022!\n\035E"
+  "StreamFrameResultDroppedLate\020\006\022\"\n\036EStrea"
+  "mFrameResultDroppedReset\020\007*\374\004\n\025EFrameAcc"
+  "umulatedStat\022\021\n\rEFrameStatFPS\020\000\022\037\n\033EFram"
+  "eStatCaptureDurationMS\020\001\022\037\n\033EFrameStatCo"
+  "nvertDurationMS\020\002\022\036\n\032EFrameStatEncodeDur"
+  "ationMS\020\003\022\035\n\031EFrameStatSteamDurationMS\020\004"
+  "\022\036\n\032EFrameStatServerDurationMS\020\005\022\037\n\033EFra"
+  "meStatNetworkDurationMS\020\006\022\036\n\032EFrameStatD"
+  "ecodeDurationMS\020\007\022\037\n\033EFrameStatDisplayDu"
+  "rationMS\020\010\022\036\n\032EFrameStatClientDurationMS"
+  "\020\t\022\035\n\031EFrameStatFrameDurationMS\020\n\022\034\n\030EFr"
+  "ameStatInputLatencyMS\020\013\022\033\n\027EFrameStatGam"
+  "eLatencyMS\020\014\022 \n\034EFrameStatRoundTripLaten"
+  "cyMS\020\r\022\030\n\024EFrameStatPingTimeMS\020\016\022%\n!EFra"
+  "meStatServerBitrateKbitPerSec\020\017\022%\n!EFram"
+  "eStatClientBitrateKbitPerSec\020\020\022%\n!EFrame"
+  "StatLinkBandwidthKbitPerSec\020\021\022\"\n\036EFrameS"
+  "tatPacketLossPercentage\020\022*X\n\014ELogFileTyp"
+  "e\022\026\n\022ELogFileSystemBoot\020\000\022\027\n\023ELogFileSys"
+  "temReset\020\001\022\027\n\023ELogFileSystemDebug\020\002*\237\002\n\032"
+  "EStreamControllerConfigMsg\0223\n/EStreamCon"
+  "trollerConfigMsg_RequestConfigsForApp\020\000\022"
+  "-\n)EStreamControllerConfigMsg_ConfigResp"
+  "onse\020\001\0226\n2EStreamControllerConfigMsg_Per"
+  "sonalizationResponse\020\002\0221\n-EStreamControl"
+  "lerConfigMsg_ActiveConfigChange\020\003\0222\n.ESt"
+  "reamControllerConfigMsg_RequestActiveCon"
+  "fig\020\004B\037H\001\200\001\000\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fremoteplay_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fremoteplay_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fremoteplay_2eproto = {
-  false, false, 20584, descriptor_table_protodef_steammessages_5fremoteplay_2eproto, "steammessages_remoteplay.proto", 
+  false, false, 20678, descriptor_table_protodef_steammessages_5fremoteplay_2eproto, "steammessages_remoteplay.proto", 
   &descriptor_table_steammessages_5fremoteplay_2eproto_once, descriptor_table_steammessages_5fremoteplay_2eproto_deps, 1, 115,
   schemas, file_default_instances, TableStruct_steammessages_5fremoteplay_2eproto::offsets,
   file_level_metadata_steammessages_5fremoteplay_2eproto, file_level_enum_descriptors_steammessages_5fremoteplay_2eproto, file_level_service_descriptors_steammessages_5fremoteplay_2eproto,
@@ -15269,6 +15286,12 @@ class CInputKeyDownMsg::_Internal {
   static void set_has_scancode(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_modifiers(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_keycode(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x00000002) ^ 0x00000002) != 0;
   }
@@ -15285,16 +15308,16 @@ CInputKeyDownMsg::CInputKeyDownMsg(const CInputKeyDownMsg& from)
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&input_mark_, &from.input_mark_,
-    static_cast<size_t>(reinterpret_cast<char*>(&scancode_) -
-    reinterpret_cast<char*>(&input_mark_)) + sizeof(scancode_));
+    static_cast<size_t>(reinterpret_cast<char*>(&keycode_) -
+    reinterpret_cast<char*>(&input_mark_)) + sizeof(keycode_));
   // @@protoc_insertion_point(copy_constructor:CInputKeyDownMsg)
 }
 
 void CInputKeyDownMsg::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&input_mark_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&scancode_) -
-    reinterpret_cast<char*>(&input_mark_)) + sizeof(scancode_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&keycode_) -
+    reinterpret_cast<char*>(&input_mark_)) + sizeof(keycode_));
 }
 
 CInputKeyDownMsg::~CInputKeyDownMsg() {
@@ -15324,10 +15347,10 @@ void CInputKeyDownMsg::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&input_mark_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&scancode_) -
-        reinterpret_cast<char*>(&input_mark_)) + sizeof(scancode_));
+        reinterpret_cast<char*>(&keycode_) -
+        reinterpret_cast<char*>(&input_mark_)) + sizeof(keycode_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -15354,6 +15377,22 @@ const char* CInputKeyDownMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_scancode(&has_bits);
           scancode_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 modifiers = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_modifiers(&has_bits);
+          modifiers_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 keycode = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_keycode(&has_bits);
+          keycode_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -15399,6 +15438,18 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_scancode(), target);
   }
 
+  // optional uint32 modifiers = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_modifiers(), target);
+  }
+
+  // optional uint32 keycode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_keycode(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -15429,6 +15480,22 @@ size_t CInputKeyDownMsg::ByteSizeLong() const {
         this->_internal_input_mark());
   }
 
+  if (cached_has_bits & 0x0000000cu) {
+    // optional uint32 modifiers = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_modifiers());
+    }
+
+    // optional uint32 keycode = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_keycode());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -15461,12 +15528,18 @@ void CInputKeyDownMsg::MergeFrom(const CInputKeyDownMsg& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       input_mark_ = from.input_mark_;
     }
     if (cached_has_bits & 0x00000002u) {
       scancode_ = from.scancode_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      modifiers_ = from.modifiers_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      keycode_ = from.keycode_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -15496,8 +15569,8 @@ void CInputKeyDownMsg::InternalSwap(CInputKeyDownMsg* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CInputKeyDownMsg, scancode_)
-      + sizeof(CInputKeyDownMsg::scancode_)
+      PROTOBUF_FIELD_OFFSET(CInputKeyDownMsg, keycode_)
+      + sizeof(CInputKeyDownMsg::keycode_)
       - PROTOBUF_FIELD_OFFSET(CInputKeyDownMsg, input_mark_)>(
           reinterpret_cast<char*>(&input_mark_),
           reinterpret_cast<char*>(&other->input_mark_));
@@ -15519,6 +15592,12 @@ class CInputKeyUpMsg::_Internal {
   static void set_has_scancode(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_modifiers(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_keycode(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x00000002) ^ 0x00000002) != 0;
   }
@@ -15535,16 +15614,16 @@ CInputKeyUpMsg::CInputKeyUpMsg(const CInputKeyUpMsg& from)
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&input_mark_, &from.input_mark_,
-    static_cast<size_t>(reinterpret_cast<char*>(&scancode_) -
-    reinterpret_cast<char*>(&input_mark_)) + sizeof(scancode_));
+    static_cast<size_t>(reinterpret_cast<char*>(&keycode_) -
+    reinterpret_cast<char*>(&input_mark_)) + sizeof(keycode_));
   // @@protoc_insertion_point(copy_constructor:CInputKeyUpMsg)
 }
 
 void CInputKeyUpMsg::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&input_mark_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&scancode_) -
-    reinterpret_cast<char*>(&input_mark_)) + sizeof(scancode_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&keycode_) -
+    reinterpret_cast<char*>(&input_mark_)) + sizeof(keycode_));
 }
 
 CInputKeyUpMsg::~CInputKeyUpMsg() {
@@ -15574,10 +15653,10 @@ void CInputKeyUpMsg::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&input_mark_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&scancode_) -
-        reinterpret_cast<char*>(&input_mark_)) + sizeof(scancode_));
+        reinterpret_cast<char*>(&keycode_) -
+        reinterpret_cast<char*>(&input_mark_)) + sizeof(keycode_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -15604,6 +15683,22 @@ const char* CInputKeyUpMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_scancode(&has_bits);
           scancode_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 modifiers = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_modifiers(&has_bits);
+          modifiers_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 keycode = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_keycode(&has_bits);
+          keycode_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -15649,6 +15744,18 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_scancode(), target);
   }
 
+  // optional uint32 modifiers = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_modifiers(), target);
+  }
+
+  // optional uint32 keycode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_keycode(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -15679,6 +15786,22 @@ size_t CInputKeyUpMsg::ByteSizeLong() const {
         this->_internal_input_mark());
   }
 
+  if (cached_has_bits & 0x0000000cu) {
+    // optional uint32 modifiers = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_modifiers());
+    }
+
+    // optional uint32 keycode = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_keycode());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -15711,12 +15834,18 @@ void CInputKeyUpMsg::MergeFrom(const CInputKeyUpMsg& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       input_mark_ = from.input_mark_;
     }
     if (cached_has_bits & 0x00000002u) {
       scancode_ = from.scancode_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      modifiers_ = from.modifiers_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      keycode_ = from.keycode_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -15746,8 +15875,8 @@ void CInputKeyUpMsg::InternalSwap(CInputKeyUpMsg* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CInputKeyUpMsg, scancode_)
-      + sizeof(CInputKeyUpMsg::scancode_)
+      PROTOBUF_FIELD_OFFSET(CInputKeyUpMsg, keycode_)
+      + sizeof(CInputKeyUpMsg::keycode_)
       - PROTOBUF_FIELD_OFFSET(CInputKeyUpMsg, input_mark_)>(
           reinterpret_cast<char*>(&input_mark_),
           reinterpret_cast<char*>(&other->input_mark_));
@@ -27551,6 +27680,9 @@ class CRemotePlayTogetherGroupUpdateMsg::_Internal {
   static void set_has_avatar_location(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
+  static void set_has_direct_input(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
 };
 
 CRemotePlayTogetherGroupUpdateMsg::CRemotePlayTogetherGroupUpdateMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -27580,7 +27712,9 @@ CRemotePlayTogetherGroupUpdateMsg::CRemotePlayTogetherGroupUpdateMsg(const CRemo
     avatar_location_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_avatar_location(), 
       GetArena());
   }
-  player_index_ = from.player_index_;
+  ::memcpy(&player_index_, &from.player_index_,
+    static_cast<size_t>(reinterpret_cast<char*>(&direct_input_) -
+    reinterpret_cast<char*>(&player_index_)) + sizeof(direct_input_));
   // @@protoc_insertion_point(copy_constructor:CRemotePlayTogetherGroupUpdateMsg)
 }
 
@@ -27588,7 +27722,10 @@ void CRemotePlayTogetherGroupUpdateMsg::SharedCtor() {
 miniprofile_location_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 game_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 avatar_location_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-player_index_ = 0;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&player_index_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&direct_input_) -
+    reinterpret_cast<char*>(&player_index_)) + sizeof(direct_input_));
 }
 
 CRemotePlayTogetherGroupUpdateMsg::~CRemotePlayTogetherGroupUpdateMsg() {
@@ -27633,7 +27770,11 @@ void CRemotePlayTogetherGroupUpdateMsg::Clear() {
       avatar_location_.ClearNonDefaultToEmpty();
     }
   }
-  player_index_ = 0;
+  if (cached_has_bits & 0x00000018u) {
+    ::memset(&player_index_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&direct_input_) -
+        reinterpret_cast<char*>(&player_index_)) + sizeof(direct_input_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -27696,6 +27837,14 @@ const char* CRemotePlayTogetherGroupUpdateMsg::_InternalParse(const char* ptr, :
           #ifndef NDEBUG
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CRemotePlayTogetherGroupUpdateMsg.avatar_location");
           #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool direct_input = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_direct_input(&has_bits);
+          direct_input_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -27773,6 +27922,12 @@ failure:
         5, this->_internal_avatar_location(), target);
   }
 
+  // optional bool direct_input = 6;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_direct_input(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -27797,7 +27952,7 @@ size_t CRemotePlayTogetherGroupUpdateMsg::ByteSizeLong() const {
   }
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     // optional string miniprofile_location = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -27824,6 +27979,11 @@ size_t CRemotePlayTogetherGroupUpdateMsg::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_player_index());
+    }
+
+    // optional bool direct_input = 6;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
     }
 
   }
@@ -27860,7 +28020,7 @@ void CRemotePlayTogetherGroupUpdateMsg::MergeFrom(const CRemotePlayTogetherGroup
 
   players_.MergeFrom(from.players_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_miniprofile_location(from._internal_miniprofile_location());
     }
@@ -27872,6 +28032,9 @@ void CRemotePlayTogetherGroupUpdateMsg::MergeFrom(const CRemotePlayTogetherGroup
     }
     if (cached_has_bits & 0x00000008u) {
       player_index_ = from.player_index_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      direct_input_ = from.direct_input_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -27903,7 +28066,12 @@ void CRemotePlayTogetherGroupUpdateMsg::InternalSwap(CRemotePlayTogetherGroupUpd
   miniprofile_location_.Swap(&other->miniprofile_location_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   game_name_.Swap(&other->game_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   avatar_location_.Swap(&other->avatar_location_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(player_index_, other->player_index_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CRemotePlayTogetherGroupUpdateMsg, direct_input_)
+      + sizeof(CRemotePlayTogetherGroupUpdateMsg::direct_input_)
+      - PROTOBUF_FIELD_OFFSET(CRemotePlayTogetherGroupUpdateMsg, player_index_)>(
+          reinterpret_cast<char*>(&player_index_),
+          reinterpret_cast<char*>(&other->player_index_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CRemotePlayTogetherGroupUpdateMsg::GetMetadata() const {

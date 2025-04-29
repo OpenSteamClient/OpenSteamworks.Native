@@ -39,7 +39,8 @@ struct CMsgGSServerTypeDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgGSServerTypeDefaultTypeInternal _CMsgGSServerType_default_instance_;
 constexpr CMsgGSStatusReply::CMsgGSStatusReply(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : is_secure_(false){}
+  : is_secure_(false)
+  , is_valveds_(false){}
 struct CMsgGSStatusReplyDefaultTypeInternal {
   constexpr CMsgGSStatusReplyDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -338,7 +339,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMsgGSStatusReply, is_secure_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGSStatusReply, is_valveds_),
   0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CMsgGSPlayerList_Player, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGSPlayerList_Player, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -592,22 +595,22 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 15, sizeof(::CMsgGSServerType)},
-  { 25, 31, sizeof(::CMsgGSStatusReply)},
-  { 32, 41, sizeof(::CMsgGSPlayerList_Player)},
-  { 45, -1, sizeof(::CMsgGSPlayerList)},
-  { 51, 60, sizeof(::CMsgGSUserPlaying)},
-  { 64, 70, sizeof(::CMsgGSDisconnectNotice)},
-  { 71, 77, sizeof(::CMsgGameServerData_Player)},
-  { 78, 107, sizeof(::CMsgGameServerData)},
-  { 131, 138, sizeof(::CMsgGameServerRemove)},
-  { 140, 150, sizeof(::CMsgClientGMSServerQuery)},
-  { 155, 189, sizeof(::CMsgGMSClientServerQueryResponse_Server)},
-  { 218, 227, sizeof(::CMsgGMSClientServerQueryResponse)},
-  { 231, 239, sizeof(::CMsgGameServerOutOfDate)},
-  { 242, 248, sizeof(::CMsgGSAssociateWithClan)},
-  { 249, 256, sizeof(::CMsgGSAssociateWithClanResponse)},
-  { 258, 264, sizeof(::CMsgGSComputeNewPlayerCompatibility)},
-  { 265, 276, sizeof(::CMsgGSComputeNewPlayerCompatibilityResponse)},
+  { 25, 32, sizeof(::CMsgGSStatusReply)},
+  { 34, 43, sizeof(::CMsgGSPlayerList_Player)},
+  { 47, -1, sizeof(::CMsgGSPlayerList)},
+  { 53, 62, sizeof(::CMsgGSUserPlaying)},
+  { 66, 72, sizeof(::CMsgGSDisconnectNotice)},
+  { 73, 79, sizeof(::CMsgGameServerData_Player)},
+  { 80, 109, sizeof(::CMsgGameServerData)},
+  { 133, 140, sizeof(::CMsgGameServerRemove)},
+  { 142, 152, sizeof(::CMsgClientGMSServerQuery)},
+  { 157, 191, sizeof(::CMsgGMSClientServerQueryResponse_Server)},
+  { 220, 229, sizeof(::CMsgGMSClientServerQueryResponse)},
+  { 233, 241, sizeof(::CMsgGameServerOutOfDate)},
+  { 244, 250, sizeof(::CMsgGSAssociateWithClan)},
+  { 251, 258, sizeof(::CMsgGSAssociateWithClanResponse)},
+  { 260, 266, sizeof(::CMsgGSComputeNewPlayerCompatibility)},
+  { 267, 278, sizeof(::CMsgGSComputeNewPlayerCompatibilityResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -639,72 +642,72 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5fgameservers_
   "\r\022\021\n\tgame_port\030\004 \001(\r\022\020\n\010game_dir\030\005 \001(\t\022\024"
   "\n\014game_version\030\006 \001(\t\022\027\n\017game_query_port\030"
   "\007 \001(\r\022\027\n\017game_port_local\030\n \001(\r\022\021\n\tsdr_lo"
-  "gon\030\010 \001(\014\022\017\n\007fake_ip\030\t \001(\007\"&\n\021CMsgGSStat"
-  "usReply\022\021\n\tis_secure\030\001 \001(\010\"\251\001\n\020CMsgGSPla"
-  "yerList\022)\n\007players\030\001 \003(\0132\030.CMsgGSPlayerL"
-  "ist.Player\032j\n\006Player\022\020\n\010steam_id\030\001 \001(\004\022\034"
-  "\n\024deprecated_public_ip\030\002 \001(\r\022\r\n\005token\030\003 "
-  "\001(\014\022!\n\tpublic_ip\030\004 \001(\0132\016.CMsgIPAddress\"u"
-  "\n\021CMsgGSUserPlaying\022\020\n\010steam_id\030\001 \001(\006\022\034\n"
-  "\024deprecated_public_ip\030\002 \001(\r\022\r\n\005token\030\003 \001"
-  "(\014\022!\n\tpublic_ip\030\004 \001(\0132\016.CMsgIPAddress\"*\n"
-  "\026CMsgGSDisconnectNotice\022\020\n\010steam_id\030\001 \001("
-  "\006\"\227\004\n\022CMsgGameServerData\022\020\n\010revision\030\030 \001"
-  "(\r\022\022\n\nquery_port\030\003 \001(\r\022\021\n\tgame_port\030\004 \001("
-  "\r\022\026\n\016spectator_port\030\005 \001(\r\022\023\n\013server_name"
-  "\030\026 \001(\t\022\030\n\020game_description\030\035 \001(\t\022\035\n\025spec"
-  "tator_server_name\030\033 \001(\t\022\017\n\007fake_ip\030\034 \001(\007"
-  "\022\031\n\021sdr_ping_location\030\036 \001(\t\022\016\n\006app_id\030\006 "
-  "\001(\r\022\017\n\007gamedir\030\007 \001(\t\022\017\n\007version\030\010 \001(\t\022\017\n"
-  "\007product\030\t \001(\t\022\016\n\006region\030\n \001(\t\022+\n\007player"
-  "s\030\013 \003(\0132\032.CMsgGameServerData.Player\022\023\n\013m"
-  "ax_players\030\014 \001(\r\022\021\n\tbot_count\030\r \001(\r\022\020\n\010p"
-  "assword\030\016 \001(\010\022\016\n\006secure\030\017 \001(\010\022\021\n\tdedicat"
-  "ed\030\020 \001(\010\022\n\n\002os\030\021 \001(\t\022\021\n\tgame_data\030\022 \001(\t\022"
-  "\021\n\tgame_type\030\024 \001(\t\022\013\n\003map\030\025 \001(\t\032\032\n\006Playe"
-  "r\022\020\n\010steam_id\030\001 \001(\006\"M\n\024CMsgGameServerRem"
-  "ove\022\032\n\022legacy_steam_id_gs\030\001 \001(\006\022\031\n\021legac"
-  "y_query_port\030\003 \001(\r\"\202\001\n\030CMsgClientGMSServ"
-  "erQuery\022\016\n\006app_id\030\001 \001(\r\022\027\n\017geo_location_"
-  "ip\030\002 \001(\r\022\023\n\013region_code\030\003 \001(\r\022\023\n\013filter_"
-  "text\030\004 \001(\t\022\023\n\013max_servers\030\005 \001(\r\"\241\007\n CMsg"
-  "GMSClientServerQueryResponse\0229\n\007servers\030"
-  "\001 \003(\0132(.CMsgGMSClientServerQueryResponse"
-  ".Server\022\r\n\005error\030\002 \001(\t\022E\n\023default_server"
-  "_data\030\003 \001(\0132(.CMsgGMSClientServerQueryRe"
-  "sponse.Server\022\026\n\016server_strings\030\004 \003(\t\032\240\005"
-  "\n\006Server\022\034\n\024deprecated_server_ip\030\001 \001(\r\022\022"
-  "\n\nquery_port\030\002 \001(\r\022\024\n\014auth_players\030\003 \001(\r"
-  "\022!\n\tserver_ip\030\004 \001(\0132\016.CMsgIPAddress\022\020\n\010s"
-  "team_id\030\006 \001(\006\022\020\n\010revision\030\007 \001(\r\022\017\n\007playe"
-  "rs\030\010 \001(\r\022\021\n\tgame_port\030\t \001(\r\022\021\n\tsdr_popid"
-  "\030\n \001(\007\022\031\n\021sdr_ping_location\030  \001(\t\022\r\n\005fla"
-  "gs\030\013 \001(\r\022\016\n\006app_id\030\014 \001(\r\022\023\n\013max_players\030"
-  "\r \001(\r\022\014\n\004bots\030\016 \001(\r\022\026\n\016spectator_port\030\017 "
-  "\001(\r\022\023\n\013gamedir_str\030\020 \001(\t\022\030\n\020gamedir_stri"
-  "ndex\030\021 \001(\r\022\017\n\007map_str\030\022 \001(\t\022\024\n\014map_strin"
-  "dex\030\023 \001(\r\022\020\n\010name_str\030\024 \001(\t\022\025\n\rname_stri"
-  "ndex\030\025 \001(\r\022\034\n\024game_description_str\030\026 \001(\t"
-  "\022!\n\031game_description_strindex\030\027 \001(\r\022\023\n\013v"
-  "ersion_str\030\030 \001(\t\022\030\n\020version_strindex\030\031 \001"
-  "(\r\022\024\n\014gametype_str\030\032 \001(\t\022\031\n\021gametype_str"
-  "index\030\033 \001(\r\022\032\n\022spectator_name_str\030\036 \001(\t\022"
-  "\037\n\027spectator_name_strindex\030\037 \001(\r\"1\n\006EFla"
-  "gs\022\025\n\021EFlag_HasPassword\020\001\022\020\n\014EFlag_Secur"
-  "e\020\002\"O\n\027CMsgGameServerOutOfDate\022\023\n\013steam_"
-  "id_gs\030\001 \001(\006\022\016\n\006reject\030\002 \001(\010\022\017\n\007message\030\003"
-  " \001(\t\"0\n\027CMsgGSAssociateWithClan\022\025\n\rsteam"
-  "_id_clan\030\001 \001(\006\"L\n\037CMsgGSAssociateWithCla"
-  "nResponse\022\025\n\rsteam_id_clan\030\001 \001(\006\022\022\n\007eres"
-  "ult\030\002 \001(\r:\0012\"A\n#CMsgGSComputeNewPlayerCo"
-  "mpatibility\022\032\n\022steam_id_candidate\030\001 \001(\006\""
-  "\317\001\n+CMsgGSComputeNewPlayerCompatibilityR"
-  "esponse\022\032\n\022steam_id_candidate\030\001 \001(\006\022\022\n\007e"
-  "result\030\002 \001(\r:\0012\022\026\n\016is_clan_member\030\003 \001(\010\022"
-  "\030\n\020ct_dont_like_you\030\004 \001(\005\022\030\n\020ct_you_dont"
-  "_like\030\005 \001(\005\022$\n\034ct_clanmembers_dont_like_"
-  "you\030\006 \001(\005B\037H\001\200\001\000\252\002\027OpenSteamworks.Protob"
-  "uf"
+  "gon\030\010 \001(\014\022\017\n\007fake_ip\030\t \001(\007\":\n\021CMsgGSStat"
+  "usReply\022\021\n\tis_secure\030\001 \001(\010\022\022\n\nis_valveds"
+  "\030\002 \001(\010\"\251\001\n\020CMsgGSPlayerList\022)\n\007players\030\001"
+  " \003(\0132\030.CMsgGSPlayerList.Player\032j\n\006Player"
+  "\022\020\n\010steam_id\030\001 \001(\004\022\034\n\024deprecated_public_"
+  "ip\030\002 \001(\r\022\r\n\005token\030\003 \001(\014\022!\n\tpublic_ip\030\004 \001"
+  "(\0132\016.CMsgIPAddress\"u\n\021CMsgGSUserPlaying\022"
+  "\020\n\010steam_id\030\001 \001(\006\022\034\n\024deprecated_public_i"
+  "p\030\002 \001(\r\022\r\n\005token\030\003 \001(\014\022!\n\tpublic_ip\030\004 \001("
+  "\0132\016.CMsgIPAddress\"*\n\026CMsgGSDisconnectNot"
+  "ice\022\020\n\010steam_id\030\001 \001(\006\"\227\004\n\022CMsgGameServer"
+  "Data\022\020\n\010revision\030\030 \001(\r\022\022\n\nquery_port\030\003 \001"
+  "(\r\022\021\n\tgame_port\030\004 \001(\r\022\026\n\016spectator_port\030"
+  "\005 \001(\r\022\023\n\013server_name\030\026 \001(\t\022\030\n\020game_descr"
+  "iption\030\035 \001(\t\022\035\n\025spectator_server_name\030\033 "
+  "\001(\t\022\017\n\007fake_ip\030\034 \001(\007\022\031\n\021sdr_ping_locatio"
+  "n\030\036 \001(\t\022\016\n\006app_id\030\006 \001(\r\022\017\n\007gamedir\030\007 \001(\t"
+  "\022\017\n\007version\030\010 \001(\t\022\017\n\007product\030\t \001(\t\022\016\n\006re"
+  "gion\030\n \001(\t\022+\n\007players\030\013 \003(\0132\032.CMsgGameSe"
+  "rverData.Player\022\023\n\013max_players\030\014 \001(\r\022\021\n\t"
+  "bot_count\030\r \001(\r\022\020\n\010password\030\016 \001(\010\022\016\n\006sec"
+  "ure\030\017 \001(\010\022\021\n\tdedicated\030\020 \001(\010\022\n\n\002os\030\021 \001(\t"
+  "\022\021\n\tgame_data\030\022 \001(\t\022\021\n\tgame_type\030\024 \001(\t\022\013"
+  "\n\003map\030\025 \001(\t\032\032\n\006Player\022\020\n\010steam_id\030\001 \001(\006\""
+  "M\n\024CMsgGameServerRemove\022\032\n\022legacy_steam_"
+  "id_gs\030\001 \001(\006\022\031\n\021legacy_query_port\030\003 \001(\r\"\202"
+  "\001\n\030CMsgClientGMSServerQuery\022\016\n\006app_id\030\001 "
+  "\001(\r\022\027\n\017geo_location_ip\030\002 \001(\r\022\023\n\013region_c"
+  "ode\030\003 \001(\r\022\023\n\013filter_text\030\004 \001(\t\022\023\n\013max_se"
+  "rvers\030\005 \001(\r\"\241\007\n CMsgGMSClientServerQuery"
+  "Response\0229\n\007servers\030\001 \003(\0132(.CMsgGMSClien"
+  "tServerQueryResponse.Server\022\r\n\005error\030\002 \001"
+  "(\t\022E\n\023default_server_data\030\003 \001(\0132(.CMsgGM"
+  "SClientServerQueryResponse.Server\022\026\n\016ser"
+  "ver_strings\030\004 \003(\t\032\240\005\n\006Server\022\034\n\024deprecat"
+  "ed_server_ip\030\001 \001(\r\022\022\n\nquery_port\030\002 \001(\r\022\024"
+  "\n\014auth_players\030\003 \001(\r\022!\n\tserver_ip\030\004 \001(\0132"
+  "\016.CMsgIPAddress\022\020\n\010steam_id\030\006 \001(\006\022\020\n\010rev"
+  "ision\030\007 \001(\r\022\017\n\007players\030\010 \001(\r\022\021\n\tgame_por"
+  "t\030\t \001(\r\022\021\n\tsdr_popid\030\n \001(\007\022\031\n\021sdr_ping_l"
+  "ocation\030  \001(\t\022\r\n\005flags\030\013 \001(\r\022\016\n\006app_id\030\014"
+  " \001(\r\022\023\n\013max_players\030\r \001(\r\022\014\n\004bots\030\016 \001(\r\022"
+  "\026\n\016spectator_port\030\017 \001(\r\022\023\n\013gamedir_str\030\020"
+  " \001(\t\022\030\n\020gamedir_strindex\030\021 \001(\r\022\017\n\007map_st"
+  "r\030\022 \001(\t\022\024\n\014map_strindex\030\023 \001(\r\022\020\n\010name_st"
+  "r\030\024 \001(\t\022\025\n\rname_strindex\030\025 \001(\r\022\034\n\024game_d"
+  "escription_str\030\026 \001(\t\022!\n\031game_description"
+  "_strindex\030\027 \001(\r\022\023\n\013version_str\030\030 \001(\t\022\030\n\020"
+  "version_strindex\030\031 \001(\r\022\024\n\014gametype_str\030\032"
+  " \001(\t\022\031\n\021gametype_strindex\030\033 \001(\r\022\032\n\022spect"
+  "ator_name_str\030\036 \001(\t\022\037\n\027spectator_name_st"
+  "rindex\030\037 \001(\r\"1\n\006EFlags\022\025\n\021EFlag_HasPassw"
+  "ord\020\001\022\020\n\014EFlag_Secure\020\002\"O\n\027CMsgGameServe"
+  "rOutOfDate\022\023\n\013steam_id_gs\030\001 \001(\006\022\016\n\006rejec"
+  "t\030\002 \001(\010\022\017\n\007message\030\003 \001(\t\"0\n\027CMsgGSAssoci"
+  "ateWithClan\022\025\n\rsteam_id_clan\030\001 \001(\006\"L\n\037CM"
+  "sgGSAssociateWithClanResponse\022\025\n\rsteam_i"
+  "d_clan\030\001 \001(\006\022\022\n\007eresult\030\002 \001(\r:\0012\"A\n#CMsg"
+  "GSComputeNewPlayerCompatibility\022\032\n\022steam"
+  "_id_candidate\030\001 \001(\006\"\317\001\n+CMsgGSComputeNew"
+  "PlayerCompatibilityResponse\022\032\n\022steam_id_"
+  "candidate\030\001 \001(\006\022\022\n\007eresult\030\002 \001(\r:\0012\022\026\n\016i"
+  "s_clan_member\030\003 \001(\010\022\030\n\020ct_dont_like_you\030"
+  "\004 \001(\005\022\030\n\020ct_you_dont_like\030\005 \001(\005\022$\n\034ct_cl"
+  "anmembers_dont_like_you\030\006 \001(\005B\037H\001\200\001\000\252\002\027O"
+  "penSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_5fgameservers_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -712,7 +715,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5fgameservers_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5fgameservers_2eproto = {
-  false, false, 2922, descriptor_table_protodef_steammessages_5fclientserver_5fgameservers_2eproto, "steammessages_clientserver_gameservers.proto", 
+  false, false, 2942, descriptor_table_protodef_steammessages_5fclientserver_5fgameservers_2eproto, "steammessages_clientserver_gameservers.proto", 
   &descriptor_table_steammessages_5fclientserver_5fgameservers_2eproto_once, descriptor_table_steammessages_5fclientserver_5fgameservers_2eproto_deps, 2, 17,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5fgameservers_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5fgameservers_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5fgameservers_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5fgameservers_2eproto,
@@ -1277,6 +1280,9 @@ class CMsgGSStatusReply::_Internal {
   static void set_has_is_secure(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_is_valveds(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
 CMsgGSStatusReply::CMsgGSStatusReply(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -1289,12 +1295,17 @@ CMsgGSStatusReply::CMsgGSStatusReply(const CMsgGSStatusReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  is_secure_ = from.is_secure_;
+  ::memcpy(&is_secure_, &from.is_secure_,
+    static_cast<size_t>(reinterpret_cast<char*>(&is_valveds_) -
+    reinterpret_cast<char*>(&is_secure_)) + sizeof(is_valveds_));
   // @@protoc_insertion_point(copy_constructor:CMsgGSStatusReply)
 }
 
 void CMsgGSStatusReply::SharedCtor() {
-is_secure_ = false;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&is_secure_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_valveds_) -
+    reinterpret_cast<char*>(&is_secure_)) + sizeof(is_valveds_));
 }
 
 CMsgGSStatusReply::~CMsgGSStatusReply() {
@@ -1323,7 +1334,9 @@ void CMsgGSStatusReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  is_secure_ = false;
+  ::memset(&is_secure_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_valveds_) -
+      reinterpret_cast<char*>(&is_secure_)) + sizeof(is_valveds_));
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1341,6 +1354,14 @@ const char* CMsgGSStatusReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_is_secure(&has_bits);
           is_secure_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool is_valveds = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_is_valveds(&has_bits);
+          is_valveds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1380,6 +1401,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_secure(), target);
   }
 
+  // optional bool is_valveds = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_is_valveds(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1396,12 +1423,19 @@ size_t CMsgGSStatusReply::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional bool is_secure = 1;
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 + 1;
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // optional bool is_secure = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 1;
+    }
 
+    // optional bool is_valveds = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -1433,8 +1467,15 @@ void CMsgGSStatusReply::MergeFrom(const CMsgGSStatusReply& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_is_secure()) {
-    _internal_set_is_secure(from._internal_is_secure());
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      is_secure_ = from.is_secure_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      is_valveds_ = from.is_valveds_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -1460,7 +1501,12 @@ void CMsgGSStatusReply::InternalSwap(CMsgGSStatusReply* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(is_secure_, other->is_secure_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgGSStatusReply, is_valveds_)
+      + sizeof(CMsgGSStatusReply::is_valveds_)
+      - PROTOBUF_FIELD_OFFSET(CMsgGSStatusReply, is_secure_)>(
+          reinterpret_cast<char*>(&is_secure_),
+          reinterpret_cast<char*>(&other->is_secure_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGSStatusReply::GetMetadata() const {

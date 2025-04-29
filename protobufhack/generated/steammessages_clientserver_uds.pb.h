@@ -1792,10 +1792,9 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
     kBytesDownloadRateFieldNumber = 8,
     kNumDownloadingFieldNumber = 12,
     kBytesStagedFieldNumber = 16,
-    kNumPausedFieldNumber = 13,
-    kSourceBuildidFieldNumber = 19,
     kBytesToStageFieldNumber = 17,
     kBytesRequiredFieldNumber = 18,
+    kSourceBuildidFieldNumber = 19,
     kChangingFieldNumber = 14,
     kAvailableOnPlatformFieldNumber = 15,
     kUninstallingFieldNumber = 23,
@@ -1804,6 +1803,7 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
     kEstimatedSecondsRemainingFieldNumber = 21,
     kQueuePositionFieldNumber = 22,
     kRtTimeScheduledFieldNumber = 24,
+    kUpdatePercentageFieldNumber = 26,
   };
   // repeated .CMsgClientGetClientAppListResponse.App.DLC dlcs = 9;
   int dlcs_size() const;
@@ -1993,32 +1993,6 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
   void _internal_set_bytes_staged(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 num_paused = 13;
-  bool has_num_paused() const;
-  private:
-  bool _internal_has_num_paused() const;
-  public:
-  void clear_num_paused();
-  ::PROTOBUF_NAMESPACE_ID::uint32 num_paused() const;
-  void set_num_paused(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_num_paused() const;
-  void _internal_set_num_paused(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 source_buildid = 19;
-  bool has_source_buildid() const;
-  private:
-  bool _internal_has_source_buildid() const;
-  public:
-  void clear_source_buildid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 source_buildid() const;
-  void set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_source_buildid() const;
-  void _internal_set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
   // optional uint64 bytes_to_stage = 17;
   bool has_bytes_to_stage() const;
   private:
@@ -2043,6 +2017,19 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes_required() const;
   void _internal_set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint32 source_buildid = 19;
+  bool has_source_buildid() const;
+  private:
+  bool _internal_has_source_buildid() const;
+  public:
+  void clear_source_buildid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 source_buildid() const;
+  void set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_source_buildid() const;
+  void _internal_set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // optional bool changing = 14;
@@ -2149,6 +2136,19 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
   void _internal_set_rt_time_scheduled(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 update_percentage = 26;
+  bool has_update_percentage() const;
+  private:
+  bool _internal_has_update_percentage() const;
+  public:
+  void clear_update_percentage();
+  ::PROTOBUF_NAMESPACE_ID::uint32 update_percentage() const;
+  void set_update_percentage(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_update_percentage() const;
+  void _internal_set_update_percentage(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientGetClientAppListResponse.App)
  private:
   class _Internal;
@@ -2171,10 +2171,9 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 bytes_download_rate_;
   ::PROTOBUF_NAMESPACE_ID::uint32 num_downloading_;
   ::PROTOBUF_NAMESPACE_ID::uint64 bytes_staged_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 num_paused_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 source_buildid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 bytes_to_stage_;
   ::PROTOBUF_NAMESPACE_ID::uint64 bytes_required_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 source_buildid_;
   bool changing_;
   bool available_on_platform_;
   bool uninstalling_;
@@ -2183,6 +2182,7 @@ class CMsgClientGetClientAppListResponse_App PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 estimated_seconds_remaining_;
   ::PROTOBUF_NAMESPACE_ID::int32 queue_position_;
   ::PROTOBUF_NAMESPACE_ID::uint32 rt_time_scheduled_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 update_percentage_;
   friend struct ::TableStruct_steammessages_5fclientserver_5fuds_2eproto;
 };
 // -------------------------------------------------------------------
@@ -5715,37 +5715,9 @@ inline void CMsgClientGetClientAppListResponse_App::set_num_downloading(::PROTOB
   // @@protoc_insertion_point(field_set:CMsgClientGetClientAppListResponse.App.num_downloading)
 }
 
-// optional uint32 num_paused = 13;
-inline bool CMsgClientGetClientAppListResponse_App::_internal_has_num_paused() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
-  return value;
-}
-inline bool CMsgClientGetClientAppListResponse_App::has_num_paused() const {
-  return _internal_has_num_paused();
-}
-inline void CMsgClientGetClientAppListResponse_App::clear_num_paused() {
-  num_paused_ = 0u;
-  _has_bits_[0] &= ~0x00001000u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_num_paused() const {
-  return num_paused_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::num_paused() const {
-  // @@protoc_insertion_point(field_get:CMsgClientGetClientAppListResponse.App.num_paused)
-  return _internal_num_paused();
-}
-inline void CMsgClientGetClientAppListResponse_App::_internal_set_num_paused(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00001000u;
-  num_paused_ = value;
-}
-inline void CMsgClientGetClientAppListResponse_App::set_num_paused(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_num_paused(value);
-  // @@protoc_insertion_point(field_set:CMsgClientGetClientAppListResponse.App.num_paused)
-}
-
 // optional bool changing = 14;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_changing() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_changing() const {
@@ -5753,7 +5725,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_changing() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_changing() {
   changing_ = false;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline bool CMsgClientGetClientAppListResponse_App::_internal_changing() const {
   return changing_;
@@ -5763,7 +5735,7 @@ inline bool CMsgClientGetClientAppListResponse_App::changing() const {
   return _internal_changing();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_changing(bool value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00008000u;
   changing_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_changing(bool value) {
@@ -5773,7 +5745,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_changing(bool value) {
 
 // optional bool available_on_platform = 15;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_available_on_platform() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_available_on_platform() const {
@@ -5781,7 +5753,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_available_on_platform() 
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_available_on_platform() {
   available_on_platform_ = false;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline bool CMsgClientGetClientAppListResponse_App::_internal_available_on_platform() const {
   return available_on_platform_;
@@ -5791,7 +5763,7 @@ inline bool CMsgClientGetClientAppListResponse_App::available_on_platform() cons
   return _internal_available_on_platform();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_available_on_platform(bool value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00010000u;
   available_on_platform_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_available_on_platform(bool value) {
@@ -5829,7 +5801,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_bytes_staged(::PROTOBUF_
 
 // optional uint64 bytes_to_stage = 17;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_bytes_to_stage() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_bytes_to_stage() const {
@@ -5837,7 +5809,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_bytes_to_stage() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_bytes_to_stage() {
   bytes_to_stage_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientGetClientAppListResponse_App::_internal_bytes_to_stage() const {
   return bytes_to_stage_;
@@ -5847,7 +5819,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientGetClientAppListResponse_App::b
   return _internal_bytes_to_stage();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_bytes_to_stage(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00001000u;
   bytes_to_stage_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_bytes_to_stage(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -5857,7 +5829,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_bytes_to_stage(::PROTOBU
 
 // optional uint64 bytes_required = 18;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_bytes_required() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_bytes_required() const {
@@ -5865,7 +5837,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_bytes_required() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_bytes_required() {
   bytes_required_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientGetClientAppListResponse_App::_internal_bytes_required() const {
   return bytes_required_;
@@ -5875,7 +5847,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientGetClientAppListResponse_App::b
   return _internal_bytes_required();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00002000u;
   bytes_required_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_bytes_required(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -5885,7 +5857,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_bytes_required(::PROTOBU
 
 // optional uint32 source_buildid = 19;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_source_buildid() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_source_buildid() const {
@@ -5893,7 +5865,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_source_buildid() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_source_buildid() {
   source_buildid_ = 0u;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_source_buildid() const {
   return source_buildid_;
@@ -5903,7 +5875,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::s
   return _internal_source_buildid();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
   source_buildid_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_source_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -5913,7 +5885,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_source_buildid(::PROTOBU
 
 // optional uint32 target_buildid = 20;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_target_buildid() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_target_buildid() const {
@@ -5921,7 +5893,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_target_buildid() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_target_buildid() {
   target_buildid_ = 0u;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_target_buildid() const {
   return target_buildid_;
@@ -5931,7 +5903,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::t
   return _internal_target_buildid();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_target_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00080000u;
   target_buildid_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_target_buildid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -5941,7 +5913,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_target_buildid(::PROTOBU
 
 // optional uint32 estimated_seconds_remaining = 21;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_estimated_seconds_remaining() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_estimated_seconds_remaining() const {
@@ -5949,7 +5921,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_estimated_seconds_remain
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_estimated_seconds_remaining() {
   estimated_seconds_remaining_ = 0u;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_estimated_seconds_remaining() const {
   return estimated_seconds_remaining_;
@@ -5959,7 +5931,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::e
   return _internal_estimated_seconds_remaining();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_estimated_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00100000u;
   estimated_seconds_remaining_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_estimated_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -5969,7 +5941,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_estimated_seconds_remain
 
 // optional int32 queue_position = 22;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_queue_position() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_queue_position() const {
@@ -5977,7 +5949,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_queue_position() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_queue_position() {
   queue_position_ = 0;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientGetClientAppListResponse_App::_internal_queue_position() const {
   return queue_position_;
@@ -5987,7 +5959,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientGetClientAppListResponse_App::qu
   return _internal_queue_position();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_queue_position(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00200000u;
   queue_position_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_queue_position(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -5997,7 +5969,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_queue_position(::PROTOBU
 
 // optional bool uninstalling = 23;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_uninstalling() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_uninstalling() const {
@@ -6005,7 +5977,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_uninstalling() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_uninstalling() {
   uninstalling_ = false;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline bool CMsgClientGetClientAppListResponse_App::_internal_uninstalling() const {
   return uninstalling_;
@@ -6015,7 +5987,7 @@ inline bool CMsgClientGetClientAppListResponse_App::uninstalling() const {
   return _internal_uninstalling();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_uninstalling(bool value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00020000u;
   uninstalling_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_uninstalling(bool value) {
@@ -6025,7 +5997,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_uninstalling(bool value)
 
 // optional uint32 rt_time_scheduled = 24;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_rt_time_scheduled() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_rt_time_scheduled() const {
@@ -6033,7 +6005,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_rt_time_scheduled() cons
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_rt_time_scheduled() {
   rt_time_scheduled_ = 0u;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_rt_time_scheduled() const {
   return rt_time_scheduled_;
@@ -6043,7 +6015,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::r
   return _internal_rt_time_scheduled();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_rt_time_scheduled(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x00400000u;
   rt_time_scheduled_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_rt_time_scheduled(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -6053,7 +6025,7 @@ inline void CMsgClientGetClientAppListResponse_App::set_rt_time_scheduled(::PROT
 
 // optional bool running = 25;
 inline bool CMsgClientGetClientAppListResponse_App::_internal_has_running() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgClientGetClientAppListResponse_App::has_running() const {
@@ -6061,7 +6033,7 @@ inline bool CMsgClientGetClientAppListResponse_App::has_running() const {
 }
 inline void CMsgClientGetClientAppListResponse_App::clear_running() {
   running_ = false;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline bool CMsgClientGetClientAppListResponse_App::_internal_running() const {
   return running_;
@@ -6071,12 +6043,40 @@ inline bool CMsgClientGetClientAppListResponse_App::running() const {
   return _internal_running();
 }
 inline void CMsgClientGetClientAppListResponse_App::_internal_set_running(bool value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00040000u;
   running_ = value;
 }
 inline void CMsgClientGetClientAppListResponse_App::set_running(bool value) {
   _internal_set_running(value);
   // @@protoc_insertion_point(field_set:CMsgClientGetClientAppListResponse.App.running)
+}
+
+// optional uint32 update_percentage = 26;
+inline bool CMsgClientGetClientAppListResponse_App::_internal_has_update_percentage() const {
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  return value;
+}
+inline bool CMsgClientGetClientAppListResponse_App::has_update_percentage() const {
+  return _internal_has_update_percentage();
+}
+inline void CMsgClientGetClientAppListResponse_App::clear_update_percentage() {
+  update_percentage_ = 0u;
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::_internal_update_percentage() const {
+  return update_percentage_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientAppListResponse_App::update_percentage() const {
+  // @@protoc_insertion_point(field_get:CMsgClientGetClientAppListResponse.App.update_percentage)
+  return _internal_update_percentage();
+}
+inline void CMsgClientGetClientAppListResponse_App::_internal_set_update_percentage(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00800000u;
+  update_percentage_ = value;
+}
+inline void CMsgClientGetClientAppListResponse_App::set_update_percentage(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_update_percentage(value);
+  // @@protoc_insertion_point(field_set:CMsgClientGetClientAppListResponse.App.update_percentage)
 }
 
 // -------------------------------------------------------------------

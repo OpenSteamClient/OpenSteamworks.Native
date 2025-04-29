@@ -217,7 +217,9 @@ constexpr StoreItem_Assets::StoreItem_Assets(
   , library_hero_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , library_hero_2x_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , community_icon_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , clan_avatar_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+  , clan_avatar_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , page_background_path_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , raw_page_background_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct StoreItem_AssetsDefaultTypeInternal {
   constexpr StoreItem_AssetsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -238,6 +240,7 @@ constexpr StoreItem_ReleaseInfo::StoreItem_ReleaseInfo(
   , is_preload_(false)
   , is_abridged_release_date_(false)
   , is_early_access_(false)
+  , limited_launch_active_(false)
   , mac_release_date_(0u)
   , linux_release_date_(0u){}
 struct StoreItem_ReleaseInfoDefaultTypeInternal {
@@ -621,6 +624,46 @@ struct CStoreBrowse_GetStoreCategories_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStoreBrowse_GetStoreCategories_ResponseDefaultTypeInternal _CStoreBrowse_GetStoreCategories_Response_default_instance_;
+constexpr CStoreBrowse_GetContentHubConfig_Request::CStoreBrowse_GetContentHubConfig_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : context_(nullptr){}
+struct CStoreBrowse_GetContentHubConfig_RequestDefaultTypeInternal {
+  constexpr CStoreBrowse_GetContentHubConfig_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStoreBrowse_GetContentHubConfig_RequestDefaultTypeInternal() {}
+  union {
+    CStoreBrowse_GetContentHubConfig_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStoreBrowse_GetContentHubConfig_RequestDefaultTypeInternal _CStoreBrowse_GetContentHubConfig_Request_default_instance_;
+constexpr CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : type_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , handle_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , display_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , url_path_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , hubcategoryid_(0u){}
+struct CStoreBrowse_GetContentHubConfig_Response_ContentHubConfigDefaultTypeInternal {
+  constexpr CStoreBrowse_GetContentHubConfig_Response_ContentHubConfigDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStoreBrowse_GetContentHubConfig_Response_ContentHubConfigDefaultTypeInternal() {}
+  union {
+    CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStoreBrowse_GetContentHubConfig_Response_ContentHubConfigDefaultTypeInternal _CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig_default_instance_;
+constexpr CStoreBrowse_GetContentHubConfig_Response::CStoreBrowse_GetContentHubConfig_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : hubconfigs_(){}
+struct CStoreBrowse_GetContentHubConfig_ResponseDefaultTypeInternal {
+  constexpr CStoreBrowse_GetContentHubConfig_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStoreBrowse_GetContentHubConfig_ResponseDefaultTypeInternal() {}
+  union {
+    CStoreBrowse_GetContentHubConfig_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStoreBrowse_GetContentHubConfig_ResponseDefaultTypeInternal _CStoreBrowse_GetContentHubConfig_Response_default_instance_;
 constexpr CStoreBrowse_GetPriceStops_Request::CStoreBrowse_GetPriceStops_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : country_code_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -813,7 +856,7 @@ struct CStoreBrowse_GetHardwareItems_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStoreBrowse_GetHardwareItems_ResponseDefaultTypeInternal _CStoreBrowse_GetHardwareItems_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fstorebrowse_2esteamclient_2eproto[47];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fstorebrowse_2esteamclient_2eproto[50];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[7];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto[1];
 
@@ -998,6 +1041,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   PROTOBUF_FIELD_OFFSET(::StoreItem_Assets, library_hero_2x_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_Assets, community_icon_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_Assets, clan_avatar_),
+  PROTOBUF_FIELD_OFFSET(::StoreItem_Assets, page_background_path_),
+  PROTOBUF_FIELD_OFFSET(::StoreItem_Assets, raw_page_background_),
   0,
   1,
   2,
@@ -1012,6 +1057,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   11,
   12,
   13,
+  14,
+  15,
   PROTOBUF_FIELD_OFFSET(::StoreItem_ReleaseInfo, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_ReleaseInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1028,6 +1075,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   PROTOBUF_FIELD_OFFSET(::StoreItem_ReleaseInfo, is_early_access_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_ReleaseInfo, mac_release_date_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_ReleaseInfo, linux_release_date_),
+  PROTOBUF_FIELD_OFFSET(::StoreItem_ReleaseInfo, limited_launch_active_),
   2,
   3,
   4,
@@ -1037,8 +1085,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   7,
   1,
   8,
-  9,
   10,
+  11,
+  9,
   PROTOBUF_FIELD_OFFSET(::StoreItem_Platforms_VRSupport, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::StoreItem_Platforms_VRSupport, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1423,6 +1472,34 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstorebrowse_2e
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetStoreCategories_Response, categories_),
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Request, context_),
+  0,
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig, hubcategoryid_),
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig, type_),
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig, handle_),
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig, display_name_),
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig, url_path_),
+  4,
+  0,
+  1,
+  2,
+  3,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetContentHubConfig_Response, hubconfigs_),
   PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetPriceStops_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CStoreBrowse_GetPriceStops_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1596,41 +1673,44 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 128, 135, sizeof(::StoreItem_BasicInfo_CreatorHomeLink)},
   { 137, 147, sizeof(::StoreItem_BasicInfo)},
   { 152, 159, sizeof(::StoreItem_Tag)},
-  { 161, 180, sizeof(::StoreItem_Assets)},
-  { 194, 210, sizeof(::StoreItem_ReleaseInfo)},
-  { 221, 232, sizeof(::StoreItem_Platforms_VRSupport)},
-  { 238, 248, sizeof(::StoreItem_Platforms)},
-  { 253, 261, sizeof(::StoreItem_PurchaseOption_Discount)},
-  { 264, 275, sizeof(::StoreItem_PurchaseOption_RecurrenceInfo)},
-  { 281, 308, sizeof(::StoreItem_PurchaseOption)},
-  { 330, 337, sizeof(::StoreItem_Screenshots_Screenshot)},
-  { 339, -1, sizeof(::StoreItem_Screenshots)},
-  { 346, 353, sizeof(::StoreItem_Trailers_VideoSource)},
-  { 355, 369, sizeof(::StoreItem_Trailers_Trailer)},
-  { 378, -1, sizeof(::StoreItem_Trailers)},
-  { 385, 395, sizeof(::StoreItem_SupportedLanguage)},
-  { 400, 408, sizeof(::StoreItem_FreeWeekend)},
-  { 411, 419, sizeof(::StoreItem_Link)},
-  { 422, 470, sizeof(::StoreItem)},
-  { 513, 526, sizeof(::StoreGameRating)},
-  { 534, 550, sizeof(::StoreBrowseFilterFailure)},
-  { 561, -1, sizeof(::CStoreBrowse_GetItems_Response)},
-  { 567, 574, sizeof(::CStoreBrowse_GetStoreCategories_Request)},
-  { 576, 590, sizeof(::CStoreBrowse_GetStoreCategories_Response_Category)},
-  { 599, -1, sizeof(::CStoreBrowse_GetStoreCategories_Response)},
-  { 605, 612, sizeof(::CStoreBrowse_GetPriceStops_Request)},
-  { 614, 621, sizeof(::CStoreBrowse_GetPriceStops_Response_PriceStop)},
-  { 623, 630, sizeof(::CStoreBrowse_GetPriceStops_Response)},
-  { 632, 641, sizeof(::CStoreBrowse_GetDLCForApps_Request)},
-  { 645, 657, sizeof(::CStoreBrowse_GetDLCForApps_Response_DLCData)},
-  { 664, 672, sizeof(::CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp)},
-  { 675, -1, sizeof(::CStoreBrowse_GetDLCForApps_Response)},
-  { 682, 692, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Request)},
-  { 697, 704, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Response_DLCList)},
-  { 706, -1, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Response)},
-  { 712, 719, sizeof(::CStoreBrowse_GetHardwareItems_Request)},
-  { 721, 742, sizeof(::CHardwarePackageDetails)},
-  { 758, -1, sizeof(::CStoreBrowse_GetHardwareItems_Response)},
+  { 161, 182, sizeof(::StoreItem_Assets)},
+  { 198, 215, sizeof(::StoreItem_ReleaseInfo)},
+  { 227, 238, sizeof(::StoreItem_Platforms_VRSupport)},
+  { 244, 254, sizeof(::StoreItem_Platforms)},
+  { 259, 267, sizeof(::StoreItem_PurchaseOption_Discount)},
+  { 270, 281, sizeof(::StoreItem_PurchaseOption_RecurrenceInfo)},
+  { 287, 314, sizeof(::StoreItem_PurchaseOption)},
+  { 336, 343, sizeof(::StoreItem_Screenshots_Screenshot)},
+  { 345, -1, sizeof(::StoreItem_Screenshots)},
+  { 352, 359, sizeof(::StoreItem_Trailers_VideoSource)},
+  { 361, 375, sizeof(::StoreItem_Trailers_Trailer)},
+  { 384, -1, sizeof(::StoreItem_Trailers)},
+  { 391, 401, sizeof(::StoreItem_SupportedLanguage)},
+  { 406, 414, sizeof(::StoreItem_FreeWeekend)},
+  { 417, 425, sizeof(::StoreItem_Link)},
+  { 428, 476, sizeof(::StoreItem)},
+  { 519, 532, sizeof(::StoreGameRating)},
+  { 540, 556, sizeof(::StoreBrowseFilterFailure)},
+  { 567, -1, sizeof(::CStoreBrowse_GetItems_Response)},
+  { 573, 580, sizeof(::CStoreBrowse_GetStoreCategories_Request)},
+  { 582, 596, sizeof(::CStoreBrowse_GetStoreCategories_Response_Category)},
+  { 605, -1, sizeof(::CStoreBrowse_GetStoreCategories_Response)},
+  { 611, 617, sizeof(::CStoreBrowse_GetContentHubConfig_Request)},
+  { 618, 628, sizeof(::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig)},
+  { 633, -1, sizeof(::CStoreBrowse_GetContentHubConfig_Response)},
+  { 639, 646, sizeof(::CStoreBrowse_GetPriceStops_Request)},
+  { 648, 655, sizeof(::CStoreBrowse_GetPriceStops_Response_PriceStop)},
+  { 657, 664, sizeof(::CStoreBrowse_GetPriceStops_Response)},
+  { 666, 675, sizeof(::CStoreBrowse_GetDLCForApps_Request)},
+  { 679, 691, sizeof(::CStoreBrowse_GetDLCForApps_Response_DLCData)},
+  { 698, 706, sizeof(::CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp)},
+  { 709, -1, sizeof(::CStoreBrowse_GetDLCForApps_Response)},
+  { 716, 726, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Request)},
+  { 731, 738, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Response_DLCList)},
+  { 740, -1, sizeof(::CStoreBrowse_GetDLCForAppsSolr_Response)},
+  { 746, 753, sizeof(::CStoreBrowse_GetHardwareItems_Request)},
+  { 755, 776, sizeof(::CHardwarePackageDetails)},
+  { 792, -1, sizeof(::CStoreBrowse_GetHardwareItems_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1668,6 +1748,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetStoreCategories_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetStoreCategories_Response_Category_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetStoreCategories_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetContentHubConfig_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetContentHubConfig_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetPriceStops_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetPriceStops_Response_PriceStop_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStoreBrowse_GetPriceStops_Response_default_instance_),
@@ -1712,7 +1795,7 @@ const char descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2
   "\"\223\001\n\035CStoreBrowse_GetItems_Request\022\031\n\003id"
   "s\030\001 \003(\0132\014.StoreItemID\022$\n\007context\030\002 \001(\0132\023"
   ".StoreBrowseContext\0221\n\014data_request\030\003 \001("
-  "\0132\033.StoreBrowseItemDataRequest\"\205,\n\tStore"
+  "\0132\033.StoreBrowseItemDataRequest\"\337,\n\tStore"
   "Item\022:\n\titem_type\030\001 \001(\0162\017.EStoreItemType"
   ":\026EStoreItemType_Invalid\022\n\n\002id\030\002 \001(\r\022\017\n\007"
   "success\030\003 \001(\r\022\017\n\007visible\030\004 \001(\010\022*\n\"unvail"
@@ -1775,7 +1858,7 @@ const char descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2
   "eatorHomeLink\022\030\n\020capsule_headline\030\005 \001(\t\032"
   "@\n\017CreatorHomeLink\022\014\n\004name\030\001 \001(\t\022\037\n\027crea"
   "tor_clan_account_id\030\002 \001(\r\032$\n\003Tag\022\r\n\005tagi"
-  "d\030\001 \001(\r\022\016\n\006weight\030\002 \001(\r\032\320\002\n\006Assets\022\030\n\020as"
+  "d\030\001 \001(\r\022\016\n\006weight\030\002 \001(\r\032\213\003\n\006Assets\022\030\n\020as"
   "set_url_format\030\001 \001(\t\022\024\n\014main_capsule\030\002 \001"
   "(\t\022\025\n\rsmall_capsule\030\003 \001(\t\022\016\n\006header\030\004 \001("
   "\t\022\026\n\016package_header\030\005 \001(\t\022\027\n\017page_backgr"
@@ -1784,228 +1867,241 @@ const char descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2
   "(\t\022\032\n\022library_capsule_2x\030\n \001(\t\022\024\n\014librar"
   "y_hero\030\013 \001(\t\022\027\n\017library_hero_2x\030\014 \001(\t\022\026\n"
   "\016community_icon\030\r \001(\t\022\023\n\013clan_avatar\030\016 \001"
-  "(\t\032\314\002\n\013ReleaseInfo\022\032\n\022steam_release_date"
-  "\030\001 \001(\r\022\035\n\025original_release_date\030\002 \001(\r\022#\n"
-  "\033original_steam_release_date\030\003 \001(\r\022\026\n\016is"
-  "_coming_soon\030\004 \001(\010\022\022\n\nis_preload\030\005 \001(\010\022#"
-  "\n\033custom_release_date_message\030\006 \001(\t\022 \n\030i"
-  "s_abridged_release_date\030\007 \001(\010\022\033\n\023coming_"
-  "soon_display\030\010 \001(\t\022\027\n\017is_early_access\030\n "
-  "\001(\010\022\030\n\020mac_release_date\030\024 \001(\r\022\032\n\022linux_r"
-  "elease_date\030\025 \001(\r\032\341\002\n\tPlatforms\022\017\n\007windo"
-  "ws\030\001 \001(\010\022\013\n\003mac\030\002 \001(\010\022\025\n\rsteamos_linux\030\003"
-  " \001(\010\0222\n\nvr_support\030\n \001(\0132\036.StoreItem.Pla"
-  "tforms.VRSupport\022k\n\030steam_deccompat_cate"
-  "gory\030\013 \001(\0162 .ESteamDeckCompatibilityCate"
-  "gory:\'ESteamDeckCompatibilityCategory_Un"
-  "known\032~\n\tVRSupport\022\r\n\005vrhmd\030\001 \001(\010\022\022\n\nvrh"
-  "md_only\030\002 \001(\010\022\020\n\010htc_vive\030( \001(\010\022\023\n\013oculu"
-  "s_rift\030) \001(\010\022\022\n\nwindows_mr\030* \001(\010\022\023\n\013valv"
-  "e_index\030+ \001(\010\032\250\010\n\016PurchaseOption\022\021\n\tpack"
-  "ageid\030\001 \001(\005\022\020\n\010bundleid\030\002 \001(\005\022\034\n\024purchas"
-  "e_option_name\030\003 \001(\t\022\034\n\024final_price_in_ce"
-  "nts\030\005 \001(\003\022\037\n\027original_price_in_cents\030\006 \001"
-  "(\003\022\035\n\025formatted_final_price\030\010 \001(\t\022 \n\030for"
-  "matted_original_price\030\t \001(\t\022\024\n\014discount_"
-  "pct\030\n \001(\005\022\033\n\023bundle_discount_pct\030\014 \001(\005\022\027"
-  "\n\017is_free_to_keep\030\r \001(\010\022$\n\034price_before_"
-  "bundle_discount\030\016 \001(\003\022.\n&formatted_price"
-  "_before_bundle_discount\030\017 \001(\t\022<\n\020active_"
-  "discounts\030\024 \003(\0132\".StoreItem.PurchaseOpti"
-  "on.Discount\022!\n\031user_can_purchase_as_gift"
-  "\030\037 \001(\010\022\035\n\025is_commercial_license\030( \001(\010\022$\n"
-  "\034should_suppress_discount_pct\030) \001(\010\022/\n h"
-  "ide_discount_pct_for_compliance\030* \001(\010:\005f"
-  "alse\022\036\n\023included_game_count\030+ \001(\005:\0011\022$\n\034"
-  "lowest_recent_price_in_cents\030, \001(\003\022\031\n\021re"
-  "quires_shipping\030- \001(\010\022A\n\017recurrence_info"
-  "\030. \001(\0132(.StoreItem.PurchaseOption.Recurr"
-  "enceInfo\022\031\n\021free_to_keep_ends\030/ \001(\r\032\\\n\010D"
-  "iscount\022\027\n\017discount_amount\030\001 \001(\003\022\034\n\024disc"
-  "ount_description\030\002 \001(\t\022\031\n\021discount_end_d"
-  "ate\030\003 \001(\r\032\274\001\n\016RecurrenceInfo\022\021\n\tpackagei"
-  "d\030\001 \001(\005\022\036\n\026billing_agreement_type\030\002 \001(\005\022"
-  "\031\n\021renewal_time_unit\030\003 \001(\005\022\033\n\023renewal_ti"
-  "me_period\030\004 \001(\005\022\036\n\026renewal_price_in_cent"
-  "s\030\005 \001(\003\022\037\n\027formatted_renewal_price\030\006 \001(\t"
-  "\032\306\001\n\013Screenshots\022\?\n\024all_ages_screenshots"
-  "\030\002 \003(\0132!.StoreItem.Screenshots.Screensho"
-  "t\022E\n\032mature_content_screenshots\030\003 \003(\0132!."
-  "StoreItem.Screenshots.Screenshot\032/\n\nScre"
-  "enshot\022\020\n\010filename\030\001 \001(\t\022\017\n\007ordinal\030\002 \001("
-  "\005\032\225\004\n\010Trailers\022/\n\nhighlights\030\001 \003(\0132\033.Sto"
-  "reItem.Trailers.Trailer\0223\n\016other_trailer"
-  "s\030\002 \003(\0132\033.StoreItem.Trailers.Trailer\032-\n\013"
-  "VideoSource\022\020\n\010filename\030\001 \001(\t\022\014\n\004type\030\002 "
-  "\001(\t\032\363\002\n\007Trailer\022\024\n\014trailer_name\030\001 \001(\t\022\032\n"
-  "\022trailer_url_format\030\002 \001(\t\022E\n\020trailer_cat"
-  "egory\030\r \001(\0162\021.ETrailerCategory:\030ETrailer"
-  "Category_Invalid\0225\n\014trailer_480p\030\003 \003(\0132\037"
-  ".StoreItem.Trailers.VideoSource\0224\n\013trail"
-  "er_max\030\004 \003(\0132\037.StoreItem.Trailers.VideoS"
-  "ource\0225\n\014microtrailer\030\005 \003(\0132\037.StoreItem."
-  "Trailers.VideoSource\022\031\n\021screenshot_mediu"
-  "m\030\n \001(\t\022\027\n\017screenshot_full\030\013 \001(\t\022\027\n\017trai"
-  "ler_base_id\030\014 \001(\005\032\205\001\n\021SupportedLanguage\022"
-  "\025\n\telanguage\030\001 \001(\005:\002-1\022\037\n\023eadditionallan"
-  "guage\030\005 \001(\005:\002-1\022\021\n\tsupported\030\002 \001(\010\022\022\n\nfu"
-  "ll_audio\030\003 \001(\010\022\021\n\tsubtitles\030\004 \001(\010\032A\n\013Fre"
-  "eWeekend\022\022\n\nstart_time\030\001 \001(\r\022\020\n\010end_time"
-  "\030\002 \001(\r\022\014\n\004text\030\003 \001(\t\032X\n\004Link\0225\n\007lintype\030"
-  "\001 \001(\0162\017.EStoreLinkType:\023EStoreLinkType_N"
-  "one\022\013\n\003url\030\002 \001(\t\022\014\n\004text\030\003 \001(\t\"\267\001\n\017Store"
-  "GameRating\022\014\n\004type\030\001 \001(\t\022\016\n\006rating\030\002 \001(\t"
-  "\022\023\n\013descriptors\030\003 \003(\t\022\034\n\024interactive_ele"
-  "ments\030\004 \001(\t\022\024\n\014required_age\030\n \001(\005\022\024\n\014use"
-  "_age_gate\030\013 \001(\010\022\021\n\timage_url\030\024 \001(\t\022\024\n\014im"
-  "age_target\030\025 \001(\t\"\237\003\n\030StoreBrowseFilterFa"
-  "ilure\022R\n\016filter_failure\030\001 \001(\0162\032.EStoreBr"
-  "owseFilterFailure:\036EStoreBrowseFilterFai"
-  "lure_None\022\025\n\ralready_owned\030\005 \001(\010\022\023\n\013on_w"
-  "ishlist\030\006 \001(\010\022\017\n\007ignored\030\007 \001(\010\022\035\n\025not_in"
-  "_users_language\030\n \001(\010\022\035\n\025not_on_users_pl"
-  "atform\030\013 \001(\010\022\033\n\023demo_for_owned_game\030\014 \001("
-  "\010\022\034\n\024dlc_for_unowned_game\030\r \001(\010\022!\n\031nonpr"
-  "eferred_product_type\030\024 \001(\010\022\027\n\017excluded_t"
-  "agids\030\025 \003(\r\022=\n\036excluded_content_descript"
-  "orids\030\036 \003(\0162\025.EContentDescriptorID\"A\n\036CS"
-  "toreBrowse_GetItems_Response\022\037\n\013store_it"
-  "ems\030\001 \003(\0132\n.StoreItem\"R\n\'CStoreBrowse_Ge"
-  "tStoreCategories_Request\022\020\n\010language\030\001 \001"
-  "(\t\022\025\n\telanguage\030\002 \001(\005:\002-1\"\350\002\n(CStoreBrow"
-  "se_GetStoreCategories_Response\022F\n\ncatego"
-  "ries\030\001 \003(\01322.CStoreBrowse_GetStoreCatego"
-  "ries_Response.Category\032\363\001\n\010Category\022\022\n\nc"
-  "ategoryid\030\001 \001(\r\022>\n\004type\030\002 \001(\0162\023.EStoreCa"
-  "tegoryType:\033EStoreCategoryType_Category\022"
-  "\025\n\rinternal_name\030\003 \001(\t\022\024\n\014display_name\030\004"
-  " \001(\t\022\021\n\timage_url\030\005 \001(\t\022\026\n\016show_in_searc"
-  "h\030\006 \001(\010\022\020\n\010computed\030\007 \001(\010\022\020\n\010edit_url\030\010 "
-  "\001(\t\022\027\n\017edit_sort_order\030\t \001(\r\"Q\n\"CStoreBr"
-  "owse_GetPriceStops_Request\022\024\n\014country_co"
-  "de\030\001 \001(\t\022\025\n\rcurrency_code\030\002 \001(\t\"\301\001\n#CSto"
-  "reBrowse_GetPriceStops_Response\022C\n\013price"
-  "_stops\030\001 \003(\0132..CStoreBrowse_GetPriceStop"
-  "s_Response.PriceStop\022\025\n\rcurrency_code\030\002 "
-  "\001(\t\032>\n\tPriceStop\022\030\n\020formatted_amount\030\001 \001"
-  "(\t\022\027\n\017amount_in_cents\030\002 \001(\003\"\247\001\n\"CStoreBr"
-  "owse_GetDLCForApps_Request\022$\n\007context\030\001 "
-  "\001(\0132\023.StoreBrowseContext\022,\n\021store_page_f"
-  "ilter\030\002 \001(\0132\021.CStorePageFilter\022\034\n\006appids"
-  "\030\003 \003(\0132\014.StoreItemID\022\017\n\007steamid\030\004 \001(\004\"\376\002"
-  "\n#CStoreBrowse_GetDLCForApps_Response\022>\n"
-  "\010dlc_data\030\001 \003(\0132,.CStoreBrowse_GetDLCFor"
-  "Apps_Response.DLCData\022E\n\010playtime\030\002 \003(\0132"
-  "3.CStoreBrowse_GetDLCForApps_Response.Pl"
-  "aytimeForApp\032\207\001\n\007DLCData\022\r\n\005appid\030\001 \001(\r\022"
-  "\023\n\013parentappid\030\002 \001(\r\022\024\n\014release_date\030\003 \001"
-  "(\r\022\023\n\013coming_soon\030\004 \001(\010\022\r\n\005price\030\005 \001(\003\022\020"
-  "\n\010discount\030\006 \001(\r\022\014\n\004free\030\007 \001(\010\032F\n\016Playti"
-  "meForApp\022\r\n\005appid\030\001 \001(\r\022\020\n\010playtime\030\002 \001("
-  "\r\022\023\n\013last_played\030\003 \001(\r\"\253\001\n&CStoreBrowse_"
-  "GetDLCForAppsSolr_Request\022$\n\007context\030\001 \001"
-  "(\0132\023.StoreBrowseContext\022\016\n\006appids\030\002 \003(\r\022"
-  "\016\n\006flavor\030\003 \001(\t\022\r\n\005count\030\004 \001(\r\022,\n\021store_"
-  "page_filter\030\005 \001(\0132\021.CStorePageFilter\"\243\001\n"
-  "\'CStoreBrowse_GetDLCForAppsSolr_Response"
-  "\022C\n\tdlc_lists\030\001 \003(\01320.CStoreBrowse_GetDL"
-  "CForAppsSolr_Response.DLCList\0323\n\007DLCList"
-  "\022\024\n\014parent_appid\030\001 \001(\r\022\022\n\ndlc_appids\030\002 \003"
-  "(\r\"`\n%CStoreBrowse_GetHardwareItems_Requ"
-  "est\022\021\n\tpackageid\030\001 \003(\r\022$\n\007context\030\002 \001(\0132"
-  "\023.StoreBrowseContext\"\224\004\n\027CHardwarePackag"
-  "eDetails\022\021\n\tpackageid\030\001 \001(\r\022\033\n\023inventory"
-  "_available\030\003 \001(\010\022\033\n\023high_pending_orders\030"
-  "\004 \001(\010\022*\n\"account_restricted_from_purchas"
-  "ing\030\005 \001(\010\022\034\n\024requires_reservation\030\006 \001(\010\022"
-  "$\n\034rtime_estimated_notification\030\007 \001(\r\022\031\n"
-  "\021notificaton_token\030\010 \001(\t\022\031\n\021reservation_"
-  "state\030\t \001(\005\022\017\n\007expired\030\n \001(\010\022\024\n\014time_exp"
-  "ires\030\013 \001(\r\022\025\n\rtime_reserved\030\014 \001(\r\022\037\n\027all"
-  "ow_quantity_purchase\030\r \001(\010\022!\n\031max_quanti"
-  "ty_per_purchase\030\016 \001(\005\022!\n\031allow_purchase_"
-  "in_country\030\017 \001(\010\0220\n(estimated_delivery_s"
-  "oonest_business_days\030\021 \001(\r\022/\n\'estimated_"
-  "delivery_latest_business_days\030\022 \001(\r\"S\n&C"
-  "StoreBrowse_GetHardwareItems_Response\022)\n"
-  "\007details\030\001 \003(\0132\030.CHardwarePackageDetails"
-  "*\360\001\n\016EStoreItemType\022#\n\026EStoreItemType_In"
-  "valid\020\377\377\377\377\377\377\377\377\377\001\022\026\n\022EStoreItemType_App\020\000"
-  "\022\032\n\026EStoreItemType_Package\020\001\022\031\n\025EStoreIt"
-  "emType_Bundle\020\002\022\026\n\022EStoreItemType_Mtx\020\003\022"
-  "\026\n\022EStoreItemType_Tag\020\004\022\032\n\026EStoreItemTyp"
-  "e_Creator\020\005\022\036\n\032EStoreItemType_HubCategor"
-  "y\020\006*\215\003\n\rEStoreAppType\022\026\n\022EStoreAppType_G"
-  "ame\020\000\022\026\n\022EStoreAppType_Demo\020\001\022\025\n\021EStoreA"
-  "ppType_Mod\020\002\022\027\n\023EStoreAppType_Movie\020\003\022\025\n"
-  "\021EStoreAppType_DLC\020\004\022\027\n\023EStoreAppType_Gu"
-  "ide\020\005\022\032\n\026EStoreAppType_Software\020\006\022\027\n\023ESt"
-  "oreAppType_Video\020\007\022\030\n\024EStoreAppType_Seri"
-  "es\020\010\022\031\n\025EStoreAppType_Episode\020\t\022\032\n\026EStor"
-  "eAppType_Hardware\020\n\022\027\n\023EStoreAppType_Mus"
-  "ic\020\013\022\026\n\022EStoreAppType_Beta\020\014\022\026\n\022EStoreAp"
-  "pType_Tool\020\r\022\035\n\031EStoreAppType_Advertisin"
-  "g\020\016*\361\002\n\020EUserReviewScore\022\031\n\025EUserReviewS"
-  "core_None\020\000\022+\n\'EUserReviewScore_Overwhel"
-  "minglyNegative\020\001\022!\n\035EUserReviewScore_Ver"
-  "yNegative\020\002\022\035\n\031EUserReviewScore_Negative"
-  "\020\003\022#\n\037EUserReviewScore_MostlyNegative\020\004\022"
-  "\032\n\026EUserReviewScore_Mixed\020\005\022#\n\037EUserRevi"
-  "ewScore_MostlyPositive\020\006\022\035\n\031EUserReviewS"
-  "core_Positive\020\007\022!\n\035EUserReviewScore_Very"
-  "Positive\020\010\022+\n\'EUserReviewScore_Overwhelm"
-  "inglyPositive\020\t*\351\001\n\020ETrailerCategory\022\034\n\030"
-  "ETrailerCategory_Invalid\020\000\022\035\n\031ETrailerCa"
-  "tegory_Gameplay\020\001\022\033\n\027ETrailerCategory_Te"
-  "aser\020\002\022\036\n\032ETrailerCategory_Cinematic\020\003\022\033"
-  "\n\027ETrailerCategory_Update\020\004\022\036\n\032ETrailerC"
-  "ategory_Accolades\020\005\022\036\n\032ETrailerCategory_"
-  "Interview\020\006*\233\002\n\031EStoreBrowseFilterFailur"
-  "e\022\"\n\036EStoreBrowseFilterFailure_None\020\000\022\'\n"
-  "#EStoreBrowseFilterFailure_Redundant\020\n\022*"
-  "\n&EStoreBrowseFilterFailure_NotPreferred"
-  "\020\024\022+\n\'EStoreBrowseFilterFailure_NotInter"
-  "ested\020\036\022-\n)EStoreBrowseFilterFailure_Unw"
-  "antedContent\020(\022)\n%EStoreBrowseFilterFail"
-  "ure_Unavailable\0202*\233\005\n\016EStoreLinkType\022\027\n\023"
-  "EStoreLinkType_None\020\000\022\032\n\026EStoreLinkType_"
-  "YouTube\020\001\022\033\n\027EStoreLinkType_Facebook\020\002\022\032"
-  "\n\026EStoreLinkType_Twitter\020\003\022\031\n\025EStoreLink"
-  "Type_Twitch\020\004\022\032\n\026EStoreLinkType_Discord\020"
-  "\005\022\025\n\021EStoreLinkType_QQ\020\006\022\025\n\021EStoreLinkTy"
-  "pe_VK\020\007\022\033\n\027EStoreLinkType_Bilibili\020\010\022\030\n\024"
-  "EStoreLinkType_Weibo\020\t\022\031\n\025EStoreLinkType"
-  "_Reddit\020\n\022\034\n\030EStoreLinkType_Instagram\020\013\022"
-  "\031\n\025EStoreLinkType_Tumblr\020\014\022\030\n\024EStoreLink"
-  "Type_Tieba\020\r\022\031\n\025EStoreLinkType_Tiktok\020\016\022"
-  "\033\n\027EStoreLinkType_Telegram\020\017\022\033\n\027EStoreLi"
-  "nkType_LinkedIn\020\020\022\031\n\025EStoreLinkType_WeCh"
-  "at\020\021\022\031\n\025EStoreLinkType_QQLink\020\022\022\031\n\025EStor"
-  "eLinkType_Douyin\020\023\022\032\n\026EStoreLinkType_Blu"
-  "esky\020\024\022\033\n\027EStoreLinkType_Mastodon\020\025\022\032\n\026E"
-  "StoreLinkType_Threads\020\026\022\026\n\022EStoreLinkTyp"
-  "e_MAX\020\027*\350\001\n\022EStoreCategoryType\022\037\n\033EStore"
-  "CategoryType_Category\020\000\022\'\n#EStoreCategor"
-  "yType_SupportedPlayers\020\001\022\036\n\032EStoreCatego"
-  "ryType_Feature\020\002\022(\n$EStoreCategoryType_C"
-  "ontrollerSupport\020\003\022\"\n\036EStoreCategoryType"
-  "_CloudGaming\020\004\022\032\n\026EStoreCategoryType_MAX"
-  "\020\0052\312\004\n\013StoreBrowse\022K\n\010GetItems\022\036.CStoreB"
-  "rowse_GetItems_Request\032\037.CStoreBrowse_Ge"
-  "tItems_Response\022i\n\022GetStoreCategories\022(."
-  "CStoreBrowse_GetStoreCategories_Request\032"
-  ").CStoreBrowse_GetStoreCategories_Respon"
-  "se\022Z\n\rGetPriceStops\022#.CStoreBrowse_GetPr"
-  "iceStops_Request\032$.CStoreBrowse_GetPrice"
-  "Stops_Response\022Z\n\rGetDLCForApps\022#.CStore"
-  "Browse_GetDLCForApps_Request\032$.CStoreBro"
-  "wse_GetDLCForApps_Response\022f\n\021GetDLCForA"
-  "ppsSolr\022\'.CStoreBrowse_GetDLCForAppsSolr"
-  "_Request\032(.CStoreBrowse_GetDLCForAppsSol"
-  "r_Response\022c\n\020GetHardwareItems\022&.CStoreB"
-  "rowse_GetHardwareItems_Request\032\'.CStoreB"
-  "rowse_GetHardwareItems_ResponseB\035\200\001\001\252\002\027O"
-  "penSteamworks.Protobuf"
+  "(\t\022\034\n\024page_background_path\030\017 \001(\t\022\033\n\023raw_"
+  "page_background\030\020 \001(\t\032\353\002\n\013ReleaseInfo\022\032\n"
+  "\022steam_release_date\030\001 \001(\r\022\035\n\025original_re"
+  "lease_date\030\002 \001(\r\022#\n\033original_steam_relea"
+  "se_date\030\003 \001(\r\022\026\n\016is_coming_soon\030\004 \001(\010\022\022\n"
+  "\nis_preload\030\005 \001(\010\022#\n\033custom_release_date"
+  "_message\030\006 \001(\t\022 \n\030is_abridged_release_da"
+  "te\030\007 \001(\010\022\033\n\023coming_soon_display\030\010 \001(\t\022\027\n"
+  "\017is_early_access\030\n \001(\010\022\030\n\020mac_release_da"
+  "te\030\024 \001(\r\022\032\n\022linux_release_date\030\025 \001(\r\022\035\n\025"
+  "limited_launch_active\030\026 \001(\010\032\341\002\n\tPlatform"
+  "s\022\017\n\007windows\030\001 \001(\010\022\013\n\003mac\030\002 \001(\010\022\025\n\rsteam"
+  "os_linux\030\003 \001(\010\0222\n\nvr_support\030\n \001(\0132\036.Sto"
+  "reItem.Platforms.VRSupport\022k\n\030steam_decc"
+  "ompat_category\030\013 \001(\0162 .ESteamDeckCompati"
+  "bilityCategory:\'ESteamDeckCompatibilityC"
+  "ategory_Unknown\032~\n\tVRSupport\022\r\n\005vrhmd\030\001 "
+  "\001(\010\022\022\n\nvrhmd_only\030\002 \001(\010\022\020\n\010htc_vive\030( \001("
+  "\010\022\023\n\013oculus_rift\030) \001(\010\022\022\n\nwindows_mr\030* \001"
+  "(\010\022\023\n\013valve_index\030+ \001(\010\032\250\010\n\016PurchaseOpti"
+  "on\022\021\n\tpackageid\030\001 \001(\005\022\020\n\010bundleid\030\002 \001(\005\022"
+  "\034\n\024purchase_option_name\030\003 \001(\t\022\034\n\024final_p"
+  "rice_in_cents\030\005 \001(\003\022\037\n\027original_price_in"
+  "_cents\030\006 \001(\003\022\035\n\025formatted_final_price\030\010 "
+  "\001(\t\022 \n\030formatted_original_price\030\t \001(\t\022\024\n"
+  "\014discount_pct\030\n \001(\005\022\033\n\023bundle_discount_p"
+  "ct\030\014 \001(\005\022\027\n\017is_free_to_keep\030\r \001(\010\022$\n\034pri"
+  "ce_before_bundle_discount\030\016 \001(\003\022.\n&forma"
+  "tted_price_before_bundle_discount\030\017 \001(\t\022"
+  "<\n\020active_discounts\030\024 \003(\0132\".StoreItem.Pu"
+  "rchaseOption.Discount\022!\n\031user_can_purcha"
+  "se_as_gift\030\037 \001(\010\022\035\n\025is_commercial_licens"
+  "e\030( \001(\010\022$\n\034should_suppress_discount_pct\030"
+  ") \001(\010\022/\n hide_discount_pct_for_complianc"
+  "e\030* \001(\010:\005false\022\036\n\023included_game_count\030+ "
+  "\001(\005:\0011\022$\n\034lowest_recent_price_in_cents\030,"
+  " \001(\003\022\031\n\021requires_shipping\030- \001(\010\022A\n\017recur"
+  "rence_info\030. \001(\0132(.StoreItem.PurchaseOpt"
+  "ion.RecurrenceInfo\022\031\n\021free_to_keep_ends\030"
+  "/ \001(\r\032\\\n\010Discount\022\027\n\017discount_amount\030\001 \001"
+  "(\003\022\034\n\024discount_description\030\002 \001(\t\022\031\n\021disc"
+  "ount_end_date\030\003 \001(\r\032\274\001\n\016RecurrenceInfo\022\021"
+  "\n\tpackageid\030\001 \001(\005\022\036\n\026billing_agreement_t"
+  "ype\030\002 \001(\005\022\031\n\021renewal_time_unit\030\003 \001(\005\022\033\n\023"
+  "renewal_time_period\030\004 \001(\005\022\036\n\026renewal_pri"
+  "ce_in_cents\030\005 \001(\003\022\037\n\027formatted_renewal_p"
+  "rice\030\006 \001(\t\032\306\001\n\013Screenshots\022\?\n\024all_ages_s"
+  "creenshots\030\002 \003(\0132!.StoreItem.Screenshots"
+  ".Screenshot\022E\n\032mature_content_screenshot"
+  "s\030\003 \003(\0132!.StoreItem.Screenshots.Screensh"
+  "ot\032/\n\nScreenshot\022\020\n\010filename\030\001 \001(\t\022\017\n\007or"
+  "dinal\030\002 \001(\005\032\225\004\n\010Trailers\022/\n\nhighlights\030\001"
+  " \003(\0132\033.StoreItem.Trailers.Trailer\0223\n\016oth"
+  "er_trailers\030\002 \003(\0132\033.StoreItem.Trailers.T"
+  "railer\032-\n\013VideoSource\022\020\n\010filename\030\001 \001(\t\022"
+  "\014\n\004type\030\002 \001(\t\032\363\002\n\007Trailer\022\024\n\014trailer_nam"
+  "e\030\001 \001(\t\022\032\n\022trailer_url_format\030\002 \001(\t\022E\n\020t"
+  "railer_category\030\r \001(\0162\021.ETrailerCategory"
+  ":\030ETrailerCategory_Invalid\0225\n\014trailer_48"
+  "0p\030\003 \003(\0132\037.StoreItem.Trailers.VideoSourc"
+  "e\0224\n\013trailer_max\030\004 \003(\0132\037.StoreItem.Trail"
+  "ers.VideoSource\0225\n\014microtrailer\030\005 \003(\0132\037."
+  "StoreItem.Trailers.VideoSource\022\031\n\021screen"
+  "shot_medium\030\n \001(\t\022\027\n\017screenshot_full\030\013 \001"
+  "(\t\022\027\n\017trailer_base_id\030\014 \001(\005\032\205\001\n\021Supporte"
+  "dLanguage\022\025\n\telanguage\030\001 \001(\005:\002-1\022\037\n\023eadd"
+  "itionallanguage\030\005 \001(\005:\002-1\022\021\n\tsupported\030\002"
+  " \001(\010\022\022\n\nfull_audio\030\003 \001(\010\022\021\n\tsubtitles\030\004 "
+  "\001(\010\032A\n\013FreeWeekend\022\022\n\nstart_time\030\001 \001(\r\022\020"
+  "\n\010end_time\030\002 \001(\r\022\014\n\004text\030\003 \001(\t\032X\n\004Link\0225"
+  "\n\007lintype\030\001 \001(\0162\017.EStoreLinkType:\023EStore"
+  "LinkType_None\022\013\n\003url\030\002 \001(\t\022\014\n\004text\030\003 \001(\t"
+  "\"\267\001\n\017StoreGameRating\022\014\n\004type\030\001 \001(\t\022\016\n\006ra"
+  "ting\030\002 \001(\t\022\023\n\013descriptors\030\003 \003(\t\022\034\n\024inter"
+  "active_elements\030\004 \001(\t\022\024\n\014required_age\030\n "
+  "\001(\005\022\024\n\014use_age_gate\030\013 \001(\010\022\021\n\timage_url\030\024"
+  " \001(\t\022\024\n\014image_target\030\025 \001(\t\"\237\003\n\030StoreBrow"
+  "seFilterFailure\022R\n\016filter_failure\030\001 \001(\0162"
+  "\032.EStoreBrowseFilterFailure:\036EStoreBrows"
+  "eFilterFailure_None\022\025\n\ralready_owned\030\005 \001"
+  "(\010\022\023\n\013on_wishlist\030\006 \001(\010\022\017\n\007ignored\030\007 \001(\010"
+  "\022\035\n\025not_in_users_language\030\n \001(\010\022\035\n\025not_o"
+  "n_users_platform\030\013 \001(\010\022\033\n\023demo_for_owned"
+  "_game\030\014 \001(\010\022\034\n\024dlc_for_unowned_game\030\r \001("
+  "\010\022!\n\031nonpreferred_product_type\030\024 \001(\010\022\027\n\017"
+  "excluded_tagids\030\025 \003(\r\022=\n\036excluded_conten"
+  "t_descriptorids\030\036 \003(\0162\025.EContentDescript"
+  "orID\"A\n\036CStoreBrowse_GetItems_Response\022\037"
+  "\n\013store_items\030\001 \003(\0132\n.StoreItem\"R\n\'CStor"
+  "eBrowse_GetStoreCategories_Request\022\020\n\010la"
+  "nguage\030\001 \001(\t\022\025\n\telanguage\030\002 \001(\005:\002-1\"\350\002\n("
+  "CStoreBrowse_GetStoreCategories_Response"
+  "\022F\n\ncategories\030\001 \003(\01322.CStoreBrowse_GetS"
+  "toreCategories_Response.Category\032\363\001\n\010Cat"
+  "egory\022\022\n\ncategoryid\030\001 \001(\r\022>\n\004type\030\002 \001(\0162"
+  "\023.EStoreCategoryType:\033EStoreCategoryType"
+  "_Category\022\025\n\rinternal_name\030\003 \001(\t\022\024\n\014disp"
+  "lay_name\030\004 \001(\t\022\021\n\timage_url\030\005 \001(\t\022\026\n\016sho"
+  "w_in_search\030\006 \001(\010\022\020\n\010computed\030\007 \001(\010\022\020\n\010e"
+  "dit_url\030\010 \001(\t\022\027\n\017edit_sort_order\030\t \001(\r\"P"
+  "\n(CStoreBrowse_GetContentHubConfig_Reque"
+  "st\022$\n\007context\030\001 \001(\0132\023.StoreBrowseContext"
+  "\"\355\001\n)CStoreBrowse_GetContentHubConfig_Re"
+  "sponse\022O\n\nhubconfigs\030\001 \003(\0132;.CStoreBrows"
+  "e_GetContentHubConfig_Response.ContentHu"
+  "bConfig\032o\n\020ContentHubConfig\022\025\n\rhubcatego"
+  "ryid\030\001 \001(\r\022\014\n\004type\030\002 \001(\t\022\016\n\006handle\030\003 \001(\t"
+  "\022\024\n\014display_name\030\004 \001(\t\022\020\n\010url_path\030\005 \001(\t"
+  "\"Q\n\"CStoreBrowse_GetPriceStops_Request\022\024"
+  "\n\014country_code\030\001 \001(\t\022\025\n\rcurrency_code\030\002 "
+  "\001(\t\"\301\001\n#CStoreBrowse_GetPriceStops_Respo"
+  "nse\022C\n\013price_stops\030\001 \003(\0132..CStoreBrowse_"
+  "GetPriceStops_Response.PriceStop\022\025\n\rcurr"
+  "ency_code\030\002 \001(\t\032>\n\tPriceStop\022\030\n\020formatte"
+  "d_amount\030\001 \001(\t\022\027\n\017amount_in_cents\030\002 \001(\003\""
+  "\247\001\n\"CStoreBrowse_GetDLCForApps_Request\022$"
+  "\n\007context\030\001 \001(\0132\023.StoreBrowseContext\022,\n\021"
+  "store_page_filter\030\002 \001(\0132\021.CStorePageFilt"
+  "er\022\034\n\006appids\030\003 \003(\0132\014.StoreItemID\022\017\n\007stea"
+  "mid\030\004 \001(\004\"\376\002\n#CStoreBrowse_GetDLCForApps"
+  "_Response\022>\n\010dlc_data\030\001 \003(\0132,.CStoreBrow"
+  "se_GetDLCForApps_Response.DLCData\022E\n\010pla"
+  "ytime\030\002 \003(\01323.CStoreBrowse_GetDLCForApps"
+  "_Response.PlaytimeForApp\032\207\001\n\007DLCData\022\r\n\005"
+  "appid\030\001 \001(\r\022\023\n\013parentappid\030\002 \001(\r\022\024\n\014rele"
+  "ase_date\030\003 \001(\r\022\023\n\013coming_soon\030\004 \001(\010\022\r\n\005p"
+  "rice\030\005 \001(\003\022\020\n\010discount\030\006 \001(\r\022\014\n\004free\030\007 \001"
+  "(\010\032F\n\016PlaytimeForApp\022\r\n\005appid\030\001 \001(\r\022\020\n\010p"
+  "laytime\030\002 \001(\r\022\023\n\013last_played\030\003 \001(\r\"\253\001\n&C"
+  "StoreBrowse_GetDLCForAppsSolr_Request\022$\n"
+  "\007context\030\001 \001(\0132\023.StoreBrowseContext\022\016\n\006a"
+  "ppids\030\002 \003(\r\022\016\n\006flavor\030\003 \001(\t\022\r\n\005count\030\004 \001"
+  "(\r\022,\n\021store_page_filter\030\005 \001(\0132\021.CStorePa"
+  "geFilter\"\243\001\n\'CStoreBrowse_GetDLCForAppsS"
+  "olr_Response\022C\n\tdlc_lists\030\001 \003(\01320.CStore"
+  "Browse_GetDLCForAppsSolr_Response.DLCLis"
+  "t\0323\n\007DLCList\022\024\n\014parent_appid\030\001 \001(\r\022\022\n\ndl"
+  "c_appids\030\002 \003(\r\"`\n%CStoreBrowse_GetHardwa"
+  "reItems_Request\022\021\n\tpackageid\030\001 \003(\r\022$\n\007co"
+  "ntext\030\002 \001(\0132\023.StoreBrowseContext\"\224\004\n\027CHa"
+  "rdwarePackageDetails\022\021\n\tpackageid\030\001 \001(\r\022"
+  "\033\n\023inventory_available\030\003 \001(\010\022\033\n\023high_pen"
+  "ding_orders\030\004 \001(\010\022*\n\"account_restricted_"
+  "from_purchasing\030\005 \001(\010\022\034\n\024requires_reserv"
+  "ation\030\006 \001(\010\022$\n\034rtime_estimated_notificat"
+  "ion\030\007 \001(\r\022\031\n\021notificaton_token\030\010 \001(\t\022\031\n\021"
+  "reservation_state\030\t \001(\005\022\017\n\007expired\030\n \001(\010"
+  "\022\024\n\014time_expires\030\013 \001(\r\022\025\n\rtime_reserved\030"
+  "\014 \001(\r\022\037\n\027allow_quantity_purchase\030\r \001(\010\022!"
+  "\n\031max_quantity_per_purchase\030\016 \001(\005\022!\n\031all"
+  "ow_purchase_in_country\030\017 \001(\010\0220\n(estimate"
+  "d_delivery_soonest_business_days\030\021 \001(\r\022/"
+  "\n\'estimated_delivery_latest_business_day"
+  "s\030\022 \001(\r\"S\n&CStoreBrowse_GetHardwareItems"
+  "_Response\022)\n\007details\030\001 \003(\0132\030.CHardwarePa"
+  "ckageDetails*\360\001\n\016EStoreItemType\022#\n\026EStor"
+  "eItemType_Invalid\020\377\377\377\377\377\377\377\377\377\001\022\026\n\022EStoreIt"
+  "emType_App\020\000\022\032\n\026EStoreItemType_Package\020\001"
+  "\022\031\n\025EStoreItemType_Bundle\020\002\022\026\n\022EStoreIte"
+  "mType_Mtx\020\003\022\026\n\022EStoreItemType_Tag\020\004\022\032\n\026E"
+  "StoreItemType_Creator\020\005\022\036\n\032EStoreItemTyp"
+  "e_HubCategory\020\006*\215\003\n\rEStoreAppType\022\026\n\022ESt"
+  "oreAppType_Game\020\000\022\026\n\022EStoreAppType_Demo\020"
+  "\001\022\025\n\021EStoreAppType_Mod\020\002\022\027\n\023EStoreAppTyp"
+  "e_Movie\020\003\022\025\n\021EStoreAppType_DLC\020\004\022\027\n\023ESto"
+  "reAppType_Guide\020\005\022\032\n\026EStoreAppType_Softw"
+  "are\020\006\022\027\n\023EStoreAppType_Video\020\007\022\030\n\024EStore"
+  "AppType_Series\020\010\022\031\n\025EStoreAppType_Episod"
+  "e\020\t\022\032\n\026EStoreAppType_Hardware\020\n\022\027\n\023EStor"
+  "eAppType_Music\020\013\022\026\n\022EStoreAppType_Beta\020\014"
+  "\022\026\n\022EStoreAppType_Tool\020\r\022\035\n\031EStoreAppTyp"
+  "e_Advertising\020\016*\361\002\n\020EUserReviewScore\022\031\n\025"
+  "EUserReviewScore_None\020\000\022+\n\'EUserReviewSc"
+  "ore_OverwhelminglyNegative\020\001\022!\n\035EUserRev"
+  "iewScore_VeryNegative\020\002\022\035\n\031EUserReviewSc"
+  "ore_Negative\020\003\022#\n\037EUserReviewScore_Mostl"
+  "yNegative\020\004\022\032\n\026EUserReviewScore_Mixed\020\005\022"
+  "#\n\037EUserReviewScore_MostlyPositive\020\006\022\035\n\031"
+  "EUserReviewScore_Positive\020\007\022!\n\035EUserRevi"
+  "ewScore_VeryPositive\020\010\022+\n\'EUserReviewSco"
+  "re_OverwhelminglyPositive\020\t*\351\001\n\020ETrailer"
+  "Category\022\034\n\030ETrailerCategory_Invalid\020\000\022\035"
+  "\n\031ETrailerCategory_Gameplay\020\001\022\033\n\027ETraile"
+  "rCategory_Teaser\020\002\022\036\n\032ETrailerCategory_C"
+  "inematic\020\003\022\033\n\027ETrailerCategory_Update\020\004\022"
+  "\036\n\032ETrailerCategory_Accolades\020\005\022\036\n\032ETrai"
+  "lerCategory_Interview\020\006*\233\002\n\031EStoreBrowse"
+  "FilterFailure\022\"\n\036EStoreBrowseFilterFailu"
+  "re_None\020\000\022\'\n#EStoreBrowseFilterFailure_R"
+  "edundant\020\n\022*\n&EStoreBrowseFilterFailure_"
+  "NotPreferred\020\024\022+\n\'EStoreBrowseFilterFail"
+  "ure_NotInterested\020\036\022-\n)EStoreBrowseFilte"
+  "rFailure_UnwantedContent\020(\022)\n%EStoreBrow"
+  "seFilterFailure_Unavailable\0202*\233\005\n\016EStore"
+  "LinkType\022\027\n\023EStoreLinkType_None\020\000\022\032\n\026ESt"
+  "oreLinkType_YouTube\020\001\022\033\n\027EStoreLinkType_"
+  "Facebook\020\002\022\032\n\026EStoreLinkType_Twitter\020\003\022\031"
+  "\n\025EStoreLinkType_Twitch\020\004\022\032\n\026EStoreLinkT"
+  "ype_Discord\020\005\022\025\n\021EStoreLinkType_QQ\020\006\022\025\n\021"
+  "EStoreLinkType_VK\020\007\022\033\n\027EStoreLinkType_Bi"
+  "libili\020\010\022\030\n\024EStoreLinkType_Weibo\020\t\022\031\n\025ES"
+  "toreLinkType_Reddit\020\n\022\034\n\030EStoreLinkType_"
+  "Instagram\020\013\022\031\n\025EStoreLinkType_Tumblr\020\014\022\030"
+  "\n\024EStoreLinkType_Tieba\020\r\022\031\n\025EStoreLinkTy"
+  "pe_Tiktok\020\016\022\033\n\027EStoreLinkType_Telegram\020\017"
+  "\022\033\n\027EStoreLinkType_LinkedIn\020\020\022\031\n\025EStoreL"
+  "inkType_WeChat\020\021\022\031\n\025EStoreLinkType_QQLin"
+  "k\020\022\022\031\n\025EStoreLinkType_Douyin\020\023\022\032\n\026EStore"
+  "LinkType_Bluesky\020\024\022\033\n\027EStoreLinkType_Mas"
+  "todon\020\025\022\032\n\026EStoreLinkType_Threads\020\026\022\026\n\022E"
+  "StoreLinkType_MAX\020\027*\350\001\n\022EStoreCategoryTy"
+  "pe\022\037\n\033EStoreCategoryType_Category\020\000\022\'\n#E"
+  "StoreCategoryType_SupportedPlayers\020\001\022\036\n\032"
+  "EStoreCategoryType_Feature\020\002\022(\n$EStoreCa"
+  "tegoryType_ControllerSupport\020\003\022\"\n\036EStore"
+  "CategoryType_CloudGaming\020\004\022\032\n\026EStoreCate"
+  "goryType_MAX\020\0052\270\005\n\013StoreBrowse\022K\n\010GetIte"
+  "ms\022\036.CStoreBrowse_GetItems_Request\032\037.CSt"
+  "oreBrowse_GetItems_Response\022i\n\022GetStoreC"
+  "ategories\022(.CStoreBrowse_GetStoreCategor"
+  "ies_Request\032).CStoreBrowse_GetStoreCateg"
+  "ories_Response\022l\n\023GetContentHubConfig\022)."
+  "CStoreBrowse_GetContentHubConfig_Request"
+  "\032*.CStoreBrowse_GetContentHubConfig_Resp"
+  "onse\022Z\n\rGetPriceStops\022#.CStoreBrowse_Get"
+  "PriceStops_Request\032$.CStoreBrowse_GetPri"
+  "ceStops_Response\022Z\n\rGetDLCForApps\022#.CSto"
+  "reBrowse_GetDLCForApps_Request\032$.CStoreB"
+  "rowse_GetDLCForApps_Response\022f\n\021GetDLCFo"
+  "rAppsSolr\022\'.CStoreBrowse_GetDLCForAppsSo"
+  "lr_Request\032(.CStoreBrowse_GetDLCForAppsS"
+  "olr_Response\022c\n\020GetHardwareItems\022&.CStor"
+  "eBrowse_GetHardwareItems_Request\032\'.CStor"
+  "eBrowse_GetHardwareItems_ResponseB\035\200\001\001\252\002"
+  "\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_deps[6] = {
   &::descriptor_table_contenthubs_2eproto,
@@ -2017,8 +2113,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto = {
-  false, false, 12862, descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2eproto, "steammessages_storebrowse.steamclient.proto", 
-  &descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_deps, 6, 47,
+  false, false, 13384, descriptor_table_protodef_steammessages_5fstorebrowse_2esteamclient_2eproto, "steammessages_storebrowse.steamclient.proto", 
+  &descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_deps, 6, 50,
   schemas, file_default_instances, TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fstorebrowse_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fstorebrowse_2esteamclient_2eproto,
 };
@@ -6122,6 +6218,12 @@ class StoreItem_Assets::_Internal {
   static void set_has_clan_avatar(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
+  static void set_has_page_background_path(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_raw_page_background(HasBits* has_bits) {
+    (*has_bits)[0] |= 32768u;
+  }
 };
 
 StoreItem_Assets::StoreItem_Assets(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -6204,6 +6306,16 @@ StoreItem_Assets::StoreItem_Assets(const StoreItem_Assets& from)
     clan_avatar_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_clan_avatar(), 
       GetArena());
   }
+  page_background_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_page_background_path()) {
+    page_background_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_page_background_path(), 
+      GetArena());
+  }
+  raw_page_background_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_raw_page_background()) {
+    raw_page_background_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_raw_page_background(), 
+      GetArena());
+  }
   // @@protoc_insertion_point(copy_constructor:StoreItem.Assets)
 }
 
@@ -6222,6 +6334,8 @@ library_hero_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStrin
 library_hero_2x_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 community_icon_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 clan_avatar_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+page_background_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+raw_page_background_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 StoreItem_Assets::~StoreItem_Assets() {
@@ -6246,6 +6360,8 @@ void StoreItem_Assets::SharedDtor() {
   library_hero_2x_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   community_icon_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   clan_avatar_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  page_background_path_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  raw_page_background_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void StoreItem_Assets::ArenaDtor(void* object) {
@@ -6291,7 +6407,7 @@ void StoreItem_Assets::Clear() {
       hero_capsule_2x_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
       library_capsule_.ClearNonDefaultToEmpty();
     }
@@ -6309,6 +6425,12 @@ void StoreItem_Assets::Clear() {
     }
     if (cached_has_bits & 0x00002000u) {
       clan_avatar_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00004000u) {
+      page_background_path_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00008000u) {
+      raw_page_background_.ClearNonDefaultToEmpty();
     }
   }
   _has_bits_.Clear();
@@ -6473,6 +6595,28 @@ const char* StoreItem_Assets::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           #ifndef NDEBUG
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "StoreItem.Assets.clan_avatar");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string page_background_path = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+          auto str = _internal_mutable_page_background_path();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "StoreItem.Assets.page_background_path");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string raw_page_background = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
+          auto str = _internal_mutable_raw_page_background();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "StoreItem.Assets.raw_page_background");
           #endif  // !NDEBUG
           CHK_(ptr);
         } else goto handle_unusual;
@@ -6647,6 +6791,26 @@ failure:
         14, this->_internal_clan_avatar(), target);
   }
 
+  // optional string page_background_path = 15;
+  if (cached_has_bits & 0x00004000u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_page_background_path().data(), static_cast<int>(this->_internal_page_background_path().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "StoreItem.Assets.page_background_path");
+    target = stream->WriteStringMaybeAliased(
+        15, this->_internal_page_background_path(), target);
+  }
+
+  // optional string raw_page_background = 16;
+  if (cached_has_bits & 0x00008000u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_raw_page_background().data(), static_cast<int>(this->_internal_raw_page_background().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "StoreItem.Assets.raw_page_background");
+    target = stream->WriteStringMaybeAliased(
+        16, this->_internal_raw_page_background(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6722,7 +6886,7 @@ size_t StoreItem_Assets::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     // optional string library_capsule = 9;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
@@ -6763,6 +6927,20 @@ size_t StoreItem_Assets::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_clan_avatar());
+    }
+
+    // optional string page_background_path = 15;
+    if (cached_has_bits & 0x00004000u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_page_background_path());
+    }
+
+    // optional string raw_page_background = 16;
+    if (cached_has_bits & 0x00008000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_raw_page_background());
     }
 
   }
@@ -6824,7 +7002,7 @@ void StoreItem_Assets::MergeFrom(const StoreItem_Assets& from) {
       _internal_set_hero_capsule_2x(from._internal_hero_capsule_2x());
     }
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
       _internal_set_library_capsule(from._internal_library_capsule());
     }
@@ -6842,6 +7020,12 @@ void StoreItem_Assets::MergeFrom(const StoreItem_Assets& from) {
     }
     if (cached_has_bits & 0x00002000u) {
       _internal_set_clan_avatar(from._internal_clan_avatar());
+    }
+    if (cached_has_bits & 0x00004000u) {
+      _internal_set_page_background_path(from._internal_page_background_path());
+    }
+    if (cached_has_bits & 0x00008000u) {
+      _internal_set_raw_page_background(from._internal_raw_page_background());
     }
   }
 }
@@ -6882,6 +7066,8 @@ void StoreItem_Assets::InternalSwap(StoreItem_Assets* other) {
   library_hero_2x_.Swap(&other->library_hero_2x_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   community_icon_.Swap(&other->community_icon_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   clan_avatar_.Swap(&other->clan_avatar_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  page_background_path_.Swap(&other->page_background_path_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  raw_page_background_.Swap(&other->raw_page_background_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata StoreItem_Assets::GetMetadata() const {
@@ -6922,10 +7108,13 @@ class StoreItem_ReleaseInfo::_Internal {
     (*has_bits)[0] |= 256u;
   }
   static void set_has_mac_release_date(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_linux_release_date(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 2048u;
+  }
+  static void set_has_limited_launch_active(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
   }
 };
 
@@ -7006,7 +7195,7 @@ void StoreItem_ReleaseInfo::Clear() {
         reinterpret_cast<char*>(&is_abridged_release_date_) -
         reinterpret_cast<char*>(&steam_release_date_)) + sizeof(is_abridged_release_date_));
   }
-  if (cached_has_bits & 0x00000700u) {
+  if (cached_has_bits & 0x00000f00u) {
     ::memset(&is_early_access_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&linux_release_date_) -
         reinterpret_cast<char*>(&is_early_access_)) + sizeof(linux_release_date_));
@@ -7117,6 +7306,14 @@ const char* StoreItem_ReleaseInfo::_InternalParse(const char* ptr, ::PROTOBUF_NA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional bool limited_launch_active = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 176)) {
+          _Internal::set_has_limited_launch_active(&has_bits);
+          limited_launch_active_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -7210,15 +7407,21 @@ failure:
   }
 
   // optional uint32 mac_release_date = 20;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(20, this->_internal_mac_release_date(), target);
   }
 
   // optional uint32 linux_release_date = 21;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(21, this->_internal_linux_release_date(), target);
+  }
+
+  // optional bool limited_launch_active = 22;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22, this->_internal_limited_launch_active(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7290,21 +7493,26 @@ size_t StoreItem_ReleaseInfo::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000700u) {
+  if (cached_has_bits & 0x00000f00u) {
     // optional bool is_early_access = 10;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 mac_release_date = 20;
+    // optional bool limited_launch_active = 22;
     if (cached_has_bits & 0x00000200u) {
+      total_size += 2 + 1;
+    }
+
+    // optional uint32 mac_release_date = 20;
+    if (cached_has_bits & 0x00000400u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_mac_release_date());
     }
 
     // optional uint32 linux_release_date = 21;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_linux_release_date());
@@ -7370,14 +7578,17 @@ void StoreItem_ReleaseInfo::MergeFrom(const StoreItem_ReleaseInfo& from) {
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000700u) {
+  if (cached_has_bits & 0x00000f00u) {
     if (cached_has_bits & 0x00000100u) {
       is_early_access_ = from.is_early_access_;
     }
     if (cached_has_bits & 0x00000200u) {
-      mac_release_date_ = from.mac_release_date_;
+      limited_launch_active_ = from.limited_launch_active_;
     }
     if (cached_has_bits & 0x00000400u) {
+      mac_release_date_ = from.mac_release_date_;
+    }
+    if (cached_has_bits & 0x00000800u) {
       linux_release_date_ = from.linux_release_date_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -16088,6 +16299,806 @@ void CStoreBrowse_GetStoreCategories_Response::InternalSwap(CStoreBrowse_GetStor
 
 // ===================================================================
 
+class CStoreBrowse_GetContentHubConfig_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CStoreBrowse_GetContentHubConfig_Request>()._has_bits_);
+  static const ::StoreBrowseContext& context(const CStoreBrowse_GetContentHubConfig_Request* msg);
+  static void set_has_context(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::StoreBrowseContext&
+CStoreBrowse_GetContentHubConfig_Request::_Internal::context(const CStoreBrowse_GetContentHubConfig_Request* msg) {
+  return *msg->context_;
+}
+CStoreBrowse_GetContentHubConfig_Request::CStoreBrowse_GetContentHubConfig_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStoreBrowse_GetContentHubConfig_Request)
+}
+CStoreBrowse_GetContentHubConfig_Request::CStoreBrowse_GetContentHubConfig_Request(const CStoreBrowse_GetContentHubConfig_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_context()) {
+    context_ = new ::StoreBrowseContext(*from.context_);
+  } else {
+    context_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:CStoreBrowse_GetContentHubConfig_Request)
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::SharedCtor() {
+context_ = nullptr;
+}
+
+CStoreBrowse_GetContentHubConfig_Request::~CStoreBrowse_GetContentHubConfig_Request() {
+  // @@protoc_insertion_point(destructor:CStoreBrowse_GetContentHubConfig_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete context_;
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::ArenaDtor(void* object) {
+  CStoreBrowse_GetContentHubConfig_Request* _this = reinterpret_cast< CStoreBrowse_GetContentHubConfig_Request* >(object);
+  (void)_this;
+}
+void CStoreBrowse_GetContentHubConfig_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStoreBrowse_GetContentHubConfig_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStoreBrowse_GetContentHubConfig_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(context_ != nullptr);
+    context_->Clear();
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStoreBrowse_GetContentHubConfig_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional .StoreBrowseContext context = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_context(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStoreBrowse_GetContentHubConfig_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStoreBrowse_GetContentHubConfig_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .StoreBrowseContext context = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::context(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStoreBrowse_GetContentHubConfig_Request)
+  return target;
+}
+
+size_t CStoreBrowse_GetContentHubConfig_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStoreBrowse_GetContentHubConfig_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .StoreBrowseContext context = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *context_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStoreBrowse_GetContentHubConfig_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStoreBrowse_GetContentHubConfig_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStoreBrowse_GetContentHubConfig_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStoreBrowse_GetContentHubConfig_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStoreBrowse_GetContentHubConfig_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::MergeFrom(const CStoreBrowse_GetContentHubConfig_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStoreBrowse_GetContentHubConfig_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_context()) {
+    _internal_mutable_context()->::StoreBrowseContext::MergeFrom(from._internal_context());
+  }
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStoreBrowse_GetContentHubConfig_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::CopyFrom(const CStoreBrowse_GetContentHubConfig_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStoreBrowse_GetContentHubConfig_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStoreBrowse_GetContentHubConfig_Request::IsInitialized() const {
+  return true;
+}
+
+void CStoreBrowse_GetContentHubConfig_Request::InternalSwap(CStoreBrowse_GetContentHubConfig_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(context_, other->context_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStoreBrowse_GetContentHubConfig_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig>()._has_bits_);
+  static void set_has_hubcategoryid(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_handle(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_display_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_url_path(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+}
+CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig(const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_type()) {
+    type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_type(), 
+      GetArena());
+  }
+  handle_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_handle()) {
+    handle_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_handle(), 
+      GetArena());
+  }
+  display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_display_name()) {
+    display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_display_name(), 
+      GetArena());
+  }
+  url_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_url_path()) {
+    url_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_url_path(), 
+      GetArena());
+  }
+  hubcategoryid_ = from.hubcategoryid_;
+  // @@protoc_insertion_point(copy_constructor:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::SharedCtor() {
+type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+handle_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+display_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+url_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+hubcategoryid_ = 0u;
+}
+
+CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::~CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig() {
+  // @@protoc_insertion_point(destructor:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  handle_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  display_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  url_path_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::ArenaDtor(void* object) {
+  CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* _this = reinterpret_cast< CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* >(object);
+  (void)_this;
+}
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      type_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      handle_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      display_name_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000008u) {
+      url_path_.ClearNonDefaultToEmpty();
+    }
+  }
+  hubcategoryid_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 hubcategoryid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_hubcategoryid(&has_bits);
+          hubcategoryid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string type = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_type();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string handle = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_handle();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string display_name = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_display_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string url_path = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_url_path();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 hubcategoryid = 1;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hubcategoryid(), target);
+  }
+
+  // optional string type = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_type().data(), static_cast<int>(this->_internal_type().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_type(), target);
+  }
+
+  // optional string handle = 3;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_handle().data(), static_cast<int>(this->_internal_handle().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_handle(), target);
+  }
+
+  // optional string display_name = 4;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_display_name().data(), static_cast<int>(this->_internal_display_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_display_name(), target);
+  }
+
+  // optional string url_path = 5;
+  if (cached_has_bits & 0x00000008u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_url_path().data(), static_cast<int>(this->_internal_url_path().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_url_path(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  return target;
+}
+
+size_t CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional string type = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_type());
+    }
+
+    // optional string handle = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_handle());
+    }
+
+    // optional string display_name = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_display_name());
+    }
+
+    // optional string url_path = 5;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_url_path());
+    }
+
+    // optional uint32 hubcategoryid = 1;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_hubcategoryid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+    MergeFrom(*source);
+  }
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::MergeFrom(const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_set_type(from._internal_type());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _internal_set_handle(from._internal_handle());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _internal_set_display_name(from._internal_display_name());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _internal_set_url_path(from._internal_url_path());
+    }
+    if (cached_has_bits & 0x00000010u) {
+      hubcategoryid_ = from.hubcategoryid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::CopyFrom(const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::IsInitialized() const {
+  return true;
+}
+
+void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::InternalSwap(CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  type_.Swap(&other->type_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  handle_.Swap(&other->handle_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  display_name_.Swap(&other->display_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  url_path_.Swap(&other->url_path_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(hubcategoryid_, other->hubcategoryid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CStoreBrowse_GetContentHubConfig_Response::_Internal {
+ public:
+};
+
+CStoreBrowse_GetContentHubConfig_Response::CStoreBrowse_GetContentHubConfig_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  hubconfigs_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStoreBrowse_GetContentHubConfig_Response)
+}
+CStoreBrowse_GetContentHubConfig_Response::CStoreBrowse_GetContentHubConfig_Response(const CStoreBrowse_GetContentHubConfig_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      hubconfigs_(from.hubconfigs_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CStoreBrowse_GetContentHubConfig_Response)
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::SharedCtor() {
+}
+
+CStoreBrowse_GetContentHubConfig_Response::~CStoreBrowse_GetContentHubConfig_Response() {
+  // @@protoc_insertion_point(destructor:CStoreBrowse_GetContentHubConfig_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::ArenaDtor(void* object) {
+  CStoreBrowse_GetContentHubConfig_Response* _this = reinterpret_cast< CStoreBrowse_GetContentHubConfig_Response* >(object);
+  (void)_this;
+}
+void CStoreBrowse_GetContentHubConfig_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStoreBrowse_GetContentHubConfig_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStoreBrowse_GetContentHubConfig_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  hubconfigs_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStoreBrowse_GetContentHubConfig_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig hubconfigs = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_hubconfigs(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStoreBrowse_GetContentHubConfig_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStoreBrowse_GetContentHubConfig_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig hubconfigs = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_hubconfigs_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_hubconfigs(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStoreBrowse_GetContentHubConfig_Response)
+  return target;
+}
+
+size_t CStoreBrowse_GetContentHubConfig_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStoreBrowse_GetContentHubConfig_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig hubconfigs = 1;
+  total_size += 1UL * this->_internal_hubconfigs_size();
+  for (const auto& msg : this->hubconfigs_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStoreBrowse_GetContentHubConfig_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStoreBrowse_GetContentHubConfig_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStoreBrowse_GetContentHubConfig_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStoreBrowse_GetContentHubConfig_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStoreBrowse_GetContentHubConfig_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::MergeFrom(const CStoreBrowse_GetContentHubConfig_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStoreBrowse_GetContentHubConfig_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  hubconfigs_.MergeFrom(from.hubconfigs_);
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStoreBrowse_GetContentHubConfig_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::CopyFrom(const CStoreBrowse_GetContentHubConfig_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStoreBrowse_GetContentHubConfig_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStoreBrowse_GetContentHubConfig_Response::IsInitialized() const {
+  return true;
+}
+
+void CStoreBrowse_GetContentHubConfig_Response::InternalSwap(CStoreBrowse_GetContentHubConfig_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  hubconfigs_.InternalSwap(&other->hubconfigs_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStoreBrowse_GetContentHubConfig_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CStoreBrowse_GetPriceStops_Request::_Internal {
  public:
   using HasBits = decltype(std::declval<CStoreBrowse_GetPriceStops_Request>()._has_bits_);
@@ -20010,6 +21021,14 @@ void StoreBrowse::GetStoreCategories(::PROTOBUF_NAMESPACE_ID::RpcController* con
   done->Run();
 }
 
+void StoreBrowse::GetContentHubConfig(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CStoreBrowse_GetContentHubConfig_Request*,
+                         ::CStoreBrowse_GetContentHubConfig_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetContentHubConfig() not implemented.");
+  done->Run();
+}
+
 void StoreBrowse::GetPriceStops(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CStoreBrowse_GetPriceStops_Request*,
                          ::CStoreBrowse_GetPriceStops_Response*,
@@ -20066,6 +21085,14 @@ void StoreBrowse::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* me
              done);
       break;
     case 2:
+      GetContentHubConfig(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStoreBrowse_GetContentHubConfig_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CStoreBrowse_GetContentHubConfig_Response*>(
+                 response),
+             done);
+      break;
+    case 3:
       GetPriceStops(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStoreBrowse_GetPriceStops_Request*>(
                  request),
@@ -20073,7 +21100,7 @@ void StoreBrowse::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* me
                  response),
              done);
       break;
-    case 3:
+    case 4:
       GetDLCForApps(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStoreBrowse_GetDLCForApps_Request*>(
                  request),
@@ -20081,7 +21108,7 @@ void StoreBrowse::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* me
                  response),
              done);
       break;
-    case 4:
+    case 5:
       GetDLCForAppsSolr(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStoreBrowse_GetDLCForAppsSolr_Request*>(
                  request),
@@ -20089,7 +21116,7 @@ void StoreBrowse::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* me
                  response),
              done);
       break;
-    case 5:
+    case 6:
       GetHardwareItems(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStoreBrowse_GetHardwareItems_Request*>(
                  request),
@@ -20112,12 +21139,14 @@ const ::PROTOBUF_NAMESPACE_ID::Message& StoreBrowse::GetRequestPrototype(
     case 1:
       return ::CStoreBrowse_GetStoreCategories_Request::default_instance();
     case 2:
-      return ::CStoreBrowse_GetPriceStops_Request::default_instance();
+      return ::CStoreBrowse_GetContentHubConfig_Request::default_instance();
     case 3:
-      return ::CStoreBrowse_GetDLCForApps_Request::default_instance();
+      return ::CStoreBrowse_GetPriceStops_Request::default_instance();
     case 4:
-      return ::CStoreBrowse_GetDLCForAppsSolr_Request::default_instance();
+      return ::CStoreBrowse_GetDLCForApps_Request::default_instance();
     case 5:
+      return ::CStoreBrowse_GetDLCForAppsSolr_Request::default_instance();
+    case 6:
       return ::CStoreBrowse_GetHardwareItems_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -20135,12 +21164,14 @@ const ::PROTOBUF_NAMESPACE_ID::Message& StoreBrowse::GetResponsePrototype(
     case 1:
       return ::CStoreBrowse_GetStoreCategories_Response::default_instance();
     case 2:
-      return ::CStoreBrowse_GetPriceStops_Response::default_instance();
+      return ::CStoreBrowse_GetContentHubConfig_Response::default_instance();
     case 3:
-      return ::CStoreBrowse_GetDLCForApps_Response::default_instance();
+      return ::CStoreBrowse_GetPriceStops_Response::default_instance();
     case 4:
-      return ::CStoreBrowse_GetDLCForAppsSolr_Response::default_instance();
+      return ::CStoreBrowse_GetDLCForApps_Response::default_instance();
     case 5:
+      return ::CStoreBrowse_GetDLCForAppsSolr_Response::default_instance();
+    case 6:
       return ::CStoreBrowse_GetHardwareItems_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -20174,32 +21205,39 @@ void StoreBrowse_Stub::GetStoreCategories(::PROTOBUF_NAMESPACE_ID::RpcController
   channel_->CallMethod(descriptor()->method(1),
                        controller, request, response, done);
 }
+void StoreBrowse_Stub::GetContentHubConfig(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CStoreBrowse_GetContentHubConfig_Request* request,
+                              ::CStoreBrowse_GetContentHubConfig_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(2),
+                       controller, request, response, done);
+}
 void StoreBrowse_Stub::GetPriceStops(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStoreBrowse_GetPriceStops_Request* request,
                               ::CStoreBrowse_GetPriceStops_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(2),
+  channel_->CallMethod(descriptor()->method(3),
                        controller, request, response, done);
 }
 void StoreBrowse_Stub::GetDLCForApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStoreBrowse_GetDLCForApps_Request* request,
                               ::CStoreBrowse_GetDLCForApps_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(3),
+  channel_->CallMethod(descriptor()->method(4),
                        controller, request, response, done);
 }
 void StoreBrowse_Stub::GetDLCForAppsSolr(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStoreBrowse_GetDLCForAppsSolr_Request* request,
                               ::CStoreBrowse_GetDLCForAppsSolr_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(4),
+  channel_->CallMethod(descriptor()->method(5),
                        controller, request, response, done);
 }
 void StoreBrowse_Stub::GetHardwareItems(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStoreBrowse_GetHardwareItems_Request* request,
                               ::CStoreBrowse_GetHardwareItems_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(5),
+  channel_->CallMethod(descriptor()->method(6),
                        controller, request, response, done);
 }
 
@@ -20306,6 +21344,15 @@ template<> PROTOBUF_NOINLINE ::CStoreBrowse_GetStoreCategories_Response_Category
 }
 template<> PROTOBUF_NOINLINE ::CStoreBrowse_GetStoreCategories_Response* Arena::CreateMaybeMessage< ::CStoreBrowse_GetStoreCategories_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CStoreBrowse_GetStoreCategories_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStoreBrowse_GetContentHubConfig_Request* Arena::CreateMaybeMessage< ::CStoreBrowse_GetContentHubConfig_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStoreBrowse_GetContentHubConfig_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* Arena::CreateMaybeMessage< ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStoreBrowse_GetContentHubConfig_Response* Arena::CreateMaybeMessage< ::CStoreBrowse_GetContentHubConfig_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStoreBrowse_GetContentHubConfig_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CStoreBrowse_GetPriceStops_Request* Arena::CreateMaybeMessage< ::CStoreBrowse_GetPriceStops_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CStoreBrowse_GetPriceStops_Request >(arena);

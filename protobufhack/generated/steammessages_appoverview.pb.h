@@ -374,8 +374,6 @@ class CAppOverview_PerClientData PROTOBUF_FINAL :
     kClientidFieldNumber = 1,
     kDisplayStatusFieldNumber = 3,
     kStatusPercentageFieldNumber = 4,
-    kBytesDownloadedFieldNumber = 7,
-    kBytesTotalFieldNumber = 8,
     kInstalledFieldNumber = 6,
     kStreamingToLocalClientFieldNumber = 9,
     kIsAvailableOnCurrentPlatformFieldNumber = 10,
@@ -449,7 +447,7 @@ class CAppOverview_PerClientData PROTOBUF_FINAL :
   void _internal_set_display_status(::EDisplayStatus value);
   public:
 
-  // optional uint32 status_percentage = 4 [default = 0];
+  // optional uint32 status_percentage = 4;
   bool has_status_percentage() const;
   private:
   bool _internal_has_status_percentage() const;
@@ -460,32 +458,6 @@ class CAppOverview_PerClientData PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::uint32 _internal_status_percentage() const;
   void _internal_set_status_percentage(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint64 bytes_downloaded = 7 [default = 0];
-  bool has_bytes_downloaded() const;
-  private:
-  bool _internal_has_bytes_downloaded() const;
-  public:
-  void clear_bytes_downloaded();
-  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_downloaded() const;
-  void set_bytes_downloaded(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes_downloaded() const;
-  void _internal_set_bytes_downloaded(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // optional uint64 bytes_total = 8 [default = 0];
-  bool has_bytes_total() const;
-  private:
-  bool _internal_has_bytes_total() const;
-  public:
-  void clear_bytes_total();
-  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_total() const;
-  void set_bytes_total(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bytes_total() const;
-  void _internal_set_bytes_total(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // optional bool installed = 6;
@@ -580,8 +552,6 @@ class CAppOverview_PerClientData PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 clientid_;
   int display_status_;
   ::PROTOBUF_NAMESPACE_ID::uint32 status_percentage_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_downloaded_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 bytes_total_;
   bool installed_;
   bool streaming_to_local_client_;
   bool is_available_on_current_platform_;
@@ -2258,7 +2228,7 @@ inline void CAppOverview_PerClientData::set_display_status(::EDisplayStatus valu
   // @@protoc_insertion_point(field_set:CAppOverview_PerClientData.display_status)
 }
 
-// optional uint32 status_percentage = 4 [default = 0];
+// optional uint32 status_percentage = 4;
 inline bool CAppOverview_PerClientData::_internal_has_status_percentage() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -2361,7 +2331,7 @@ inline void CAppOverview_PerClientData::set_allocated_active_beta(std::string* a
 
 // optional bool installed = 6;
 inline bool CAppOverview_PerClientData::_internal_has_installed() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CAppOverview_PerClientData::has_installed() const {
@@ -2369,7 +2339,7 @@ inline bool CAppOverview_PerClientData::has_installed() const {
 }
 inline void CAppOverview_PerClientData::clear_installed() {
   installed_ = false;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline bool CAppOverview_PerClientData::_internal_installed() const {
   return installed_;
@@ -2379,7 +2349,7 @@ inline bool CAppOverview_PerClientData::installed() const {
   return _internal_installed();
 }
 inline void CAppOverview_PerClientData::_internal_set_installed(bool value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000020u;
   installed_ = value;
 }
 inline void CAppOverview_PerClientData::set_installed(bool value) {
@@ -2387,65 +2357,9 @@ inline void CAppOverview_PerClientData::set_installed(bool value) {
   // @@protoc_insertion_point(field_set:CAppOverview_PerClientData.installed)
 }
 
-// optional uint64 bytes_downloaded = 7 [default = 0];
-inline bool CAppOverview_PerClientData::_internal_has_bytes_downloaded() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
-  return value;
-}
-inline bool CAppOverview_PerClientData::has_bytes_downloaded() const {
-  return _internal_has_bytes_downloaded();
-}
-inline void CAppOverview_PerClientData::clear_bytes_downloaded() {
-  bytes_downloaded_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview_PerClientData::_internal_bytes_downloaded() const {
-  return bytes_downloaded_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview_PerClientData::bytes_downloaded() const {
-  // @@protoc_insertion_point(field_get:CAppOverview_PerClientData.bytes_downloaded)
-  return _internal_bytes_downloaded();
-}
-inline void CAppOverview_PerClientData::_internal_set_bytes_downloaded(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000020u;
-  bytes_downloaded_ = value;
-}
-inline void CAppOverview_PerClientData::set_bytes_downloaded(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_bytes_downloaded(value);
-  // @@protoc_insertion_point(field_set:CAppOverview_PerClientData.bytes_downloaded)
-}
-
-// optional uint64 bytes_total = 8 [default = 0];
-inline bool CAppOverview_PerClientData::_internal_has_bytes_total() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
-  return value;
-}
-inline bool CAppOverview_PerClientData::has_bytes_total() const {
-  return _internal_has_bytes_total();
-}
-inline void CAppOverview_PerClientData::clear_bytes_total() {
-  bytes_total_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview_PerClientData::_internal_bytes_total() const {
-  return bytes_total_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 CAppOverview_PerClientData::bytes_total() const {
-  // @@protoc_insertion_point(field_get:CAppOverview_PerClientData.bytes_total)
-  return _internal_bytes_total();
-}
-inline void CAppOverview_PerClientData::_internal_set_bytes_total(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000040u;
-  bytes_total_ = value;
-}
-inline void CAppOverview_PerClientData::set_bytes_total(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_bytes_total(value);
-  // @@protoc_insertion_point(field_set:CAppOverview_PerClientData.bytes_total)
-}
-
 // optional bool streaming_to_local_client = 9;
 inline bool CAppOverview_PerClientData::_internal_has_streaming_to_local_client() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CAppOverview_PerClientData::has_streaming_to_local_client() const {
@@ -2453,7 +2367,7 @@ inline bool CAppOverview_PerClientData::has_streaming_to_local_client() const {
 }
 inline void CAppOverview_PerClientData::clear_streaming_to_local_client() {
   streaming_to_local_client_ = false;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline bool CAppOverview_PerClientData::_internal_streaming_to_local_client() const {
   return streaming_to_local_client_;
@@ -2463,7 +2377,7 @@ inline bool CAppOverview_PerClientData::streaming_to_local_client() const {
   return _internal_streaming_to_local_client();
 }
 inline void CAppOverview_PerClientData::_internal_set_streaming_to_local_client(bool value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000040u;
   streaming_to_local_client_ = value;
 }
 inline void CAppOverview_PerClientData::set_streaming_to_local_client(bool value) {
@@ -2473,7 +2387,7 @@ inline void CAppOverview_PerClientData::set_streaming_to_local_client(bool value
 
 // optional bool is_available_on_current_platform = 10;
 inline bool CAppOverview_PerClientData::_internal_has_is_available_on_current_platform() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CAppOverview_PerClientData::has_is_available_on_current_platform() const {
@@ -2481,7 +2395,7 @@ inline bool CAppOverview_PerClientData::has_is_available_on_current_platform() c
 }
 inline void CAppOverview_PerClientData::clear_is_available_on_current_platform() {
   is_available_on_current_platform_ = false;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline bool CAppOverview_PerClientData::_internal_is_available_on_current_platform() const {
   return is_available_on_current_platform_;
@@ -2491,7 +2405,7 @@ inline bool CAppOverview_PerClientData::is_available_on_current_platform() const
   return _internal_is_available_on_current_platform();
 }
 inline void CAppOverview_PerClientData::_internal_set_is_available_on_current_platform(bool value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000080u;
   is_available_on_current_platform_ = value;
 }
 inline void CAppOverview_PerClientData::set_is_available_on_current_platform(bool value) {
@@ -2501,7 +2415,7 @@ inline void CAppOverview_PerClientData::set_is_available_on_current_platform(boo
 
 // optional bool is_invalid_os_type = 11;
 inline bool CAppOverview_PerClientData::_internal_has_is_invalid_os_type() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CAppOverview_PerClientData::has_is_invalid_os_type() const {
@@ -2509,7 +2423,7 @@ inline bool CAppOverview_PerClientData::has_is_invalid_os_type() const {
 }
 inline void CAppOverview_PerClientData::clear_is_invalid_os_type() {
   is_invalid_os_type_ = false;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline bool CAppOverview_PerClientData::_internal_is_invalid_os_type() const {
   return is_invalid_os_type_;
@@ -2519,7 +2433,7 @@ inline bool CAppOverview_PerClientData::is_invalid_os_type() const {
   return _internal_is_invalid_os_type();
 }
 inline void CAppOverview_PerClientData::_internal_set_is_invalid_os_type(bool value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000100u;
   is_invalid_os_type_ = value;
 }
 inline void CAppOverview_PerClientData::set_is_invalid_os_type(bool value) {
@@ -2529,7 +2443,7 @@ inline void CAppOverview_PerClientData::set_is_invalid_os_type(bool value) {
 
 // optional uint32 playtime_left = 12;
 inline bool CAppOverview_PerClientData::_internal_has_playtime_left() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CAppOverview_PerClientData::has_playtime_left() const {
@@ -2537,7 +2451,7 @@ inline bool CAppOverview_PerClientData::has_playtime_left() const {
 }
 inline void CAppOverview_PerClientData::clear_playtime_left() {
   playtime_left_ = 0u;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview_PerClientData::_internal_playtime_left() const {
   return playtime_left_;
@@ -2547,7 +2461,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview_PerClientData::playtime_left
   return _internal_playtime_left();
 }
 inline void CAppOverview_PerClientData::_internal_set_playtime_left(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000200u;
   playtime_left_ = value;
 }
 inline void CAppOverview_PerClientData::set_playtime_left(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -2557,7 +2471,7 @@ inline void CAppOverview_PerClientData::set_playtime_left(::PROTOBUF_NAMESPACE_I
 
 // optional bool update_available_but_disabled_by_app = 14;
 inline bool CAppOverview_PerClientData::_internal_has_update_available_but_disabled_by_app() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CAppOverview_PerClientData::has_update_available_but_disabled_by_app() const {
@@ -2565,7 +2479,7 @@ inline bool CAppOverview_PerClientData::has_update_available_but_disabled_by_app
 }
 inline void CAppOverview_PerClientData::clear_update_available_but_disabled_by_app() {
   update_available_but_disabled_by_app_ = false;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline bool CAppOverview_PerClientData::_internal_update_available_but_disabled_by_app() const {
   return update_available_but_disabled_by_app_;
@@ -2575,7 +2489,7 @@ inline bool CAppOverview_PerClientData::update_available_but_disabled_by_app() c
   return _internal_update_available_but_disabled_by_app();
 }
 inline void CAppOverview_PerClientData::_internal_set_update_available_but_disabled_by_app(bool value) {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00000400u;
   update_available_but_disabled_by_app_ = value;
 }
 inline void CAppOverview_PerClientData::set_update_available_but_disabled_by_app(bool value) {

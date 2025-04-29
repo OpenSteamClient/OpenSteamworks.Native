@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fclientserver_5ffriends_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[39]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[40]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -146,6 +146,9 @@ extern CMsgClientPersonaState_Friend_ClanDataDefaultTypeInternal _CMsgClientPers
 class CMsgClientPersonaState_Friend_KV;
 struct CMsgClientPersonaState_Friend_KVDefaultTypeInternal;
 extern CMsgClientPersonaState_Friend_KVDefaultTypeInternal _CMsgClientPersonaState_Friend_KV_default_instance_;
+class CMsgClientPersonaState_Friend_OtherGameData;
+struct CMsgClientPersonaState_Friend_OtherGameDataDefaultTypeInternal;
+extern CMsgClientPersonaState_Friend_OtherGameDataDefaultTypeInternal _CMsgClientPersonaState_Friend_OtherGameData_default_instance_;
 class CMsgClientPlayerNicknameList;
 struct CMsgClientPlayerNicknameListDefaultTypeInternal;
 extern CMsgClientPlayerNicknameListDefaultTypeInternal _CMsgClientPlayerNicknameList_default_instance_;
@@ -204,6 +207,7 @@ template<> ::CMsgClientPersonaState* Arena::CreateMaybeMessage<::CMsgClientPerso
 template<> ::CMsgClientPersonaState_Friend* Arena::CreateMaybeMessage<::CMsgClientPersonaState_Friend>(Arena*);
 template<> ::CMsgClientPersonaState_Friend_ClanData* Arena::CreateMaybeMessage<::CMsgClientPersonaState_Friend_ClanData>(Arena*);
 template<> ::CMsgClientPersonaState_Friend_KV* Arena::CreateMaybeMessage<::CMsgClientPersonaState_Friend_KV>(Arena*);
+template<> ::CMsgClientPersonaState_Friend_OtherGameData* Arena::CreateMaybeMessage<::CMsgClientPersonaState_Friend_OtherGameData>(Arena*);
 template<> ::CMsgClientPlayerNicknameList* Arena::CreateMaybeMessage<::CMsgClientPlayerNicknameList>(Arena*);
 template<> ::CMsgClientPlayerNicknameList_PlayerNickname* Arena::CreateMaybeMessage<::CMsgClientPlayerNicknameList_PlayerNickname>(Arena*);
 template<> ::CMsgClientRemoveFriend* Arena::CreateMaybeMessage<::CMsgClientRemoveFriend>(Arena*);
@@ -3865,6 +3869,175 @@ class CMsgClientPersonaState_Friend_KV PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMsgClientPersonaState_Friend_OtherGameData PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientPersonaState.Friend.OtherGameData) */ {
+ public:
+  inline CMsgClientPersonaState_Friend_OtherGameData() : CMsgClientPersonaState_Friend_OtherGameData(nullptr) {}
+  virtual ~CMsgClientPersonaState_Friend_OtherGameData();
+  explicit constexpr CMsgClientPersonaState_Friend_OtherGameData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientPersonaState_Friend_OtherGameData(const CMsgClientPersonaState_Friend_OtherGameData& from);
+  CMsgClientPersonaState_Friend_OtherGameData(CMsgClientPersonaState_Friend_OtherGameData&& from) noexcept
+    : CMsgClientPersonaState_Friend_OtherGameData() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientPersonaState_Friend_OtherGameData& operator=(const CMsgClientPersonaState_Friend_OtherGameData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientPersonaState_Friend_OtherGameData& operator=(CMsgClientPersonaState_Friend_OtherGameData&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgClientPersonaState_Friend_OtherGameData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientPersonaState_Friend_OtherGameData* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientPersonaState_Friend_OtherGameData*>(
+               &_CMsgClientPersonaState_Friend_OtherGameData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(CMsgClientPersonaState_Friend_OtherGameData& a, CMsgClientPersonaState_Friend_OtherGameData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientPersonaState_Friend_OtherGameData* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientPersonaState_Friend_OtherGameData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgClientPersonaState_Friend_OtherGameData* New() const final {
+    return CreateMaybeMessage<CMsgClientPersonaState_Friend_OtherGameData>(nullptr);
+  }
+
+  CMsgClientPersonaState_Friend_OtherGameData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgClientPersonaState_Friend_OtherGameData>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgClientPersonaState_Friend_OtherGameData& from);
+  void MergeFrom(const CMsgClientPersonaState_Friend_OtherGameData& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientPersonaState_Friend_OtherGameData* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientPersonaState.Friend.OtherGameData";
+  }
+  protected:
+  explicit CMsgClientPersonaState_Friend_OtherGameData(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientserver_5ffriends_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRichPresenceFieldNumber = 2,
+    kGameidFieldNumber = 1,
+  };
+  // repeated .CMsgClientPersonaState.Friend.KV rich_presence = 2;
+  int rich_presence_size() const;
+  private:
+  int _internal_rich_presence_size() const;
+  public:
+  void clear_rich_presence();
+  ::CMsgClientPersonaState_Friend_KV* mutable_rich_presence(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_KV >*
+      mutable_rich_presence();
+  private:
+  const ::CMsgClientPersonaState_Friend_KV& _internal_rich_presence(int index) const;
+  ::CMsgClientPersonaState_Friend_KV* _internal_add_rich_presence();
+  public:
+  const ::CMsgClientPersonaState_Friend_KV& rich_presence(int index) const;
+  ::CMsgClientPersonaState_Friend_KV* add_rich_presence();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_KV >&
+      rich_presence() const;
+
+  // optional uint64 gameid = 1;
+  bool has_gameid() const;
+  private:
+  bool _internal_has_gameid() const;
+  public:
+  void clear_gameid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid() const;
+  void set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gameid() const;
+  void _internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientPersonaState.Friend.OtherGameData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_KV > rich_presence_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
+  friend struct ::TableStruct_steammessages_5fclientserver_5ffriends_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientPersonaState.Friend) */ {
  public:
@@ -3915,7 +4088,7 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
                &_CMsgClientPersonaState_Friend_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CMsgClientPersonaState_Friend& a, CMsgClientPersonaState_Friend& b) {
     a.Swap(&b);
@@ -3984,11 +4157,13 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
 
   typedef CMsgClientPersonaState_Friend_ClanData ClanData;
   typedef CMsgClientPersonaState_Friend_KV KV;
+  typedef CMsgClientPersonaState_Friend_OtherGameData OtherGameData;
 
   // accessors -------------------------------------------------------
 
   enum : int {
     kRichPresenceFieldNumber = 71,
+    kOtherGameDataFieldNumber = 82,
     kPlayerNameFieldNumber = 15,
     kAvatarHashFieldNumber = 31,
     kGameNameFieldNumber = 55,
@@ -4038,6 +4213,24 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
   ::CMsgClientPersonaState_Friend_KV* add_rich_presence();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_KV >&
       rich_presence() const;
+
+  // repeated .CMsgClientPersonaState.Friend.OtherGameData other_game_data = 82;
+  int other_game_data_size() const;
+  private:
+  int _internal_other_game_data_size() const;
+  public:
+  void clear_other_game_data();
+  ::CMsgClientPersonaState_Friend_OtherGameData* mutable_other_game_data(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_OtherGameData >*
+      mutable_other_game_data();
+  private:
+  const ::CMsgClientPersonaState_Friend_OtherGameData& _internal_other_game_data(int index) const;
+  ::CMsgClientPersonaState_Friend_OtherGameData* _internal_add_other_game_data();
+  public:
+  const ::CMsgClientPersonaState_Friend_OtherGameData& other_game_data(int index) const;
+  ::CMsgClientPersonaState_Friend_OtherGameData* add_other_game_data();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_OtherGameData >&
+      other_game_data() const;
 
   // optional string player_name = 15;
   bool has_player_name() const;
@@ -4499,6 +4692,7 @@ class CMsgClientPersonaState_Friend PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_KV > rich_presence_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_OtherGameData > other_game_data_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_hash_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_name_;
@@ -4584,7 +4778,7 @@ class CMsgClientPersonaState PROTOBUF_FINAL :
                &_CMsgClientPersonaState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CMsgClientPersonaState& a, CMsgClientPersonaState& b) {
     a.Swap(&b);
@@ -4755,7 +4949,7 @@ class CMsgClientFriendProfileInfo PROTOBUF_FINAL :
                &_CMsgClientFriendProfileInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CMsgClientFriendProfileInfo& a, CMsgClientFriendProfileInfo& b) {
     a.Swap(&b);
@@ -4904,7 +5098,7 @@ class CMsgClientFriendProfileInfoResponse PROTOBUF_FINAL :
                &_CMsgClientFriendProfileInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CMsgClientFriendProfileInfoResponse& a, CMsgClientFriendProfileInfoResponse& b) {
     a.Swap(&b);
@@ -5215,7 +5409,7 @@ class CMsgClientCreateFriendsGroup PROTOBUF_FINAL :
                &_CMsgClientCreateFriendsGroup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CMsgClientCreateFriendsGroup& a, CMsgClientCreateFriendsGroup& b) {
     a.Swap(&b);
@@ -5410,7 +5604,7 @@ class CMsgClientCreateFriendsGroupResponse PROTOBUF_FINAL :
                &_CMsgClientCreateFriendsGroupResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CMsgClientCreateFriendsGroupResponse& a, CMsgClientCreateFriendsGroupResponse& b) {
     a.Swap(&b);
@@ -5574,7 +5768,7 @@ class CMsgClientDeleteFriendsGroup PROTOBUF_FINAL :
                &_CMsgClientDeleteFriendsGroup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(CMsgClientDeleteFriendsGroup& a, CMsgClientDeleteFriendsGroup& b) {
     a.Swap(&b);
@@ -5738,7 +5932,7 @@ class CMsgClientDeleteFriendsGroupResponse PROTOBUF_FINAL :
                &_CMsgClientDeleteFriendsGroupResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CMsgClientDeleteFriendsGroupResponse& a, CMsgClientDeleteFriendsGroupResponse& b) {
     a.Swap(&b);
@@ -5887,7 +6081,7 @@ class CMsgClientManageFriendsGroup PROTOBUF_FINAL :
                &_CMsgClientManageFriendsGroup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CMsgClientManageFriendsGroup& a, CMsgClientManageFriendsGroup& b) {
     a.Swap(&b);
@@ -6106,7 +6300,7 @@ class CMsgClientManageFriendsGroupResponse PROTOBUF_FINAL :
                &_CMsgClientManageFriendsGroupResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CMsgClientManageFriendsGroupResponse& a, CMsgClientManageFriendsGroupResponse& b) {
     a.Swap(&b);
@@ -6255,7 +6449,7 @@ class CMsgClientAddFriendToGroup PROTOBUF_FINAL :
                &_CMsgClientAddFriendToGroup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CMsgClientAddFriendToGroup& a, CMsgClientAddFriendToGroup& b) {
     a.Swap(&b);
@@ -6419,7 +6613,7 @@ class CMsgClientAddFriendToGroupResponse PROTOBUF_FINAL :
                &_CMsgClientAddFriendToGroupResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CMsgClientAddFriendToGroupResponse& a, CMsgClientAddFriendToGroupResponse& b) {
     a.Swap(&b);
@@ -6568,7 +6762,7 @@ class CMsgClientRemoveFriendFromGroup PROTOBUF_FINAL :
                &_CMsgClientRemoveFriendFromGroup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(CMsgClientRemoveFriendFromGroup& a, CMsgClientRemoveFriendFromGroup& b) {
     a.Swap(&b);
@@ -6732,7 +6926,7 @@ class CMsgClientRemoveFriendFromGroupResponse PROTOBUF_FINAL :
                &_CMsgClientRemoveFriendFromGroupResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(CMsgClientRemoveFriendFromGroupResponse& a, CMsgClientRemoveFriendFromGroupResponse& b) {
     a.Swap(&b);
@@ -6881,7 +7075,7 @@ class CMsgClientGetEmoticonList PROTOBUF_FINAL :
                &_CMsgClientGetEmoticonList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(CMsgClientGetEmoticonList& a, CMsgClientGetEmoticonList& b) {
     a.Swap(&b);
@@ -7012,7 +7206,7 @@ class CMsgClientEmoticonList_Emoticon PROTOBUF_FINAL :
                &_CMsgClientEmoticonList_Emoticon_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(CMsgClientEmoticonList_Emoticon& a, CMsgClientEmoticonList_Emoticon& b) {
     a.Swap(&b);
@@ -7243,7 +7437,7 @@ class CMsgClientEmoticonList_Sticker PROTOBUF_FINAL :
                &_CMsgClientEmoticonList_Sticker_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(CMsgClientEmoticonList_Sticker& a, CMsgClientEmoticonList_Sticker& b) {
     a.Swap(&b);
@@ -7474,7 +7668,7 @@ class CMsgClientEmoticonList_Effect PROTOBUF_FINAL :
                &_CMsgClientEmoticonList_Effect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(CMsgClientEmoticonList_Effect& a, CMsgClientEmoticonList_Effect& b) {
     a.Swap(&b);
@@ -7690,7 +7884,7 @@ class CMsgClientEmoticonList PROTOBUF_FINAL :
                &_CMsgClientEmoticonList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(CMsgClientEmoticonList& a, CMsgClientEmoticonList& b) {
     a.Swap(&b);
@@ -10078,6 +10272,77 @@ inline void CMsgClientPersonaState_Friend_KV::set_allocated_value(std::string* v
 
 // -------------------------------------------------------------------
 
+// CMsgClientPersonaState_Friend_OtherGameData
+
+// optional uint64 gameid = 1;
+inline bool CMsgClientPersonaState_Friend_OtherGameData::_internal_has_gameid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientPersonaState_Friend_OtherGameData::has_gameid() const {
+  return _internal_has_gameid();
+}
+inline void CMsgClientPersonaState_Friend_OtherGameData::clear_gameid() {
+  gameid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPersonaState_Friend_OtherGameData::_internal_gameid() const {
+  return gameid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientPersonaState_Friend_OtherGameData::gameid() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPersonaState.Friend.OtherGameData.gameid)
+  return _internal_gameid();
+}
+inline void CMsgClientPersonaState_Friend_OtherGameData::_internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  gameid_ = value;
+}
+inline void CMsgClientPersonaState_Friend_OtherGameData::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_gameid(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPersonaState.Friend.OtherGameData.gameid)
+}
+
+// repeated .CMsgClientPersonaState.Friend.KV rich_presence = 2;
+inline int CMsgClientPersonaState_Friend_OtherGameData::_internal_rich_presence_size() const {
+  return rich_presence_.size();
+}
+inline int CMsgClientPersonaState_Friend_OtherGameData::rich_presence_size() const {
+  return _internal_rich_presence_size();
+}
+inline void CMsgClientPersonaState_Friend_OtherGameData::clear_rich_presence() {
+  rich_presence_.Clear();
+}
+inline ::CMsgClientPersonaState_Friend_KV* CMsgClientPersonaState_Friend_OtherGameData::mutable_rich_presence(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgClientPersonaState.Friend.OtherGameData.rich_presence)
+  return rich_presence_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_KV >*
+CMsgClientPersonaState_Friend_OtherGameData::mutable_rich_presence() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientPersonaState.Friend.OtherGameData.rich_presence)
+  return &rich_presence_;
+}
+inline const ::CMsgClientPersonaState_Friend_KV& CMsgClientPersonaState_Friend_OtherGameData::_internal_rich_presence(int index) const {
+  return rich_presence_.Get(index);
+}
+inline const ::CMsgClientPersonaState_Friend_KV& CMsgClientPersonaState_Friend_OtherGameData::rich_presence(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientPersonaState.Friend.OtherGameData.rich_presence)
+  return _internal_rich_presence(index);
+}
+inline ::CMsgClientPersonaState_Friend_KV* CMsgClientPersonaState_Friend_OtherGameData::_internal_add_rich_presence() {
+  return rich_presence_.Add();
+}
+inline ::CMsgClientPersonaState_Friend_KV* CMsgClientPersonaState_Friend_OtherGameData::add_rich_presence() {
+  // @@protoc_insertion_point(field_add:CMsgClientPersonaState.Friend.OtherGameData.rich_presence)
+  return _internal_add_rich_presence();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_KV >&
+CMsgClientPersonaState_Friend_OtherGameData::rich_presence() const {
+  // @@protoc_insertion_point(field_list:CMsgClientPersonaState.Friend.OtherGameData.rich_presence)
+  return rich_presence_;
+}
+
+// -------------------------------------------------------------------
+
 // CMsgClientPersonaState_Friend
 
 // optional fixed64 friendid = 1;
@@ -11310,6 +11575,45 @@ inline void CMsgClientPersonaState_Friend::_internal_set_on_steam_deck(bool valu
 inline void CMsgClientPersonaState_Friend::set_on_steam_deck(bool value) {
   _internal_set_on_steam_deck(value);
   // @@protoc_insertion_point(field_set:CMsgClientPersonaState.Friend.on_steam_deck)
+}
+
+// repeated .CMsgClientPersonaState.Friend.OtherGameData other_game_data = 82;
+inline int CMsgClientPersonaState_Friend::_internal_other_game_data_size() const {
+  return other_game_data_.size();
+}
+inline int CMsgClientPersonaState_Friend::other_game_data_size() const {
+  return _internal_other_game_data_size();
+}
+inline void CMsgClientPersonaState_Friend::clear_other_game_data() {
+  other_game_data_.Clear();
+}
+inline ::CMsgClientPersonaState_Friend_OtherGameData* CMsgClientPersonaState_Friend::mutable_other_game_data(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgClientPersonaState.Friend.other_game_data)
+  return other_game_data_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_OtherGameData >*
+CMsgClientPersonaState_Friend::mutable_other_game_data() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientPersonaState.Friend.other_game_data)
+  return &other_game_data_;
+}
+inline const ::CMsgClientPersonaState_Friend_OtherGameData& CMsgClientPersonaState_Friend::_internal_other_game_data(int index) const {
+  return other_game_data_.Get(index);
+}
+inline const ::CMsgClientPersonaState_Friend_OtherGameData& CMsgClientPersonaState_Friend::other_game_data(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientPersonaState.Friend.other_game_data)
+  return _internal_other_game_data(index);
+}
+inline ::CMsgClientPersonaState_Friend_OtherGameData* CMsgClientPersonaState_Friend::_internal_add_other_game_data() {
+  return other_game_data_.Add();
+}
+inline ::CMsgClientPersonaState_Friend_OtherGameData* CMsgClientPersonaState_Friend::add_other_game_data() {
+  // @@protoc_insertion_point(field_add:CMsgClientPersonaState.Friend.other_game_data)
+  return _internal_add_other_game_data();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientPersonaState_Friend_OtherGameData >&
+CMsgClientPersonaState_Friend::other_game_data() const {
+  // @@protoc_insertion_point(field_list:CMsgClientPersonaState.Friend.other_game_data)
+  return other_game_data_;
 }
 
 // -------------------------------------------------------------------
@@ -13411,6 +13715,8 @@ CMsgClientEmoticonList::effects() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

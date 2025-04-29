@@ -53,7 +53,7 @@ struct TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[25]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[27]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -100,6 +100,12 @@ extern CClientMetrics_DownloadRates_Notification_StatsInfoDefaultTypeInternal _C
 class CClientMetrics_EndGameRecording_Notification;
 struct CClientMetrics_EndGameRecording_NotificationDefaultTypeInternal;
 extern CClientMetrics_EndGameRecording_NotificationDefaultTypeInternal _CClientMetrics_EndGameRecording_Notification_default_instance_;
+class CClientMetrics_GamePerformance_Notification;
+struct CClientMetrics_GamePerformance_NotificationDefaultTypeInternal;
+extern CClientMetrics_GamePerformance_NotificationDefaultTypeInternal _CClientMetrics_GamePerformance_Notification_default_instance_;
+class CClientMetrics_GamePerformance_Notification_FrameRateReport;
+struct CClientMetrics_GamePerformance_Notification_FrameRateReportDefaultTypeInternal;
+extern CClientMetrics_GamePerformance_Notification_FrameRateReportDefaultTypeInternal _CClientMetrics_GamePerformance_Notification_FrameRateReport_default_instance_;
 class CClientMetrics_IPv6Connectivity_Notification;
 struct CClientMetrics_IPv6Connectivity_NotificationDefaultTypeInternal;
 extern CClientMetrics_IPv6Connectivity_NotificationDefaultTypeInternal _CClientMetrics_IPv6Connectivity_Notification_default_instance_;
@@ -150,6 +156,8 @@ template<> ::CClientMetrics_ContentValidation_Notification* Arena::CreateMaybeMe
 template<> ::CClientMetrics_DownloadRates_Notification* Arena::CreateMaybeMessage<::CClientMetrics_DownloadRates_Notification>(Arena*);
 template<> ::CClientMetrics_DownloadRates_Notification_StatsInfo* Arena::CreateMaybeMessage<::CClientMetrics_DownloadRates_Notification_StatsInfo>(Arena*);
 template<> ::CClientMetrics_EndGameRecording_Notification* Arena::CreateMaybeMessage<::CClientMetrics_EndGameRecording_Notification>(Arena*);
+template<> ::CClientMetrics_GamePerformance_Notification* Arena::CreateMaybeMessage<::CClientMetrics_GamePerformance_Notification>(Arena*);
+template<> ::CClientMetrics_GamePerformance_Notification_FrameRateReport* Arena::CreateMaybeMessage<::CClientMetrics_GamePerformance_Notification_FrameRateReport>(Arena*);
 template<> ::CClientMetrics_IPv6Connectivity_Notification* Arena::CreateMaybeMessage<::CClientMetrics_IPv6Connectivity_Notification>(Arena*);
 template<> ::CClientMetrics_IPv6Connectivity_Result* Arena::CreateMaybeMessage<::CClientMetrics_IPv6Connectivity_Result>(Arena*);
 template<> ::CClientMetrics_ReportClientArgs_Notification* Arena::CreateMaybeMessage<::CClientMetrics_ReportClientArgs_Notification>(Arena*);
@@ -5750,6 +5758,466 @@ class CClientMetrics_EndGameRecording_Notification PROTOBUF_FINAL :
   bool instant_clip_;
   friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CClientMetrics_GamePerformance_Notification_FrameRateReport PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientMetrics_GamePerformance_Notification.FrameRateReport) */ {
+ public:
+  inline CClientMetrics_GamePerformance_Notification_FrameRateReport() : CClientMetrics_GamePerformance_Notification_FrameRateReport(nullptr) {}
+  virtual ~CClientMetrics_GamePerformance_Notification_FrameRateReport();
+  explicit constexpr CClientMetrics_GamePerformance_Notification_FrameRateReport(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientMetrics_GamePerformance_Notification_FrameRateReport(const CClientMetrics_GamePerformance_Notification_FrameRateReport& from);
+  CClientMetrics_GamePerformance_Notification_FrameRateReport(CClientMetrics_GamePerformance_Notification_FrameRateReport&& from) noexcept
+    : CClientMetrics_GamePerformance_Notification_FrameRateReport() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientMetrics_GamePerformance_Notification_FrameRateReport& operator=(const CClientMetrics_GamePerformance_Notification_FrameRateReport& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientMetrics_GamePerformance_Notification_FrameRateReport& operator=(CClientMetrics_GamePerformance_Notification_FrameRateReport&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientMetrics_GamePerformance_Notification_FrameRateReport& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientMetrics_GamePerformance_Notification_FrameRateReport* internal_default_instance() {
+    return reinterpret_cast<const CClientMetrics_GamePerformance_Notification_FrameRateReport*>(
+               &_CClientMetrics_GamePerformance_Notification_FrameRateReport_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(CClientMetrics_GamePerformance_Notification_FrameRateReport& a, CClientMetrics_GamePerformance_Notification_FrameRateReport& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientMetrics_GamePerformance_Notification_FrameRateReport* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientMetrics_GamePerformance_Notification_FrameRateReport* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientMetrics_GamePerformance_Notification_FrameRateReport* New() const final {
+    return CreateMaybeMessage<CClientMetrics_GamePerformance_Notification_FrameRateReport>(nullptr);
+  }
+
+  CClientMetrics_GamePerformance_Notification_FrameRateReport* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientMetrics_GamePerformance_Notification_FrameRateReport>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientMetrics_GamePerformance_Notification_FrameRateReport& from);
+  void MergeFrom(const CClientMetrics_GamePerformance_Notification_FrameRateReport& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientMetrics_GamePerformance_Notification_FrameRateReport* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientMetrics_GamePerformance_Notification.FrameRateReport";
+  }
+  protected:
+  explicit CClientMetrics_GamePerformance_Notification_FrameRateReport(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kManufacturerFieldNumber = 3,
+    kModelFieldNumber = 4,
+    kDxVideoCardFieldNumber = 5,
+    kGameidFieldNumber = 1,
+    kFrameRateFieldNumber = 2,
+    kDxVendoridFieldNumber = 6,
+    kDxDeviceidFieldNumber = 7,
+    kNumGpuFieldNumber = 8,
+    kSystemRamFieldNumber = 9,
+    kSessionSecondsFieldNumber = 10,
+  };
+  // optional string manufacturer = 3;
+  bool has_manufacturer() const;
+  private:
+  bool _internal_has_manufacturer() const;
+  public:
+  void clear_manufacturer();
+  const std::string& manufacturer() const;
+  void set_manufacturer(const std::string& value);
+  void set_manufacturer(std::string&& value);
+  void set_manufacturer(const char* value);
+  void set_manufacturer(const char* value, size_t size);
+  std::string* mutable_manufacturer();
+  std::string* release_manufacturer();
+  void set_allocated_manufacturer(std::string* manufacturer);
+  private:
+  const std::string& _internal_manufacturer() const;
+  void _internal_set_manufacturer(const std::string& value);
+  std::string* _internal_mutable_manufacturer();
+  public:
+
+  // optional string model = 4;
+  bool has_model() const;
+  private:
+  bool _internal_has_model() const;
+  public:
+  void clear_model();
+  const std::string& model() const;
+  void set_model(const std::string& value);
+  void set_model(std::string&& value);
+  void set_model(const char* value);
+  void set_model(const char* value, size_t size);
+  std::string* mutable_model();
+  std::string* release_model();
+  void set_allocated_model(std::string* model);
+  private:
+  const std::string& _internal_model() const;
+  void _internal_set_model(const std::string& value);
+  std::string* _internal_mutable_model();
+  public:
+
+  // optional string dx_video_card = 5;
+  bool has_dx_video_card() const;
+  private:
+  bool _internal_has_dx_video_card() const;
+  public:
+  void clear_dx_video_card();
+  const std::string& dx_video_card() const;
+  void set_dx_video_card(const std::string& value);
+  void set_dx_video_card(std::string&& value);
+  void set_dx_video_card(const char* value);
+  void set_dx_video_card(const char* value, size_t size);
+  std::string* mutable_dx_video_card();
+  std::string* release_dx_video_card();
+  void set_allocated_dx_video_card(std::string* dx_video_card);
+  private:
+  const std::string& _internal_dx_video_card() const;
+  void _internal_set_dx_video_card(const std::string& value);
+  std::string* _internal_mutable_dx_video_card();
+  public:
+
+  // optional fixed64 gameid = 1;
+  bool has_gameid() const;
+  private:
+  bool _internal_has_gameid() const;
+  public:
+  void clear_gameid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid() const;
+  void set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gameid() const;
+  void _internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint32 frame_rate = 2;
+  bool has_frame_rate() const;
+  private:
+  bool _internal_has_frame_rate() const;
+  public:
+  void clear_frame_rate();
+  ::PROTOBUF_NAMESPACE_ID::uint32 frame_rate() const;
+  void set_frame_rate(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_frame_rate() const;
+  void _internal_set_frame_rate(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional int32 dx_vendorid = 6;
+  bool has_dx_vendorid() const;
+  private:
+  bool _internal_has_dx_vendorid() const;
+  public:
+  void clear_dx_vendorid();
+  ::PROTOBUF_NAMESPACE_ID::int32 dx_vendorid() const;
+  void set_dx_vendorid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_dx_vendorid() const;
+  void _internal_set_dx_vendorid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 dx_deviceid = 7;
+  bool has_dx_deviceid() const;
+  private:
+  bool _internal_has_dx_deviceid() const;
+  public:
+  void clear_dx_deviceid();
+  ::PROTOBUF_NAMESPACE_ID::int32 dx_deviceid() const;
+  void set_dx_deviceid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_dx_deviceid() const;
+  void _internal_set_dx_deviceid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional uint32 num_gpu = 8;
+  bool has_num_gpu() const;
+  private:
+  bool _internal_has_num_gpu() const;
+  public:
+  void clear_num_gpu();
+  ::PROTOBUF_NAMESPACE_ID::uint32 num_gpu() const;
+  void set_num_gpu(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_num_gpu() const;
+  void _internal_set_num_gpu(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint64 system_ram = 9;
+  bool has_system_ram() const;
+  private:
+  bool _internal_has_system_ram() const;
+  public:
+  void clear_system_ram();
+  ::PROTOBUF_NAMESPACE_ID::uint64 system_ram() const;
+  void set_system_ram(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_system_ram() const;
+  void _internal_set_system_ram(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional int32 session_seconds = 10;
+  bool has_session_seconds() const;
+  private:
+  bool _internal_has_session_seconds() const;
+  public:
+  void clear_session_seconds();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_seconds() const;
+  void set_session_seconds(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_seconds() const;
+  void _internal_set_session_seconds(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CClientMetrics_GamePerformance_Notification.FrameRateReport)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr manufacturer_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr model_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dx_video_card_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 gameid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 frame_rate_;
+  ::PROTOBUF_NAMESPACE_ID::int32 dx_vendorid_;
+  ::PROTOBUF_NAMESPACE_ID::int32 dx_deviceid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 num_gpu_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 system_ram_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_seconds_;
+  friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CClientMetrics_GamePerformance_Notification PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CClientMetrics_GamePerformance_Notification) */ {
+ public:
+  inline CClientMetrics_GamePerformance_Notification() : CClientMetrics_GamePerformance_Notification(nullptr) {}
+  virtual ~CClientMetrics_GamePerformance_Notification();
+  explicit constexpr CClientMetrics_GamePerformance_Notification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CClientMetrics_GamePerformance_Notification(const CClientMetrics_GamePerformance_Notification& from);
+  CClientMetrics_GamePerformance_Notification(CClientMetrics_GamePerformance_Notification&& from) noexcept
+    : CClientMetrics_GamePerformance_Notification() {
+    *this = ::std::move(from);
+  }
+
+  inline CClientMetrics_GamePerformance_Notification& operator=(const CClientMetrics_GamePerformance_Notification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CClientMetrics_GamePerformance_Notification& operator=(CClientMetrics_GamePerformance_Notification&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CClientMetrics_GamePerformance_Notification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CClientMetrics_GamePerformance_Notification* internal_default_instance() {
+    return reinterpret_cast<const CClientMetrics_GamePerformance_Notification*>(
+               &_CClientMetrics_GamePerformance_Notification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(CClientMetrics_GamePerformance_Notification& a, CClientMetrics_GamePerformance_Notification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CClientMetrics_GamePerformance_Notification* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CClientMetrics_GamePerformance_Notification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CClientMetrics_GamePerformance_Notification* New() const final {
+    return CreateMaybeMessage<CClientMetrics_GamePerformance_Notification>(nullptr);
+  }
+
+  CClientMetrics_GamePerformance_Notification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CClientMetrics_GamePerformance_Notification>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CClientMetrics_GamePerformance_Notification& from);
+  void MergeFrom(const CClientMetrics_GamePerformance_Notification& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CClientMetrics_GamePerformance_Notification* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CClientMetrics_GamePerformance_Notification";
+  }
+  protected:
+  explicit CClientMetrics_GamePerformance_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CClientMetrics_GamePerformance_Notification_FrameRateReport FrameRateReport;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kReportsFieldNumber = 1,
+  };
+  // repeated .CClientMetrics_GamePerformance_Notification.FrameRateReport reports = 1;
+  int reports_size() const;
+  private:
+  int _internal_reports_size() const;
+  public:
+  void clear_reports();
+  ::CClientMetrics_GamePerformance_Notification_FrameRateReport* mutable_reports(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CClientMetrics_GamePerformance_Notification_FrameRateReport >*
+      mutable_reports();
+  private:
+  const ::CClientMetrics_GamePerformance_Notification_FrameRateReport& _internal_reports(int index) const;
+  ::CClientMetrics_GamePerformance_Notification_FrameRateReport* _internal_add_reports();
+  public:
+  const ::CClientMetrics_GamePerformance_Notification_FrameRateReport& reports(int index) const;
+  ::CClientMetrics_GamePerformance_Notification_FrameRateReport* add_reports();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CClientMetrics_GamePerformance_Notification_FrameRateReport >&
+      reports() const;
+
+  // @@protoc_insertion_point(class_scope:CClientMetrics_GamePerformance_Notification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CClientMetrics_GamePerformance_Notification_FrameRateReport > reports_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto;
+};
 // ===================================================================
 
 class ClientMetrics_Stub;
@@ -5823,6 +6291,10 @@ class ClientMetrics : public ::PROTOBUF_NAMESPACE_ID::Service {
                        ::google::protobuf::Closure* done);
   virtual void ReportEndGameRecording(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CClientMetrics_EndGameRecording_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ReportGamePerformance(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CClientMetrics_GamePerformance_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
 
@@ -5912,6 +6384,10 @@ class ClientMetrics_Stub : public ClientMetrics {
                        ::google::protobuf::Closure* done);
   void ReportEndGameRecording(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CClientMetrics_EndGameRecording_Notification* request,
+                       ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void ReportGamePerformance(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CClientMetrics_GamePerformance_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
  private:
@@ -10724,9 +11200,475 @@ inline void CClientMetrics_EndGameRecording_Notification::set_instant_clip(bool 
   // @@protoc_insertion_point(field_set:CClientMetrics_EndGameRecording_Notification.instant_clip)
 }
 
+// -------------------------------------------------------------------
+
+// CClientMetrics_GamePerformance_Notification_FrameRateReport
+
+// optional fixed64 gameid = 1;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_gameid() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_gameid() const {
+  return _internal_has_gameid();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_gameid() {
+  gameid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_gameid() const {
+  return gameid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_GamePerformance_Notification_FrameRateReport::gameid() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.gameid)
+  return _internal_gameid();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000008u;
+  gameid_ = value;
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_gameid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_gameid(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.gameid)
+}
+
+// optional uint32 frame_rate = 2;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_frame_rate() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_frame_rate() const {
+  return _internal_has_frame_rate();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_frame_rate() {
+  frame_rate_ = 0u;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_frame_rate() const {
+  return frame_rate_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_GamePerformance_Notification_FrameRateReport::frame_rate() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.frame_rate)
+  return _internal_frame_rate();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_frame_rate(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  frame_rate_ = value;
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_frame_rate(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_frame_rate(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.frame_rate)
+}
+
+// optional string manufacturer = 3;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_manufacturer() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_manufacturer() const {
+  return _internal_has_manufacturer();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_manufacturer() {
+  manufacturer_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CClientMetrics_GamePerformance_Notification_FrameRateReport::manufacturer() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.manufacturer)
+  return _internal_manufacturer();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_manufacturer(const std::string& value) {
+  _internal_set_manufacturer(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.manufacturer)
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::mutable_manufacturer() {
+  // @@protoc_insertion_point(field_mutable:CClientMetrics_GamePerformance_Notification.FrameRateReport.manufacturer)
+  return _internal_mutable_manufacturer();
+}
+inline const std::string& CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_manufacturer() const {
+  return manufacturer_.Get();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_manufacturer(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  manufacturer_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_manufacturer(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  manufacturer_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CClientMetrics_GamePerformance_Notification.FrameRateReport.manufacturer)
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_manufacturer(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  manufacturer_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CClientMetrics_GamePerformance_Notification.FrameRateReport.manufacturer)
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_manufacturer(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  manufacturer_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CClientMetrics_GamePerformance_Notification.FrameRateReport.manufacturer)
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_mutable_manufacturer() {
+  _has_bits_[0] |= 0x00000001u;
+  return manufacturer_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::release_manufacturer() {
+  // @@protoc_insertion_point(field_release:CClientMetrics_GamePerformance_Notification.FrameRateReport.manufacturer)
+  if (!_internal_has_manufacturer()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return manufacturer_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_allocated_manufacturer(std::string* manufacturer) {
+  if (manufacturer != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  manufacturer_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), manufacturer,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CClientMetrics_GamePerformance_Notification.FrameRateReport.manufacturer)
+}
+
+// optional string model = 4;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_model() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_model() const {
+  return _internal_has_model();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_model() {
+  model_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CClientMetrics_GamePerformance_Notification_FrameRateReport::model() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.model)
+  return _internal_model();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_model(const std::string& value) {
+  _internal_set_model(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.model)
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::mutable_model() {
+  // @@protoc_insertion_point(field_mutable:CClientMetrics_GamePerformance_Notification.FrameRateReport.model)
+  return _internal_mutable_model();
+}
+inline const std::string& CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_model() const {
+  return model_.Get();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_model(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_model(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  model_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CClientMetrics_GamePerformance_Notification.FrameRateReport.model)
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_model(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CClientMetrics_GamePerformance_Notification.FrameRateReport.model)
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_model(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CClientMetrics_GamePerformance_Notification.FrameRateReport.model)
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_mutable_model() {
+  _has_bits_[0] |= 0x00000002u;
+  return model_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::release_model() {
+  // @@protoc_insertion_point(field_release:CClientMetrics_GamePerformance_Notification.FrameRateReport.model)
+  if (!_internal_has_model()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return model_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_allocated_model(std::string* model) {
+  if (model != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  model_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), model,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CClientMetrics_GamePerformance_Notification.FrameRateReport.model)
+}
+
+// optional string dx_video_card = 5;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_dx_video_card() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_dx_video_card() const {
+  return _internal_has_dx_video_card();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_dx_video_card() {
+  dx_video_card_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& CClientMetrics_GamePerformance_Notification_FrameRateReport::dx_video_card() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_video_card)
+  return _internal_dx_video_card();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_dx_video_card(const std::string& value) {
+  _internal_set_dx_video_card(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_video_card)
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::mutable_dx_video_card() {
+  // @@protoc_insertion_point(field_mutable:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_video_card)
+  return _internal_mutable_dx_video_card();
+}
+inline const std::string& CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_dx_video_card() const {
+  return dx_video_card_.Get();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_dx_video_card(const std::string& value) {
+  _has_bits_[0] |= 0x00000004u;
+  dx_video_card_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_dx_video_card(std::string&& value) {
+  _has_bits_[0] |= 0x00000004u;
+  dx_video_card_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_video_card)
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_dx_video_card(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000004u;
+  dx_video_card_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_video_card)
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_dx_video_card(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000004u;
+  dx_video_card_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_video_card)
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_mutable_dx_video_card() {
+  _has_bits_[0] |= 0x00000004u;
+  return dx_video_card_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CClientMetrics_GamePerformance_Notification_FrameRateReport::release_dx_video_card() {
+  // @@protoc_insertion_point(field_release:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_video_card)
+  if (!_internal_has_dx_video_card()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000004u;
+  return dx_video_card_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_allocated_dx_video_card(std::string* dx_video_card) {
+  if (dx_video_card != nullptr) {
+    _has_bits_[0] |= 0x00000004u;
+  } else {
+    _has_bits_[0] &= ~0x00000004u;
+  }
+  dx_video_card_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), dx_video_card,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_video_card)
+}
+
+// optional int32 dx_vendorid = 6;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_dx_vendorid() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_dx_vendorid() const {
+  return _internal_has_dx_vendorid();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_dx_vendorid() {
+  dx_vendorid_ = 0;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_dx_vendorid() const {
+  return dx_vendorid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_GamePerformance_Notification_FrameRateReport::dx_vendorid() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_vendorid)
+  return _internal_dx_vendorid();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_dx_vendorid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000020u;
+  dx_vendorid_ = value;
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_dx_vendorid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_dx_vendorid(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_vendorid)
+}
+
+// optional int32 dx_deviceid = 7;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_dx_deviceid() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_dx_deviceid() const {
+  return _internal_has_dx_deviceid();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_dx_deviceid() {
+  dx_deviceid_ = 0;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_dx_deviceid() const {
+  return dx_deviceid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_GamePerformance_Notification_FrameRateReport::dx_deviceid() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_deviceid)
+  return _internal_dx_deviceid();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_dx_deviceid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000040u;
+  dx_deviceid_ = value;
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_dx_deviceid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_dx_deviceid(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.dx_deviceid)
+}
+
+// optional uint32 num_gpu = 8;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_num_gpu() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_num_gpu() const {
+  return _internal_has_num_gpu();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_num_gpu() {
+  num_gpu_ = 0u;
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_num_gpu() const {
+  return num_gpu_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientMetrics_GamePerformance_Notification_FrameRateReport::num_gpu() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.num_gpu)
+  return _internal_num_gpu();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_num_gpu(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000080u;
+  num_gpu_ = value;
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_num_gpu(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_num_gpu(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.num_gpu)
+}
+
+// optional uint64 system_ram = 9;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_system_ram() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_system_ram() const {
+  return _internal_has_system_ram();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_system_ram() {
+  system_ram_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_system_ram() const {
+  return system_ram_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CClientMetrics_GamePerformance_Notification_FrameRateReport::system_ram() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.system_ram)
+  return _internal_system_ram();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_system_ram(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000100u;
+  system_ram_ = value;
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_system_ram(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_system_ram(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.system_ram)
+}
+
+// optional int32 session_seconds = 10;
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_has_session_seconds() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CClientMetrics_GamePerformance_Notification_FrameRateReport::has_session_seconds() const {
+  return _internal_has_session_seconds();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::clear_session_seconds() {
+  session_seconds_ = 0;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_session_seconds() const {
+  return session_seconds_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CClientMetrics_GamePerformance_Notification_FrameRateReport::session_seconds() const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.FrameRateReport.session_seconds)
+  return _internal_session_seconds();
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::_internal_set_session_seconds(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000200u;
+  session_seconds_ = value;
+}
+inline void CClientMetrics_GamePerformance_Notification_FrameRateReport::set_session_seconds(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_seconds(value);
+  // @@protoc_insertion_point(field_set:CClientMetrics_GamePerformance_Notification.FrameRateReport.session_seconds)
+}
+
+// -------------------------------------------------------------------
+
+// CClientMetrics_GamePerformance_Notification
+
+// repeated .CClientMetrics_GamePerformance_Notification.FrameRateReport reports = 1;
+inline int CClientMetrics_GamePerformance_Notification::_internal_reports_size() const {
+  return reports_.size();
+}
+inline int CClientMetrics_GamePerformance_Notification::reports_size() const {
+  return _internal_reports_size();
+}
+inline void CClientMetrics_GamePerformance_Notification::clear_reports() {
+  reports_.Clear();
+}
+inline ::CClientMetrics_GamePerformance_Notification_FrameRateReport* CClientMetrics_GamePerformance_Notification::mutable_reports(int index) {
+  // @@protoc_insertion_point(field_mutable:CClientMetrics_GamePerformance_Notification.reports)
+  return reports_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CClientMetrics_GamePerformance_Notification_FrameRateReport >*
+CClientMetrics_GamePerformance_Notification::mutable_reports() {
+  // @@protoc_insertion_point(field_mutable_list:CClientMetrics_GamePerformance_Notification.reports)
+  return &reports_;
+}
+inline const ::CClientMetrics_GamePerformance_Notification_FrameRateReport& CClientMetrics_GamePerformance_Notification::_internal_reports(int index) const {
+  return reports_.Get(index);
+}
+inline const ::CClientMetrics_GamePerformance_Notification_FrameRateReport& CClientMetrics_GamePerformance_Notification::reports(int index) const {
+  // @@protoc_insertion_point(field_get:CClientMetrics_GamePerformance_Notification.reports)
+  return _internal_reports(index);
+}
+inline ::CClientMetrics_GamePerformance_Notification_FrameRateReport* CClientMetrics_GamePerformance_Notification::_internal_add_reports() {
+  return reports_.Add();
+}
+inline ::CClientMetrics_GamePerformance_Notification_FrameRateReport* CClientMetrics_GamePerformance_Notification::add_reports() {
+  // @@protoc_insertion_point(field_add:CClientMetrics_GamePerformance_Notification.reports)
+  return _internal_add_reports();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CClientMetrics_GamePerformance_Notification_FrameRateReport >&
+CClientMetrics_GamePerformance_Notification::reports() const {
+  // @@protoc_insertion_point(field_list:CClientMetrics_GamePerformance_Notification.reports)
+  return reports_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -73,11 +73,12 @@ constexpr CMsgProtoBufHeader::CMsgProtoBufHeader(
   , sysid_(0u)
   , token_source_(0u)
   , seq_num_(0)
-  , admin_spoofing_user_(false)
-  , is_from_external_source_(false)
   , webapi_key_id_(0u)
   , cm_sysid_(0u)
   , launcher_type_(0u)
+  , admin_spoofing_user_(false)
+  , is_from_external_source_(false)
+  , is_valveds_(false)
   , realm_(0u)
   , token_id_(PROTOBUF_ULONGLONG(0))
   , debug_source_string_index_(0u)
@@ -536,42 +537,44 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fbase_2eproto::
   PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, webui_auth_key_),
   PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, exclude_client_sessionids_),
   PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, admin_request_spoofing_steamid_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, is_valveds_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, ip_addr_),
   6,
   7,
   8,
-  26,
   27,
+  28,
   0,
   14,
-  28,
+  29,
   1,
   9,
   13,
-  15,
-  29,
+  18,
   30,
+  31,
   10,
   12,
   11,
-  17,
-  16,
-  ~0u,
-  18,
+  15,
   19,
-  20,
-  25,
-  2,
-  22,
+  ~0u,
+  16,
+  17,
   21,
-  5,
+  26,
+  2,
   23,
+  22,
+  5,
+  24,
   3,
   4,
   ~0u,
-  24,
+  25,
+  20,
   ~0u,
   ~0u,
   PROTOBUF_FIELD_OFFSET(::CMsgKubeRPCPacket_Hdr, _has_bits_),
@@ -984,26 +987,26 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, -1, sizeof(::CMsgIPAddress)},
   { 8, 15, sizeof(::CMsgIPAddressBucket)},
   { 17, 24, sizeof(::CMsgGCRoutingProtoBufHeader)},
-  { 26, 67, sizeof(::CMsgProtoBufHeader)},
-  { 102, 113, sizeof(::CMsgKubeRPCPacket_Hdr)},
-  { 119, 126, sizeof(::CMsgKubeRPCPacket)},
-  { 128, 135, sizeof(::CMsgMulti)},
-  { 137, 143, sizeof(::CMsgProtobufWrapped)},
-  { 144, 158, sizeof(::CMsgAuthTicket)},
-  { 167, 187, sizeof(::CCDDBAppDetailCommon)},
-  { 202, 224, sizeof(::CMsgAppRights)},
-  { 241, 260, sizeof(::CCuratorPreferences)},
-  { 274, 281, sizeof(::CLocalizationToken)},
-  { 283, 298, sizeof(::CClanEventUserNewsTuple)},
-  { 308, 317, sizeof(::CClanMatchEventByRange)},
-  { 321, 343, sizeof(::CCommunity_ClanAnnouncementInfo)},
-  { 360, 396, sizeof(::CClanEventData)},
-  { 427, 442, sizeof(::CBilling_Address)},
-  { 452, 467, sizeof(::CPackageReservationStatus)},
-  { 477, 484, sizeof(::CMsgKeyValuePair)},
-  { 486, -1, sizeof(::CMsgKeyValueSet)},
-  { 492, 499, sizeof(::UserContentDescriptorPreferences_ContentDescriptor)},
-  { 501, -1, sizeof(::UserContentDescriptorPreferences)},
+  { 26, 68, sizeof(::CMsgProtoBufHeader)},
+  { 104, 115, sizeof(::CMsgKubeRPCPacket_Hdr)},
+  { 121, 128, sizeof(::CMsgKubeRPCPacket)},
+  { 130, 137, sizeof(::CMsgMulti)},
+  { 139, 145, sizeof(::CMsgProtobufWrapped)},
+  { 146, 160, sizeof(::CMsgAuthTicket)},
+  { 169, 189, sizeof(::CCDDBAppDetailCommon)},
+  { 204, 226, sizeof(::CMsgAppRights)},
+  { 243, 262, sizeof(::CCuratorPreferences)},
+  { 276, 283, sizeof(::CLocalizationToken)},
+  { 285, 300, sizeof(::CClanEventUserNewsTuple)},
+  { 310, 319, sizeof(::CClanMatchEventByRange)},
+  { 323, 345, sizeof(::CCommunity_ClanAnnouncementInfo)},
+  { 362, 398, sizeof(::CClanEventData)},
+  { 429, 444, sizeof(::CBilling_Address)},
+  { 454, 469, sizeof(::CPackageReservationStatus)},
+  { 479, 486, sizeof(::CMsgKeyValuePair)},
+  { 488, -1, sizeof(::CMsgKeyValueSet)},
+  { 494, 501, sizeof(::UserContentDescriptorPreferences_ContentDescriptor)},
+  { 503, -1, sizeof(::UserContentDescriptorPreferences)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1039,7 +1042,7 @@ const char descriptor_table_protodef_steammessages_5fbase_2eproto[] PROTOBUF_SEC
   "PAddressBucket\022+\n\023original_ip_address\030\001 "
   "\001(\0132\016.CMsgIPAddress\022\016\n\006bucket\030\002 \001(\006\"O\n\033C"
   "MsgGCRoutingProtoBufHeader\022\026\n\016dst_gcid_q"
-  "ueue\030\001 \001(\004\022\030\n\020dst_gc_dir_index\030\002 \001(\r\"\323\010\n"
+  "ueue\030\001 \001(\004\022\030\n\020dst_gc_dir_index\030\002 \001(\r\"\347\010\n"
   "\022CMsgProtoBufHeader\022\017\n\007steamid\030\001 \001(\006\022\030\n\020"
   "client_sessionid\030\002 \001(\005\022\025\n\rrouting_appid\030"
   "\003 \001(\r\022*\n\014jobid_source\030\n \001(\006:\02418446744073"
@@ -1064,167 +1067,167 @@ const char descriptor_table_protodef_steammessages_5fbase_2eproto[] PROTOBUF_SEC
   "nDispositionNormal\022\020\n\010wg_token\030\' \001(\t\022\026\n\016"
   "webui_auth_key\030( \001(\t\022!\n\031exclude_client_s"
   "essionids\030) \003(\005\022&\n\036admin_request_spoofin"
-  "g_steamid\030+ \001(\006\022\014\n\002ip\030\017 \001(\rH\000\022\017\n\005ip_v6\030\035"
-  " \001(\014H\000\"W\n\023ESessionDisposition\022\035\n\031ESessio"
-  "nDispositionNormal\020\000\022!\n\035ESessionDisposit"
-  "ionDisconnect\020\001B\t\n\007ip_addr\"\204\002\n\021CMsgKubeR"
-  "PCPacket\022#\n\003hdr\030\001 \001(\0132\026.CMsgKubeRPCPacke"
-  "t.Hdr\022\017\n\007payload\030\002 \001(\014\032\270\001\n\003Hdr\022*\n\014jobid_"
-  "source\030\n \001(\006:\02418446744073709551615\022*\n\014jo"
-  "bid_target\030\013 \001(\006:\02418446744073709551615\022\022"
-  "\n\007eresult\030\r \001(\005:\0012\022\027\n\017target_job_name\030\014 "
-  "\001(\t\022\025\n\rerror_message\030\016 \001(\t\022\025\n\rreply_addr"
-  "ess\030* \001(\t\"8\n\tCMsgMulti\022\025\n\rsize_unzipped\030"
-  "\001 \001(\r\022\024\n\014message_body\030\002 \001(\014\"+\n\023CMsgProto"
-  "bufWrapped\022\024\n\014message_body\030\001 \001(\014\"\273\001\n\016CMs"
-  "gAuthTicket\022\016\n\006estate\030\001 \001(\r\022\022\n\007eresult\030\002"
-  " \001(\r:\0012\022\017\n\007steamid\030\003 \001(\006\022\016\n\006gameid\030\004 \001(\006"
-  "\022\024\n\014h_steam_pipe\030\005 \001(\r\022\022\n\nticket_crc\030\006 \001"
-  "(\r\022\016\n\006ticket\030\007 \001(\014\022\025\n\rserver_secret\030\010 \001("
-  "\014\022\023\n\013ticket_type\030\t \001(\r\"\353\002\n\024CCDDBAppDetai"
-  "lCommon\022\r\n\005appid\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\014\n\004"
-  "icon\030\003 \001(\t\022\014\n\004tool\030\006 \001(\010\022\014\n\004demo\030\007 \001(\010\022\r"
-  "\n\005media\030\010 \001(\010\022\037\n\027community_visible_stats"
-  "\030\t \001(\010\022\025\n\rfriendly_name\030\n \001(\t\022\023\n\013propaga"
-  "tion\030\013 \001(\t\022\031\n\021has_adult_content\030\014 \001(\010\022!\n"
-  "\031is_visible_in_steam_china\030\r \001(\010\022\020\n\010app_"
-  "type\030\016 \001(\r\022\035\n\025has_adult_content_sex\030\017 \001("
-  "\010\022\"\n\032has_adult_content_violence\030\020 \001(\010\022\035\n"
-  "\025content_descriptorids\030\021 \003(\r\"\263\003\n\rCMsgApp"
-  "Rights\022\021\n\tedit_info\030\001 \001(\010\022\017\n\007publish\030\002 \001"
-  "(\010\022\027\n\017view_error_data\030\003 \001(\010\022\020\n\010download\030"
-  "\004 \001(\010\022\025\n\rupload_cdkeys\030\005 \001(\010\022\027\n\017generate"
-  "_cdkeys\030\006 \001(\010\022\027\n\017view_financials\030\007 \001(\010\022\022"
-  "\n\nmanage_ceg\030\010 \001(\010\022\026\n\016manage_signing\030\t \001"
-  "(\010\022\025\n\rmanage_cdkeys\030\n \001(\010\022\026\n\016edit_market"
-  "ing\030\013 \001(\010\022\027\n\017economy_support\030\014 \001(\010\022\"\n\032ec"
-  "onomy_support_supervisor\030\r \001(\010\022\026\n\016manage"
-  "_pricing\030\016 \001(\010\022\026\n\016broadcast_live\030\017 \001(\010\022\036"
-  "\n\026view_marketing_traffic\030\020 \001(\010\022\"\n\032edit_s"
-  "tore_display_content\030\021 \001(\010\"\361\002\n\023CCuratorP"
-  "references\022\033\n\023supported_languages\030\001 \001(\r\022"
-  "\030\n\020platform_windows\030\002 \001(\010\022\024\n\014platform_ma"
-  "c\030\003 \001(\010\022\026\n\016platform_linux\030\004 \001(\010\022\022\n\nvr_co"
-  "ntent\030\005 \001(\010\022\036\n\026adult_content_violence\030\006 "
-  "\001(\010\022\031\n\021adult_content_sex\030\007 \001(\010\022\031\n\021timest"
-  "amp_updated\030\010 \001(\r\022\026\n\016tagids_curated\030\t \003("
-  "\r\022\027\n\017tagids_filtered\030\n \003(\r\022\025\n\rwebsite_ti"
-  "tle\030\013 \001(\t\022\023\n\013website_url\030\014 \001(\t\022\026\n\016discus"
-  "sion_url\030\r \001(\t\022\026\n\016show_broadcast\030\016 \001(\010\"@"
-  "\n\022CLocalizationToken\022\020\n\010language\030\001 \001(\r\022\030"
-  "\n\020localized_string\030\002 \001(\t\"\354\001\n\027CClanEventU"
-  "serNewsTuple\022\016\n\006clanid\030\001 \001(\r\022\021\n\tevent_gi"
-  "d\030\002 \001(\006\022\030\n\020announcement_gid\030\003 \001(\006\022\023\n\013rti"
-  "me_start\030\004 \001(\r\022\021\n\trtime_end\030\005 \001(\r\022\026\n\016pri"
-  "ority_score\030\006 \001(\r\022\014\n\004type\030\007 \001(\r\022\030\n\020clamp"
-  "_range_slot\030\010 \001(\r\022\r\n\005appid\030\t \001(\r\022\035\n\025rtim"
-  "e32_last_modified\030\n \001(\r\"\200\001\n\026CClanMatchEv"
-  "entByRange\022\024\n\014rtime_before\030\001 \001(\r\022\023\n\013rtim"
-  "e_after\030\002 \001(\r\022\021\n\tqualified\030\003 \001(\r\022(\n\006even"
-  "ts\030\004 \003(\0132\030.CClanEventUserNewsTuple\"\227\003\n\037C"
-  "Community_ClanAnnouncementInfo\022\013\n\003gid\030\001 "
-  "\001(\004\022\016\n\006clanid\030\002 \001(\004\022\020\n\010posterid\030\003 \001(\004\022\020\n"
-  "\010headline\030\004 \001(\t\022\020\n\010posttime\030\005 \001(\r\022\022\n\nupd"
-  "atetime\030\006 \001(\r\022\014\n\004body\030\007 \001(\t\022\024\n\014commentco"
-  "unt\030\010 \001(\005\022\014\n\004tags\030\t \003(\t\022\020\n\010language\030\n \001("
-  "\005\022\016\n\006hidden\030\013 \001(\010\022\026\n\016forum_topic_id\030\014 \001("
-  "\006\022\021\n\tevent_gid\030\r \001(\006\022\023\n\013voteupcount\030\016 \001("
-  "\005\022\025\n\rvotedowncount\030\017 \001(\005\022R\n\016ban_checresu"
-  "lt\030\020 \001(\0162\027.EBanContentCheckResult:!EBanC"
-  "ontentCheckResult_NotScanned\022\016\n\006banned\030\021"
-  " \001(\010\"\266\006\n\016CClanEventData\022\013\n\003gid\030\001 \001(\006\022\024\n\014"
-  "clan_steamid\030\002 \001(\006\022\022\n\nevent_name\030\003 \001(\t\0229"
-  "\n\nevent_type\030\004 \001(\0162\024.EProtoClanEventType"
-  ":\017EClanOtherEvent\022\r\n\005appid\030\005 \001(\r\022\026\n\016serv"
-  "er_address\030\006 \001(\t\022\027\n\017server_password\030\007 \001("
-  "\t\022\032\n\022rtime32_start_time\030\010 \001(\r\022\030\n\020rtime32"
-  "_end_time\030\t \001(\r\022\025\n\rcomment_count\030\n \001(\005\022\027"
-  "\n\017creator_steamid\030\013 \001(\006\022\033\n\023last_update_s"
-  "teamid\030\014 \001(\006\022\023\n\013event_notes\030\r \001(\t\022\020\n\010jso"
-  "ndata\030\016 \001(\t\022;\n\021announcement_body\030\017 \001(\0132 "
-  ".CCommunity_ClanAnnouncementInfo\022\021\n\tpubl"
-  "ished\030\020 \001(\010\022\016\n\006hidden\030\021 \001(\010\022 \n\030rtime32_v"
-  "isibility_start\030\022 \001(\r\022\036\n\026rtime32_visibil"
-  "ity_end\030\023 \001(\r\022\035\n\025broadcaster_accountid\030\024"
-  " \001(\r\022\026\n\016follower_count\030\025 \001(\r\022\024\n\014ignore_c"
-  "ount\030\026 \001(\r\022\026\n\016forum_topic_id\030\027 \001(\006\022\035\n\025rt"
-  "ime32_last_modified\030\030 \001(\r\022\025\n\rnews_post_g"
-  "id\030\031 \001(\006\022\032\n\022rtime_mod_reviewed\030\032 \001(\r\022\032\n\022"
-  "featured_app_tagid\030\033 \001(\r\022\031\n\021referenced_a"
-  "ppids\030\034 \003(\r\022\020\n\010build_id\030\035 \001(\r\022\024\n\014build_b"
-  "ranch\030\036 \001(\t\022\020\n\010unlisted\030\037 \001(\010\"\307\001\n\020CBilli"
-  "ng_Address\022\022\n\nfirst_name\030\001 \001(\t\022\021\n\tlast_n"
-  "ame\030\002 \001(\t\022\020\n\010address1\030\003 \001(\t\022\020\n\010address2\030"
-  "\004 \001(\t\022\014\n\004city\030\005 \001(\t\022\020\n\010us_state\030\006 \001(\t\022\024\n"
-  "\014country_code\030\007 \001(\t\022\020\n\010postcode\030\010 \001(\t\022\021\n"
-  "\tzip_plus4\030\t \001(\005\022\r\n\005phone\030\n \001(\t\"\234\002\n\031CPac"
-  "kageReservationStatus\022\021\n\tpackageid\030\001 \001(\r"
-  "\022\031\n\021reservation_state\030\002 \001(\005\022\026\n\016queue_pos"
-  "ition\030\003 \001(\005\022\030\n\020total_queue_size\030\004 \001(\005\022 \n"
-  "\030reservation_country_code\030\005 \001(\t\022\017\n\007expir"
-  "ed\030\006 \001(\010\022\024\n\014time_expires\030\007 \001(\r\022\025\n\rtime_r"
-  "eserved\030\010 \001(\r\022$\n\034rtime_estimated_notific"
-  "ation\030\t \001(\r\022\031\n\021notificaton_token\030\n \001(\t\"/"
-  "\n\020CMsgKeyValuePair\022\014\n\004name\030\001 \001(\t\022\r\n\005valu"
-  "e\030\002 \001(\t\"3\n\017CMsgKeyValueSet\022 \n\005pairs\030\001 \003("
-  "\0132\021.CMsgKeyValuePair\"\313\001\n UserContentDesc"
-  "riptorPreferences\022[\n\036content_descriptors"
-  "_to_exclude\030\001 \003(\01323.UserContentDescripto"
-  "rPreferences.ContentDescriptor\032J\n\021Conten"
-  "tDescriptor\022\034\n\024content_descriptorid\030\001 \001("
-  "\r\022\027\n\017timestamp_added\030\002 \001(\r*\310\002\n\026EBanConte"
-  "ntCheckResult\022%\n!EBanContentCheckResult_"
-  "NotScanned\020\000\022 \n\034EBanContentCheckResult_R"
-  "eset\020\001\022(\n$EBanContentCheckResult_NeedsCh"
-  "ecking\020\002\022\'\n#EBanContentCheckResult_VeryU"
-  "nlikely\020\005\022#\n\037EBanContentCheckResult_Unli"
-  "kely\020\036\022#\n\037EBanContentCheckResult_Possibl"
-  "e\0202\022!\n\035EBanContentCheckResult_Likely\020K\022%"
-  "\n!EBanContentCheckResult_VeryLikely\020d*\245\007"
-  "\n\023EProtoClanEventType\022\023\n\017EClanOtherEvent"
-  "\020\001\022\022\n\016EClanGameEvent\020\002\022\023\n\017EClanPartyEven"
-  "t\020\003\022\025\n\021EClanMeetingEvent\020\004\022\032\n\026EClanSpeci"
-  "alCauseEvent\020\005\022\032\n\026EClanMusicAndArtsEvent"
-  "\020\006\022\024\n\020EClanSportsEvent\020\007\022\022\n\016EClanTripEve"
-  "nt\020\010\022\022\n\016EClanChatEvent\020\t\022\031\n\025EClanGameRel"
-  "easeEvent\020\n\022\027\n\023EClanBroadcastEvent\020\013\022\031\n\025"
-  "EClanSmallUpdateEvent\020\014\022$\n EClanPreAnnou"
-  "nceMajorUpdateEvent\020\r\022\031\n\025EClanMajorUpdat"
-  "eEvent\020\016\022\030\n\024EClanDLCReleaseEvent\020\017\022\033\n\027EC"
-  "lanFutureReleaseEvent\020\020\022$\n EClanESportTo"
-  "urnamentStreamEvent\020\021\022\027\n\023EClanDevStreamE"
-  "vent\020\022\022\032\n\026EClanFamousStreamEvent\020\023\022\027\n\023EC"
-  "lanGameSalesEvent\020\024\022\033\n\027EClanGameItemSale"
-  "sEvent\020\025\022\033\n\027EClanInGameBonusXPEvent\020\026\022\030\n"
-  "\024EClanInGameLootEvent\020\027\022\031\n\025EClanInGamePe"
-  "rksEvent\020\030\022\035\n\031EClanInGameChallengeEvent\020"
-  "\031\022\033\n\027EClanInGameContestEvent\020\032\022\021\n\rEClanI"
-  "RLEvent\020\033\022\022\n\016EClanNewsEvent\020\034\022\031\n\025EClanBe"
-  "taReleaseEvent\020\035\022\"\n\036EClanInGameContentRe"
-  "leaseEvent\020\036\022\022\n\016EClanFreeTrial\020\037\022\026\n\022ECla"
-  "nSeasonRelease\020 \022\025\n\021EClanSeasonUpdate\020!\022"
-  "\027\n\023EClanCrosspostEvent\020\"\022\033\n\027EClanInGameE"
-  "ventGeneral\020#*y\n\034PartnerEventNotificatio"
-  "nType\022\017\n\013EEventStart\020\000\022\030\n\024EEventBroadcas"
-  "tStart\020\001\022\024\n\020EEventMatchStart\020\002\022\030\n\024EEvent"
-  "PartnerMaxType\020\003:A\n\022msgpool_soft_limit\022\037"
-  ".google.protobuf.MessageOptions\030\320\206\003 \001(\005:"
-  "\00232:B\n\022msgpool_hard_limit\022\037.google.proto"
-  "buf.MessageOptions\030\321\206\003 \001(\005:\003384:C\n\024force"
-  "_php_generation\022\034.google.protobuf.FileOp"
-  "tions\030\320\206\003 \001(\010:\005false:H\n\030php_output_alway"
-  "s_number\022\035.google.protobuf.FieldOptions\030"
-  "\344\206\003 \001(\010:\005false:J\n\032allow_field_named_stea"
-  "m_id\022\035.google.protobuf.FieldOptions\030\350\206\003 "
-  "\001(\010:\005falseB#H\001\200\001\001\252\002\027OpenSteamworks.Proto"
-  "buf\200\265\030\001"
+  "g_steamid\030+ \001(\006\022\022\n\nis_valveds\030, \001(\010\022\014\n\002i"
+  "p\030\017 \001(\rH\000\022\017\n\005ip_v6\030\035 \001(\014H\000\"W\n\023ESessionDi"
+  "sposition\022\035\n\031ESessionDispositionNormal\020\000"
+  "\022!\n\035ESessionDispositionDisconnect\020\001B\t\n\007i"
+  "p_addr\"\204\002\n\021CMsgKubeRPCPacket\022#\n\003hdr\030\001 \001("
+  "\0132\026.CMsgKubeRPCPacket.Hdr\022\017\n\007payload\030\002 \001"
+  "(\014\032\270\001\n\003Hdr\022*\n\014jobid_source\030\n \001(\006:\024184467"
+  "44073709551615\022*\n\014jobid_target\030\013 \001(\006:\02418"
+  "446744073709551615\022\022\n\007eresult\030\r \001(\005:\0012\022\027"
+  "\n\017target_job_name\030\014 \001(\t\022\025\n\rerror_message"
+  "\030\016 \001(\t\022\025\n\rreply_address\030* \001(\t\"8\n\tCMsgMul"
+  "ti\022\025\n\rsize_unzipped\030\001 \001(\r\022\024\n\014message_bod"
+  "y\030\002 \001(\014\"+\n\023CMsgProtobufWrapped\022\024\n\014messag"
+  "e_body\030\001 \001(\014\"\273\001\n\016CMsgAuthTicket\022\016\n\006estat"
+  "e\030\001 \001(\r\022\022\n\007eresult\030\002 \001(\r:\0012\022\017\n\007steamid\030\003"
+  " \001(\006\022\016\n\006gameid\030\004 \001(\006\022\024\n\014h_steam_pipe\030\005 \001"
+  "(\r\022\022\n\nticket_crc\030\006 \001(\r\022\016\n\006ticket\030\007 \001(\014\022\025"
+  "\n\rserver_secret\030\010 \001(\014\022\023\n\013ticket_type\030\t \001"
+  "(\r\"\353\002\n\024CCDDBAppDetailCommon\022\r\n\005appid\030\001 \001"
+  "(\r\022\014\n\004name\030\002 \001(\t\022\014\n\004icon\030\003 \001(\t\022\014\n\004tool\030\006"
+  " \001(\010\022\014\n\004demo\030\007 \001(\010\022\r\n\005media\030\010 \001(\010\022\037\n\027com"
+  "munity_visible_stats\030\t \001(\010\022\025\n\rfriendly_n"
+  "ame\030\n \001(\t\022\023\n\013propagation\030\013 \001(\t\022\031\n\021has_ad"
+  "ult_content\030\014 \001(\010\022!\n\031is_visible_in_steam"
+  "_china\030\r \001(\010\022\020\n\010app_type\030\016 \001(\r\022\035\n\025has_ad"
+  "ult_content_sex\030\017 \001(\010\022\"\n\032has_adult_conte"
+  "nt_violence\030\020 \001(\010\022\035\n\025content_descriptori"
+  "ds\030\021 \003(\r\"\263\003\n\rCMsgAppRights\022\021\n\tedit_info\030"
+  "\001 \001(\010\022\017\n\007publish\030\002 \001(\010\022\027\n\017view_error_dat"
+  "a\030\003 \001(\010\022\020\n\010download\030\004 \001(\010\022\025\n\rupload_cdke"
+  "ys\030\005 \001(\010\022\027\n\017generate_cdkeys\030\006 \001(\010\022\027\n\017vie"
+  "w_financials\030\007 \001(\010\022\022\n\nmanage_ceg\030\010 \001(\010\022\026"
+  "\n\016manage_signing\030\t \001(\010\022\025\n\rmanage_cdkeys\030"
+  "\n \001(\010\022\026\n\016edit_marketing\030\013 \001(\010\022\027\n\017economy"
+  "_support\030\014 \001(\010\022\"\n\032economy_support_superv"
+  "isor\030\r \001(\010\022\026\n\016manage_pricing\030\016 \001(\010\022\026\n\016br"
+  "oadcast_live\030\017 \001(\010\022\036\n\026view_marketing_tra"
+  "ffic\030\020 \001(\010\022\"\n\032edit_store_display_content"
+  "\030\021 \001(\010\"\361\002\n\023CCuratorPreferences\022\033\n\023suppor"
+  "ted_languages\030\001 \001(\r\022\030\n\020platform_windows\030"
+  "\002 \001(\010\022\024\n\014platform_mac\030\003 \001(\010\022\026\n\016platform_"
+  "linux\030\004 \001(\010\022\022\n\nvr_content\030\005 \001(\010\022\036\n\026adult"
+  "_content_violence\030\006 \001(\010\022\031\n\021adult_content"
+  "_sex\030\007 \001(\010\022\031\n\021timestamp_updated\030\010 \001(\r\022\026\n"
+  "\016tagids_curated\030\t \003(\r\022\027\n\017tagids_filtered"
+  "\030\n \003(\r\022\025\n\rwebsite_title\030\013 \001(\t\022\023\n\013website"
+  "_url\030\014 \001(\t\022\026\n\016discussion_url\030\r \001(\t\022\026\n\016sh"
+  "ow_broadcast\030\016 \001(\010\"@\n\022CLocalizationToken"
+  "\022\020\n\010language\030\001 \001(\r\022\030\n\020localized_string\030\002"
+  " \001(\t\"\354\001\n\027CClanEventUserNewsTuple\022\016\n\006clan"
+  "id\030\001 \001(\r\022\021\n\tevent_gid\030\002 \001(\006\022\030\n\020announcem"
+  "ent_gid\030\003 \001(\006\022\023\n\013rtime_start\030\004 \001(\r\022\021\n\trt"
+  "ime_end\030\005 \001(\r\022\026\n\016priority_score\030\006 \001(\r\022\014\n"
+  "\004type\030\007 \001(\r\022\030\n\020clamp_range_slot\030\010 \001(\r\022\r\n"
+  "\005appid\030\t \001(\r\022\035\n\025rtime32_last_modified\030\n "
+  "\001(\r\"\200\001\n\026CClanMatchEventByRange\022\024\n\014rtime_"
+  "before\030\001 \001(\r\022\023\n\013rtime_after\030\002 \001(\r\022\021\n\tqua"
+  "lified\030\003 \001(\r\022(\n\006events\030\004 \003(\0132\030.CClanEven"
+  "tUserNewsTuple\"\227\003\n\037CCommunity_ClanAnnoun"
+  "cementInfo\022\013\n\003gid\030\001 \001(\004\022\016\n\006clanid\030\002 \001(\004\022"
+  "\020\n\010posterid\030\003 \001(\004\022\020\n\010headline\030\004 \001(\t\022\020\n\010p"
+  "osttime\030\005 \001(\r\022\022\n\nupdatetime\030\006 \001(\r\022\014\n\004bod"
+  "y\030\007 \001(\t\022\024\n\014commentcount\030\010 \001(\005\022\014\n\004tags\030\t "
+  "\003(\t\022\020\n\010language\030\n \001(\005\022\016\n\006hidden\030\013 \001(\010\022\026\n"
+  "\016forum_topic_id\030\014 \001(\006\022\021\n\tevent_gid\030\r \001(\006"
+  "\022\023\n\013voteupcount\030\016 \001(\005\022\025\n\rvotedowncount\030\017"
+  " \001(\005\022R\n\016ban_checresult\030\020 \001(\0162\027.EBanConte"
+  "ntCheckResult:!EBanContentCheckResult_No"
+  "tScanned\022\016\n\006banned\030\021 \001(\010\"\266\006\n\016CClanEventD"
+  "ata\022\013\n\003gid\030\001 \001(\006\022\024\n\014clan_steamid\030\002 \001(\006\022\022"
+  "\n\nevent_name\030\003 \001(\t\0229\n\nevent_type\030\004 \001(\0162\024"
+  ".EProtoClanEventType:\017EClanOtherEvent\022\r\n"
+  "\005appid\030\005 \001(\r\022\026\n\016server_address\030\006 \001(\t\022\027\n\017"
+  "server_password\030\007 \001(\t\022\032\n\022rtime32_start_t"
+  "ime\030\010 \001(\r\022\030\n\020rtime32_end_time\030\t \001(\r\022\025\n\rc"
+  "omment_count\030\n \001(\005\022\027\n\017creator_steamid\030\013 "
+  "\001(\006\022\033\n\023last_update_steamid\030\014 \001(\006\022\023\n\013even"
+  "t_notes\030\r \001(\t\022\020\n\010jsondata\030\016 \001(\t\022;\n\021annou"
+  "ncement_body\030\017 \001(\0132 .CCommunity_ClanAnno"
+  "uncementInfo\022\021\n\tpublished\030\020 \001(\010\022\016\n\006hidde"
+  "n\030\021 \001(\010\022 \n\030rtime32_visibility_start\030\022 \001("
+  "\r\022\036\n\026rtime32_visibility_end\030\023 \001(\r\022\035\n\025bro"
+  "adcaster_accountid\030\024 \001(\r\022\026\n\016follower_cou"
+  "nt\030\025 \001(\r\022\024\n\014ignore_count\030\026 \001(\r\022\026\n\016forum_"
+  "topic_id\030\027 \001(\006\022\035\n\025rtime32_last_modified\030"
+  "\030 \001(\r\022\025\n\rnews_post_gid\030\031 \001(\006\022\032\n\022rtime_mo"
+  "d_reviewed\030\032 \001(\r\022\032\n\022featured_app_tagid\030\033"
+  " \001(\r\022\031\n\021referenced_appids\030\034 \003(\r\022\020\n\010build"
+  "_id\030\035 \001(\r\022\024\n\014build_branch\030\036 \001(\t\022\020\n\010unlis"
+  "ted\030\037 \001(\010\"\307\001\n\020CBilling_Address\022\022\n\nfirst_"
+  "name\030\001 \001(\t\022\021\n\tlast_name\030\002 \001(\t\022\020\n\010address"
+  "1\030\003 \001(\t\022\020\n\010address2\030\004 \001(\t\022\014\n\004city\030\005 \001(\t\022"
+  "\020\n\010us_state\030\006 \001(\t\022\024\n\014country_code\030\007 \001(\t\022"
+  "\020\n\010postcode\030\010 \001(\t\022\021\n\tzip_plus4\030\t \001(\005\022\r\n\005"
+  "phone\030\n \001(\t\"\234\002\n\031CPackageReservationStatu"
+  "s\022\021\n\tpackageid\030\001 \001(\r\022\031\n\021reservation_stat"
+  "e\030\002 \001(\005\022\026\n\016queue_position\030\003 \001(\005\022\030\n\020total"
+  "_queue_size\030\004 \001(\005\022 \n\030reservation_country"
+  "_code\030\005 \001(\t\022\017\n\007expired\030\006 \001(\010\022\024\n\014time_exp"
+  "ires\030\007 \001(\r\022\025\n\rtime_reserved\030\010 \001(\r\022$\n\034rti"
+  "me_estimated_notification\030\t \001(\r\022\031\n\021notif"
+  "icaton_token\030\n \001(\t\"/\n\020CMsgKeyValuePair\022\014"
+  "\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"3\n\017CMsgKeyVa"
+  "lueSet\022 \n\005pairs\030\001 \003(\0132\021.CMsgKeyValuePair"
+  "\"\313\001\n UserContentDescriptorPreferences\022[\n"
+  "\036content_descriptors_to_exclude\030\001 \003(\01323."
+  "UserContentDescriptorPreferences.Content"
+  "Descriptor\032J\n\021ContentDescriptor\022\034\n\024conte"
+  "nt_descriptorid\030\001 \001(\r\022\027\n\017timestamp_added"
+  "\030\002 \001(\r*\310\002\n\026EBanContentCheckResult\022%\n!EBa"
+  "nContentCheckResult_NotScanned\020\000\022 \n\034EBan"
+  "ContentCheckResult_Reset\020\001\022(\n$EBanConten"
+  "tCheckResult_NeedsChecking\020\002\022\'\n#EBanCont"
+  "entCheckResult_VeryUnlikely\020\005\022#\n\037EBanCon"
+  "tentCheckResult_Unlikely\020\036\022#\n\037EBanConten"
+  "tCheckResult_Possible\0202\022!\n\035EBanContentCh"
+  "eckResult_Likely\020K\022%\n!EBanContentCheckRe"
+  "sult_VeryLikely\020d*\245\007\n\023EProtoClanEventTyp"
+  "e\022\023\n\017EClanOtherEvent\020\001\022\022\n\016EClanGameEvent"
+  "\020\002\022\023\n\017EClanPartyEvent\020\003\022\025\n\021EClanMeetingE"
+  "vent\020\004\022\032\n\026EClanSpecialCauseEvent\020\005\022\032\n\026EC"
+  "lanMusicAndArtsEvent\020\006\022\024\n\020EClanSportsEve"
+  "nt\020\007\022\022\n\016EClanTripEvent\020\010\022\022\n\016EClanChatEve"
+  "nt\020\t\022\031\n\025EClanGameReleaseEvent\020\n\022\027\n\023EClan"
+  "BroadcastEvent\020\013\022\031\n\025EClanSmallUpdateEven"
+  "t\020\014\022$\n EClanPreAnnounceMajorUpdateEvent\020"
+  "\r\022\031\n\025EClanMajorUpdateEvent\020\016\022\030\n\024EClanDLC"
+  "ReleaseEvent\020\017\022\033\n\027EClanFutureReleaseEven"
+  "t\020\020\022$\n EClanESportTournamentStreamEvent\020"
+  "\021\022\027\n\023EClanDevStreamEvent\020\022\022\032\n\026EClanFamou"
+  "sStreamEvent\020\023\022\027\n\023EClanGameSalesEvent\020\024\022"
+  "\033\n\027EClanGameItemSalesEvent\020\025\022\033\n\027EClanInG"
+  "ameBonusXPEvent\020\026\022\030\n\024EClanInGameLootEven"
+  "t\020\027\022\031\n\025EClanInGamePerksEvent\020\030\022\035\n\031EClanI"
+  "nGameChallengeEvent\020\031\022\033\n\027EClanInGameCont"
+  "estEvent\020\032\022\021\n\rEClanIRLEvent\020\033\022\022\n\016EClanNe"
+  "wsEvent\020\034\022\031\n\025EClanBetaReleaseEvent\020\035\022\"\n\036"
+  "EClanInGameContentReleaseEvent\020\036\022\022\n\016ECla"
+  "nFreeTrial\020\037\022\026\n\022EClanSeasonRelease\020 \022\025\n\021"
+  "EClanSeasonUpdate\020!\022\027\n\023EClanCrosspostEve"
+  "nt\020\"\022\033\n\027EClanInGameEventGeneral\020#*y\n\034Par"
+  "tnerEventNotificationType\022\017\n\013EEventStart"
+  "\020\000\022\030\n\024EEventBroadcastStart\020\001\022\024\n\020EEventMa"
+  "tchStart\020\002\022\030\n\024EEventPartnerMaxType\020\003:A\n\022"
+  "msgpool_soft_limit\022\037.google.protobuf.Mes"
+  "sageOptions\030\320\206\003 \001(\005:\00232:B\n\022msgpool_hard_"
+  "limit\022\037.google.protobuf.MessageOptions\030\321"
+  "\206\003 \001(\005:\003384:C\n\024force_php_generation\022\034.go"
+  "ogle.protobuf.FileOptions\030\320\206\003 \001(\010:\005false"
+  ":H\n\030php_output_always_number\022\035.google.pr"
+  "otobuf.FieldOptions\030\344\206\003 \001(\010:\005false:J\n\032al"
+  "low_field_named_steam_id\022\035.google.protob"
+  "uf.FieldOptions\030\350\206\003 \001(\010:\005falseB#H\001\200\001\001\252\002\027"
+  "OpenSteamworks.Protobuf\200\265\030\001"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fbase_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fbase_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fbase_2eproto = {
-  false, false, 7367, descriptor_table_protodef_steammessages_5fbase_2eproto, "steammessages_base.proto", 
+  false, false, 7387, descriptor_table_protodef_steammessages_5fbase_2eproto, "steammessages_base.proto", 
   &descriptor_table_steammessages_5fbase_2eproto_once, descriptor_table_steammessages_5fbase_2eproto_deps, 1, 23,
   schemas, file_default_instances, TableStruct_steammessages_5fbase_2eproto::offsets,
   file_level_metadata_steammessages_5fbase_2eproto, file_level_enum_descriptors_steammessages_5fbase_2eproto, file_level_service_descriptors_steammessages_5fbase_2eproto,
@@ -2123,10 +2126,10 @@ class CMsgProtoBufHeader::_Internal {
     (*has_bits)[0] |= 256u;
   }
   static void set_has_jobid_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 67108864u;
+    (*has_bits)[0] |= 134217728u;
   }
   static void set_has_jobid_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 134217728u;
+    (*has_bits)[0] |= 268435456u;
   }
   static void set_has_target_job_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -2135,7 +2138,7 @@ class CMsgProtoBufHeader::_Internal {
     (*has_bits)[0] |= 16384u;
   }
   static void set_has_eresult(HasBits* has_bits) {
-    (*has_bits)[0] |= 268435456u;
+    (*has_bits)[0] |= 536870912u;
   }
   static void set_has_error_message(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
@@ -2147,13 +2150,13 @@ class CMsgProtoBufHeader::_Internal {
     (*has_bits)[0] |= 8192u;
   }
   static void set_has_admin_spoofing_user(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_transport_error(HasBits* has_bits) {
-    (*has_bits)[0] |= 536870912u;
+    (*has_bits)[0] |= 1073741824u;
   }
   static void set_has_messageid(HasBits* has_bits) {
-    (*has_bits)[0] |= 1073741824u;
+    (*has_bits)[0] |= 2147483648u;
   }
   static void set_has_publisher_group_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
@@ -2165,38 +2168,38 @@ class CMsgProtoBufHeader::_Internal {
     (*has_bits)[0] |= 2048u;
   }
   static void set_has_webapi_key_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_is_from_external_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
-  }
-  static void set_has_cm_sysid(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
-  }
-  static void set_has_launcher_type(HasBits* has_bits) {
     (*has_bits)[0] |= 524288u;
   }
+  static void set_has_cm_sysid(HasBits* has_bits) {
+    (*has_bits)[0] |= 65536u;
+  }
+  static void set_has_launcher_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 131072u;
+  }
   static void set_has_realm(HasBits* has_bits) {
-    (*has_bits)[0] |= 1048576u;
+    (*has_bits)[0] |= 2097152u;
   }
   static void set_has_timeout_ms(HasBits* has_bits) {
-    (*has_bits)[0] |= 33554432u;
+    (*has_bits)[0] |= 67108864u;
   }
   static void set_has_debug_source(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_debug_source_string_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 4194304u;
+    (*has_bits)[0] |= 8388608u;
   }
   static void set_has_token_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2097152u;
+    (*has_bits)[0] |= 4194304u;
   }
   static const ::CMsgGCRoutingProtoBufHeader& routing_gc(const CMsgProtoBufHeader* msg);
   static void set_has_routing_gc(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_session_disposition(HasBits* has_bits) {
-    (*has_bits)[0] |= 8388608u;
+    (*has_bits)[0] |= 16777216u;
   }
   static void set_has_wg_token(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
@@ -2205,7 +2208,10 @@ class CMsgProtoBufHeader::_Internal {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_admin_request_spoofing_steamid(HasBits* has_bits) {
-    (*has_bits)[0] |= 16777216u;
+    (*has_bits)[0] |= 33554432u;
+  }
+  static void set_has_is_valveds(HasBits* has_bits) {
+    (*has_bits)[0] |= 1048576u;
   }
 };
 
@@ -2381,16 +2387,18 @@ void CMsgProtoBufHeader::Clear() {
   }
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&routing_appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&admin_spoofing_user_) -
-        reinterpret_cast<char*>(&routing_appid_)) + sizeof(admin_spoofing_user_));
+        reinterpret_cast<char*>(&webapi_key_id_) -
+        reinterpret_cast<char*>(&routing_appid_)) + sizeof(webapi_key_id_));
   }
   if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&is_from_external_source_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&session_disposition_) -
-        reinterpret_cast<char*>(&is_from_external_source_)) + sizeof(session_disposition_));
+    ::memset(&cm_sysid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&debug_source_string_index_) -
+        reinterpret_cast<char*>(&cm_sysid_)) + sizeof(debug_source_string_index_));
   }
-  if (cached_has_bits & 0x7f000000u) {
-    admin_request_spoofing_steamid_ = PROTOBUF_ULONGLONG(0);
+  if (cached_has_bits & 0xff000000u) {
+    ::memset(&session_disposition_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&admin_request_spoofing_steamid_) -
+        reinterpret_cast<char*>(&session_disposition_)) + sizeof(admin_request_spoofing_steamid_));
     timeout_ms_ = -1;
     jobid_source_ = PROTOBUF_ULONGLONG(18446744073709551615);
     jobid_target_ = PROTOBUF_ULONGLONG(18446744073709551615);
@@ -2722,6 +2730,14 @@ const char* CMsgProtoBufHeader::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
+      // optional bool is_valveds = 44;
+      case 44:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+          _Internal::set_has_is_valveds(&has_bits);
+          is_valveds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -2771,13 +2787,13 @@ failure:
   }
 
   // optional fixed64 jobid_source = 10 [default = 18446744073709551615];
-  if (cached_has_bits & 0x04000000u) {
+  if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(10, this->_internal_jobid_source(), target);
   }
 
   // optional fixed64 jobid_target = 11 [default = 18446744073709551615];
-  if (cached_has_bits & 0x08000000u) {
+  if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(11, this->_internal_jobid_target(), target);
   }
@@ -2793,7 +2809,7 @@ failure:
   }
 
   // optional int32 eresult = 13 [default = 2];
-  if (cached_has_bits & 0x10000000u) {
+  if (cached_has_bits & 0x20000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(13, this->_internal_eresult(), target);
   }
@@ -2821,13 +2837,13 @@ failure:
   }
 
   // optional int32 transport_error = 17 [default = 1];
-  if (cached_has_bits & 0x20000000u) {
+  if (cached_has_bits & 0x40000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(17, this->_internal_transport_error(), target);
   }
 
   // optional uint64 messageid = 18 [default = 18446744073709551615];
-  if (cached_has_bits & 0x40000000u) {
+  if (cached_has_bits & 0x80000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(18, this->_internal_messageid(), target);
   }
@@ -2857,7 +2873,7 @@ failure:
   }
 
   // optional bool admin_spoofing_user = 23;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(23, this->_internal_admin_spoofing_user(), target);
   }
@@ -2869,13 +2885,13 @@ failure:
   }
 
   // optional uint32 webapi_key_id = 25;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(25, this->_internal_webapi_key_id(), target);
   }
 
   // optional bool is_from_external_source = 26;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(26, this->_internal_is_from_external_source(), target);
   }
@@ -2887,7 +2903,7 @@ failure:
   }
 
   // optional uint32 cm_sysid = 28;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(28, this->_internal_cm_sysid(), target);
   }
@@ -2899,19 +2915,19 @@ failure:
   }
 
   // optional uint32 launcher_type = 31 [default = 0];
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(31, this->_internal_launcher_type(), target);
   }
 
   // optional uint32 realm = 32 [default = 0];
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(32, this->_internal_realm(), target);
   }
 
   // optional int32 timeout_ms = 33 [default = -1];
-  if (cached_has_bits & 0x02000000u) {
+  if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(33, this->_internal_timeout_ms(), target);
   }
@@ -2927,13 +2943,13 @@ failure:
   }
 
   // optional uint32 debug_source_string_index = 35;
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(35, this->_internal_debug_source_string_index(), target);
   }
 
   // optional uint64 token_id = 36;
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(36, this->_internal_token_id(), target);
   }
@@ -2947,7 +2963,7 @@ failure:
   }
 
   // optional .CMsgProtoBufHeader.ESessionDisposition session_disposition = 38 [default = ESessionDispositionNormal];
-  if (cached_has_bits & 0x00800000u) {
+  if (cached_has_bits & 0x01000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       38, this->_internal_session_disposition(), target);
@@ -2980,9 +2996,15 @@ failure:
   }
 
   // optional fixed64 admin_request_spoofing_steamid = 43;
-  if (cached_has_bits & 0x01000000u) {
+  if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(43, this->_internal_admin_request_spoofing_steamid(), target);
+  }
+
+  // optional bool is_valveds = 44;
+  if (cached_has_bits & 0x00100000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(44, this->_internal_is_valveds(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3126,106 +3148,111 @@ size_t CMsgProtoBufHeader::ByteSizeLong() const {
           this->_internal_seq_num());
     }
 
-    // optional bool admin_spoofing_user = 23;
-    if (cached_has_bits & 0x00008000u) {
-      total_size += 2 + 1;
-    }
-
-  }
-  if (cached_has_bits & 0x00ff0000u) {
-    // optional bool is_from_external_source = 26;
-    if (cached_has_bits & 0x00010000u) {
-      total_size += 2 + 1;
-    }
-
     // optional uint32 webapi_key_id = 25;
-    if (cached_has_bits & 0x00020000u) {
+    if (cached_has_bits & 0x00008000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_webapi_key_id());
     }
 
+  }
+  if (cached_has_bits & 0x00ff0000u) {
     // optional uint32 cm_sysid = 28;
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00010000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cm_sysid());
     }
 
     // optional uint32 launcher_type = 31 [default = 0];
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00020000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_launcher_type());
     }
 
-    // optional uint32 realm = 32 [default = 0];
+    // optional bool admin_spoofing_user = 23;
+    if (cached_has_bits & 0x00040000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool is_from_external_source = 26;
+    if (cached_has_bits & 0x00080000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool is_valveds = 44;
     if (cached_has_bits & 0x00100000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional uint32 realm = 32 [default = 0];
+    if (cached_has_bits & 0x00200000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_realm());
     }
 
     // optional uint64 token_id = 36;
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00400000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_token_id());
     }
 
     // optional uint32 debug_source_string_index = 35;
-    if (cached_has_bits & 0x00400000u) {
+    if (cached_has_bits & 0x00800000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_debug_source_string_index());
     }
 
+  }
+  if (cached_has_bits & 0xff000000u) {
     // optional .CMsgProtoBufHeader.ESessionDisposition session_disposition = 38 [default = ESessionDispositionNormal];
-    if (cached_has_bits & 0x00800000u) {
+    if (cached_has_bits & 0x01000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_disposition());
     }
 
-  }
-  if (cached_has_bits & 0x7f000000u) {
     // optional fixed64 admin_request_spoofing_steamid = 43;
-    if (cached_has_bits & 0x01000000u) {
+    if (cached_has_bits & 0x02000000u) {
       total_size += 2 + 8;
     }
 
     // optional int32 timeout_ms = 33 [default = -1];
-    if (cached_has_bits & 0x02000000u) {
+    if (cached_has_bits & 0x04000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_timeout_ms());
     }
 
     // optional fixed64 jobid_source = 10 [default = 18446744073709551615];
-    if (cached_has_bits & 0x04000000u) {
-      total_size += 1 + 8;
-    }
-
-    // optional fixed64 jobid_target = 11 [default = 18446744073709551615];
     if (cached_has_bits & 0x08000000u) {
       total_size += 1 + 8;
     }
 
-    // optional int32 eresult = 13 [default = 2];
+    // optional fixed64 jobid_target = 11 [default = 18446744073709551615];
     if (cached_has_bits & 0x10000000u) {
+      total_size += 1 + 8;
+    }
+
+    // optional int32 eresult = 13 [default = 2];
+    if (cached_has_bits & 0x20000000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_eresult());
     }
 
     // optional int32 transport_error = 17 [default = 1];
-    if (cached_has_bits & 0x20000000u) {
+    if (cached_has_bits & 0x40000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_transport_error());
     }
 
     // optional uint64 messageid = 18 [default = 18446744073709551615];
-    if (cached_has_bits & 0x40000000u) {
+    if (cached_has_bits & 0x80000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_messageid());
@@ -3335,57 +3362,60 @@ void CMsgProtoBufHeader::MergeFrom(const CMsgProtoBufHeader& from) {
       seq_num_ = from.seq_num_;
     }
     if (cached_has_bits & 0x00008000u) {
-      admin_spoofing_user_ = from.admin_spoofing_user_;
+      webapi_key_id_ = from.webapi_key_id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      is_from_external_source_ = from.is_from_external_source_;
-    }
-    if (cached_has_bits & 0x00020000u) {
-      webapi_key_id_ = from.webapi_key_id_;
-    }
-    if (cached_has_bits & 0x00040000u) {
       cm_sysid_ = from.cm_sysid_;
     }
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00020000u) {
       launcher_type_ = from.launcher_type_;
     }
+    if (cached_has_bits & 0x00040000u) {
+      admin_spoofing_user_ = from.admin_spoofing_user_;
+    }
+    if (cached_has_bits & 0x00080000u) {
+      is_from_external_source_ = from.is_from_external_source_;
+    }
     if (cached_has_bits & 0x00100000u) {
-      realm_ = from.realm_;
+      is_valveds_ = from.is_valveds_;
     }
     if (cached_has_bits & 0x00200000u) {
-      token_id_ = from.token_id_;
+      realm_ = from.realm_;
     }
     if (cached_has_bits & 0x00400000u) {
-      debug_source_string_index_ = from.debug_source_string_index_;
+      token_id_ = from.token_id_;
     }
     if (cached_has_bits & 0x00800000u) {
-      session_disposition_ = from.session_disposition_;
+      debug_source_string_index_ = from.debug_source_string_index_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x7f000000u) {
+  if (cached_has_bits & 0xff000000u) {
     if (cached_has_bits & 0x01000000u) {
-      admin_request_spoofing_steamid_ = from.admin_request_spoofing_steamid_;
+      session_disposition_ = from.session_disposition_;
     }
     if (cached_has_bits & 0x02000000u) {
-      timeout_ms_ = from.timeout_ms_;
+      admin_request_spoofing_steamid_ = from.admin_request_spoofing_steamid_;
     }
     if (cached_has_bits & 0x04000000u) {
-      jobid_source_ = from.jobid_source_;
+      timeout_ms_ = from.timeout_ms_;
     }
     if (cached_has_bits & 0x08000000u) {
-      jobid_target_ = from.jobid_target_;
+      jobid_source_ = from.jobid_source_;
     }
     if (cached_has_bits & 0x10000000u) {
-      eresult_ = from.eresult_;
+      jobid_target_ = from.jobid_target_;
     }
     if (cached_has_bits & 0x20000000u) {
-      transport_error_ = from.transport_error_;
+      eresult_ = from.eresult_;
     }
     if (cached_has_bits & 0x40000000u) {
+      transport_error_ = from.transport_error_;
+    }
+    if (cached_has_bits & 0x80000000u) {
       messageid_ = from.messageid_;
     }
     _has_bits_[0] |= cached_has_bits;

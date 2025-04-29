@@ -50,7 +50,7 @@ struct TableStruct_steammessages_5funified_5ftest_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[8]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[10]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -82,6 +82,12 @@ extern CMsgTest_NotifyClient_NotificationDefaultTypeInternal _CMsgTest_NotifyCli
 class CMsgTest_NotifyServer_Notification;
 struct CMsgTest_NotifyServer_NotificationDefaultTypeInternal;
 extern CMsgTest_NotifyServer_NotificationDefaultTypeInternal _CMsgTest_NotifyServer_Notification_default_instance_;
+class CMsgTest_TestClientCall_Request;
+struct CMsgTest_TestClientCall_RequestDefaultTypeInternal;
+extern CMsgTest_TestClientCall_RequestDefaultTypeInternal _CMsgTest_TestClientCall_Request_default_instance_;
+class CMsgTest_TestClientCall_Response;
+struct CMsgTest_TestClientCall_ResponseDefaultTypeInternal;
+extern CMsgTest_TestClientCall_ResponseDefaultTypeInternal _CMsgTest_TestClientCall_Response_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::CMsgTest_CallClient_Response* Arena::CreateMaybeMessage<::CMsgTest_CallClient_Response>(Arena*);
 template<> ::CMsgTest_MessageToClient_Request* Arena::CreateMaybeMessage<::CMsgTest_MessageToClient_Request>(Arena*);
@@ -91,6 +97,8 @@ template<> ::CMsgTest_MessageToServer_Response* Arena::CreateMaybeMessage<::CMsg
 template<> ::CMsgTest_NoBody_Request* Arena::CreateMaybeMessage<::CMsgTest_NoBody_Request>(Arena*);
 template<> ::CMsgTest_NotifyClient_Notification* Arena::CreateMaybeMessage<::CMsgTest_NotifyClient_Notification>(Arena*);
 template<> ::CMsgTest_NotifyServer_Notification* Arena::CreateMaybeMessage<::CMsgTest_NotifyServer_Notification>(Arena*);
+template<> ::CMsgTest_TestClientCall_Request* Arena::CreateMaybeMessage<::CMsgTest_TestClientCall_Request>(Arena*);
+template<> ::CMsgTest_TestClientCall_Response* Arena::CreateMaybeMessage<::CMsgTest_TestClientCall_Response>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
 // ===================================================================
@@ -1031,6 +1039,304 @@ class CMsgTest_NotifyServer_Notification PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CMsgTest_TestClientCall_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgTest_TestClientCall_Request) */ {
+ public:
+  inline CMsgTest_TestClientCall_Request() : CMsgTest_TestClientCall_Request(nullptr) {}
+  virtual ~CMsgTest_TestClientCall_Request();
+  explicit constexpr CMsgTest_TestClientCall_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgTest_TestClientCall_Request(const CMsgTest_TestClientCall_Request& from);
+  CMsgTest_TestClientCall_Request(CMsgTest_TestClientCall_Request&& from) noexcept
+    : CMsgTest_TestClientCall_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgTest_TestClientCall_Request& operator=(const CMsgTest_TestClientCall_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgTest_TestClientCall_Request& operator=(CMsgTest_TestClientCall_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgTest_TestClientCall_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgTest_TestClientCall_Request* internal_default_instance() {
+    return reinterpret_cast<const CMsgTest_TestClientCall_Request*>(
+               &_CMsgTest_TestClientCall_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(CMsgTest_TestClientCall_Request& a, CMsgTest_TestClientCall_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgTest_TestClientCall_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgTest_TestClientCall_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgTest_TestClientCall_Request* New() const final {
+    return CreateMaybeMessage<CMsgTest_TestClientCall_Request>(nullptr);
+  }
+
+  CMsgTest_TestClientCall_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgTest_TestClientCall_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgTest_TestClientCall_Request& from);
+  void MergeFrom(const CMsgTest_TestClientCall_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgTest_TestClientCall_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgTest_TestClientCall_Request";
+  }
+  protected:
+  explicit CMsgTest_TestClientCall_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5funified_5ftest_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kParamFieldNumber = 1,
+  };
+  // optional int32 param = 1;
+  bool has_param() const;
+  private:
+  bool _internal_has_param() const;
+  public:
+  void clear_param();
+  ::PROTOBUF_NAMESPACE_ID::int32 param() const;
+  void set_param(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_param() const;
+  void _internal_set_param(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgTest_TestClientCall_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::int32 param_;
+  friend struct ::TableStruct_steammessages_5funified_5ftest_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgTest_TestClientCall_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgTest_TestClientCall_Response) */ {
+ public:
+  inline CMsgTest_TestClientCall_Response() : CMsgTest_TestClientCall_Response(nullptr) {}
+  virtual ~CMsgTest_TestClientCall_Response();
+  explicit constexpr CMsgTest_TestClientCall_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgTest_TestClientCall_Response(const CMsgTest_TestClientCall_Response& from);
+  CMsgTest_TestClientCall_Response(CMsgTest_TestClientCall_Response&& from) noexcept
+    : CMsgTest_TestClientCall_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgTest_TestClientCall_Response& operator=(const CMsgTest_TestClientCall_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgTest_TestClientCall_Response& operator=(CMsgTest_TestClientCall_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgTest_TestClientCall_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgTest_TestClientCall_Response* internal_default_instance() {
+    return reinterpret_cast<const CMsgTest_TestClientCall_Response*>(
+               &_CMsgTest_TestClientCall_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(CMsgTest_TestClientCall_Response& a, CMsgTest_TestClientCall_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgTest_TestClientCall_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgTest_TestClientCall_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgTest_TestClientCall_Response* New() const final {
+    return CreateMaybeMessage<CMsgTest_TestClientCall_Response>(nullptr);
+  }
+
+  CMsgTest_TestClientCall_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgTest_TestClientCall_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgTest_TestClientCall_Response& from);
+  void MergeFrom(const CMsgTest_TestClientCall_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgTest_TestClientCall_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgTest_TestClientCall_Response";
+  }
+  protected:
+  explicit CMsgTest_TestClientCall_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5funified_5ftest_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultFieldNumber = 1,
+  };
+  // optional int32 result = 1;
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  ::PROTOBUF_NAMESPACE_ID::int32 result() const;
+  void set_result(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_result() const;
+  void _internal_set_result(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgTest_TestClientCall_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::int32 result_;
+  friend struct ::TableStruct_steammessages_5funified_5ftest_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgTest_NoBody_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgTest_NoBody_Request) */ {
  public:
@@ -1081,7 +1387,7 @@ class CMsgTest_NoBody_Request PROTOBUF_FINAL :
                &_CMsgTest_NoBody_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(CMsgTest_NoBody_Request& a, CMsgTest_NoBody_Request& b) {
     a.Swap(&b);
@@ -1212,7 +1518,7 @@ class CMsgTest_CallClient_Response PROTOBUF_FINAL :
                &_CMsgTest_CallClient_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(CMsgTest_CallClient_Response& a, CMsgTest_CallClient_Response& b) {
     a.Swap(&b);
@@ -1399,6 +1705,22 @@ class TestServerFromClient : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CMsgTest_NotifyServer_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
+  virtual void ClientCallAuthed1(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMsgTest_TestClientCall_Request* request,
+                       ::CMsgTest_TestClientCall_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ClientCallAuthed2(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMsgTest_TestClientCall_Request* request,
+                       ::CMsgTest_TestClientCall_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ClientCallAuthed3(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMsgTest_TestClientCall_Request* request,
+                       ::CMsgTest_TestClientCall_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ClientCallAuthed4(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMsgTest_TestClientCall_Request* request,
+                       ::CMsgTest_TestClientCall_Response* response,
+                       ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
 
@@ -1435,6 +1757,22 @@ class TestServerFromClient_Stub : public TestServerFromClient {
   void NotifyServer(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CMsgTest_NotifyServer_Notification* request,
                        ::NoResponse* response,
+                       ::google::protobuf::Closure* done);
+  void ClientCallAuthed1(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMsgTest_TestClientCall_Request* request,
+                       ::CMsgTest_TestClientCall_Response* response,
+                       ::google::protobuf::Closure* done);
+  void ClientCallAuthed2(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMsgTest_TestClientCall_Request* request,
+                       ::CMsgTest_TestClientCall_Response* response,
+                       ::google::protobuf::Closure* done);
+  void ClientCallAuthed3(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMsgTest_TestClientCall_Request* request,
+                       ::CMsgTest_TestClientCall_Response* response,
+                       ::google::protobuf::Closure* done);
+  void ClientCallAuthed4(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CMsgTest_TestClientCall_Request* request,
+                       ::CMsgTest_TestClientCall_Response* response,
                        ::google::protobuf::Closure* done);
  private:
   ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
@@ -1973,6 +2311,70 @@ inline void CMsgTest_NotifyServer_Notification::set_allocated_some_text(std::str
 
 // -------------------------------------------------------------------
 
+// CMsgTest_TestClientCall_Request
+
+// optional int32 param = 1;
+inline bool CMsgTest_TestClientCall_Request::_internal_has_param() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgTest_TestClientCall_Request::has_param() const {
+  return _internal_has_param();
+}
+inline void CMsgTest_TestClientCall_Request::clear_param() {
+  param_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgTest_TestClientCall_Request::_internal_param() const {
+  return param_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgTest_TestClientCall_Request::param() const {
+  // @@protoc_insertion_point(field_get:CMsgTest_TestClientCall_Request.param)
+  return _internal_param();
+}
+inline void CMsgTest_TestClientCall_Request::_internal_set_param(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  param_ = value;
+}
+inline void CMsgTest_TestClientCall_Request::set_param(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_param(value);
+  // @@protoc_insertion_point(field_set:CMsgTest_TestClientCall_Request.param)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgTest_TestClientCall_Response
+
+// optional int32 result = 1;
+inline bool CMsgTest_TestClientCall_Response::_internal_has_result() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgTest_TestClientCall_Response::has_result() const {
+  return _internal_has_result();
+}
+inline void CMsgTest_TestClientCall_Response::clear_result() {
+  result_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgTest_TestClientCall_Response::_internal_result() const {
+  return result_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgTest_TestClientCall_Response::result() const {
+  // @@protoc_insertion_point(field_get:CMsgTest_TestClientCall_Response.result)
+  return _internal_result();
+}
+inline void CMsgTest_TestClientCall_Response::_internal_set_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  result_ = value;
+}
+inline void CMsgTest_TestClientCall_Response::set_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:CMsgTest_TestClientCall_Response.result)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgTest_NoBody_Request
 
 // -------------------------------------------------------------------
@@ -2010,6 +2412,10 @@ inline void CMsgTest_CallClient_Response::set_testvalue(::PROTOBUF_NAMESPACE_ID:
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

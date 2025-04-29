@@ -460,7 +460,7 @@ constexpr CCommunity_FetchTranslationFromCrowdIn_Request::CCommunity_FetchTransl
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : steamid_(PROTOBUF_ULONGLONG(0))
   , itemid_(PROTOBUF_ULONGLONG(0))
-  , language_(0u){}
+  , language_(0){}
 struct CCommunity_FetchTranslationFromCrowdIn_RequestDefaultTypeInternal {
   constexpr CCommunity_FetchTranslationFromCrowdIn_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1596,7 +1596,7 @@ const char descriptor_table_protodef_steammessages_5fcommunity_2esteamclient_2ep
   "rowdin_directory_id\030\002 \001(\004\022\027\n\017push_by_def"
   "ault\030\003 \001(\010\"c\n.CCommunity_FetchTranslatio"
   "nFromCrowdIn_Request\022\017\n\007steamid\030\001 \001(\006\022\016\n"
-  "\006itemid\030\002 \001(\004\022\020\n\010language\030\003 \001(\r\"1\n/CComm"
+  "\006itemid\030\002 \001(\004\022\020\n\010language\030\003 \001(\005\"1\n/CComm"
   "unity_FetchTranslationFromCrowdIn_Respon"
   "se\"/\n\014CAppPriority\022\020\n\010priority\030\001 \001(\r\022\r\n\005"
   "appid\030\002 \003(\r\"\272\002\n*CCommunity_GetUserPartne"
@@ -10632,11 +10632,11 @@ const char* CCommunity_FetchTranslationFromCrowdIn_Request::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 language = 3;
+      // optional int32 language = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_language(&has_bits);
-          language_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          language_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -10682,10 +10682,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_itemid(), target);
   }
 
-  // optional uint32 language = 3;
+  // optional int32 language = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_language(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_language(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -10718,10 +10718,10 @@ size_t CCommunity_FetchTranslationFromCrowdIn_Request::ByteSizeLong() const {
           this->_internal_itemid());
     }
 
-    // optional uint32 language = 3;
+    // optional int32 language = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_language());
     }
 

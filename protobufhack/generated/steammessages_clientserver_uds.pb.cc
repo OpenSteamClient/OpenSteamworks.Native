@@ -143,10 +143,9 @@ constexpr CMsgClientGetClientAppListResponse_App::CMsgClientGetClientAppListResp
   , bytes_download_rate_(0u)
   , num_downloading_(0u)
   , bytes_staged_(PROTOBUF_ULONGLONG(0))
-  , num_paused_(0u)
-  , source_buildid_(0u)
   , bytes_to_stage_(PROTOBUF_ULONGLONG(0))
   , bytes_required_(PROTOBUF_ULONGLONG(0))
+  , source_buildid_(0u)
   , changing_(false)
   , available_on_platform_(false)
   , uninstalling_(false)
@@ -154,7 +153,8 @@ constexpr CMsgClientGetClientAppListResponse_App::CMsgClientGetClientAppListResp
   , target_buildid_(0u)
   , estimated_seconds_remaining_(0u)
   , queue_position_(0)
-  , rt_time_scheduled_(0u){}
+  , rt_time_scheduled_(0u)
+  , update_percentage_(0u){}
 struct CMsgClientGetClientAppListResponse_AppDefaultTypeInternal {
   constexpr CMsgClientGetClientAppListResponse_AppDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -432,7 +432,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, dlcs_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, download_paused_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, num_downloading_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, num_paused_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, changing_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, available_on_platform_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, bytes_staged_),
@@ -445,6 +444,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, uninstalling_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, rt_time_scheduled_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, running_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse_App, update_percentage_),
   2,
   0,
   1,
@@ -457,19 +457,19 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   ~0u,
   6,
   10,
-  12,
-  16,
-  17,
-  11,
-  14,
   15,
+  16,
+  11,
+  12,
   13,
+  14,
+  19,
   20,
   21,
+  17,
   22,
   18,
   23,
-  19,
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppListResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -636,46 +636,46 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5fuds_2eproto[
   "\n\005tools\030\002 \001(\010\022\r\n\005games\030\003 \001(\010\022\026\n\016only_ins"
   "talled\030\004 \001(\010\022\025\n\ronly_changing\030\005 \001(\010\022\016\n\006c"
   "omics\030\006 \001(\010\022\033\n\023include_client_info\030\007 \001(\010"
-  "\022\025\n\rfilter_appids\030\010 \003(\r\"\305\006\n\"CMsgClientGe"
+  "\022\025\n\rfilter_appids\030\010 \003(\r\"\314\006\n\"CMsgClientGe"
   "tClientAppListResponse\0225\n\004apps\030\001 \003(\0132\'.C"
   "MsgClientGetClientAppListResponse.App\022\027\n"
   "\017bytes_available\030\002 \001(\004\0228\n\013client_info\030\003 "
   "\001(\0132#.CMsgClientGetClientDetailsResponse"
-  "\032\224\005\n\003App\022\r\n\005appid\030\001 \001(\r\022\020\n\010category\030\002 \001("
+  "\032\233\005\n\003App\022\r\n\005appid\030\001 \001(\r\022\020\n\010category\030\002 \001("
   "\t\022\020\n\010app_type\030\n \001(\t\022\020\n\010favorite\030\003 \001(\010\022\021\n"
   "\tinstalled\030\004 \001(\010\022\023\n\013auto_update\030\005 \001(\010\022\030\n"
   "\020bytes_downloaded\030\006 \001(\004\022\031\n\021bytes_to_down"
   "load\030\007 \001(\004\022\033\n\023bytes_download_rate\030\010 \001(\r\022"
   "9\n\004dlcs\030\t \003(\0132+.CMsgClientGetClientAppLi"
   "stResponse.App.DLC\022\027\n\017download_paused\030\013 "
-  "\001(\010\022\027\n\017num_downloading\030\014 \001(\r\022\022\n\nnum_paus"
-  "ed\030\r \001(\r\022\020\n\010changing\030\016 \001(\010\022\035\n\025available_"
-  "on_platform\030\017 \001(\010\022\024\n\014bytes_staged\030\020 \001(\004\022"
-  "\026\n\016bytes_to_stage\030\021 \001(\004\022\026\n\016bytes_require"
-  "d\030\022 \001(\004\022\026\n\016source_buildid\030\023 \001(\r\022\026\n\016targe"
-  "t_buildid\030\024 \001(\r\022#\n\033estimated_seconds_rem"
-  "aining\030\025 \001(\r\022\026\n\016queue_position\030\026 \001(\005\022\024\n\014"
-  "uninstalling\030\027 \001(\010\022\031\n\021rt_time_scheduled\030"
-  "\030 \001(\r\022\017\n\007running\030\031 \001(\010\032\'\n\003DLC\022\r\n\005appid\030\001"
-  " \001(\r\022\021\n\tinstalled\030\002 \001(\010\"+\n\032CMsgClientIns"
-  "tallClientApp\022\r\n\005appid\030\001 \001(\r\"4\n\"CMsgClie"
-  "ntInstallClientAppResponse\022\016\n\006result\030\001 \001"
-  "(\r\"-\n\034CMsgClientUninstallClientApp\022\r\n\005ap"
-  "pid\030\001 \001(\r\"6\n$CMsgClientUninstallClientAp"
-  "pResponse\022\016\n\006result\030\001 \001(\r\"B\n!CMsgClientS"
-  "etClientAppUpdateState\022\r\n\005appid\030\001 \001(\r\022\016\n"
-  "\006update\030\002 \001(\010\";\n)CMsgClientSetClientAppU"
-  "pdateStateResponse\022\016\n\006result\030\001 \001(\r\"\252\001\n\031C"
-  "MsgClientLaunchClientApp\022\r\n\005appid\030\001 \001(\r\022"
-  "\020\n\010language\030\002 \001(\r\022\032\n\022launch_option_type\030"
-  "\003 \001(\r\022\025\n\rlaunch_option\030\004 \001(\r\022\025\n\rlaunch_s"
-  "ource\030\005 \001(\r\022\014\n\004args\030\006 \001(\t\022\024\n\014query_param"
-  "s\030\007 \001(\t\"3\n!CMsgClientLaunchClientAppResp"
-  "onse\022\016\n\006result\030\001 \001(\r\"4\n\"CMsgClientEnable"
-  "OrDisableDownloads\022\016\n\006enable\030\001 \001(\010\"<\n*CM"
-  "sgClientEnableOrDisableDownloadsResponse"
-  "\022\016\n\006result\030\001 \001(\rB\037H\001\200\001\000\252\002\027OpenSteamworks"
-  ".Protobuf"
+  "\001(\010\022\027\n\017num_downloading\030\014 \001(\r\022\020\n\010changing"
+  "\030\016 \001(\010\022\035\n\025available_on_platform\030\017 \001(\010\022\024\n"
+  "\014bytes_staged\030\020 \001(\004\022\026\n\016bytes_to_stage\030\021 "
+  "\001(\004\022\026\n\016bytes_required\030\022 \001(\004\022\026\n\016source_bu"
+  "ildid\030\023 \001(\r\022\026\n\016target_buildid\030\024 \001(\r\022#\n\033e"
+  "stimated_seconds_remaining\030\025 \001(\r\022\026\n\016queu"
+  "e_position\030\026 \001(\005\022\024\n\014uninstalling\030\027 \001(\010\022\031"
+  "\n\021rt_time_scheduled\030\030 \001(\r\022\017\n\007running\030\031 \001"
+  "(\010\022\031\n\021update_percentage\030\032 \001(\r\032\'\n\003DLC\022\r\n\005"
+  "appid\030\001 \001(\r\022\021\n\tinstalled\030\002 \001(\010\"+\n\032CMsgCl"
+  "ientInstallClientApp\022\r\n\005appid\030\001 \001(\r\"4\n\"C"
+  "MsgClientInstallClientAppResponse\022\016\n\006res"
+  "ult\030\001 \001(\r\"-\n\034CMsgClientUninstallClientAp"
+  "p\022\r\n\005appid\030\001 \001(\r\"6\n$CMsgClientUninstallC"
+  "lientAppResponse\022\016\n\006result\030\001 \001(\r\"B\n!CMsg"
+  "ClientSetClientAppUpdateState\022\r\n\005appid\030\001"
+  " \001(\r\022\016\n\006update\030\002 \001(\010\";\n)CMsgClientSetCli"
+  "entAppUpdateStateResponse\022\016\n\006result\030\001 \001("
+  "\r\"\252\001\n\031CMsgClientLaunchClientApp\022\r\n\005appid"
+  "\030\001 \001(\r\022\020\n\010language\030\002 \001(\r\022\032\n\022launch_optio"
+  "n_type\030\003 \001(\r\022\025\n\rlaunch_option\030\004 \001(\r\022\025\n\rl"
+  "aunch_source\030\005 \001(\r\022\014\n\004args\030\006 \001(\t\022\024\n\014quer"
+  "y_params\030\007 \001(\t\"3\n!CMsgClientLaunchClient"
+  "AppResponse\022\016\n\006result\030\001 \001(\r\"4\n\"CMsgClien"
+  "tEnableOrDisableDownloads\022\016\n\006enable\030\001 \001("
+  "\010\"<\n*CMsgClientEnableOrDisableDownloadsR"
+  "esponse\022\016\n\006result\030\001 \001(\rB\037H\001\200\001\000\252\002\027OpenSte"
+  "amworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_5fuds_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -683,7 +683,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5fuds_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5fuds_2eproto = {
-  false, false, 2569, descriptor_table_protodef_steammessages_5fclientserver_5fuds_2eproto, "steammessages_clientserver_uds.proto", 
+  false, false, 2576, descriptor_table_protodef_steammessages_5fclientserver_5fuds_2eproto, "steammessages_clientserver_uds.proto", 
   &descriptor_table_steammessages_5fclientserver_5fuds_2eproto_once, descriptor_table_steammessages_5fclientserver_5fuds_2eproto_deps, 2, 19,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5fuds_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5fuds_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5fuds_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5fuds_2eproto,
@@ -3110,44 +3110,44 @@ class CMsgClientGetClientAppListResponse_App::_Internal {
   static void set_has_num_downloading(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
-  static void set_has_num_paused(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
-  }
   static void set_has_changing(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_available_on_platform(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 65536u;
   }
   static void set_has_bytes_staged(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
   static void set_has_bytes_to_stage(HasBits* has_bits) {
-    (*has_bits)[0] |= 16384u;
+    (*has_bits)[0] |= 4096u;
   }
   static void set_has_bytes_required(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
-  }
-  static void set_has_source_buildid(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
+  static void set_has_source_buildid(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
   static void set_has_target_buildid(HasBits* has_bits) {
-    (*has_bits)[0] |= 1048576u;
+    (*has_bits)[0] |= 524288u;
   }
   static void set_has_estimated_seconds_remaining(HasBits* has_bits) {
-    (*has_bits)[0] |= 2097152u;
+    (*has_bits)[0] |= 1048576u;
   }
   static void set_has_queue_position(HasBits* has_bits) {
-    (*has_bits)[0] |= 4194304u;
+    (*has_bits)[0] |= 2097152u;
   }
   static void set_has_uninstalling(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 131072u;
   }
   static void set_has_rt_time_scheduled(HasBits* has_bits) {
-    (*has_bits)[0] |= 8388608u;
+    (*has_bits)[0] |= 4194304u;
   }
   static void set_has_running(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
+    (*has_bits)[0] |= 262144u;
+  }
+  static void set_has_update_percentage(HasBits* has_bits) {
+    (*has_bits)[0] |= 8388608u;
   }
 };
 
@@ -3174,8 +3174,8 @@ CMsgClientGetClientAppListResponse_App::CMsgClientGetClientAppListResponse_App(c
       GetArena());
   }
   ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&rt_time_scheduled_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(rt_time_scheduled_));
+    static_cast<size_t>(reinterpret_cast<char*>(&update_percentage_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(update_percentage_));
   // @@protoc_insertion_point(copy_constructor:CMsgClientGetClientAppListResponse.App)
 }
 
@@ -3184,8 +3184,8 @@ category_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlr
 app_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&rt_time_scheduled_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(rt_time_scheduled_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&update_percentage_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(update_percentage_));
 }
 
 CMsgClientGetClientAppListResponse_App::~CMsgClientGetClientAppListResponse_App() {
@@ -3233,13 +3233,13 @@ void CMsgClientGetClientAppListResponse_App::Clear() {
   }
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&bytes_to_download_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&bytes_required_) -
-        reinterpret_cast<char*>(&bytes_to_download_)) + sizeof(bytes_required_));
+        reinterpret_cast<char*>(&changing_) -
+        reinterpret_cast<char*>(&bytes_to_download_)) + sizeof(changing_));
   }
   if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&changing_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&rt_time_scheduled_) -
-        reinterpret_cast<char*>(&changing_)) + sizeof(rt_time_scheduled_));
+    ::memset(&available_on_platform_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&update_percentage_) -
+        reinterpret_cast<char*>(&available_on_platform_)) + sizeof(update_percentage_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -3359,14 +3359,6 @@ const char* CMsgClientGetClientAppListResponse_App::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 num_paused = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
-          _Internal::set_has_num_paused(&has_bits);
-          num_paused_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // optional bool changing = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
@@ -3460,6 +3452,14 @@ const char* CMsgClientGetClientAppListResponse_App::_InternalParse(const char* p
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 200)) {
           _Internal::set_has_running(&has_bits);
           running_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 update_percentage = 26;
+      case 26:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 208)) {
+          _Internal::set_has_update_percentage(&has_bits);
+          update_percentage_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3575,20 +3575,14 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_num_downloading(), target);
   }
 
-  // optional uint32 num_paused = 13;
-  if (cached_has_bits & 0x00001000u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_num_paused(), target);
-  }
-
   // optional bool changing = 14;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_changing(), target);
   }
 
   // optional bool available_on_platform = 15;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_available_on_platform(), target);
   }
@@ -3600,57 +3594,63 @@ failure:
   }
 
   // optional uint64 bytes_to_stage = 17;
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(17, this->_internal_bytes_to_stage(), target);
   }
 
   // optional uint64 bytes_required = 18;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(18, this->_internal_bytes_required(), target);
   }
 
   // optional uint32 source_buildid = 19;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(19, this->_internal_source_buildid(), target);
   }
 
   // optional uint32 target_buildid = 20;
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(20, this->_internal_target_buildid(), target);
   }
 
   // optional uint32 estimated_seconds_remaining = 21;
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(21, this->_internal_estimated_seconds_remaining(), target);
   }
 
   // optional int32 queue_position = 22;
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(22, this->_internal_queue_position(), target);
   }
 
   // optional bool uninstalling = 23;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(23, this->_internal_uninstalling(), target);
   }
 
   // optional uint32 rt_time_scheduled = 24;
-  if (cached_has_bits & 0x00800000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(24, this->_internal_rt_time_scheduled(), target);
   }
 
   // optional bool running = 25;
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(25, this->_internal_running(), target);
+  }
+
+  // optional uint32 update_percentage = 26;
+  if (cached_has_bits & 0x00800000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(26, this->_internal_update_percentage(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3756,82 +3756,82 @@ size_t CMsgClientGetClientAppListResponse_App::ByteSizeLong() const {
           this->_internal_bytes_staged());
     }
 
-    // optional uint32 num_paused = 13;
-    if (cached_has_bits & 0x00001000u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_num_paused());
-    }
-
-    // optional uint32 source_buildid = 19;
-    if (cached_has_bits & 0x00002000u) {
-      total_size += 2 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_source_buildid());
-    }
-
     // optional uint64 bytes_to_stage = 17;
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_bytes_to_stage());
     }
 
     // optional uint64 bytes_required = 18;
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00002000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_bytes_required());
     }
 
+    // optional uint32 source_buildid = 19;
+    if (cached_has_bits & 0x00004000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_source_buildid());
+    }
+
+    // optional bool changing = 14;
+    if (cached_has_bits & 0x00008000u) {
+      total_size += 1 + 1;
+    }
+
   }
   if (cached_has_bits & 0x00ff0000u) {
-    // optional bool changing = 14;
+    // optional bool available_on_platform = 15;
     if (cached_has_bits & 0x00010000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool available_on_platform = 15;
-    if (cached_has_bits & 0x00020000u) {
-      total_size += 1 + 1;
-    }
-
     // optional bool uninstalling = 23;
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00020000u) {
       total_size += 2 + 1;
     }
 
     // optional bool running = 25;
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00040000u) {
       total_size += 2 + 1;
     }
 
     // optional uint32 target_buildid = 20;
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00080000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_target_buildid());
     }
 
     // optional uint32 estimated_seconds_remaining = 21;
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00100000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_estimated_seconds_remaining());
     }
 
     // optional int32 queue_position = 22;
-    if (cached_has_bits & 0x00400000u) {
+    if (cached_has_bits & 0x00200000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_queue_position());
     }
 
     // optional uint32 rt_time_scheduled = 24;
-    if (cached_has_bits & 0x00800000u) {
+    if (cached_has_bits & 0x00400000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rt_time_scheduled());
+    }
+
+    // optional uint32 update_percentage = 26;
+    if (cached_has_bits & 0x00800000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_update_percentage());
     }
 
   }
@@ -3909,43 +3909,43 @@ void CMsgClientGetClientAppListResponse_App::MergeFrom(const CMsgClientGetClient
       bytes_staged_ = from.bytes_staged_;
     }
     if (cached_has_bits & 0x00001000u) {
-      num_paused_ = from.num_paused_;
-    }
-    if (cached_has_bits & 0x00002000u) {
-      source_buildid_ = from.source_buildid_;
-    }
-    if (cached_has_bits & 0x00004000u) {
       bytes_to_stage_ = from.bytes_to_stage_;
     }
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00002000u) {
       bytes_required_ = from.bytes_required_;
+    }
+    if (cached_has_bits & 0x00004000u) {
+      source_buildid_ = from.source_buildid_;
+    }
+    if (cached_has_bits & 0x00008000u) {
+      changing_ = from.changing_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      changing_ = from.changing_;
-    }
-    if (cached_has_bits & 0x00020000u) {
       available_on_platform_ = from.available_on_platform_;
     }
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00020000u) {
       uninstalling_ = from.uninstalling_;
     }
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00040000u) {
       running_ = from.running_;
     }
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00080000u) {
       target_buildid_ = from.target_buildid_;
     }
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00100000u) {
       estimated_seconds_remaining_ = from.estimated_seconds_remaining_;
     }
-    if (cached_has_bits & 0x00400000u) {
+    if (cached_has_bits & 0x00200000u) {
       queue_position_ = from.queue_position_;
     }
-    if (cached_has_bits & 0x00800000u) {
+    if (cached_has_bits & 0x00400000u) {
       rt_time_scheduled_ = from.rt_time_scheduled_;
+    }
+    if (cached_has_bits & 0x00800000u) {
+      update_percentage_ = from.update_percentage_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -3977,8 +3977,8 @@ void CMsgClientGetClientAppListResponse_App::InternalSwap(CMsgClientGetClientApp
   category_.Swap(&other->category_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   app_type_.Swap(&other->app_type_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientGetClientAppListResponse_App, rt_time_scheduled_)
-      + sizeof(CMsgClientGetClientAppListResponse_App::rt_time_scheduled_)
+      PROTOBUF_FIELD_OFFSET(CMsgClientGetClientAppListResponse_App, update_percentage_)
+      + sizeof(CMsgClientGetClientAppListResponse_App::update_percentage_)
       - PROTOBUF_FIELD_OFFSET(CMsgClientGetClientAppListResponse_App, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));

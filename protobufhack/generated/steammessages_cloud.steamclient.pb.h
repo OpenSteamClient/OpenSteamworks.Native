@@ -52,7 +52,7 @@ struct TableStruct_steammessages_5fcloud_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[59]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[54]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -186,15 +186,6 @@ extern CCloud_Delete_RequestDefaultTypeInternal _CCloud_Delete_Request_default_i
 class CCloud_Delete_Response;
 struct CCloud_Delete_ResponseDefaultTypeInternal;
 extern CCloud_Delete_ResponseDefaultTypeInternal _CCloud_Delete_Response_default_instance_;
-class CCloud_EnumerateUserApps_Request;
-struct CCloud_EnumerateUserApps_RequestDefaultTypeInternal;
-extern CCloud_EnumerateUserApps_RequestDefaultTypeInternal _CCloud_EnumerateUserApps_Request_default_instance_;
-class CCloud_EnumerateUserApps_Response;
-struct CCloud_EnumerateUserApps_ResponseDefaultTypeInternal;
-extern CCloud_EnumerateUserApps_ResponseDefaultTypeInternal _CCloud_EnumerateUserApps_Response_default_instance_;
-class CCloud_EnumerateUserApps_Response_Apps;
-struct CCloud_EnumerateUserApps_Response_AppsDefaultTypeInternal;
-extern CCloud_EnumerateUserApps_Response_AppsDefaultTypeInternal _CCloud_EnumerateUserApps_Response_Apps_default_instance_;
 class CCloud_EnumerateUserFiles_Request;
 struct CCloud_EnumerateUserFiles_RequestDefaultTypeInternal;
 extern CCloud_EnumerateUserFiles_RequestDefaultTypeInternal _CCloud_EnumerateUserFiles_Request_default_instance_;
@@ -222,12 +213,6 @@ extern CCloud_GetFileDetails_RequestDefaultTypeInternal _CCloud_GetFileDetails_R
 class CCloud_GetFileDetails_Response;
 struct CCloud_GetFileDetails_ResponseDefaultTypeInternal;
 extern CCloud_GetFileDetails_ResponseDefaultTypeInternal _CCloud_GetFileDetails_Response_default_instance_;
-class CCloud_GetUploadServerInfo_Request;
-struct CCloud_GetUploadServerInfo_RequestDefaultTypeInternal;
-extern CCloud_GetUploadServerInfo_RequestDefaultTypeInternal _CCloud_GetUploadServerInfo_Request_default_instance_;
-class CCloud_GetUploadServerInfo_Response;
-struct CCloud_GetUploadServerInfo_ResponseDefaultTypeInternal;
-extern CCloud_GetUploadServerInfo_ResponseDefaultTypeInternal _CCloud_GetUploadServerInfo_Response_default_instance_;
 class CCloud_UserFile;
 struct CCloud_UserFileDefaultTypeInternal;
 extern CCloud_UserFileDefaultTypeInternal _CCloud_UserFile_default_instance_;
@@ -280,9 +265,6 @@ template<> ::CCloud_CompleteAppUploadBatch_Request* Arena::CreateMaybeMessage<::
 template<> ::CCloud_CompleteAppUploadBatch_Response* Arena::CreateMaybeMessage<::CCloud_CompleteAppUploadBatch_Response>(Arena*);
 template<> ::CCloud_Delete_Request* Arena::CreateMaybeMessage<::CCloud_Delete_Request>(Arena*);
 template<> ::CCloud_Delete_Response* Arena::CreateMaybeMessage<::CCloud_Delete_Response>(Arena*);
-template<> ::CCloud_EnumerateUserApps_Request* Arena::CreateMaybeMessage<::CCloud_EnumerateUserApps_Request>(Arena*);
-template<> ::CCloud_EnumerateUserApps_Response* Arena::CreateMaybeMessage<::CCloud_EnumerateUserApps_Response>(Arena*);
-template<> ::CCloud_EnumerateUserApps_Response_Apps* Arena::CreateMaybeMessage<::CCloud_EnumerateUserApps_Response_Apps>(Arena*);
 template<> ::CCloud_EnumerateUserFiles_Request* Arena::CreateMaybeMessage<::CCloud_EnumerateUserFiles_Request>(Arena*);
 template<> ::CCloud_EnumerateUserFiles_Response* Arena::CreateMaybeMessage<::CCloud_EnumerateUserFiles_Response>(Arena*);
 template<> ::CCloud_ExternalStorageTransferReport_Notification* Arena::CreateMaybeMessage<::CCloud_ExternalStorageTransferReport_Notification>(Arena*);
@@ -292,8 +274,6 @@ template<> ::CCloud_GetClientEncryptionKey_Request* Arena::CreateMaybeMessage<::
 template<> ::CCloud_GetClientEncryptionKey_Response* Arena::CreateMaybeMessage<::CCloud_GetClientEncryptionKey_Response>(Arena*);
 template<> ::CCloud_GetFileDetails_Request* Arena::CreateMaybeMessage<::CCloud_GetFileDetails_Request>(Arena*);
 template<> ::CCloud_GetFileDetails_Response* Arena::CreateMaybeMessage<::CCloud_GetFileDetails_Response>(Arena*);
-template<> ::CCloud_GetUploadServerInfo_Request* Arena::CreateMaybeMessage<::CCloud_GetUploadServerInfo_Request>(Arena*);
-template<> ::CCloud_GetUploadServerInfo_Response* Arena::CreateMaybeMessage<::CCloud_GetUploadServerInfo_Response>(Arena*);
 template<> ::CCloud_UserFile* Arena::CreateMaybeMessage<::CCloud_UserFile>(Arena*);
 template<> ::ClientCloudFileUploadBlockDetails* Arena::CreateMaybeMessage<::ClientCloudFileUploadBlockDetails>(Arena*);
 template<> ::ClientCloudFileUploadBlockDetails_HTTPHeaders* Arena::CreateMaybeMessage<::ClientCloudFileUploadBlockDetails_HTTPHeaders>(Arena*);
@@ -614,311 +594,6 @@ class CCloud_ClientLogUploadComplete_Notification PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CCloud_GetUploadServerInfo_Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCloud_GetUploadServerInfo_Request) */ {
- public:
-  inline CCloud_GetUploadServerInfo_Request() : CCloud_GetUploadServerInfo_Request(nullptr) {}
-  virtual ~CCloud_GetUploadServerInfo_Request();
-  explicit constexpr CCloud_GetUploadServerInfo_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CCloud_GetUploadServerInfo_Request(const CCloud_GetUploadServerInfo_Request& from);
-  CCloud_GetUploadServerInfo_Request(CCloud_GetUploadServerInfo_Request&& from) noexcept
-    : CCloud_GetUploadServerInfo_Request() {
-    *this = ::std::move(from);
-  }
-
-  inline CCloud_GetUploadServerInfo_Request& operator=(const CCloud_GetUploadServerInfo_Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CCloud_GetUploadServerInfo_Request& operator=(CCloud_GetUploadServerInfo_Request&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CCloud_GetUploadServerInfo_Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CCloud_GetUploadServerInfo_Request* internal_default_instance() {
-    return reinterpret_cast<const CCloud_GetUploadServerInfo_Request*>(
-               &_CCloud_GetUploadServerInfo_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(CCloud_GetUploadServerInfo_Request& a, CCloud_GetUploadServerInfo_Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CCloud_GetUploadServerInfo_Request* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CCloud_GetUploadServerInfo_Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CCloud_GetUploadServerInfo_Request* New() const final {
-    return CreateMaybeMessage<CCloud_GetUploadServerInfo_Request>(nullptr);
-  }
-
-  CCloud_GetUploadServerInfo_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CCloud_GetUploadServerInfo_Request>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CCloud_GetUploadServerInfo_Request& from);
-  void MergeFrom(const CCloud_GetUploadServerInfo_Request& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CCloud_GetUploadServerInfo_Request* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CCloud_GetUploadServerInfo_Request";
-  }
-  protected:
-  explicit CCloud_GetUploadServerInfo_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAppidFieldNumber = 1,
-  };
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
-  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
-  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CCloud_GetUploadServerInfo_Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
-  friend struct ::TableStruct_steammessages_5fcloud_2esteamclient_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CCloud_GetUploadServerInfo_Response PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCloud_GetUploadServerInfo_Response) */ {
- public:
-  inline CCloud_GetUploadServerInfo_Response() : CCloud_GetUploadServerInfo_Response(nullptr) {}
-  virtual ~CCloud_GetUploadServerInfo_Response();
-  explicit constexpr CCloud_GetUploadServerInfo_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CCloud_GetUploadServerInfo_Response(const CCloud_GetUploadServerInfo_Response& from);
-  CCloud_GetUploadServerInfo_Response(CCloud_GetUploadServerInfo_Response&& from) noexcept
-    : CCloud_GetUploadServerInfo_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CCloud_GetUploadServerInfo_Response& operator=(const CCloud_GetUploadServerInfo_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CCloud_GetUploadServerInfo_Response& operator=(CCloud_GetUploadServerInfo_Response&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CCloud_GetUploadServerInfo_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CCloud_GetUploadServerInfo_Response* internal_default_instance() {
-    return reinterpret_cast<const CCloud_GetUploadServerInfo_Response*>(
-               &_CCloud_GetUploadServerInfo_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  friend void swap(CCloud_GetUploadServerInfo_Response& a, CCloud_GetUploadServerInfo_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CCloud_GetUploadServerInfo_Response* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CCloud_GetUploadServerInfo_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CCloud_GetUploadServerInfo_Response* New() const final {
-    return CreateMaybeMessage<CCloud_GetUploadServerInfo_Response>(nullptr);
-  }
-
-  CCloud_GetUploadServerInfo_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CCloud_GetUploadServerInfo_Response>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CCloud_GetUploadServerInfo_Response& from);
-  void MergeFrom(const CCloud_GetUploadServerInfo_Response& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CCloud_GetUploadServerInfo_Response* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CCloud_GetUploadServerInfo_Response";
-  }
-  protected:
-  explicit CCloud_GetUploadServerInfo_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kServerUrlFieldNumber = 1,
-  };
-  // optional string server_url = 1;
-  bool has_server_url() const;
-  private:
-  bool _internal_has_server_url() const;
-  public:
-  void clear_server_url();
-  const std::string& server_url() const;
-  void set_server_url(const std::string& value);
-  void set_server_url(std::string&& value);
-  void set_server_url(const char* value);
-  void set_server_url(const char* value, size_t size);
-  std::string* mutable_server_url();
-  std::string* release_server_url();
-  void set_allocated_server_url(std::string* server_url);
-  private:
-  const std::string& _internal_server_url() const;
-  void _internal_set_server_url(const std::string& value);
-  std::string* _internal_mutable_server_url();
-  public:
-
-  // @@protoc_insertion_point(class_scope:CCloud_GetUploadServerInfo_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr server_url_;
-  friend struct ::TableStruct_steammessages_5fcloud_2esteamclient_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCloud_BeginHTTPUpload_Request) */ {
  public:
@@ -969,7 +644,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
                &_CCloud_BeginHTTPUpload_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    2;
 
   friend void swap(CCloud_BeginHTTPUpload_Request& a, CCloud_BeginHTTPUpload_Request& b) {
     a.Swap(&b);
@@ -1285,7 +960,7 @@ class CCloud_BeginHTTPUpload_Response_HTTPHeaders PROTOBUF_FINAL :
                &_CCloud_BeginHTTPUpload_Response_HTTPHeaders_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    3;
 
   friend void swap(CCloud_BeginHTTPUpload_Response_HTTPHeaders& a, CCloud_BeginHTTPUpload_Response_HTTPHeaders& b) {
     a.Swap(&b);
@@ -1463,7 +1138,7 @@ class CCloud_BeginHTTPUpload_Response PROTOBUF_FINAL :
                &_CCloud_BeginHTTPUpload_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    4;
 
   friend void swap(CCloud_BeginHTTPUpload_Response& a, CCloud_BeginHTTPUpload_Response& b) {
     a.Swap(&b);
@@ -1708,7 +1383,7 @@ class CCloud_CommitHTTPUpload_Request PROTOBUF_FINAL :
                &_CCloud_CommitHTTPUpload_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    5;
 
   friend void swap(CCloud_CommitHTTPUpload_Request& a, CCloud_CommitHTTPUpload_Request& b) {
     a.Swap(&b);
@@ -1916,7 +1591,7 @@ class CCloud_CommitHTTPUpload_Response PROTOBUF_FINAL :
                &_CCloud_CommitHTTPUpload_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    6;
 
   friend void swap(CCloud_CommitHTTPUpload_Response& a, CCloud_CommitHTTPUpload_Response& b) {
     a.Swap(&b);
@@ -2065,7 +1740,7 @@ class CCloud_BeginUGCUpload_Request PROTOBUF_FINAL :
                &_CCloud_BeginUGCUpload_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    7;
 
   friend void swap(CCloud_BeginUGCUpload_Request& a, CCloud_BeginUGCUpload_Request& b) {
     a.Swap(&b);
@@ -2295,7 +1970,7 @@ class CCloud_BeginUGCUpload_Response_HTTPHeaders PROTOBUF_FINAL :
                &_CCloud_BeginUGCUpload_Response_HTTPHeaders_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    8;
 
   friend void swap(CCloud_BeginUGCUpload_Response_HTTPHeaders& a, CCloud_BeginUGCUpload_Response_HTTPHeaders& b) {
     a.Swap(&b);
@@ -2473,7 +2148,7 @@ class CCloud_BeginUGCUpload_Response PROTOBUF_FINAL :
                &_CCloud_BeginUGCUpload_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    9;
 
   friend void swap(CCloud_BeginUGCUpload_Response& a, CCloud_BeginUGCUpload_Response& b) {
     a.Swap(&b);
@@ -2733,7 +2408,7 @@ class CCloud_CommitUGCUpload_Request PROTOBUF_FINAL :
                &_CCloud_CommitUGCUpload_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    10;
 
   friend void swap(CCloud_CommitUGCUpload_Request& a, CCloud_CommitUGCUpload_Request& b) {
     a.Swap(&b);
@@ -2912,7 +2587,7 @@ class CCloud_CommitUGCUpload_Response PROTOBUF_FINAL :
                &_CCloud_CommitUGCUpload_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    11;
 
   friend void swap(CCloud_CommitUGCUpload_Response& a, CCloud_CommitUGCUpload_Response& b) {
     a.Swap(&b);
@@ -3061,7 +2736,7 @@ class CCloud_GetFileDetails_Request PROTOBUF_FINAL :
                &_CCloud_GetFileDetails_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    12;
 
   friend void swap(CCloud_GetFileDetails_Request& a, CCloud_GetFileDetails_Request& b) {
     a.Swap(&b);
@@ -3225,7 +2900,7 @@ class CCloud_UserFile PROTOBUF_FINAL :
                &_CCloud_UserFile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    13;
 
   friend void swap(CCloud_UserFile& a, CCloud_UserFile& b) {
     a.Swap(&b);
@@ -3541,7 +3216,7 @@ class CCloud_GetFileDetails_Response PROTOBUF_FINAL :
                &_CCloud_GetFileDetails_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    14;
 
   friend void swap(CCloud_GetFileDetails_Response& a, CCloud_GetFileDetails_Response& b) {
     a.Swap(&b);
@@ -3695,7 +3370,7 @@ class CCloud_EnumerateUserFiles_Request PROTOBUF_FINAL :
                &_CCloud_EnumerateUserFiles_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    15;
 
   friend void swap(CCloud_EnumerateUserFiles_Request& a, CCloud_EnumerateUserFiles_Request& b) {
     a.Swap(&b);
@@ -3889,7 +3564,7 @@ class CCloud_EnumerateUserFiles_Response PROTOBUF_FINAL :
                &_CCloud_EnumerateUserFiles_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    16;
 
   friend void swap(CCloud_EnumerateUserFiles_Response& a, CCloud_EnumerateUserFiles_Response& b) {
     a.Swap(&b);
@@ -4058,7 +3733,7 @@ class CCloud_Delete_Request PROTOBUF_FINAL :
                &_CCloud_Delete_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    17;
 
   friend void swap(CCloud_Delete_Request& a, CCloud_Delete_Request& b) {
     a.Swap(&b);
@@ -4244,7 +3919,7 @@ class CCloud_Delete_Response PROTOBUF_FINAL :
                &_CCloud_Delete_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    18;
 
   friend void swap(CCloud_Delete_Response& a, CCloud_Delete_Response& b) {
     a.Swap(&b);
@@ -4375,7 +4050,7 @@ class CCloud_GetClientEncryptionKey_Request PROTOBUF_FINAL :
                &_CCloud_GetClientEncryptionKey_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    19;
 
   friend void swap(CCloud_GetClientEncryptionKey_Request& a, CCloud_GetClientEncryptionKey_Request& b) {
     a.Swap(&b);
@@ -4506,7 +4181,7 @@ class CCloud_GetClientEncryptionKey_Response PROTOBUF_FINAL :
                &_CCloud_GetClientEncryptionKey_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    20;
 
   friend void swap(CCloud_GetClientEncryptionKey_Response& a, CCloud_GetClientEncryptionKey_Response& b) {
     a.Swap(&b);
@@ -4677,7 +4352,7 @@ class CCloud_CDNReport_Notification PROTOBUF_FINAL :
                &_CCloud_CDNReport_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    21;
 
   friend void swap(CCloud_CDNReport_Notification& a, CCloud_CDNReport_Notification& b) {
     a.Swap(&b);
@@ -4923,7 +4598,7 @@ class CCloud_ExternalStorageTransferReport_Notification PROTOBUF_FINAL :
                &_CCloud_ExternalStorageTransferReport_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    22;
 
   friend void swap(CCloud_ExternalStorageTransferReport_Notification& a, CCloud_ExternalStorageTransferReport_Notification& b) {
     a.Swap(&b);
@@ -5311,7 +4986,7 @@ class CCloud_BeginAppUploadBatch_Request PROTOBUF_FINAL :
                &_CCloud_BeginAppUploadBatch_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    23;
 
   friend void swap(CCloud_BeginAppUploadBatch_Request& a, CCloud_BeginAppUploadBatch_Request& b) {
     a.Swap(&b);
@@ -5564,7 +5239,7 @@ class CCloud_BeginAppUploadBatch_Response PROTOBUF_FINAL :
                &_CCloud_BeginAppUploadBatch_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    24;
 
   friend void swap(CCloud_BeginAppUploadBatch_Response& a, CCloud_BeginAppUploadBatch_Response& b) {
     a.Swap(&b);
@@ -5728,7 +5403,7 @@ class CCloud_CompleteAppUploadBatch_Notification PROTOBUF_FINAL :
                &_CCloud_CompleteAppUploadBatch_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    25;
 
   friend void swap(CCloud_CompleteAppUploadBatch_Notification& a, CCloud_CompleteAppUploadBatch_Notification& b) {
     a.Swap(&b);
@@ -5907,7 +5582,7 @@ class CCloud_CompleteAppUploadBatch_Request PROTOBUF_FINAL :
                &_CCloud_CompleteAppUploadBatch_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    26;
 
   friend void swap(CCloud_CompleteAppUploadBatch_Request& a, CCloud_CompleteAppUploadBatch_Request& b) {
     a.Swap(&b);
@@ -6086,7 +5761,7 @@ class CCloud_CompleteAppUploadBatch_Response PROTOBUF_FINAL :
                &_CCloud_CompleteAppUploadBatch_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    27;
 
   friend void swap(CCloud_CompleteAppUploadBatch_Response& a, CCloud_CompleteAppUploadBatch_Response& b) {
     a.Swap(&b);
@@ -6217,7 +5892,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
                &_CCloud_ClientBeginFileUpload_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    28;
 
   friend void swap(CCloud_ClientBeginFileUpload_Request& a, CCloud_ClientBeginFileUpload_Request& b) {
     a.Swap(&b);
@@ -6545,7 +6220,7 @@ class ClientCloudFileUploadBlockDetails_HTTPHeaders PROTOBUF_FINAL :
                &_ClientCloudFileUploadBlockDetails_HTTPHeaders_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    29;
 
   friend void swap(ClientCloudFileUploadBlockDetails_HTTPHeaders& a, ClientCloudFileUploadBlockDetails_HTTPHeaders& b) {
     a.Swap(&b);
@@ -6723,7 +6398,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
                &_ClientCloudFileUploadBlockDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    30;
 
   friend void swap(ClientCloudFileUploadBlockDetails& a, ClientCloudFileUploadBlockDetails& b) {
     a.Swap(&b);
@@ -7020,7 +6695,7 @@ class CCloud_ClientBeginFileUpload_Response PROTOBUF_FINAL :
                &_CCloud_ClientBeginFileUpload_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    31;
 
   friend void swap(CCloud_ClientBeginFileUpload_Response& a, CCloud_ClientBeginFileUpload_Response& b) {
     a.Swap(&b);
@@ -7189,7 +6864,7 @@ class CCloud_ClientCommitFileUpload_Request PROTOBUF_FINAL :
                &_CCloud_ClientCommitFileUpload_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    32;
 
   friend void swap(CCloud_ClientCommitFileUpload_Request& a, CCloud_ClientCommitFileUpload_Request& b) {
     a.Swap(&b);
@@ -7397,7 +7072,7 @@ class CCloud_ClientCommitFileUpload_Response PROTOBUF_FINAL :
                &_CCloud_ClientCommitFileUpload_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    33;
 
   friend void swap(CCloud_ClientCommitFileUpload_Response& a, CCloud_ClientCommitFileUpload_Response& b) {
     a.Swap(&b);
@@ -7546,7 +7221,7 @@ class CCloud_ClientFileDownload_Request PROTOBUF_FINAL :
                &_CCloud_ClientFileDownload_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    34;
 
   friend void swap(CCloud_ClientFileDownload_Request& a, CCloud_ClientFileDownload_Request& b) {
     a.Swap(&b);
@@ -7747,7 +7422,7 @@ class CCloud_ClientFileDownload_Response_HTTPHeaders PROTOBUF_FINAL :
                &_CCloud_ClientFileDownload_Response_HTTPHeaders_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    35;
 
   friend void swap(CCloud_ClientFileDownload_Response_HTTPHeaders& a, CCloud_ClientFileDownload_Response_HTTPHeaders& b) {
     a.Swap(&b);
@@ -7925,7 +7600,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
                &_CCloud_ClientFileDownload_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    36;
 
   friend void swap(CCloud_ClientFileDownload_Response& a, CCloud_ClientFileDownload_Response& b) {
     a.Swap(&b);
@@ -8252,7 +7927,7 @@ class CCloud_ClientDeleteFile_Request PROTOBUF_FINAL :
                &_CCloud_ClientDeleteFile_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    37;
 
   friend void swap(CCloud_ClientDeleteFile_Request& a, CCloud_ClientDeleteFile_Request& b) {
     a.Swap(&b);
@@ -8453,7 +8128,7 @@ class CCloud_ClientDeleteFile_Response PROTOBUF_FINAL :
                &_CCloud_ClientDeleteFile_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    38;
 
   friend void swap(CCloud_ClientDeleteFile_Response& a, CCloud_ClientDeleteFile_Response& b) {
     a.Swap(&b);
@@ -8584,7 +8259,7 @@ class CCloud_ClientConflictResolution_Notification PROTOBUF_FINAL :
                &_CCloud_ClientConflictResolution_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    39;
 
   friend void swap(CCloud_ClientConflictResolution_Notification& a, CCloud_ClientConflictResolution_Notification& b) {
     a.Swap(&b);
@@ -8698,471 +8373,6 @@ class CCloud_ClientConflictResolution_Notification PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class CCloud_EnumerateUserApps_Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCloud_EnumerateUserApps_Request) */ {
- public:
-  inline CCloud_EnumerateUserApps_Request() : CCloud_EnumerateUserApps_Request(nullptr) {}
-  virtual ~CCloud_EnumerateUserApps_Request();
-  explicit constexpr CCloud_EnumerateUserApps_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CCloud_EnumerateUserApps_Request(const CCloud_EnumerateUserApps_Request& from);
-  CCloud_EnumerateUserApps_Request(CCloud_EnumerateUserApps_Request&& from) noexcept
-    : CCloud_EnumerateUserApps_Request() {
-    *this = ::std::move(from);
-  }
-
-  inline CCloud_EnumerateUserApps_Request& operator=(const CCloud_EnumerateUserApps_Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CCloud_EnumerateUserApps_Request& operator=(CCloud_EnumerateUserApps_Request&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CCloud_EnumerateUserApps_Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CCloud_EnumerateUserApps_Request* internal_default_instance() {
-    return reinterpret_cast<const CCloud_EnumerateUserApps_Request*>(
-               &_CCloud_EnumerateUserApps_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    42;
-
-  friend void swap(CCloud_EnumerateUserApps_Request& a, CCloud_EnumerateUserApps_Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CCloud_EnumerateUserApps_Request* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CCloud_EnumerateUserApps_Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CCloud_EnumerateUserApps_Request* New() const final {
-    return CreateMaybeMessage<CCloud_EnumerateUserApps_Request>(nullptr);
-  }
-
-  CCloud_EnumerateUserApps_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CCloud_EnumerateUserApps_Request>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CCloud_EnumerateUserApps_Request& from);
-  void MergeFrom(const CCloud_EnumerateUserApps_Request& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CCloud_EnumerateUserApps_Request* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CCloud_EnumerateUserApps_Request";
-  }
-  protected:
-  explicit CCloud_EnumerateUserApps_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:CCloud_EnumerateUserApps_Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_steammessages_5fcloud_2esteamclient_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CCloud_EnumerateUserApps_Response_Apps PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCloud_EnumerateUserApps_Response.Apps) */ {
- public:
-  inline CCloud_EnumerateUserApps_Response_Apps() : CCloud_EnumerateUserApps_Response_Apps(nullptr) {}
-  virtual ~CCloud_EnumerateUserApps_Response_Apps();
-  explicit constexpr CCloud_EnumerateUserApps_Response_Apps(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CCloud_EnumerateUserApps_Response_Apps(const CCloud_EnumerateUserApps_Response_Apps& from);
-  CCloud_EnumerateUserApps_Response_Apps(CCloud_EnumerateUserApps_Response_Apps&& from) noexcept
-    : CCloud_EnumerateUserApps_Response_Apps() {
-    *this = ::std::move(from);
-  }
-
-  inline CCloud_EnumerateUserApps_Response_Apps& operator=(const CCloud_EnumerateUserApps_Response_Apps& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CCloud_EnumerateUserApps_Response_Apps& operator=(CCloud_EnumerateUserApps_Response_Apps&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CCloud_EnumerateUserApps_Response_Apps& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CCloud_EnumerateUserApps_Response_Apps* internal_default_instance() {
-    return reinterpret_cast<const CCloud_EnumerateUserApps_Response_Apps*>(
-               &_CCloud_EnumerateUserApps_Response_Apps_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    43;
-
-  friend void swap(CCloud_EnumerateUserApps_Response_Apps& a, CCloud_EnumerateUserApps_Response_Apps& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CCloud_EnumerateUserApps_Response_Apps* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CCloud_EnumerateUserApps_Response_Apps* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CCloud_EnumerateUserApps_Response_Apps* New() const final {
-    return CreateMaybeMessage<CCloud_EnumerateUserApps_Response_Apps>(nullptr);
-  }
-
-  CCloud_EnumerateUserApps_Response_Apps* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CCloud_EnumerateUserApps_Response_Apps>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CCloud_EnumerateUserApps_Response_Apps& from);
-  void MergeFrom(const CCloud_EnumerateUserApps_Response_Apps& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CCloud_EnumerateUserApps_Response_Apps* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CCloud_EnumerateUserApps_Response.Apps";
-  }
-  protected:
-  explicit CCloud_EnumerateUserApps_Response_Apps(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAppidFieldNumber = 1,
-    kTotalcountFieldNumber = 2,
-    kTotalsizeFieldNumber = 3,
-  };
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
-  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
-  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional int32 totalcount = 2;
-  bool has_totalcount() const;
-  private:
-  bool _internal_has_totalcount() const;
-  public:
-  void clear_totalcount();
-  ::PROTOBUF_NAMESPACE_ID::int32 totalcount() const;
-  void set_totalcount(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_totalcount() const;
-  void _internal_set_totalcount(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // optional int64 totalsize = 3;
-  bool has_totalsize() const;
-  private:
-  bool _internal_has_totalsize() const;
-  public:
-  void clear_totalsize();
-  ::PROTOBUF_NAMESPACE_ID::int64 totalsize() const;
-  void set_totalsize(::PROTOBUF_NAMESPACE_ID::int64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_totalsize() const;
-  void _internal_set_totalsize(::PROTOBUF_NAMESPACE_ID::int64 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CCloud_EnumerateUserApps_Response.Apps)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
-  ::PROTOBUF_NAMESPACE_ID::int32 totalcount_;
-  ::PROTOBUF_NAMESPACE_ID::int64 totalsize_;
-  friend struct ::TableStruct_steammessages_5fcloud_2esteamclient_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CCloud_EnumerateUserApps_Response PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCloud_EnumerateUserApps_Response) */ {
- public:
-  inline CCloud_EnumerateUserApps_Response() : CCloud_EnumerateUserApps_Response(nullptr) {}
-  virtual ~CCloud_EnumerateUserApps_Response();
-  explicit constexpr CCloud_EnumerateUserApps_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CCloud_EnumerateUserApps_Response(const CCloud_EnumerateUserApps_Response& from);
-  CCloud_EnumerateUserApps_Response(CCloud_EnumerateUserApps_Response&& from) noexcept
-    : CCloud_EnumerateUserApps_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CCloud_EnumerateUserApps_Response& operator=(const CCloud_EnumerateUserApps_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CCloud_EnumerateUserApps_Response& operator=(CCloud_EnumerateUserApps_Response&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CCloud_EnumerateUserApps_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CCloud_EnumerateUserApps_Response* internal_default_instance() {
-    return reinterpret_cast<const CCloud_EnumerateUserApps_Response*>(
-               &_CCloud_EnumerateUserApps_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    44;
-
-  friend void swap(CCloud_EnumerateUserApps_Response& a, CCloud_EnumerateUserApps_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CCloud_EnumerateUserApps_Response* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CCloud_EnumerateUserApps_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CCloud_EnumerateUserApps_Response* New() const final {
-    return CreateMaybeMessage<CCloud_EnumerateUserApps_Response>(nullptr);
-  }
-
-  CCloud_EnumerateUserApps_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CCloud_EnumerateUserApps_Response>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CCloud_EnumerateUserApps_Response& from);
-  void MergeFrom(const CCloud_EnumerateUserApps_Response& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CCloud_EnumerateUserApps_Response* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CCloud_EnumerateUserApps_Response";
-  }
-  protected:
-  explicit CCloud_EnumerateUserApps_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  typedef CCloud_EnumerateUserApps_Response_Apps Apps;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAppsFieldNumber = 1,
-  };
-  // repeated .CCloud_EnumerateUserApps_Response.Apps apps = 1;
-  int apps_size() const;
-  private:
-  int _internal_apps_size() const;
-  public:
-  void clear_apps();
-  ::CCloud_EnumerateUserApps_Response_Apps* mutable_apps(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_EnumerateUserApps_Response_Apps >*
-      mutable_apps();
-  private:
-  const ::CCloud_EnumerateUserApps_Response_Apps& _internal_apps(int index) const;
-  ::CCloud_EnumerateUserApps_Response_Apps* _internal_add_apps();
-  public:
-  const ::CCloud_EnumerateUserApps_Response_Apps& apps(int index) const;
-  ::CCloud_EnumerateUserApps_Response_Apps* add_apps();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_EnumerateUserApps_Response_Apps >&
-      apps() const;
-
-  // @@protoc_insertion_point(class_scope:CCloud_EnumerateUserApps_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_EnumerateUserApps_Response_Apps > apps_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_steammessages_5fcloud_2esteamclient_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CCloud_GetAppFileChangelist_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCloud_GetAppFileChangelist_Request) */ {
  public:
@@ -9213,7 +8423,7 @@ class CCloud_GetAppFileChangelist_Request PROTOBUF_FINAL :
                &_CCloud_GetAppFileChangelist_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    40;
 
   friend void swap(CCloud_GetAppFileChangelist_Request& a, CCloud_GetAppFileChangelist_Request& b) {
     a.Swap(&b);
@@ -9377,7 +8587,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
                &_CCloud_AppFileInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    41;
 
   friend void swap(CCloud_AppFileInfo& a, CCloud_AppFileInfo& b) {
     a.Swap(&b);
@@ -9645,7 +8855,7 @@ class CCloud_GetAppFileChangelist_Response PROTOBUF_FINAL :
                &_CCloud_GetAppFileChangelist_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    42;
 
   friend void swap(CCloud_GetAppFileChangelist_Response& a, CCloud_GetAppFileChangelist_Response& b) {
     a.Swap(&b);
@@ -9896,7 +9106,7 @@ class CCloud_AppSessionSuspend_Request PROTOBUF_FINAL :
                &_CCloud_AppSessionSuspend_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    43;
 
   friend void swap(CCloud_AppSessionSuspend_Request& a, CCloud_AppSessionSuspend_Request& b) {
     a.Swap(&b);
@@ -10097,7 +9307,7 @@ class CCloud_AppSessionSuspend_Response PROTOBUF_FINAL :
                &_CCloud_AppSessionSuspend_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    44;
 
   friend void swap(CCloud_AppSessionSuspend_Response& a, CCloud_AppSessionSuspend_Response& b) {
     a.Swap(&b);
@@ -10228,7 +9438,7 @@ class CCloud_AppSessionResume_Request PROTOBUF_FINAL :
                &_CCloud_AppSessionResume_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    45;
 
   friend void swap(CCloud_AppSessionResume_Request& a, CCloud_AppSessionResume_Request& b) {
     a.Swap(&b);
@@ -10392,7 +9602,7 @@ class CCloud_AppSessionResume_Response PROTOBUF_FINAL :
                &_CCloud_AppSessionResume_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    46;
 
   friend void swap(CCloud_AppSessionResume_Response& a, CCloud_AppSessionResume_Response& b) {
     a.Swap(&b);
@@ -10523,7 +9733,7 @@ class CCloud_AppLaunchIntent_Request PROTOBUF_FINAL :
                &_CCloud_AppLaunchIntent_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    47;
 
   friend void swap(CCloud_AppLaunchIntent_Request& a, CCloud_AppLaunchIntent_Request& b) {
     a.Swap(&b);
@@ -10754,7 +9964,7 @@ class CCloud_AppLaunchIntent_Response PROTOBUF_FINAL :
                &_CCloud_AppLaunchIntent_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    48;
 
   friend void swap(CCloud_AppLaunchIntent_Response& a, CCloud_AppLaunchIntent_Response& b) {
     a.Swap(&b);
@@ -10907,7 +10117,7 @@ class CCloud_AppExitSyncDone_Notification PROTOBUF_FINAL :
                &_CCloud_AppExitSyncDone_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    49;
 
   friend void swap(CCloud_AppExitSyncDone_Notification& a, CCloud_AppExitSyncDone_Notification& b) {
     a.Swap(&b);
@@ -11101,7 +10311,7 @@ class CCloud_ClientGetAppQuotaUsage_Request PROTOBUF_FINAL :
                &_CCloud_ClientGetAppQuotaUsage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    50;
 
   friend void swap(CCloud_ClientGetAppQuotaUsage_Request& a, CCloud_ClientGetAppQuotaUsage_Request& b) {
     a.Swap(&b);
@@ -11250,7 +10460,7 @@ class CCloud_ClientGetAppQuotaUsage_Response PROTOBUF_FINAL :
                &_CCloud_ClientGetAppQuotaUsage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    51;
 
   friend void swap(CCloud_ClientGetAppQuotaUsage_Response& a, CCloud_ClientGetAppQuotaUsage_Response& b) {
     a.Swap(&b);
@@ -11444,7 +10654,7 @@ class CCloud_AppCloudStateChange_Notification PROTOBUF_FINAL :
                &_CCloud_AppCloudStateChange_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    52;
 
   friend void swap(CCloud_AppCloudStateChange_Notification& a, CCloud_AppCloudStateChange_Notification& b) {
     a.Swap(&b);
@@ -11608,7 +10818,7 @@ class CCloud_ClientLogUploadRequest_Notification PROTOBUF_FINAL :
                &_CCloud_ClientLogUploadRequest_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    53;
 
   friend void swap(CCloud_ClientLogUploadRequest_Notification& a, CCloud_ClientLogUploadRequest_Notification& b) {
     a.Swap(&b);
@@ -11728,10 +10938,6 @@ class Cloud : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CCloud_ClientLogUploadComplete_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
-  virtual void GetUploadServerInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CCloud_GetUploadServerInfo_Request* request,
-                       ::CCloud_GetUploadServerInfo_Response* response,
-                       ::google::protobuf::Closure* done);
   virtual void BeginHTTPUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CCloud_BeginHTTPUpload_Request* request,
                        ::CCloud_BeginHTTPUpload_Response* response,
@@ -11804,10 +11010,6 @@ class Cloud : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CCloud_ClientConflictResolution_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
-  virtual void EnumerateUserApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CCloud_EnumerateUserApps_Request* request,
-                       ::CCloud_EnumerateUserApps_Response* response,
-                       ::google::protobuf::Closure* done);
   virtual void GetAppFileChangelist(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CCloud_GetAppFileChangelist_Request* request,
                        ::CCloud_GetAppFileChangelist_Response* response,
@@ -11868,10 +11070,6 @@ class Cloud_Stub : public Cloud {
   void ClientLogUploadComplete(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CCloud_ClientLogUploadComplete_Notification* request,
                        ::NoResponse* response,
-                       ::google::protobuf::Closure* done);
-  void GetUploadServerInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CCloud_GetUploadServerInfo_Request* request,
-                       ::CCloud_GetUploadServerInfo_Response* response,
                        ::google::protobuf::Closure* done);
   void BeginHTTPUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CCloud_BeginHTTPUpload_Request* request,
@@ -11944,10 +11142,6 @@ class Cloud_Stub : public Cloud {
   void ClientConflictResolution(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CCloud_ClientConflictResolution_Notification* request,
                        ::NoResponse* response,
-                       ::google::protobuf::Closure* done);
-  void EnumerateUserApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::CCloud_EnumerateUserApps_Request* request,
-                       ::CCloud_EnumerateUserApps_Response* response,
                        ::google::protobuf::Closure* done);
   void GetAppFileChangelist(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CCloud_GetAppFileChangelist_Request* request,
@@ -12144,115 +11338,6 @@ inline void CCloud_ClientLogUploadComplete_Notification::_internal_set_request_i
 inline void CCloud_ClientLogUploadComplete_Notification::set_request_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_request_id(value);
   // @@protoc_insertion_point(field_set:CCloud_ClientLogUploadComplete_Notification.request_id)
-}
-
-// -------------------------------------------------------------------
-
-// CCloud_GetUploadServerInfo_Request
-
-// optional uint32 appid = 1;
-inline bool CCloud_GetUploadServerInfo_Request::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CCloud_GetUploadServerInfo_Request::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CCloud_GetUploadServerInfo_Request::clear_appid() {
-  appid_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CCloud_GetUploadServerInfo_Request::_internal_appid() const {
-  return appid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CCloud_GetUploadServerInfo_Request::appid() const {
-  // @@protoc_insertion_point(field_get:CCloud_GetUploadServerInfo_Request.appid)
-  return _internal_appid();
-}
-inline void CCloud_GetUploadServerInfo_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000001u;
-  appid_ = value;
-}
-inline void CCloud_GetUploadServerInfo_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CCloud_GetUploadServerInfo_Request.appid)
-}
-
-// -------------------------------------------------------------------
-
-// CCloud_GetUploadServerInfo_Response
-
-// optional string server_url = 1;
-inline bool CCloud_GetUploadServerInfo_Response::_internal_has_server_url() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CCloud_GetUploadServerInfo_Response::has_server_url() const {
-  return _internal_has_server_url();
-}
-inline void CCloud_GetUploadServerInfo_Response::clear_server_url() {
-  server_url_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CCloud_GetUploadServerInfo_Response::server_url() const {
-  // @@protoc_insertion_point(field_get:CCloud_GetUploadServerInfo_Response.server_url)
-  return _internal_server_url();
-}
-inline void CCloud_GetUploadServerInfo_Response::set_server_url(const std::string& value) {
-  _internal_set_server_url(value);
-  // @@protoc_insertion_point(field_set:CCloud_GetUploadServerInfo_Response.server_url)
-}
-inline std::string* CCloud_GetUploadServerInfo_Response::mutable_server_url() {
-  // @@protoc_insertion_point(field_mutable:CCloud_GetUploadServerInfo_Response.server_url)
-  return _internal_mutable_server_url();
-}
-inline const std::string& CCloud_GetUploadServerInfo_Response::_internal_server_url() const {
-  return server_url_.Get();
-}
-inline void CCloud_GetUploadServerInfo_Response::_internal_set_server_url(const std::string& value) {
-  _has_bits_[0] |= 0x00000001u;
-  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CCloud_GetUploadServerInfo_Response::set_server_url(std::string&& value) {
-  _has_bits_[0] |= 0x00000001u;
-  server_url_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:CCloud_GetUploadServerInfo_Response.server_url)
-}
-inline void CCloud_GetUploadServerInfo_Response::set_server_url(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000001u;
-  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:CCloud_GetUploadServerInfo_Response.server_url)
-}
-inline void CCloud_GetUploadServerInfo_Response::set_server_url(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000001u;
-  server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:CCloud_GetUploadServerInfo_Response.server_url)
-}
-inline std::string* CCloud_GetUploadServerInfo_Response::_internal_mutable_server_url() {
-  _has_bits_[0] |= 0x00000001u;
-  return server_url_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CCloud_GetUploadServerInfo_Response::release_server_url() {
-  // @@protoc_insertion_point(field_release:CCloud_GetUploadServerInfo_Response.server_url)
-  if (!_internal_has_server_url()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000001u;
-  return server_url_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CCloud_GetUploadServerInfo_Response::set_allocated_server_url(std::string* server_url) {
-  if (server_url != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  server_url_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), server_url,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:CCloud_GetUploadServerInfo_Response.server_url)
 }
 
 // -------------------------------------------------------------------
@@ -18919,141 +18004,6 @@ inline void CCloud_ClientConflictResolution_Notification::set_chose_local_files(
 
 // -------------------------------------------------------------------
 
-// CCloud_EnumerateUserApps_Request
-
-// -------------------------------------------------------------------
-
-// CCloud_EnumerateUserApps_Response_Apps
-
-// optional uint32 appid = 1;
-inline bool CCloud_EnumerateUserApps_Response_Apps::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CCloud_EnumerateUserApps_Response_Apps::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::clear_appid() {
-  appid_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CCloud_EnumerateUserApps_Response_Apps::_internal_appid() const {
-  return appid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CCloud_EnumerateUserApps_Response_Apps::appid() const {
-  // @@protoc_insertion_point(field_get:CCloud_EnumerateUserApps_Response.Apps.appid)
-  return _internal_appid();
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000001u;
-  appid_ = value;
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CCloud_EnumerateUserApps_Response.Apps.appid)
-}
-
-// optional int32 totalcount = 2;
-inline bool CCloud_EnumerateUserApps_Response_Apps::_internal_has_totalcount() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CCloud_EnumerateUserApps_Response_Apps::has_totalcount() const {
-  return _internal_has_totalcount();
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::clear_totalcount() {
-  totalcount_ = 0;
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_EnumerateUserApps_Response_Apps::_internal_totalcount() const {
-  return totalcount_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 CCloud_EnumerateUserApps_Response_Apps::totalcount() const {
-  // @@protoc_insertion_point(field_get:CCloud_EnumerateUserApps_Response.Apps.totalcount)
-  return _internal_totalcount();
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::_internal_set_totalcount(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000002u;
-  totalcount_ = value;
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::set_totalcount(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_totalcount(value);
-  // @@protoc_insertion_point(field_set:CCloud_EnumerateUserApps_Response.Apps.totalcount)
-}
-
-// optional int64 totalsize = 3;
-inline bool CCloud_EnumerateUserApps_Response_Apps::_internal_has_totalsize() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CCloud_EnumerateUserApps_Response_Apps::has_totalsize() const {
-  return _internal_has_totalsize();
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::clear_totalsize() {
-  totalsize_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int64 CCloud_EnumerateUserApps_Response_Apps::_internal_totalsize() const {
-  return totalsize_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int64 CCloud_EnumerateUserApps_Response_Apps::totalsize() const {
-  // @@protoc_insertion_point(field_get:CCloud_EnumerateUserApps_Response.Apps.totalsize)
-  return _internal_totalsize();
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::_internal_set_totalsize(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000004u;
-  totalsize_ = value;
-}
-inline void CCloud_EnumerateUserApps_Response_Apps::set_totalsize(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _internal_set_totalsize(value);
-  // @@protoc_insertion_point(field_set:CCloud_EnumerateUserApps_Response.Apps.totalsize)
-}
-
-// -------------------------------------------------------------------
-
-// CCloud_EnumerateUserApps_Response
-
-// repeated .CCloud_EnumerateUserApps_Response.Apps apps = 1;
-inline int CCloud_EnumerateUserApps_Response::_internal_apps_size() const {
-  return apps_.size();
-}
-inline int CCloud_EnumerateUserApps_Response::apps_size() const {
-  return _internal_apps_size();
-}
-inline void CCloud_EnumerateUserApps_Response::clear_apps() {
-  apps_.Clear();
-}
-inline ::CCloud_EnumerateUserApps_Response_Apps* CCloud_EnumerateUserApps_Response::mutable_apps(int index) {
-  // @@protoc_insertion_point(field_mutable:CCloud_EnumerateUserApps_Response.apps)
-  return apps_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_EnumerateUserApps_Response_Apps >*
-CCloud_EnumerateUserApps_Response::mutable_apps() {
-  // @@protoc_insertion_point(field_mutable_list:CCloud_EnumerateUserApps_Response.apps)
-  return &apps_;
-}
-inline const ::CCloud_EnumerateUserApps_Response_Apps& CCloud_EnumerateUserApps_Response::_internal_apps(int index) const {
-  return apps_.Get(index);
-}
-inline const ::CCloud_EnumerateUserApps_Response_Apps& CCloud_EnumerateUserApps_Response::apps(int index) const {
-  // @@protoc_insertion_point(field_get:CCloud_EnumerateUserApps_Response.apps)
-  return _internal_apps(index);
-}
-inline ::CCloud_EnumerateUserApps_Response_Apps* CCloud_EnumerateUserApps_Response::_internal_add_apps() {
-  return apps_.Add();
-}
-inline ::CCloud_EnumerateUserApps_Response_Apps* CCloud_EnumerateUserApps_Response::add_apps() {
-  // @@protoc_insertion_point(field_add:CCloud_EnumerateUserApps_Response.apps)
-  return _internal_add_apps();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_EnumerateUserApps_Response_Apps >&
-CCloud_EnumerateUserApps_Response::apps() const {
-  // @@protoc_insertion_point(field_list:CCloud_EnumerateUserApps_Response.apps)
-  return apps_;
-}
-
-// -------------------------------------------------------------------
-
 // CCloud_GetAppFileChangelist_Request
 
 // optional uint32 appid = 1;
@@ -20551,16 +19501,6 @@ inline void CCloud_ClientLogUploadRequest_Notification::set_request_id(::PROTOBU
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

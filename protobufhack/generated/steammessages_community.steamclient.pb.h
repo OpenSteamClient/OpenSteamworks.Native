@@ -6248,17 +6248,17 @@ class CCommunity_FetchTranslationFromCrowdIn_Request PROTOBUF_FINAL :
   void _internal_set_itemid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 language = 3;
+  // optional int32 language = 3;
   bool has_language() const;
   private:
   bool _internal_has_language() const;
   public:
   void clear_language();
-  ::PROTOBUF_NAMESPACE_ID::uint32 language() const;
-  void set_language(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 language() const;
+  void set_language(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_language() const;
-  void _internal_set_language(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_language() const;
+  void _internal_set_language(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:CCommunity_FetchTranslationFromCrowdIn_Request)
@@ -6272,7 +6272,7 @@ class CCommunity_FetchTranslationFromCrowdIn_Request PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steamid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 itemid_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 language_;
+  ::PROTOBUF_NAMESPACE_ID::int32 language_;
   friend struct ::TableStruct_steammessages_5fcommunity_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -14476,7 +14476,7 @@ inline void CCommunity_FetchTranslationFromCrowdIn_Request::set_itemid(::PROTOBU
   // @@protoc_insertion_point(field_set:CCommunity_FetchTranslationFromCrowdIn_Request.itemid)
 }
 
-// optional uint32 language = 3;
+// optional int32 language = 3;
 inline bool CCommunity_FetchTranslationFromCrowdIn_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -14485,21 +14485,21 @@ inline bool CCommunity_FetchTranslationFromCrowdIn_Request::has_language() const
   return _internal_has_language();
 }
 inline void CCommunity_FetchTranslationFromCrowdIn_Request::clear_language() {
-  language_ = 0u;
+  language_ = 0;
   _has_bits_[0] &= ~0x00000004u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CCommunity_FetchTranslationFromCrowdIn_Request::_internal_language() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCommunity_FetchTranslationFromCrowdIn_Request::_internal_language() const {
   return language_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 CCommunity_FetchTranslationFromCrowdIn_Request::language() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 CCommunity_FetchTranslationFromCrowdIn_Request::language() const {
   // @@protoc_insertion_point(field_get:CCommunity_FetchTranslationFromCrowdIn_Request.language)
   return _internal_language();
 }
-inline void CCommunity_FetchTranslationFromCrowdIn_Request::_internal_set_language(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void CCommunity_FetchTranslationFromCrowdIn_Request::_internal_set_language(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _has_bits_[0] |= 0x00000004u;
   language_ = value;
 }
-inline void CCommunity_FetchTranslationFromCrowdIn_Request::set_language(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void CCommunity_FetchTranslationFromCrowdIn_Request::set_language(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_language(value);
   // @@protoc_insertion_point(field_set:CCommunity_FetchTranslationFromCrowdIn_Request.language)
 }

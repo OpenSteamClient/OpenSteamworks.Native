@@ -981,11 +981,12 @@ class CMsgProtoBufHeader PROTOBUF_FINAL :
     kSysidFieldNumber = 20,
     kTokenSourceFieldNumber = 22,
     kSeqNumFieldNumber = 24,
-    kAdminSpoofingUserFieldNumber = 23,
-    kIsFromExternalSourceFieldNumber = 26,
     kWebapiKeyIdFieldNumber = 25,
     kCmSysidFieldNumber = 28,
     kLauncherTypeFieldNumber = 31,
+    kAdminSpoofingUserFieldNumber = 23,
+    kIsFromExternalSourceFieldNumber = 26,
+    kIsValvedsFieldNumber = 44,
     kRealmFieldNumber = 32,
     kTokenIdFieldNumber = 36,
     kDebugSourceStringIndexFieldNumber = 35,
@@ -1279,32 +1280,6 @@ class CMsgProtoBufHeader PROTOBUF_FINAL :
   void _internal_set_seq_num(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional bool admin_spoofing_user = 23;
-  bool has_admin_spoofing_user() const;
-  private:
-  bool _internal_has_admin_spoofing_user() const;
-  public:
-  void clear_admin_spoofing_user();
-  bool admin_spoofing_user() const;
-  void set_admin_spoofing_user(bool value);
-  private:
-  bool _internal_admin_spoofing_user() const;
-  void _internal_set_admin_spoofing_user(bool value);
-  public:
-
-  // optional bool is_from_external_source = 26;
-  bool has_is_from_external_source() const;
-  private:
-  bool _internal_has_is_from_external_source() const;
-  public:
-  void clear_is_from_external_source();
-  bool is_from_external_source() const;
-  void set_is_from_external_source(bool value);
-  private:
-  bool _internal_is_from_external_source() const;
-  void _internal_set_is_from_external_source(bool value);
-  public:
-
   // optional uint32 webapi_key_id = 25;
   bool has_webapi_key_id() const;
   private:
@@ -1342,6 +1317,45 @@ class CMsgProtoBufHeader PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::uint32 _internal_launcher_type() const;
   void _internal_set_launcher_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional bool admin_spoofing_user = 23;
+  bool has_admin_spoofing_user() const;
+  private:
+  bool _internal_has_admin_spoofing_user() const;
+  public:
+  void clear_admin_spoofing_user();
+  bool admin_spoofing_user() const;
+  void set_admin_spoofing_user(bool value);
+  private:
+  bool _internal_admin_spoofing_user() const;
+  void _internal_set_admin_spoofing_user(bool value);
+  public:
+
+  // optional bool is_from_external_source = 26;
+  bool has_is_from_external_source() const;
+  private:
+  bool _internal_has_is_from_external_source() const;
+  public:
+  void clear_is_from_external_source();
+  bool is_from_external_source() const;
+  void set_is_from_external_source(bool value);
+  private:
+  bool _internal_is_from_external_source() const;
+  void _internal_set_is_from_external_source(bool value);
+  public:
+
+  // optional bool is_valveds = 44;
+  bool has_is_valveds() const;
+  private:
+  bool _internal_has_is_valveds() const;
+  public:
+  void clear_is_valveds();
+  bool is_valveds() const;
+  void set_is_valveds(bool value);
+  private:
+  bool _internal_is_valveds() const;
+  void _internal_set_is_valveds(bool value);
   public:
 
   // optional uint32 realm = 32 [default = 0];
@@ -1553,11 +1567,12 @@ class CMsgProtoBufHeader PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 sysid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 token_source_;
   ::PROTOBUF_NAMESPACE_ID::int32 seq_num_;
-  bool admin_spoofing_user_;
-  bool is_from_external_source_;
   ::PROTOBUF_NAMESPACE_ID::uint32 webapi_key_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 cm_sysid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 launcher_type_;
+  bool admin_spoofing_user_;
+  bool is_from_external_source_;
+  bool is_valveds_;
   ::PROTOBUF_NAMESPACE_ID::uint32 realm_;
   ::PROTOBUF_NAMESPACE_ID::uint64 token_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 debug_source_string_index_;
@@ -7251,7 +7266,7 @@ inline void CMsgProtoBufHeader::set_routing_appid(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional fixed64 jobid_source = 10 [default = 18446744073709551615];
 inline bool CMsgProtoBufHeader::_internal_has_jobid_source() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_jobid_source() const {
@@ -7259,7 +7274,7 @@ inline bool CMsgProtoBufHeader::has_jobid_source() const {
 }
 inline void CMsgProtoBufHeader::clear_jobid_source() {
   jobid_source_ = PROTOBUF_ULONGLONG(18446744073709551615);
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_jobid_source() const {
   return jobid_source_;
@@ -7269,7 +7284,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::jobid_source() const 
   return _internal_jobid_source();
 }
 inline void CMsgProtoBufHeader::_internal_set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
   jobid_source_ = value;
 }
 inline void CMsgProtoBufHeader::set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -7279,7 +7294,7 @@ inline void CMsgProtoBufHeader::set_jobid_source(::PROTOBUF_NAMESPACE_ID::uint64
 
 // optional fixed64 jobid_target = 11 [default = 18446744073709551615];
 inline bool CMsgProtoBufHeader::_internal_has_jobid_target() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_jobid_target() const {
@@ -7287,7 +7302,7 @@ inline bool CMsgProtoBufHeader::has_jobid_target() const {
 }
 inline void CMsgProtoBufHeader::clear_jobid_target() {
   jobid_target_ = PROTOBUF_ULONGLONG(18446744073709551615);
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_jobid_target() const {
   return jobid_target_;
@@ -7297,7 +7312,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::jobid_target() const 
   return _internal_jobid_target();
 }
 inline void CMsgProtoBufHeader::_internal_set_jobid_target(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
   jobid_target_ = value;
 }
 inline void CMsgProtoBufHeader::set_jobid_target(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -7408,7 +7423,7 @@ inline void CMsgProtoBufHeader::set_seq_num(::PROTOBUF_NAMESPACE_ID::int32 value
 
 // optional int32 eresult = 13 [default = 2];
 inline bool CMsgProtoBufHeader::_internal_has_eresult() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_eresult() const {
@@ -7416,7 +7431,7 @@ inline bool CMsgProtoBufHeader::has_eresult() const {
 }
 inline void CMsgProtoBufHeader::clear_eresult() {
   eresult_ = 2;
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::_internal_eresult() const {
   return eresult_;
@@ -7426,7 +7441,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::eresult() const {
   return _internal_eresult();
 }
 inline void CMsgProtoBufHeader::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
   eresult_ = value;
 }
 inline void CMsgProtoBufHeader::set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -7565,7 +7580,7 @@ inline void CMsgProtoBufHeader::set_token_source(::PROTOBUF_NAMESPACE_ID::uint32
 
 // optional bool admin_spoofing_user = 23;
 inline bool CMsgProtoBufHeader::_internal_has_admin_spoofing_user() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_admin_spoofing_user() const {
@@ -7573,7 +7588,7 @@ inline bool CMsgProtoBufHeader::has_admin_spoofing_user() const {
 }
 inline void CMsgProtoBufHeader::clear_admin_spoofing_user() {
   admin_spoofing_user_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline bool CMsgProtoBufHeader::_internal_admin_spoofing_user() const {
   return admin_spoofing_user_;
@@ -7583,7 +7598,7 @@ inline bool CMsgProtoBufHeader::admin_spoofing_user() const {
   return _internal_admin_spoofing_user();
 }
 inline void CMsgProtoBufHeader::_internal_set_admin_spoofing_user(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00040000u;
   admin_spoofing_user_ = value;
 }
 inline void CMsgProtoBufHeader::set_admin_spoofing_user(bool value) {
@@ -7593,7 +7608,7 @@ inline void CMsgProtoBufHeader::set_admin_spoofing_user(bool value) {
 
 // optional int32 transport_error = 17 [default = 1];
 inline bool CMsgProtoBufHeader::_internal_has_transport_error() const {
-  bool value = (_has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_transport_error() const {
@@ -7601,7 +7616,7 @@ inline bool CMsgProtoBufHeader::has_transport_error() const {
 }
 inline void CMsgProtoBufHeader::clear_transport_error() {
   transport_error_ = 1;
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::_internal_transport_error() const {
   return transport_error_;
@@ -7611,7 +7626,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::transport_error() cons
   return _internal_transport_error();
 }
 inline void CMsgProtoBufHeader::_internal_set_transport_error(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
   transport_error_ = value;
 }
 inline void CMsgProtoBufHeader::set_transport_error(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -7621,7 +7636,7 @@ inline void CMsgProtoBufHeader::set_transport_error(::PROTOBUF_NAMESPACE_ID::int
 
 // optional uint64 messageid = 18 [default = 18446744073709551615];
 inline bool CMsgProtoBufHeader::_internal_has_messageid() const {
-  bool value = (_has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_messageid() const {
@@ -7629,7 +7644,7 @@ inline bool CMsgProtoBufHeader::has_messageid() const {
 }
 inline void CMsgProtoBufHeader::clear_messageid() {
   messageid_ = PROTOBUF_ULONGLONG(18446744073709551615);
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[0] &= ~0x80000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_messageid() const {
   return messageid_;
@@ -7639,7 +7654,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::messageid() const {
   return _internal_messageid();
 }
 inline void CMsgProtoBufHeader::_internal_set_messageid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[0] |= 0x80000000u;
   messageid_ = value;
 }
 inline void CMsgProtoBufHeader::set_messageid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -7733,7 +7748,7 @@ inline void CMsgProtoBufHeader::set_trace_tag(::PROTOBUF_NAMESPACE_ID::uint64 va
 
 // optional uint32 webapi_key_id = 25;
 inline bool CMsgProtoBufHeader::_internal_has_webapi_key_id() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_webapi_key_id() const {
@@ -7741,7 +7756,7 @@ inline bool CMsgProtoBufHeader::has_webapi_key_id() const {
 }
 inline void CMsgProtoBufHeader::clear_webapi_key_id() {
   webapi_key_id_ = 0u;
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::_internal_webapi_key_id() const {
   return webapi_key_id_;
@@ -7751,7 +7766,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::webapi_key_id() const
   return _internal_webapi_key_id();
 }
 inline void CMsgProtoBufHeader::_internal_set_webapi_key_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00008000u;
   webapi_key_id_ = value;
 }
 inline void CMsgProtoBufHeader::set_webapi_key_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7761,7 +7776,7 @@ inline void CMsgProtoBufHeader::set_webapi_key_id(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional bool is_from_external_source = 26;
 inline bool CMsgProtoBufHeader::_internal_has_is_from_external_source() const {
-  bool value = (_has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_is_from_external_source() const {
@@ -7769,7 +7784,7 @@ inline bool CMsgProtoBufHeader::has_is_from_external_source() const {
 }
 inline void CMsgProtoBufHeader::clear_is_from_external_source() {
   is_from_external_source_ = false;
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline bool CMsgProtoBufHeader::_internal_is_from_external_source() const {
   return is_from_external_source_;
@@ -7779,7 +7794,7 @@ inline bool CMsgProtoBufHeader::is_from_external_source() const {
   return _internal_is_from_external_source();
 }
 inline void CMsgProtoBufHeader::_internal_set_is_from_external_source(bool value) {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00080000u;
   is_from_external_source_ = value;
 }
 inline void CMsgProtoBufHeader::set_is_from_external_source(bool value) {
@@ -7836,7 +7851,7 @@ CMsgProtoBufHeader::mutable_forward_to_sysid() {
 
 // optional uint32 cm_sysid = 28;
 inline bool CMsgProtoBufHeader::_internal_has_cm_sysid() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_cm_sysid() const {
@@ -7844,7 +7859,7 @@ inline bool CMsgProtoBufHeader::has_cm_sysid() const {
 }
 inline void CMsgProtoBufHeader::clear_cm_sysid() {
   cm_sysid_ = 0u;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::_internal_cm_sysid() const {
   return cm_sysid_;
@@ -7854,7 +7869,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::cm_sysid() const {
   return _internal_cm_sysid();
 }
 inline void CMsgProtoBufHeader::_internal_set_cm_sysid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00010000u;
   cm_sysid_ = value;
 }
 inline void CMsgProtoBufHeader::set_cm_sysid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7864,7 +7879,7 @@ inline void CMsgProtoBufHeader::set_cm_sysid(::PROTOBUF_NAMESPACE_ID::uint32 val
 
 // optional uint32 launcher_type = 31 [default = 0];
 inline bool CMsgProtoBufHeader::_internal_has_launcher_type() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_launcher_type() const {
@@ -7872,7 +7887,7 @@ inline bool CMsgProtoBufHeader::has_launcher_type() const {
 }
 inline void CMsgProtoBufHeader::clear_launcher_type() {
   launcher_type_ = 0u;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::_internal_launcher_type() const {
   return launcher_type_;
@@ -7882,7 +7897,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::launcher_type() const
   return _internal_launcher_type();
 }
 inline void CMsgProtoBufHeader::_internal_set_launcher_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00020000u;
   launcher_type_ = value;
 }
 inline void CMsgProtoBufHeader::set_launcher_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7892,7 +7907,7 @@ inline void CMsgProtoBufHeader::set_launcher_type(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional uint32 realm = 32 [default = 0];
 inline bool CMsgProtoBufHeader::_internal_has_realm() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_realm() const {
@@ -7900,7 +7915,7 @@ inline bool CMsgProtoBufHeader::has_realm() const {
 }
 inline void CMsgProtoBufHeader::clear_realm() {
   realm_ = 0u;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::_internal_realm() const {
   return realm_;
@@ -7910,7 +7925,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::realm() const {
   return _internal_realm();
 }
 inline void CMsgProtoBufHeader::_internal_set_realm(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
   realm_ = value;
 }
 inline void CMsgProtoBufHeader::set_realm(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7920,7 +7935,7 @@ inline void CMsgProtoBufHeader::set_realm(::PROTOBUF_NAMESPACE_ID::uint32 value)
 
 // optional int32 timeout_ms = 33 [default = -1];
 inline bool CMsgProtoBufHeader::_internal_has_timeout_ms() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_timeout_ms() const {
@@ -7928,7 +7943,7 @@ inline bool CMsgProtoBufHeader::has_timeout_ms() const {
 }
 inline void CMsgProtoBufHeader::clear_timeout_ms() {
   timeout_ms_ = -1;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::_internal_timeout_ms() const {
   return timeout_ms_;
@@ -7938,7 +7953,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgProtoBufHeader::timeout_ms() const {
   return _internal_timeout_ms();
 }
 inline void CMsgProtoBufHeader::_internal_set_timeout_ms(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
   timeout_ms_ = value;
 }
 inline void CMsgProtoBufHeader::set_timeout_ms(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8021,7 +8036,7 @@ inline void CMsgProtoBufHeader::set_allocated_debug_source(std::string* debug_so
 
 // optional uint32 debug_source_string_index = 35;
 inline bool CMsgProtoBufHeader::_internal_has_debug_source_string_index() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_debug_source_string_index() const {
@@ -8029,7 +8044,7 @@ inline bool CMsgProtoBufHeader::has_debug_source_string_index() const {
 }
 inline void CMsgProtoBufHeader::clear_debug_source_string_index() {
   debug_source_string_index_ = 0u;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::_internal_debug_source_string_index() const {
   return debug_source_string_index_;
@@ -8039,7 +8054,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgProtoBufHeader::debug_source_string_i
   return _internal_debug_source_string_index();
 }
 inline void CMsgProtoBufHeader::_internal_set_debug_source_string_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
   debug_source_string_index_ = value;
 }
 inline void CMsgProtoBufHeader::set_debug_source_string_index(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8049,7 +8064,7 @@ inline void CMsgProtoBufHeader::set_debug_source_string_index(::PROTOBUF_NAMESPA
 
 // optional uint64 token_id = 36;
 inline bool CMsgProtoBufHeader::_internal_has_token_id() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_token_id() const {
@@ -8057,7 +8072,7 @@ inline bool CMsgProtoBufHeader::has_token_id() const {
 }
 inline void CMsgProtoBufHeader::clear_token_id() {
   token_id_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_token_id() const {
   return token_id_;
@@ -8067,7 +8082,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::token_id() const {
   return _internal_token_id();
 }
 inline void CMsgProtoBufHeader::_internal_set_token_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
   token_id_ = value;
 }
 inline void CMsgProtoBufHeader::set_token_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
@@ -8160,7 +8175,7 @@ inline void CMsgProtoBufHeader::set_allocated_routing_gc(::CMsgGCRoutingProtoBuf
 
 // optional .CMsgProtoBufHeader.ESessionDisposition session_disposition = 38 [default = ESessionDispositionNormal];
 inline bool CMsgProtoBufHeader::_internal_has_session_disposition() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_session_disposition() const {
@@ -8168,7 +8183,7 @@ inline bool CMsgProtoBufHeader::has_session_disposition() const {
 }
 inline void CMsgProtoBufHeader::clear_session_disposition() {
   session_disposition_ = 0;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline ::CMsgProtoBufHeader_ESessionDisposition CMsgProtoBufHeader::_internal_session_disposition() const {
   return static_cast< ::CMsgProtoBufHeader_ESessionDisposition >(session_disposition_);
@@ -8179,7 +8194,7 @@ inline ::CMsgProtoBufHeader_ESessionDisposition CMsgProtoBufHeader::session_disp
 }
 inline void CMsgProtoBufHeader::_internal_set_session_disposition(::CMsgProtoBufHeader_ESessionDisposition value) {
   assert(::CMsgProtoBufHeader_ESessionDisposition_IsValid(value));
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
   session_disposition_ = value;
 }
 inline void CMsgProtoBufHeader::set_session_disposition(::CMsgProtoBufHeader_ESessionDisposition value) {
@@ -8382,7 +8397,7 @@ CMsgProtoBufHeader::mutable_exclude_client_sessionids() {
 
 // optional fixed64 admin_request_spoofing_steamid = 43;
 inline bool CMsgProtoBufHeader::_internal_has_admin_request_spoofing_steamid() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_admin_request_spoofing_steamid() const {
@@ -8390,7 +8405,7 @@ inline bool CMsgProtoBufHeader::has_admin_request_spoofing_steamid() const {
 }
 inline void CMsgProtoBufHeader::clear_admin_request_spoofing_steamid() {
   admin_request_spoofing_steamid_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::_internal_admin_request_spoofing_steamid() const {
   return admin_request_spoofing_steamid_;
@@ -8400,12 +8415,40 @@ inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgProtoBufHeader::admin_request_spoofin
   return _internal_admin_request_spoofing_steamid();
 }
 inline void CMsgProtoBufHeader::_internal_set_admin_request_spoofing_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
   admin_request_spoofing_steamid_ = value;
 }
 inline void CMsgProtoBufHeader::set_admin_request_spoofing_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_admin_request_spoofing_steamid(value);
   // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.admin_request_spoofing_steamid)
+}
+
+// optional bool is_valveds = 44;
+inline bool CMsgProtoBufHeader::_internal_has_is_valveds() const {
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  return value;
+}
+inline bool CMsgProtoBufHeader::has_is_valveds() const {
+  return _internal_has_is_valveds();
+}
+inline void CMsgProtoBufHeader::clear_is_valveds() {
+  is_valveds_ = false;
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline bool CMsgProtoBufHeader::_internal_is_valveds() const {
+  return is_valveds_;
+}
+inline bool CMsgProtoBufHeader::is_valveds() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.is_valveds)
+  return _internal_is_valveds();
+}
+inline void CMsgProtoBufHeader::_internal_set_is_valveds(bool value) {
+  _has_bits_[0] |= 0x00100000u;
+  is_valveds_ = value;
+}
+inline void CMsgProtoBufHeader::set_is_valveds(bool value) {
+  _internal_set_is_valveds(value);
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.is_valveds)
 }
 
 // uint32 ip = 15;

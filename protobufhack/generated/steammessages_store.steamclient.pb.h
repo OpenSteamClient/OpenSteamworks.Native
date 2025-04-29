@@ -37,6 +37,7 @@
 #include "steammessages_base.pb.h"
 #include "steammessages_unified_base.steamclient.pb.h"
 #include "contenthubs.pb.h"
+#include "steammessages_storebrowse.steamclient.pb.h"
 #include "enums.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -53,7 +54,7 @@ struct TableStruct_steammessages_5fstore_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[55]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[58]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -127,6 +128,15 @@ extern CStore_GetMostPopularTags_ResponseDefaultTypeInternal _CStore_GetMostPopu
 class CStore_GetMostPopularTags_Response_Tag;
 struct CStore_GetMostPopularTags_Response_TagDefaultTypeInternal;
 extern CStore_GetMostPopularTags_Response_TagDefaultTypeInternal _CStore_GetMostPopularTags_Response_Tag_default_instance_;
+class CStore_GetRecommendedTagsForUser_Request;
+struct CStore_GetRecommendedTagsForUser_RequestDefaultTypeInternal;
+extern CStore_GetRecommendedTagsForUser_RequestDefaultTypeInternal _CStore_GetRecommendedTagsForUser_Request_default_instance_;
+class CStore_GetRecommendedTagsForUser_Response;
+struct CStore_GetRecommendedTagsForUser_ResponseDefaultTypeInternal;
+extern CStore_GetRecommendedTagsForUser_ResponseDefaultTypeInternal _CStore_GetRecommendedTagsForUser_Response_default_instance_;
+class CStore_GetRecommendedTagsForUser_Response_Tag;
+struct CStore_GetRecommendedTagsForUser_Response_TagDefaultTypeInternal;
+extern CStore_GetRecommendedTagsForUser_Response_TagDefaultTypeInternal _CStore_GetRecommendedTagsForUser_Response_Tag_default_instance_;
 class CStore_GetStorePreferences_Request;
 struct CStore_GetStorePreferences_RequestDefaultTypeInternal;
 extern CStore_GetStorePreferences_RequestDefaultTypeInternal _CStore_GetStorePreferences_Request_default_instance_;
@@ -249,6 +259,9 @@ template<> ::CStore_GetLocalizedNameForTags_Response_Tag* Arena::CreateMaybeMess
 template<> ::CStore_GetMostPopularTags_Request* Arena::CreateMaybeMessage<::CStore_GetMostPopularTags_Request>(Arena*);
 template<> ::CStore_GetMostPopularTags_Response* Arena::CreateMaybeMessage<::CStore_GetMostPopularTags_Response>(Arena*);
 template<> ::CStore_GetMostPopularTags_Response_Tag* Arena::CreateMaybeMessage<::CStore_GetMostPopularTags_Response_Tag>(Arena*);
+template<> ::CStore_GetRecommendedTagsForUser_Request* Arena::CreateMaybeMessage<::CStore_GetRecommendedTagsForUser_Request>(Arena*);
+template<> ::CStore_GetRecommendedTagsForUser_Response* Arena::CreateMaybeMessage<::CStore_GetRecommendedTagsForUser_Response>(Arena*);
+template<> ::CStore_GetRecommendedTagsForUser_Response_Tag* Arena::CreateMaybeMessage<::CStore_GetRecommendedTagsForUser_Response_Tag>(Arena*);
 template<> ::CStore_GetStorePreferences_Request* Arena::CreateMaybeMessage<::CStore_GetStorePreferences_Request>(Arena*);
 template<> ::CStore_GetStorePreferences_Response* Arena::CreateMaybeMessage<::CStore_GetStorePreferences_Response>(Arena*);
 template<> ::CStore_GetTagList_Request* Arena::CreateMaybeMessage<::CStore_GetTagList_Request>(Arena*);
@@ -324,11 +337,12 @@ enum EPlaytestStatus : int {
   ETesterStatusNone = 0,
   ETesterStatusPending = 1,
   ETesterStatusInvited = 2,
-  ETesterStatusGranted = 3
+  ETesterStatusGranted = 3,
+  ETesterStatusExpired = 4
 };
 bool EPlaytestStatus_IsValid(int value);
 constexpr EPlaytestStatus EPlaytestStatus_MIN = ETesterStatusNone;
-constexpr EPlaytestStatus EPlaytestStatus_MAX = ETesterStatusGranted;
+constexpr EPlaytestStatus EPlaytestStatus_MAX = ETesterStatusExpired;
 constexpr int EPlaytestStatus_ARRAYSIZE = EPlaytestStatus_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EPlaytestStatus_descriptor();
@@ -1419,6 +1433,540 @@ class CStore_RegisterCDKey_Response PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CStore_GetRecommendedTagsForUser_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStore_GetRecommendedTagsForUser_Request) */ {
+ public:
+  inline CStore_GetRecommendedTagsForUser_Request() : CStore_GetRecommendedTagsForUser_Request(nullptr) {}
+  virtual ~CStore_GetRecommendedTagsForUser_Request();
+  explicit constexpr CStore_GetRecommendedTagsForUser_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStore_GetRecommendedTagsForUser_Request(const CStore_GetRecommendedTagsForUser_Request& from);
+  CStore_GetRecommendedTagsForUser_Request(CStore_GetRecommendedTagsForUser_Request&& from) noexcept
+    : CStore_GetRecommendedTagsForUser_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CStore_GetRecommendedTagsForUser_Request& operator=(const CStore_GetRecommendedTagsForUser_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStore_GetRecommendedTagsForUser_Request& operator=(CStore_GetRecommendedTagsForUser_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStore_GetRecommendedTagsForUser_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStore_GetRecommendedTagsForUser_Request* internal_default_instance() {
+    return reinterpret_cast<const CStore_GetRecommendedTagsForUser_Request*>(
+               &_CStore_GetRecommendedTagsForUser_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(CStore_GetRecommendedTagsForUser_Request& a, CStore_GetRecommendedTagsForUser_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStore_GetRecommendedTagsForUser_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStore_GetRecommendedTagsForUser_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStore_GetRecommendedTagsForUser_Request* New() const final {
+    return CreateMaybeMessage<CStore_GetRecommendedTagsForUser_Request>(nullptr);
+  }
+
+  CStore_GetRecommendedTagsForUser_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStore_GetRecommendedTagsForUser_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStore_GetRecommendedTagsForUser_Request& from);
+  void MergeFrom(const CStore_GetRecommendedTagsForUser_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStore_GetRecommendedTagsForUser_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStore_GetRecommendedTagsForUser_Request";
+  }
+  protected:
+  explicit CStore_GetRecommendedTagsForUser_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstore_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLanguageFieldNumber = 2,
+    kCountryCodeFieldNumber = 3,
+    kFavorRarerTagsFieldNumber = 4,
+  };
+  // optional string language = 2;
+  bool has_language() const;
+  private:
+  bool _internal_has_language() const;
+  public:
+  void clear_language();
+  const std::string& language() const;
+  void set_language(const std::string& value);
+  void set_language(std::string&& value);
+  void set_language(const char* value);
+  void set_language(const char* value, size_t size);
+  std::string* mutable_language();
+  std::string* release_language();
+  void set_allocated_language(std::string* language);
+  private:
+  const std::string& _internal_language() const;
+  void _internal_set_language(const std::string& value);
+  std::string* _internal_mutable_language();
+  public:
+
+  // optional string country_code = 3;
+  bool has_country_code() const;
+  private:
+  bool _internal_has_country_code() const;
+  public:
+  void clear_country_code();
+  const std::string& country_code() const;
+  void set_country_code(const std::string& value);
+  void set_country_code(std::string&& value);
+  void set_country_code(const char* value);
+  void set_country_code(const char* value, size_t size);
+  std::string* mutable_country_code();
+  std::string* release_country_code();
+  void set_allocated_country_code(std::string* country_code);
+  private:
+  const std::string& _internal_country_code() const;
+  void _internal_set_country_code(const std::string& value);
+  std::string* _internal_mutable_country_code();
+  public:
+
+  // optional bool favor_rarer_tags = 4;
+  bool has_favor_rarer_tags() const;
+  private:
+  bool _internal_has_favor_rarer_tags() const;
+  public:
+  void clear_favor_rarer_tags();
+  bool favor_rarer_tags() const;
+  void set_favor_rarer_tags(bool value);
+  private:
+  bool _internal_favor_rarer_tags() const;
+  void _internal_set_favor_rarer_tags(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CStore_GetRecommendedTagsForUser_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr language_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr country_code_;
+  bool favor_rarer_tags_;
+  friend struct ::TableStruct_steammessages_5fstore_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CStore_GetRecommendedTagsForUser_Response_Tag PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStore_GetRecommendedTagsForUser_Response.Tag) */ {
+ public:
+  inline CStore_GetRecommendedTagsForUser_Response_Tag() : CStore_GetRecommendedTagsForUser_Response_Tag(nullptr) {}
+  virtual ~CStore_GetRecommendedTagsForUser_Response_Tag();
+  explicit constexpr CStore_GetRecommendedTagsForUser_Response_Tag(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStore_GetRecommendedTagsForUser_Response_Tag(const CStore_GetRecommendedTagsForUser_Response_Tag& from);
+  CStore_GetRecommendedTagsForUser_Response_Tag(CStore_GetRecommendedTagsForUser_Response_Tag&& from) noexcept
+    : CStore_GetRecommendedTagsForUser_Response_Tag() {
+    *this = ::std::move(from);
+  }
+
+  inline CStore_GetRecommendedTagsForUser_Response_Tag& operator=(const CStore_GetRecommendedTagsForUser_Response_Tag& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStore_GetRecommendedTagsForUser_Response_Tag& operator=(CStore_GetRecommendedTagsForUser_Response_Tag&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStore_GetRecommendedTagsForUser_Response_Tag& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStore_GetRecommendedTagsForUser_Response_Tag* internal_default_instance() {
+    return reinterpret_cast<const CStore_GetRecommendedTagsForUser_Response_Tag*>(
+               &_CStore_GetRecommendedTagsForUser_Response_Tag_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(CStore_GetRecommendedTagsForUser_Response_Tag& a, CStore_GetRecommendedTagsForUser_Response_Tag& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStore_GetRecommendedTagsForUser_Response_Tag* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStore_GetRecommendedTagsForUser_Response_Tag* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStore_GetRecommendedTagsForUser_Response_Tag* New() const final {
+    return CreateMaybeMessage<CStore_GetRecommendedTagsForUser_Response_Tag>(nullptr);
+  }
+
+  CStore_GetRecommendedTagsForUser_Response_Tag* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStore_GetRecommendedTagsForUser_Response_Tag>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStore_GetRecommendedTagsForUser_Response_Tag& from);
+  void MergeFrom(const CStore_GetRecommendedTagsForUser_Response_Tag& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStore_GetRecommendedTagsForUser_Response_Tag* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStore_GetRecommendedTagsForUser_Response.Tag";
+  }
+  protected:
+  explicit CStore_GetRecommendedTagsForUser_Response_Tag(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstore_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 2,
+    kTagidFieldNumber = 1,
+    kWeightFieldNumber = 3,
+  };
+  // optional string name = 2;
+  bool has_name() const;
+  private:
+  bool _internal_has_name() const;
+  public:
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // optional uint32 tagid = 1;
+  bool has_tagid() const;
+  private:
+  bool _internal_has_tagid() const;
+  public:
+  void clear_tagid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 tagid() const;
+  void set_tagid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_tagid() const;
+  void _internal_set_tagid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional float weight = 3;
+  bool has_weight() const;
+  private:
+  bool _internal_has_weight() const;
+  public:
+  void clear_weight();
+  float weight() const;
+  void set_weight(float value);
+  private:
+  float _internal_weight() const;
+  void _internal_set_weight(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CStore_GetRecommendedTagsForUser_Response.Tag)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 tagid_;
+  float weight_;
+  friend struct ::TableStruct_steammessages_5fstore_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CStore_GetRecommendedTagsForUser_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStore_GetRecommendedTagsForUser_Response) */ {
+ public:
+  inline CStore_GetRecommendedTagsForUser_Response() : CStore_GetRecommendedTagsForUser_Response(nullptr) {}
+  virtual ~CStore_GetRecommendedTagsForUser_Response();
+  explicit constexpr CStore_GetRecommendedTagsForUser_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStore_GetRecommendedTagsForUser_Response(const CStore_GetRecommendedTagsForUser_Response& from);
+  CStore_GetRecommendedTagsForUser_Response(CStore_GetRecommendedTagsForUser_Response&& from) noexcept
+    : CStore_GetRecommendedTagsForUser_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CStore_GetRecommendedTagsForUser_Response& operator=(const CStore_GetRecommendedTagsForUser_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStore_GetRecommendedTagsForUser_Response& operator=(CStore_GetRecommendedTagsForUser_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStore_GetRecommendedTagsForUser_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStore_GetRecommendedTagsForUser_Response* internal_default_instance() {
+    return reinterpret_cast<const CStore_GetRecommendedTagsForUser_Response*>(
+               &_CStore_GetRecommendedTagsForUser_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(CStore_GetRecommendedTagsForUser_Response& a, CStore_GetRecommendedTagsForUser_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStore_GetRecommendedTagsForUser_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStore_GetRecommendedTagsForUser_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStore_GetRecommendedTagsForUser_Response* New() const final {
+    return CreateMaybeMessage<CStore_GetRecommendedTagsForUser_Response>(nullptr);
+  }
+
+  CStore_GetRecommendedTagsForUser_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStore_GetRecommendedTagsForUser_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStore_GetRecommendedTagsForUser_Response& from);
+  void MergeFrom(const CStore_GetRecommendedTagsForUser_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStore_GetRecommendedTagsForUser_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStore_GetRecommendedTagsForUser_Response";
+  }
+  protected:
+  explicit CStore_GetRecommendedTagsForUser_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstore_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CStore_GetRecommendedTagsForUser_Response_Tag Tag;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagsFieldNumber = 1,
+  };
+  // repeated .CStore_GetRecommendedTagsForUser_Response.Tag tags = 1;
+  int tags_size() const;
+  private:
+  int _internal_tags_size() const;
+  public:
+  void clear_tags();
+  ::CStore_GetRecommendedTagsForUser_Response_Tag* mutable_tags(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStore_GetRecommendedTagsForUser_Response_Tag >*
+      mutable_tags();
+  private:
+  const ::CStore_GetRecommendedTagsForUser_Response_Tag& _internal_tags(int index) const;
+  ::CStore_GetRecommendedTagsForUser_Response_Tag* _internal_add_tags();
+  public:
+  const ::CStore_GetRecommendedTagsForUser_Response_Tag& tags(int index) const;
+  ::CStore_GetRecommendedTagsForUser_Response_Tag* add_tags();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStore_GetRecommendedTagsForUser_Response_Tag >&
+      tags() const;
+
+  // @@protoc_insertion_point(class_scope:CStore_GetRecommendedTagsForUser_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStore_GetRecommendedTagsForUser_Response_Tag > tags_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fstore_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CStore_GetMostPopularTags_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStore_GetMostPopularTags_Request) */ {
  public:
@@ -1469,7 +2017,7 @@ class CStore_GetMostPopularTags_Request PROTOBUF_FINAL :
                &_CStore_GetMostPopularTags_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    7;
 
   friend void swap(CStore_GetMostPopularTags_Request& a, CStore_GetMostPopularTags_Request& b) {
     a.Swap(&b);
@@ -1625,7 +2173,7 @@ class CStore_GetMostPopularTags_Response_Tag PROTOBUF_FINAL :
                &_CStore_GetMostPopularTags_Response_Tag_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    8;
 
   friend void swap(CStore_GetMostPopularTags_Response_Tag& a, CStore_GetMostPopularTags_Response_Tag& b) {
     a.Swap(&b);
@@ -1796,7 +2344,7 @@ class CStore_GetMostPopularTags_Response PROTOBUF_FINAL :
                &_CStore_GetMostPopularTags_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    9;
 
   friend void swap(CStore_GetMostPopularTags_Response& a, CStore_GetMostPopularTags_Response& b) {
     a.Swap(&b);
@@ -1951,7 +2499,7 @@ class CStore_GetLocalizedNameForTags_Request PROTOBUF_FINAL :
                &_CStore_GetLocalizedNameForTags_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    10;
 
   friend void swap(CStore_GetLocalizedNameForTags_Request& a, CStore_GetLocalizedNameForTags_Request& b) {
     a.Swap(&b);
@@ -2131,7 +2679,7 @@ class CStore_GetLocalizedNameForTags_Response_Tag PROTOBUF_FINAL :
                &_CStore_GetLocalizedNameForTags_Response_Tag_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    11;
 
   friend void swap(CStore_GetLocalizedNameForTags_Response_Tag& a, CStore_GetLocalizedNameForTags_Response_Tag& b) {
     a.Swap(&b);
@@ -2346,7 +2894,7 @@ class CStore_GetLocalizedNameForTags_Response PROTOBUF_FINAL :
                &_CStore_GetLocalizedNameForTags_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    12;
 
   friend void swap(CStore_GetLocalizedNameForTags_Response& a, CStore_GetLocalizedNameForTags_Response& b) {
     a.Swap(&b);
@@ -2501,7 +3049,7 @@ class CStore_GetTagList_Request PROTOBUF_FINAL :
                &_CStore_GetTagList_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    13;
 
   friend void swap(CStore_GetTagList_Request& a, CStore_GetTagList_Request& b) {
     a.Swap(&b);
@@ -2679,7 +3227,7 @@ class CStore_GetTagList_Response_Tag PROTOBUF_FINAL :
                &_CStore_GetTagList_Response_Tag_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    14;
 
   friend void swap(CStore_GetTagList_Response_Tag& a, CStore_GetTagList_Response_Tag& b) {
     a.Swap(&b);
@@ -2850,7 +3398,7 @@ class CStore_GetTagList_Response PROTOBUF_FINAL :
                &_CStore_GetTagList_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    15;
 
   friend void swap(CStore_GetTagList_Response& a, CStore_GetTagList_Response& b) {
     a.Swap(&b);
@@ -3028,7 +3576,7 @@ class CStoreDiscoveryQueueSettings PROTOBUF_FINAL :
                &_CStoreDiscoveryQueueSettings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    16;
 
   friend void swap(CStoreDiscoveryQueueSettings& a, CStoreDiscoveryQueueSettings& b) {
     a.Swap(&b);
@@ -3375,7 +3923,7 @@ class CStore_GetDiscoveryQueue_Request PROTOBUF_FINAL :
                &_CStore_GetDiscoveryQueue_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    17;
 
   friend void swap(CStore_GetDiscoveryQueue_Request& a, CStore_GetDiscoveryQueue_Request& b) {
     a.Swap(&b);
@@ -3448,6 +3996,8 @@ class CStore_GetDiscoveryQueue_Request PROTOBUF_FINAL :
     kCountryCodeFieldNumber = 2,
     kSettingsFieldNumber = 5,
     kStorePageFilterFieldNumber = 12,
+    kContextFieldNumber = 13,
+    kDataRequestFieldNumber = 14,
     kQueueTypeFieldNumber = 1,
     kRebuildQueueFieldNumber = 3,
     kSettingsChangedFieldNumber = 4,
@@ -3512,6 +4062,42 @@ class CStore_GetDiscoveryQueue_Request PROTOBUF_FINAL :
   void unsafe_arena_set_allocated_store_page_filter(
       ::CStorePageFilter* store_page_filter);
   ::CStorePageFilter* unsafe_arena_release_store_page_filter();
+
+  // optional .StoreBrowseContext context = 13;
+  bool has_context() const;
+  private:
+  bool _internal_has_context() const;
+  public:
+  void clear_context();
+  const ::StoreBrowseContext& context() const;
+  ::StoreBrowseContext* release_context();
+  ::StoreBrowseContext* mutable_context();
+  void set_allocated_context(::StoreBrowseContext* context);
+  private:
+  const ::StoreBrowseContext& _internal_context() const;
+  ::StoreBrowseContext* _internal_mutable_context();
+  public:
+  void unsafe_arena_set_allocated_context(
+      ::StoreBrowseContext* context);
+  ::StoreBrowseContext* unsafe_arena_release_context();
+
+  // optional .StoreBrowseItemDataRequest data_request = 14;
+  bool has_data_request() const;
+  private:
+  bool _internal_has_data_request() const;
+  public:
+  void clear_data_request();
+  const ::StoreBrowseItemDataRequest& data_request() const;
+  ::StoreBrowseItemDataRequest* release_data_request();
+  ::StoreBrowseItemDataRequest* mutable_data_request();
+  void set_allocated_data_request(::StoreBrowseItemDataRequest* data_request);
+  private:
+  const ::StoreBrowseItemDataRequest& _internal_data_request() const;
+  ::StoreBrowseItemDataRequest* _internal_mutable_data_request();
+  public:
+  void unsafe_arena_set_allocated_data_request(
+      ::StoreBrowseItemDataRequest* data_request);
+  ::StoreBrowseItemDataRequest* unsafe_arena_release_data_request();
 
   // optional .EStoreDiscoveryQueueType queue_type = 1 [default = EStoreDiscoveryQueueTypeNew];
   bool has_queue_type() const;
@@ -3629,6 +4215,8 @@ class CStore_GetDiscoveryQueue_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr country_code_;
   ::CStoreDiscoveryQueueSettings* settings_;
   ::CStorePageFilter* store_page_filter_;
+  ::StoreBrowseContext* context_;
+  ::StoreBrowseItemDataRequest* data_request_;
   int queue_type_;
   bool rebuild_queue_;
   bool settings_changed_;
@@ -3691,7 +4279,7 @@ class CStore_GetDiscoveryQueue_Response PROTOBUF_FINAL :
                &_CStore_GetDiscoveryQueue_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    18;
 
   friend void swap(CStore_GetDiscoveryQueue_Response& a, CStore_GetDiscoveryQueue_Response& b) {
     a.Swap(&b);
@@ -3762,6 +4350,7 @@ class CStore_GetDiscoveryQueue_Response PROTOBUF_FINAL :
 
   enum : int {
     kAppidsFieldNumber = 1,
+    kStoreItemsFieldNumber = 8,
     kCountryCodeFieldNumber = 2,
     kDebugSolrQueryFieldNumber = 7,
     kSettingsFieldNumber = 3,
@@ -3790,6 +4379,24 @@ class CStore_GetDiscoveryQueue_Response PROTOBUF_FINAL :
       appids() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_appids();
+
+  // repeated .StoreItem store_items = 8;
+  int store_items_size() const;
+  private:
+  int _internal_store_items_size() const;
+  public:
+  void clear_store_items();
+  ::StoreItem* mutable_store_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem >*
+      mutable_store_items();
+  private:
+  const ::StoreItem& _internal_store_items(int index) const;
+  ::StoreItem* _internal_add_store_items();
+  public:
+  const ::StoreItem& store_items(int index) const;
+  ::StoreItem* add_store_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem >&
+      store_items() const;
 
   // optional string country_code = 2;
   bool has_country_code() const;
@@ -3898,6 +4505,7 @@ class CStore_GetDiscoveryQueue_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > appids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem > store_items_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr country_code_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr debug_solr_query_;
   ::CStoreDiscoveryQueueSettings* settings_;
@@ -3958,7 +4566,7 @@ class CStore_GetDiscoveryQueueSettings_Request PROTOBUF_FINAL :
                &_CStore_GetDiscoveryQueueSettings_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    19;
 
   friend void swap(CStore_GetDiscoveryQueueSettings_Request& a, CStore_GetDiscoveryQueueSettings_Request& b) {
     a.Swap(&b);
@@ -4127,7 +4735,7 @@ class CStore_GetDiscoveryQueueSettings_Response PROTOBUF_FINAL :
                &_CStore_GetDiscoveryQueueSettings_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    20;
 
   friend void swap(CStore_GetDiscoveryQueueSettings_Response& a, CStore_GetDiscoveryQueueSettings_Response& b) {
     a.Swap(&b);
@@ -4303,7 +4911,7 @@ class CStore_SkipDiscoveryQueueItem_Request PROTOBUF_FINAL :
                &_CStore_SkipDiscoveryQueueItem_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    21;
 
   friend void swap(CStore_SkipDiscoveryQueueItem_Request& a, CStore_SkipDiscoveryQueueItem_Request& b) {
     a.Swap(&b);
@@ -4487,7 +5095,7 @@ class CStore_SkipDiscoveryQueueItem_Response PROTOBUF_FINAL :
                &_CStore_SkipDiscoveryQueueItem_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    22;
 
   friend void swap(CStore_SkipDiscoveryQueueItem_Response& a, CStore_SkipDiscoveryQueueItem_Response& b) {
     a.Swap(&b);
@@ -4618,7 +5226,7 @@ class CStore_GetUserGameInterestState_Request PROTOBUF_FINAL :
                &_CStore_GetUserGameInterestState_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    23;
 
   friend void swap(CStore_GetUserGameInterestState_Request& a, CStore_GetUserGameInterestState_Request& b) {
     a.Swap(&b);
@@ -4797,7 +5405,7 @@ class CStore_GetUserGameInterestState_Response_InQueue PROTOBUF_FINAL :
                &_CStore_GetUserGameInterestState_Response_InQueue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    24;
 
   friend void swap(CStore_GetUserGameInterestState_Response_InQueue& a, CStore_GetUserGameInterestState_Response_InQueue& b) {
     a.Swap(&b);
@@ -5006,7 +5614,7 @@ class CStore_GetUserGameInterestState_Response PROTOBUF_FINAL :
                &_CStore_GetUserGameInterestState_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    25;
 
   friend void swap(CStore_GetUserGameInterestState_Response& a, CStore_GetUserGameInterestState_Response& b) {
     a.Swap(&b);
@@ -5353,7 +5961,7 @@ class CStore_GetDiscoveryQueueSkippedApps_Request PROTOBUF_FINAL :
                &_CStore_GetDiscoveryQueueSkippedApps_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    26;
 
   friend void swap(CStore_GetDiscoveryQueueSkippedApps_Request& a, CStore_GetDiscoveryQueueSkippedApps_Request& b) {
     a.Swap(&b);
@@ -5537,7 +6145,7 @@ class CStore_GetDiscoveryQueueSkippedApps_Response PROTOBUF_FINAL :
                &_CStore_GetDiscoveryQueueSkippedApps_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    27;
 
   friend void swap(CStore_GetDiscoveryQueueSkippedApps_Response& a, CStore_GetDiscoveryQueueSkippedApps_Response& b) {
     a.Swap(&b);
@@ -5694,7 +6302,7 @@ class CStore_ReportApp_Request PROTOBUF_FINAL :
                &_CStore_ReportApp_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    28;
 
   friend void swap(CStore_ReportApp_Request& a, CStore_ReportApp_Request& b) {
     a.Swap(&b);
@@ -5880,7 +6488,7 @@ class CStore_ReportApp_Response PROTOBUF_FINAL :
                &_CStore_ReportApp_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    29;
 
   friend void swap(CStore_ReportApp_Response& a, CStore_ReportApp_Response& b) {
     a.Swap(&b);
@@ -6011,7 +6619,7 @@ class CStore_GetStorePreferences_Request PROTOBUF_FINAL :
                &_CStore_GetStorePreferences_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    30;
 
   friend void swap(CStore_GetStorePreferences_Request& a, CStore_GetStorePreferences_Request& b) {
     a.Swap(&b);
@@ -6142,7 +6750,7 @@ class CStore_UserPreferences PROTOBUF_FINAL :
                &_CStore_UserPreferences_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    31;
 
   friend void swap(CStore_UserPreferences& a, CStore_UserPreferences& b) {
     a.Swap(&b);
@@ -6448,7 +7056,7 @@ class CStore_UserTagPreferences_Tag PROTOBUF_FINAL :
                &_CStore_UserTagPreferences_Tag_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    32;
 
   friend void swap(CStore_UserTagPreferences_Tag& a, CStore_UserTagPreferences_Tag& b) {
     a.Swap(&b);
@@ -6634,7 +7242,7 @@ class CStore_UserTagPreferences PROTOBUF_FINAL :
                &_CStore_UserTagPreferences_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    33;
 
   friend void swap(CStore_UserTagPreferences& a, CStore_UserTagPreferences& b) {
     a.Swap(&b);
@@ -6789,7 +7397,7 @@ class CStore_GetStorePreferences_Response PROTOBUF_FINAL :
                &_CStore_GetStorePreferences_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    34;
 
   friend void swap(CStore_GetStorePreferences_Response& a, CStore_GetStorePreferences_Response& b) {
     a.Swap(&b);
@@ -6983,7 +7591,7 @@ class CStore_GetTrendingAppsAmongFriends_Request PROTOBUF_FINAL :
                &_CStore_GetTrendingAppsAmongFriends_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    35;
 
   friend void swap(CStore_GetTrendingAppsAmongFriends_Request& a, CStore_GetTrendingAppsAmongFriends_Request& b) {
     a.Swap(&b);
@@ -7147,7 +7755,7 @@ class CStore_GetTrendingAppsAmongFriends_Response_TrendingAppData PROTOBUF_FINAL
                &_CStore_GetTrendingAppsAmongFriends_Response_TrendingAppData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    36;
 
   friend void swap(CStore_GetTrendingAppsAmongFriends_Response_TrendingAppData& a, CStore_GetTrendingAppsAmongFriends_Response_TrendingAppData& b) {
     a.Swap(&b);
@@ -7335,7 +7943,7 @@ class CStore_GetTrendingAppsAmongFriends_Response PROTOBUF_FINAL :
                &_CStore_GetTrendingAppsAmongFriends_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    37;
 
   friend void swap(CStore_GetTrendingAppsAmongFriends_Response& a, CStore_GetTrendingAppsAmongFriends_Response& b) {
     a.Swap(&b);
@@ -7490,7 +8098,7 @@ class CStore_MigratePartnerLinkTracking_Notification PROTOBUF_FINAL :
                &_CStore_MigratePartnerLinkTracking_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    38;
 
   friend void swap(CStore_MigratePartnerLinkTracking_Notification& a, CStore_MigratePartnerLinkTracking_Notification& b) {
     a.Swap(&b);
@@ -7669,7 +8277,7 @@ class CStore_UpdatePackageReservations_Request PROTOBUF_FINAL :
                &_CStore_UpdatePackageReservations_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    39;
 
   friend void swap(CStore_UpdatePackageReservations_Request& a, CStore_UpdatePackageReservations_Request& b) {
     a.Swap(&b);
@@ -7873,7 +8481,7 @@ class CStore_UpdatePackageReservations_Response PROTOBUF_FINAL :
                &_CStore_UpdatePackageReservations_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    40;
 
   friend void swap(CStore_UpdatePackageReservations_Response& a, CStore_UpdatePackageReservations_Response& b) {
     a.Swap(&b);
@@ -8026,7 +8634,7 @@ class CStore_GetWishlistDemoEmailStatus_Request PROTOBUF_FINAL :
                &_CStore_GetWishlistDemoEmailStatus_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    41;
 
   friend void swap(CStore_GetWishlistDemoEmailStatus_Request& a, CStore_GetWishlistDemoEmailStatus_Request& b) {
     a.Swap(&b);
@@ -8205,7 +8813,7 @@ class CStore_GetWishlistDemoEmailStatus_Response PROTOBUF_FINAL :
                &_CStore_GetWishlistDemoEmailStatus_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    42;
 
   friend void swap(CStore_GetWishlistDemoEmailStatus_Response& a, CStore_GetWishlistDemoEmailStatus_Response& b) {
     a.Swap(&b);
@@ -8384,7 +8992,7 @@ class CStore_QueueWishlistDemoEmailToFire_Request PROTOBUF_FINAL :
                &_CStore_QueueWishlistDemoEmailToFire_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    43;
 
   friend void swap(CStore_QueueWishlistDemoEmailToFire_Request& a, CStore_QueueWishlistDemoEmailToFire_Request& b) {
     a.Swap(&b);
@@ -8563,7 +9171,7 @@ class CStore_QueueWishlistDemoEmailToFire_Response PROTOBUF_FINAL :
                &_CStore_QueueWishlistDemoEmailToFire_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    44;
 
   friend void swap(CStore_QueueWishlistDemoEmailToFire_Response& a, CStore_QueueWishlistDemoEmailToFire_Response& b) {
     a.Swap(&b);
@@ -8694,7 +9302,7 @@ class CReservationPositionMessage PROTOBUF_FINAL :
                &_CReservationPositionMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    45;
 
   friend void swap(CReservationPositionMessage& a, CReservationPositionMessage& b) {
     a.Swap(&b);
@@ -8947,7 +9555,7 @@ class CStore_SetReservationPositionMessage_Request PROTOBUF_FINAL :
                &_CStore_SetReservationPositionMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    46;
 
   friend void swap(CStore_SetReservationPositionMessage_Request& a, CStore_SetReservationPositionMessage_Request& b) {
     a.Swap(&b);
@@ -9100,7 +9708,7 @@ class CStore_SetReservationPositionMessage_Response PROTOBUF_FINAL :
                &_CStore_SetReservationPositionMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    47;
 
   friend void swap(CStore_SetReservationPositionMessage_Response& a, CStore_SetReservationPositionMessage_Response& b) {
     a.Swap(&b);
@@ -9231,7 +9839,7 @@ class CStore_DeleteReservationPositionMessage_Request PROTOBUF_FINAL :
                &_CStore_DeleteReservationPositionMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    48;
 
   friend void swap(CStore_DeleteReservationPositionMessage_Request& a, CStore_DeleteReservationPositionMessage_Request& b) {
     a.Swap(&b);
@@ -9417,7 +10025,7 @@ class CStore_DeleteReservationPositionMessage_Response PROTOBUF_FINAL :
                &_CStore_DeleteReservationPositionMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    49;
 
   friend void swap(CStore_DeleteReservationPositionMessage_Response& a, CStore_DeleteReservationPositionMessage_Response& b) {
     a.Swap(&b);
@@ -9548,7 +10156,7 @@ class CStore_GetAllReservationPositionMessages_Request PROTOBUF_FINAL :
                &_CStore_GetAllReservationPositionMessages_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    50;
 
   friend void swap(CStore_GetAllReservationPositionMessages_Request& a, CStore_GetAllReservationPositionMessages_Request& b) {
     a.Swap(&b);
@@ -9679,7 +10287,7 @@ class CStore_GetAllReservationPositionMessages_Response PROTOBUF_FINAL :
                &_CStore_GetAllReservationPositionMessages_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    51;
 
   friend void swap(CStore_GetAllReservationPositionMessages_Response& a, CStore_GetAllReservationPositionMessages_Response& b) {
     a.Swap(&b);
@@ -9832,7 +10440,7 @@ class CStore_ReloadAllReservationPositionMessages_Notification PROTOBUF_FINAL :
                &_CStore_ReloadAllReservationPositionMessages_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    52;
 
   friend void swap(CStore_ReloadAllReservationPositionMessages_Notification& a, CStore_ReloadAllReservationPositionMessages_Notification& b) {
     a.Swap(&b);
@@ -9963,7 +10571,7 @@ class CSteamDeckCompatibility_SetFeedbacRequest PROTOBUF_FINAL :
                &_CSteamDeckCompatibility_SetFeedbacRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    53;
 
   friend void swap(CSteamDeckCompatibility_SetFeedbacRequest& a, CSteamDeckCompatibility_SetFeedbacRequest& b) {
     a.Swap(&b);
@@ -10127,7 +10735,7 @@ class CSteamDeckCompatibility_SetFeedbacResponse PROTOBUF_FINAL :
                &_CSteamDeckCompatibility_SetFeedbacResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    54;
 
   friend void swap(CSteamDeckCompatibility_SetFeedbacResponse& a, CSteamDeckCompatibility_SetFeedbacResponse& b) {
     a.Swap(&b);
@@ -10258,7 +10866,7 @@ class CSteamDeckCompatibility_ShouldPrompt_Request PROTOBUF_FINAL :
                &_CSteamDeckCompatibility_ShouldPrompt_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    55;
 
   friend void swap(CSteamDeckCompatibility_ShouldPrompt_Request& a, CSteamDeckCompatibility_ShouldPrompt_Request& b) {
     a.Swap(&b);
@@ -10407,7 +11015,7 @@ class CSteamDeckCompatibility_ShouldPrompt_Response PROTOBUF_FINAL :
                &_CSteamDeckCompatibility_ShouldPrompt_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    56;
 
   friend void swap(CSteamDeckCompatibility_ShouldPrompt_Response& a, CSteamDeckCompatibility_ShouldPrompt_Response& b) {
     a.Swap(&b);
@@ -10586,7 +11194,7 @@ class CStore_StorePreferencesChanged_Notification PROTOBUF_FINAL :
                &_CStore_StorePreferencesChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    57;
 
   friend void swap(CStore_StorePreferencesChanged_Notification& a, CStore_StorePreferencesChanged_Notification& b) {
     a.Swap(&b);
@@ -10747,6 +11355,10 @@ class Store : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CStore_RegisterCDKey_Request* request,
                        ::CStore_RegisterCDKey_Response* response,
                        ::google::protobuf::Closure* done);
+  virtual void GetRecommendedTagsForUser(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CStore_GetRecommendedTagsForUser_Request* request,
+                       ::CStore_GetRecommendedTagsForUser_Response* response,
+                       ::google::protobuf::Closure* done);
   virtual void GetMostPopularTags(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStore_GetMostPopularTags_Request* request,
                        ::CStore_GetMostPopularTags_Response* response,
@@ -10863,6 +11475,10 @@ class Store_Stub : public Store {
   void RegisterCDKey(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStore_RegisterCDKey_Request* request,
                        ::CStore_RegisterCDKey_Response* response,
+                       ::google::protobuf::Closure* done);
+  void GetRecommendedTagsForUser(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CStore_GetRecommendedTagsForUser_Request* request,
+                       ::CStore_GetRecommendedTagsForUser_Response* response,
                        ::google::protobuf::Closure* done);
   void GetMostPopularTags(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStore_GetMostPopularTags_Request* request,
@@ -12144,6 +12760,360 @@ inline void CStore_RegisterCDKey_Response::set_allocated_purchase_receipt_info(:
   }
   purchase_receipt_info_ = purchase_receipt_info;
   // @@protoc_insertion_point(field_set_allocated:CStore_RegisterCDKey_Response.purchase_receipt_info)
+}
+
+// -------------------------------------------------------------------
+
+// CStore_GetRecommendedTagsForUser_Request
+
+// optional string language = 2;
+inline bool CStore_GetRecommendedTagsForUser_Request::_internal_has_language() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CStore_GetRecommendedTagsForUser_Request::has_language() const {
+  return _internal_has_language();
+}
+inline void CStore_GetRecommendedTagsForUser_Request::clear_language() {
+  language_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CStore_GetRecommendedTagsForUser_Request::language() const {
+  // @@protoc_insertion_point(field_get:CStore_GetRecommendedTagsForUser_Request.language)
+  return _internal_language();
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_language(const std::string& value) {
+  _internal_set_language(value);
+  // @@protoc_insertion_point(field_set:CStore_GetRecommendedTagsForUser_Request.language)
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Request::mutable_language() {
+  // @@protoc_insertion_point(field_mutable:CStore_GetRecommendedTagsForUser_Request.language)
+  return _internal_mutable_language();
+}
+inline const std::string& CStore_GetRecommendedTagsForUser_Request::_internal_language() const {
+  return language_.Get();
+}
+inline void CStore_GetRecommendedTagsForUser_Request::_internal_set_language(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  language_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_language(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  language_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStore_GetRecommendedTagsForUser_Request.language)
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_language(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  language_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStore_GetRecommendedTagsForUser_Request.language)
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_language(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  language_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStore_GetRecommendedTagsForUser_Request.language)
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Request::_internal_mutable_language() {
+  _has_bits_[0] |= 0x00000001u;
+  return language_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Request::release_language() {
+  // @@protoc_insertion_point(field_release:CStore_GetRecommendedTagsForUser_Request.language)
+  if (!_internal_has_language()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return language_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_allocated_language(std::string* language) {
+  if (language != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  language_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), language,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStore_GetRecommendedTagsForUser_Request.language)
+}
+
+// optional string country_code = 3;
+inline bool CStore_GetRecommendedTagsForUser_Request::_internal_has_country_code() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CStore_GetRecommendedTagsForUser_Request::has_country_code() const {
+  return _internal_has_country_code();
+}
+inline void CStore_GetRecommendedTagsForUser_Request::clear_country_code() {
+  country_code_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CStore_GetRecommendedTagsForUser_Request::country_code() const {
+  // @@protoc_insertion_point(field_get:CStore_GetRecommendedTagsForUser_Request.country_code)
+  return _internal_country_code();
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_country_code(const std::string& value) {
+  _internal_set_country_code(value);
+  // @@protoc_insertion_point(field_set:CStore_GetRecommendedTagsForUser_Request.country_code)
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Request::mutable_country_code() {
+  // @@protoc_insertion_point(field_mutable:CStore_GetRecommendedTagsForUser_Request.country_code)
+  return _internal_mutable_country_code();
+}
+inline const std::string& CStore_GetRecommendedTagsForUser_Request::_internal_country_code() const {
+  return country_code_.Get();
+}
+inline void CStore_GetRecommendedTagsForUser_Request::_internal_set_country_code(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_country_code(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  country_code_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStore_GetRecommendedTagsForUser_Request.country_code)
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_country_code(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStore_GetRecommendedTagsForUser_Request.country_code)
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_country_code(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStore_GetRecommendedTagsForUser_Request.country_code)
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Request::_internal_mutable_country_code() {
+  _has_bits_[0] |= 0x00000002u;
+  return country_code_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Request::release_country_code() {
+  // @@protoc_insertion_point(field_release:CStore_GetRecommendedTagsForUser_Request.country_code)
+  if (!_internal_has_country_code()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return country_code_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_allocated_country_code(std::string* country_code) {
+  if (country_code != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  country_code_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), country_code,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStore_GetRecommendedTagsForUser_Request.country_code)
+}
+
+// optional bool favor_rarer_tags = 4;
+inline bool CStore_GetRecommendedTagsForUser_Request::_internal_has_favor_rarer_tags() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CStore_GetRecommendedTagsForUser_Request::has_favor_rarer_tags() const {
+  return _internal_has_favor_rarer_tags();
+}
+inline void CStore_GetRecommendedTagsForUser_Request::clear_favor_rarer_tags() {
+  favor_rarer_tags_ = false;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline bool CStore_GetRecommendedTagsForUser_Request::_internal_favor_rarer_tags() const {
+  return favor_rarer_tags_;
+}
+inline bool CStore_GetRecommendedTagsForUser_Request::favor_rarer_tags() const {
+  // @@protoc_insertion_point(field_get:CStore_GetRecommendedTagsForUser_Request.favor_rarer_tags)
+  return _internal_favor_rarer_tags();
+}
+inline void CStore_GetRecommendedTagsForUser_Request::_internal_set_favor_rarer_tags(bool value) {
+  _has_bits_[0] |= 0x00000004u;
+  favor_rarer_tags_ = value;
+}
+inline void CStore_GetRecommendedTagsForUser_Request::set_favor_rarer_tags(bool value) {
+  _internal_set_favor_rarer_tags(value);
+  // @@protoc_insertion_point(field_set:CStore_GetRecommendedTagsForUser_Request.favor_rarer_tags)
+}
+
+// -------------------------------------------------------------------
+
+// CStore_GetRecommendedTagsForUser_Response_Tag
+
+// optional uint32 tagid = 1;
+inline bool CStore_GetRecommendedTagsForUser_Response_Tag::_internal_has_tagid() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CStore_GetRecommendedTagsForUser_Response_Tag::has_tagid() const {
+  return _internal_has_tagid();
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::clear_tagid() {
+  tagid_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CStore_GetRecommendedTagsForUser_Response_Tag::_internal_tagid() const {
+  return tagid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CStore_GetRecommendedTagsForUser_Response_Tag::tagid() const {
+  // @@protoc_insertion_point(field_get:CStore_GetRecommendedTagsForUser_Response.Tag.tagid)
+  return _internal_tagid();
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::_internal_set_tagid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  tagid_ = value;
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::set_tagid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_tagid(value);
+  // @@protoc_insertion_point(field_set:CStore_GetRecommendedTagsForUser_Response.Tag.tagid)
+}
+
+// optional string name = 2;
+inline bool CStore_GetRecommendedTagsForUser_Response_Tag::_internal_has_name() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CStore_GetRecommendedTagsForUser_Response_Tag::has_name() const {
+  return _internal_has_name();
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::clear_name() {
+  name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CStore_GetRecommendedTagsForUser_Response_Tag::name() const {
+  // @@protoc_insertion_point(field_get:CStore_GetRecommendedTagsForUser_Response.Tag.name)
+  return _internal_name();
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:CStore_GetRecommendedTagsForUser_Response.Tag.name)
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Response_Tag::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:CStore_GetRecommendedTagsForUser_Response.Tag.name)
+  return _internal_mutable_name();
+}
+inline const std::string& CStore_GetRecommendedTagsForUser_Response_Tag::_internal_name() const {
+  return name_.Get();
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::_internal_set_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::set_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStore_GetRecommendedTagsForUser_Response.Tag.name)
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStore_GetRecommendedTagsForUser_Response.Tag.name)
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::set_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStore_GetRecommendedTagsForUser_Response.Tag.name)
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Response_Tag::_internal_mutable_name() {
+  _has_bits_[0] |= 0x00000001u;
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStore_GetRecommendedTagsForUser_Response_Tag::release_name() {
+  // @@protoc_insertion_point(field_release:CStore_GetRecommendedTagsForUser_Response.Tag.name)
+  if (!_internal_has_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStore_GetRecommendedTagsForUser_Response.Tag.name)
+}
+
+// optional float weight = 3;
+inline bool CStore_GetRecommendedTagsForUser_Response_Tag::_internal_has_weight() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CStore_GetRecommendedTagsForUser_Response_Tag::has_weight() const {
+  return _internal_has_weight();
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::clear_weight() {
+  weight_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline float CStore_GetRecommendedTagsForUser_Response_Tag::_internal_weight() const {
+  return weight_;
+}
+inline float CStore_GetRecommendedTagsForUser_Response_Tag::weight() const {
+  // @@protoc_insertion_point(field_get:CStore_GetRecommendedTagsForUser_Response.Tag.weight)
+  return _internal_weight();
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::_internal_set_weight(float value) {
+  _has_bits_[0] |= 0x00000004u;
+  weight_ = value;
+}
+inline void CStore_GetRecommendedTagsForUser_Response_Tag::set_weight(float value) {
+  _internal_set_weight(value);
+  // @@protoc_insertion_point(field_set:CStore_GetRecommendedTagsForUser_Response.Tag.weight)
+}
+
+// -------------------------------------------------------------------
+
+// CStore_GetRecommendedTagsForUser_Response
+
+// repeated .CStore_GetRecommendedTagsForUser_Response.Tag tags = 1;
+inline int CStore_GetRecommendedTagsForUser_Response::_internal_tags_size() const {
+  return tags_.size();
+}
+inline int CStore_GetRecommendedTagsForUser_Response::tags_size() const {
+  return _internal_tags_size();
+}
+inline void CStore_GetRecommendedTagsForUser_Response::clear_tags() {
+  tags_.Clear();
+}
+inline ::CStore_GetRecommendedTagsForUser_Response_Tag* CStore_GetRecommendedTagsForUser_Response::mutable_tags(int index) {
+  // @@protoc_insertion_point(field_mutable:CStore_GetRecommendedTagsForUser_Response.tags)
+  return tags_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStore_GetRecommendedTagsForUser_Response_Tag >*
+CStore_GetRecommendedTagsForUser_Response::mutable_tags() {
+  // @@protoc_insertion_point(field_mutable_list:CStore_GetRecommendedTagsForUser_Response.tags)
+  return &tags_;
+}
+inline const ::CStore_GetRecommendedTagsForUser_Response_Tag& CStore_GetRecommendedTagsForUser_Response::_internal_tags(int index) const {
+  return tags_.Get(index);
+}
+inline const ::CStore_GetRecommendedTagsForUser_Response_Tag& CStore_GetRecommendedTagsForUser_Response::tags(int index) const {
+  // @@protoc_insertion_point(field_get:CStore_GetRecommendedTagsForUser_Response.tags)
+  return _internal_tags(index);
+}
+inline ::CStore_GetRecommendedTagsForUser_Response_Tag* CStore_GetRecommendedTagsForUser_Response::_internal_add_tags() {
+  return tags_.Add();
+}
+inline ::CStore_GetRecommendedTagsForUser_Response_Tag* CStore_GetRecommendedTagsForUser_Response::add_tags() {
+  // @@protoc_insertion_point(field_add:CStore_GetRecommendedTagsForUser_Response.tags)
+  return _internal_add_tags();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStore_GetRecommendedTagsForUser_Response_Tag >&
+CStore_GetRecommendedTagsForUser_Response::tags() const {
+  // @@protoc_insertion_point(field_list:CStore_GetRecommendedTagsForUser_Response.tags)
+  return tags_;
 }
 
 // -------------------------------------------------------------------
@@ -13572,7 +14542,7 @@ CStoreDiscoveryQueueSettings::mutable_featured_tagids() {
 
 // optional .EStoreDiscoveryQueueType queue_type = 1 [default = EStoreDiscoveryQueueTypeNew];
 inline bool CStore_GetDiscoveryQueue_Request::_internal_has_queue_type() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CStore_GetDiscoveryQueue_Request::has_queue_type() const {
@@ -13580,7 +14550,7 @@ inline bool CStore_GetDiscoveryQueue_Request::has_queue_type() const {
 }
 inline void CStore_GetDiscoveryQueue_Request::clear_queue_type() {
   queue_type_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::EStoreDiscoveryQueueType CStore_GetDiscoveryQueue_Request::_internal_queue_type() const {
   return static_cast< ::EStoreDiscoveryQueueType >(queue_type_);
@@ -13591,7 +14561,7 @@ inline ::EStoreDiscoveryQueueType CStore_GetDiscoveryQueue_Request::queue_type()
 }
 inline void CStore_GetDiscoveryQueue_Request::_internal_set_queue_type(::EStoreDiscoveryQueueType value) {
   assert(::EStoreDiscoveryQueueType_IsValid(value));
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000020u;
   queue_type_ = value;
 }
 inline void CStore_GetDiscoveryQueue_Request::set_queue_type(::EStoreDiscoveryQueueType value) {
@@ -13674,7 +14644,7 @@ inline void CStore_GetDiscoveryQueue_Request::set_allocated_country_code(std::st
 
 // optional bool rebuild_queue = 3;
 inline bool CStore_GetDiscoveryQueue_Request::_internal_has_rebuild_queue() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CStore_GetDiscoveryQueue_Request::has_rebuild_queue() const {
@@ -13682,7 +14652,7 @@ inline bool CStore_GetDiscoveryQueue_Request::has_rebuild_queue() const {
 }
 inline void CStore_GetDiscoveryQueue_Request::clear_rebuild_queue() {
   rebuild_queue_ = false;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline bool CStore_GetDiscoveryQueue_Request::_internal_rebuild_queue() const {
   return rebuild_queue_;
@@ -13692,7 +14662,7 @@ inline bool CStore_GetDiscoveryQueue_Request::rebuild_queue() const {
   return _internal_rebuild_queue();
 }
 inline void CStore_GetDiscoveryQueue_Request::_internal_set_rebuild_queue(bool value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
   rebuild_queue_ = value;
 }
 inline void CStore_GetDiscoveryQueue_Request::set_rebuild_queue(bool value) {
@@ -13702,7 +14672,7 @@ inline void CStore_GetDiscoveryQueue_Request::set_rebuild_queue(bool value) {
 
 // optional bool settings_changed = 4;
 inline bool CStore_GetDiscoveryQueue_Request::_internal_has_settings_changed() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CStore_GetDiscoveryQueue_Request::has_settings_changed() const {
@@ -13710,7 +14680,7 @@ inline bool CStore_GetDiscoveryQueue_Request::has_settings_changed() const {
 }
 inline void CStore_GetDiscoveryQueue_Request::clear_settings_changed() {
   settings_changed_ = false;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline bool CStore_GetDiscoveryQueue_Request::_internal_settings_changed() const {
   return settings_changed_;
@@ -13720,7 +14690,7 @@ inline bool CStore_GetDiscoveryQueue_Request::settings_changed() const {
   return _internal_settings_changed();
 }
 inline void CStore_GetDiscoveryQueue_Request::_internal_set_settings_changed(bool value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000080u;
   settings_changed_ = value;
 }
 inline void CStore_GetDiscoveryQueue_Request::set_settings_changed(bool value) {
@@ -13813,7 +14783,7 @@ inline void CStore_GetDiscoveryQueue_Request::set_allocated_settings(::CStoreDis
 
 // optional bool rebuild_queue_if_stale = 6;
 inline bool CStore_GetDiscoveryQueue_Request::_internal_has_rebuild_queue_if_stale() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CStore_GetDiscoveryQueue_Request::has_rebuild_queue_if_stale() const {
@@ -13821,7 +14791,7 @@ inline bool CStore_GetDiscoveryQueue_Request::has_rebuild_queue_if_stale() const
 }
 inline void CStore_GetDiscoveryQueue_Request::clear_rebuild_queue_if_stale() {
   rebuild_queue_if_stale_ = false;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline bool CStore_GetDiscoveryQueue_Request::_internal_rebuild_queue_if_stale() const {
   return rebuild_queue_if_stale_;
@@ -13831,7 +14801,7 @@ inline bool CStore_GetDiscoveryQueue_Request::rebuild_queue_if_stale() const {
   return _internal_rebuild_queue_if_stale();
 }
 inline void CStore_GetDiscoveryQueue_Request::_internal_set_rebuild_queue_if_stale(bool value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000100u;
   rebuild_queue_if_stale_ = value;
 }
 inline void CStore_GetDiscoveryQueue_Request::set_rebuild_queue_if_stale(bool value) {
@@ -13841,7 +14811,7 @@ inline void CStore_GetDiscoveryQueue_Request::set_rebuild_queue_if_stale(bool va
 
 // optional bool ignore_user_preferences = 8;
 inline bool CStore_GetDiscoveryQueue_Request::_internal_has_ignore_user_preferences() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CStore_GetDiscoveryQueue_Request::has_ignore_user_preferences() const {
@@ -13849,7 +14819,7 @@ inline bool CStore_GetDiscoveryQueue_Request::has_ignore_user_preferences() cons
 }
 inline void CStore_GetDiscoveryQueue_Request::clear_ignore_user_preferences() {
   ignore_user_preferences_ = false;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline bool CStore_GetDiscoveryQueue_Request::_internal_ignore_user_preferences() const {
   return ignore_user_preferences_;
@@ -13859,7 +14829,7 @@ inline bool CStore_GetDiscoveryQueue_Request::ignore_user_preferences() const {
   return _internal_ignore_user_preferences();
 }
 inline void CStore_GetDiscoveryQueue_Request::_internal_set_ignore_user_preferences(bool value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000200u;
   ignore_user_preferences_ = value;
 }
 inline void CStore_GetDiscoveryQueue_Request::set_ignore_user_preferences(bool value) {
@@ -13869,7 +14839,7 @@ inline void CStore_GetDiscoveryQueue_Request::set_ignore_user_preferences(bool v
 
 // optional bool no_experimental_results = 9;
 inline bool CStore_GetDiscoveryQueue_Request::_internal_has_no_experimental_results() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CStore_GetDiscoveryQueue_Request::has_no_experimental_results() const {
@@ -13877,7 +14847,7 @@ inline bool CStore_GetDiscoveryQueue_Request::has_no_experimental_results() cons
 }
 inline void CStore_GetDiscoveryQueue_Request::clear_no_experimental_results() {
   no_experimental_results_ = false;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline bool CStore_GetDiscoveryQueue_Request::_internal_no_experimental_results() const {
   return no_experimental_results_;
@@ -13887,7 +14857,7 @@ inline bool CStore_GetDiscoveryQueue_Request::no_experimental_results() const {
   return _internal_no_experimental_results();
 }
 inline void CStore_GetDiscoveryQueue_Request::_internal_set_no_experimental_results(bool value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000800u;
   no_experimental_results_ = value;
 }
 inline void CStore_GetDiscoveryQueue_Request::set_no_experimental_results(bool value) {
@@ -13897,7 +14867,7 @@ inline void CStore_GetDiscoveryQueue_Request::set_no_experimental_results(bool v
 
 // optional uint32 experimental_cohort = 10;
 inline bool CStore_GetDiscoveryQueue_Request::_internal_has_experimental_cohort() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CStore_GetDiscoveryQueue_Request::has_experimental_cohort() const {
@@ -13905,7 +14875,7 @@ inline bool CStore_GetDiscoveryQueue_Request::has_experimental_cohort() const {
 }
 inline void CStore_GetDiscoveryQueue_Request::clear_experimental_cohort() {
   experimental_cohort_ = 0u;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CStore_GetDiscoveryQueue_Request::_internal_experimental_cohort() const {
   return experimental_cohort_;
@@ -13915,7 +14885,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CStore_GetDiscoveryQueue_Request::experim
   return _internal_experimental_cohort();
 }
 inline void CStore_GetDiscoveryQueue_Request::_internal_set_experimental_cohort(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000400u;
   experimental_cohort_ = value;
 }
 inline void CStore_GetDiscoveryQueue_Request::set_experimental_cohort(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -13925,7 +14895,7 @@ inline void CStore_GetDiscoveryQueue_Request::set_experimental_cohort(::PROTOBUF
 
 // optional bool debug_get_solr_query = 11;
 inline bool CStore_GetDiscoveryQueue_Request::_internal_has_debug_get_solr_query() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CStore_GetDiscoveryQueue_Request::has_debug_get_solr_query() const {
@@ -13933,7 +14903,7 @@ inline bool CStore_GetDiscoveryQueue_Request::has_debug_get_solr_query() const {
 }
 inline void CStore_GetDiscoveryQueue_Request::clear_debug_get_solr_query() {
   debug_get_solr_query_ = false;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline bool CStore_GetDiscoveryQueue_Request::_internal_debug_get_solr_query() const {
   return debug_get_solr_query_;
@@ -13943,7 +14913,7 @@ inline bool CStore_GetDiscoveryQueue_Request::debug_get_solr_query() const {
   return _internal_debug_get_solr_query();
 }
 inline void CStore_GetDiscoveryQueue_Request::_internal_set_debug_get_solr_query(bool value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00001000u;
   debug_get_solr_query_ = value;
 }
 inline void CStore_GetDiscoveryQueue_Request::set_debug_get_solr_query(bool value) {
@@ -14028,6 +14998,164 @@ inline void CStore_GetDiscoveryQueue_Request::set_allocated_store_page_filter(::
   }
   store_page_filter_ = store_page_filter;
   // @@protoc_insertion_point(field_set_allocated:CStore_GetDiscoveryQueue_Request.store_page_filter)
+}
+
+// optional .StoreBrowseContext context = 13;
+inline bool CStore_GetDiscoveryQueue_Request::_internal_has_context() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  PROTOBUF_ASSUME(!value || context_ != nullptr);
+  return value;
+}
+inline bool CStore_GetDiscoveryQueue_Request::has_context() const {
+  return _internal_has_context();
+}
+inline const ::StoreBrowseContext& CStore_GetDiscoveryQueue_Request::_internal_context() const {
+  const ::StoreBrowseContext* p = context_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StoreBrowseContext&>(
+      ::_StoreBrowseContext_default_instance_);
+}
+inline const ::StoreBrowseContext& CStore_GetDiscoveryQueue_Request::context() const {
+  // @@protoc_insertion_point(field_get:CStore_GetDiscoveryQueue_Request.context)
+  return _internal_context();
+}
+inline void CStore_GetDiscoveryQueue_Request::unsafe_arena_set_allocated_context(
+    ::StoreBrowseContext* context) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(context_);
+  }
+  context_ = context;
+  if (context) {
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CStore_GetDiscoveryQueue_Request.context)
+}
+inline ::StoreBrowseContext* CStore_GetDiscoveryQueue_Request::release_context() {
+  _has_bits_[0] &= ~0x00000008u;
+  ::StoreBrowseContext* temp = context_;
+  context_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::StoreBrowseContext* CStore_GetDiscoveryQueue_Request::unsafe_arena_release_context() {
+  // @@protoc_insertion_point(field_release:CStore_GetDiscoveryQueue_Request.context)
+  _has_bits_[0] &= ~0x00000008u;
+  ::StoreBrowseContext* temp = context_;
+  context_ = nullptr;
+  return temp;
+}
+inline ::StoreBrowseContext* CStore_GetDiscoveryQueue_Request::_internal_mutable_context() {
+  _has_bits_[0] |= 0x00000008u;
+  if (context_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StoreBrowseContext>(GetArena());
+    context_ = p;
+  }
+  return context_;
+}
+inline ::StoreBrowseContext* CStore_GetDiscoveryQueue_Request::mutable_context() {
+  // @@protoc_insertion_point(field_mutable:CStore_GetDiscoveryQueue_Request.context)
+  return _internal_mutable_context();
+}
+inline void CStore_GetDiscoveryQueue_Request::set_allocated_context(::StoreBrowseContext* context) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(context_);
+  }
+  if (context) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(context)->GetArena();
+    if (message_arena != submessage_arena) {
+      context = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, context, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  context_ = context;
+  // @@protoc_insertion_point(field_set_allocated:CStore_GetDiscoveryQueue_Request.context)
+}
+
+// optional .StoreBrowseItemDataRequest data_request = 14;
+inline bool CStore_GetDiscoveryQueue_Request::_internal_has_data_request() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  PROTOBUF_ASSUME(!value || data_request_ != nullptr);
+  return value;
+}
+inline bool CStore_GetDiscoveryQueue_Request::has_data_request() const {
+  return _internal_has_data_request();
+}
+inline const ::StoreBrowseItemDataRequest& CStore_GetDiscoveryQueue_Request::_internal_data_request() const {
+  const ::StoreBrowseItemDataRequest* p = data_request_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StoreBrowseItemDataRequest&>(
+      ::_StoreBrowseItemDataRequest_default_instance_);
+}
+inline const ::StoreBrowseItemDataRequest& CStore_GetDiscoveryQueue_Request::data_request() const {
+  // @@protoc_insertion_point(field_get:CStore_GetDiscoveryQueue_Request.data_request)
+  return _internal_data_request();
+}
+inline void CStore_GetDiscoveryQueue_Request::unsafe_arena_set_allocated_data_request(
+    ::StoreBrowseItemDataRequest* data_request) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(data_request_);
+  }
+  data_request_ = data_request;
+  if (data_request) {
+    _has_bits_[0] |= 0x00000010u;
+  } else {
+    _has_bits_[0] &= ~0x00000010u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CStore_GetDiscoveryQueue_Request.data_request)
+}
+inline ::StoreBrowseItemDataRequest* CStore_GetDiscoveryQueue_Request::release_data_request() {
+  _has_bits_[0] &= ~0x00000010u;
+  ::StoreBrowseItemDataRequest* temp = data_request_;
+  data_request_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::StoreBrowseItemDataRequest* CStore_GetDiscoveryQueue_Request::unsafe_arena_release_data_request() {
+  // @@protoc_insertion_point(field_release:CStore_GetDiscoveryQueue_Request.data_request)
+  _has_bits_[0] &= ~0x00000010u;
+  ::StoreBrowseItemDataRequest* temp = data_request_;
+  data_request_ = nullptr;
+  return temp;
+}
+inline ::StoreBrowseItemDataRequest* CStore_GetDiscoveryQueue_Request::_internal_mutable_data_request() {
+  _has_bits_[0] |= 0x00000010u;
+  if (data_request_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StoreBrowseItemDataRequest>(GetArena());
+    data_request_ = p;
+  }
+  return data_request_;
+}
+inline ::StoreBrowseItemDataRequest* CStore_GetDiscoveryQueue_Request::mutable_data_request() {
+  // @@protoc_insertion_point(field_mutable:CStore_GetDiscoveryQueue_Request.data_request)
+  return _internal_mutable_data_request();
+}
+inline void CStore_GetDiscoveryQueue_Request::set_allocated_data_request(::StoreBrowseItemDataRequest* data_request) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(data_request_);
+  }
+  if (data_request) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(data_request)->GetArena();
+    if (message_arena != submessage_arena) {
+      data_request = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, data_request, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000010u;
+  } else {
+    _has_bits_[0] &= ~0x00000010u;
+  }
+  data_request_ = data_request;
+  // @@protoc_insertion_point(field_set_allocated:CStore_GetDiscoveryQueue_Request.data_request)
 }
 
 // -------------------------------------------------------------------
@@ -14392,6 +15520,42 @@ inline void CStore_GetDiscoveryQueue_Response::set_allocated_debug_solr_query(st
   debug_solr_query_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), debug_solr_query,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:CStore_GetDiscoveryQueue_Response.debug_solr_query)
+}
+
+// repeated .StoreItem store_items = 8;
+inline int CStore_GetDiscoveryQueue_Response::_internal_store_items_size() const {
+  return store_items_.size();
+}
+inline int CStore_GetDiscoveryQueue_Response::store_items_size() const {
+  return _internal_store_items_size();
+}
+inline ::StoreItem* CStore_GetDiscoveryQueue_Response::mutable_store_items(int index) {
+  // @@protoc_insertion_point(field_mutable:CStore_GetDiscoveryQueue_Response.store_items)
+  return store_items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem >*
+CStore_GetDiscoveryQueue_Response::mutable_store_items() {
+  // @@protoc_insertion_point(field_mutable_list:CStore_GetDiscoveryQueue_Response.store_items)
+  return &store_items_;
+}
+inline const ::StoreItem& CStore_GetDiscoveryQueue_Response::_internal_store_items(int index) const {
+  return store_items_.Get(index);
+}
+inline const ::StoreItem& CStore_GetDiscoveryQueue_Response::store_items(int index) const {
+  // @@protoc_insertion_point(field_get:CStore_GetDiscoveryQueue_Response.store_items)
+  return _internal_store_items(index);
+}
+inline ::StoreItem* CStore_GetDiscoveryQueue_Response::_internal_add_store_items() {
+  return store_items_.Add();
+}
+inline ::StoreItem* CStore_GetDiscoveryQueue_Response::add_store_items() {
+  // @@protoc_insertion_point(field_add:CStore_GetDiscoveryQueue_Response.store_items)
+  return _internal_add_store_items();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem >&
+CStore_GetDiscoveryQueue_Response::store_items() const {
+  // @@protoc_insertion_point(field_list:CStore_GetDiscoveryQueue_Response.store_items)
+  return store_items_;
 }
 
 // -------------------------------------------------------------------
@@ -18325,6 +19489,12 @@ inline void CStore_StorePreferencesChanged_Notification::set_allocated_content_d
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

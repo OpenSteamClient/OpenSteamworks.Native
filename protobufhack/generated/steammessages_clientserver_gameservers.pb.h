@@ -579,6 +579,7 @@ class CMsgGSStatusReply PROTOBUF_FINAL :
 
   enum : int {
     kIsSecureFieldNumber = 1,
+    kIsValvedsFieldNumber = 2,
   };
   // optional bool is_secure = 1;
   bool has_is_secure() const;
@@ -593,6 +594,19 @@ class CMsgGSStatusReply PROTOBUF_FINAL :
   void _internal_set_is_secure(bool value);
   public:
 
+  // optional bool is_valveds = 2;
+  bool has_is_valveds() const;
+  private:
+  bool _internal_has_is_valveds() const;
+  public:
+  void clear_is_valveds();
+  bool is_valveds() const;
+  void set_is_valveds(bool value);
+  private:
+  bool _internal_is_valveds() const;
+  void _internal_set_is_valveds(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgGSStatusReply)
  private:
   class _Internal;
@@ -603,6 +617,7 @@ class CMsgGSStatusReply PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   bool is_secure_;
+  bool is_valveds_;
   friend struct ::TableStruct_steammessages_5fclientserver_5fgameservers_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4647,6 +4662,34 @@ inline void CMsgGSStatusReply::_internal_set_is_secure(bool value) {
 inline void CMsgGSStatusReply::set_is_secure(bool value) {
   _internal_set_is_secure(value);
   // @@protoc_insertion_point(field_set:CMsgGSStatusReply.is_secure)
+}
+
+// optional bool is_valveds = 2;
+inline bool CMsgGSStatusReply::_internal_has_is_valveds() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgGSStatusReply::has_is_valveds() const {
+  return _internal_has_is_valveds();
+}
+inline void CMsgGSStatusReply::clear_is_valveds() {
+  is_valveds_ = false;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline bool CMsgGSStatusReply::_internal_is_valveds() const {
+  return is_valveds_;
+}
+inline bool CMsgGSStatusReply::is_valveds() const {
+  // @@protoc_insertion_point(field_get:CMsgGSStatusReply.is_valveds)
+  return _internal_is_valveds();
+}
+inline void CMsgGSStatusReply::_internal_set_is_valveds(bool value) {
+  _has_bits_[0] |= 0x00000002u;
+  is_valveds_ = value;
+}
+inline void CMsgGSStatusReply::set_is_valveds(bool value) {
+  _internal_set_is_valveds(value);
+  // @@protoc_insertion_point(field_set:CMsgGSStatusReply.is_valveds)
 }
 
 // -------------------------------------------------------------------

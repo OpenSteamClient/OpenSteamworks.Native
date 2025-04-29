@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.25)
-project(opensteamclient LANGUAGES CXX) 
+cmake_minimum_required(VERSION 3.5)
+project(opensteamclient LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE MinSizeRel)
@@ -16,7 +16,7 @@ file(GLOB protobufhack_include_h CONFIGURE_DEPENDS "protobufhack/generated/*.h")
 # Let's just filter these out in the bootstrap phase.
 # unset(CMAKE_IMPORT_LIBRARY_SUFFIX)
 
-if (MSVC) 
+if (MSVC)
     # Don't worry, doesn't use debug configuration even though it says debug, it picks one automatically
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
@@ -32,11 +32,11 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
         if(ret EQUAL "1")
             # Segment doesn't exist
             add_custom_command(
-                TARGET steamservice 
+                TARGET steamservice
                 PRE_LINK
                 COMMAND objcopy --add-section .valvesig=${PROJECT_SOURCE_DIR}/dummysig --set-section-flags .valvesig=readonly ${CMAKE_BINARY_DIR}/CMakeFiles/steamservice.dir/fakeservice/main.cpp.o ${CMAKE_BINARY_DIR}/CMakeFiles/steamservice.dir/fakeservice/main.cpp.o)
         endif()
-        
+
         set_target_properties(steamservice PROPERTIES PREFIX "")
 
         add_library(bootstrappershim64 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
@@ -61,12 +61,12 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
         if(ret EQUAL "1")
             # Segment doesn't exist
             add_custom_command(
-                TARGET steamserviced 
+                TARGET steamserviced
                 PRE_LINK
                 COMMAND objcopy --add-section .valvesig=${PROJECT_SOURCE_DIR}/dummysig --set-section-flags .valvesig=readonly ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o)
         endif()
         # add_custom_command(
-        #     TARGET steamserviced 
+        #     TARGET steamserviced
         #     PRE_LINK
         #     COMMAND objcopy --add-section .valvesig=${PROJECT_SOURCE_DIR}/dummysig --set-section-flags .valvesig=readonly ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o ${CMAKE_BINARY_DIR}/CMakeFiles/steamserviced.dir/serviced/main.cpp.o)
 
@@ -97,7 +97,7 @@ if (BUILD_PLATFORM_TARGET STREQUAL "osx")
     if (BUILD_ARCH STREQUAL "x64" OR DEFINED IDE_BUILD)
         # MacOS steam has the luxury of having a 64-bit steamservice
         # add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
-        
+
         # include("cmake/protobuf_external.cmake")
         # add_library(protobufhack SHARED ${protobufhack_include_cc} ${protobufhack_sources})
         # set_target_properties(protobufhack PROPERTIES BUILD_TYPE Release)

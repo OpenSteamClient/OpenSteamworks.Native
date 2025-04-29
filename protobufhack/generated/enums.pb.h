@@ -673,43 +673,16 @@ inline bool EGPUPerformanceLevel_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EGPUPerformanceLevel>(
     EGPUPerformanceLevel_descriptor(), name, value);
 }
-enum EScalingFilter : int {
-  EScalingFilter_Invalid = 0,
-  EScalingFilter_FSR = 1,
-  EScalingFilter_Nearest = 2,
-  EScalingFilter_Integer = 3,
-  EScalingFilter_Linear = 4,
-  EScalingFilter_NIS = 5
-};
-bool EScalingFilter_IsValid(int value);
-constexpr EScalingFilter EScalingFilter_MIN = EScalingFilter_Invalid;
-constexpr EScalingFilter EScalingFilter_MAX = EScalingFilter_NIS;
-constexpr int EScalingFilter_ARRAYSIZE = EScalingFilter_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EScalingFilter_descriptor();
-template<typename T>
-inline const std::string& EScalingFilter_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, EScalingFilter>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function EScalingFilter_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    EScalingFilter_descriptor(), enum_t_value);
-}
-inline bool EScalingFilter_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EScalingFilter* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EScalingFilter>(
-    EScalingFilter_descriptor(), name, value);
-}
 enum ESplitScalingFilter : int {
   ESplitScalingFilter_Invalid = 0,
   ESplitScalingFilter_Linear = 1,
   ESplitScalingFilter_Nearest = 2,
-  ESplitScalingFilter_FSR = 3,
-  ESplitScalingFilter_NIS = 4
+  ESplitScalingFilter_Sharp = 3,
+  ESplitScalingFilter_NIS_Deprecated = 4
 };
 bool ESplitScalingFilter_IsValid(int value);
 constexpr ESplitScalingFilter ESplitScalingFilter_MIN = ESplitScalingFilter_Invalid;
-constexpr ESplitScalingFilter ESplitScalingFilter_MAX = ESplitScalingFilter_NIS;
+constexpr ESplitScalingFilter ESplitScalingFilter_MAX = ESplitScalingFilter_NIS_Deprecated;
 constexpr int ESplitScalingFilter_ARRAYSIZE = ESplitScalingFilter_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESplitScalingFilter_descriptor();
@@ -1626,11 +1599,12 @@ enum ECompromiseDetectionType : int {
   ECompromiseDetectionType_ApiCallRate = 2,
   ECompromiseDetectionType_Manual = 3,
   ECompromiseDetectionType_TicketAction = 4,
-  ECompromiseDetectionType_MaliciousRefund = 5
+  ECompromiseDetectionType_MaliciousRefund = 5,
+  ECompromiseDetectionType_Move2FA = 6
 };
 bool ECompromiseDetectionType_IsValid(int value);
 constexpr ECompromiseDetectionType ECompromiseDetectionType_MIN = ECompromiseDetectionType_None;
-constexpr ECompromiseDetectionType ECompromiseDetectionType_MAX = ECompromiseDetectionType_MaliciousRefund;
+constexpr ECompromiseDetectionType ECompromiseDetectionType_MAX = ECompromiseDetectionType_Move2FA;
 constexpr int ECompromiseDetectionType_ARRAYSIZE = ECompromiseDetectionType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECompromiseDetectionType_descriptor();
@@ -2045,11 +2019,6 @@ template <> struct is_proto_enum< ::EGPUPerformanceLevel> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EGPUPerformanceLevel>() {
   return ::EGPUPerformanceLevel_descriptor();
-}
-template <> struct is_proto_enum< ::EScalingFilter> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::EScalingFilter>() {
-  return ::EScalingFilter_descriptor();
 }
 template <> struct is_proto_enum< ::ESplitScalingFilter> : ::std::true_type {};
 template <>

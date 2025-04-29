@@ -64,8 +64,8 @@ add_dependencies(${PROTOBUF_PROTOC_TARGET} ${PROTOBUF_TARGET})
 include (ExternalProject)
 ExternalProject_Add(${PROTOBUF_TARGET}
     PREFIX ${PROTOBUF_TARGET}
-    GIT_REPOSITORY https://github.com/google/protobuf.git
-    GIT_TAG v3.15.3
+    GIT_REPOSITORY https://github.com/Rosentti/protobuf-v3.15.3
+    GIT_TAG master
     UPDATE_COMMAND ""
     CONFIGURE_COMMAND ${CMAKE_COMMAND} ${PROTOBUF_INSTALL_DIR}/src/${PROTOBUF_TARGET}/cmake/CMakeLists.txt
         -G${CMAKE_GENERATOR}

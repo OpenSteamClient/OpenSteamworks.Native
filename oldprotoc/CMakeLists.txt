@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.25)
-project(oldprotoc LANGUAGES CXX) 
+cmake_minimum_required(VERSION 3.5)
+project(oldprotoc LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE MinSizeRel)
 
-if (MSVC) 
+if (MSVC)
     # Don't worry, doesn't use debug configuration even though it says debug, it picks one automatically
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()

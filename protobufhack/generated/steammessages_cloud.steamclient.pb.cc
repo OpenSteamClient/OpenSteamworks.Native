@@ -41,30 +41,6 @@ struct CCloud_ClientLogUploadComplete_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloud_ClientLogUploadComplete_NotificationDefaultTypeInternal _CCloud_ClientLogUploadComplete_Notification_default_instance_;
-constexpr CCloud_GetUploadServerInfo_Request::CCloud_GetUploadServerInfo_Request(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : appid_(0u){}
-struct CCloud_GetUploadServerInfo_RequestDefaultTypeInternal {
-  constexpr CCloud_GetUploadServerInfo_RequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CCloud_GetUploadServerInfo_RequestDefaultTypeInternal() {}
-  union {
-    CCloud_GetUploadServerInfo_Request _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloud_GetUploadServerInfo_RequestDefaultTypeInternal _CCloud_GetUploadServerInfo_Request_default_instance_;
-constexpr CCloud_GetUploadServerInfo_Response::CCloud_GetUploadServerInfo_Response(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : server_url_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
-struct CCloud_GetUploadServerInfo_ResponseDefaultTypeInternal {
-  constexpr CCloud_GetUploadServerInfo_ResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CCloud_GetUploadServerInfo_ResponseDefaultTypeInternal() {}
-  union {
-    CCloud_GetUploadServerInfo_Response _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloud_GetUploadServerInfo_ResponseDefaultTypeInternal _CCloud_GetUploadServerInfo_Response_default_instance_;
 constexpr CCloud_BeginHTTPUpload_Request::CCloud_BeginHTTPUpload_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : platforms_to_sync_()
@@ -638,43 +614,6 @@ struct CCloud_ClientConflictResolution_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloud_ClientConflictResolution_NotificationDefaultTypeInternal _CCloud_ClientConflictResolution_Notification_default_instance_;
-constexpr CCloud_EnumerateUserApps_Request::CCloud_EnumerateUserApps_Request(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct CCloud_EnumerateUserApps_RequestDefaultTypeInternal {
-  constexpr CCloud_EnumerateUserApps_RequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CCloud_EnumerateUserApps_RequestDefaultTypeInternal() {}
-  union {
-    CCloud_EnumerateUserApps_Request _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloud_EnumerateUserApps_RequestDefaultTypeInternal _CCloud_EnumerateUserApps_Request_default_instance_;
-constexpr CCloud_EnumerateUserApps_Response_Apps::CCloud_EnumerateUserApps_Response_Apps(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : appid_(0u)
-  , totalcount_(0)
-  , totalsize_(PROTOBUF_LONGLONG(0)){}
-struct CCloud_EnumerateUserApps_Response_AppsDefaultTypeInternal {
-  constexpr CCloud_EnumerateUserApps_Response_AppsDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CCloud_EnumerateUserApps_Response_AppsDefaultTypeInternal() {}
-  union {
-    CCloud_EnumerateUserApps_Response_Apps _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloud_EnumerateUserApps_Response_AppsDefaultTypeInternal _CCloud_EnumerateUserApps_Response_Apps_default_instance_;
-constexpr CCloud_EnumerateUserApps_Response::CCloud_EnumerateUserApps_Response(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : apps_(){}
-struct CCloud_EnumerateUserApps_ResponseDefaultTypeInternal {
-  constexpr CCloud_EnumerateUserApps_ResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CCloud_EnumerateUserApps_ResponseDefaultTypeInternal() {}
-  union {
-    CCloud_EnumerateUserApps_Response _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloud_EnumerateUserApps_ResponseDefaultTypeInternal _CCloud_EnumerateUserApps_Response_default_instance_;
 constexpr CCloud_GetAppFileChangelist_Request::CCloud_GetAppFileChangelist_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : synced_change_number_(PROTOBUF_ULONGLONG(0))
@@ -871,7 +810,7 @@ struct CCloud_ClientLogUploadRequest_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CCloud_ClientLogUploadRequest_NotificationDefaultTypeInternal _CCloud_ClientLogUploadRequest_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fcloud_2esteamclient_2eproto[59];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fcloud_2esteamclient_2eproto[54];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_steammessages_5fcloud_2esteamclient_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fcloud_2esteamclient_2eproto[2];
 
@@ -892,20 +831,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fcloud_2esteamc
   PROTOBUF_FIELD_OFFSET(::CCloud_ClientLogUploadComplete_Notification, request_id_),
   0,
   1,
-  PROTOBUF_FIELD_OFFSET(::CCloud_GetUploadServerInfo_Request, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CCloud_GetUploadServerInfo_Request, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CCloud_GetUploadServerInfo_Request, appid_),
-  0,
-  PROTOBUF_FIELD_OFFSET(::CCloud_GetUploadServerInfo_Response, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CCloud_GetUploadServerInfo_Response, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CCloud_GetUploadServerInfo_Response, server_url_),
-  0,
   PROTOBUF_FIELD_OFFSET(::CCloud_BeginHTTPUpload_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCloud_BeginHTTPUpload_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1404,28 +1329,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fcloud_2esteamc
   PROTOBUF_FIELD_OFFSET(::CCloud_ClientConflictResolution_Notification, chose_local_files_),
   0,
   1,
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::CCloud_EnumerateUserApps_Request, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CCloud_EnumerateUserApps_Response_Apps, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CCloud_EnumerateUserApps_Response_Apps, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CCloud_EnumerateUserApps_Response_Apps, appid_),
-  PROTOBUF_FIELD_OFFSET(::CCloud_EnumerateUserApps_Response_Apps, totalcount_),
-  PROTOBUF_FIELD_OFFSET(::CCloud_EnumerateUserApps_Response_Apps, totalsize_),
-  0,
-  1,
-  2,
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::CCloud_EnumerateUserApps_Response, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CCloud_EnumerateUserApps_Response, apps_),
   PROTOBUF_FIELD_OFFSET(::CCloud_GetAppFileChangelist_Request, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCloud_GetAppFileChangelist_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1581,70 +1484,63 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fcloud_2esteamc
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 6, sizeof(::CCloud_ClientLogUploadChecNotification)},
   { 7, 14, sizeof(::CCloud_ClientLogUploadComplete_Notification)},
-  { 16, 22, sizeof(::CCloud_GetUploadServerInfo_Request)},
-  { 23, 29, sizeof(::CCloud_GetUploadServerInfo_Response)},
-  { 30, 44, sizeof(::CCloud_BeginHTTPUpload_Request)},
-  { 53, 60, sizeof(::CCloud_BeginHTTPUpload_Response_HTTPHeaders)},
-  { 62, 73, sizeof(::CCloud_BeginHTTPUpload_Response)},
-  { 79, 88, sizeof(::CCloud_CommitHTTPUpload_Request)},
-  { 92, 98, sizeof(::CCloud_CommitHTTPUpload_Response)},
-  { 99, 109, sizeof(::CCloud_BeginUGCUpload_Request)},
-  { 114, 121, sizeof(::CCloud_BeginUGCUpload_Response_HTTPHeaders)},
-  { 123, 135, sizeof(::CCloud_BeginUGCUpload_Response)},
-  { 142, 150, sizeof(::CCloud_CommitUGCUpload_Request)},
-  { 153, 159, sizeof(::CCloud_CommitUGCUpload_Response)},
-  { 160, 167, sizeof(::CCloud_GetFileDetails_Request)},
-  { 169, 184, sizeof(::CCloud_UserFile)},
-  { 194, 200, sizeof(::CCloud_GetFileDetails_Response)},
-  { 201, 210, sizeof(::CCloud_EnumerateUserFiles_Request)},
-  { 214, 221, sizeof(::CCloud_EnumerateUserFiles_Response)},
-  { 223, 231, sizeof(::CCloud_Delete_Request)},
-  { 234, -1, sizeof(::CCloud_Delete_Response)},
-  { 239, -1, sizeof(::CCloud_GetClientEncryptionKey_Request)},
-  { 244, 251, sizeof(::CCloud_GetClientEncryptionKey_Response)},
-  { 253, 265, sizeof(::CCloud_CDNReport_Notification)},
-  { 272, 293, sizeof(::CCloud_ExternalStorageTransferReport_Notification)},
-  { 309, 320, sizeof(::CCloud_BeginAppUploadBatch_Request)},
-  { 326, 333, sizeof(::CCloud_BeginAppUploadBatch_Response)},
-  { 335, 343, sizeof(::CCloud_CompleteAppUploadBatch_Notification)},
-  { 346, 354, sizeof(::CCloud_CompleteAppUploadBatch_Request)},
-  { 357, -1, sizeof(::CCloud_CompleteAppUploadBatch_Response)},
-  { 362, 379, sizeof(::CCloud_ClientBeginFileUpload_Request)},
-  { 391, 398, sizeof(::ClientCloudFileUploadBlockDetails_HTTPHeaders)},
-  { 400, 414, sizeof(::ClientCloudFileUploadBlockDetails)},
-  { 423, 430, sizeof(::CCloud_ClientBeginFileUpload_Response)},
-  { 432, 441, sizeof(::CCloud_ClientCommitFileUpload_Request)},
-  { 445, 451, sizeof(::CCloud_ClientCommitFileUpload_Response)},
-  { 452, 461, sizeof(::CCloud_ClientFileDownload_Request)},
-  { 465, 472, sizeof(::CCloud_ClientFileDownload_Response_HTTPHeaders)},
-  { 474, 490, sizeof(::CCloud_ClientFileDownload_Response)},
-  { 501, 510, sizeof(::CCloud_ClientDeleteFile_Request)},
-  { 514, -1, sizeof(::CCloud_ClientDeleteFile_Response)},
-  { 519, 526, sizeof(::CCloud_ClientConflictResolution_Notification)},
-  { 528, -1, sizeof(::CCloud_EnumerateUserApps_Request)},
-  { 533, 541, sizeof(::CCloud_EnumerateUserApps_Response_Apps)},
-  { 544, -1, sizeof(::CCloud_EnumerateUserApps_Response)},
-  { 550, 557, sizeof(::CCloud_GetAppFileChangelist_Request)},
-  { 559, 572, sizeof(::CCloud_AppFileInfo)},
-  { 580, 591, sizeof(::CCloud_GetAppFileChangelist_Response)},
-  { 597, 606, sizeof(::CCloud_AppSessionSuspend_Request)},
-  { 610, -1, sizeof(::CCloud_AppSessionSuspend_Response)},
-  { 615, 622, sizeof(::CCloud_AppSessionResume_Request)},
-  { 624, -1, sizeof(::CCloud_AppSessionResume_Response)},
-  { 629, 640, sizeof(::CCloud_AppLaunchIntent_Request)},
-  { 646, -1, sizeof(::CCloud_AppLaunchIntent_Response)},
-  { 652, 661, sizeof(::CCloud_AppExitSyncDone_Notification)},
-  { 665, 671, sizeof(::CCloud_ClientGetAppQuotaUsage_Request)},
-  { 672, 681, sizeof(::CCloud_ClientGetAppQuotaUsage_Response)},
-  { 685, 692, sizeof(::CCloud_AppCloudStateChange_Notification)},
-  { 694, 700, sizeof(::CCloud_ClientLogUploadRequest_Notification)},
+  { 16, 30, sizeof(::CCloud_BeginHTTPUpload_Request)},
+  { 39, 46, sizeof(::CCloud_BeginHTTPUpload_Response_HTTPHeaders)},
+  { 48, 59, sizeof(::CCloud_BeginHTTPUpload_Response)},
+  { 65, 74, sizeof(::CCloud_CommitHTTPUpload_Request)},
+  { 78, 84, sizeof(::CCloud_CommitHTTPUpload_Response)},
+  { 85, 95, sizeof(::CCloud_BeginUGCUpload_Request)},
+  { 100, 107, sizeof(::CCloud_BeginUGCUpload_Response_HTTPHeaders)},
+  { 109, 121, sizeof(::CCloud_BeginUGCUpload_Response)},
+  { 128, 136, sizeof(::CCloud_CommitUGCUpload_Request)},
+  { 139, 145, sizeof(::CCloud_CommitUGCUpload_Response)},
+  { 146, 153, sizeof(::CCloud_GetFileDetails_Request)},
+  { 155, 170, sizeof(::CCloud_UserFile)},
+  { 180, 186, sizeof(::CCloud_GetFileDetails_Response)},
+  { 187, 196, sizeof(::CCloud_EnumerateUserFiles_Request)},
+  { 200, 207, sizeof(::CCloud_EnumerateUserFiles_Response)},
+  { 209, 217, sizeof(::CCloud_Delete_Request)},
+  { 220, -1, sizeof(::CCloud_Delete_Response)},
+  { 225, -1, sizeof(::CCloud_GetClientEncryptionKey_Request)},
+  { 230, 237, sizeof(::CCloud_GetClientEncryptionKey_Response)},
+  { 239, 251, sizeof(::CCloud_CDNReport_Notification)},
+  { 258, 279, sizeof(::CCloud_ExternalStorageTransferReport_Notification)},
+  { 295, 306, sizeof(::CCloud_BeginAppUploadBatch_Request)},
+  { 312, 319, sizeof(::CCloud_BeginAppUploadBatch_Response)},
+  { 321, 329, sizeof(::CCloud_CompleteAppUploadBatch_Notification)},
+  { 332, 340, sizeof(::CCloud_CompleteAppUploadBatch_Request)},
+  { 343, -1, sizeof(::CCloud_CompleteAppUploadBatch_Response)},
+  { 348, 365, sizeof(::CCloud_ClientBeginFileUpload_Request)},
+  { 377, 384, sizeof(::ClientCloudFileUploadBlockDetails_HTTPHeaders)},
+  { 386, 400, sizeof(::ClientCloudFileUploadBlockDetails)},
+  { 409, 416, sizeof(::CCloud_ClientBeginFileUpload_Response)},
+  { 418, 427, sizeof(::CCloud_ClientCommitFileUpload_Request)},
+  { 431, 437, sizeof(::CCloud_ClientCommitFileUpload_Response)},
+  { 438, 447, sizeof(::CCloud_ClientFileDownload_Request)},
+  { 451, 458, sizeof(::CCloud_ClientFileDownload_Response_HTTPHeaders)},
+  { 460, 476, sizeof(::CCloud_ClientFileDownload_Response)},
+  { 487, 496, sizeof(::CCloud_ClientDeleteFile_Request)},
+  { 500, -1, sizeof(::CCloud_ClientDeleteFile_Response)},
+  { 505, 512, sizeof(::CCloud_ClientConflictResolution_Notification)},
+  { 514, 521, sizeof(::CCloud_GetAppFileChangelist_Request)},
+  { 523, 536, sizeof(::CCloud_AppFileInfo)},
+  { 544, 555, sizeof(::CCloud_GetAppFileChangelist_Response)},
+  { 561, 570, sizeof(::CCloud_AppSessionSuspend_Request)},
+  { 574, -1, sizeof(::CCloud_AppSessionSuspend_Response)},
+  { 579, 586, sizeof(::CCloud_AppSessionResume_Request)},
+  { 588, -1, sizeof(::CCloud_AppSessionResume_Response)},
+  { 593, 604, sizeof(::CCloud_AppLaunchIntent_Request)},
+  { 610, -1, sizeof(::CCloud_AppLaunchIntent_Response)},
+  { 616, 625, sizeof(::CCloud_AppExitSyncDone_Notification)},
+  { 629, 635, sizeof(::CCloud_ClientGetAppQuotaUsage_Request)},
+  { 636, 645, sizeof(::CCloud_ClientGetAppQuotaUsage_Response)},
+  { 649, 656, sizeof(::CCloud_AppCloudStateChange_Notification)},
+  { 658, 664, sizeof(::CCloud_ClientLogUploadRequest_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_ClientLogUploadChecNotification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_ClientLogUploadComplete_Notification_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_GetUploadServerInfo_Request_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_GetUploadServerInfo_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_BeginHTTPUpload_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_BeginHTTPUpload_Response_HTTPHeaders_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_BeginHTTPUpload_Response_default_instance_),
@@ -1683,9 +1579,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_ClientDeleteFile_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_ClientDeleteFile_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_ClientConflictResolution_Notification_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_EnumerateUserApps_Request_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_EnumerateUserApps_Response_Apps_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_EnumerateUserApps_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_GetAppFileChangelist_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_AppFileInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CCloud_GetAppFileChangelist_Response_default_instance_),
@@ -1711,241 +1604,228 @@ const char descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto
   "loud_ClientLogUploadChecNotification\022\021\n\t"
   "client_id\030\001 \001(\004\"T\n+CCloud_ClientLogUploa"
   "dComplete_Notification\022\021\n\tclient_id\030\001 \001("
-  "\004\022\022\n\nrequest_id\030\002 \001(\004\"3\n\"CCloud_GetUploa"
-  "dServerInfo_Request\022\r\n\005appid\030\001 \001(\r\"9\n#CC"
-  "loud_GetUploadServerInfo_Response\022\022\n\nser"
-  "ver_url\030\001 \001(\t\"\354\001\n\036CCloud_BeginHTTPUpload"
-  "_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tfile_size\030\002 \001"
-  "(\r\022\020\n\010filename\030\003 \001(\t\022\020\n\010file_sha\030\004 \001(\t\022\021"
-  "\n\tis_public\030\005 \001(\010\022\031\n\021platforms_to_sync\030\006"
-  " \003(\t\022\035\n\025request_headers_names\030\007 \003(\t\022\036\n\026r"
-  "equest_headers_values\030\010 \003(\t\022\027\n\017upload_ba"
-  "tch_id\030\t \001(\004\"\355\001\n\037CCloud_BeginHTTPUpload_"
-  "Response\022\r\n\005ugcid\030\001 \001(\006\022\021\n\ttimestamp\030\002 \001"
-  "(\007\022\020\n\010url_host\030\003 \001(\t\022\020\n\010url_path\030\004 \001(\t\022\021"
-  "\n\tuse_https\030\005 \001(\010\022E\n\017request_headers\030\006 \003"
-  "(\0132,.CCloud_BeginHTTPUpload_Response.HTT"
-  "PHeaders\032*\n\013HTTPHeaders\022\014\n\004name\030\001 \001(\t\022\r\n"
-  "\005value\030\002 \001(\t\"p\n\037CCloud_CommitHTTPUpload_"
-  "Request\022\032\n\022transfer_succeeded\030\001 \001(\010\022\r\n\005a"
-  "ppid\030\002 \001(\r\022\020\n\010file_sha\030\003 \001(\t\022\020\n\010filename"
-  "\030\004 \001(\t\":\n CCloud_CommitHTTPUpload_Respon"
-  "se\022\026\n\016file_committed\030\001 \001(\010\"{\n\035CCloud_Beg"
-  "inUGCUpload_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tfi"
-  "le_size\030\002 \001(\r\022\020\n\010filename\030\003 \001(\t\022\020\n\010file_"
-  "sha\030\004 \001(\t\022\024\n\014content_type\030\005 \001(\t\"\305\002\n\036CClo"
-  "ud_BeginUGCUpload_Response\022X\n\016storage_sy"
-  "stem\030\001 \001(\0162\034.EPublishedFileStorageSystem"
-  ":\"EPublishedFileStorageSystemInvalid\022\r\n\005"
-  "ugcid\030\002 \001(\006\022\021\n\ttimestamp\030\003 \001(\007\022\020\n\010url_ho"
-  "st\030\004 \001(\t\022\020\n\010url_path\030\005 \001(\t\022\021\n\tuse_https\030"
-  "\006 \001(\010\022D\n\017request_headers\030\007 \003(\0132+.CCloud_"
-  "BeginUGCUpload_Response.HTTPHeaders\032*\n\013H"
-  "TTPHeaders\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\""
-  "Z\n\036CCloud_CommitUGCUpload_Request\022\032\n\022tra"
-  "nsfer_succeeded\030\001 \001(\010\022\r\n\005appid\030\002 \001(\r\022\r\n\005"
-  "ugcid\030\003 \001(\006\"9\n\037CCloud_CommitUGCUpload_Re"
-  "sponse\022\026\n\016file_committed\030\001 \001(\010\"=\n\035CCloud"
-  "_GetFileDetails_Request\022\r\n\005ugcid\030\001 \001(\004\022\r"
-  "\n\005appid\030\002 \001(\r\"\311\001\n\017CCloud_UserFile\022\r\n\005app"
-  "id\030\001 \001(\r\022\r\n\005ugcid\030\002 \001(\004\022\020\n\010filename\030\003 \001("
-  "\t\022\021\n\ttimestamp\030\004 \001(\004\022\021\n\tfile_size\030\005 \001(\r\022"
-  "\013\n\003url\030\006 \001(\t\022\027\n\017steamid_creator\030\007 \001(\006\022\r\n"
-  "\005flags\030\010 \001(\r\022\031\n\021platforms_to_sync\030\t \003(\t\022"
-  "\020\n\010file_sha\030\n \001(\t\"C\n\036CCloud_GetFileDetai"
-  "ls_Response\022!\n\007details\030\001 \001(\0132\020.CCloud_Us"
-  "erFile\"p\n!CCloud_EnumerateUserFiles_Requ"
-  "est\022\r\n\005appid\030\001 \001(\r\022\030\n\020extended_details\030\002"
-  " \001(\010\022\r\n\005count\030\003 \001(\r\022\023\n\013start_index\030\004 \001(\r"
-  "\"Z\n\"CCloud_EnumerateUserFiles_Response\022\037"
-  "\n\005files\030\001 \003(\0132\020.CCloud_UserFile\022\023\n\013total"
-  "_files\030\002 \001(\r\"Q\n\025CCloud_Delete_Request\022\020\n"
-  "\010filename\030\001 \001(\t\022\r\n\005appid\030\002 \001(\r\022\027\n\017upload"
-  "_batch_id\030\003 \001(\004\"\030\n\026CCloud_Delete_Respons"
-  "e\"\'\n%CCloud_GetClientEncryptionKey_Reque"
-  "st\"B\n&CCloud_GetClientEncryptionKey_Resp"
-  "onse\022\013\n\003key\030\001 \001(\014\022\013\n\003crc\030\002 \001(\005\"\252\001\n\035CClou"
-  "d_CDNReport_Notification\022\017\n\007steamid\030\001 \001("
-  "\006\022\013\n\003url\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\022\030\n\020http_"
-  "status_code\030\004 \001(\r\022\026\n\016expected_bytes\030\005 \001("
-  "\004\022\026\n\016received_bytes\030\006 \001(\004\022\020\n\010duration\030\007 "
-  "\001(\r\"\220\003\n1CCloud_ExternalStorageTransferRe"
-  "port_Notification\022\014\n\004host\030\001 \001(\t\022\014\n\004path\030"
-  "\002 \001(\t\022\021\n\tis_upload\030\003 \001(\010\022\017\n\007success\030\004 \001("
-  "\010\022\030\n\020http_status_code\030\005 \001(\r\022\026\n\016bytes_exp"
-  "ected\030\006 \001(\004\022\024\n\014bytes_actual\030\007 \001(\004\022\023\n\013dur"
-  "ation_ms\030\010 \001(\r\022\016\n\006cellid\030\t \001(\r\022\017\n\007proxie"
-  "d\030\n \001(\010\022\022\n\nipv6_local\030\013 \001(\010\022\023\n\013ipv6_remo"
-  "te\030\014 \001(\010\022\032\n\022time_to_connect_ms\030\r \001(\r\022\033\n\023"
-  "time_to_send_req_ms\030\016 \001(\r\022\035\n\025time_to_fir"
-  "st_byte_ms\030\017 \001(\r\022\034\n\024time_to_last_byte_ms"
-  "\030\020 \001(\r\"\244\001\n\"CCloud_BeginAppUploadBatch_Re"
-  "quest\022\r\n\005appid\030\001 \001(\r\022\024\n\014machine_name\030\002 \001"
-  "(\t\022\027\n\017files_to_upload\030\003 \003(\t\022\027\n\017files_to_"
-  "delete\030\004 \003(\t\022\021\n\tclient_id\030\005 \001(\004\022\024\n\014app_b"
-  "uild_id\030\006 \001(\004\"R\n#CCloud_BeginAppUploadBa"
-  "tch_Response\022\020\n\010batch_id\030\001 \001(\004\022\031\n\021app_ch"
-  "ange_number\030\004 \001(\004\"d\n*CCloud_CompleteAppU"
-  "ploadBatch_Notification\022\r\n\005appid\030\001 \001(\r\022\020"
-  "\n\010batch_id\030\002 \001(\004\022\025\n\rbatch_eresult\030\003 \001(\r\""
-  "_\n%CCloud_CompleteAppUploadBatch_Request"
-  "\022\r\n\005appid\030\001 \001(\r\022\020\n\010batch_id\030\002 \001(\004\022\025\n\rbat"
-  "ch_eresult\030\003 \001(\r\"(\n&CCloud_CompleteAppUp"
-  "loadBatch_Response\"\257\002\n$CCloud_ClientBegi"
-  "nFileUpload_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tfi"
-  "le_size\030\002 \001(\r\022\025\n\rraw_file_size\030\003 \001(\r\022\020\n\010"
-  "file_sha\030\004 \001(\014\022\022\n\ntime_stamp\030\005 \001(\004\022\020\n\010fi"
-  "lename\030\006 \001(\t\022%\n\021platforms_to_sync\030\007 \001(\r:"
-  "\n4294967295\022\017\n\007cell_id\030\t \001(\r\022\023\n\013can_encr"
-  "ypt\030\n \001(\010\022\026\n\016is_shared_file\030\013 \001(\010\022\030\n\020dep"
-  "recated_realm\030\014 \001(\r\022\027\n\017upload_batch_id\030\r"
-  " \001(\004\"\301\002\n!ClientCloudFileUploadBlockDetai"
-  "ls\022\020\n\010url_host\030\001 \001(\t\022\020\n\010url_path\030\002 \001(\t\022\021"
-  "\n\tuse_https\030\003 \001(\010\022\023\n\013http_method\030\004 \001(\005\022G"
-  "\n\017request_headers\030\005 \003(\0132..ClientCloudFil"
-  "eUploadBlockDetails.HTTPHeaders\022\022\n\nbloco"
-  "ffset\030\006 \001(\004\022\022\n\nbloclength\030\007 \001(\r\022\032\n\022expli"
-  "cit_body_data\030\010 \001(\014\022\027\n\017may_parallelize\030\t"
-  " \001(\010\032*\n\013HTTPHeaders\022\014\n\004name\030\001 \001(\t\022\r\n\005val"
-  "ue\030\002 \001(\t\"w\n%CCloud_ClientBeginFileUpload"
-  "_Response\022\024\n\014encrypt_file\030\001 \001(\010\0228\n\014blocr"
-  "equests\030\002 \003(\0132\".ClientCloudFileUploadBlo"
-  "ckDetails\"v\n%CCloud_ClientCommitFileUplo"
-  "ad_Request\022\032\n\022transfer_succeeded\030\001 \001(\010\022\r"
-  "\n\005appid\030\002 \001(\r\022\020\n\010file_sha\030\003 \001(\014\022\020\n\010filen"
-  "ame\030\004 \001(\t\"@\n&CCloud_ClientCommitFileUplo"
-  "ad_Response\022\026\n\016file_committed\030\001 \001(\010\"h\n!C"
-  "Cloud_ClientFileDownload_Request\022\r\n\005appi"
-  "d\030\001 \001(\r\022\020\n\010filename\030\002 \001(\t\022\r\n\005realm\030\003 \001(\r"
-  "\022\023\n\013force_proxy\030\004 \001(\010\"\337\002\n\"CCloud_ClientF"
-  "ileDownload_Response\022\r\n\005appid\030\001 \001(\r\022\021\n\tf"
-  "ile_size\030\002 \001(\r\022\025\n\rraw_file_size\030\003 \001(\r\022\020\n"
-  "\010sha_file\030\004 \001(\014\022\022\n\ntime_stamp\030\005 \001(\004\022\032\n\022i"
-  "s_explicit_delete\030\006 \001(\010\022\020\n\010url_host\030\007 \001("
-  "\t\022\020\n\010url_path\030\010 \001(\t\022\021\n\tuse_https\030\t \001(\010\022H"
-  "\n\017request_headers\030\n \003(\0132/.CCloud_ClientF"
-  "ileDownload_Response.HTTPHeaders\022\021\n\tencr"
-  "ypted\030\013 \001(\010\032*\n\013HTTPHeaders\022\014\n\004name\030\001 \001(\t"
-  "\022\r\n\005value\030\002 \001(\t\"w\n\037CCloud_ClientDeleteFi"
-  "le_Request\022\r\n\005appid\030\001 \001(\r\022\020\n\010filename\030\002 "
-  "\001(\t\022\032\n\022is_explicit_delete\030\003 \001(\010\022\027\n\017uploa"
-  "d_batch_id\030\004 \001(\004\"\"\n CCloud_ClientDeleteF"
-  "ile_Response\"X\n,CCloud_ClientConflictRes"
-  "olution_Notification\022\r\n\005appid\030\001 \001(\r\022\031\n\021c"
-  "hose_local_files\030\002 \001(\010\"\"\n CCloud_Enumera"
-  "teUserApps_Request\"\230\001\n!CCloud_EnumerateU"
-  "serApps_Response\0225\n\004apps\030\001 \003(\0132\'.CCloud_"
-  "EnumerateUserApps_Response.Apps\032<\n\004Apps\022"
-  "\r\n\005appid\030\001 \001(\r\022\022\n\ntotalcount\030\002 \001(\005\022\021\n\tto"
-  "talsize\030\003 \001(\003\"R\n#CCloud_GetAppFileChange"
-  "list_Request\022\r\n\005appid\030\001 \001(\r\022\034\n\024synced_ch"
-  "ange_number\030\002 \001(\004\"\215\002\n\022CCloud_AppFileInfo"
-  "\022\021\n\tfile_name\030\001 \001(\t\022\020\n\010sha_file\030\002 \001(\014\022\022\n"
-  "\ntime_stamp\030\003 \001(\004\022\025\n\rraw_file_size\030\004 \001(\r"
-  "\022U\n\rpersist_state\030\005 \001(\0162\032.ECloudStorageP"
-  "ersistState:\"ECloudStoragePersistStatePe"
-  "rsisted\022\031\n\021platforms_to_sync\030\006 \001(\r\022\031\n\021pa"
-  "th_prefix_index\030\007 \001(\r\022\032\n\022machine_name_in"
-  "dex\030\010 \001(\r\"\307\001\n$CCloud_GetAppFileChangelis"
-  "t_Response\022\035\n\025current_change_number\030\001 \001("
-  "\004\022\"\n\005files\030\002 \003(\0132\023.CCloud_AppFileInfo\022\025\n"
-  "\ris_only_delta\030\003 \001(\010\022\025\n\rpath_prefixes\030\004 "
-  "\003(\t\022\025\n\rmachine_names\030\005 \003(\t\022\027\n\017app_buildi"
-  "d_hwm\030\006 \001(\004\"x\n CCloud_AppSessionSuspend_"
+  "\004\022\022\n\nrequest_id\030\002 \001(\004\"\354\001\n\036CCloud_BeginHT"
+  "TPUpload_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tfile_"
+  "size\030\002 \001(\r\022\020\n\010filename\030\003 \001(\t\022\020\n\010file_sha"
+  "\030\004 \001(\t\022\021\n\tis_public\030\005 \001(\010\022\031\n\021platforms_t"
+  "o_sync\030\006 \003(\t\022\035\n\025request_headers_names\030\007 "
+  "\003(\t\022\036\n\026request_headers_values\030\010 \003(\t\022\027\n\017u"
+  "pload_batch_id\030\t \001(\004\"\355\001\n\037CCloud_BeginHTT"
+  "PUpload_Response\022\r\n\005ugcid\030\001 \001(\006\022\021\n\ttimes"
+  "tamp\030\002 \001(\007\022\020\n\010url_host\030\003 \001(\t\022\020\n\010url_path"
+  "\030\004 \001(\t\022\021\n\tuse_https\030\005 \001(\010\022E\n\017request_hea"
+  "ders\030\006 \003(\0132,.CCloud_BeginHTTPUpload_Resp"
+  "onse.HTTPHeaders\032*\n\013HTTPHeaders\022\014\n\004name\030"
+  "\001 \001(\t\022\r\n\005value\030\002 \001(\t\"p\n\037CCloud_CommitHTT"
+  "PUpload_Request\022\032\n\022transfer_succeeded\030\001 "
+  "\001(\010\022\r\n\005appid\030\002 \001(\r\022\020\n\010file_sha\030\003 \001(\t\022\020\n\010"
+  "filename\030\004 \001(\t\":\n CCloud_CommitHTTPUploa"
+  "d_Response\022\026\n\016file_committed\030\001 \001(\010\"{\n\035CC"
+  "loud_BeginUGCUpload_Request\022\r\n\005appid\030\001 \001"
+  "(\r\022\021\n\tfile_size\030\002 \001(\r\022\020\n\010filename\030\003 \001(\t\022"
+  "\020\n\010file_sha\030\004 \001(\t\022\024\n\014content_type\030\005 \001(\t\""
+  "\305\002\n\036CCloud_BeginUGCUpload_Response\022X\n\016st"
+  "orage_system\030\001 \001(\0162\034.EPublishedFileStora"
+  "geSystem:\"EPublishedFileStorageSystemInv"
+  "alid\022\r\n\005ugcid\030\002 \001(\006\022\021\n\ttimestamp\030\003 \001(\007\022\020"
+  "\n\010url_host\030\004 \001(\t\022\020\n\010url_path\030\005 \001(\t\022\021\n\tus"
+  "e_https\030\006 \001(\010\022D\n\017request_headers\030\007 \003(\0132+"
+  ".CCloud_BeginUGCUpload_Response.HTTPHead"
+  "ers\032*\n\013HTTPHeaders\022\014\n\004name\030\001 \001(\t\022\r\n\005valu"
+  "e\030\002 \001(\t\"Z\n\036CCloud_CommitUGCUpload_Reques"
+  "t\022\032\n\022transfer_succeeded\030\001 \001(\010\022\r\n\005appid\030\002"
+  " \001(\r\022\r\n\005ugcid\030\003 \001(\006\"9\n\037CCloud_CommitUGCU"
+  "pload_Response\022\026\n\016file_committed\030\001 \001(\010\"="
+  "\n\035CCloud_GetFileDetails_Request\022\r\n\005ugcid"
+  "\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r\"\311\001\n\017CCloud_UserFil"
+  "e\022\r\n\005appid\030\001 \001(\r\022\r\n\005ugcid\030\002 \001(\004\022\020\n\010filen"
+  "ame\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\004\022\021\n\tfile_siz"
+  "e\030\005 \001(\r\022\013\n\003url\030\006 \001(\t\022\027\n\017steamid_creator\030"
+  "\007 \001(\006\022\r\n\005flags\030\010 \001(\r\022\031\n\021platforms_to_syn"
+  "c\030\t \003(\t\022\020\n\010file_sha\030\n \001(\t\"C\n\036CCloud_GetF"
+  "ileDetails_Response\022!\n\007details\030\001 \001(\0132\020.C"
+  "Cloud_UserFile\"p\n!CCloud_EnumerateUserFi"
+  "les_Request\022\r\n\005appid\030\001 \001(\r\022\030\n\020extended_d"
+  "etails\030\002 \001(\010\022\r\n\005count\030\003 \001(\r\022\023\n\013start_ind"
+  "ex\030\004 \001(\r\"Z\n\"CCloud_EnumerateUserFiles_Re"
+  "sponse\022\037\n\005files\030\001 \003(\0132\020.CCloud_UserFile\022"
+  "\023\n\013total_files\030\002 \001(\r\"Q\n\025CCloud_Delete_Re"
+  "quest\022\020\n\010filename\030\001 \001(\t\022\r\n\005appid\030\002 \001(\r\022\027"
+  "\n\017upload_batch_id\030\003 \001(\004\"\030\n\026CCloud_Delete"
+  "_Response\"\'\n%CCloud_GetClientEncryptionK"
+  "ey_Request\"B\n&CCloud_GetClientEncryption"
+  "Key_Response\022\013\n\003key\030\001 \001(\014\022\013\n\003crc\030\002 \001(\005\"\252"
+  "\001\n\035CCloud_CDNReport_Notification\022\017\n\007stea"
+  "mid\030\001 \001(\006\022\013\n\003url\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\022"
+  "\030\n\020http_status_code\030\004 \001(\r\022\026\n\016expected_by"
+  "tes\030\005 \001(\004\022\026\n\016received_bytes\030\006 \001(\004\022\020\n\010dur"
+  "ation\030\007 \001(\r\"\220\003\n1CCloud_ExternalStorageTr"
+  "ansferReport_Notification\022\014\n\004host\030\001 \001(\t\022"
+  "\014\n\004path\030\002 \001(\t\022\021\n\tis_upload\030\003 \001(\010\022\017\n\007succ"
+  "ess\030\004 \001(\010\022\030\n\020http_status_code\030\005 \001(\r\022\026\n\016b"
+  "ytes_expected\030\006 \001(\004\022\024\n\014bytes_actual\030\007 \001("
+  "\004\022\023\n\013duration_ms\030\010 \001(\r\022\016\n\006cellid\030\t \001(\r\022\017"
+  "\n\007proxied\030\n \001(\010\022\022\n\nipv6_local\030\013 \001(\010\022\023\n\013i"
+  "pv6_remote\030\014 \001(\010\022\032\n\022time_to_connect_ms\030\r"
+  " \001(\r\022\033\n\023time_to_send_req_ms\030\016 \001(\r\022\035\n\025tim"
+  "e_to_first_byte_ms\030\017 \001(\r\022\034\n\024time_to_last"
+  "_byte_ms\030\020 \001(\r\"\244\001\n\"CCloud_BeginAppUpload"
+  "Batch_Request\022\r\n\005appid\030\001 \001(\r\022\024\n\014machine_"
+  "name\030\002 \001(\t\022\027\n\017files_to_upload\030\003 \003(\t\022\027\n\017f"
+  "iles_to_delete\030\004 \003(\t\022\021\n\tclient_id\030\005 \001(\004\022"
+  "\024\n\014app_build_id\030\006 \001(\004\"R\n#CCloud_BeginApp"
+  "UploadBatch_Response\022\020\n\010batch_id\030\001 \001(\004\022\031"
+  "\n\021app_change_number\030\004 \001(\004\"d\n*CCloud_Comp"
+  "leteAppUploadBatch_Notification\022\r\n\005appid"
+  "\030\001 \001(\r\022\020\n\010batch_id\030\002 \001(\004\022\025\n\rbatch_eresul"
+  "t\030\003 \001(\r\"_\n%CCloud_CompleteAppUploadBatch"
+  "_Request\022\r\n\005appid\030\001 \001(\r\022\020\n\010batch_id\030\002 \001("
+  "\004\022\025\n\rbatch_eresult\030\003 \001(\r\"(\n&CCloud_Compl"
+  "eteAppUploadBatch_Response\"\257\002\n$CCloud_Cl"
+  "ientBeginFileUpload_Request\022\r\n\005appid\030\001 \001"
+  "(\r\022\021\n\tfile_size\030\002 \001(\r\022\025\n\rraw_file_size\030\003"
+  " \001(\r\022\020\n\010file_sha\030\004 \001(\014\022\022\n\ntime_stamp\030\005 \001"
+  "(\004\022\020\n\010filename\030\006 \001(\t\022%\n\021platforms_to_syn"
+  "c\030\007 \001(\r:\n4294967295\022\017\n\007cell_id\030\t \001(\r\022\023\n\013"
+  "can_encrypt\030\n \001(\010\022\026\n\016is_shared_file\030\013 \001("
+  "\010\022\030\n\020deprecated_realm\030\014 \001(\r\022\027\n\017upload_ba"
+  "tch_id\030\r \001(\004\"\301\002\n!ClientCloudFileUploadBl"
+  "ockDetails\022\020\n\010url_host\030\001 \001(\t\022\020\n\010url_path"
+  "\030\002 \001(\t\022\021\n\tuse_https\030\003 \001(\010\022\023\n\013http_method"
+  "\030\004 \001(\005\022G\n\017request_headers\030\005 \003(\0132..Client"
+  "CloudFileUploadBlockDetails.HTTPHeaders\022"
+  "\022\n\nblocoffset\030\006 \001(\004\022\022\n\nbloclength\030\007 \001(\r\022"
+  "\032\n\022explicit_body_data\030\010 \001(\014\022\027\n\017may_paral"
+  "lelize\030\t \001(\010\032*\n\013HTTPHeaders\022\014\n\004name\030\001 \001("
+  "\t\022\r\n\005value\030\002 \001(\t\"w\n%CCloud_ClientBeginFi"
+  "leUpload_Response\022\024\n\014encrypt_file\030\001 \001(\010\022"
+  "8\n\014blocrequests\030\002 \003(\0132\".ClientCloudFileU"
+  "ploadBlockDetails\"v\n%CCloud_ClientCommit"
+  "FileUpload_Request\022\032\n\022transfer_succeeded"
+  "\030\001 \001(\010\022\r\n\005appid\030\002 \001(\r\022\020\n\010file_sha\030\003 \001(\014\022"
+  "\020\n\010filename\030\004 \001(\t\"@\n&CCloud_ClientCommit"
+  "FileUpload_Response\022\026\n\016file_committed\030\001 "
+  "\001(\010\"h\n!CCloud_ClientFileDownload_Request"
+  "\022\r\n\005appid\030\001 \001(\r\022\020\n\010filename\030\002 \001(\t\022\r\n\005rea"
+  "lm\030\003 \001(\r\022\023\n\013force_proxy\030\004 \001(\010\"\337\002\n\"CCloud"
+  "_ClientFileDownload_Response\022\r\n\005appid\030\001 "
+  "\001(\r\022\021\n\tfile_size\030\002 \001(\r\022\025\n\rraw_file_size\030"
+  "\003 \001(\r\022\020\n\010sha_file\030\004 \001(\014\022\022\n\ntime_stamp\030\005 "
+  "\001(\004\022\032\n\022is_explicit_delete\030\006 \001(\010\022\020\n\010url_h"
+  "ost\030\007 \001(\t\022\020\n\010url_path\030\010 \001(\t\022\021\n\tuse_https"
+  "\030\t \001(\010\022H\n\017request_headers\030\n \003(\0132/.CCloud"
+  "_ClientFileDownload_Response.HTTPHeaders"
+  "\022\021\n\tencrypted\030\013 \001(\010\032*\n\013HTTPHeaders\022\014\n\004na"
+  "me\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"w\n\037CCloud_Client"
+  "DeleteFile_Request\022\r\n\005appid\030\001 \001(\r\022\020\n\010fil"
+  "ename\030\002 \001(\t\022\032\n\022is_explicit_delete\030\003 \001(\010\022"
+  "\027\n\017upload_batch_id\030\004 \001(\004\"\"\n CCloud_Clien"
+  "tDeleteFile_Response\"X\n,CCloud_ClientCon"
+  "flictResolution_Notification\022\r\n\005appid\030\001 "
+  "\001(\r\022\031\n\021chose_local_files\030\002 \001(\010\"R\n#CCloud"
+  "_GetAppFileChangelist_Request\022\r\n\005appid\030\001"
+  " \001(\r\022\034\n\024synced_change_number\030\002 \001(\004\"\215\002\n\022C"
+  "Cloud_AppFileInfo\022\021\n\tfile_name\030\001 \001(\t\022\020\n\010"
+  "sha_file\030\002 \001(\014\022\022\n\ntime_stamp\030\003 \001(\004\022\025\n\rra"
+  "w_file_size\030\004 \001(\r\022U\n\rpersist_state\030\005 \001(\016"
+  "2\032.ECloudStoragePersistState:\"ECloudStor"
+  "agePersistStatePersisted\022\031\n\021platforms_to"
+  "_sync\030\006 \001(\r\022\031\n\021path_prefix_index\030\007 \001(\r\022\032"
+  "\n\022machine_name_index\030\010 \001(\r\"\307\001\n$CCloud_Ge"
+  "tAppFileChangelist_Response\022\035\n\025current_c"
+  "hange_number\030\001 \001(\004\022\"\n\005files\030\002 \003(\0132\023.CClo"
+  "ud_AppFileInfo\022\025\n\ris_only_delta\030\003 \001(\010\022\025\n"
+  "\rpath_prefixes\030\004 \003(\t\022\025\n\rmachine_names\030\005 "
+  "\003(\t\022\027\n\017app_buildid_hwm\030\006 \001(\004\"x\n CCloud_A"
+  "ppSessionSuspend_Request\022\r\n\005appid\030\001 \001(\r\022"
+  "\021\n\tclient_id\030\002 \001(\004\022\024\n\014machine_name\030\003 \001(\t"
+  "\022\034\n\024cloud_sync_completed\030\004 \001(\010\"#\n!CCloud"
+  "_AppSessionSuspend_Response\"C\n\037CCloud_Ap"
+  "pSessionResume_Request\022\r\n\005appid\030\001 \001(\r\022\021\n"
+  "\tclient_id\030\002 \001(\004\"\"\n CCloud_AppSessionRes"
+  "ume_Response\"\241\001\n\036CCloud_AppLaunchIntent_"
   "Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tclient_id\030\002 \001("
-  "\004\022\024\n\014machine_name\030\003 \001(\t\022\034\n\024cloud_sync_co"
-  "mpleted\030\004 \001(\010\"#\n!CCloud_AppSessionSuspen"
-  "d_Response\"C\n\037CCloud_AppSessionResume_Re"
-  "quest\022\r\n\005appid\030\001 \001(\r\022\021\n\tclient_id\030\002 \001(\004\""
-  "\"\n CCloud_AppSessionResume_Response\"\241\001\n\036"
-  "CCloud_AppLaunchIntent_Request\022\r\n\005appid\030"
-  "\001 \001(\r\022\021\n\tclient_id\030\002 \001(\004\022\024\n\014machine_name"
-  "\030\003 \001(\t\022!\n\031ignore_pending_operations\030\004 \001("
-  "\010\022\017\n\007os_type\030\005 \001(\005\022\023\n\013device_type\030\006 \001(\005\""
-  "d\n\037CCloud_AppLaunchIntent_Response\022A\n\031pe"
-  "nding_remote_operations\030\001 \003(\0132\036.CCloud_P"
-  "endingRemoteOperation\"|\n#CCloud_AppExitS"
-  "yncDone_Notification\022\r\n\005appid\030\001 \001(\r\022\021\n\tc"
-  "lient_id\030\002 \001(\004\022\031\n\021uploads_completed\030\003 \001("
-  "\010\022\030\n\020uploads_required\030\004 \001(\010\"6\n%CCloud_Cl"
-  "ientGetAppQuotaUsage_Request\022\r\n\005appid\030\001 "
-  "\001(\r\"\206\001\n&CCloud_ClientGetAppQuotaUsage_Re"
-  "sponse\022\026\n\016existing_files\030\001 \001(\r\022\026\n\016existi"
-  "ng_bytes\030\002 \001(\004\022\025\n\rmax_num_files\030\003 \001(\r\022\025\n"
-  "\rmax_num_bytes\030\004 \001(\004\"S\n\'CCloud_AppCloudS"
-  "tateChange_Notification\022\r\n\005appid\030\001 \001(\r\022\031"
-  "\n\021app_change_number\030\002 \001(\004\"@\n*CCloud_Clie"
-  "ntLogUploadRequest_Notification\022\022\n\nreque"
-  "st_id\030\001 \001(\0042\356\023\n\005Cloud\022L\n\024ClientLogUpload"
-  "Check\022\'.CCloud_ClientLogUploadChecNotifi"
-  "cation\032\013.NoResponse\022T\n\027ClientLogUploadCo"
-  "mplete\022,.CCloud_ClientLogUploadComplete_"
-  "Notification\032\013.NoResponse\022`\n\023GetUploadSe"
-  "rverInfo\022#.CCloud_GetUploadServerInfo_Re"
-  "quest\032$.CCloud_GetUploadServerInfo_Respo"
-  "nse\022T\n\017BeginHTTPUpload\022\037.CCloud_BeginHTT"
-  "PUpload_Request\032 .CCloud_BeginHTTPUpload"
-  "_Response\022W\n\020CommitHTTPUpload\022 .CCloud_C"
-  "ommitHTTPUpload_Request\032!.CCloud_CommitH"
-  "TTPUpload_Response\022Q\n\016BeginUGCUpload\022\036.C"
-  "Cloud_BeginUGCUpload_Request\032\037.CCloud_Be"
-  "ginUGCUpload_Response\022T\n\017CommitUGCUpload"
-  "\022\037.CCloud_CommitUGCUpload_Request\032 .CClo"
-  "ud_CommitUGCUpload_Response\022Q\n\016GetFileDe"
-  "tails\022\036.CCloud_GetFileDetails_Request\032\037."
-  "CCloud_GetFileDetails_Response\022]\n\022Enumer"
-  "ateUserFiles\022\".CCloud_EnumerateUserFiles"
-  "_Request\032#.CCloud_EnumerateUserFiles_Res"
-  "ponse\0229\n\006Delete\022\026.CCloud_Delete_Request\032"
-  "\027.CCloud_Delete_Response\022i\n\026GetClientEnc"
-  "ryptionKey\022&.CCloud_GetClientEncryptionK"
-  "ey_Request\032\'.CCloud_GetClientEncryptionK"
-  "ey_Response\0228\n\tCDNReport\022\036.CCloud_CDNRep"
-  "ort_Notification\032\013.NoResponse\022`\n\035Externa"
-  "lStorageTransferReport\0222.CCloud_External"
-  "StorageTransferReport_Notification\032\013.NoR"
-  "esponse\022`\n\023BeginAppUploadBatch\022#.CCloud_"
-  "BeginAppUploadBatch_Request\032$.CCloud_Beg"
-  "inAppUploadBatch_Response\022R\n\026CompleteApp"
-  "UploadBatch\022+.CCloud_CompleteAppUploadBa"
-  "tch_Notification\032\013.NoResponse\022q\n\036Complet"
-  "eAppUploadBatchBlocking\022&.CCloud_Complet"
-  "eAppUploadBatch_Request\032\'.CCloud_Complet"
-  "eAppUploadBatch_Response\022f\n\025ClientBeginF"
-  "ileUpload\022%.CCloud_ClientBeginFileUpload"
-  "_Request\032&.CCloud_ClientBeginFileUpload_"
-  "Response\022i\n\026ClientCommitFileUpload\022&.CCl"
-  "oud_ClientCommitFileUpload_Request\032\'.CCl"
-  "oud_ClientCommitFileUpload_Response\022]\n\022C"
-  "lientFileDownload\022\".CCloud_ClientFileDow"
-  "nload_Request\032#.CCloud_ClientFileDownloa"
-  "d_Response\022W\n\020ClientDeleteFile\022 .CCloud_"
-  "ClientDeleteFile_Request\032!.CCloud_Client"
-  "DeleteFile_Response\022V\n\030ClientConflictRes"
-  "olution\022-.CCloud_ClientConflictResolutio"
-  "n_Notification\032\013.NoResponse\022Z\n\021Enumerate"
-  "UserApps\022!.CCloud_EnumerateUserApps_Requ"
-  "est\032\".CCloud_EnumerateUserApps_Response\022"
-  "c\n\024GetAppFileChangelist\022$.CCloud_GetAppF"
-  "ileChangelist_Request\032%.CCloud_GetAppFil"
-  "eChangelist_Response\022Z\n\021SuspendAppSessio"
-  "n\022!.CCloud_AppSessionSuspend_Request\032\".C"
-  "Cloud_AppSessionSuspend_Response\022W\n\020Resu"
-  "meAppSession\022 .CCloud_AppSessionResume_R"
-  "equest\032!.CCloud_AppSessionResume_Respons"
-  "e\022Z\n\025SignalAppLaunchIntent\022\037.CCloud_AppL"
-  "aunchIntent_Request\032 .CCloud_AppLaunchIn"
-  "tent_Response\022J\n\025SignalAppExitSyncDone\022$"
-  ".CCloud_AppExitSyncDone_Notification\032\013.N"
-  "oResponse\022i\n\026ClientGetAppQuotaUsage\022&.CC"
-  "loud_ClientGetAppQuotaUsage_Request\032\'.CC"
-  "loud_ClientGetAppQuotaUsage_Response2\266\001\n"
-  "\013CloudClient\022M\n\024NotifyAppStateChange\022(.C"
-  "Cloud_AppCloudStateChange_Notification\032\013"
-  ".NoResponse\022R\n\026ClientLogUploadRequest\022+."
-  "CCloud_ClientLogUploadRequest_Notificati"
-  "on\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamwo"
-  "rks.Protobuf"
+  "\004\022\024\n\014machine_name\030\003 \001(\t\022!\n\031ignore_pendin"
+  "g_operations\030\004 \001(\010\022\017\n\007os_type\030\005 \001(\005\022\023\n\013d"
+  "evice_type\030\006 \001(\005\"d\n\037CCloud_AppLaunchInte"
+  "nt_Response\022A\n\031pending_remote_operations"
+  "\030\001 \003(\0132\036.CCloud_PendingRemoteOperation\"|"
+  "\n#CCloud_AppExitSyncDone_Notification\022\r\n"
+  "\005appid\030\001 \001(\r\022\021\n\tclient_id\030\002 \001(\004\022\031\n\021uploa"
+  "ds_completed\030\003 \001(\010\022\030\n\020uploads_required\030\004"
+  " \001(\010\"6\n%CCloud_ClientGetAppQuotaUsage_Re"
+  "quest\022\r\n\005appid\030\001 \001(\r\"\206\001\n&CCloud_ClientGe"
+  "tAppQuotaUsage_Response\022\026\n\016existing_file"
+  "s\030\001 \001(\r\022\026\n\016existing_bytes\030\002 \001(\004\022\025\n\rmax_n"
+  "um_files\030\003 \001(\r\022\025\n\rmax_num_bytes\030\004 \001(\004\"S\n"
+  "\'CCloud_AppCloudStateChange_Notification"
+  "\022\r\n\005appid\030\001 \001(\r\022\031\n\021app_change_number\030\002 \001"
+  "(\004\"@\n*CCloud_ClientLogUploadRequest_Noti"
+  "fication\022\022\n\nrequest_id\030\001 \001(\0042\260\022\n\005Cloud\022L"
+  "\n\024ClientLogUploadCheck\022\'.CCloud_ClientLo"
+  "gUploadChecNotification\032\013.NoResponse\022T\n\027"
+  "ClientLogUploadComplete\022,.CCloud_ClientL"
+  "ogUploadComplete_Notification\032\013.NoRespon"
+  "se\022T\n\017BeginHTTPUpload\022\037.CCloud_BeginHTTP"
+  "Upload_Request\032 .CCloud_BeginHTTPUpload_"
+  "Response\022W\n\020CommitHTTPUpload\022 .CCloud_Co"
+  "mmitHTTPUpload_Request\032!.CCloud_CommitHT"
+  "TPUpload_Response\022Q\n\016BeginUGCUpload\022\036.CC"
+  "loud_BeginUGCUpload_Request\032\037.CCloud_Beg"
+  "inUGCUpload_Response\022T\n\017CommitUGCUpload\022"
+  "\037.CCloud_CommitUGCUpload_Request\032 .CClou"
+  "d_CommitUGCUpload_Response\022Q\n\016GetFileDet"
+  "ails\022\036.CCloud_GetFileDetails_Request\032\037.C"
+  "Cloud_GetFileDetails_Response\022]\n\022Enumera"
+  "teUserFiles\022\".CCloud_EnumerateUserFiles_"
+  "Request\032#.CCloud_EnumerateUserFiles_Resp"
+  "onse\0229\n\006Delete\022\026.CCloud_Delete_Request\032\027"
+  ".CCloud_Delete_Response\022i\n\026GetClientEncr"
+  "yptionKey\022&.CCloud_GetClientEncryptionKe"
+  "y_Request\032\'.CCloud_GetClientEncryptionKe"
+  "y_Response\0228\n\tCDNReport\022\036.CCloud_CDNRepo"
+  "rt_Notification\032\013.NoResponse\022`\n\035External"
+  "StorageTransferReport\0222.CCloud_ExternalS"
+  "torageTransferReport_Notification\032\013.NoRe"
+  "sponse\022`\n\023BeginAppUploadBatch\022#.CCloud_B"
+  "eginAppUploadBatch_Request\032$.CCloud_Begi"
+  "nAppUploadBatch_Response\022R\n\026CompleteAppU"
+  "ploadBatch\022+.CCloud_CompleteAppUploadBat"
+  "ch_Notification\032\013.NoResponse\022q\n\036Complete"
+  "AppUploadBatchBlocking\022&.CCloud_Complete"
+  "AppUploadBatch_Request\032\'.CCloud_Complete"
+  "AppUploadBatch_Response\022f\n\025ClientBeginFi"
+  "leUpload\022%.CCloud_ClientBeginFileUpload_"
+  "Request\032&.CCloud_ClientBeginFileUpload_R"
+  "esponse\022i\n\026ClientCommitFileUpload\022&.CClo"
+  "ud_ClientCommitFileUpload_Request\032\'.CClo"
+  "ud_ClientCommitFileUpload_Response\022]\n\022Cl"
+  "ientFileDownload\022\".CCloud_ClientFileDown"
+  "load_Request\032#.CCloud_ClientFileDownload"
+  "_Response\022W\n\020ClientDeleteFile\022 .CCloud_C"
+  "lientDeleteFile_Request\032!.CCloud_ClientD"
+  "eleteFile_Response\022V\n\030ClientConflictReso"
+  "lution\022-.CCloud_ClientConflictResolution"
+  "_Notification\032\013.NoResponse\022c\n\024GetAppFile"
+  "Changelist\022$.CCloud_GetAppFileChangelist"
+  "_Request\032%.CCloud_GetAppFileChangelist_R"
+  "esponse\022Z\n\021SuspendAppSession\022!.CCloud_Ap"
+  "pSessionSuspend_Request\032\".CCloud_AppSess"
+  "ionSuspend_Response\022W\n\020ResumeAppSession\022"
+  " .CCloud_AppSessionResume_Request\032!.CClo"
+  "ud_AppSessionResume_Response\022Z\n\025SignalAp"
+  "pLaunchIntent\022\037.CCloud_AppLaunchIntent_R"
+  "equest\032 .CCloud_AppLaunchIntent_Response"
+  "\022J\n\025SignalAppExitSyncDone\022$.CCloud_AppEx"
+  "itSyncDone_Notification\032\013.NoResponse\022i\n\026"
+  "ClientGetAppQuotaUsage\022&.CCloud_ClientGe"
+  "tAppQuotaUsage_Request\032\'.CCloud_ClientGe"
+  "tAppQuotaUsage_Response2\266\001\n\013CloudClient\022"
+  "M\n\024NotifyAppStateChange\022(.CCloud_AppClou"
+  "dStateChange_Notification\032\013.NoResponse\022R"
+  "\n\026ClientLogUploadRequest\022+.CCloud_Client"
+  "LogUploadRequest_Notification\032\013.NoRespon"
+  "se\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_enums_2eproto,
@@ -1956,8 +1836,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fcloud_2esteamclient_2eproto = {
-  false, false, 9692, descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto, "steammessages_cloud.steamclient.proto", 
-  &descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_deps, 5, 59,
+  false, false, 9199, descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto, "steammessages_cloud.steamclient.proto", 
+  &descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_deps, 5, 54,
   schemas, file_default_instances, TableStruct_steammessages_5fcloud_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fcloud_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fcloud_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fcloud_2esteamclient_2eproto,
 };
@@ -2416,423 +2296,6 @@ void CCloud_ClientLogUploadComplete_Notification::InternalSwap(CCloud_ClientLogU
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CCloud_ClientLogUploadComplete_Notification::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CCloud_GetUploadServerInfo_Request::_Internal {
- public:
-  using HasBits = decltype(std::declval<CCloud_GetUploadServerInfo_Request>()._has_bits_);
-  static void set_has_appid(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-};
-
-CCloud_GetUploadServerInfo_Request::CCloud_GetUploadServerInfo_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CCloud_GetUploadServerInfo_Request)
-}
-CCloud_GetUploadServerInfo_Request::CCloud_GetUploadServerInfo_Request(const CCloud_GetUploadServerInfo_Request& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  appid_ = from.appid_;
-  // @@protoc_insertion_point(copy_constructor:CCloud_GetUploadServerInfo_Request)
-}
-
-void CCloud_GetUploadServerInfo_Request::SharedCtor() {
-appid_ = 0u;
-}
-
-CCloud_GetUploadServerInfo_Request::~CCloud_GetUploadServerInfo_Request() {
-  // @@protoc_insertion_point(destructor:CCloud_GetUploadServerInfo_Request)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CCloud_GetUploadServerInfo_Request::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CCloud_GetUploadServerInfo_Request::ArenaDtor(void* object) {
-  CCloud_GetUploadServerInfo_Request* _this = reinterpret_cast< CCloud_GetUploadServerInfo_Request* >(object);
-  (void)_this;
-}
-void CCloud_GetUploadServerInfo_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CCloud_GetUploadServerInfo_Request::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CCloud_GetUploadServerInfo_Request::Clear() {
-// @@protoc_insertion_point(message_clear_start:CCloud_GetUploadServerInfo_Request)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  appid_ = 0u;
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CCloud_GetUploadServerInfo_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 appid = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_appid(&has_bits);
-          appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CCloud_GetUploadServerInfo_Request::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CCloud_GetUploadServerInfo_Request)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CCloud_GetUploadServerInfo_Request)
-  return target;
-}
-
-size_t CCloud_GetUploadServerInfo_Request::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CCloud_GetUploadServerInfo_Request)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // optional uint32 appid = 1;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_appid());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CCloud_GetUploadServerInfo_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CCloud_GetUploadServerInfo_Request)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CCloud_GetUploadServerInfo_Request* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCloud_GetUploadServerInfo_Request>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCloud_GetUploadServerInfo_Request)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCloud_GetUploadServerInfo_Request)
-    MergeFrom(*source);
-  }
-}
-
-void CCloud_GetUploadServerInfo_Request::MergeFrom(const CCloud_GetUploadServerInfo_Request& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CCloud_GetUploadServerInfo_Request)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_appid()) {
-    _internal_set_appid(from._internal_appid());
-  }
-}
-
-void CCloud_GetUploadServerInfo_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CCloud_GetUploadServerInfo_Request)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CCloud_GetUploadServerInfo_Request::CopyFrom(const CCloud_GetUploadServerInfo_Request& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CCloud_GetUploadServerInfo_Request)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CCloud_GetUploadServerInfo_Request::IsInitialized() const {
-  return true;
-}
-
-void CCloud_GetUploadServerInfo_Request::InternalSwap(CCloud_GetUploadServerInfo_Request* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(appid_, other->appid_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CCloud_GetUploadServerInfo_Request::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CCloud_GetUploadServerInfo_Response::_Internal {
- public:
-  using HasBits = decltype(std::declval<CCloud_GetUploadServerInfo_Response>()._has_bits_);
-  static void set_has_server_url(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-};
-
-CCloud_GetUploadServerInfo_Response::CCloud_GetUploadServerInfo_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CCloud_GetUploadServerInfo_Response)
-}
-CCloud_GetUploadServerInfo_Response::CCloud_GetUploadServerInfo_Response(const CCloud_GetUploadServerInfo_Response& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  server_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_server_url()) {
-    server_url_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_server_url(), 
-      GetArena());
-  }
-  // @@protoc_insertion_point(copy_constructor:CCloud_GetUploadServerInfo_Response)
-}
-
-void CCloud_GetUploadServerInfo_Response::SharedCtor() {
-server_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-CCloud_GetUploadServerInfo_Response::~CCloud_GetUploadServerInfo_Response() {
-  // @@protoc_insertion_point(destructor:CCloud_GetUploadServerInfo_Response)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CCloud_GetUploadServerInfo_Response::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  server_url_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void CCloud_GetUploadServerInfo_Response::ArenaDtor(void* object) {
-  CCloud_GetUploadServerInfo_Response* _this = reinterpret_cast< CCloud_GetUploadServerInfo_Response* >(object);
-  (void)_this;
-}
-void CCloud_GetUploadServerInfo_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CCloud_GetUploadServerInfo_Response::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CCloud_GetUploadServerInfo_Response::Clear() {
-// @@protoc_insertion_point(message_clear_start:CCloud_GetUploadServerInfo_Response)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    server_url_.ClearNonDefaultToEmpty();
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CCloud_GetUploadServerInfo_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional string server_url = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_server_url();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CCloud_GetUploadServerInfo_Response.server_url");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CCloud_GetUploadServerInfo_Response::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CCloud_GetUploadServerInfo_Response)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional string server_url = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_server_url().data(), static_cast<int>(this->_internal_server_url().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CCloud_GetUploadServerInfo_Response.server_url");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_server_url(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CCloud_GetUploadServerInfo_Response)
-  return target;
-}
-
-size_t CCloud_GetUploadServerInfo_Response::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CCloud_GetUploadServerInfo_Response)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // optional string server_url = 1;
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_server_url());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CCloud_GetUploadServerInfo_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CCloud_GetUploadServerInfo_Response)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CCloud_GetUploadServerInfo_Response* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCloud_GetUploadServerInfo_Response>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCloud_GetUploadServerInfo_Response)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCloud_GetUploadServerInfo_Response)
-    MergeFrom(*source);
-  }
-}
-
-void CCloud_GetUploadServerInfo_Response::MergeFrom(const CCloud_GetUploadServerInfo_Response& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CCloud_GetUploadServerInfo_Response)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_server_url()) {
-    _internal_set_server_url(from._internal_server_url());
-  }
-}
-
-void CCloud_GetUploadServerInfo_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CCloud_GetUploadServerInfo_Response)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CCloud_GetUploadServerInfo_Response::CopyFrom(const CCloud_GetUploadServerInfo_Response& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CCloud_GetUploadServerInfo_Response)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CCloud_GetUploadServerInfo_Response::IsInitialized() const {
-  return true;
-}
-
-void CCloud_GetUploadServerInfo_Response::InternalSwap(CCloud_GetUploadServerInfo_Response* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  server_url_.Swap(&other->server_url_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CCloud_GetUploadServerInfo_Response::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -14841,633 +14304,6 @@ void CCloud_ClientConflictResolution_Notification::InternalSwap(CCloud_ClientCon
 
 // ===================================================================
 
-class CCloud_EnumerateUserApps_Request::_Internal {
- public:
-};
-
-CCloud_EnumerateUserApps_Request::CCloud_EnumerateUserApps_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CCloud_EnumerateUserApps_Request)
-}
-CCloud_EnumerateUserApps_Request::CCloud_EnumerateUserApps_Request(const CCloud_EnumerateUserApps_Request& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:CCloud_EnumerateUserApps_Request)
-}
-
-void CCloud_EnumerateUserApps_Request::SharedCtor() {
-}
-
-CCloud_EnumerateUserApps_Request::~CCloud_EnumerateUserApps_Request() {
-  // @@protoc_insertion_point(destructor:CCloud_EnumerateUserApps_Request)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CCloud_EnumerateUserApps_Request::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CCloud_EnumerateUserApps_Request::ArenaDtor(void* object) {
-  CCloud_EnumerateUserApps_Request* _this = reinterpret_cast< CCloud_EnumerateUserApps_Request* >(object);
-  (void)_this;
-}
-void CCloud_EnumerateUserApps_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CCloud_EnumerateUserApps_Request::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CCloud_EnumerateUserApps_Request::Clear() {
-// @@protoc_insertion_point(message_clear_start:CCloud_EnumerateUserApps_Request)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CCloud_EnumerateUserApps_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CCloud_EnumerateUserApps_Request::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CCloud_EnumerateUserApps_Request)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CCloud_EnumerateUserApps_Request)
-  return target;
-}
-
-size_t CCloud_EnumerateUserApps_Request::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CCloud_EnumerateUserApps_Request)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CCloud_EnumerateUserApps_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CCloud_EnumerateUserApps_Request)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CCloud_EnumerateUserApps_Request* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCloud_EnumerateUserApps_Request>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCloud_EnumerateUserApps_Request)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCloud_EnumerateUserApps_Request)
-    MergeFrom(*source);
-  }
-}
-
-void CCloud_EnumerateUserApps_Request::MergeFrom(const CCloud_EnumerateUserApps_Request& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CCloud_EnumerateUserApps_Request)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void CCloud_EnumerateUserApps_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CCloud_EnumerateUserApps_Request)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CCloud_EnumerateUserApps_Request::CopyFrom(const CCloud_EnumerateUserApps_Request& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CCloud_EnumerateUserApps_Request)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CCloud_EnumerateUserApps_Request::IsInitialized() const {
-  return true;
-}
-
-void CCloud_EnumerateUserApps_Request::InternalSwap(CCloud_EnumerateUserApps_Request* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CCloud_EnumerateUserApps_Request::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CCloud_EnumerateUserApps_Response_Apps::_Internal {
- public:
-  using HasBits = decltype(std::declval<CCloud_EnumerateUserApps_Response_Apps>()._has_bits_);
-  static void set_has_appid(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_totalcount(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_totalsize(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-};
-
-CCloud_EnumerateUserApps_Response_Apps::CCloud_EnumerateUserApps_Response_Apps(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CCloud_EnumerateUserApps_Response.Apps)
-}
-CCloud_EnumerateUserApps_Response_Apps::CCloud_EnumerateUserApps_Response_Apps(const CCloud_EnumerateUserApps_Response_Apps& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&appid_, &from.appid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&totalsize_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(totalsize_));
-  // @@protoc_insertion_point(copy_constructor:CCloud_EnumerateUserApps_Response.Apps)
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&totalsize_) -
-    reinterpret_cast<char*>(&appid_)) + sizeof(totalsize_));
-}
-
-CCloud_EnumerateUserApps_Response_Apps::~CCloud_EnumerateUserApps_Response_Apps() {
-  // @@protoc_insertion_point(destructor:CCloud_EnumerateUserApps_Response.Apps)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::ArenaDtor(void* object) {
-  CCloud_EnumerateUserApps_Response_Apps* _this = reinterpret_cast< CCloud_EnumerateUserApps_Response_Apps* >(object);
-  (void)_this;
-}
-void CCloud_EnumerateUserApps_Response_Apps::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CCloud_EnumerateUserApps_Response_Apps::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::Clear() {
-// @@protoc_insertion_point(message_clear_start:CCloud_EnumerateUserApps_Response.Apps)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    ::memset(&appid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&totalsize_) -
-        reinterpret_cast<char*>(&appid_)) + sizeof(totalsize_));
-  }
-  _has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CCloud_EnumerateUserApps_Response_Apps::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // optional uint32 appid = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _Internal::set_has_appid(&has_bits);
-          appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional int32 totalcount = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          _Internal::set_has_totalcount(&has_bits);
-          totalcount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional int64 totalsize = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          _Internal::set_has_totalsize(&has_bits);
-          totalsize_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  _has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CCloud_EnumerateUserApps_Response_Apps::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CCloud_EnumerateUserApps_Response.Apps)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
-  }
-
-  // optional int32 totalcount = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_totalcount(), target);
-  }
-
-  // optional int64 totalsize = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->_internal_totalsize(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CCloud_EnumerateUserApps_Response.Apps)
-  return target;
-}
-
-size_t CCloud_EnumerateUserApps_Response_Apps::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CCloud_EnumerateUserApps_Response.Apps)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional uint32 appid = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_appid());
-    }
-
-    // optional int32 totalcount = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_totalcount());
-    }
-
-    // optional int64 totalsize = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
-          this->_internal_totalsize());
-    }
-
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CCloud_EnumerateUserApps_Response.Apps)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CCloud_EnumerateUserApps_Response_Apps* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCloud_EnumerateUserApps_Response_Apps>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCloud_EnumerateUserApps_Response.Apps)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCloud_EnumerateUserApps_Response.Apps)
-    MergeFrom(*source);
-  }
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::MergeFrom(const CCloud_EnumerateUserApps_Response_Apps& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CCloud_EnumerateUserApps_Response.Apps)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      appid_ = from.appid_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      totalcount_ = from.totalcount_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      totalsize_ = from.totalsize_;
-    }
-    _has_bits_[0] |= cached_has_bits;
-  }
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CCloud_EnumerateUserApps_Response.Apps)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::CopyFrom(const CCloud_EnumerateUserApps_Response_Apps& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CCloud_EnumerateUserApps_Response.Apps)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CCloud_EnumerateUserApps_Response_Apps::IsInitialized() const {
-  return true;
-}
-
-void CCloud_EnumerateUserApps_Response_Apps::InternalSwap(CCloud_EnumerateUserApps_Response_Apps* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CCloud_EnumerateUserApps_Response_Apps, totalsize_)
-      + sizeof(CCloud_EnumerateUserApps_Response_Apps::totalsize_)
-      - PROTOBUF_FIELD_OFFSET(CCloud_EnumerateUserApps_Response_Apps, appid_)>(
-          reinterpret_cast<char*>(&appid_),
-          reinterpret_cast<char*>(&other->appid_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CCloud_EnumerateUserApps_Response_Apps::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CCloud_EnumerateUserApps_Response::_Internal {
- public:
-};
-
-CCloud_EnumerateUserApps_Response::CCloud_EnumerateUserApps_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  apps_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CCloud_EnumerateUserApps_Response)
-}
-CCloud_EnumerateUserApps_Response::CCloud_EnumerateUserApps_Response(const CCloud_EnumerateUserApps_Response& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      apps_(from.apps_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:CCloud_EnumerateUserApps_Response)
-}
-
-void CCloud_EnumerateUserApps_Response::SharedCtor() {
-}
-
-CCloud_EnumerateUserApps_Response::~CCloud_EnumerateUserApps_Response() {
-  // @@protoc_insertion_point(destructor:CCloud_EnumerateUserApps_Response)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CCloud_EnumerateUserApps_Response::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CCloud_EnumerateUserApps_Response::ArenaDtor(void* object) {
-  CCloud_EnumerateUserApps_Response* _this = reinterpret_cast< CCloud_EnumerateUserApps_Response* >(object);
-  (void)_this;
-}
-void CCloud_EnumerateUserApps_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CCloud_EnumerateUserApps_Response::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CCloud_EnumerateUserApps_Response::Clear() {
-// @@protoc_insertion_point(message_clear_start:CCloud_EnumerateUserApps_Response)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  apps_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CCloud_EnumerateUserApps_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated .CCloud_EnumerateUserApps_Response.Apps apps = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_apps(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CCloud_EnumerateUserApps_Response::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CCloud_EnumerateUserApps_Response)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .CCloud_EnumerateUserApps_Response.Apps apps = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_apps_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_apps(i), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CCloud_EnumerateUserApps_Response)
-  return target;
-}
-
-size_t CCloud_EnumerateUserApps_Response::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CCloud_EnumerateUserApps_Response)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .CCloud_EnumerateUserApps_Response.Apps apps = 1;
-  total_size += 1UL * this->_internal_apps_size();
-  for (const auto& msg : this->apps_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CCloud_EnumerateUserApps_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CCloud_EnumerateUserApps_Response)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CCloud_EnumerateUserApps_Response* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CCloud_EnumerateUserApps_Response>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CCloud_EnumerateUserApps_Response)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CCloud_EnumerateUserApps_Response)
-    MergeFrom(*source);
-  }
-}
-
-void CCloud_EnumerateUserApps_Response::MergeFrom(const CCloud_EnumerateUserApps_Response& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CCloud_EnumerateUserApps_Response)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  apps_.MergeFrom(from.apps_);
-}
-
-void CCloud_EnumerateUserApps_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CCloud_EnumerateUserApps_Response)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CCloud_EnumerateUserApps_Response::CopyFrom(const CCloud_EnumerateUserApps_Response& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CCloud_EnumerateUserApps_Response)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CCloud_EnumerateUserApps_Response::IsInitialized() const {
-  return true;
-}
-
-void CCloud_EnumerateUserApps_Response::InternalSwap(CCloud_EnumerateUserApps_Response* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  apps_.InternalSwap(&other->apps_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CCloud_EnumerateUserApps_Response::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 class CCloud_GetAppFileChangelist_Request::_Internal {
  public:
   using HasBits = decltype(std::declval<CCloud_GetAppFileChangelist_Request>()._has_bits_);
@@ -19279,14 +18115,6 @@ void Cloud::ClientLogUploadComplete(::PROTOBUF_NAMESPACE_ID::RpcController* cont
   done->Run();
 }
 
-void Cloud::GetUploadServerInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                         const ::CCloud_GetUploadServerInfo_Request*,
-                         ::CCloud_GetUploadServerInfo_Response*,
-                         ::google::protobuf::Closure* done) {
-  controller->SetFailed("Method GetUploadServerInfo() not implemented.");
-  done->Run();
-}
-
 void Cloud::BeginHTTPUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CCloud_BeginHTTPUpload_Request*,
                          ::CCloud_BeginHTTPUpload_Response*,
@@ -19431,14 +18259,6 @@ void Cloud::ClientConflictResolution(::PROTOBUF_NAMESPACE_ID::RpcController* con
   done->Run();
 }
 
-void Cloud::EnumerateUserApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                         const ::CCloud_EnumerateUserApps_Request*,
-                         ::CCloud_EnumerateUserApps_Response*,
-                         ::google::protobuf::Closure* done) {
-  controller->SetFailed("Method EnumerateUserApps() not implemented.");
-  done->Run();
-}
-
 void Cloud::GetAppFileChangelist(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CCloud_GetAppFileChangelist_Request*,
                          ::CCloud_GetAppFileChangelist_Response*,
@@ -19511,14 +18331,6 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
              done);
       break;
     case 2:
-      GetUploadServerInfo(controller,
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_GetUploadServerInfo_Request*>(
-                 request),
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CCloud_GetUploadServerInfo_Response*>(
-                 response),
-             done);
-      break;
-    case 3:
       BeginHTTPUpload(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_BeginHTTPUpload_Request*>(
                  request),
@@ -19526,7 +18338,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 4:
+    case 3:
       CommitHTTPUpload(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_CommitHTTPUpload_Request*>(
                  request),
@@ -19534,7 +18346,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 5:
+    case 4:
       BeginUGCUpload(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_BeginUGCUpload_Request*>(
                  request),
@@ -19542,7 +18354,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 6:
+    case 5:
       CommitUGCUpload(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_CommitUGCUpload_Request*>(
                  request),
@@ -19550,7 +18362,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 7:
+    case 6:
       GetFileDetails(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_GetFileDetails_Request*>(
                  request),
@@ -19558,7 +18370,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 8:
+    case 7:
       EnumerateUserFiles(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_EnumerateUserFiles_Request*>(
                  request),
@@ -19566,7 +18378,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 9:
+    case 8:
       Delete(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_Delete_Request*>(
                  request),
@@ -19574,7 +18386,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 10:
+    case 9:
       GetClientEncryptionKey(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_GetClientEncryptionKey_Request*>(
                  request),
@@ -19582,7 +18394,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 11:
+    case 10:
       CDNReport(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_CDNReport_Notification*>(
                  request),
@@ -19590,7 +18402,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 12:
+    case 11:
       ExternalStorageTransferReport(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_ExternalStorageTransferReport_Notification*>(
                  request),
@@ -19598,7 +18410,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 13:
+    case 12:
       BeginAppUploadBatch(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_BeginAppUploadBatch_Request*>(
                  request),
@@ -19606,7 +18418,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 14:
+    case 13:
       CompleteAppUploadBatch(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_CompleteAppUploadBatch_Notification*>(
                  request),
@@ -19614,7 +18426,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 15:
+    case 14:
       CompleteAppUploadBatchBlocking(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_CompleteAppUploadBatch_Request*>(
                  request),
@@ -19622,7 +18434,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 16:
+    case 15:
       ClientBeginFileUpload(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_ClientBeginFileUpload_Request*>(
                  request),
@@ -19630,7 +18442,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 17:
+    case 16:
       ClientCommitFileUpload(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_ClientCommitFileUpload_Request*>(
                  request),
@@ -19638,7 +18450,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 18:
+    case 17:
       ClientFileDownload(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_ClientFileDownload_Request*>(
                  request),
@@ -19646,7 +18458,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 19:
+    case 18:
       ClientDeleteFile(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_ClientDeleteFile_Request*>(
                  request),
@@ -19654,7 +18466,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 20:
+    case 19:
       ClientConflictResolution(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_ClientConflictResolution_Notification*>(
                  request),
@@ -19662,15 +18474,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 21:
-      EnumerateUserApps(controller,
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_EnumerateUserApps_Request*>(
-                 request),
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CCloud_EnumerateUserApps_Response*>(
-                 response),
-             done);
-      break;
-    case 22:
+    case 20:
       GetAppFileChangelist(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_GetAppFileChangelist_Request*>(
                  request),
@@ -19678,7 +18482,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 23:
+    case 21:
       SuspendAppSession(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_AppSessionSuspend_Request*>(
                  request),
@@ -19686,7 +18490,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 24:
+    case 22:
       ResumeAppSession(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_AppSessionResume_Request*>(
                  request),
@@ -19694,7 +18498,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 25:
+    case 23:
       SignalAppLaunchIntent(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_AppLaunchIntent_Request*>(
                  request),
@@ -19702,7 +18506,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 26:
+    case 24:
       SignalAppExitSyncDone(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_AppExitSyncDone_Notification*>(
                  request),
@@ -19710,7 +18514,7 @@ void Cloud::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 27:
+    case 25:
       ClientGetAppQuotaUsage(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CCloud_ClientGetAppQuotaUsage_Request*>(
                  request),
@@ -19733,56 +18537,52 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Cloud::GetRequestPrototype(
     case 1:
       return ::CCloud_ClientLogUploadComplete_Notification::default_instance();
     case 2:
-      return ::CCloud_GetUploadServerInfo_Request::default_instance();
-    case 3:
       return ::CCloud_BeginHTTPUpload_Request::default_instance();
-    case 4:
+    case 3:
       return ::CCloud_CommitHTTPUpload_Request::default_instance();
-    case 5:
+    case 4:
       return ::CCloud_BeginUGCUpload_Request::default_instance();
-    case 6:
+    case 5:
       return ::CCloud_CommitUGCUpload_Request::default_instance();
-    case 7:
+    case 6:
       return ::CCloud_GetFileDetails_Request::default_instance();
-    case 8:
+    case 7:
       return ::CCloud_EnumerateUserFiles_Request::default_instance();
-    case 9:
+    case 8:
       return ::CCloud_Delete_Request::default_instance();
-    case 10:
+    case 9:
       return ::CCloud_GetClientEncryptionKey_Request::default_instance();
-    case 11:
+    case 10:
       return ::CCloud_CDNReport_Notification::default_instance();
-    case 12:
+    case 11:
       return ::CCloud_ExternalStorageTransferReport_Notification::default_instance();
-    case 13:
+    case 12:
       return ::CCloud_BeginAppUploadBatch_Request::default_instance();
-    case 14:
+    case 13:
       return ::CCloud_CompleteAppUploadBatch_Notification::default_instance();
-    case 15:
+    case 14:
       return ::CCloud_CompleteAppUploadBatch_Request::default_instance();
-    case 16:
+    case 15:
       return ::CCloud_ClientBeginFileUpload_Request::default_instance();
-    case 17:
+    case 16:
       return ::CCloud_ClientCommitFileUpload_Request::default_instance();
-    case 18:
+    case 17:
       return ::CCloud_ClientFileDownload_Request::default_instance();
-    case 19:
+    case 18:
       return ::CCloud_ClientDeleteFile_Request::default_instance();
-    case 20:
+    case 19:
       return ::CCloud_ClientConflictResolution_Notification::default_instance();
-    case 21:
-      return ::CCloud_EnumerateUserApps_Request::default_instance();
-    case 22:
+    case 20:
       return ::CCloud_GetAppFileChangelist_Request::default_instance();
-    case 23:
+    case 21:
       return ::CCloud_AppSessionSuspend_Request::default_instance();
-    case 24:
+    case 22:
       return ::CCloud_AppSessionResume_Request::default_instance();
-    case 25:
+    case 23:
       return ::CCloud_AppLaunchIntent_Request::default_instance();
-    case 26:
+    case 24:
       return ::CCloud_AppExitSyncDone_Notification::default_instance();
-    case 27:
+    case 25:
       return ::CCloud_ClientGetAppQuotaUsage_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -19800,56 +18600,52 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Cloud::GetResponsePrototype(
     case 1:
       return ::NoResponse::default_instance();
     case 2:
-      return ::CCloud_GetUploadServerInfo_Response::default_instance();
-    case 3:
       return ::CCloud_BeginHTTPUpload_Response::default_instance();
-    case 4:
+    case 3:
       return ::CCloud_CommitHTTPUpload_Response::default_instance();
-    case 5:
+    case 4:
       return ::CCloud_BeginUGCUpload_Response::default_instance();
-    case 6:
+    case 5:
       return ::CCloud_CommitUGCUpload_Response::default_instance();
-    case 7:
+    case 6:
       return ::CCloud_GetFileDetails_Response::default_instance();
-    case 8:
+    case 7:
       return ::CCloud_EnumerateUserFiles_Response::default_instance();
-    case 9:
+    case 8:
       return ::CCloud_Delete_Response::default_instance();
-    case 10:
+    case 9:
       return ::CCloud_GetClientEncryptionKey_Response::default_instance();
+    case 10:
+      return ::NoResponse::default_instance();
     case 11:
       return ::NoResponse::default_instance();
     case 12:
-      return ::NoResponse::default_instance();
-    case 13:
       return ::CCloud_BeginAppUploadBatch_Response::default_instance();
+    case 13:
+      return ::NoResponse::default_instance();
     case 14:
-      return ::NoResponse::default_instance();
-    case 15:
       return ::CCloud_CompleteAppUploadBatch_Response::default_instance();
-    case 16:
+    case 15:
       return ::CCloud_ClientBeginFileUpload_Response::default_instance();
-    case 17:
+    case 16:
       return ::CCloud_ClientCommitFileUpload_Response::default_instance();
-    case 18:
+    case 17:
       return ::CCloud_ClientFileDownload_Response::default_instance();
-    case 19:
+    case 18:
       return ::CCloud_ClientDeleteFile_Response::default_instance();
+    case 19:
+      return ::NoResponse::default_instance();
     case 20:
-      return ::NoResponse::default_instance();
-    case 21:
-      return ::CCloud_EnumerateUserApps_Response::default_instance();
-    case 22:
       return ::CCloud_GetAppFileChangelist_Response::default_instance();
-    case 23:
+    case 21:
       return ::CCloud_AppSessionSuspend_Response::default_instance();
-    case 24:
+    case 22:
       return ::CCloud_AppSessionResume_Response::default_instance();
-    case 25:
+    case 23:
       return ::CCloud_AppLaunchIntent_Response::default_instance();
-    case 26:
+    case 24:
       return ::NoResponse::default_instance();
-    case 27:
+    case 25:
       return ::CCloud_ClientGetAppQuotaUsage_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -19883,186 +18679,172 @@ void Cloud_Stub::ClientLogUploadComplete(::PROTOBUF_NAMESPACE_ID::RpcController*
   channel_->CallMethod(descriptor()->method(1),
                        controller, request, response, done);
 }
-void Cloud_Stub::GetUploadServerInfo(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                              const ::CCloud_GetUploadServerInfo_Request* request,
-                              ::CCloud_GetUploadServerInfo_Response* response,
-                              ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(2),
-                       controller, request, response, done);
-}
 void Cloud_Stub::BeginHTTPUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_BeginHTTPUpload_Request* request,
                               ::CCloud_BeginHTTPUpload_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(3),
+  channel_->CallMethod(descriptor()->method(2),
                        controller, request, response, done);
 }
 void Cloud_Stub::CommitHTTPUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_CommitHTTPUpload_Request* request,
                               ::CCloud_CommitHTTPUpload_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(4),
+  channel_->CallMethod(descriptor()->method(3),
                        controller, request, response, done);
 }
 void Cloud_Stub::BeginUGCUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_BeginUGCUpload_Request* request,
                               ::CCloud_BeginUGCUpload_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(5),
+  channel_->CallMethod(descriptor()->method(4),
                        controller, request, response, done);
 }
 void Cloud_Stub::CommitUGCUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_CommitUGCUpload_Request* request,
                               ::CCloud_CommitUGCUpload_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(6),
+  channel_->CallMethod(descriptor()->method(5),
                        controller, request, response, done);
 }
 void Cloud_Stub::GetFileDetails(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_GetFileDetails_Request* request,
                               ::CCloud_GetFileDetails_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(7),
+  channel_->CallMethod(descriptor()->method(6),
                        controller, request, response, done);
 }
 void Cloud_Stub::EnumerateUserFiles(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_EnumerateUserFiles_Request* request,
                               ::CCloud_EnumerateUserFiles_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(8),
+  channel_->CallMethod(descriptor()->method(7),
                        controller, request, response, done);
 }
 void Cloud_Stub::Delete(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_Delete_Request* request,
                               ::CCloud_Delete_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(9),
+  channel_->CallMethod(descriptor()->method(8),
                        controller, request, response, done);
 }
 void Cloud_Stub::GetClientEncryptionKey(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_GetClientEncryptionKey_Request* request,
                               ::CCloud_GetClientEncryptionKey_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(10),
+  channel_->CallMethod(descriptor()->method(9),
                        controller, request, response, done);
 }
 void Cloud_Stub::CDNReport(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_CDNReport_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(11),
+  channel_->CallMethod(descriptor()->method(10),
                        controller, request, response, done);
 }
 void Cloud_Stub::ExternalStorageTransferReport(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_ExternalStorageTransferReport_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(12),
+  channel_->CallMethod(descriptor()->method(11),
                        controller, request, response, done);
 }
 void Cloud_Stub::BeginAppUploadBatch(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_BeginAppUploadBatch_Request* request,
                               ::CCloud_BeginAppUploadBatch_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(13),
+  channel_->CallMethod(descriptor()->method(12),
                        controller, request, response, done);
 }
 void Cloud_Stub::CompleteAppUploadBatch(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_CompleteAppUploadBatch_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(14),
+  channel_->CallMethod(descriptor()->method(13),
                        controller, request, response, done);
 }
 void Cloud_Stub::CompleteAppUploadBatchBlocking(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_CompleteAppUploadBatch_Request* request,
                               ::CCloud_CompleteAppUploadBatch_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(15),
+  channel_->CallMethod(descriptor()->method(14),
                        controller, request, response, done);
 }
 void Cloud_Stub::ClientBeginFileUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_ClientBeginFileUpload_Request* request,
                               ::CCloud_ClientBeginFileUpload_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(16),
+  channel_->CallMethod(descriptor()->method(15),
                        controller, request, response, done);
 }
 void Cloud_Stub::ClientCommitFileUpload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_ClientCommitFileUpload_Request* request,
                               ::CCloud_ClientCommitFileUpload_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(17),
+  channel_->CallMethod(descriptor()->method(16),
                        controller, request, response, done);
 }
 void Cloud_Stub::ClientFileDownload(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_ClientFileDownload_Request* request,
                               ::CCloud_ClientFileDownload_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(18),
+  channel_->CallMethod(descriptor()->method(17),
                        controller, request, response, done);
 }
 void Cloud_Stub::ClientDeleteFile(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_ClientDeleteFile_Request* request,
                               ::CCloud_ClientDeleteFile_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(19),
+  channel_->CallMethod(descriptor()->method(18),
                        controller, request, response, done);
 }
 void Cloud_Stub::ClientConflictResolution(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_ClientConflictResolution_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(20),
-                       controller, request, response, done);
-}
-void Cloud_Stub::EnumerateUserApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                              const ::CCloud_EnumerateUserApps_Request* request,
-                              ::CCloud_EnumerateUserApps_Response* response,
-                              ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(21),
+  channel_->CallMethod(descriptor()->method(19),
                        controller, request, response, done);
 }
 void Cloud_Stub::GetAppFileChangelist(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_GetAppFileChangelist_Request* request,
                               ::CCloud_GetAppFileChangelist_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(22),
+  channel_->CallMethod(descriptor()->method(20),
                        controller, request, response, done);
 }
 void Cloud_Stub::SuspendAppSession(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_AppSessionSuspend_Request* request,
                               ::CCloud_AppSessionSuspend_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(23),
+  channel_->CallMethod(descriptor()->method(21),
                        controller, request, response, done);
 }
 void Cloud_Stub::ResumeAppSession(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_AppSessionResume_Request* request,
                               ::CCloud_AppSessionResume_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(24),
+  channel_->CallMethod(descriptor()->method(22),
                        controller, request, response, done);
 }
 void Cloud_Stub::SignalAppLaunchIntent(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_AppLaunchIntent_Request* request,
                               ::CCloud_AppLaunchIntent_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(25),
+  channel_->CallMethod(descriptor()->method(23),
                        controller, request, response, done);
 }
 void Cloud_Stub::SignalAppExitSyncDone(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_AppExitSyncDone_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(26),
+  channel_->CallMethod(descriptor()->method(24),
                        controller, request, response, done);
 }
 void Cloud_Stub::ClientGetAppQuotaUsage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CCloud_ClientGetAppQuotaUsage_Request* request,
                               ::CCloud_ClientGetAppQuotaUsage_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(27),
+  channel_->CallMethod(descriptor()->method(25),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -20187,12 +18969,6 @@ template<> PROTOBUF_NOINLINE ::CCloud_ClientLogUploadChecNotification* Arena::Cr
 template<> PROTOBUF_NOINLINE ::CCloud_ClientLogUploadComplete_Notification* Arena::CreateMaybeMessage< ::CCloud_ClientLogUploadComplete_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCloud_ClientLogUploadComplete_Notification >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CCloud_GetUploadServerInfo_Request* Arena::CreateMaybeMessage< ::CCloud_GetUploadServerInfo_Request >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CCloud_GetUploadServerInfo_Request >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CCloud_GetUploadServerInfo_Response* Arena::CreateMaybeMessage< ::CCloud_GetUploadServerInfo_Response >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CCloud_GetUploadServerInfo_Response >(arena);
-}
 template<> PROTOBUF_NOINLINE ::CCloud_BeginHTTPUpload_Request* Arena::CreateMaybeMessage< ::CCloud_BeginHTTPUpload_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCloud_BeginHTTPUpload_Request >(arena);
 }
@@ -20306,15 +19082,6 @@ template<> PROTOBUF_NOINLINE ::CCloud_ClientDeleteFile_Response* Arena::CreateMa
 }
 template<> PROTOBUF_NOINLINE ::CCloud_ClientConflictResolution_Notification* Arena::CreateMaybeMessage< ::CCloud_ClientConflictResolution_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCloud_ClientConflictResolution_Notification >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CCloud_EnumerateUserApps_Request* Arena::CreateMaybeMessage< ::CCloud_EnumerateUserApps_Request >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CCloud_EnumerateUserApps_Request >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CCloud_EnumerateUserApps_Response_Apps* Arena::CreateMaybeMessage< ::CCloud_EnumerateUserApps_Response_Apps >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CCloud_EnumerateUserApps_Response_Apps >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CCloud_EnumerateUserApps_Response* Arena::CreateMaybeMessage< ::CCloud_EnumerateUserApps_Response >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CCloud_EnumerateUserApps_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CCloud_GetAppFileChangelist_Request* Arena::CreateMaybeMessage< ::CCloud_GetAppFileChangelist_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCloud_GetAppFileChangelist_Request >(arena);

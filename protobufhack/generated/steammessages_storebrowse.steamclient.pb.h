@@ -54,7 +54,7 @@ struct TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[47]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[50]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -65,6 +65,15 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 class CHardwarePackageDetails;
 struct CHardwarePackageDetailsDefaultTypeInternal;
 extern CHardwarePackageDetailsDefaultTypeInternal _CHardwarePackageDetails_default_instance_;
+class CStoreBrowse_GetContentHubConfig_Request;
+struct CStoreBrowse_GetContentHubConfig_RequestDefaultTypeInternal;
+extern CStoreBrowse_GetContentHubConfig_RequestDefaultTypeInternal _CStoreBrowse_GetContentHubConfig_Request_default_instance_;
+class CStoreBrowse_GetContentHubConfig_Response;
+struct CStoreBrowse_GetContentHubConfig_ResponseDefaultTypeInternal;
+extern CStoreBrowse_GetContentHubConfig_ResponseDefaultTypeInternal _CStoreBrowse_GetContentHubConfig_Response_default_instance_;
+class CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig;
+struct CStoreBrowse_GetContentHubConfig_Response_ContentHubConfigDefaultTypeInternal;
+extern CStoreBrowse_GetContentHubConfig_Response_ContentHubConfigDefaultTypeInternal _CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig_default_instance_;
 class CStoreBrowse_GetDLCForAppsSolr_Request;
 struct CStoreBrowse_GetDLCForAppsSolr_RequestDefaultTypeInternal;
 extern CStoreBrowse_GetDLCForAppsSolr_RequestDefaultTypeInternal _CStoreBrowse_GetDLCForAppsSolr_Request_default_instance_;
@@ -205,6 +214,9 @@ struct StoreItem_Trailers_VideoSourceDefaultTypeInternal;
 extern StoreItem_Trailers_VideoSourceDefaultTypeInternal _StoreItem_Trailers_VideoSource_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::CHardwarePackageDetails* Arena::CreateMaybeMessage<::CHardwarePackageDetails>(Arena*);
+template<> ::CStoreBrowse_GetContentHubConfig_Request* Arena::CreateMaybeMessage<::CStoreBrowse_GetContentHubConfig_Request>(Arena*);
+template<> ::CStoreBrowse_GetContentHubConfig_Response* Arena::CreateMaybeMessage<::CStoreBrowse_GetContentHubConfig_Response>(Arena*);
+template<> ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* Arena::CreateMaybeMessage<::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig>(Arena*);
 template<> ::CStoreBrowse_GetDLCForAppsSolr_Request* Arena::CreateMaybeMessage<::CStoreBrowse_GetDLCForAppsSolr_Request>(Arena*);
 template<> ::CStoreBrowse_GetDLCForAppsSolr_Response* Arena::CreateMaybeMessage<::CStoreBrowse_GetDLCForAppsSolr_Response>(Arena*);
 template<> ::CStoreBrowse_GetDLCForAppsSolr_Response_DLCList* Arena::CreateMaybeMessage<::CStoreBrowse_GetDLCForAppsSolr_Response_DLCList>(Arena*);
@@ -3157,6 +3169,8 @@ class StoreItem_Assets PROTOBUF_FINAL :
     kLibraryHero2XFieldNumber = 12,
     kCommunityIconFieldNumber = 13,
     kClanAvatarFieldNumber = 14,
+    kPageBackgroundPathFieldNumber = 15,
+    kRawPageBackgroundFieldNumber = 16,
   };
   // optional string asset_url_format = 1;
   bool has_asset_url_format() const;
@@ -3438,6 +3452,46 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_clan_avatar();
   public:
 
+  // optional string page_background_path = 15;
+  bool has_page_background_path() const;
+  private:
+  bool _internal_has_page_background_path() const;
+  public:
+  void clear_page_background_path();
+  const std::string& page_background_path() const;
+  void set_page_background_path(const std::string& value);
+  void set_page_background_path(std::string&& value);
+  void set_page_background_path(const char* value);
+  void set_page_background_path(const char* value, size_t size);
+  std::string* mutable_page_background_path();
+  std::string* release_page_background_path();
+  void set_allocated_page_background_path(std::string* page_background_path);
+  private:
+  const std::string& _internal_page_background_path() const;
+  void _internal_set_page_background_path(const std::string& value);
+  std::string* _internal_mutable_page_background_path();
+  public:
+
+  // optional string raw_page_background = 16;
+  bool has_raw_page_background() const;
+  private:
+  bool _internal_has_raw_page_background() const;
+  public:
+  void clear_raw_page_background();
+  const std::string& raw_page_background() const;
+  void set_raw_page_background(const std::string& value);
+  void set_raw_page_background(std::string&& value);
+  void set_raw_page_background(const char* value);
+  void set_raw_page_background(const char* value, size_t size);
+  std::string* mutable_raw_page_background();
+  std::string* release_raw_page_background();
+  void set_allocated_raw_page_background(std::string* raw_page_background);
+  private:
+  const std::string& _internal_raw_page_background() const;
+  void _internal_set_raw_page_background(const std::string& value);
+  std::string* _internal_mutable_raw_page_background();
+  public:
+
   // @@protoc_insertion_point(class_scope:StoreItem.Assets)
  private:
   class _Internal;
@@ -3461,6 +3515,8 @@ class StoreItem_Assets PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr library_hero_2x_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr community_icon_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr clan_avatar_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr page_background_path_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr raw_page_background_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -3594,6 +3650,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
     kIsPreloadFieldNumber = 5,
     kIsAbridgedReleaseDateFieldNumber = 7,
     kIsEarlyAccessFieldNumber = 10,
+    kLimitedLaunchActiveFieldNumber = 22,
     kMacReleaseDateFieldNumber = 20,
     kLinuxReleaseDateFieldNumber = 21,
   };
@@ -3728,6 +3785,19 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   void _internal_set_is_early_access(bool value);
   public:
 
+  // optional bool limited_launch_active = 22;
+  bool has_limited_launch_active() const;
+  private:
+  bool _internal_has_limited_launch_active() const;
+  public:
+  void clear_limited_launch_active();
+  bool limited_launch_active() const;
+  void set_limited_launch_active(bool value);
+  private:
+  bool _internal_limited_launch_active() const;
+  void _internal_set_limited_launch_active(bool value);
+  public:
+
   // optional uint32 mac_release_date = 20;
   bool has_mac_release_date() const;
   private:
@@ -3772,6 +3842,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   bool is_preload_;
   bool is_abridged_release_date_;
   bool is_early_access_;
+  bool limited_launch_active_;
   ::PROTOBUF_NAMESPACE_ID::uint32 mac_release_date_;
   ::PROTOBUF_NAMESPACE_ID::uint32 linux_release_date_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
@@ -9089,6 +9160,552 @@ class CStoreBrowse_GetStoreCategories_Response PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CStoreBrowse_GetContentHubConfig_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetContentHubConfig_Request) */ {
+ public:
+  inline CStoreBrowse_GetContentHubConfig_Request() : CStoreBrowse_GetContentHubConfig_Request(nullptr) {}
+  virtual ~CStoreBrowse_GetContentHubConfig_Request();
+  explicit constexpr CStoreBrowse_GetContentHubConfig_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStoreBrowse_GetContentHubConfig_Request(const CStoreBrowse_GetContentHubConfig_Request& from);
+  CStoreBrowse_GetContentHubConfig_Request(CStoreBrowse_GetContentHubConfig_Request&& from) noexcept
+    : CStoreBrowse_GetContentHubConfig_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CStoreBrowse_GetContentHubConfig_Request& operator=(const CStoreBrowse_GetContentHubConfig_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStoreBrowse_GetContentHubConfig_Request& operator=(CStoreBrowse_GetContentHubConfig_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStoreBrowse_GetContentHubConfig_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStoreBrowse_GetContentHubConfig_Request* internal_default_instance() {
+    return reinterpret_cast<const CStoreBrowse_GetContentHubConfig_Request*>(
+               &_CStoreBrowse_GetContentHubConfig_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    34;
+
+  friend void swap(CStoreBrowse_GetContentHubConfig_Request& a, CStoreBrowse_GetContentHubConfig_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStoreBrowse_GetContentHubConfig_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStoreBrowse_GetContentHubConfig_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStoreBrowse_GetContentHubConfig_Request* New() const final {
+    return CreateMaybeMessage<CStoreBrowse_GetContentHubConfig_Request>(nullptr);
+  }
+
+  CStoreBrowse_GetContentHubConfig_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStoreBrowse_GetContentHubConfig_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStoreBrowse_GetContentHubConfig_Request& from);
+  void MergeFrom(const CStoreBrowse_GetContentHubConfig_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStoreBrowse_GetContentHubConfig_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStoreBrowse_GetContentHubConfig_Request";
+  }
+  protected:
+  explicit CStoreBrowse_GetContentHubConfig_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kContextFieldNumber = 1,
+  };
+  // optional .StoreBrowseContext context = 1;
+  bool has_context() const;
+  private:
+  bool _internal_has_context() const;
+  public:
+  void clear_context();
+  const ::StoreBrowseContext& context() const;
+  ::StoreBrowseContext* release_context();
+  ::StoreBrowseContext* mutable_context();
+  void set_allocated_context(::StoreBrowseContext* context);
+  private:
+  const ::StoreBrowseContext& _internal_context() const;
+  ::StoreBrowseContext* _internal_mutable_context();
+  public:
+  void unsafe_arena_set_allocated_context(
+      ::StoreBrowseContext* context);
+  ::StoreBrowseContext* unsafe_arena_release_context();
+
+  // @@protoc_insertion_point(class_scope:CStoreBrowse_GetContentHubConfig_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::StoreBrowseContext* context_;
+  friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig) */ {
+ public:
+  inline CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig() : CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig(nullptr) {}
+  virtual ~CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig();
+  explicit constexpr CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig(const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& from);
+  CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig(CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig&& from) noexcept
+    : CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig() {
+    *this = ::std::move(from);
+  }
+
+  inline CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& operator=(const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& operator=(CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* internal_default_instance() {
+    return reinterpret_cast<const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig*>(
+               &_CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  friend void swap(CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& a, CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* New() const final {
+    return CreateMaybeMessage<CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig>(nullptr);
+  }
+
+  CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& from);
+  void MergeFrom(const CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig";
+  }
+  protected:
+  explicit CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypeFieldNumber = 2,
+    kHandleFieldNumber = 3,
+    kDisplayNameFieldNumber = 4,
+    kUrlPathFieldNumber = 5,
+    kHubcategoryidFieldNumber = 1,
+  };
+  // optional string type = 2;
+  bool has_type() const;
+  private:
+  bool _internal_has_type() const;
+  public:
+  void clear_type();
+  const std::string& type() const;
+  void set_type(const std::string& value);
+  void set_type(std::string&& value);
+  void set_type(const char* value);
+  void set_type(const char* value, size_t size);
+  std::string* mutable_type();
+  std::string* release_type();
+  void set_allocated_type(std::string* type);
+  private:
+  const std::string& _internal_type() const;
+  void _internal_set_type(const std::string& value);
+  std::string* _internal_mutable_type();
+  public:
+
+  // optional string handle = 3;
+  bool has_handle() const;
+  private:
+  bool _internal_has_handle() const;
+  public:
+  void clear_handle();
+  const std::string& handle() const;
+  void set_handle(const std::string& value);
+  void set_handle(std::string&& value);
+  void set_handle(const char* value);
+  void set_handle(const char* value, size_t size);
+  std::string* mutable_handle();
+  std::string* release_handle();
+  void set_allocated_handle(std::string* handle);
+  private:
+  const std::string& _internal_handle() const;
+  void _internal_set_handle(const std::string& value);
+  std::string* _internal_mutable_handle();
+  public:
+
+  // optional string display_name = 4;
+  bool has_display_name() const;
+  private:
+  bool _internal_has_display_name() const;
+  public:
+  void clear_display_name();
+  const std::string& display_name() const;
+  void set_display_name(const std::string& value);
+  void set_display_name(std::string&& value);
+  void set_display_name(const char* value);
+  void set_display_name(const char* value, size_t size);
+  std::string* mutable_display_name();
+  std::string* release_display_name();
+  void set_allocated_display_name(std::string* display_name);
+  private:
+  const std::string& _internal_display_name() const;
+  void _internal_set_display_name(const std::string& value);
+  std::string* _internal_mutable_display_name();
+  public:
+
+  // optional string url_path = 5;
+  bool has_url_path() const;
+  private:
+  bool _internal_has_url_path() const;
+  public:
+  void clear_url_path();
+  const std::string& url_path() const;
+  void set_url_path(const std::string& value);
+  void set_url_path(std::string&& value);
+  void set_url_path(const char* value);
+  void set_url_path(const char* value, size_t size);
+  std::string* mutable_url_path();
+  std::string* release_url_path();
+  void set_allocated_url_path(std::string* url_path);
+  private:
+  const std::string& _internal_url_path() const;
+  void _internal_set_url_path(const std::string& value);
+  std::string* _internal_mutable_url_path();
+  public:
+
+  // optional uint32 hubcategoryid = 1;
+  bool has_hubcategoryid() const;
+  private:
+  bool _internal_has_hubcategoryid() const;
+  public:
+  void clear_hubcategoryid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 hubcategoryid() const;
+  void set_hubcategoryid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_hubcategoryid() const;
+  void _internal_set_hubcategoryid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr handle_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr url_path_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 hubcategoryid_;
+  friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CStoreBrowse_GetContentHubConfig_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetContentHubConfig_Response) */ {
+ public:
+  inline CStoreBrowse_GetContentHubConfig_Response() : CStoreBrowse_GetContentHubConfig_Response(nullptr) {}
+  virtual ~CStoreBrowse_GetContentHubConfig_Response();
+  explicit constexpr CStoreBrowse_GetContentHubConfig_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStoreBrowse_GetContentHubConfig_Response(const CStoreBrowse_GetContentHubConfig_Response& from);
+  CStoreBrowse_GetContentHubConfig_Response(CStoreBrowse_GetContentHubConfig_Response&& from) noexcept
+    : CStoreBrowse_GetContentHubConfig_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CStoreBrowse_GetContentHubConfig_Response& operator=(const CStoreBrowse_GetContentHubConfig_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStoreBrowse_GetContentHubConfig_Response& operator=(CStoreBrowse_GetContentHubConfig_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStoreBrowse_GetContentHubConfig_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStoreBrowse_GetContentHubConfig_Response* internal_default_instance() {
+    return reinterpret_cast<const CStoreBrowse_GetContentHubConfig_Response*>(
+               &_CStoreBrowse_GetContentHubConfig_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    36;
+
+  friend void swap(CStoreBrowse_GetContentHubConfig_Response& a, CStoreBrowse_GetContentHubConfig_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStoreBrowse_GetContentHubConfig_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStoreBrowse_GetContentHubConfig_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStoreBrowse_GetContentHubConfig_Response* New() const final {
+    return CreateMaybeMessage<CStoreBrowse_GetContentHubConfig_Response>(nullptr);
+  }
+
+  CStoreBrowse_GetContentHubConfig_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStoreBrowse_GetContentHubConfig_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStoreBrowse_GetContentHubConfig_Response& from);
+  void MergeFrom(const CStoreBrowse_GetContentHubConfig_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStoreBrowse_GetContentHubConfig_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStoreBrowse_GetContentHubConfig_Response";
+  }
+  protected:
+  explicit CStoreBrowse_GetContentHubConfig_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig ContentHubConfig;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHubconfigsFieldNumber = 1,
+  };
+  // repeated .CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig hubconfigs = 1;
+  int hubconfigs_size() const;
+  private:
+  int _internal_hubconfigs_size() const;
+  public:
+  void clear_hubconfigs();
+  ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* mutable_hubconfigs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig >*
+      mutable_hubconfigs();
+  private:
+  const ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& _internal_hubconfigs(int index) const;
+  ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* _internal_add_hubconfigs();
+  public:
+  const ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& hubconfigs(int index) const;
+  ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* add_hubconfigs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig >&
+      hubconfigs() const;
+
+  // @@protoc_insertion_point(class_scope:CStoreBrowse_GetContentHubConfig_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig > hubconfigs_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CStoreBrowse_GetPriceStops_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStoreBrowse_GetPriceStops_Request) */ {
  public:
@@ -9139,7 +9756,7 @@ class CStoreBrowse_GetPriceStops_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetPriceStops_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    37;
 
   friend void swap(CStoreBrowse_GetPriceStops_Request& a, CStoreBrowse_GetPriceStops_Request& b) {
     a.Swap(&b);
@@ -9317,7 +9934,7 @@ class CStoreBrowse_GetPriceStops_Response_PriceStop PROTOBUF_FINAL :
                &_CStoreBrowse_GetPriceStops_Response_PriceStop_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    38;
 
   friend void swap(CStoreBrowse_GetPriceStops_Response_PriceStop& a, CStoreBrowse_GetPriceStops_Response_PriceStop& b) {
     a.Swap(&b);
@@ -9488,7 +10105,7 @@ class CStoreBrowse_GetPriceStops_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetPriceStops_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    39;
 
   friend void swap(CStoreBrowse_GetPriceStops_Response& a, CStoreBrowse_GetPriceStops_Response& b) {
     a.Swap(&b);
@@ -9666,7 +10283,7 @@ class CStoreBrowse_GetDLCForApps_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    40;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Request& a, CStoreBrowse_GetDLCForApps_Request& b) {
     a.Swap(&b);
@@ -9875,7 +10492,7 @@ class CStoreBrowse_GetDLCForApps_Response_DLCData PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_DLCData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    41;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response_DLCData& a, CStoreBrowse_GetDLCForApps_Response_DLCData& b) {
     a.Swap(&b);
@@ -10114,7 +10731,7 @@ class CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    42;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp& a, CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp& b) {
     a.Swap(&b);
@@ -10293,7 +10910,7 @@ class CStoreBrowse_GetDLCForApps_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    43;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response& a, CStoreBrowse_GetDLCForApps_Response& b) {
     a.Swap(&b);
@@ -10469,7 +11086,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    44;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Request& a, CStoreBrowse_GetDLCForAppsSolr_Request& b) {
     a.Swap(&b);
@@ -10704,7 +11321,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Response_DLCList PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Response_DLCList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    45;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Response_DLCList& a, CStoreBrowse_GetDLCForAppsSolr_Response_DLCList& b) {
     a.Swap(&b);
@@ -10877,7 +11494,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    46;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Response& a, CStoreBrowse_GetDLCForAppsSolr_Response& b) {
     a.Swap(&b);
@@ -11032,7 +11649,7 @@ class CStoreBrowse_GetHardwareItems_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetHardwareItems_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    47;
 
   friend void swap(CStoreBrowse_GetHardwareItems_Request& a, CStoreBrowse_GetHardwareItems_Request& b) {
     a.Swap(&b);
@@ -11210,7 +11827,7 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
                &_CHardwarePackageDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    48;
 
   friend void swap(CHardwarePackageDetails& a, CHardwarePackageDetails& b) {
     a.Swap(&b);
@@ -11591,7 +12208,7 @@ class CStoreBrowse_GetHardwareItems_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetHardwareItems_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    49;
 
   friend void swap(CStoreBrowse_GetHardwareItems_Response& a, CStoreBrowse_GetHardwareItems_Response& b) {
     a.Swap(&b);
@@ -11715,6 +12332,10 @@ class StoreBrowse : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CStoreBrowse_GetStoreCategories_Request* request,
                        ::CStoreBrowse_GetStoreCategories_Response* response,
                        ::google::protobuf::Closure* done);
+  virtual void GetContentHubConfig(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CStoreBrowse_GetContentHubConfig_Request* request,
+                       ::CStoreBrowse_GetContentHubConfig_Response* response,
+                       ::google::protobuf::Closure* done);
   virtual void GetPriceStops(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStoreBrowse_GetPriceStops_Request* request,
                        ::CStoreBrowse_GetPriceStops_Response* response,
@@ -11767,6 +12388,10 @@ class StoreBrowse_Stub : public StoreBrowse {
   void GetStoreCategories(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStoreBrowse_GetStoreCategories_Request* request,
                        ::CStoreBrowse_GetStoreCategories_Response* response,
+                       ::google::protobuf::Closure* done);
+  void GetContentHubConfig(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CStoreBrowse_GetContentHubConfig_Request* request,
+                       ::CStoreBrowse_GetContentHubConfig_Response* response,
                        ::google::protobuf::Closure* done);
   void GetPriceStops(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStoreBrowse_GetPriceStops_Request* request,
@@ -15063,6 +15688,152 @@ inline void StoreItem_Assets::set_allocated_clan_avatar(std::string* clan_avatar
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.clan_avatar)
 }
 
+// optional string page_background_path = 15;
+inline bool StoreItem_Assets::_internal_has_page_background_path() const {
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool StoreItem_Assets::has_page_background_path() const {
+  return _internal_has_page_background_path();
+}
+inline void StoreItem_Assets::clear_page_background_path() {
+  page_background_path_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline const std::string& StoreItem_Assets::page_background_path() const {
+  // @@protoc_insertion_point(field_get:StoreItem.Assets.page_background_path)
+  return _internal_page_background_path();
+}
+inline void StoreItem_Assets::set_page_background_path(const std::string& value) {
+  _internal_set_page_background_path(value);
+  // @@protoc_insertion_point(field_set:StoreItem.Assets.page_background_path)
+}
+inline std::string* StoreItem_Assets::mutable_page_background_path() {
+  // @@protoc_insertion_point(field_mutable:StoreItem.Assets.page_background_path)
+  return _internal_mutable_page_background_path();
+}
+inline const std::string& StoreItem_Assets::_internal_page_background_path() const {
+  return page_background_path_.Get();
+}
+inline void StoreItem_Assets::_internal_set_page_background_path(const std::string& value) {
+  _has_bits_[0] |= 0x00004000u;
+  page_background_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void StoreItem_Assets::set_page_background_path(std::string&& value) {
+  _has_bits_[0] |= 0x00004000u;
+  page_background_path_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:StoreItem.Assets.page_background_path)
+}
+inline void StoreItem_Assets::set_page_background_path(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00004000u;
+  page_background_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:StoreItem.Assets.page_background_path)
+}
+inline void StoreItem_Assets::set_page_background_path(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00004000u;
+  page_background_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:StoreItem.Assets.page_background_path)
+}
+inline std::string* StoreItem_Assets::_internal_mutable_page_background_path() {
+  _has_bits_[0] |= 0x00004000u;
+  return page_background_path_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* StoreItem_Assets::release_page_background_path() {
+  // @@protoc_insertion_point(field_release:StoreItem.Assets.page_background_path)
+  if (!_internal_has_page_background_path()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00004000u;
+  return page_background_path_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void StoreItem_Assets::set_allocated_page_background_path(std::string* page_background_path) {
+  if (page_background_path != nullptr) {
+    _has_bits_[0] |= 0x00004000u;
+  } else {
+    _has_bits_[0] &= ~0x00004000u;
+  }
+  page_background_path_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), page_background_path,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.page_background_path)
+}
+
+// optional string raw_page_background = 16;
+inline bool StoreItem_Assets::_internal_has_raw_page_background() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool StoreItem_Assets::has_raw_page_background() const {
+  return _internal_has_raw_page_background();
+}
+inline void StoreItem_Assets::clear_raw_page_background() {
+  raw_page_background_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline const std::string& StoreItem_Assets::raw_page_background() const {
+  // @@protoc_insertion_point(field_get:StoreItem.Assets.raw_page_background)
+  return _internal_raw_page_background();
+}
+inline void StoreItem_Assets::set_raw_page_background(const std::string& value) {
+  _internal_set_raw_page_background(value);
+  // @@protoc_insertion_point(field_set:StoreItem.Assets.raw_page_background)
+}
+inline std::string* StoreItem_Assets::mutable_raw_page_background() {
+  // @@protoc_insertion_point(field_mutable:StoreItem.Assets.raw_page_background)
+  return _internal_mutable_raw_page_background();
+}
+inline const std::string& StoreItem_Assets::_internal_raw_page_background() const {
+  return raw_page_background_.Get();
+}
+inline void StoreItem_Assets::_internal_set_raw_page_background(const std::string& value) {
+  _has_bits_[0] |= 0x00008000u;
+  raw_page_background_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void StoreItem_Assets::set_raw_page_background(std::string&& value) {
+  _has_bits_[0] |= 0x00008000u;
+  raw_page_background_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:StoreItem.Assets.raw_page_background)
+}
+inline void StoreItem_Assets::set_raw_page_background(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00008000u;
+  raw_page_background_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:StoreItem.Assets.raw_page_background)
+}
+inline void StoreItem_Assets::set_raw_page_background(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00008000u;
+  raw_page_background_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:StoreItem.Assets.raw_page_background)
+}
+inline std::string* StoreItem_Assets::_internal_mutable_raw_page_background() {
+  _has_bits_[0] |= 0x00008000u;
+  return raw_page_background_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* StoreItem_Assets::release_raw_page_background() {
+  // @@protoc_insertion_point(field_release:StoreItem.Assets.raw_page_background)
+  if (!_internal_has_raw_page_background()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00008000u;
+  return raw_page_background_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void StoreItem_Assets::set_allocated_raw_page_background(std::string* raw_page_background) {
+  if (raw_page_background != nullptr) {
+    _has_bits_[0] |= 0x00008000u;
+  } else {
+    _has_bits_[0] &= ~0x00008000u;
+  }
+  raw_page_background_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), raw_page_background,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.raw_page_background)
+}
+
 // -------------------------------------------------------------------
 
 // StoreItem_ReleaseInfo
@@ -15411,7 +16182,7 @@ inline void StoreItem_ReleaseInfo::set_is_early_access(bool value) {
 
 // optional uint32 mac_release_date = 20;
 inline bool StoreItem_ReleaseInfo::_internal_has_mac_release_date() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool StoreItem_ReleaseInfo::has_mac_release_date() const {
@@ -15419,7 +16190,7 @@ inline bool StoreItem_ReleaseInfo::has_mac_release_date() const {
 }
 inline void StoreItem_ReleaseInfo::clear_mac_release_date() {
   mac_release_date_ = 0u;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem_ReleaseInfo::_internal_mac_release_date() const {
   return mac_release_date_;
@@ -15429,7 +16200,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem_ReleaseInfo::mac_release_date()
   return _internal_mac_release_date();
 }
 inline void StoreItem_ReleaseInfo::_internal_set_mac_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
   mac_release_date_ = value;
 }
 inline void StoreItem_ReleaseInfo::set_mac_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -15439,7 +16210,7 @@ inline void StoreItem_ReleaseInfo::set_mac_release_date(::PROTOBUF_NAMESPACE_ID:
 
 // optional uint32 linux_release_date = 21;
 inline bool StoreItem_ReleaseInfo::_internal_has_linux_release_date() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool StoreItem_ReleaseInfo::has_linux_release_date() const {
@@ -15447,7 +16218,7 @@ inline bool StoreItem_ReleaseInfo::has_linux_release_date() const {
 }
 inline void StoreItem_ReleaseInfo::clear_linux_release_date() {
   linux_release_date_ = 0u;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem_ReleaseInfo::_internal_linux_release_date() const {
   return linux_release_date_;
@@ -15457,12 +16228,40 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem_ReleaseInfo::linux_release_date
   return _internal_linux_release_date();
 }
 inline void StoreItem_ReleaseInfo::_internal_set_linux_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
   linux_release_date_ = value;
 }
 inline void StoreItem_ReleaseInfo::set_linux_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_linux_release_date(value);
   // @@protoc_insertion_point(field_set:StoreItem.ReleaseInfo.linux_release_date)
+}
+
+// optional bool limited_launch_active = 22;
+inline bool StoreItem_ReleaseInfo::_internal_has_limited_launch_active() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool StoreItem_ReleaseInfo::has_limited_launch_active() const {
+  return _internal_has_limited_launch_active();
+}
+inline void StoreItem_ReleaseInfo::clear_limited_launch_active() {
+  limited_launch_active_ = false;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline bool StoreItem_ReleaseInfo::_internal_limited_launch_active() const {
+  return limited_launch_active_;
+}
+inline bool StoreItem_ReleaseInfo::limited_launch_active() const {
+  // @@protoc_insertion_point(field_get:StoreItem.ReleaseInfo.limited_launch_active)
+  return _internal_limited_launch_active();
+}
+inline void StoreItem_ReleaseInfo::_internal_set_limited_launch_active(bool value) {
+  _has_bits_[0] |= 0x00000200u;
+  limited_launch_active_ = value;
+}
+inline void StoreItem_ReleaseInfo::set_limited_launch_active(bool value) {
+  _internal_set_limited_launch_active(value);
+  // @@protoc_insertion_point(field_set:StoreItem.ReleaseInfo.limited_launch_active)
 }
 
 // -------------------------------------------------------------------
@@ -22318,6 +23117,460 @@ CStoreBrowse_GetStoreCategories_Response::categories() const {
 
 // -------------------------------------------------------------------
 
+// CStoreBrowse_GetContentHubConfig_Request
+
+// optional .StoreBrowseContext context = 1;
+inline bool CStoreBrowse_GetContentHubConfig_Request::_internal_has_context() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || context_ != nullptr);
+  return value;
+}
+inline bool CStoreBrowse_GetContentHubConfig_Request::has_context() const {
+  return _internal_has_context();
+}
+inline void CStoreBrowse_GetContentHubConfig_Request::clear_context() {
+  if (context_ != nullptr) context_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::StoreBrowseContext& CStoreBrowse_GetContentHubConfig_Request::_internal_context() const {
+  const ::StoreBrowseContext* p = context_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StoreBrowseContext&>(
+      ::_StoreBrowseContext_default_instance_);
+}
+inline const ::StoreBrowseContext& CStoreBrowse_GetContentHubConfig_Request::context() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetContentHubConfig_Request.context)
+  return _internal_context();
+}
+inline void CStoreBrowse_GetContentHubConfig_Request::unsafe_arena_set_allocated_context(
+    ::StoreBrowseContext* context) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(context_);
+  }
+  context_ = context;
+  if (context) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CStoreBrowse_GetContentHubConfig_Request.context)
+}
+inline ::StoreBrowseContext* CStoreBrowse_GetContentHubConfig_Request::release_context() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::StoreBrowseContext* temp = context_;
+  context_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::StoreBrowseContext* CStoreBrowse_GetContentHubConfig_Request::unsafe_arena_release_context() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetContentHubConfig_Request.context)
+  _has_bits_[0] &= ~0x00000001u;
+  ::StoreBrowseContext* temp = context_;
+  context_ = nullptr;
+  return temp;
+}
+inline ::StoreBrowseContext* CStoreBrowse_GetContentHubConfig_Request::_internal_mutable_context() {
+  _has_bits_[0] |= 0x00000001u;
+  if (context_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StoreBrowseContext>(GetArena());
+    context_ = p;
+  }
+  return context_;
+}
+inline ::StoreBrowseContext* CStoreBrowse_GetContentHubConfig_Request::mutable_context() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetContentHubConfig_Request.context)
+  return _internal_mutable_context();
+}
+inline void CStoreBrowse_GetContentHubConfig_Request::set_allocated_context(::StoreBrowseContext* context) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete context_;
+  }
+  if (context) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(context);
+    if (message_arena != submessage_arena) {
+      context = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, context, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  context_ = context;
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetContentHubConfig_Request.context)
+}
+
+// -------------------------------------------------------------------
+
+// CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig
+
+// optional uint32 hubcategoryid = 1;
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_has_hubcategoryid() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::has_hubcategoryid() const {
+  return _internal_has_hubcategoryid();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::clear_hubcategoryid() {
+  hubcategoryid_ = 0u;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_hubcategoryid() const {
+  return hubcategoryid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::hubcategoryid() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.hubcategoryid)
+  return _internal_hubcategoryid();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_set_hubcategoryid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  hubcategoryid_ = value;
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_hubcategoryid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_hubcategoryid(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.hubcategoryid)
+}
+
+// optional string type = 2;
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_has_type() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::has_type() const {
+  return _internal_has_type();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::clear_type() {
+  type_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::type() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type)
+  return _internal_type();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_type(const std::string& value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type)
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::mutable_type() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type)
+  return _internal_mutable_type();
+}
+inline const std::string& CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_type() const {
+  return type_.Get();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_set_type(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_type(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  type_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type)
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_type(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type)
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_type(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type)
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_mutable_type() {
+  _has_bits_[0] |= 0x00000001u;
+  return type_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::release_type() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type)
+  if (!_internal_has_type()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return type_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_allocated_type(std::string* type) {
+  if (type != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  type_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), type,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.type)
+}
+
+// optional string handle = 3;
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_has_handle() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::has_handle() const {
+  return _internal_has_handle();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::clear_handle() {
+  handle_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::handle() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle)
+  return _internal_handle();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_handle(const std::string& value) {
+  _internal_set_handle(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle)
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::mutable_handle() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle)
+  return _internal_mutable_handle();
+}
+inline const std::string& CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_handle() const {
+  return handle_.Get();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_set_handle(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  handle_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_handle(std::string&& value) {
+  _has_bits_[0] |= 0x00000002u;
+  handle_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle)
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_handle(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000002u;
+  handle_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle)
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_handle(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000002u;
+  handle_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle)
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_mutable_handle() {
+  _has_bits_[0] |= 0x00000002u;
+  return handle_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::release_handle() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle)
+  if (!_internal_has_handle()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return handle_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_allocated_handle(std::string* handle) {
+  if (handle != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  handle_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), handle,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.handle)
+}
+
+// optional string display_name = 4;
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_has_display_name() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::has_display_name() const {
+  return _internal_has_display_name();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::clear_display_name() {
+  display_name_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::display_name() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name)
+  return _internal_display_name();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_display_name(const std::string& value) {
+  _internal_set_display_name(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name)
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::mutable_display_name() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name)
+  return _internal_mutable_display_name();
+}
+inline const std::string& CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_display_name() const {
+  return display_name_.Get();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_set_display_name(const std::string& value) {
+  _has_bits_[0] |= 0x00000004u;
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_display_name(std::string&& value) {
+  _has_bits_[0] |= 0x00000004u;
+  display_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name)
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_display_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000004u;
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name)
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_display_name(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000004u;
+  display_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name)
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_mutable_display_name() {
+  _has_bits_[0] |= 0x00000004u;
+  return display_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::release_display_name() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name)
+  if (!_internal_has_display_name()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000004u;
+  return display_name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_allocated_display_name(std::string* display_name) {
+  if (display_name != nullptr) {
+    _has_bits_[0] |= 0x00000004u;
+  } else {
+    _has_bits_[0] &= ~0x00000004u;
+  }
+  display_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), display_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.display_name)
+}
+
+// optional string url_path = 5;
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_has_url_path() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::has_url_path() const {
+  return _internal_has_url_path();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::clear_url_path() {
+  url_path_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline const std::string& CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::url_path() const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path)
+  return _internal_url_path();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_url_path(const std::string& value) {
+  _internal_set_url_path(value);
+  // @@protoc_insertion_point(field_set:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path)
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::mutable_url_path() {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path)
+  return _internal_mutable_url_path();
+}
+inline const std::string& CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_url_path() const {
+  return url_path_.Get();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_set_url_path(const std::string& value) {
+  _has_bits_[0] |= 0x00000008u;
+  url_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_url_path(std::string&& value) {
+  _has_bits_[0] |= 0x00000008u;
+  url_path_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path)
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_url_path(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000008u;
+  url_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path)
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_url_path(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000008u;
+  url_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path)
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::_internal_mutable_url_path() {
+  _has_bits_[0] |= 0x00000008u;
+  return url_path_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::release_url_path() {
+  // @@protoc_insertion_point(field_release:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path)
+  if (!_internal_has_url_path()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000008u;
+  return url_path_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig::set_allocated_url_path(std::string* url_path) {
+  if (url_path != nullptr) {
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  url_path_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), url_path,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig.url_path)
+}
+
+// -------------------------------------------------------------------
+
+// CStoreBrowse_GetContentHubConfig_Response
+
+// repeated .CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig hubconfigs = 1;
+inline int CStoreBrowse_GetContentHubConfig_Response::_internal_hubconfigs_size() const {
+  return hubconfigs_.size();
+}
+inline int CStoreBrowse_GetContentHubConfig_Response::hubconfigs_size() const {
+  return _internal_hubconfigs_size();
+}
+inline void CStoreBrowse_GetContentHubConfig_Response::clear_hubconfigs() {
+  hubconfigs_.Clear();
+}
+inline ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* CStoreBrowse_GetContentHubConfig_Response::mutable_hubconfigs(int index) {
+  // @@protoc_insertion_point(field_mutable:CStoreBrowse_GetContentHubConfig_Response.hubconfigs)
+  return hubconfigs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig >*
+CStoreBrowse_GetContentHubConfig_Response::mutable_hubconfigs() {
+  // @@protoc_insertion_point(field_mutable_list:CStoreBrowse_GetContentHubConfig_Response.hubconfigs)
+  return &hubconfigs_;
+}
+inline const ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& CStoreBrowse_GetContentHubConfig_Response::_internal_hubconfigs(int index) const {
+  return hubconfigs_.Get(index);
+}
+inline const ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig& CStoreBrowse_GetContentHubConfig_Response::hubconfigs(int index) const {
+  // @@protoc_insertion_point(field_get:CStoreBrowse_GetContentHubConfig_Response.hubconfigs)
+  return _internal_hubconfigs(index);
+}
+inline ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* CStoreBrowse_GetContentHubConfig_Response::_internal_add_hubconfigs() {
+  return hubconfigs_.Add();
+}
+inline ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig* CStoreBrowse_GetContentHubConfig_Response::add_hubconfigs() {
+  // @@protoc_insertion_point(field_add:CStoreBrowse_GetContentHubConfig_Response.hubconfigs)
+  return _internal_add_hubconfigs();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig >&
+CStoreBrowse_GetContentHubConfig_Response::hubconfigs() const {
+  // @@protoc_insertion_point(field_list:CStoreBrowse_GetContentHubConfig_Response.hubconfigs)
+  return hubconfigs_;
+}
+
+// -------------------------------------------------------------------
+
 // CStoreBrowse_GetPriceStops_Request
 
 // optional string country_code = 1;
@@ -24403,6 +25656,12 @@ CStoreBrowse_GetHardwareItems_Response::details() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

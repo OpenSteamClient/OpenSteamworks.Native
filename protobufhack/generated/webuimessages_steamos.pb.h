@@ -479,6 +479,9 @@ class CSteamOSManagerState PROTOBUF_FINAL :
     kIsWifiDebugSupportedFieldNumber = 11,
     kIsWifiDebugForceDisabledFieldNumber = 12,
     kIsWifiForceWpaSupplicantSupportedFieldNumber = 13,
+    kIsManualGpuClocavailableFieldNumber = 14,
+    kManualGpuClocminFieldNumber = 15,
+    kManualGpuClocmaxFieldNumber = 16,
   };
   // optional string os_version = 2;
   bool has_os_version() const;
@@ -661,6 +664,45 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   void _internal_set_is_wifi_force_wpa_supplicant_supported(bool value);
   public:
 
+  // optional bool is_manual_gpu_clocavailable = 14;
+  bool has_is_manual_gpu_clocavailable() const;
+  private:
+  bool _internal_has_is_manual_gpu_clocavailable() const;
+  public:
+  void clear_is_manual_gpu_clocavailable();
+  bool is_manual_gpu_clocavailable() const;
+  void set_is_manual_gpu_clocavailable(bool value);
+  private:
+  bool _internal_is_manual_gpu_clocavailable() const;
+  void _internal_set_is_manual_gpu_clocavailable(bool value);
+  public:
+
+  // optional int32 manual_gpu_clocmin = 15;
+  bool has_manual_gpu_clocmin() const;
+  private:
+  bool _internal_has_manual_gpu_clocmin() const;
+  public:
+  void clear_manual_gpu_clocmin();
+  ::PROTOBUF_NAMESPACE_ID::int32 manual_gpu_clocmin() const;
+  void set_manual_gpu_clocmin(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_manual_gpu_clocmin() const;
+  void _internal_set_manual_gpu_clocmin(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 manual_gpu_clocmax = 16;
+  bool has_manual_gpu_clocmax() const;
+  private:
+  bool _internal_has_manual_gpu_clocmax() const;
+  public:
+  void clear_manual_gpu_clocmax();
+  ::PROTOBUF_NAMESPACE_ID::int32 manual_gpu_clocmax() const;
+  void set_manual_gpu_clocmax(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_manual_gpu_clocmax() const;
+  void _internal_set_manual_gpu_clocmax(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSteamOSManagerState)
  private:
   class _Internal;
@@ -683,6 +725,9 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   bool is_wifi_debug_supported_;
   bool is_wifi_debug_force_disabled_;
   bool is_wifi_force_wpa_supplicant_supported_;
+  bool is_manual_gpu_clocavailable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 manual_gpu_clocmin_;
+  ::PROTOBUF_NAMESPACE_ID::int32 manual_gpu_clocmax_;
   friend struct ::TableStruct_webuimessages_5fsteamos_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4336,6 +4381,90 @@ inline void CSteamOSManagerState::_internal_set_is_wifi_force_wpa_supplicant_sup
 inline void CSteamOSManagerState::set_is_wifi_force_wpa_supplicant_supported(bool value) {
   _internal_set_is_wifi_force_wpa_supplicant_supported(value);
   // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_wifi_force_wpa_supplicant_supported)
+}
+
+// optional bool is_manual_gpu_clocavailable = 14;
+inline bool CSteamOSManagerState::_internal_has_is_manual_gpu_clocavailable() const {
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_is_manual_gpu_clocavailable() const {
+  return _internal_has_is_manual_gpu_clocavailable();
+}
+inline void CSteamOSManagerState::clear_is_manual_gpu_clocavailable() {
+  is_manual_gpu_clocavailable_ = false;
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline bool CSteamOSManagerState::_internal_is_manual_gpu_clocavailable() const {
+  return is_manual_gpu_clocavailable_;
+}
+inline bool CSteamOSManagerState::is_manual_gpu_clocavailable() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.is_manual_gpu_clocavailable)
+  return _internal_is_manual_gpu_clocavailable();
+}
+inline void CSteamOSManagerState::_internal_set_is_manual_gpu_clocavailable(bool value) {
+  _has_bits_[0] |= 0x00002000u;
+  is_manual_gpu_clocavailable_ = value;
+}
+inline void CSteamOSManagerState::set_is_manual_gpu_clocavailable(bool value) {
+  _internal_set_is_manual_gpu_clocavailable(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_manual_gpu_clocavailable)
+}
+
+// optional int32 manual_gpu_clocmin = 15;
+inline bool CSteamOSManagerState::_internal_has_manual_gpu_clocmin() const {
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_manual_gpu_clocmin() const {
+  return _internal_has_manual_gpu_clocmin();
+}
+inline void CSteamOSManagerState::clear_manual_gpu_clocmin() {
+  manual_gpu_clocmin_ = 0;
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CSteamOSManagerState::_internal_manual_gpu_clocmin() const {
+  return manual_gpu_clocmin_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CSteamOSManagerState::manual_gpu_clocmin() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.manual_gpu_clocmin)
+  return _internal_manual_gpu_clocmin();
+}
+inline void CSteamOSManagerState::_internal_set_manual_gpu_clocmin(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00004000u;
+  manual_gpu_clocmin_ = value;
+}
+inline void CSteamOSManagerState::set_manual_gpu_clocmin(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_manual_gpu_clocmin(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.manual_gpu_clocmin)
+}
+
+// optional int32 manual_gpu_clocmax = 16;
+inline bool CSteamOSManagerState::_internal_has_manual_gpu_clocmax() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_manual_gpu_clocmax() const {
+  return _internal_has_manual_gpu_clocmax();
+}
+inline void CSteamOSManagerState::clear_manual_gpu_clocmax() {
+  manual_gpu_clocmax_ = 0;
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CSteamOSManagerState::_internal_manual_gpu_clocmax() const {
+  return manual_gpu_clocmax_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CSteamOSManagerState::manual_gpu_clocmax() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.manual_gpu_clocmax)
+  return _internal_manual_gpu_clocmax();
+}
+inline void CSteamOSManagerState::_internal_set_manual_gpu_clocmax(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00008000u;
+  manual_gpu_clocmax_ = value;
+}
+inline void CSteamOSManagerState::set_manual_gpu_clocmax(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_manual_gpu_clocmax(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.manual_gpu_clocmax)
 }
 
 // -------------------------------------------------------------------
